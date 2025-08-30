@@ -27,7 +27,7 @@
   }
 
   .dark {
-    --background: 0 0% 4%; /* #0a0a0a */
+    --background: 0 0% 0%; /* #000000 */
     --foreground: 0 0% 98%; /* #fafafa, close to #ffffff */
     --card: 0 0% 4%;
     --card-foreground: 0 0% 98%;
@@ -55,7 +55,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-body font-semibold;
     line-height: 1.6;
     overflow-x: hidden;
   }
