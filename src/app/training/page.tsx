@@ -1,8 +1,11 @@
+import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock } from 'lucide-react';
-import Link from 'next/link';
+import { EnrollmentForm } from '@/components/enrollment-form';
+import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
+
 
 const trainingFeatures = [
   { icon: <Award className="h-8 w-8 text-primary" />, title: 'Industry Expert Instructors', description: 'Learn from professionals with real-world experience.' },
@@ -138,7 +141,14 @@ export default function TrainingPage() {
                              </ul>
                         </CardContent>
                         <CardFooter>
-                            <Button className="w-full">Enroll Now</Button>
+                           <DialogFormWrapper
+                                trigger={
+                                    <Button className="w-full">Enroll Now</Button>
+                                }
+                                title="Enroll Now"
+                                description={`You are enrolling in the ${program.title} program. Please fill out your details below.`}
+                                form={<EnrollmentForm programName={program.title} />}
+                            />
                         </CardFooter>
                     </Card>
                 ))}
@@ -151,7 +161,12 @@ export default function TrainingPage() {
                 Join our training programs and gain the skills needed to excel in the digital age. Get personalized guidance and hands-on experience.
             </p>
             <div className="mt-8 flex justify-center gap-4">
-                <Button size="lg">Enroll Now</Button>
+                <DialogFormWrapper
+                    trigger={<Button size="lg">Enroll Now</Button>}
+                    title="Enroll Now"
+                    description="Please select a program and fill out your details to enroll."
+                    form={<EnrollmentForm />}
+                />
                 <Button asChild variant="secondary" size="lg">
                     <Link href="/contact">Contact Us</Link>
                 </Button>

@@ -188,7 +188,7 @@ export function SolutionRecommendationForm() {
                 />
             </>
         )}
-        <div className="flex justify-between gap-4">
+        <div className="flex justify-between gap-4 pt-4">
             {step === 2 && (
                 <Button type="button" variant="secondary" onClick={() => setStep(1)}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
