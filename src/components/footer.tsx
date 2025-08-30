@@ -19,7 +19,7 @@ export function Footer() {
             <ul className="space-y-3 list-none">
               <li><Link href="/solutions" className="text-muted-foreground hover:text-primary text-sm transition-colors">IT Solutions</Link></li>
               <li><Link href="/automation" className="text-muted-foreground hover:text-primary text-sm transition-colors">Automation</Link></li>
-              <li><Link href="/about" className="text-muted-foreground hover:text-primary text-sm transition-colors">Trainings</Link></li>
+              <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary text-sm transition-colors">Use Cases</Link></li>
               <li><Link href="/solutions" className="text-muted-foreground hover:text-primary text-sm transition-colors">Scalable Services</Link></li>
             </ul>
           </div>

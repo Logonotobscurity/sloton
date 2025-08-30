@@ -13,6 +13,7 @@ import { useState } from 'react';
 const navItems = [
   { href: '/solutions', label: 'Solutions' },
   { href: '/automation', label: 'Automation' },
+  { href: '/use-cases', label: 'Use Cases' },
   { href: '/about', label: 'About' },
   { href: '/insights', label: 'Insights' },
   { href: '/contact', label: 'Contact' },
