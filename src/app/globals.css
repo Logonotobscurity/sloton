@@ -4,49 +4,65 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* White */
-    --foreground: 0 0% 3.9%; /* Near Black */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    --background: 48 33.3% 98%; /* #FDFDF5 */
+    --foreground: 75 8% 9.4%; /* #1A1C18 */
+
+    --card: 48 33.3% 98%; /* #FDFDF5 */
+    --card-foreground: 75 8% 9.4%; /* #1A1C18 */
+
+    --popover: 48 33.3% 98%; /* #FDFDF5 */
+    --popover-foreground: 75 8% 9.4%; /* #1A1C18 */
+
     --primary: 154 100% 50%; /* #00ff88 */
-    --primary-foreground: 154 100% 10%;
-    --secondary: 0 0% 96.1%; /* Light Gray */
-    --secondary-foreground: 0 0% 9%;
+    --primary-foreground: 75 8% 9.4%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 75 8% 9.4%;
+
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
+
     --accent: 214 100% 50%; /* #0088ff */
     --accent-foreground: 0 0% 98%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 214 100% 50%;
+
+    --border: 75 8% 9.4%; /* #1A1C18 */
+    --input: 75 8% 9.4%;
+    --ring: 75 8% 9.4%;
+
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 0%; /* #000000 */
-    --foreground: 0 0% 98%; /* #fafafa, close to #ffffff */
-    --card: 0 0% 4%;
+    --background: 75 8% 9.4%; /* #1A1C18 */
+    --foreground: 0 0% 98%; /* #fafafa */
+    
+    --card: 75 8% 9.4%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 4%;
+    
+    --popover: 75 8% 9.4%;
     --popover-foreground: 0 0% 98%;
-    --primary: 154 100% 50%; /* #00ff88 */
-    --primary-foreground: 154 100% 10%;
+    
+    --primary: 154 100% 50%;
+    --primary-foreground: 75 8% 9.4%;
+    
     --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
+    
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 63%; /* #a0a0a0 */
-    --accent: 214 100% 50%; /* #0088ff */
+    --muted-foreground: 0 0% 63%;
+    
+    --accent: 214 100% 50%;
     --accent-foreground: 0 0% 98%;
+    
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
+    
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 214 100% 50%;
-    --radius: 0.5rem;
   }
 }
 
@@ -63,58 +79,11 @@
 }
 
 @layer components {
-  .card-hover-effect {
-    @apply relative overflow-hidden transition-all duration-300 ease-in-out;
-    background-color: hsl(var(--card));
-  }
-
-  .card-hover-effect::before,
-  .card-hover-effect::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-
-  /* Shimmer Overlay */
-  .card-hover-effect::before {
-    background: linear-gradient(
-      100deg,
-      transparent,
-      rgba(255, 255, 255, 0.05),
-      transparent
-    );
-    background-size: 200% 100%;
-    background-position: 200% 0;
-    z-index: 2;
-  }
-
-  /* Radiant Glow */
-  .card-hover-effect::after {
-    background: radial-gradient(
-      circle at var(--mouse-x) var(--mouse-y),
-      hsl(var(--primary) / 0.2),
-      hsl(var(--accent) / 0.2),
-      transparent 40%
-    );
-    z-index: 1;
-  }
-
-  .card-hover-effect:hover {
-    @apply transform scale-[1.02] shadow-2xl shadow-primary/10;
-  }
-
-  .card-hover-effect:hover::before {
-    animation: shimmer 2s infinite;
-    opacity: 1;
+  .neubrutalist-card {
+    @apply rounded-lg border-2 border-black bg-card text-card-foreground shadow-[8px_8px_0px_#000] transition-all duration-200 ease-in-out;
   }
   
-  .card-hover-effect:hover::after {
-    opacity: 1;
+  .neubrutalist-card:hover {
+    @apply shadow-[4px_4px_0px_#000] translate-x-[4px] translate-y-[4px];
   }
 }
