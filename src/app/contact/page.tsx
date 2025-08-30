@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ContactForm } from '@/components/contact-form';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 export default function ContactPage() {
   return (
@@ -31,8 +31,8 @@ export default function ContactPage() {
                 <div>
                     <h3 className="text-xl font-semibold">Email</h3>
                     <p className="text-muted-foreground">Our inbox is always open.</p>
-                    <a href="mailto:logo@logon.com.ng" className="text-primary hover:underline">
-                        logo@logon.com.ng
+                    <a href="mailto:logonthepage@gmail.com" className="text-primary hover:underline">
+                        logonthepage@gmail.com
                     </a>
                 </div>
             </div>
@@ -46,17 +46,6 @@ export default function ContactPage() {
                     <a href="tel:+2348143066320" className="text-primary hover:underline">
                         +234 814 306 6320
                     </a>
-                </div>
-            </div>
-             <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
-                    <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                    <h3 className="text-xl font-semibold">Office</h3>
-                    <p className="text-muted-foreground">
-                        123 Tech Avenue, Innovation City, Nigeria
-                    </p>
                 </div>
             </div>
           </div>
