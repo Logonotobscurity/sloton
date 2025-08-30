@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { CodeXml, Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -9,9 +9,11 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const navItems = [
-  { href: '/solutions', label: 'Solutions' },
+  { href: '/solutions', label: 'Services' },
   { href: '/automation', label: 'Automation' },
   { href: '/use-cases', label: 'Use Cases' },
   { href: '/about', label: 'About' },
@@ -21,6 +23,7 @@ const navItems = [
 
 export function Header() {
   const [isSheetOpen, setSheetOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="py-8 relative z-20">
@@ -33,7 +36,10 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-foreground no-underline text-sm uppercase tracking-wider transition-colors hover:text-primary"
+              className={cn(
+                "text-foreground no-underline text-sm uppercase tracking-wider transition-colors hover:text-primary",
+                 pathname === item.href ? "text-primary" : ""
+              )}
               prefetch={false}
             >
               {item.label}
@@ -47,17 +53,28 @@ export function Header() {
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right">
-            <div className="flex flex-col gap-6 p-6">
-              <Link href="/" className="flex items-center gap-2" onClick={() => setSheetOpen(false)}>
-                <span className="font-bold text-2xl tracking-tighter text-primary">LOG_ON</span>
-              </Link>
-              <nav className="grid gap-4">
+          <SheetContent side="right" className="w-full bg-background p-0">
+             <div className="flex flex-col h-full">
+                <div className="p-6 flex items-center justify-between border-b">
+                    <Link href="/" className="flex items-center gap-2" onClick={() => setSheetOpen(false)}>
+                        <span className="font-bold text-2xl tracking-tighter text-primary">LOG_ON</span>
+                    </Link>
+                    <SheetTrigger asChild>
+                        <Button variant="ghost" size="icon">
+                            <X className="h-6 w-6" />
+                            <span className="sr-only">Close navigation menu</span>
+                        </Button>
+                    </SheetTrigger>
+                </div>
+              <nav className="grid gap-4 p-6">
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="text-lg font-medium transition-colors hover:text-primary"
+                    className={cn(
+                        "text-xl font-medium transition-colors hover:text-primary",
+                        pathname === item.href ? "text-primary" : "text-foreground"
+                    )}
                     onClick={() => setSheetOpen(false)}
                     prefetch={false}
                   >

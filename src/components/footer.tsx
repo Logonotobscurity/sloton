@@ -3,7 +3,7 @@ import { Twitter, Linkedin, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="py-16 border-t border-white/10">
+    <footer className="py-16 border-t border-white/10 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="space-y-4">
