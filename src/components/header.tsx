@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ChevronDown, Menu, X, Instagram } from 'lucide-react';
+import { ChevronDown, Menu, X as LucideX, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -36,7 +36,7 @@ const mainNavItems = [
 
 const socialLinks = [
   { href: 'https://medium.com/@Logon_thepage', label: 'Medium', icon: <IconMedium className="w-6 h-6" /> },
-  { href: 'https://x.com/log_onthepage', label: 'X', icon: <X className="w-6 h-6" /> },
+  { href: 'https://x.com/log_onthepage', label: 'X', icon: <LucideX className="w-6 h-6" /> },
   { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <Instagram className="w-6 h-6" /> },
   { href: 'https://substack.com/@logonthepage', label: 'Substack', icon: <IconSubstack className="w-6 h-6" /> },
 ];
@@ -146,14 +146,9 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-            <Button asChild variant="ghost">
+            <Button asChild>
                 <Link href="/contact">
                 Contact Us
-                </Link>
-            </Button>
-            <Button asChild>
-                <Link href="/training">
-                Enroll Now
                 </Link>
             </Button>
         </div>
@@ -177,7 +172,7 @@ export function Header() {
                     </Link>
                     <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                     <Button variant="ghost" size="icon" onClick={() => setSheetOpen(false)}>
-                        <X className="h-6 w-6" />
+                        <LucideX className="h-6 w-6" />
                         <span className="sr-only">Close navigation menu</span>
                     </Button>
                 </SheetHeader>
@@ -195,11 +190,6 @@ export function Header() {
                     <MobileNavLink href="/contact">Contact</MobileNavLink>
                 </nav>
                 <div className="border-t pt-6">
-                     <Button asChild className="w-full">
-                        <Link href="/training" onClick={() => setSheetOpen(false)}>
-                            Enroll Now
-                        </Link>
-                    </Button>
                     <div className="flex justify-center space-x-6 mt-6">
                         {socialLinks.map(link => (
                           <a key={link.label} href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
@@ -215,4 +205,3 @@ export function Header() {
     </header>
   );
 }
-
