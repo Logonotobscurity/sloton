@@ -114,7 +114,7 @@ export default function TrainingPage() {
                 {trainingPrograms.map(program => (
                     <Card key={program.title} className="bg-secondary/50 flex flex-col h-full">
                         <CardHeader>
-                            <div className="flex items-center gap-4 mb-4">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
                                 {program.icon}
                                 <CardTitle className="text-2xl">{program.title}</CardTitle>
                             </div>
@@ -155,12 +155,12 @@ export default function TrainingPage() {
             </div>
         </section>
 
-        <section className="text-center mt-24 py-16 bg-secondary/30 rounded-lg">
+        <section className="text-center mt-24 py-16 bg-secondary/30 rounded-lg px-4">
             <h2 className="text-3xl md:text-4xl font-bold">Ready to Start Your Learning Journey?</h2>
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
                 Join our training programs and gain the skills needed to excel in the digital age. Get personalized guidance and hands-on experience.
             </p>
-            <div className="mt-8 flex justify-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <DialogFormWrapper
                     trigger={<Button size="lg">Enroll Now</Button>}
                     title="Enroll Now"

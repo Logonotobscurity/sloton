@@ -2,6 +2,13 @@ import { ArrowRight, Briefcase, HeartPulse, ShoppingCart } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import Link from 'next/link';
 import { Button } from './ui/button';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 const useCases = [
   {
@@ -24,38 +31,63 @@ const useCases = [
   },
 ];
 
+const UseCaseCard = ({ useCase }: { useCase: (typeof useCases)[0] }) => (
+  <Card className="bg-secondary/50 group flex flex-col transition-all duration-300 hover:border-primary hover:-translate-y-2 h-full">
+    <CardHeader>
+      {useCase.icon}
+      <CardTitle className="pt-4">{useCase.title}</CardTitle>
+    </CardHeader>
+    <CardContent className="flex-grow">
+      <p className="text-muted-foreground">{useCase.description}</p>
+    </CardContent>
+    <CardFooter>
+      <Link href={useCase.href} className="text-primary font-semibold flex items-center group">
+        Explore Use Case <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+      </Link>
+    </CardFooter>
+  </Card>
+);
+
 export function UseCases() {
   return (
     <section className="py-24 sm:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">Driving Success Across Industries</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-                We tailor our automation and AI solutions to solve the unique challenges of your sector, driving growth and innovation.
-            </p>
+          <h2 className="text-3xl md:text-4xl font-bold">Driving Success Across Industries</h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            We tailor our automation and AI solutions to solve the unique challenges of your sector, driving growth and innovation.
+          </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="hidden md:grid md:grid-cols-3 gap-8">
           {useCases.map((useCase) => (
-            <Card key={useCase.title} className="bg-secondary/50 group flex flex-col transition-all duration-300 hover:border-primary hover:-translate-y-2">
-                <CardHeader>
-                    {useCase.icon}
-                    <CardTitle className="pt-4">{useCase.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                    <p className="text-muted-foreground">{useCase.description}</p>
-                </CardContent>
-                <CardFooter>
-                   <Link href={useCase.href} className="text-primary font-semibold flex items-center group">
-                     Explore Use Case <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                   </Link>
-                </CardFooter>
-            </Card>
+            <UseCaseCard key={useCase.title} useCase={useCase} />
           ))}
         </div>
+        <div className="md:hidden">
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {useCases.map((useCase, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-1 h-full">
+                    <UseCaseCard useCase={useCase} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="ml-12" />
+            <CarouselNext className="mr-12" />
+          </Carousel>
+        </div>
         <div className="text-center mt-16">
-            <Button asChild>
-                <Link href="/use-cases">View All Industries</Link>
-            </Button>
+          <Button asChild>
+            <Link href="/use-cases">View All Industries</Link>
+          </Button>
         </div>
       </div>
     </section>

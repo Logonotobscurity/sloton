@@ -1,5 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 const features = [
   {
@@ -34,6 +41,25 @@ const features = [
   },
 ];
 
+const FeatureCard = ({ feature }: { feature: (typeof features)[0] }) => (
+  <Card className="bg-background flex flex-col text-left transition-all duration-300 hover:border-primary hover:-translate-y-2 h-full">
+    <CardHeader>
+      <CardTitle className="text-2xl">{feature.title}</CardTitle>
+      <p className="pt-2 text-muted-foreground">{feature.description}</p>
+    </CardHeader>
+    <CardContent className="flex-grow">
+      <ul className="space-y-3">
+        {feature.details.map((detail) => (
+          <li key={detail} className="flex items-start gap-3">
+            <CheckCircle className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
+            <span className="text-muted-foreground">{detail}</span>
+          </li>
+        ))}
+      </ul>
+    </CardContent>
+  </Card>
+);
+
 export function Features() {
   return (
     <section className="py-24 sm:py-32 bg-secondary/20">
@@ -46,25 +72,33 @@ export function Features() {
                 We deliver a comprehensive suite of services designed to modernize your operations, drive growth, and secure your future.
             </p>
         </div>
-        <div className="mt-16 grid lg:grid-cols-3 gap-8">
-          {features.map((feature) => (
-            <Card key={feature.title} className="bg-background flex flex-col text-left transition-all duration-300 hover:border-primary hover:-translate-y-2">
-                <CardHeader>
-                    <CardTitle className="text-2xl">{feature.title}</CardTitle>
-                    <p className="pt-2 text-muted-foreground">{feature.description}</p>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                    <ul className="space-y-3">
-                    {feature.details.map((detail) => (
-                        <li key={detail} className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{detail}</span>
-                        </li>
-                    ))}
-                    </ul>
-                </CardContent>
-            </Card>
-          ))}
+        <div className="mt-16">
+          <div className="hidden lg:grid lg:grid-cols-3 gap-8">
+            {features.map((feature) => (
+              <FeatureCard key={feature.title} feature={feature} />
+            ))}
+          </div>
+          <div className="lg:hidden">
+            <Carousel
+              opts={{
+                align: 'start',
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {features.map((feature, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2">
+                    <div className="p-1 h-full">
+                      <FeatureCard feature={feature} />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="ml-12" />
+              <CarouselNext className="mr-12" />
+            </Carousel>
+          </div>
         </div>
       </div>
     </section>

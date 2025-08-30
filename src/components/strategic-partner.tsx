@@ -5,7 +5,6 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  CardFooter,
 } from '@/components/ui/card';
 import {
   Dialog,
@@ -53,16 +52,15 @@ export function StrategicPartner() {
                           <BrainCircuit className="h-6 w-6" />
                       </div>
                       <CardTitle className="pt-4 text-2xl">Free AI Business Assessment</CardTitle>
-                      <CardDescription>Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning.</CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow">
-                      <p className="text-muted-foreground">This tool helps you identify the best technology strategies for your goals.</p>
+                      <p className="text-muted-foreground">Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning. This tool helps you identify the best technology strategies for your goals.</p>
                   </CardContent>
-                  <CardFooter>
+                  <div className="p-6 pt-0">
                       <div className="text-primary font-semibold flex items-center">
                       Launch Assessment Tool <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </div>
-                  </CardFooter>
+                  </div>
               </Card>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[600px] bg-background">

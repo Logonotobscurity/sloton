@@ -21,8 +21,8 @@ export function TrainingCTA() {
                 <li className="flex items-center gap-2">✓ Get career support to achieve your goals</li>
             </ul>
           </div>
-          <div className="text-center lg:text-right">
-             <p className="mb-6 text-muted-foreground">Unlock your potential and become a leader in the digital transformation.</p>
+          <div className="text-center lg:text-right space-y-6">
+             <p className="text-muted-foreground">Unlock your potential and become a leader in the digital transformation.</p>
             <Button asChild size="lg">
               <Link href="/training">
                 Explore Training Programs <ArrowRight className="ml-2 h-5 w-5" />

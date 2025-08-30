@@ -44,7 +44,7 @@ export default function AboutPage() {
             {teamMembers.map((member) => (
               <Card key={member.name} className="bg-secondary/50 border-border/50 overflow-hidden">
                 <div className="grid md:grid-cols-3 items-center">
-                   <div className="p-6 flex justify-center">
+                   <div className="p-6 flex justify-center md:justify-start">
                      <Avatar className="w-32 h-32 border-4 border-primary">
                        <AvatarImage src={member.image} alt={member.name} data-ai-hint={member.dataAiHint} />
                        <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
@@ -58,7 +58,7 @@ export default function AboutPage() {
                 </div>
                  <div className="bg-background/50 p-6">
                     <h4 className="font-semibold mb-4 text-primary">Areas of Expertise</h4>
-                     <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
                         {member.expertise.map(skill => (
                             <div key={skill} className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4 text-accent" />

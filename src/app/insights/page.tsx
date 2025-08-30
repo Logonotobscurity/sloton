@@ -42,7 +42,7 @@ export default function InsightsPage() {
           </p>
         </div>
 
-        <div className="mt-16 grid lg:grid-cols-3 gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {insights.map((insight) => (
             <Card key={insight.title} className="bg-secondary/50 flex flex-col group overflow-hidden">
               <CardHeader className="p-0">
