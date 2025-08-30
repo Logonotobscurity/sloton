@@ -5,9 +5,9 @@ import Link from 'next/link';
 const useCases = [
   {
     icon: <ShoppingCart className="h-8 w-8 text-primary" />,
-    title: 'Retail & E-commerce',
+    title: 'E-Commerce & Retail',
     description: 'Boost sales and customer satisfaction with AI-driven personalization and automated inventory management. We streamline your supply chain and automate order processing for maximum efficiency.',
-    href: '/use-cases#retail',
+    href: '/use-cases#e-commerce',
   },
   {
     icon: <HeartPulse className="h-8 w-8 text-primary" />,
@@ -17,8 +17,8 @@ const useCases = [
   },
   {
     icon: <Briefcase className="h-8 w-8 text-primary" />,
-    title: 'Banking & Finance',
-    description: 'Secure your operations and delight customers with automated fraud detection and 24/7 AI-powered support. We implement robust cloud infrastructure and streamline financial workflows.',
+    title: 'Finance & IT',
+    description: 'Secure your operations and delight customers with automated fraud detection, IT consulting, and 24/7 AI-powered support. We implement robust cloud infrastructure and streamline financial workflows.',
     href: '/use-cases#finance',
   },
 ];
