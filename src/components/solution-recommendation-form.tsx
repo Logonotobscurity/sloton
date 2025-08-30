@@ -1,7 +1,8 @@
+
 "use client";
 
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { getSolutionRecommendation } from '@/app/actions';
@@ -11,9 +12,10 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Loader2, Sparkles } from 'lucide-react';
+import { Loader2, Sparkles, ArrowRight, ArrowLeft } from 'lucide-react';
 import type { SolutionRecommendationOutput } from '@/ai/flows/solution-recommendation';
 import { useToast } from '@/hooks/use-toast';
+import { Progress } from '@/components/ui/progress';
 
 const formSchema = z.object({
   businessNeeds: z.string().min(20, 'Please describe your business needs in at least 20 characters.'),
@@ -25,6 +27,7 @@ const formSchema = z.object({
 export function SolutionRecommendationForm() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<SolutionRecommendationOutput | null>(null);
+  const [step, setStep] = useState(1);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -36,6 +39,15 @@ export function SolutionRecommendationForm() {
       budget: '',
     },
   });
+
+  const { trigger } = form;
+
+  const handleNext = async () => {
+    const isValid = await trigger("businessNeeds");
+    if (isValid) {
+      setStep(2);
+    }
+  };
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
@@ -82,7 +94,7 @@ export function SolutionRecommendationForm() {
           <h3 className="text-xl font-semibold text-accent">Reasoning</h3>
           <p className="whitespace-pre-wrap text-sm text-foreground/80">{result.reasoning}</p>
         </div>
-        <Button onClick={() => { setResult(null); form.reset(); }} variant="outline">
+        <Button onClick={() => { setResult(null); form.reset(); setStep(1); }} variant="outline">
           Start a New Assessment
         </Button>
       </div>
@@ -92,86 +104,111 @@ export function SolutionRecommendationForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-1">
-        <FormField
-          control={form.control}
-          name="businessNeeds"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Business Needs</FormLabel>
-              <FormControl>
-                <Textarea placeholder="e.g., We need to automate customer support and streamline our sales process." {...field} rows={4} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField
-              control={form.control}
-              name="companySize"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Company Size</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select size" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="1-10 employees">1-10 employees</SelectItem>
-                      <SelectItem value="11-50 employees">11-50 employees</SelectItem>
-                      <SelectItem value="51-200 employees">51-200 employees</SelectItem>
-                      <SelectItem value="201-1000 employees">201-1000 employees</SelectItem>
-                      <SelectItem value="1000+ employees">1000+ employees</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="industry"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Industry</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g., E-commerce" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+        <div className="px-1 py-2">
+            <Progress value={step === 1 ? 50 : 100} className="w-full" />
         </div>
-        <FormField
-          control={form.control}
-          name="budget"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Budget Range</FormLabel>
-               <Select onValueChange={field.onChange} defaultValue={field.value}>
+        {step === 1 && (
+           <FormField
+            control={form.control}
+            name="businessNeeds"
+            render={({ field }) => (
+                <FormItem>
+                <FormLabel>What are your primary business goals or challenges?</FormLabel>
                 <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select budget range" />
-                  </SelectTrigger>
+                    <Textarea placeholder="e.g., We need to automate customer support and streamline our sales process to handle more clients." {...field} rows={5} />
                 </FormControl>
-                <SelectContent>
-                  <SelectItem value="<$5,000">$5,000</SelectItem>
-                  <SelectItem value="$5,000 - $20,000">$5,000 - $20,000</SelectItem>
-                  <SelectItem value="$20,000 - $100,000">$20,000 - $100,000</SelectItem>
-                  <SelectItem value="$100,000+">$100,000+</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" disabled={loading} className="w-full">
-            {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-            Get Recommendations
-        </Button>
+                <FormMessage />
+                </FormItem>
+            )}
+            />
+        )}
+        {step === 2 && (
+            <>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <FormField
+                    control={form.control}
+                    name="companySize"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Company Size</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                            <SelectTrigger>
+                                <SelectValue placeholder="Select size" />
+                            </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                            <SelectItem value="1-10 employees">1-10 employees</SelectItem>
+                            <SelectItem value="11-50 employees">11-50 employees</SelectItem>
+                            <SelectItem value="51-200 employees">51-200 employees</SelectItem>
+                            <SelectItem value="201-1000 employees">201-1000 employees</SelectItem>
+                            <SelectItem value="1000+ employees">1000+ employees</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="industry"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Industry</FormLabel>
+                        <FormControl>
+                            <Input placeholder="e.g., E-commerce" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
+                <FormField
+                control={form.control}
+                name="budget"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Project Budget Range</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                        <SelectTrigger>
+                            <SelectValue placeholder="Select budget range" />
+                        </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                        <SelectItem value="<$5,000">$5,000</SelectItem>
+                        <SelectItem value="$5,000 - $20,000">$5,000 - $20,000</SelectItem>
+                        <SelectItem value="$20,000 - $100,000">$20,000 - $100,000</SelectItem>
+                        <SelectItem value="$100,000+">$100,000+</SelectItem>
+                        </SelectContent>
+                    </Select>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+            </>
+        )}
+        <div className="flex justify-between gap-4">
+            {step === 2 && (
+                <Button type="button" variant="secondary" onClick={() => setStep(1)}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back
+                </Button>
+            )}
+            {step === 1 ? (
+                <Button type="button" onClick={handleNext} className="w-full">
+                    Next
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+            ) : (
+                <Button type="submit" disabled={loading} className="w-full">
+                    {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
+                    Get Recommendations
+                </Button>
+            )}
+        </div>
       </form>
     </Form>
   );
 }
+
