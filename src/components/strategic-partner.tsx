@@ -27,7 +27,7 @@ export function StrategicPartner() {
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold">Your Strategic Technology Partner</h2>
             <p className="text-muted-foreground md:text-lg">
-              We don't just build solutions; we build partnerships. Use our free, interactive tools to get instant, AI-powered insights for your specific business challenges. Start with our 3-step assessment to get a personalized technology roadmap.
+              We don&apos;t just build solutions; we build partnerships. Use our free, interactive tools to get instant, AI-powered insights for your specific business challenges. Start with our 3-step assessment to get a personalized technology roadmap.
             </p>
             <div className="space-y-4">
                 <div className="flex items-start gap-4">
@@ -47,7 +47,7 @@ export function StrategicPartner() {
           <div className="space-y-8">
             <Dialog>
               <DialogTrigger asChild>
-                <Card className="bg-secondary/50 group flex flex-col text-left cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2">
+                <Card className="bg-background group flex flex-col text-left cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2">
                   <CardHeader>
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                           <BrainCircuit className="h-6 w-6" />
