@@ -8,11 +8,17 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
-        code: ['monospace'],
+        body: ['var(--font-roboto-mono)', 'monospace'],
+        headline: ['var(--font-roboto-mono)', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -88,10 +94,20 @@ export default {
             height: '0',
           },
         },
+        'scroll-x': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        },
+        'scroll-x-reverse': {
+            from: { transform: 'translateX(-100%)' },
+            to: { transform: 'translateX(0)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'scroll-x': 'scroll-x 40s linear infinite',
+        'scroll-x-reverse': 'scroll-x-reverse 40s linear infinite',
       },
     },
   },
