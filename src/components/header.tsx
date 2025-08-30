@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ChevronDown, X } from 'lucide-react';
+import { ChevronDown, X, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -20,6 +20,7 @@ import {
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { IconMedium, IconSubstack } from '@/lib/icons';
 
 const mainNavItems = [
   { href: '/solutions', label: 'Services' },
@@ -31,6 +32,13 @@ const mainNavItems = [
 const companyNavItems = [
     { href: '/about', label: 'About Us' },
     { href: '/insights', label: 'Insights' },
+];
+
+const socialLinks = [
+  { href: 'https://medium.com/@Logon_thepage', label: 'Medium', icon: <IconMedium className="w-6 h-6" /> },
+  { href: 'https://x.com/log_onthepage', label: 'X', icon: <X className="w-6 h-6" /> },
+  { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <Instagram className="w-6 h-6" /> },
+  { href: 'https://substack.com/@logonthepage', label: 'Substack', icon: <IconSubstack className="w-6 h-6" /> },
 ];
 
 const AnimatedHamburgerIcon = ({ open }: { open: boolean }) => (
@@ -118,13 +126,13 @@ export function Header() {
           </SheetTrigger>
 
           {/* Mobile Navigation Content */}
-          <SheetContent side="right" className="w-full bg-background p-0">
-             <div className="flex flex-col h-full">
+          <SheetContent side="right" className="w-full bg-background p-0 flex flex-col">
+             
                 <SheetHeader className="p-6 flex-row items-center justify-between border-b">
                      <Link href="/" className="flex items-center gap-2" onClick={() => setSheetOpen(false)}>
                         <span className="font-bold text-2xl tracking-tighter text-primary">LOG_ON</span>
                     </Link>
-                     <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                    <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                     <SheetTrigger asChild>
                         <Button variant="ghost" size="icon">
                             <X className="h-6 w-6" />
@@ -132,34 +140,44 @@ export function Header() {
                         </Button>
                     </SheetTrigger>
                 </SheetHeader>
-              <nav className="grid gap-4 p-6">
-                {[...mainNavItems, ...companyNavItems].map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className={cn(
-                        "text-xl font-medium transition-colors hover:text-primary",
-                        pathname === item.href ? "text-primary" : "text-foreground"
-                    )}
-                    onClick={() => setSheetOpen(false)}
-                    prefetch={false}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                 <Link
-                    href="/contact"
-                    className={cn(
-                        "text-xl font-medium transition-colors hover:text-primary",
-                        pathname === "/contact" ? "text-primary" : "text-foreground"
-                    )}
-                    onClick={() => setSheetOpen(false)}
-                    prefetch={false}
-                  >
-                    Contact
-                  </Link>
-              </nav>
-            </div>
+              <div className="flex flex-col h-full justify-between">
+                <nav className="grid gap-4 p-6">
+                    {[...mainNavItems, ...companyNavItems].map((item) => (
+                    <Link
+                        key={item.label}
+                        href={item.href}
+                        className={cn(
+                            "text-xl font-medium transition-colors hover:text-primary",
+                            pathname === item.href ? "text-primary" : "text-foreground"
+                        )}
+                        onClick={() => setSheetOpen(false)}
+                        prefetch={false}
+                    >
+                        {item.label}
+                    </Link>
+                    ))}
+                    <Link
+                        href="/contact"
+                        className={cn(
+                            "text-xl font-medium transition-colors hover:text-primary",
+                            pathname === "/contact" ? "text-primary" : "text-foreground"
+                        )}
+                        onClick={() => setSheetOpen(false)}
+                        prefetch={false}
+                    >
+                        Contact
+                    </Link>
+                </nav>
+                <div className="p-6 border-t">
+                    <div className="flex justify-center space-x-6">
+                        {socialLinks.map(link => (
+                          <a key={link.label} href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+                            {link.icon}
+                          </a>
+                        ))}
+                    </div>
+                </div>
+              </div>
           </SheetContent>
         </Sheet>
       </div>

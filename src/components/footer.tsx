@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { Twitter, Linkedin, Facebook } from 'lucide-react';
+import { X, Instagram } from 'lucide-react';
+import { IconMedium, IconSubstack } from '@/lib/icons';
+
+const socialLinks = [
+  { href: 'https://medium.com/@Logon_thepage', label: 'Medium', icon: <IconMedium className="w-6 h-6" /> },
+  { href: 'https://x.com/log_onthepage', label: 'X', icon: <X className="w-6 h-6" /> },
+  { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <Instagram className="w-6 h-6" /> },
+  { href: 'https://substack.com/@logonthepage', label: 'Substack', icon: <IconSubstack className="w-6 h-6" /> },
+];
 
 export function Footer() {
   return (
@@ -36,9 +44,11 @@ export function Footer() {
           <div className="text-center md:text-left">
             <h3 className="font-semibold mb-4 text-primary text-lg">Connect</h3>
             <div className="flex space-x-4 justify-center md:justify-start">
-              <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-primary"><Twitter /></a>
-              <a href="#" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary"><Linkedin /></a>
-              <a href="#" aria-label="Facebook" className="text-muted-foreground hover:text-primary"><Facebook /></a>
+               {socialLinks.map(link => (
+                  <a key={link.label} href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+                    {link.icon}
+                  </a>
+                ))}
             </div>
           </div>
         </div>

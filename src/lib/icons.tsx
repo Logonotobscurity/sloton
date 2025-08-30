@@ -148,3 +148,18 @@ export const IconTailwind = (props: React.SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
+export const IconMedium = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M9.765 4.103a.503.503 0 0 0-.503.503v7.39c0 .278.225.504.503.504.278 0 .503-.226.503-.504v-7.39a.503.503 0 0 0-.503-.503Z"></path>
+        <path d="M6.055 4.103a.503.503 0 0 0-.503.503v6.391a.503.503 0 0 0 .503.503h.005a.503.503 0 0 0 .503-.503V4.606a.503.503 0 0 0-.503-.503h-.005Z"></path>
+        <path d="M3.5 4.049a.503.503 0 0 0-.503.503v3.393c0 .278.226.503.503.503.278 0 .503-.225.503-.503V4.552a.503.503 0 0 0-.503-.503Z"></path>
+        <path d="M12.75 4.032a.503.503 0 0 0-.503.503v4.93c0 .278.225.503.503.503.278 0 .503-.225.503-.503v-4.93a.503.503 0 0 0-.503-.503Z"></path>
+    </svg>
+);
+
+export const IconSubstack = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg fill="currentColor" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M950.8 172H73.2c-15.5 0-28 12.5-28 28v548c0 15.5 12.5 28 28 28h224.2v-280H73.2V200h877.6v288H726.6v280h224.2c15.5 0 28-12.5 28-28v-548c0-15.5-12.5-28-28-28zM355.4 776h313.2V496H355.4v280z"></path>
+    </svg>
+);
