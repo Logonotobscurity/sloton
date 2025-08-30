@@ -1,18 +1,19 @@
-import { Features } from '@/components/features';
+import { GeneralistApproach } from '@/components/generalist-approach';
 import { Hero } from '@/components/hero';
+import { PartnershipApproach } from '@/components/partnership-approach';
 import { Statement } from '@/components/statement';
 import { StrategicPartner } from '@/components/strategic-partner';
 import { TechStackCarousel } from '@/components/tech-stack-carousel';
 import { TrainingCTA } from '@/components/training-cta';
-import { UseCases } from '@/components/use-cases';
+
 
 export default function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
       <StrategicPartner />
-      <Features />
-      <UseCases />
+      <GeneralistApproach />
+      <PartnershipApproach />
       <TrainingCTA />
       <Statement />
       <TechStackCarousel />

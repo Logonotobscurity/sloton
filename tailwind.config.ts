@@ -18,7 +18,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['var(--font-rubik)', 'sans-serif'],
-        headline: ['var(--font-rubik)', 'sans-serif'],
+        headline: ['var(--font-anton)', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

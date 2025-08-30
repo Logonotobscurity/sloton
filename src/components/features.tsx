@@ -1,3 +1,5 @@
+// This component is no longer used in the main page flow.
+// It is being replaced by the GeneralistApproach component.
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
 import {

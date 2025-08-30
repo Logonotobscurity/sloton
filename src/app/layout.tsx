@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Rubik } from 'next/font/google';
+import { Rubik, Anton } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
@@ -9,6 +9,13 @@ import { Toaster } from '@/components/ui/toaster';
 const rubik = Rubik({
   subsets: ['latin'],
   variable: '--font-rubik',
+  display: 'swap',
+});
+
+const anton = Anton({
+  subsets: ['latin'],
+  variable: '--font-anton',
+  weight: '400',
   display: 'swap',
 });
 
@@ -27,7 +34,8 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen bg-background font-body antialiased',
-          rubik.variable
+          rubik.variable,
+          anton.variable,
         )}
       >
         <Header />

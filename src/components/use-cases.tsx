@@ -1,3 +1,6 @@
+// This file is no longer used on the home page and can be safely removed or repurposed.
+// The content has been replaced by the PartnershipApproach component.
+
 import { ArrowRight, Briefcase, HeartPulse, ShoppingCart } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import Link from 'next/link';
