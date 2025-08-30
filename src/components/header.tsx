@@ -7,8 +7,9 @@ import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
-  SheetClose,
 } from '@/components/ui/sheet';
 import {
   DropdownMenu,
@@ -119,17 +120,18 @@ export function Header() {
           {/* Mobile Navigation Content */}
           <SheetContent side="right" className="w-full bg-background p-0">
              <div className="flex flex-col h-full">
-                <div className="p-6 flex items-center justify-between border-b">
-                    <Link href="/" className="flex items-center gap-2" onClick={() => setSheetOpen(false)}>
+                <SheetHeader className="p-6 flex-row items-center justify-between border-b">
+                     <Link href="/" className="flex items-center gap-2" onClick={() => setSheetOpen(false)}>
                         <span className="font-bold text-2xl tracking-tighter text-primary">LOG_ON</span>
                     </Link>
+                     <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                     <SheetTrigger asChild>
                         <Button variant="ghost" size="icon">
                             <X className="h-6 w-6" />
                             <span className="sr-only">Close navigation menu</span>
                         </Button>
                     </SheetTrigger>
-                </div>
+                </SheetHeader>
               <nav className="grid gap-4 p-6">
                 {[...mainNavItems, ...companyNavItems].map((item) => (
                   <Link
