@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ChevronDown, Menu, X as LucideX, Instagram } from 'lucide-react';
+import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -11,22 +11,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { IconMedium, IconSubstack } from '@/lib/icons';
-
-const solutionsNavItems = [
-  { href: '/solutions', label: 'Our Solutions' },
-  { href: '/automation', label: 'Automation' },
-  { href: '/use-cases', label: 'Use Cases' },
-];
 
 const mainNavItems = [
   { href: '/training', label: 'Training' },
@@ -34,10 +23,46 @@ const mainNavItems = [
   { href: '/insights', label: 'Insights' },
 ];
 
+const solutionsNavItems = [
+  { 
+    href: '/solutions', 
+    label: 'Our Solutions',
+    description: 'Explore our full suite of technology services.',
+    icon: <BrainCircuit className="h-5 w-5 text-primary" />
+  },
+  { 
+    href: '/automation', 
+    label: 'Automation',
+    description: 'Streamline your operations and boost efficiency.',
+    icon: <Zap className="h-5 w-5 text-primary" />
+  },
+];
+
+const useCasesNavItems = [
+    { 
+    href: '/use-cases#e-commerce', 
+    label: 'E-Commerce',
+    description: 'AI-driven personalization and inventory management.',
+    icon: <ShoppingCart className="h-5 w-5 text-accent" />
+  },
+  { 
+    href: '/use-cases#healthcare', 
+    label: 'Healthcare',
+    description: 'Automate scheduling and records management.',
+    icon: <HeartPulse className="h-5 w-5 text-accent" />
+  },
+  { 
+    href: '/use-cases#finance', 
+    label: 'Finance & Banking',
+    description: 'Enhance security with automated fraud detection.',
+    icon: <Briefcase className="h-5 w-5 text-accent" />
+  },
+]
+
 const socialLinks = [
   { href: 'https://medium.com/@Logon_thepage', label: 'Medium', icon: <IconMedium className="w-6 h-6" /> },
   { href: 'https://x.com/log_onthepage', label: 'X', icon: <LucideX className="w-6 h-6" /> },
-  { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <Instagram className="w-6 h-6" /> },
+  { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <ArrowRight className="w-6 h-6" /> },
   { href: 'https://substack.com/@logonthepage', label: 'Substack', icon: <IconSubstack className="w-6 h-6" /> },
 ];
 
@@ -107,12 +132,12 @@ export function Header() {
     <header 
         className={cn(
             "sticky top-0 z-50 transition-all duration-300",
-            isScrolled ? "py-4" : "py-6"
+            isScrolled ? "py-2" : "py-4"
         )}
     >
       <div 
         className={cn(
-            "container mx-auto flex items-center justify-between transition-all duration-300 px-6 rounded-full",
+            "container mx-auto flex items-center justify-between transition-all duration-300 px-4 py-2 rounded-full",
             isScrolled ? "max-w-6xl bg-background/80 backdrop-blur-lg shadow-lg border" : "max-w-4xl"
         )}
       >
@@ -122,23 +147,49 @@ export function Header() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+            <div className="group relative">
                 <button className="flex items-center text-sm font-medium transition-colors hover:text-primary focus:outline-none relative">
-                    Solutions <ChevronDown className="ml-1 h-4 w-4" />
+                    Solutions <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
                     {(pathname.startsWith('/solutions') || pathname.startsWith('/automation') || pathname.startsWith('/use-cases')) && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"></span>}
                 </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-background border-border">
-                {solutionsNavItems.map((item) => (
-                   <DropdownMenuItem key={item.label} asChild>
-                      <Link href={item.href} className={cn("cursor-pointer", pathname === item.href ? "text-primary" : "")}>
-                        {item.label}
-                      </Link>
-                   </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                <div className="absolute top-full -left-1/2 -translate-x-1/4 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
+                    <div className="bg-background rounded-lg shadow-2xl border w-[600px] p-6 grid grid-cols-2 gap-x-8 gap-y-6">
+                        <div className="space-y-4">
+                            <h4 className="font-semibold text-foreground">Our Services</h4>
+                            {solutionsNavItems.map(item => (
+                                <Link key={item.label} href={item.href} className="flex items-start gap-4 group/item">
+                                    <div className="bg-secondary/50 p-2 rounded-md group-hover/item:bg-primary/10 transition-colors">{item.icon}</div>
+                                    <div>
+                                        <p className="font-semibold text-foreground group-hover/item:text-primary transition-colors">{item.label}</p>
+                                        <p className="text-xs text-muted-foreground">{item.description}</p>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                        <div className="space-y-4">
+                            <h4 className="font-semibold text-foreground">Popular Use Cases</h4>
+                            {useCasesNavItems.map(item => (
+                                <Link key={item.label} href={item.href} className="flex items-center gap-3 group/item">
+                                     {item.icon}
+                                    <p className="text-sm font-medium text-muted-foreground group-hover/item:text-primary transition-colors">{item.label}</p>
+                                </Link>
+                            ))}
+                             <Link href="/use-cases" className="text-sm font-semibold text-primary flex items-center group mt-4">
+                                View All Industries <ArrowRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
+                         <div className="col-span-2 border-t pt-4">
+                            <Link href="/insights" className="flex items-center justify-center gap-4 p-4 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors">
+                                <Lightbulb className="h-6 w-6 text-yellow-400" />
+                                <div>
+                                    <p className="font-semibold text-foreground">Featured Insight</p>
+                                    <p className="text-sm text-muted-foreground">The Future of Work: How AI is Redefining Productivity</p>
+                                </div>
+                            </Link>
+                         </div>
+                    </div>
+                </div>
+            </div>
 
             {mainNavItems.map((item) => (
                 <NavLink key={item.href} href={item.href}>{item.label}</NavLink>
@@ -180,7 +231,17 @@ export function Header() {
                 <nav className="grid gap-6">
                     <div className="space-y-4">
                         <h4 className="font-semibold text-muted-foreground">Solutions</h4>
-                        {solutionsNavItems.map((item) => <MobileNavLink key={item.href} href={item.href}>{item.label}</MobileNavLink>)}
+                        {[...solutionsNavItems, ...useCasesNavItems].map((item) => (
+                            <Link
+                                key={item.label}
+                                href={item.href}
+                                className="flex items-center gap-4 text-xl font-medium"
+                                onClick={() => setSheetOpen(false)}
+                            >
+                                {item.icon}
+                                <span>{item.label}</span>
+                            </Link>
+                        ))}
                     </div>
                     <div className="space-y-4">
                         <h4 className="font-semibold text-muted-foreground">Company</h4>
@@ -190,13 +251,9 @@ export function Header() {
                     <MobileNavLink href="/contact">Contact</MobileNavLink>
                 </nav>
                 <div className="border-t pt-6">
-                    <div className="flex justify-center space-x-6 mt-6">
-                        {socialLinks.map(link => (
-                          <a key={link.label} href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
-                            {link.icon}
-                          </a>
-                        ))}
-                    </div>
+                    <Button asChild className="w-full">
+                        <Link href="/contact" onClick={() => setSheetOpen(false)}>Contact Us</Link>
+                    </Button>
                 </div>
               </div>
           </SheetContent>
@@ -205,3 +262,5 @@ export function Header() {
     </header>
   );
 }
+
+    
