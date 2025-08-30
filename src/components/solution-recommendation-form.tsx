@@ -76,7 +76,7 @@ export function SolutionRecommendationForm() {
   
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center space-y-4 p-8 min-h-[300px]">
+      <div className="flex flex-col items-center justify-center space-y-4 p-8 min-h-[300px]" aria-live="polite">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
         <p className="text-muted-foreground">Analyzing your needs and crafting solutions...</p>
       </div>
@@ -85,7 +85,7 @@ export function SolutionRecommendationForm() {
 
   if (result) {
     return (
-      <div className="p-4 space-y-6 max-h-[70vh] overflow-y-auto">
+      <div className="p-4 space-y-6 max-h-[70vh] overflow-y-auto" aria-live="polite">
         <div className="space-y-4">
           <h3 className="text-xl font-semibold text-primary flex items-center gap-2"><Sparkles className="h-5 w-5" /> Recommended Solutions</h3>
           <p className="whitespace-pre-wrap text-sm text-foreground/90">{result.recommendedSolutions}</p>
@@ -105,7 +105,7 @@ export function SolutionRecommendationForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-1">
         <div className="px-1 py-2">
-            <Progress value={step === 1 ? 50 : 100} className="w-full" />
+            <Progress value={step === 1 ? 50 : 100} className="w-full h-2" />
         </div>
         {step === 1 && (
            <FormField

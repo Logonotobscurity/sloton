@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -58,7 +59,7 @@ export function TaskAutomationForm() {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center space-y-4 p-8 min-h-[300px]">
+      <div className="flex flex-col items-center justify-center space-y-4 p-8 min-h-[300px]" aria-live="polite">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
         <p className="text-muted-foreground">Designing your automated task flow...</p>
       </div>
@@ -67,7 +68,7 @@ export function TaskAutomationForm() {
 
   if (result) {
     return (
-      <div className="p-4 space-y-6 max-h-[70vh] overflow-y-auto">
+      <div className="p-4 space-y-6 max-h-[70vh] overflow-y-auto" aria-live="polite">
         <div className="space-y-4">
           <h3 className="text-xl font-semibold text-primary flex items-center gap-2"><Sparkles className="h-5 w-5" /> Automated Task Design</h3>
           <p className="whitespace-pre-wrap text-sm text-foreground/90 bg-secondary p-4 rounded-md">{result.taskDesign}</p>
