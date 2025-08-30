@@ -13,56 +13,56 @@
     --popover: 48 33.3% 98%; /* #FDFDF5 */
     --popover-foreground: 75 8% 9.4%; /* #1A1C18 */
 
-    --primary: 154 100% 50%; /* #00ff88 */
-    --primary-foreground: 75 8% 9.4%;
+    --primary: 164 100% 33%; /* #00A982 - Derived from #006B55 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 75 8% 9.4%;
+    --secondary: 153 38% 86%; /* #D7E8E1 - Derived from hsl(153, 38%, 86%) */
+    --secondary-foreground: 163 64% 8%; /* #0A1F17 - Derived from hsl(163, 64%, 8%) */
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted: 153 38% 86%;
+    --muted-foreground: 158 19% 25%;
 
-    --accent: 214 100% 50%; /* #0088ff */
-    --accent-foreground: 0 0% 98%;
+    --accent: 336 100% 64%; /* #FF47A1 - Derived from hsl(336, 100%, 28%) */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 75 8% 9.4%; /* #1A1C18 */
-    --input: 75 8% 9.4%;
-    --ring: 75 8% 9.4%;
+    --border: 174 13% 81%; /* #BFC8CA */
+    --input: 174 13% 81%;
+    --ring: 164 100% 33%;
 
     --radius: 0.5rem;
   }
 
   .dark {
     --background: 75 8% 9.4%; /* #1A1C18 */
-    --foreground: 0 0% 98%; /* #fafafa */
+    --foreground: 60 8% 90%; /* #E3E3DC */
     
     --card: 75 8% 9.4%;
-    --card-foreground: 0 0% 98%;
+    --card-foreground: 60 8% 90%;
     
     --popover: 75 8% 9.4%;
-    --popover-foreground: 0 0% 98%;
+    --popover-foreground: 60 8% 90%;
     
-    --primary: 154 100% 50%;
-    --primary-foreground: 75 8% 9.4%;
+    --primary: 163 63% 62%; /* #61DBB8 */
+    --primary-foreground: 164 100% 6%; /* #002118 */
     
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 160 18% 25%; /* #344C43 */
+    --secondary-foreground: 156 31% 87%; /* #CEE9DD */
     
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 63%;
+    --muted: 160 18% 25%;
+    --muted-foreground: 155 20% 75%;
     
-    --accent: 214 100% 50%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 341 100% 85%; /* #FFB2CA */
+    --accent-foreground: 336 100% 28%; /* #900046 */
     
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
     
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 214 100% 50%;
+    --border: 195 12% 24%; /* #3F484A */
+    --input: 195 12% 24%;
+    --ring: 163 63% 62%;
   }
 }
 
@@ -72,18 +72,8 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 1.6;
     overflow-x: hidden;
-  }
-}
-
-@layer components {
-  .neubrutalist-card {
-    @apply rounded-lg border-2 border-black bg-card text-card-foreground shadow-[8px_8px_0px_#000] transition-all duration-200 ease-in-out;
-  }
-  
-  .neubrutalist-card:hover {
-    @apply shadow-[4px_4px_0px_#000] translate-x-[4px] translate-y-[4px];
   }
 }
