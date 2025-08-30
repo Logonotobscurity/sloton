@@ -15,7 +15,7 @@ export default function AutomationPage() {
               Design, configure, and deploy automated IT tasks with unparalleled ease and intelligence. Our platform allows you to visually map out workflows while our AI provides real-time optimization suggestions to enhance efficiency, reduce costs, and minimize errors.
             </p>
              <p className="text-lg text-muted-foreground">
-              From simple notifications to complex, multi-system integrations, turn your operational concepts into reality.
+              From simple notifications to complex, multi-system integrations, turn your operational concepts into reality. Use our designer tool to see how it works.
             </p>
             <Button asChild>
                 <Link href="/contact">

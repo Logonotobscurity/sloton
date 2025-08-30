@@ -1,4 +1,4 @@
-import { BrainCircuit, Calculator, ArrowRight } from 'lucide-react';
+import { BrainCircuit, ArrowRight } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -15,7 +15,6 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
-import { TaskAutomationForm } from './task-automation-form';
 
 export function StrategicPartner() {
   return (
@@ -28,7 +27,7 @@ export function StrategicPartner() {
               Feeling stuck or unsure which technology to invest in? We build partnerships by turning confusion into clarity. Our goal is to co-create a technology roadmap that delivers tangible results.
             </p>
             <p className="text-muted-foreground md:text-lg">
-             Use our free, interactive tools to get instant, AI-powered insights for your specific business challenges. It&apos;s the perfect first step.
+             Use our free, interactive tool to get instant, AI-powered insights for your specific business challenges. It&apos;s the perfect first step.
             </p>
           </div>
           <div className="grid sm:grid-cols-1 gap-6">
@@ -38,7 +37,7 @@ export function StrategicPartner() {
                   <CardHeader>
                     <BrainCircuit className="h-10 w-10 text-primary mb-4" />
                     <CardTitle className="text-xl">Free AI Business Assessment</CardTitle>
-                    <CardDescription>Get a personalized tech roadmap in minutes. Ideal for identifying growth opportunities.</CardDescription>
+                    <CardDescription>Get a personalized tech roadmap in minutes. Ideal for identifying growth opportunities and clarifying your needs.</CardDescription>
                   </CardHeader>
                   <CardContent>
                      <p className="flex items-center text-sm font-semibold text-primary group-hover:text-primary transition-colors">
@@ -56,34 +55,6 @@ export function StrategicPartner() {
                   </DialogDescription>
                 </DialogHeader>
                 <SolutionRecommendationForm />
-              </DialogContent>
-            </Dialog>
-
-            <Dialog>
-              <DialogTrigger asChild>
-                <Card className="group cursor-pointer bg-secondary/50 hover:bg-secondary border border-transparent hover:border-accent transition-all transform hover:-translate-y-2">
-                  <CardHeader>
-                    <Calculator className="h-10 w-10 text-accent mb-4" />
-                    <CardTitle>Automation Task Designer</CardTitle>
-                     <CardDescription>Have a specific process in mind? Map it out and see how it could be automated.</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="flex items-center text-sm text-muted-foreground group-hover:text-accent transition-colors">
-                      Design your automation task
-                      <ArrowRight className="ml-auto h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                    </p>
-                  </CardContent>
-                </Card>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[600px] bg-background">
-                <DialogHeader>
-                  <DialogTitle className="text-2xl flex items-center gap-2"><Calculator className="h-6 w-6 text-accent" /> Automation Task Designer</DialogTitle>
-
-                  <DialogDescription>
-                    Describe a workflow you want to automate, and our AI will generate a detailed task design, including steps, dependencies, and optimization suggestions.
-                  </DialogDescription>
-                </DialogHeader>
-                <TaskAutomationForm />
               </DialogContent>
             </Dialog>
           </div>
