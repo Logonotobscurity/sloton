@@ -1,10 +1,11 @@
-import { BrainCircuit, ArrowRight, FileText, Lightbulb, BarChart, Calculator } from 'lucide-react';
+import { BrainCircuit, ArrowRight, Calculator } from 'lucide-react';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
+  CardFooter,
 } from '@/components/ui/card';
 import {
   Dialog,
@@ -16,11 +17,10 @@ import {
 } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { TaskAutomationForm } from './task-automation-form';
-import { Button } from './ui/button';
 
 export function StrategicPartner() {
   return (
-    <section className="py-24 sm:py-32 bg-background">
+    <section className="py-24 sm:py-32 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Your Strategic Technology Partner</h2>
@@ -40,11 +40,7 @@ export function StrategicPartner() {
                     <CardDescription>Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning.</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                    <ul className="space-y-3 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-accent mt-0.5" /><span>Analyze your business needs</span></li>
-                        <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-accent mt-0.5" /><span>Receive AI-driven recommendations</span></li>
-                        <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-accent mt-0.5" /><span>Identify growth opportunities</span></li>
-                    </ul>
+                    <p className="text-muted-foreground">This tool helps you identify the best technology strategies for your goals.</p>
                 </CardContent>
                 <CardFooter>
                     <div className="text-primary font-semibold flex items-center">
@@ -75,11 +71,7 @@ export function StrategicPartner() {
                         <CardDescription>Visualize how a specific, repetitive task can be automated. Perfect for tactical workflow planning.</CardDescription>
                     </CardHeader>
                     <CardContent className="flex-grow">
-                         <ul className="space-y-3 text-sm text-muted-foreground">
-                            <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-accent mt-0.5" /><span>Describe a workflow</span></li>
-                            <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-accent mt-0.5" /><span>Generate an automated design</span></li>
-                            <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-accent mt-0.5" /><span>See AI-powered optimizations</span></li>
-                        </ul>
+                         <p className="text-muted-foreground">Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.</p>
                     </CardContent>
                      <CardFooter>
                        <div className="text-primary font-semibold flex items-center">
@@ -104,6 +96,3 @@ export function StrategicPartner() {
     </section>
   );
 }
-
-import { CheckCircle } from 'lucide-react';
-import { CardFooter } from './ui/card';
