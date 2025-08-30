@@ -4,7 +4,6 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from '@/components/ui/card';
 import {
   Dialog,
@@ -27,6 +26,9 @@ export function StrategicPartner() {
             <p className="text-muted-foreground md:text-lg">
               We don't just provide services; we build partnerships. Our goal is to understand your unique business challenges and co-create technology solutions that deliver tangible results and a competitive edge.
             </p>
+            <p className="text-muted-foreground md:text-lg">
+              Use our interactive tools to get instant, AI-powered insights for your business.
+            </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-6">
             <Dialog>
@@ -37,7 +39,7 @@ export function StrategicPartner() {
                     <CardTitle>Business Assessment</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="flex items-center text-sm text-muted-foreground">
+                    <p className="flex items-center text-sm text-muted-foreground group-hover:text-accent transition-colors">
                       Get AI-powered recommendations
                       <ArrowRight className="ml-auto h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </p>
@@ -48,7 +50,7 @@ export function StrategicPartner() {
                 <DialogHeader>
                   <DialogTitle className="text-2xl flex items-center gap-2"><BrainCircuit className="h-6 w-6 text-accent" /> AI Business Assessment</DialogTitle>
                   <DialogDescription>
-                    Describe your business needs to receive tailored IT solution recommendations.
+                    Describe your business needs to receive tailored IT solution recommendations from our AI consultant. This tool helps you identify the best technology strategies for your goals.
                   </DialogDescription>
                 </DialogHeader>
                 <SolutionRecommendationForm />
@@ -63,7 +65,7 @@ export function StrategicPartner() {
                     <CardTitle>Project Calculator</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="flex items-center text-sm text-muted-foreground">
+                    <p className="flex items-center text-sm text-muted-foreground group-hover:text-accent transition-colors">
                       Design your automation task
                       <ArrowRight className="ml-auto h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </p>
@@ -74,7 +76,7 @@ export function StrategicPartner() {
                 <DialogHeader>
                   <DialogTitle className="text-2xl flex items-center gap-2"><Calculator className="h-6 w-6 text-accent" /> Automation Task Designer</DialogTitle>
                   <DialogDescription>
-                    Visually design and configure your automated IT task with AI-suggested optimizations.
+                    Describe a workflow you want to automate, and our AI will generate a detailed task design, including steps, dependencies, and optimization suggestions.
                   </DialogDescription>
                 </DialogHeader>
                 <TaskAutomationForm />
