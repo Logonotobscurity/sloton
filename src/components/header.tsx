@@ -21,6 +21,24 @@ const navItems = [
   { href: '/contact', label: 'Contact' },
 ];
 
+const AnimatedHamburgerIcon = ({ open }: { open: boolean }) => (
+    <div className="w-6 h-5 flex flex-col justify-between items-center">
+        <span className={cn(
+            "block h-0.5 w-full bg-current transform transition duration-300 ease-in-out",
+            open ? "rotate-45 translate-y-2.5" : ""
+        )}></span>
+        <span className={cn(
+            "block h-0.5 w-full bg-current transition duration-300 ease-in-out",
+            open ? "opacity-0" : ""
+        )}></span>
+        <span className={cn(
+            "block h-0.5 w-full bg-current transform transition duration-300 ease-in-out",
+            open ? "-rotate-45 -translate-y-2.5" : ""
+        )}></span>
+    </div>
+);
+
+
 export function Header() {
   const [isSheetOpen, setSheetOpen] = useState(false);
   const pathname = usePathname();
@@ -49,7 +67,7 @@ export function Header() {
         <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-6 w-6" />
+              <AnimatedHamburgerIcon open={isSheetOpen} />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>

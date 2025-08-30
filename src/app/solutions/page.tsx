@@ -134,7 +134,7 @@ export default function SolutionsPage() {
                 </ul>
               </CardContent>
               <CardFooter>
-                 <Button asChild variant="outline">
+                 <Button asChild>
                   <Link href={service.href}>Learn More</Link>
                 </Button>
               </CardFooter>
