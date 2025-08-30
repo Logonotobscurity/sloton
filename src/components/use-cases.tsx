@@ -1,5 +1,5 @@
 import { ArrowRight, Briefcase, HeartPulse, ShoppingCart } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import Link from 'next/link';
 
 const useCases = [
@@ -25,7 +25,7 @@ const useCases = [
 
 export function UseCases() {
   return (
-    <section className="py-24 bg-secondary/30">
+    <section className="py-24 sm:py-32 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Industry Use Cases</h2>
@@ -35,7 +35,7 @@ export function UseCases() {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {useCases.map((useCase) => (
-            <Card key={useCase.title} className="bg-background/50 group flex flex-col">
+            <Card key={useCase.title} className="bg-background group flex flex-col transition-all duration-300 hover:border-primary hover:-translate-y-2">
                 <CardHeader>
                     {useCase.icon}
                     <CardTitle className="pt-4">{useCase.title}</CardTitle>
@@ -43,11 +43,11 @@ export function UseCases() {
                 <CardContent className="flex-grow">
                     <p className="text-muted-foreground">{useCase.description}</p>
                 </CardContent>
-                <div className="p-6 pt-0">
+                <CardFooter>
                    <Link href={useCase.href} className="text-primary font-semibold flex items-center group">
-                     Read More <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                     Learn More <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                    </Link>
-                </div>
+                </CardFooter>
             </Card>
           ))}
         </div>

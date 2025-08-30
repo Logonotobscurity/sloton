@@ -18,17 +18,22 @@ const features = [
 
 export function Features() {
   return (
-    <section className="py-32">
+    <section className="py-24 sm:py-32 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-[clamp(1.5rem,5vw,2.5rem)] font-bold mb-12 max-w-2xl">
-          Your All-in-One Platform for Next-Gen IT Solutions
-        </h2>
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="max-w-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold">
+            Your All-in-One Platform for Next-Gen IT Solutions
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+                We deliver a comprehensive suite of services designed to modernize your operations and drive growth.
+            </p>
+        </div>
+        <div className="mt-16 grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="p-8 border border-white/10 transition-all duration-300 hover:border-primary hover:-translate-y-1">
-              <span className="text-xs text-primary block mb-4">0{index + 1}</span>
-              <h3 className="text-2xl mb-4">{feature.title}</h3>
-              <p className="text-muted-foreground text-base">{feature.description}</p>
+            <div key={index} className="p-8 border border-border bg-background transition-all duration-300 hover:border-primary hover:-translate-y-2">
+              <span className="text-sm font-semibold text-primary block mb-4">0{index + 1}</span>
+              <h3 className="text-2xl mb-4 font-semibold">{feature.title}</h3>
+              <p className="text-muted-foreground">{feature.description}</p>
             </div>
           ))}
         </div>

@@ -19,9 +19,9 @@ import { TaskAutomationForm } from './task-automation-form';
 
 export function StrategicPartner() {
   return (
-    <section className="py-16 sm:py-24 bg-background">
+    <section className="py-24 sm:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold">Your Strategic Technology Partner</h2>
             <p className="text-muted-foreground md:text-lg">
@@ -31,16 +31,16 @@ export function StrategicPartner() {
           <div className="grid sm:grid-cols-2 gap-6">
             <Dialog>
               <DialogTrigger asChild>
-                <Card className="group cursor-pointer bg-secondary/50 hover:bg-secondary transition-all transform hover:-translate-y-1">
+                <Card className="group cursor-pointer bg-secondary/50 hover:bg-secondary border border-transparent hover:border-accent transition-all transform hover:-translate-y-2">
                   <CardHeader>
-                    <BrainCircuit className="h-10 w-10 text-accent mb-2" />
+                    <BrainCircuit className="h-10 w-10 text-accent mb-4" />
                     <CardTitle>Business Assessment</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="flex items-center">
+                    <p className="flex items-center text-sm text-muted-foreground">
                       Get AI-powered recommendations
-                      <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                    </CardDescription>
+                      <ArrowRight className="ml-auto h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                    </p>
                   </CardContent>
                 </Card>
               </DialogTrigger>
@@ -57,16 +57,16 @@ export function StrategicPartner() {
 
             <Dialog>
               <DialogTrigger asChild>
-                <Card className="group cursor-pointer bg-secondary/50 hover:bg-secondary transition-all transform hover:-translate-y-1">
+                <Card className="group cursor-pointer bg-secondary/50 hover:bg-secondary border border-transparent hover:border-accent transition-all transform hover:-translate-y-2">
                   <CardHeader>
-                    <Calculator className="h-10 w-10 text-accent mb-2" />
+                    <Calculator className="h-10 w-10 text-accent mb-4" />
                     <CardTitle>Project Calculator</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="flex items-center">
+                    <p className="flex items-center text-sm text-muted-foreground">
                       Design your automation task
-                      <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                    </CardDescription>
+                      <ArrowRight className="ml-auto h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                    </p>
                   </CardContent>
                 </Card>
               </DialogTrigger>
