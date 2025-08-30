@@ -9,7 +9,6 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
 
 const navItems = [
   { href: '/solutions', label: 'Solutions' },
@@ -23,18 +22,17 @@ export function Header() {
   const [isSheetOpen, setSheetOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+    <header className="py-8 relative z-20">
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
-          <CodeXml className="h-8 w-8 text-primary" />
-          <span className="text-xl font-bold">LOG_ON</span>
+          <span className="font-bold text-2xl tracking-tighter text-primary">LOG_ON</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className="text-foreground no-underline text-sm uppercase tracking-wider transition-colors hover:text-primary"
               prefetch={false}
             >
               {item.label}
@@ -43,7 +41,7 @@ export function Header() {
         </nav>
         <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="md:hidden">
+            <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
@@ -51,8 +49,7 @@ export function Header() {
           <SheetContent side="right">
             <div className="flex flex-col gap-6 p-6">
               <Link href="/" className="flex items-center gap-2" onClick={() => setSheetOpen(false)}>
-                <CodeXml className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold">LOG_ON</span>
+                <span className="font-bold text-2xl tracking-tighter text-primary">LOG_ON</span>
               </Link>
               <nav className="grid gap-4">
                 {navItems.map((item) => (

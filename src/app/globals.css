@@ -55,24 +55,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-  }
-}
-
-@keyframes scroll-x {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes scroll-x-reverse {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
+    @apply bg-background text-foreground font-body;
+    line-height: 1.6;
+    overflow-x: hidden;
   }
 }
