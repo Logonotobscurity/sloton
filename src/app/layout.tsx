@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
-import { Roboto_Mono } from 'next/font/google';
+import { Rubik } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 
-const robotoMono = Roboto_Mono({
+const rubik = Rubik({
   subsets: ['latin'],
-  variable: '--font-roboto-mono',
+  variable: '--font-rubik',
   display: 'swap',
 });
 
@@ -27,7 +27,7 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen bg-background font-body antialiased',
-          robotoMono.variable
+          rubik.variable
         )}
       >
         <Header />

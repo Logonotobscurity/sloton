@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-roboto-mono)', 'monospace'],
-        headline: ['var(--font-roboto-mono)', 'monospace'],
+        body: ['var(--font-rubik)', 'sans-serif'],
+        headline: ['var(--font-rubik)', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
