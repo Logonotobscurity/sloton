@@ -3,30 +3,33 @@ import { CheckCircle } from 'lucide-react';
 
 const features = [
   {
-    title: 'Intelligent Automation',
-    description: 'Streamline your workflows and eliminate repetitive tasks with our custom automation solutions.',
+    title: 'AI & Automation Solutions',
+    description: 'Leverage AI and intelligent automation to enhance efficiency, reduce costs, and drive innovation.',
     details: [
-        'Robotic Process Automation (RPA)',
-        'Custom API Integrations & Workflow Orchestration',
-        'Reduced operational costs and human error',
+        'Custom Machine Learning Models & AI Strategy',
+        'Robotic Process Automation (RPA) & Workflow Design',
+        'Intelligent Chatbots & Virtual Assistants',
+        'Predictive Analytics & Business Intelligence',
     ]
   },
   {
-    title: 'AI-Powered Solutions',
-    description: 'Unlock data-driven insights and predictive capabilities with our bespoke AI and machine learning models.',
+    title: 'Custom Development',
+    description: 'Build robust, scalable web and mobile applications tailored to your specific business needs.',
      details: [
-        'Custom Machine Learning Model Development',
-        'Natural Language Processing (NLP) for Chatbots',
-        'Predictive Analytics and Business Intelligence',
+        'Modern Web & Mobile Application Development',
+        'E-commerce & Custom Platform Solutions',
+        'Secure API Development & Integration',
+        'Scalable Database Design & Optimization',
     ]
   },
   {
-    title: 'Scalable IT Infrastructure',
-    description: 'Build a robust and flexible IT foundation that grows with your business, ensuring reliability and performance.',
+    title: 'Digital Transformation',
+    description: 'Modernize your infrastructure and processes to build a resilient, future-ready business foundation.',
      details: [
-        'Cloud Migration & Management (AWS, GCP, Azure)',
-        'DevOps and CI/CD Implementation for faster delivery',
-        'Cybersecurity, Compliance, and Disaster Recovery',
+        'Comprehensive Technology & Process Assessment',
+        'Cloud Migration & Infrastructure Management',
+        'Strategic Process Digitization & Change Management',
+        'Enhanced Cybersecurity & Compliance Solutions',
     ]
   },
 ];
