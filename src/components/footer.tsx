@@ -5,8 +5,8 @@ export function Footer() {
   return (
     <footer className="py-16 border-t border-white/10 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 text-center md:text-left">
-          <div className="space-y-4 md:col-span-1">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12 text-center md:text-left">
+          <div className="space-y-4 md:col-span-1 col-span-2">
             <Link href="/" className="font-bold text-2xl tracking-tighter text-primary inline-block" prefetch={false}>
               LOG_ON
             </Link>
@@ -31,7 +31,7 @@ export function Footer() {
               <li><Link href="/contact" className="text-muted-foreground hover:text-primary text-sm transition-colors">Contact</Link></li>
             </ul>
           </div>
-          <div className="md:col-span-1">
+          <div className="md:col-span-1 col-span-2">
             <h3 className="font-semibold mb-6 text-primary text-lg">Connect</h3>
             <div className="flex space-x-4 justify-center md:justify-start">
               <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-primary"><Twitter /></a>
