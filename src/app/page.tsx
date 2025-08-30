@@ -3,6 +3,7 @@ import { Hero } from '@/components/hero';
 import { Statement } from '@/components/statement';
 import { StrategicPartner } from '@/components/strategic-partner';
 import { TechStackCarousel } from '@/components/tech-stack-carousel';
+import { TrainingCTA } from '@/components/training-cta';
 import { UseCases } from '@/components/use-cases';
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <StrategicPartner />
       <Features />
       <UseCases />
+      <TrainingCTA />
       <Statement />
       <TechStackCarousel />
     </div>

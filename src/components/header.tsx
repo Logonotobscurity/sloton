@@ -16,6 +16,7 @@ const navItems = [
   { href: '/solutions', label: 'Services' },
   { href: '/automation', label: 'Automation' },
   { href: '/use-cases', label: 'Use Cases' },
+  { href: '/training', label: 'Training' },
   { href: '/about', label: 'About' },
   { href: '/insights', label: 'Insights' },
   { href: '/contact', label: 'Contact' },
