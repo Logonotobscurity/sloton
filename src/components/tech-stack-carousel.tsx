@@ -1,21 +1,22 @@
+
 import Image from 'next/image';
 
 const technologies = [
-  { name: 'React', hint: 'React logo' },
-  { name: 'Next.js', hint: 'Nextjs logo' },
-  { name: 'TypeScript', hint: 'TypeScript logo' },
-  { name: 'JavaScript', hint: 'JavaScript logo' },
-  { name: 'Node.js', hint: 'Nodejs logo' },
-  { name: 'Python', hint: 'Python logo' },
-  { name: 'AWS', hint: 'AWS logo' },
-  { name: 'Google Cloud', hint: 'Google Cloud logo' },
-  { name: 'Azure', hint: 'Azure logo' },
-  { name: 'Firebase', hint: 'Firebase logo' },
-  { name: 'Docker', hint: 'Docker logo' },
-  { name: 'Kubernetes', hint: 'Kubernetes logo' },
-  { name: 'Git', hint: 'Git logo' },
-  { name: 'Figma', hint: 'Figma logo' },
-  { name: 'Tailwind CSS', hint: 'Tailwind logo' },
+  { name: 'React', hint: 'React logo', src: '/react.svg' },
+  { name: 'Next.js', hint: 'Nextjs logo', src: '/nextjs.svg' },
+  { name: 'TypeScript', hint: 'TypeScript logo', src: '/typescript.svg' },
+  { name: 'JavaScript', hint: 'JavaScript logo', src: '/javascript.svg' },
+  { name: 'Node.js', hint: 'Nodejs logo', src: '/nodejs.svg' },
+  { name: 'Python', hint: 'Python logo', src: '/python.svg' },
+  { name: 'AWS', hint: 'AWS logo', src: '/aws.svg' },
+  { name: 'Google Cloud', hint: 'Google Cloud logo', src: '/google-cloud.svg' },
+  { name: 'Azure', hint: 'Azure logo', src: '/azure.svg' },
+  { name: 'Firebase', hint: 'Firebase logo', src: '/firebase.svg' },
+  { name: 'Docker', hint: 'Docker logo', src: '/docker.svg' },
+  { name: 'Kubernetes', hint: 'Kubernetes logo', src: '/kubernetes.svg' },
+  { name: 'Git', hint: 'Git logo', src: '/git.svg' },
+  { name: 'Figma', hint: 'Figma logo', src: '/figma.svg' },
+  { name: 'Tailwind CSS', hint: 'Tailwind logo', src: '/tailwind.svg' },
 ];
 
 export function TechStackCarousel() {
@@ -37,7 +38,7 @@ export function TechStackCarousel() {
             >
               <div className="text-foreground/80">
                 <Image 
-                  src={`https://picsum.photos/80/80?random=${index}`}
+                  src={tech.src}
                   alt={tech.name}
                   width={80}
                   height={80}
@@ -56,7 +57,7 @@ export function TechStackCarousel() {
             >
               <div className="text-foreground/80">
                  <Image 
-                  src={`https://picsum.photos/80/80?random=${index + technologies.length}`}
+                  src={tech.src}
                   alt={tech.name}
                   width={80}
                   height={80}
