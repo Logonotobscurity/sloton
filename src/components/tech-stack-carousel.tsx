@@ -1,25 +1,24 @@
 
 "use client";
 
-import { IconReact, IconNextjs, IconTypescript, IconJavascript, IconNodejs, IconPython, IconAws, IconGoogleCloud, IconAzure, IconFirebase, IconDocker, IconKubernetes, IconGit, IconFigma, IconTailwind } from '@/lib/icons';
 import Image from 'next/image';
 
 const technologies = [
-  { name: 'React', icon: <IconReact /> },
-  { name: 'Next.js', icon: <IconNextjs /> },
-  { name: 'TypeScript', icon: <IconTypescript /> },
-  { name: 'JavaScript', icon: <IconJavascript /> },
-  { name: 'Node.js', icon: <IconNodejs /> },
-  { name: 'Python', icon: <IconPython /> },
-  { name: 'AWS', icon: <IconAws /> },
-  { name: 'Google Cloud', icon: <IconGoogleCloud /> },
-  { name: 'Azure', icon: <IconAzure /> },
-  { name: 'Firebase', icon: <IconFirebase /> },
-  { name: 'Docker', icon: <IconDocker /> },
-  { name: 'Kubernetes', icon: <IconKubernetes /> },
-  { name: 'Git', icon: <IconGit /> },
-  { name: 'Figma', icon: <IconFigma /> },
-  { name: 'Tailwind CSS', icon: <IconTailwind /> },
+  { name: 'React', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2048px-React-icon.svg.png' },
+  { name: 'Next.js', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/nextjs-icon.svg' },
+  { name: 'TypeScript', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png' },
+  { name: 'JavaScript', icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png' },
+  { name: 'Node.js', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/node-js-icon.svg' },
+  { name: 'Python', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/2048px-Python-logo-notext.svg.png' },
+  { name: 'AWS', icon: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/aws-color.png' },
+  { name: 'Google Cloud', icon: 'https://img.icons8.com/color/600/google-cloud.png' },
+  { name: 'Azure', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/2048px-Microsoft_Azure.svg.png' },
+  { name: 'Firebase', icon: 'https://firebase.google.com/static/images/brand-guidelines/logo-logomark.png' },
+  { name: 'Docker', icon: 'https://img.icons8.com/fluent/512/docker.png' },
+  { name: 'Kubernetes', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/2109px-Kubernetes_logo_without_workmark.svg.png' },
+  { name: 'Git', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png' },
+  { name: 'Figma', icon: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/figma-color.png' },
+  { name: 'Tailwind CSS', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png' },
 ];
 
 export function TechStackCarousel() {
@@ -39,8 +38,13 @@ export function TechStackCarousel() {
               key={`top-${index}-${tech.name}`}
               className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
             >
-              <div className="relative w-20 h-20 text-foreground/80 grayscale hover:grayscale-0 transition-all">
-                {tech.icon}
+              <div className="relative w-20 h-20 text-foreground/80 grayscale hover:grayscale-0 transition-all p-2">
+                <Image
+                  src={tech.icon}
+                  alt={`${tech.name} logo`}
+                  layout="fill"
+                  objectFit="contain"
+                />
               </div>
             </div>
           ))}
@@ -51,8 +55,13 @@ export function TechStackCarousel() {
               key={`bottom-${index}-${tech.name}`}
               className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
             >
-               <div className="relative w-20 h-20 text-foreground/80 grayscale hover:grayscale-0 transition-all">
-                 {tech.icon}
+               <div className="relative w-20 h-20 text-foreground/80 grayscale hover:grayscale-0 transition-all p-2">
+                 <Image
+                  src={tech.icon}
+                  alt={`${tech.name} logo`}
+                  layout="fill"
+                  objectFit="contain"
+                />
               </div>
             </div>
           ))}

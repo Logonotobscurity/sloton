@@ -22,6 +22,62 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn4.iconfinder.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'uxwing.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'iconlogovector.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'icon2.cleanpng.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'registry.npmmirror.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.icons8.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'azure.microsoft.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'firebase.google.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'sredevops.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'git-scm.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'biglinden.com',
+      },
     ],
   },
 };
