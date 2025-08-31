@@ -42,8 +42,9 @@ export function TechStackCarousel() {
                 <Image
                   src={tech.icon}
                   alt={`${tech.name} logo`}
-                  layout="fill"
-                  objectFit="contain"
+                  width={80}
+                  height={80}
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -59,8 +60,9 @@ export function TechStackCarousel() {
                  <Image
                   src={tech.icon}
                   alt={`${tech.name} logo`}
-                  layout="fill"
-                  objectFit="contain"
+                  width={80}
+                  height={80}
+                  className="object-contain"
                 />
               </div>
             </div>
