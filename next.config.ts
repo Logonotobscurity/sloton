@@ -72,7 +72,7 @@ const nextConfig: NextConfig = {
         hostname: 'sredevops.org',
       },
       {
-        protocol: 'https...
+        protocol: 'https',
         hostname: 'git-scm.com',
       },
       {
@@ -88,7 +88,7 @@ const nextConfig: NextConfig = {
         hostname: 'cdn-uploads.huggingface.co',
       },
       {
-        protocol: 'httpshttps',
+        protocol: 'https',
         hostname: 'logowik.com',
       },
       {
