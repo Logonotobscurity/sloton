@@ -1,22 +1,25 @@
 
+"use client";
+
+import { IconReact, IconNextjs, IconTypescript, IconJavascript, IconNodejs, IconPython, IconAws, IconGoogleCloud, IconAzure, IconFirebase, IconDocker, IconKubernetes, IconGit, IconFigma, IconTailwind } from '@/lib/icons';
 import Image from 'next/image';
 
 const technologies = [
-  { name: 'React', hint: 'React logo', src: '/react.svg' },
-  { name: 'Next.js', hint: 'Nextjs logo', src: '/nextjs.svg' },
-  { name: 'TypeScript', hint: 'TypeScript logo', src: '/typescript.svg' },
-  { name: 'JavaScript', hint: 'JavaScript logo', src: '/javascript.svg' },
-  { name: 'Node.js', hint: 'Nodejs logo', src: '/nodejs.svg' },
-  { name: 'Python', hint: 'Python logo', src: '/python.svg' },
-  { name: 'AWS', hint: 'AWS logo', src: '/aws.svg' },
-  { name: 'Google Cloud', hint: 'Google Cloud logo', src: '/google-cloud.svg' },
-  { name: 'Azure', hint: 'Azure logo', src: '/azure.svg' },
-  { name: 'Firebase', hint: 'Firebase logo', src: '/firebase.svg' },
-  { name: 'Docker', hint: 'Docker logo', src: '/docker.svg' },
-  { name: 'Kubernetes', hint: 'Kubernetes logo', src: '/kubernetes.svg' },
-  { name: 'Git', hint: 'Git logo', src: '/git.svg' },
-  { name: 'Figma', hint: 'Figma logo', src: '/figma.svg' },
-  { name: 'Tailwind CSS', hint: 'Tailwind logo', src: '/tailwind.svg' },
+  { name: 'React', hint: 'React logo', icon: <IconReact /> },
+  { name: 'Next.js', hint: 'Nextjs logo', icon: <IconNextjs /> },
+  { name: 'TypeScript', hint: 'TypeScript logo', icon: <IconTypescript /> },
+  { name: 'JavaScript', hint: 'JavaScript logo', icon: <IconJavascript /> },
+  { name: 'Node.js', hint: 'Nodejs logo', icon: <IconNodejs /> },
+  { name: 'Python', hint: 'Python logo', icon: <IconPython /> },
+  { name: 'AWS', hint: 'AWS logo', icon: <IconAws /> },
+  { name: 'Google Cloud', hint: 'Google Cloud logo', icon: <IconGoogleCloud /> },
+  { name: 'Azure', hint: 'Azure logo', icon: <IconAzure /> },
+  { name: 'Firebase', hint: 'Firebase logo', icon: <IconFirebase /> },
+  { name: 'Docker', hint: 'Docker logo', icon: <IconDocker /> },
+  { name: 'Kubernetes', hint: 'Kubernetes logo', icon: <IconKubernetes /> },
+  { name: 'Git', hint: 'Git logo', icon: <IconGit /> },
+  { name: 'Figma', hint: 'Figma logo', icon: <IconFigma /> },
+  { name: 'Tailwind CSS', hint: 'Tailwind logo', icon: <IconTailwind /> },
 ];
 
 export function TechStackCarousel() {
@@ -36,16 +39,18 @@ export function TechStackCarousel() {
               key={`top-${index}-${tech.name}`}
               className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
             >
-              <div className="relative w-20 h-20 text-foreground/80">
-                <Image 
-                  src={tech.src}
-                  alt={tech.name}
-                  width={80}
-                  height={80}
-                  className="grayscale hover:grayscale-0 transition-all object-contain"
-                  data-ai-hint={tech.hint}
-                  unoptimized
-                />
+              <div className="relative w-20 h-20 text-foreground/80 grayscale hover:grayscale-0 transition-all">
+                {tech.icon ? tech.icon : (
+                    <Image 
+                      src={'/placeholder.svg'}
+                      alt={tech.name}
+                      width={80}
+                      height={80}
+                      className="object-contain"
+                      data-ai-hint={tech.hint}
+                      unoptimized
+                    />
+                )}
               </div>
             </div>
           ))}
@@ -56,16 +61,18 @@ export function TechStackCarousel() {
               key={`bottom-${index}-${tech.name}`}
               className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
             >
-              <div className="relative w-20 h-20 text-foreground/80">
-                 <Image 
-                  src={tech.src}
-                  alt={tech.name}
-                  width={80}
-                  height={80}
-                  className="grayscale hover:grayscale-0 transition-all object-contain"
-                  data-ai-hint={tech.hint}
-                  unoptimized
-                />
+               <div className="relative w-20 h-20 text-foreground/80 grayscale hover:grayscale-0 transition-all">
+                 {tech.icon ? tech.icon : (
+                    <Image 
+                      src={'/placeholder.svg'}
+                      alt={tech.name}
+                      width={80}
+                      height={80}
+                      className="object-contain"
+                      data-ai-hint={tech.hint}
+                      unoptimized
+                    />
+                )}
               </div>
             </div>
           ))}
