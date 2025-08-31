@@ -16,8 +16,11 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4 text-center md:text-left">
-            <Link href="/" className="font-bold text-2xl tracking-tighter text-primary inline-block" prefetch={false}>
-              LOG_ON
+            <Link href="/" className="inline-block" prefetch={false}>
+                <div className="flex flex-col items-center md:items-start">
+                  <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
+                  <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
+                </div>
             </Link>
             <p className="text-sm text-muted-foreground">
               Powering business efficiency with smart technology solutions.
