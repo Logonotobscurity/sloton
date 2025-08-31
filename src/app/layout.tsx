@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
+import { WebsiteLoader } from '@/components/website-loader';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -72,6 +73,7 @@ export default function RootLayout({
           anton.variable,
         )}
       >
+        <WebsiteLoader />
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
