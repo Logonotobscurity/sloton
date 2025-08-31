@@ -141,8 +141,11 @@ export function Header() {
             isScrolled ? "max-w-6xl bg-background/80 backdrop-blur-lg shadow-lg border" : "max-w-4xl"
         )}
       >
-        <Link href="/" className="flex items-center gap-2" prefetch={false}>
-          <span className="font-bold text-2xl tracking-tighter text-primary">LOG_ON</span>
+        <Link href="/" className="flex items-center" prefetch={false}>
+            <div className="flex flex-col items-start">
+              <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
+              <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
+            </div>
         </Link>
         
         {/* Desktop Navigation */}
@@ -218,8 +221,11 @@ export function Header() {
           <SheetContent side="right" className="w-full bg-background p-0 flex flex-col">
              
                 <SheetHeader className="p-6 flex-row items-center justify-between border-b">
-                     <Link href="/" className="flex items-center gap-2" onClick={() => setSheetOpen(false)}>
-                        <span className="font-bold text-2xl tracking-tighter text-primary">LOG_ON</span>
+                     <Link href="/" className="flex items-center" onClick={() => setSheetOpen(false)}>
+                        <div className="flex flex-col items-start">
+                          <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
+                          <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
+                        </div>
                     </Link>
                     <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                     <Button variant="ghost" size="icon" onClick={() => setSheetOpen(false)}>
