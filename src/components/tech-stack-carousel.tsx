@@ -1,41 +1,25 @@
-import { cn } from '@/lib/utils';
-import {
-  IconAws,
-  IconAzure,
-  IconDocker,
-  IconFigma,
-  IconFirebase,
-  IconGit,
-  IconGoogleCloud,
-  IconJavascript,
-  IconKubernetes,
-  IconNextjs,
-  IconNodejs,
-  IconPython,
-  IconReact,
-  IconTailwind,
-  IconTypescript,
-} from '@/lib/icons';
+import Image from 'next/image';
 
 const technologies = [
-  <IconReact key="react" />,
-  <IconNextjs key="nextjs" />,
-  <IconTypescript key="typescript" />,
-  <IconJavascript key="javascript" />,
-  <IconNodejs key="nodejs" />,
-  <IconPython key="python" />,
-  <IconAws key="aws" />,
-  <IconGoogleCloud key="gcp" />,
-  <IconAzure key="azure" />,
-  <IconFirebase key="firebase" />,
-  <IconDocker key="docker" />,
-  <IconKubernetes key="kubernetes" />,
-  <IconGit key="git" />,
-  <IconFigma key="figma" />,
-  <IconTailwind key="tailwind" />,
+  { name: 'React', hint: 'React logo' },
+  { name: 'Next.js', hint: 'Nextjs logo' },
+  { name: 'TypeScript', hint: 'TypeScript logo' },
+  { name: 'JavaScript', hint: 'JavaScript logo' },
+  { name: 'Node.js', hint: 'Nodejs logo' },
+  { name: 'Python', hint: 'Python logo' },
+  { name: 'AWS', hint: 'AWS logo' },
+  { name: 'Google Cloud', hint: 'Google Cloud logo' },
+  { name: 'Azure', hint: 'Azure logo' },
+  { name: 'Firebase', hint: 'Firebase logo' },
+  { name: 'Docker', hint: 'Docker logo' },
+  { name: 'Kubernetes', hint: 'Kubernetes logo' },
+  { name: 'Git', hint: 'Git logo' },
+  { name: 'Figma', hint: 'Figma logo' },
+  { name: 'Tailwind CSS', hint: 'Tailwind logo' },
 ];
 
 export function TechStackCarousel() {
+  const allTech = [...technologies, ...technologies, ...technologies];
   return (
     <section className="py-24 sm:py-32 bg-secondary/20 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 text-center">
@@ -46,22 +30,40 @@ export function TechStackCarousel() {
       </div>
       <div className="mt-16 relative flex flex-col gap-8 overflow-hidden">
         <div className="flex -translate-x-1/4 animate-scroll-x" style={{ animationDuration: '60s' }}>
-          {[...technologies, ...technologies, ...technologies].map((icon, index) => (
+          {allTech.map((tech, index) => (
             <div
-              key={`top-${index}`}
+              key={`top-${index}-${tech.name}`}
               className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
             >
-              <div className="text-foreground/80">{icon}</div>
+              <div className="text-foreground/80">
+                <Image 
+                  src={`https://picsum.photos/80/80?random=${index}`}
+                  alt={tech.name}
+                  width={80}
+                  height={80}
+                  className="grayscale hover:grayscale-0 transition-all"
+                  data-ai-hint={tech.hint}
+                />
+              </div>
             </div>
           ))}
         </div>
         <div className="flex -translate-x-1/3 animate-scroll-x-reverse" style={{ animationDuration: '60s' }}>
-          {[...technologies, ...technologies, ...technologies].map((icon, index) => (
+          {allTech.map((tech, index) => (
             <div
-              key={`bottom-${index}`}
+              key={`bottom-${index}-${tech.name}`}
               className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
             >
-              <div className="text-foreground/80">{icon}</div>
+              <div className="text-foreground/80">
+                 <Image 
+                  src={`https://picsum.photos/80/80?random=${index + technologies.length}`}
+                  alt={tech.name}
+                  width={80}
+                  height={80}
+                  className="grayscale hover:grayscale-0 transition-all"
+                  data-ai-hint={tech.hint}
+                />
+              </div>
             </div>
           ))}
         </div>
