@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -94,13 +95,9 @@ export default {
             height: '0',
           },
         },
-        'scroll-x': {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-        'scroll-x-reverse': {
-          '0%': { transform: 'translateX(-50%)' },
-          '100%': { transform: 'translateX(0)' },
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
         },
         shimmer: {
           '0%': { backgroundPosition: '200% 0' },
@@ -110,11 +107,12 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'scroll-x': 'scroll-x 60s linear infinite',
-        'scroll-x-reverse': 'scroll-x-reverse 60s linear infinite',
+        'infinite-scroll': 'infinite-scroll 50s linear infinite',
         shimmer: 'shimmer 2.5s infinite linear',
       },
     },
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
+
+    
