@@ -79,6 +79,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'biglinden.com',
       },
+       {
+        protocol: 'https',
+        hostname: 'deepforgeai.com',
+      },
     ],
   },
 };

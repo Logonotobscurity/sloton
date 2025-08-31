@@ -19,6 +19,14 @@ const technologies = [
   { name: 'Git', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png' },
   { name: 'Figma', icon: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/figma-color.png' },
   { name: 'Tailwind CSS', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png' },
+  { name: 'Automation Anywhere', icon: 'https://deepforgeai.com/static/media/AA_logo.5b01c0a0.svg' },
+  { name: 'Ubisend', icon: 'https://deepforgeai.com/static/media/Ubisend.8d5fa480.svg' },
+  { name: 'Blue Prism', icon: 'https://deepforgeai.com/static/media/Blueprism_logo.b3d0141a.svg' },
+  { name: 'Microsoft', icon: 'https://deepforgeai.com/static/media/Microsoft_logo.8307ca44.svg' },
+  { name: 'IBM', icon: 'https://deepforgeai.com/static/media/ibm.77e893f5.png' },
+  { name: 'Dialogflow', icon: 'https://deepforgeai.com/static/media/Dialogflow_logo.a154f0af.svg' },
+  { name: 'Ada', icon: 'https://deepforgeai.com/static/media/ada_logo.f7aa1984.svg' },
+  { name: 'Nuacem', icon: 'https://deepforgeai.com/static/media/Nuacem.935254e0.png' },
 ];
 
 export function TechStackCarousel() {
@@ -32,43 +40,43 @@ export function TechStackCarousel() {
         </p>
       </div>
       <div className="mt-16 relative flex flex-col gap-8 overflow-hidden">
-        <div className="flex -translate-x-1/4 animate-scroll-x" style={{ animationDuration: '60s' }}>
+        <div className="flex -translate-x-1/4 animate-scroll-x" style={{ animationDuration: '90s' }}>
           {allTech.map((tech, index) => (
             <div
               key={`top-${index}-${tech.name}`}
-              className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
+              className="flex-shrink-0 w-40 h-40 flex items-center justify-center rounded-lg bg-gradient-to-br from-background via-secondary/10 to-background border border-border/50 mx-4 p-4 shadow-lg"
             >
-              <div className="relative w-20 h-20 text-foreground/80 grayscale hover:grayscale-0 transition-all p-2">
+              <div className="relative w-full h-full">
                 <Image
                   src={tech.icon}
                   alt={`${tech.name} logo`}
-                  width={80}
-                  height={80}
+                  fill
                   className="object-contain"
+                  unoptimized
                 />
               </div>
             </div>
           ))}
         </div>
-        <div className="flex -translate-x-1/3 animate-scroll-x-reverse" style={{ animationDuration: '60s' }}>
+        <div className="flex -translate-x-1/3 animate-scroll-x-reverse" style={{ animationDuration: '90s' }}>
           {allTech.map((tech, index) => (
             <div
               key={`bottom-${index}-${tech.name}`}
-              className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
+              className="flex-shrink-0 w-40 h-40 flex items-center justify-center rounded-lg bg-gradient-to-tr from-background via-secondary/10 to-background border border-border/50 mx-4 p-4 shadow-lg"
             >
-               <div className="relative w-20 h-20 text-foreground/80 grayscale hover:grayscale-0 transition-all p-2">
+               <div className="relative w-full h-full">
                  <Image
                   src={tech.icon}
                   alt={`${tech.name} logo`}
-                  width={80}
-                  height={80}
+                  fill
                   className="object-contain"
+                  unoptimized
                 />
               </div>
             </div>
           ))}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 via-transparent to-secondary/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 via-transparent to-secondary/20 pointer-events-none"></div>
       </div>
     </section>
   );
