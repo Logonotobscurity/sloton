@@ -1,6 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Briefcase, HeartPulse, ShoppingCart, Shield, Calculator, Factory, Building, Server, Truck, Zap, Phone } from 'lucide-react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Industry Use Cases | LOG_ON connecting Advantages',
+  description: 'Explore how LOG_ON drives success across various sectors like Healthcare, Finance, E-Commerce, and Manufacturing with tailored automation and AI solutions.',
+};
 
 const useCases = [
   {

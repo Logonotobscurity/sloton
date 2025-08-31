@@ -2,6 +2,7 @@
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export function PartnershipApproach() {
   return (
@@ -23,8 +24,16 @@ export function PartnershipApproach() {
                 </Button>
             </div>
              <div className="space-y-8">
-                 {/* Placeholder for visuals, e.g., images or graphics */}
-                 <div className="bg-secondary/50 rounded-lg aspect-square"></div>
+                 <div className="bg-secondary/50 rounded-lg aspect-square">
+                    <Image 
+                        src="https://picsum.photos/600/600" 
+                        alt="A diverse team collaborating on a technology project" 
+                        width={600} 
+                        height={600}
+                        className="rounded-lg object-cover w-full h-full"
+                        data-ai-hint="team collaboration"
+                    />
+                 </div>
             </div>
         </div>
       </div>

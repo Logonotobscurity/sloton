@@ -3,6 +3,12 @@ import { Button } from '@/components/ui/button';
 import { TaskAutomationForm } from '@/components/task-automation-form';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Calculator } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Intelligent Automation | LOG_ON connecting Advantages',
+  description: 'Design, configure, and deploy automated IT tasks with our intelligent automation platform. Visually map workflows and get AI-powered optimization suggestions.',
+};
 
 export default function AutomationPage() {
   return (

@@ -21,7 +21,40 @@ const anton = Anton({
 
 export const metadata: Metadata = {
   title: 'LOG_ON connecting Advantages',
-  description: 'We power business efficiency with smart technology.',
+  description: 'We power business efficiency with smart technology. Get a free AI assessment to discover automation and IT solutions tailored to your business needs.',
+  openGraph: {
+    title: 'LOG_ON connecting Advantages',
+    description: 'We power business efficiency with smart technology.',
+    url: 'https://logon.com.ng',
+    siteName: 'LOG_ON connecting Advantages',
+    images: [
+      {
+        url: 'https://picsum.photos/1200/630', // Replace with your actual OG image URL
+        width: 1200,
+        height: 630,
+        alt: 'LOG_ON connecting Advantages',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LOG_ON connecting Advantages',
+    description: 'We power business efficiency with smart technology.',
+    // images: ['https://logon.com.ng/og.png'], // Replace with your actual OG image URL
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({

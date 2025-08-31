@@ -1,6 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ContactForm } from '@/components/contact-form';
 import { Mail, Phone } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us | LOG_ON connecting Advantages',
+  description: "Get in touch with the LOG_ON team. Have a project in mind or want to learn more about our automation and IT solutions? We'd love to hear from you.",
+};
 
 export default function ContactPage() {
   return (

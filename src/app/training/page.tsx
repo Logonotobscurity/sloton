@@ -5,6 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/componen
 import { Badge } from '@/components/ui/badge';
 import { EnrollmentForm } from '@/components/enrollment-form';
 import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Tech Training Programs | LOG_ON connecting Advantages',
+  description: 'Advance your career with our expert-led online training programs. Master AI, process automation, chatbot development, and digital transformation strategy.',
+};
 
 
 const trainingFeatures = [
