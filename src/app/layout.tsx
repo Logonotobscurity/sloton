@@ -7,6 +7,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { WebsiteLoader } from '@/components/website-loader';
+import Script from 'next/script';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -66,6 +67,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+       <head>
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-M6Q7FJNL');`}
+        </Script>
+      </head>
       <body
         className={cn(
           'min-h-screen bg-background font-body antialiased',
@@ -73,6 +83,9 @@ export default function RootLayout({
           anton.variable,
         )}
       >
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6Q7FJNL"
+        height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe></noscript>
+
         <WebsiteLoader />
         <Header />
         <main className="flex-grow">{children}</main>
