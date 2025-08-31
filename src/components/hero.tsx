@@ -10,11 +10,13 @@ import {
 } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { BrainCircuit } from 'lucide-react';
+import { CircuitBackground } from './circuit-background';
 
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center py-16">
        <div className="absolute inset-0 -z-10 overflow-hidden">
+        <CircuitBackground />
         <div className="absolute h-[500px] w-[500px] bg-primary rounded-full filter blur-3xl opacity-10 -top-40 -right-40"></div>
         <div className="absolute h-[400px] w-[400px] bg-accent rounded-full filter blur-3xl opacity-10 -bottom-40 -left-40"></div>
       </div>
