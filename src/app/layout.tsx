@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Rubik, Anton } from 'next/font/google';
 import './globals.css';

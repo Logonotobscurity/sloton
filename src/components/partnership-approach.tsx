@@ -27,7 +27,7 @@ export function PartnershipApproach() {
                  <div className="bg-secondary/50 rounded-lg aspect-square">
                     <Image 
                         src="https://picsum.photos/600/600" 
-                        alt="A diverse team collaborating on a technology project" 
+                        alt="A diverse team of professionals collaborating around a table with laptops and documents, discussing a technology project in a modern office." 
                         width={600} 
                         height={600}
                         className="rounded-lg object-cover w-full h-full"

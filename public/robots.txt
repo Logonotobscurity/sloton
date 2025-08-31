@@ -1,6 +1,8 @@
-# Allow all crawlers to access all content
-User-agent: *
-Allow: /
 
-# Sitemap location
+# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+#
+# Allow all crawling
+User-agent: *
+Disallow:
+
 Sitemap: https://logon.com.ng/sitemap.xml
