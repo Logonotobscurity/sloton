@@ -48,7 +48,7 @@ export function GeneralistApproach() {
             </div>
             <div className="grid md:grid-cols-2 gap-8">
                 {features.map((feature) => (
-                    <Card key={feature.title} className="bg-background/80 backdrop-blur-sm">
+                    <Card key={feature.title} className="bg-background/80 backdrop-blur-sm transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
                         <CardHeader>
                             <CardTitle>{feature.title}</CardTitle>
                         </CardHeader>

@@ -168,7 +168,7 @@ export default function UseCasesPage() {
 
         <div className="mt-16 grid lg:grid-cols-1 gap-12">
           {useCases.map((useCase) => (
-            <Card key={useCase.id} id={useCase.id} className="bg-secondary/50 border-border/50 scroll-mt-24">
+            <Card key={useCase.id} id={useCase.id} className="bg-secondary/50 border-border/50 scroll-mt-24 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
               <div className="grid md:grid-cols-2">
                 <div className="p-6 md:p-8">
                   <CardHeader className="p-0">
