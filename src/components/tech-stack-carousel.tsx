@@ -5,21 +5,21 @@ import { IconReact, IconNextjs, IconTypescript, IconJavascript, IconNodejs, Icon
 import Image from 'next/image';
 
 const technologies = [
-  { name: 'React', hint: 'React logo', icon: <IconReact /> },
-  { name: 'Next.js', hint: 'Nextjs logo', icon: <IconNextjs /> },
-  { name: 'TypeScript', hint: 'TypeScript logo', icon: <IconTypescript /> },
-  { name: 'JavaScript', hint: 'JavaScript logo', icon: <IconJavascript /> },
-  { name: 'Node.js', hint: 'Nodejs logo', icon: <IconNodejs /> },
-  { name: 'Python', hint: 'Python logo', icon: <IconPython /> },
-  { name: 'AWS', hint: 'AWS logo', icon: <IconAws /> },
-  { name: 'Google Cloud', hint: 'Google Cloud logo', icon: <IconGoogleCloud /> },
-  { name: 'Azure', hint: 'Azure logo', icon: <IconAzure /> },
-  { name: 'Firebase', hint: 'Firebase logo', icon: <IconFirebase /> },
-  { name: 'Docker', hint: 'Docker logo', icon: <IconDocker /> },
-  { name: 'Kubernetes', hint: 'Kubernetes logo', icon: <IconKubernetes /> },
-  { name: 'Git', hint: 'Git logo', icon: <IconGit /> },
-  { name: 'Figma', hint: 'Figma logo', icon: <IconFigma /> },
-  { name: 'Tailwind CSS', hint: 'Tailwind logo', icon: <IconTailwind /> },
+  { name: 'React', icon: <IconReact /> },
+  { name: 'Next.js', icon: <IconNextjs /> },
+  { name: 'TypeScript', icon: <IconTypescript /> },
+  { name: 'JavaScript', icon: <IconJavascript /> },
+  { name: 'Node.js', icon: <IconNodejs /> },
+  { name: 'Python', icon: <IconPython /> },
+  { name: 'AWS', icon: <IconAws /> },
+  { name: 'Google Cloud', icon: <IconGoogleCloud /> },
+  { name: 'Azure', icon: <IconAzure /> },
+  { name: 'Firebase', icon: <IconFirebase /> },
+  { name: 'Docker', icon: <IconDocker /> },
+  { name: 'Kubernetes', icon: <IconKubernetes /> },
+  { name: 'Git', icon: <IconGit /> },
+  { name: 'Figma', icon: <IconFigma /> },
+  { name: 'Tailwind CSS', icon: <IconTailwind /> },
 ];
 
 export function TechStackCarousel() {
@@ -40,17 +40,7 @@ export function TechStackCarousel() {
               className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
             >
               <div className="relative w-20 h-20 text-foreground/80 grayscale hover:grayscale-0 transition-all">
-                {tech.icon ? tech.icon : (
-                    <Image 
-                      src={'/placeholder.svg'}
-                      alt={tech.name}
-                      width={80}
-                      height={80}
-                      className="object-contain"
-                      data-ai-hint={tech.hint}
-                      unoptimized
-                    />
-                )}
+                {tech.icon}
               </div>
             </div>
           ))}
@@ -62,17 +52,7 @@ export function TechStackCarousel() {
               className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
             >
                <div className="relative w-20 h-20 text-foreground/80 grayscale hover:grayscale-0 transition-all">
-                 {tech.icon ? tech.icon : (
-                    <Image 
-                      src={'/placeholder.svg'}
-                      alt={tech.name}
-                      width={80}
-                      height={80}
-                      className="object-contain"
-                      data-ai-hint={tech.hint}
-                      unoptimized
-                    />
-                )}
+                 {tech.icon}
               </div>
             </div>
           ))}
