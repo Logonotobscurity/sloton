@@ -30,7 +30,7 @@ export default function AutomationPage() {
                 </Link>
             </Button>
           </div>
-          <Card className="bg-secondary/50">
+          <Card className="bg-secondary/50 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
             <CardHeader>
                 <div className="flex items-center gap-2 text-accent">
                     <Calculator className="h-6 w-6" />

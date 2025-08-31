@@ -119,7 +119,7 @@ export default function TrainingPage() {
             </div>
             <div className="grid lg:grid-cols-2 gap-8 items-start">
                 {trainingPrograms.map(program => (
-                    <Card key={program.title} className="bg-secondary/50 flex flex-col h-full">
+                    <Card key={program.title} className="bg-secondary/50 flex flex-col h-full transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
                         <CardHeader>
                             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
                                 {program.icon}

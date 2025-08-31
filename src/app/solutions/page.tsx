@@ -122,7 +122,7 @@ export default function SolutionsPage() {
 
         <div className="mt-20 grid lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
-             <Card key={index} className="bg-secondary/50 border-border/50 flex flex-col">
+             <Card key={index} className="bg-secondary/50 border-border/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
               <CardHeader>
                 <div className="flex items-center gap-4">
                   {service.icon}

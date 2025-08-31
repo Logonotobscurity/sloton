@@ -51,7 +51,7 @@ export default function InsightsPage() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {insights.map((insight) => (
-            <Card key={insight.title} className="bg-secondary/50 flex flex-col group overflow-hidden">
+            <Card key={insight.title} className="bg-secondary/50 flex flex-col group overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
               <CardHeader className="p-0">
                 <Image
                   src={insight.image}
