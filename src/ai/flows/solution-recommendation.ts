@@ -28,15 +28,24 @@ const SolutionRecommendationInputSchema = z.object({
 export type SolutionRecommendationInput = z.infer<typeof SolutionRecommendationInputSchema>;
 
 const SolutionRecommendationOutputSchema = z.object({
-  recommendedSolutions: z
-    .string()
-    .describe('A list of recommended IT solutions and automation strategies.'),
-  reasoning: z
-    .string()
-    .describe('Explanation of why the solutions are recommended based on the input.'),
-  implementationPlan: z.string().describe("A high-level overview of how LOG_ON would implement the proposed solutions."),
+  executiveSummary: z.string().describe("A concise, high-level summary of the proposed solution and its expected impact on the user's business."),
+  recommendedSolutions: z.array(z.object({
+    title: z.string().describe("The title of the recommended solution."),
+    description: z.string().describe("A brief description of the solution."),
+    impact: z.string().describe("The measurable impact this solution will have (e.g., 'Reduce support tickets by 30%')."),
+    timeline: z.string().describe("An estimated timeline for implementation (e.g., '4-6 Weeks').")
+  })).describe("A list of specific, actionable IT solutions and automation strategies."),
+  implementationPlan: z.object({
+    introduction: z.string().describe("A brief introduction to the implementation plan."),
+    phases: z.array(z.object({
+      phase: z.string().describe("The phase number or title (e.g., 'Phase 1: Discovery & Planning')."),
+      description: z.string().describe("A description of the activities in this phase."),
+      timeline: z.string().describe("The timeline for this phase.")
+    })).describe("The different phases of the implementation plan.")
+  }).describe("A high-level overview of how LOG_ON would implement the proposed solutions, presented in a clear, phased approach."),
 });
 export type SolutionRecommendationOutput = z.infer<typeof SolutionRecommendationOutputSchema>;
+
 
 export async function solutionRecommendation(input: SolutionRecommendationInput): Promise<SolutionRecommendationOutput> {
   // In a real application, you would save the lead (name, email, needs) to a CRM here.
@@ -56,10 +65,36 @@ The user, {{{name}}}, has provided the following information:
 - Industry: {{{industry}}}
 - Budget: {{{budget}}}
 
-Your task is to:
-1.  **Recommend Solutions:** Based on their needs, outline a clear set of recommended IT solutions and automation strategies.
-2.  **Provide Reasoning:** Briefly explain *why* these solutions are a good fit for their specific situation.
-3.  **Create an Implementation Plan:** This is the most crucial part. Describe, at a high level, how LOG_ON would build and implement this solution for them. Emphasize LOG_ON's expertise and the value of working with your team. Frame this as the beginning of a partnership.
+Your task is to generate a detailed and professional technology proposal that follows a strict structure.
+
+**Output Structure Requirements:**
+
+1.  **Executive Summary:**
+    *   Start with a section titled "Executive Summary".
+    *   Provide a brief, powerful overview of the proposed solution and its direct impact on the user's business.
+
+2.  **Recommended Solutions:**
+    *   Create a section titled "Recommended Solutions".
+    *   Provide a list of 2-4 distinct solutions.
+    *   For each solution, you MUST provide:
+        *   **title:** A clear, descriptive title.
+        *   **description:** A short paragraph explaining what the solution is.
+        *   **impact:** A specific, measurable business outcome (e.g., "Reduce manual data entry by 80%", "Increase lead conversion by 15%").
+        *   **timeline:** An estimated implementation timeline (e.g., "4-6 Weeks", "Q3 Project").
+
+3.  **Implementation Plan:**
+    *   Create a section titled "Our Implementation Plan".
+    *   Provide a brief introduction to the plan.
+    *   Outline a clear, multi-phase implementation plan (e.g., Phase 1, Phase 2).
+    *   For each phase, you MUST provide:
+        *   **phase:** The name of the phase (e.g., "Phase 1: Discovery & Technical Scoping").
+        *   **description:** Key activities and deliverables for that phase.
+        *   **timeline:** The duration of the phase (e.g., "1-2 Weeks").
+
+**Formatting Rules:**
+*   Use Markdown for formatting.
+*   Use bolding for all titles and headers.
+*   Present lists using bullet points for readability.
 
 The tone should be expert, confident, and helpful. The output should be formatted to be easily readable in a web interface. The goal is to make the user feel understood and eager to take the next step.
 `,

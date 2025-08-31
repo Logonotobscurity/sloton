@@ -12,12 +12,13 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Loader2, Sparkles, ArrowRight, ArrowLeft, Phone, Calendar } from 'lucide-react';
+import { Loader2, Sparkles, ArrowRight, ArrowLeft, Phone, Calendar, ClipboardCheck, Timer, Target } from 'lucide-react';
 import type { SolutionRecommendationOutput } from '@/ai/flows/solution-recommendation';
 import { useToast } from '@/hooks/use-toast';
 import { Progress } from '@/components/ui/progress';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
 import Link from 'next/link';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 const formSchema = z.object({
   businessNeeds: z.string().min(20, 'Please describe your business needs in at least 20 characters.'),
@@ -96,16 +97,66 @@ export function SolutionRecommendationForm() {
 
   if (result) {
     return (
-      <div className="p-1 space-y-6 max-h-[70vh] overflow-y-auto" aria-live="polite">
-        <div className="space-y-4 p-2">
-          <h3 className="text-xl font-semibold text-primary flex items-center gap-2"><Sparkles className="h-5 w-5" /> Your Recommended Roadmap</h3>
-          <p className="whitespace-pre-wrap text-sm text-foreground/90">{result.recommendedSolutions}</p>
+      <div className="p-1 space-y-8 max-h-[70vh] overflow-y-auto" aria-live="polite">
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-primary">Executive Summary</h3>
+          <p className="text-sm text-foreground/90">{result.executiveSummary}</p>
         </div>
-        <div className="space-y-4 p-2">
-          <h3 className="text-xl font-semibold text-accent">How LOG_ON Can Build It</h3>
-          <p className="whitespace-pre-wrap text-sm text-foreground/80">{result.implementationPlan}</p>
+
+        <div className="space-y-4">
+           <h3 className="text-xl font-bold text-primary">Recommended Solutions</h3>
+           <div className="space-y-4">
+            {result.recommendedSolutions.map((solution, index) => (
+              <Card key={index} className="bg-secondary/30">
+                <CardHeader>
+                  <CardTitle>{solution.title}</CardTitle>
+                  <CardDescription>{solution.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Target className="h-4 w-4 text-accent" />
+                    <div>
+                      <p className="font-semibold">Impact</p>
+                      <p className="text-muted-foreground">{solution.impact}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Timer className="h-4 w-4 text-accent" />
+                     <div>
+                      <p className="font-semibold">Timeline</p>
+                      <p className="text-muted-foreground">{solution.timeline}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+           </div>
         </div>
-         <Card className="bg-secondary/50 border-primary/50 border">
+        
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-primary">Our Implementation Plan</h3>
+           <p className="text-sm text-muted-foreground">{result.implementationPlan.introduction}</p>
+           <Table>
+                <TableHeader>
+                    <TableRow>
+                    <TableHead className="w-[150px]">Phase</TableHead>
+                    <TableHead>Description</TableHead>
+                    <TableHead className="text-right w-[120px]">Timeline</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {result.implementationPlan.phases.map((phase) => (
+                    <TableRow key={phase.phase}>
+                        <TableCell className="font-medium">{phase.phase}</TableCell>
+                        <TableCell>{phase.description}</TableCell>
+                        <TableCell className="text-right">{phase.timeline}</TableCell>
+                    </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </div>
+
+         <Card className="bg-secondary/50 border-primary/50 border sticky bottom-0">
             <CardHeader>
                 <CardTitle>Ready for the Next Step?</CardTitle>
                 <CardDescription>
