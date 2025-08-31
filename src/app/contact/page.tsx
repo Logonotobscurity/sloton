@@ -31,8 +31,8 @@ export default function ContactPage() {
                 <div>
                     <h3 className="text-xl font-semibold">Email</h3>
                     <p className="text-muted-foreground">Our inbox is always open.</p>
-                    <a href="mailto:logonthepage@gmail.com" className="text-primary hover:underline">
-                        logonthepage@gmail.com
+                    <a href="mailto:logo@logon.com.ng" className="text-primary hover:underline">
+                        logo@logon.com.ng
                     </a>
                 </div>
             </div>
