@@ -36,14 +36,15 @@ export function TechStackCarousel() {
               key={`top-${index}-${tech.name}`}
               className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
             >
-              <div className="text-foreground/80">
+              <div className="relative w-20 h-20 text-foreground/80">
                 <Image 
                   src={tech.src}
                   alt={tech.name}
                   width={80}
                   height={80}
-                  className="grayscale hover:grayscale-0 transition-all"
+                  className="grayscale hover:grayscale-0 transition-all object-contain"
                   data-ai-hint={tech.hint}
+                  unoptimized
                 />
               </div>
             </div>
@@ -55,14 +56,15 @@ export function TechStackCarousel() {
               key={`bottom-${index}-${tech.name}`}
               className="flex-shrink-0 w-36 h-36 flex items-center justify-center rounded-lg bg-background border border-border mx-4"
             >
-              <div className="text-foreground/80">
+              <div className="relative w-20 h-20 text-foreground/80">
                  <Image 
                   src={tech.src}
                   alt={tech.name}
                   width={80}
                   height={80}
-                  className="grayscale hover:grayscale-0 transition-all"
+                  className="grayscale hover:grayscale-0 transition-all object-contain"
                   data-ai-hint={tech.hint}
+                  unoptimized
                 />
               </div>
             </div>
