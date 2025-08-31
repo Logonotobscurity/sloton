@@ -72,7 +72,7 @@ const nextConfig: NextConfig = {
         hostname: 'sredevops.org',
       },
       {
-        protocol: 'https',
+        protocol: 'https...
         hostname: 'git-scm.com',
       },
       {
@@ -82,6 +82,82 @@ const nextConfig: NextConfig = {
        {
         protocol: 'https',
         hostname: 'deepforgeai.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn-uploads.huggingface.co',
+      },
+      {
+        protocol: 'httpshttps',
+        hostname: 'logowik.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'static.stocktitan.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'techgalaxy.business.blog',
+      },
+      {
+        protocol: 'https',
+        hostname: 'contauro.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'primarymarkets.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'clock-software.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'espysys.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'framerusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.prod.website-files.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ciberspring.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.tekpon.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'assets.bizclikmedia.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'futurumgroup.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'masteriyo.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'bucketwebebis.s3.eu-north-1.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'veloarchia.odoo.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'e-time.it',
+      },
+      {
+        protocol: 'https',
+        hostname: 'business.feefo.com',
       },
     ],
   },
