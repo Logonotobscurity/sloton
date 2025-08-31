@@ -23,16 +23,20 @@ const anton = Anton({
 });
 
 export const metadata: Metadata = {
-  title: 'LOG_ON connecting Advantages',
+  metadataBase: new URL('https://logonsolutions.netlify.app'),
+  title: {
+    default: 'LOG_ON | AI & Automation for Business Efficiency',
+    template: '%s | LOG_ON connecting Advantages',
+  },
   description: 'We power business efficiency with smart technology. Get a free AI assessment to discover automation and IT solutions tailored to your business needs.',
   openGraph: {
     title: 'LOG_ON connecting Advantages',
     description: 'We power business efficiency with smart technology.',
-    url: 'https://logon.com.ng',
+    url: 'https://logonsolutions.netlify.app',
     siteName: 'LOG_ON connecting Advantages',
     images: [
       {
-        url: 'https://picsum.photos/1200/630', // Replace with your actual OG image URL
+        url: '/og-image.png', 
         width: 1200,
         height: 630,
         alt: 'LOG_ON connecting Advantages',
@@ -45,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'LOG_ON connecting Advantages',
     description: 'We power business efficiency with smart technology.',
-    // images: ['https://logon.com.ng/og.png'], // Replace with your actual OG image URL
+    images: ['/og-image.png'], 
   },
   robots: {
     index: true,
@@ -73,7 +77,7 @@ export default function RootLayout({
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-M6Q7FJNL');`}
+          })(window,document,'script','dataLayer','GTM-K7VDS354');`}
         </Script>
       </head>
       <body
@@ -83,7 +87,7 @@ export default function RootLayout({
           anton.variable,
         )}
       >
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6Q7FJNL"
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7VDS354"
         height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe></noscript>
 
         <WebsiteLoader />
