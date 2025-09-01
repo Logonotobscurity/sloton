@@ -185,7 +185,7 @@ export function Header() {
             <div className="group relative">
                 <button className="flex items-center text-sm font-medium transition-colors hover:text-primary focus:outline-none relative">
                     Solutions <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
-                    {(pathname.startsWith('/solutions') || pathname.startsWith('/automation') || pathname.startsWith('/use-cases')) && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"></span>}
+                    {(pathname.startsWith('/solutions') || pathname.startsWith('/automation') || pathname.startsWith('/use-cases') || pathname.startsWith('/web-development') || pathname.startsWith('/ai-solutions') || pathname.startsWith('/chatbots') || pathname.startsWith('/business-analytics')) && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"></span>}
                 </button>
                 <div className="absolute top-full -left-1/2 -translate-x-1/4 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
                     <div className="bg-background rounded-lg shadow-2xl border w-[600px] p-6 grid grid-cols-2 gap-x-8 gap-y-6">
