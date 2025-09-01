@@ -21,34 +21,28 @@ const faqItems = [
   },
   {
     value: "item-2",
-    question: "How do you start a new project with a client?",
-    answer: "Our process begins with a free AI Business Assessment to understand your goals. From there, we move to a discovery and planning phase to create a detailed project roadmap and timeline. We believe in a collaborative partnership, so you'll be involved at every stage, ensuring the final solution perfectly fits your needs.",
+    question: "How do you start a new project?",
+    answer: "Our process begins with a free AI Business Assessment to understand your goals. From there, we move to a discovery and planning phase to create a detailed project roadmap and timeline. We believe in a collaborative partnership, so you'll be involved at every stage.",
     icon: <Zap className="h-5 w-5 text-primary" />
   },
   {
+      value: "item-5",
+      question: "You offer a wide range of services. What is your core specialty?",
+      answer: "We are strategic technology generalists. Our core specialty lies in understanding the entire digital ecosystem and how different technologies—from AI and automation to web development and data analytics—can be integrated to solve complex business problems. This allows us to create holistic solutions that specialists might miss.",
+      icon: <Code className="h-5 w-5 text-primary" />
+  },
+  {
     value: "item-3",
-    question: "What is your pricing model for development and consulting?",
-    answer: "Our pricing is tailored to the scope and complexity of each project. We offer project-based pricing for specific builds (like a new website or AI model) and monthly retainers for ongoing support and strategic guidance. We are transparent with all costs upfront. For a detailed quote, please <a href='/contact' class='text-primary underline'>contact us</a>.",
+    question: "What is your pricing model?",
+    answer: "Our pricing is tailored to the scope and complexity of each project. We offer project-based pricing for specific builds and monthly retainers for ongoing support and strategic guidance. We are transparent with all costs upfront. For a detailed quote, please <a href='/contact' class='text-primary underline'>contact us</a>.",
     icon: <CircleDollarSign className="h-5 w-5 text-primary" />
   },
   {
     value: "item-4",
     question: "How long does it take to implement a solution?",
-    answer: "Timelines vary depending on the project. A simple chatbot might be deployed in 2-4 weeks, while a complex custom web application could take several months. We provide a detailed timeline in our project proposal after the initial assessment.",
+    answer: "Timelines vary depending on the project. A simple chatbot might be deployed in 2-4 weeks, while a complex digital transformation project could take several months. We provide a detailed timeline in our project proposal after the initial assessment.",
     icon: <Calendar className="h-5 w-5 text-primary" />
   },
-  {
-    value: "item-5",
-    question: "What technologies do you use for web development?",
-    answer: "We specialize in building high-performance, scalable web applications using modern technologies. Our primary stack includes React, Next.js, and TypeScript for the frontend, with Node.js and Python for backend services. We leverage cloud platforms like AWS, Google Cloud, and Vercel for hosting. You can see a broader list on our <a href='/#tech-stack' class='text-primary underline'>homepage</a>.",
-    icon: <Code className="h-5 w-5 text-primary" />
-  },
-  {
-    value: "item-6",
-    question: "Who are the instructors for your training programs?",
-    answer: "Our courses are taught by our own senior developers and architects—the same experts who lead our client projects. This ensures you learn from professionals with extensive, real-world experience in AI, automation, and digital transformation. Learn more about our <a href='/training' class='text-primary underline'>training programs</a>.",
-    icon: <GraduationCap className="h-5 w-5 text-primary" />
-  }
 ];
 
 const faqSchema = {
