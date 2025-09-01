@@ -95,7 +95,6 @@ const localBusinessSchema = {
   "email": "logo@logon.com.ng",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "123 Innovation Drive, Yaba",
     "addressLocality": "Lagos",
     "addressCountry": "NG"
   },
@@ -107,7 +106,6 @@ const localBusinessSchema = {
   "description": "Logon Solutions provides AI-driven technology consulting and automation solutions to help businesses cut costs, automate processes, and scale faster.",
   "servesCuisine": "N/A",
   "priceRange": "$$$",
-  "hasMap": "https://www.google.com/maps/place/Yaba,+Lagos,+Nigeria",
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",

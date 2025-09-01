@@ -24,7 +24,7 @@ export function Footer() {
             </Link>
             <address className="text-sm text-muted-foreground not-italic">
               LOG_ON connecting Advantages<br />
-              [Virtual Office] 123 Innovation Drive, Yaba, Lagos, Nigeria<br />
+              [Virtual Office] Lagos, Nigeria<br />
               Serving clients worldwide
             </address>
             <p className="text-sm text-muted-foreground">
