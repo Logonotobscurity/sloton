@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb } from 'lucide-react';
+import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -11,17 +11,22 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { IconMedium, IconSubstack } from '@/lib/icons';
 import { ThemeToggle } from './theme-toggle';
 
 const mainNavItems = [
-  { href: '/training', label: 'Training' },
-  { href: '/about', label: 'About' },
-  { href: '/insights', label: 'Insights' },
+  { href: '/training', label: 'Training', icon: <GraduationCap className="h-5 w-5" /> },
+  { href: '/about', label: 'About', icon: <Info className="h-5 w-5" /> },
+  { href: '/insights', label: 'Insights', icon: <BookOpen className="h-5 w-5" /> },
 ];
 
 const solutionsNavItems = [
@@ -66,13 +71,6 @@ const useCasesNavItems = [
   },
 ]
 
-const socialLinks = [
-  { href: 'https://medium.com/@Logon_thepage', label: 'Medium', icon: <IconMedium className="w-6 h-6" /> },
-  { href: 'https://x.com/log_onthepage', label: 'X', icon: <LucideX className="w-6 h-6" /> },
-  { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <ArrowRight className="w-6 h-6" /> },
-  { href: 'https://substack.com/@logonthepage', label: 'Substack', icon: <IconSubstack className="w-6 h-6" /> },
-];
-
 const AnimatedHamburgerIcon = ({ open }: { open: boolean }) => (
     <div className="w-6 h-5 flex flex-col justify-between items-center" aria-hidden="true">
         <span className={cn(
@@ -103,6 +101,14 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  // Close sheet on pathname change
+  useEffect(() => {
+    if (isSheetOpen) {
+      setSheetOpen(false);
+    }
+  }, [pathname]);
+
 
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
     const isActive = pathname === href;
@@ -121,17 +127,18 @@ export function Header() {
     );
   };
   
-  const MobileNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  const MobileNavLink = ({ href, icon, children }: { href: string; icon: React.ReactNode; children: React.ReactNode }) => (
      <Link
         href={href}
         className={cn(
-            "text-xl font-medium transition-colors hover:text-primary",
+            "flex items-center gap-4 py-3 text-base font-medium transition-colors hover:text-primary",
             pathname === href ? "text-primary" : "text-foreground"
         )}
         onClick={() => setSheetOpen(false)}
         prefetch={false}
     >
-        {children}
+        {icon}
+        <span>{children}</span>
     </Link>
   )
 
@@ -148,7 +155,7 @@ export function Header() {
             isScrolled ? "max-w-6xl bg-background/80 backdrop-blur-lg shadow-lg border" : "max-w-4xl"
         )}
       >
-        <Link href="/" className="flex items-center" prefetch={false}>
+        <Link href="/" className="flex items-center" prefetch={false} onClick={() => setSheetOpen(false)}>
             <div className="flex flex-col items-start">
               <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
               <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
@@ -226,8 +233,7 @@ export function Header() {
 
           {/* Mobile Navigation Content */}
           <SheetContent side="right" className="w-full bg-background p-0 flex flex-col">
-             
-                <SheetHeader className="p-6 flex-row items-center justify-between border-b">
+                <SheetHeader className="p-4 flex-row items-center justify-between border-b">
                      <Link href="/" className="flex items-center" onClick={() => setSheetOpen(false)}>
                         <div className="flex flex-col items-start">
                           <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
@@ -239,32 +245,34 @@ export function Header() {
                         <LucideX className="h-6 w-6" />
                     </Button>
                 </SheetHeader>
-              <div className="flex flex-col h-full justify-between p-6">
-                <nav className="grid gap-6">
-                    <div className="space-y-4">
-                        <h4 className="font-semibold text-muted-foreground">Solutions</h4>
+              <div className="flex flex-col h-full justify-between p-4">
+                <nav className="flex-grow">
+                  <Accordion type="multiple" className="w-full">
+                    <AccordionItem value="solutions">
+                      <AccordionTrigger className="text-xl font-bold">Our Solutions</AccordionTrigger>
+                      <AccordionContent className="pl-4">
                         {[...solutionsNavItems, ...useCasesNavItems].map((item) => (
-                            <Link
-                                key={item.label}
-                                href={item.href}
-                                className="flex items-center gap-4 text-xl font-medium"
-                                onClick={() => setSheetOpen(false)}
-                            >
-                                {item.icon}
-                                <span>{item.label}</span>
-                            </Link>
+                            <MobileNavLink key={item.label} href={item.href} icon={item.icon}>
+                                {item.label}
+                            </MobileNavLink>
                         ))}
-                    </div>
-                    <div className="space-y-4">
-                        <h4 className="font-semibold text-muted-foreground">Company</h4>
-                        {mainNavItems.map((item) => <MobileNavLink key={item.href} href={item.href}>{item.label}</MobileNavLink>)}
-                    </div>
-
-                    <MobileNavLink href="/contact">Contact</MobileNavLink>
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="company">
+                      <AccordionTrigger className="text-xl font-bold">Company</AccordionTrigger>
+                      <AccordionContent className="pl-4">
+                         {mainNavItems.map((item) => <MobileNavLink key={item.href} href={item.href} icon={item.icon}>{item.label}</MobileNavLink>)}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                   <MobileNavLink href="/contact" icon={<Phone className="h-5 w-5" />}>Contact</MobileNavLink>
                 </nav>
                 <div className="border-t pt-6 space-y-4">
-                    <ThemeToggle />
-                    <Button asChild className="w-full">
+                    <div className="flex justify-between items-center">
+                        <p className="text-sm text-muted-foreground">Switch Theme</p>
+                        <ThemeToggle />
+                    </div>
+                    <Button asChild className="w-full" size="lg">
                         <Link href="/contact" onClick={() => setSheetOpen(false)}>Contact Us</Link>
                     </Button>
                 </div>
