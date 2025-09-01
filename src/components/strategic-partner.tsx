@@ -25,9 +25,10 @@ export function StrategicPartner() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
+            <p className="text-sm font-normal uppercase tracking-widest text-primary">01/ Your Strategic Partner</p>
             <h2 className="text-3xl md:text-4xl font-bold">Your Strategic Technology Partner</h2>
             <p className="text-muted-foreground md:text-lg">
-              We don&apos;t just build solutions; we build partnerships. Our approach is to work alongside you to understand your core business challenges and opportunities. Use our free, interactive tools to get instant, AI-powered insights and see how technology can drive your success. Start with our 3-step assessment to receive a personalized technology roadmap designed to help you scale efficiently and innovate faster.
+              We don't just build solutions; we build partnerships. Our approach is to work alongside you to understand your core business challenges and opportunities. Use our free, interactive tools to get instant, AI-powered insights and see how technology can drive your success. Start with our 3-step assessment to receive a personalized technology roadmap designed to help you scale efficiently and innovate faster. This initial consultation provides a clear, actionable plan, demonstrating the potential ROI of a strategic technology partnership with us.
             </p>
             <div className="space-y-4">
                 <div className="flex items-start gap-4">

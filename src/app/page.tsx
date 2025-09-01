@@ -1,3 +1,5 @@
+import { CaseStudiesCarousel } from '@/components/case-studies-carousel';
+import { Faq } from '@/components/faq';
 import { GeneralistApproach } from '@/components/generalist-approach';
 import { Hero } from '@/components/hero';
 import { PartnershipApproach } from '@/components/partnership-approach';
@@ -16,6 +18,7 @@ export default function Home() {
       <PartnershipApproach />
       <TrainingCTA />
       <Statement />
+      <Faq />
       <TechStackCarousel />
     </div>
   );

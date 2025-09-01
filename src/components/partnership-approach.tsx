@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { CaseStudiesCarousel } from "./case-studies-carousel";
 
 export function PartnershipApproach() {
   return (
@@ -15,7 +16,7 @@ export function PartnershipApproach() {
                    WE PARTNER WITH AMBITIOUS TEAMS - STARTUPS, AND NON-PROFITS WHO WANT TO PUSH THE BOUNDARIES OF WHAT'S POSSIBLE TODAY.
                 </h2>
                  <p className="text-muted-foreground text-lg">
-                    OUR IMPACT SPANS FROM WIDELY-USED OPEN SOURCE AI TOOLS TO ENTERPRISE SOLUTIONS. WE TRANSFORM CUSTOMER EXPERIENCES, UNLOCK DATA INTELLIGENCE, AND SOLVE COMPLEX BUSINESS CHALLENGES. We embed ourselves with your team to understand your vision, challenges, and opportunities, ensuring the solutions we build are perfectly aligned with your goals.
+                    OUR IMPACT SPANS FROM WIDELY-USED OPEN SOURCE AI TOOLS TO ENTERPRISE SOLUTIONS. WE TRANSFORM CUSTOMER EXPERIENCES, UNLOCK DATA INTELLIGENCE, AND SOLVE COMPLEX BUSINESS CHALLENGES. We embed ourselves with your team to understand your vision, challenges, and opportunities, ensuring the solutions we build are perfectly aligned with your goals. Our success is measured by your success, and we're committed to delivering tangible results that fuel growth and innovation. Explore our case studies to see how we've helped businesses like yours thrive.
                 </p>
                  <Button asChild>
                     <Link href="/contact">
@@ -24,16 +25,7 @@ export function PartnershipApproach() {
                 </Button>
             </div>
              <div className="space-y-8">
-                 <div className="bg-secondary/50 rounded-lg aspect-square">
-                    <Image 
-                        src="https://picsum.photos/600/600" 
-                        alt="A diverse team of professionals collaborating around a table with laptops and documents, discussing a technology project in a modern office." 
-                        width={600} 
-                        height={600}
-                        className="rounded-lg object-cover w-full h-full"
-                        data-ai-hint="team collaboration"
-                    />
-                 </div>
+                 <CaseStudiesCarousel />
             </div>
         </div>
       </div>
