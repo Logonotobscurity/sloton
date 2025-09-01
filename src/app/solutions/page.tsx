@@ -133,47 +133,51 @@ export default function SolutionsPage() {
         </div>
 
         <div className="mt-20 grid lg:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-             <Card key={index} className="bg-secondary/50 border-border/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  {service.icon}
-                  <CardTitle className="text-2xl">{service.title}</CardTitle>
-                </div>
-                <p className="pt-4 text-muted-foreground">{service.description}</p>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <div className="space-y-4">
-                    {Array.isArray(service.features) && typeof service.features[0] === 'string' ? (
-                        <ul className="space-y-3">
-                            {(service.features as string[]).map((feature) => (
-                                <li key={feature} className="flex items-start gap-3">
-                                    <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                                    <span className="text-muted-foreground">{feature}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <div className="space-y-6">
-                            {(service.features as { title: string; description: string }[]).map((feature) => (
-                                <div key={feature.title}>
-                                    <h4 className="font-semibold text-primary">{feature.title}</h4>
-                                    <p className="text-muted-foreground mt-1 text-sm">{feature.description}</p>
-                                </div>
-                            ))}
-                        </div>
-                    )}
-                </div>
-              </CardContent>
-              <CardFooter>
-                 <Button asChild>
-                  <Link href={service.href}>
-                    {service.title.includes('Development') ? 'Get a Free Consultation' : 'Learn More'}
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+          {services.map((service, index) => {
+            const isStringArray = Array.isArray(service.features) && typeof service.features[0] === 'string';
+            
+            return (
+              <Card key={index} className="bg-secondary/50 border-border/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
+                <CardHeader>
+                  <div className="flex items-center gap-4">
+                    {service.icon}
+                    <CardTitle className="text-2xl">{service.title}</CardTitle>
+                  </div>
+                  <p className="pt-4 text-muted-foreground">{service.description}</p>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <div className="space-y-4">
+                      {isStringArray ? (
+                          <ul className="space-y-3">
+                              {(service.features as string[]).map((feature) => (
+                                  <li key={feature} className="flex items-start gap-3">
+                                      <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                                      <span className="text-muted-foreground">{feature}</span>
+                                  </li>
+                              ))}
+                          </ul>
+                      ) : (
+                          <div className="space-y-6">
+                              {(service.features as { title: string; description: string }[]).map((feature) => (
+                                  <div key={feature.title}>
+                                      <h4 className="font-semibold text-primary">{feature.title}</h4>
+                                      <p className="text-muted-foreground mt-1 text-sm">{feature.description}</p>
+                                  </div>
+                              ))}
+                          </div>
+                      )}
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild>
+                    <Link href={service.href}>
+                      {service.title.includes('Development') ? 'Get a Free Consultation' : 'Learn More'}
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            )
+          })}
         </div>
       </div>
     </div>
