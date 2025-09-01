@@ -10,9 +10,12 @@ import { getAutomatedTaskDesign } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
-import { Loader2, Sparkles } from 'lucide-react';
+import { Loader2, Sparkles, Workflow, CheckCircle, Lightbulb, BarChart, ExternalLink } from 'lucide-react';
 import type { AutomateTaskDesignOutput } from '@/ai/flows/automated-task-design';
 import { useToast } from '@/hooks/use-toast';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Badge } from './ui/badge';
 
 const formSchema = z.object({
   workflowDescription: z.string().min(20, 'Please describe your workflow in at least 20 characters.'),
@@ -40,7 +43,7 @@ export function TaskAutomationForm() {
       if (res.error) {
          toast({
           variant: 'destructive',
-          title: 'Error',
+          title: 'Error Generating Design',
           description: res.error,
         });
       } else {
@@ -59,21 +62,73 @@ export function TaskAutomationForm() {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center space-y-4 p-8 min-h-[300px]" aria-live="polite">
-        <Loader2 className="h-12 w-12 animate-spin text-primary" />
-        <p className="text-muted-foreground">Designing your automated task flow...</p>
+      <div className="flex flex-col items-center justify-center space-y-4 p-8 min-h-[400px]" aria-live="polite">
+        <div className="loader"></div>
+        <p className="text-muted-foreground mt-4">Designing your automated task flow...</p>
       </div>
     );
   }
 
   if (result) {
     return (
-      <div className="p-4 space-y-6 max-h-[70vh] overflow-y-auto" aria-live="polite">
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-primary flex items-center gap-2"><Sparkles className="h-5 w-5" /> Automated Task Design</h3>
-          <p className="whitespace-pre-wrap text-sm text-foreground/90 bg-secondary p-4 rounded-md">{result.taskDesign}</p>
-        </div>
-        <Button onClick={() => { setResult(null); form.reset(); }} variant="outline">
+      <div className="space-y-6 max-h-[70vh] overflow-y-auto" aria-live="polite">
+        <Card className="bg-background/50">
+            <CardHeader>
+                <CardTitle className="text-xl">{result.taskName}</CardTitle>
+                <CardDescription>{result.objective}</CardDescription>
+            </CardHeader>
+             <CardContent className="space-y-6">
+                <div>
+                  <h4 className="font-semibold text-primary flex items-center gap-2"><Workflow className="h-5 w-5" /> Workflow Steps</h4>
+                  <p className="text-sm text-muted-foreground mb-4">Triggered by: <span className="font-medium text-foreground">{result.trigger}</span></p>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-[60px]">Step</TableHead>
+                        <TableHead>Action</TableHead>
+                        <TableHead>Details</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {result.steps.map(step => (
+                        <TableRow key={step.stepNumber}>
+                          <TableCell className="font-bold">{step.stepNumber}</TableCell>
+                          <TableCell>{step.action}</TableCell>
+                          <TableCell>{step.details}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+
+                <div>
+                   <h4 className="font-semibold text-primary flex items-center gap-2"><ExternalLink className="h-5 w-5" /> Required Integrations</h4>
+                   <div className="flex flex-wrap gap-2 mt-2">
+                    {result.integrations.map(integration => (
+                        <Badge key={integration} variant="secondary">{integration}</Badge>
+                    ))}
+                   </div>
+                </div>
+
+                <div>
+                   <h4 className="font-semibold text-primary flex items-center gap-2"><Lightbulb className="h-5 w-5" /> AI Optimizations</h4>
+                   <ul className="space-y-2 mt-2 list-inside">
+                        {result.optimizations.map(opt => (
+                            <li key={opt} className="flex items-start gap-2 text-muted-foreground">
+                                <CheckCircle className="h-4 w-4 text-accent mt-1 flex-shrink-0" />
+                                <span>{opt}</span>
+                            </li>
+                        ))}
+                   </ul>
+                </div>
+
+                <div>
+                   <h4 className="font-semibold text-primary flex items-center gap-2"><BarChart className="h-5 w-5" /> Estimated Impact</h4>
+                   <p className="text-muted-foreground">{result.estimatedImpact}</p>
+                </div>
+            </CardContent>
+        </Card>
+        <Button onClick={() => { setResult(null); form.reset(); }} variant="outline" className="w-full">
           Design Another Task
         </Button>
       </div>

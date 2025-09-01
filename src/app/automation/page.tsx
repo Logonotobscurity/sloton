@@ -34,8 +34,8 @@ export default function AutomationPage() {
   return (
     <div className="bg-background">
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-4">
+        <div className="grid lg:grid-cols-5 gap-12 items-center">
+          <div className="lg:col-span-2 space-y-4">
             <h1 className="text-3xl md:text-5xl font-bold">Intelligent Automation</h1>
             <p className="text-md md:text-lg text-muted-foreground">
               Design, configure, and deploy automated IT tasks with unparalleled ease and intelligence. Our platform allows you to visually map out workflows while our AI provides real-time optimization suggestions to enhance efficiency, reduce costs, and minimize errors.
@@ -49,20 +49,22 @@ export default function AutomationPage() {
                 </Link>
             </Button>
           </div>
-          <Card className="bg-secondary/50 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl mt-8 lg:mt-0">
-            <CardHeader>
-                <div className="flex items-center gap-2 text-accent">
-                    <Calculator className="h-6 w-6" />
-                    <CardTitle className="text-2xl">Automation Task Designer</CardTitle>
-                </div>
-                <CardDescription>
-                    Describe your workflow below to generate a configured, optimized task design.
-                </CardDescription>
-            </CardHeader>
-            <CardContent>
-                <TaskAutomationForm />
-            </CardContent>
-          </Card>
+          <div className="lg:col-span-3 mt-8 lg:mt-0">
+            <Card className="bg-secondary/50 transition-shadow duration-300 ease-in-out hover:shadow-2xl">
+              <CardHeader>
+                  <div className="flex items-center gap-3 text-accent">
+                      <Calculator className="h-6 w-6" />
+                      <CardTitle className="text-2xl">Automation Task Designer</CardTitle>
+                  </div>
+                  <CardDescription>
+                      Describe your workflow below to generate a configured, optimized task design.
+                  </CardDescription>
+              </CardHeader>
+              <CardContent>
+                  <TaskAutomationForm />
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         <div className="mt-16 md:mt-24 text-center">
