@@ -38,7 +38,7 @@ const services = [
   {
     icon: <Code className="h-8 w-8 text-primary" />,
     title: 'Web & Custom Development',
-    description: "At LOG_ON Solutions, we specialize in crafting custom web development projects tailored to your business needs whether you’re a publisher, retailer, corporate entity, or running an online community. Drawing on our deep experience in IT solutions and AI automation, we build scalable, secure, and optimized digital platforms designed to help you grow.",
+    description: "At LOG_ON Solutions, we specialize in crafting custom web development projects tailored to your business needs whether you’re a publisher, retailer, a corporate entity, or running an online community. Drawing on our deep experience in IT solutions and AI automation, we build scalable, secure, and optimized digital platforms designed to help you grow.",
     features: [
         {
             title: "Websites for Publishers",
@@ -179,3 +179,5 @@ export default function SolutionsPage() {
     </div>
   );
 }
+
+    
