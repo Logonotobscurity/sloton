@@ -3,13 +3,31 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { TaskAutomationForm } from '@/components/task-automation-form';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Calculator } from 'lucide-react';
+import { Calculator, CheckCircle, Zap, TrendingUp, ShieldCheck } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Intelligent Automation | LOG_ON connecting Advantages',
   description: 'Design, configure, and deploy automated IT tasks with our intelligent automation platform. Visually map workflows and get AI-powered optimization suggestions.',
 };
+
+const automationBenefits = [
+    {
+        icon: <Zap className="h-6 w-6 text-primary" />,
+        title: "Increased Efficiency",
+        description: "Automate repetitive tasks to free up your team for more strategic work, accelerating productivity across your organization."
+    },
+    {
+        icon: <TrendingUp className="h-6 w-6 text-primary" />,
+        title: "Cost Reduction",
+        description: "Lower operational costs by minimizing manual intervention, reducing human error, and optimizing resource allocation."
+    },
+    {
+        icon: <ShieldCheck className="h-6 w-6 text-primary" />,
+        title: "Enhanced Accuracy",
+        description: "Improve data accuracy and compliance by creating standardized, automated processes that eliminate manual mistakes."
+    }
+]
 
 export default function AutomationPage() {
   return (
@@ -22,7 +40,7 @@ export default function AutomationPage() {
               Design, configure, and deploy automated IT tasks with unparalleled ease and intelligence. Our platform allows you to visually map out workflows while our AI provides real-time optimization suggestions to enhance efficiency, reduce costs, and minimize errors.
             </p>
              <p className="text-lg text-muted-foreground">
-              From simple notifications to complex, multi-system integrations, turn your operational concepts into reality. Use our designer tool to see how it works.
+              From simple notifications to complex, multi-system integrations, turn your operational concepts into reality. Use our designer tool to see how it works or contact us to discuss how we can tailor a solution for your specific needs.
             </p>
             <Button asChild>
                 <Link href="/contact">
@@ -44,6 +62,26 @@ export default function AutomationPage() {
                 <TaskAutomationForm />
             </CardContent>
           </Card>
+        </div>
+
+        <div className="mt-24 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold">Why Choose Intelligent Automation?</h2>
+            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                Implementing automation is more than just a technical upgrade; it's a strategic business decision that unlocks new levels of performance and scalability.
+            </p>
+            <div className="mt-12 grid md:grid-cols-3 gap-8 text-left">
+                {automationBenefits.map((benefit) => (
+                    <Card key={benefit.title} className="bg-secondary/30">
+                        <CardHeader className="flex flex-row items-center gap-4">
+                            {benefit.icon}
+                            <CardTitle>{benefit.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground">{benefit.description}</p>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Users, CheckCircle } from 'lucide-react';
+import { Briefcase, Users, CheckCircle, Lightbulb, Zap, Handshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
 
@@ -30,6 +30,29 @@ const teamMembers = [
   },
 ];
 
+const philosophies = [
+  {
+    icon: <Lightbulb className="h-8 w-8 text-primary" />,
+    title: 'Innovation-Driven',
+    description: 'We are committed to staying at the forefront of technology, constantly exploring new tools and methodologies to deliver cutting-edge solutions that provide a competitive edge.'
+  },
+  {
+    icon: <Users className="h-8 w-8 text-primary" />,
+    title: 'Client-Centric',
+    description: 'Your success is our success. We take the time to understand your unique challenges and goals, building relationships based on trust, transparency, and mutual respect.'
+  },
+  {
+    icon: <Handshake className="h-8 w-8 text-primary" />,
+    title: 'Strategic Partnerships',
+    description: 'We believe in collaboration and work as an extension of your team. Our goal is to build long-term partnerships that foster growth and continuous improvement.'
+  },
+   {
+    icon: <Zap className="h-8 w-8 text-primary" />,
+    title: 'Results-Oriented',
+    description: 'Our solutions are designed to deliver measurable results. We focus on creating tangible business value, whether it\'s increasing efficiency, reducing costs, or driving revenue.'
+  }
+]
+
 export default function AboutPage() {
   return (
     <div className="bg-background">
@@ -38,8 +61,24 @@ export default function AboutPage() {
         <section className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold">About LOG_ON</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            We are a team of technologists, strategists, and innovators passionate about using technology to solve real-world business problems. Our mission is to empower organizations with intelligent automation and scalable IT solutions that drive growth and create lasting value.
+            We are a team of technologists, strategists, and innovators passionate about using technology to solve real-world business problems. Our mission is to empower organizations with intelligent automation and scalable IT solutions that drive growth and create lasting value. We believe that the right technology, implemented correctly, can unlock unprecedented efficiency and create significant competitive advantages.
           </p>
+        </section>
+        
+        <section>
+          <div className="text-center mb-12">
+             <h2 className="text-3xl md:text-4xl font-bold">Our Philosophy</h2>
+             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Our core values guide every decision we make and every solution we build.</p>
+          </div>
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {philosophies.map((item) => (
+              <div key={item.title} className="text-center p-4">
+                <div className="flex justify-center mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold">{item.title}</h3>
+                <p className="text-muted-foreground mt-2 text-sm">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section>

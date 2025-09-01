@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -38,6 +38,15 @@ const insights = [
   }
 ];
 
+const topics = [
+    "Artificial Intelligence and Machine Learning",
+    "Business Process Automation (BPA)",
+    "Digital Transformation Strategies",
+    "Cloud Computing and DevOps",
+    "Web and Mobile Development Trends",
+    "Cybersecurity Best Practices"
+]
+
 export default function InsightsPage() {
   return (
     <div className="bg-background">
@@ -45,8 +54,20 @@ export default function InsightsPage() {
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold">Insights & Articles</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Stay ahead of the curve with our expert analysis on the latest trends in technology, automation, and AI.
+            Welcome to our hub for expert analysis and thought leadership. Here, we delve into the technologies and strategies that are shaping the future of business. Stay ahead of the curve with our in-depth articles on everything from artificial intelligence to digital transformation.
           </p>
+        </div>
+        
+        <div className="my-24 max-w-4xl mx-auto">
+             <h2 className="text-3xl font-bold text-center mb-8">Topics We Cover</h2>
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+                {topics.map(topic => (
+                    <div key={topic} className="flex items-center gap-3">
+                        <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-muted-foreground">{topic}</span>
+                    </div>
+                ))}
+             </div>
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
