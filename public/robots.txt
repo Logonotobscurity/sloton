@@ -1,6 +1,8 @@
-# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
-#
-# To ban all spiders from the entire site uncomment the following two lines:
-# User-agent: *
-# Disallow: /
+User-agent: *
+Allow: /
+
+# Sitemap location
 Sitemap: https://logonsolutions.netlify.app/sitemap.xml
+
+# Block non-essential pages
+Disallow: /.netlify/

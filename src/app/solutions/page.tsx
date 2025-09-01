@@ -14,98 +14,98 @@ const services = [
   {
     icon: <BrainCircuit className="h-8 w-8 text-primary" />,
     title: 'AI Solutions',
-    description: 'Custom AI solutions to automate tasks, analyze data, and make intelligent decisions for your business.',
+    description: 'We design and implement custom AI solutions that unlock data-driven insights, automate complex processes, and create intelligent systems. Our team leverages machine learning, natural language processing, and computer vision to build tools that solve real-world business problems, from predictive analytics to intelligent document processing. By integrating AI into your operations, we help you reduce costs, enhance decision-making, and create a significant competitive advantage.',
     features: [
-      'Machine Learning Models',
-      'Natural Language Processing',
-      'Computer Vision',
-      'Predictive Analytics',
+      'Custom Machine Learning Models',
+      'Natural Language Processing (NLP)',
+      'Computer Vision & Image Analysis',
+      'Predictive Analytics & Forecasting',
     ],
-    href: '#'
+    href: '/use-cases#it-consulting'
   },
   {
     icon: <Zap className="h-8 w-8 text-primary" />,
     title: 'Process Automation',
-    description: 'Streamline your business operations with intelligent automation solutions that save time and reduce errors.',
+    description: 'Streamline your business operations by automating repetitive, manual tasks. We use Robotic Process Automation (RPA) and workflow design to build intelligent systems that handle everything from data entry and report generation to customer onboarding. Our solutions reduce human error, increase operational speed, and free up your team to focus on high-value, strategic work, ultimately driving efficiency and lowering costs.',
     features: [
-      'Workflow Automation',
-      'Document Processing',
-      'Task Automation',
-      'Integration Services',
+      'Robotic Process Automation (RPA)',
+      'Automated Document Processing (OCR)',
+      'Custom Workflow Design & Integration',
+      'API-based System Integration',
     ],
-    href: '#'
+    href: '/automation'
   },
   {
     icon: <Code className="h-8 w-8 text-primary" />,
     title: 'Web Development',
-    description: 'Modern, responsive web applications built with the latest technologies to enhance your online presence.',
+    description: 'We build modern, responsive, and high-performance web applications tailored to your specific business needs. Using the latest technologies like React and Next.js, we create everything from dynamic e-commerce platforms and customer portals to complex enterprise-grade systems. Our focus is on delivering secure, scalable, and user-friendly web solutions that enhance your digital presence and provide an exceptional user experience.',
     features: [
       'Custom Web Applications',
-      'E-commerce Solutions',
-      'Progressive Web Apps',
-      'API Development',
+      'E-commerce & Marketplace Solutions',
+      'Progressive Web Apps (PWAs)',
+      'API Development & Integration',
     ],
-    href: '#'
+    href: '/use-cases#e-commerce'
   },
   {
     icon: <MessageSquare className="h-8 w-8 text-primary" />,
     title: 'Chatbots & Virtual Assistants',
-    description: 'Intelligent conversational agents that provide 24/7 customer service and automate customer interactions.',
+    description: 'Engage your customers 24/7 with intelligent, AI-powered chatbots and virtual assistants. We design and deploy conversational agents that can handle customer service inquiries, generate leads, and automate sales interactions across platforms like your website and WhatsApp. These bots provide instant, accurate responses, improving customer satisfaction while reducing the workload on your support teams.',
     features: [
-      'Custom Chatbots',
-      'WhatsApp Integration',
-      'Customer Service Automation',
-      'Lead Generation Bots',
+      'AI-Powered Conversational Agents',
+      'WhatsApp & Website Integration',
+      '24/7 Customer Service Automation',
+      'Automated Lead Generation & Qualification',
     ],
     href: '#'
   },
   {
     icon: <BarChart3 className="h-8 w-8 text-primary" />,
     title: 'Business Analytics',
-    description: 'Transform your data into actionable insights with our advanced analytics and visualization solutions.',
+    description: 'Transform your raw data into a strategic asset. We create powerful business intelligence (BI) and analytics solutions that provide actionable insights into your operations, customers, and market trends. From custom dashboards and data visualizations to in-depth performance metric tracking, we empower you to make informed, data-driven decisions that fuel growth and optimize performance across your organization.',
     features: [
-      'Data Analysis',
-      'Business Intelligence',
-      'Performance Metrics',
-      'Custom Dashboards',
+      'Interactive Data Dashboards',
+      'Business Intelligence (BI) Reporting',
+      'Key Performance Indicator (KPI) Tracking',
+      'Data-driven Strategic Insights',
     ],
     href: '#'
   },
   {
     icon: <Database className="h-8 w-8 text-primary" />,
     title: 'Database Solutions',
-    description: 'Robust database solutions for efficient data management and seamless business operations.',
+    description: 'Ensure your data is secure, organized, and optimized for performance with our robust database solutions. We specialize in database design, migration, and management for applications of all sizes. Our team works with both SQL and NoSQL databases to build scalable and efficient systems that form the backbone of your business operations, ensuring data integrity and fast, reliable access.',
     features: [
-      'Database Design',
-      'Data Migration',
-      'Performance Optimization',
-      'Data Security',
+      'Database Architecture & Design',
+      'Cloud Data Migration & Integration',
+      'Performance Tuning & Optimization',
+      'Data Security & Compliance',
     ],
     href: '#'
   },
   {
     icon: <Smartphone className="h-8 w-8 text-primary" />,
     title: 'Mobile Solutions',
-    description: 'Native and cross-platform mobile applications that provide seamless user experiences.',
+    description: 'Reach your customers on the go with custom native and cross-platform mobile applications. We develop intuitive, high-performance apps for both iOS and Android that deliver a seamless user experience. Whether you need a customer-facing app or an internal enterprise tool, we build mobile solutions that are engaging, reliable, and perfectly aligned with your business objectives.',
     features: [
-      'iOS Development',
-      'Android Development',
-      'Cross-platform Apps',
+      'iOS & Android App Development',
+      'Cross-platform Solutions (React Native)',
       'Mobile UI/UX Design',
+      'App Store Deployment & Maintenance',
     ],
     href: '#'
   },
   {
     icon: <GitBranch className="h-8 w-8 text-primary" />,
     title: 'Digital Transformation',
-    description: 'End-to-end digital transformation services to modernize your business processes and technology stack.',
+    description: 'Navigate the complexities of modernization with our end-to-end digital transformation services. We partner with you to assess your current technology stack, identify opportunities for improvement, and develop a strategic roadmap for change. From process digitization and cloud adoption to change management support, we guide you through every step of your journey to becoming a more agile, efficient, and technology-driven organization.',
     features: [
-      'Technology Assessment',
-      'Digital Strategy',
-      'Process Digitization',
-      'Change Management',
+      'Comprehensive Technology Assessment',
+      'Digital Modernization Strategy',
+      'Legacy System & Process Digitization',
+      'Change Management & Implementation Support',
     ],
-    href: '#'
+    href: '/about'
   },
 ];
 
@@ -116,7 +116,7 @@ export default function SolutionsPage() {
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold">Our Solutions</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            We provide a suite of scalable services designed to grow with your business and tackle your most significant challenges head-on.
+            We provide a comprehensive suite of scalable services designed to grow with your business, tackle your most significant challenges head-on, and drive measurable results.
           </p>
         </div>
 

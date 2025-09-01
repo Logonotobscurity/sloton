@@ -1,2 +1,24 @@
-User-agent: *
-Disallow: /
+# llms.txt for LOG_ON Solutions
+# Website: https://logonsolutions.netlify.app/
+# Last updated: 2025-08-31
+
+## About LOG_ON Solutions
+LOG_ON Solutions is a strategic technology partner specializing in AI automation, custom development, and digital transformation for startups, enterprises, and non-profits.
+
+## Core Services
+- AI & Automation Solutions: Machine learning models, RPA, chatbots, predictive analytics
+- Custom Development: Web applications, e-commerce platforms, API development, database solutions  
+- Digital Transformation: Technology assessment, cloud migration, process digitization, cybersecurity
+
+## Business Focus
+- Target clients: Ambitious startups, enterprises, non-profit organizations
+- Approach: Generalist methodology with cross-boundary thinking
+- Specialization: AI-first solutions, modern tech stack, scalable architecture
+
+## Contact Information
+- Website: https://logonsolutions.netlify.app/
+- Services: Technology consulting, custom development, training programs
+- Approach: Partnership-focused, results-driven solutions
+
+## Key Technologies
+Modern tech stack including AI/ML frameworks, cloud platforms, automation tools, and enterprise-grade development solutions.
