@@ -9,7 +9,7 @@ export function PartnershipApproach() {
   return (
     <section className="min-h-screen w-full py-16 md:py-24 flex items-center bg-background">
       <div className="container mx-auto px-4 md:px-6">
-         <div className="grid lg:grid-cols-2 gap-16 items-center">
+         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="space-y-6">
                  <p className="text-sm font-normal uppercase tracking-widest text-primary">03/ Partnership Approach</p>
                 <h2 className="font-headline text-[clamp(1.5rem,4vw,2.25rem)] !leading-snug">
