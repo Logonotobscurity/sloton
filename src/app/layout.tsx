@@ -64,6 +64,84 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LOG_ON connecting Advantages",
+  "url": "https://logonsolutions.netlify.app",
+  "logo": "https://logonsolutions.netlify.app/og-image.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+234-814-306-6320",
+    "contactType": "customer service",
+    "email": "logo@logon.com.ng"
+  },
+  "sameAs": [
+    "https://medium.com/@Logon_thepage",
+    "https://x.com/log_onthepage",
+    "https://www.instagram.com/logon_thepage/",
+    "https://substack.com/@logonthepage"
+  ]
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "LOG_ON connecting Advantages",
+  "image": "https://logonsolutions.netlify.app/og-image.png",
+  "@id": "https://logonsolutions.netlify.app",
+  "url": "https://logonsolutions.netlify.app",
+  "telephone": "+234 814 306 6320",
+  "email": "logo@logon.com.ng",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Innovation Drive, Yaba",
+    "addressLocality": "Lagos",
+    "addressCountry": "NG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 6.5093,
+    "longitude": 3.3717
+  },
+  "description": "Logon Solutions provides AI-driven technology consulting and automation solutions to help businesses cut costs, automate processes, and scale faster.",
+  "servesCuisine": "N/A",
+  "priceRange": "$$$",
+  "hasMap": "https://www.google.com/maps/place/Yaba,+Lagos,+Nigeria",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "9.0820",
+      "longitude": "8.6753"
+    },
+    "geoRadius": "1000000"
+  },
+  "department": [
+    {
+      "@type": "GovernmentOffice",
+      "name": "Technology Consulting",
+      "url": "https://logonsolutions.netlify.app/solutions",
+      "telephone": "+234 814 306 6320",
+      "email": "logo@logon.com.ng"
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -79,6 +157,14 @@ export default function RootLayout({
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-K7VDS354');`}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
       </head>
       <body
         className={cn(

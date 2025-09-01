@@ -1,4 +1,6 @@
 
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -7,6 +9,8 @@ import {
 } from "@/components/ui/accordion";
 import { BrainCircuit, Zap, CircleDollarSign, Calendar } from "lucide-react";
 import Link from "next/link";
+import Script from "next/script";
+import React from 'react';
 
 const faqItems = [
   {
@@ -35,9 +39,27 @@ const faqItems = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer.replace(/<[^>]*>/g, '') // strip HTML for schema
+    }
+  }))
+};
+
 export function Faq() {
   return (
     <section id="faq" className="py-24 sm:py-32 bg-secondary/20">
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold">Frequently Asked Questions</h2>

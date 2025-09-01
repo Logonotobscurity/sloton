@@ -22,6 +22,11 @@ export function Footer() {
                   <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
                 </div>
             </Link>
+            <address className="text-sm text-muted-foreground not-italic">
+              LOG_ON connecting Advantages<br />
+              [Virtual Office] 123 Innovation Drive, Yaba, Lagos, Nigeria<br />
+              Serving clients worldwide
+            </address>
             <p className="text-sm text-muted-foreground">
               Powering business efficiency with smart technology solutions.
             </p>
