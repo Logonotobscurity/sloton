@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone } from 'lucide-react';
+import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -47,6 +47,12 @@ const solutionsNavItems = [
     label: 'Automation',
     description: 'Streamline your operations and boost efficiency.',
     icon: <Zap className="h-5 w-5 text-primary" />
+  },
+   { 
+    href: '/web-development', 
+    label: 'Web Development',
+    description: 'Custom websites, e-commerce, and platforms.',
+    icon: <Code className="h-5 w-5 text-primary" />
   },
 ];
 
@@ -107,7 +113,7 @@ export function Header() {
     if (isSheetOpen) {
       setSheetOpen(false);
     }
-  }, [pathname]);
+  }, [pathname, isSheetOpen]);
 
 
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {

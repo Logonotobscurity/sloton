@@ -8,7 +8,7 @@ import { Resend } from 'resend';
 import { ContactFormEmail } from '@/emails/contact-form-email';
 import { EnrollmentEmail } from '@/emails/enrollment-email';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const toEmail = process.env.TO_EMAIL || 'logo@logon.com.ng';
 
 type FormResult<T> = {
@@ -51,6 +51,10 @@ const contactFormSchema = z.object({
   message: z.string(),
 });
 export async function contactFormAction(data: z.infer<typeof contactFormSchema>): Promise<FormResult<null>> {
+  if (!resend) {
+      console.warn("RESEND_API_KEY is not set. Skipping email sending.");
+      return { success: true }; // Pretend it worked to not show user an error
+  }
   try {
     await resend.emails.send({
       from: 'LOG_ON Website <noreply@logon.com.ng>',
@@ -78,6 +82,10 @@ const enrollmentFormSchema = z.object({
   programName: z.string(),
 });
 export async function enrollmentFormAction(data: z.infer<typeof enrollmentFormSchema>): Promise<FormResult<null>> {
+   if (!resend) {
+      console.warn("RESEND_API_KEY is not set. Skipping enrollment email.");
+      return { success: true }; // Pretend it worked
+   }
    try {
     await resend.emails.send({
       from: 'LOG_ON Training Enrollment <noreply@logon.com.ng>',

@@ -42,22 +42,22 @@ const services = [
     features: [
         {
             title: "Websites for Publishers",
-            description: "We partner with online magazines and blogs to deliver robust publishing platforms built for reliability and performance. From relaunches to SEO-driven growth strategies and monetization, we work closely with your editorial teams to fully understand their workflows and expectations. Thanks to VIP hosting and optimization, our clients have supported up to 100k concurrent visitors without disruption. Whether you’re an experienced publisher or just starting, we offer free consultations to make your online publishing more profitable and manageable."
+            description: "We partner with online magazines and blogs to deliver robust publishing platforms built for reliability and performance."
         },
         {
             title: "eCommerce Solutions",
-            description: "Selling products online requires more than a simple website—it demands a comprehensive and scalable e-commerce infrastructure. Our team integrates with top payment services like Paystack, Flutterwave, Stripe, PayPal, Mollie, and Klarna, alongside reliable delivery providers such as DHL, UPS, and DPD—covering local and international markets. No existing integration? No problem. We develop custom solutions tailored to your logistics and payment needs, ensuring your store runs smoothly and securely. From product presentation and order management to conversion rate optimization, consider us your trusted e-commerce partner."
+            description: "Our team integrates with top payment services and delivery providers to build comprehensive e-commerce infrastructures."
         },
         {
             title: "Corporate Websites",
-            description: "Your company's digital presence is essential for telling your story and establishing trust. We build corporate websites that highlight your brand’s history, values, governance, and human resources policies—all while ensuring a seamless online experience. Having helped many brands elevate their profiles, we offer strategic advice on where to invest your digital budget for maximum impact."
+            description: "We build corporate websites that highlight your brand’s history, values, and governance to establish trust."
         },
         {
             title: "Job Portals, Forums & Listing Platforms",
-            description: "Web development has evolved far beyond blogs. As seasoned experts, we create complex portals and directory websites tailored to your unique business needs. From job listing platforms with over 100,000 ads aggregated from multiple sources to community forums and company intranets, we use flexible, scalable technology to support your ambitions."
+            description: "We create complex portals and directory websites tailored to your unique business needs, from job boards to community forums."
         }
     ],
-    href: '/contact'
+    href: '/web-development'
   },
   {
     icon: <MessageSquare className="h-8 w-8 text-primary" />,
@@ -171,7 +171,7 @@ export default function SolutionsPage() {
                 <CardFooter>
                   <Button asChild>
                     <Link href={service.href}>
-                      {service.title.includes('Development') ? 'Get a Free Consultation' : 'Learn More'}
+                      {service.href === '/contact' ? 'Get a Free Consultation' : 'Learn More'}
                     </Link>
                   </Button>
                 </CardFooter>
