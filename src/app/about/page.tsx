@@ -83,7 +83,7 @@ export default function AboutPage() {
         <section className="text-center max-w-3xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-bold">About LOG_ON</h1>
           <p className="mt-4 text-md md:text-lg text-muted-foreground">
-            We are a team of technologists, strategists, and innovators passionate about using technology to solve real-world business problems. Our mission is to empower organizations with intelligent automation and scalable IT solutions that drive growth and create lasting value. We believe that the right technology, implemented correctly, can unlock unprecedented efficiency and create significant competitive advantages.
+            WE ARE GENERALISTS. Our expertise isn't confined to a single niche. We are technologists with a broad and deep understanding of the entire digital ecosystem. This allows us to connect dots that specialists might miss, creating integrated solutions that are more robust, efficient, and innovative. We architect, build, and manage systems that drive real-world results, from AI-powered automation to scalable cloud infrastructures and custom web applications. Our holistic view ensures every component works in harmony to achieve your strategic goals.
           </p>
         </section>
 
@@ -196,4 +196,5 @@ export default function AboutPage() {
   );
 }
 
+    
     
