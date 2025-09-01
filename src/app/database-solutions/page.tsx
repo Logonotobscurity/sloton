@@ -4,10 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { CheckCircle, ArrowRight, Database, DatabaseZap, ShieldCheck, Cloudy } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { CaseStudyFeature } from '@/components/case-study-feature';
 
 export const metadata: Metadata = {
-  title: 'Database Solutions | Design, Migration, & Management',
-  description: 'Robust database solutions including architecture, cloud migration, performance tuning, and security. We build and manage scalable SQL and NoSQL database systems.',
+  title: 'Database Solutions | SQL & NoSQL Design, Migration, & Management',
+  description: 'Robust database solutions including SQL & NoSQL architecture, cloud migration, performance tuning, and security. We build and manage scalable database systems on AWS, and Google Cloud.',
 };
 
 const databaseServices = [
@@ -104,7 +105,13 @@ export default function DatabaseSolutionsPage() {
             </div>
         </section>
 
-         <section className="text-center py-16 bg-secondary/30 rounded-lg px-4">
+        <CaseStudyFeature 
+            tags={["Database", "Cloud", "Scalability"]}
+            title="Success in Data Management"
+            description="Learn how our database solutions have helped clients achieve scalability, performance, and rock-solid security for their critical applications."
+        />
+
+         <section className="text-center mt-24 py-16 bg-background rounded-lg px-4">
             <h2 className="text-3xl md:text-4xl font-bold">Is Your Data Working For You?</h2>
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how our database expertise can improve your application performance and secure your data. Schedule a free consultation today.

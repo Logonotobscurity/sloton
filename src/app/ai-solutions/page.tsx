@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { BrainCircuit, Cpu, Eye, Languages, BarChart, CheckCircle, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { CaseStudyFeature } from '@/components/case-study-feature';
 
 export const metadata: Metadata = {
   title: 'AI Solutions | Custom AI & Machine Learning Services',
@@ -104,7 +105,13 @@ export default function AiSolutionsPage() {
             </div>
         </section>
 
-         <section className="text-center py-16 bg-secondary/30 rounded-lg px-4">
+        <CaseStudyFeature 
+            tags={["AI", "Chatbot", "Analytics"]}
+            title="Real-World AI Success Stories"
+            description="See how our custom AI solutions have transformed businesses, from automating support to providing critical data insights."
+        />
+
+         <section className="text-center mt-24 py-16 bg-background rounded-lg px-4">
             <h2 className="text-3xl md:text-4xl font-bold">Ready to Unlock Your AI Potential?</h2>
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how our custom AI solutions can revolutionize your business. Schedule a free, no-obligation consultation with our AI experts today.

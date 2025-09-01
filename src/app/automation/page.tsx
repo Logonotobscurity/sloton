@@ -3,12 +3,13 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { TaskAutomationForm } from '@/components/task-automation-form';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Calculator, CheckCircle, Zap, TrendingUp, ShieldCheck } from 'lucide-react';
+import { Calculator, Zap, TrendingUp, ShieldCheck, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
+import { CaseStudyFeature } from '@/components/case-study-feature';
 
 export const metadata: Metadata = {
-  title: 'Intelligent Automation Solutions',
-  description: 'Design, configure, and deploy automated IT tasks with our intelligent automation platform. Visually map workflows and get AI-powered optimization suggestions.',
+  title: 'Intelligent Automation Solutions | RPA & Workflow Design',
+  description: 'Design, configure, and deploy automated IT tasks and business workflows with our intelligent automation and RPA solutions. Get AI-powered optimization suggestions.',
 };
 
 const automationBenefits = [
@@ -83,6 +84,26 @@ export default function AutomationPage() {
                 ))}
             </div>
         </div>
+
+        <CaseStudyFeature 
+            tags={["Automation", "RPA"]}
+            title="Automation in Action"
+            description="Discover how we've helped businesses save hundreds of hours and dramatically reduce errors through Robotic Process Automation (RPA) and intelligent workflow design."
+        />
+
+         <section className="text-center mt-24 py-16 bg-background rounded-lg px-4">
+            <h2 className="text-3xl md:text-4xl font-bold">Ready to Optimize Your Operations?</h2>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                Let's discuss how our custom automation solutions can revolutionize your business. Schedule a free consultation with our experts today.
+            </p>
+            <div className="mt-8 flex justify-center">
+                <Button asChild size="lg">
+                    <Link href="/contact">
+                        Schedule Your Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                </Button>
+            </div>
+        </section>
       </div>
     </div>
   );

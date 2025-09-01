@@ -4,10 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { CheckCircle, ArrowRight, BarChart3, LineChart, Target, Table } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { CaseStudyFeature } from '@/components/case-study-feature';
 
 export const metadata: Metadata = {
-  title: 'Business Analytics & BI Solutions',
-  description: 'Transform raw data into actionable insights with our business analytics and BI solutions. We build custom dashboards and reports to fuel data-driven growth.',
+  title: 'Business Analytics & BI Solutions | Dashboards & Reporting',
+  description: 'Transform raw data into actionable insights with our business analytics and BI solutions. We build custom dashboards, data reports, and KPI trackers to fuel data-driven growth.',
 };
 
 const analyticsServices = [
@@ -104,7 +105,13 @@ export default function BusinessAnalyticsPage() {
             </div>
         </section>
 
-         <section className="text-center py-16 bg-secondary/30 rounded-lg px-4">
+        <CaseStudyFeature 
+            tags={["Analytics", "BI"]}
+            title="Data-Driven Success Stories"
+            description="See how our business analytics and BI solutions have empowered companies to make smarter decisions and drive strategic growth."
+        />
+
+         <section className="text-center mt-24 py-16 bg-background rounded-lg px-4">
             <h2 className="text-3xl md:text-4xl font-bold">Ready to Unlock Your Data's Potential?</h2>
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how our custom analytics solutions can provide the insights you need to get ahead. Schedule a free consultation today.

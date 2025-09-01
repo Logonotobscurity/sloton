@@ -4,10 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Code, PenTool, ShoppingCart, Building, Users } from 'lucide-react';
 import type { Metadata } from 'next';
+import { CaseStudyFeature } from '@/components/case-study-feature';
 
 export const metadata: Metadata = {
-  title: 'Web & Custom Development',
-  description: 'Custom web development for publishers, e-commerce, and corporate clients. We build scalable, secure, and optimized digital platforms to help your business grow.',
+  title: 'Web & Custom Development | Next.js & React Experts',
+  description: 'Custom web development for publishers, e-commerce, and corporate clients. We build scalable, secure, and optimized digital platforms using Next.js and React to help your business grow.',
 };
 
 const services = [
@@ -63,7 +64,13 @@ export default function WebDevelopmentPage() {
             </div>
         </section>
 
-         <section className="text-center py-16 bg-secondary/30 rounded-lg px-4">
+        <CaseStudyFeature 
+            tags={["Web Development", "Next.js", "Publisher"]}
+            title="Our Web Development Work"
+            description="See how our custom web development solutions have helped businesses launch high-performance platforms that drive revenue and engagement."
+        />
+
+         <section className="text-center mt-24 py-16 bg-background rounded-lg px-4">
             <h2 className="text-3xl md:text-4xl font-bold">Have a Project in Mind?</h2>
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
                 Whether you're an established publisher, a growing e-commerce brand, or a corporation looking to enhance your digital presence, we're here to help.

@@ -1,13 +1,14 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Bot, CheckCircle, ArrowRight, MessageSquare, Repeat, Users, Zap } from 'lucide-react';
+import { Bot, CheckCircle, ArrowRight, MessageSquare, Repeat, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { CaseStudyFeature } from '@/components/case-study-feature';
 
 export const metadata: Metadata = {
-  title: 'Chatbot & Virtual Assistant Development',
-  description: 'Engage customers 24/7 with intelligent, AI-powered chatbots for your website and WhatsApp. Automate support, generate leads, and improve user satisfaction.',
+  title: 'AI Chatbot & Virtual Assistant Development | LOG_ON',
+  description: 'Engage customers 24/7 with intelligent, AI-powered chatbots for your website and WhatsApp. We build and develop chatbot solutions that automate support and generate leads.',
 };
 
 const chatbotServices = [
@@ -104,7 +105,13 @@ export default function ChatbotsPage() {
             </div>
         </section>
 
-         <section className="text-center py-16 bg-secondary/30 rounded-lg px-4">
+        <CaseStudyFeature 
+            tags={["Chatbot", "AI"]}
+            title="Success Stories in Conversational AI"
+            description="See how our intelligent chatbots have helped businesses improve customer satisfaction and reduce support overhead."
+        />
+
+         <section className="text-center mt-24 py-16 bg-background rounded-lg px-4">
             <h2 className="text-3xl md:text-4xl font-bold">Ready to Automate Your Conversations?</h2>
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how a custom chatbot can revolutionize your customer engagement. Schedule a free consultation with our AI experts today.
