@@ -11,19 +11,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Send } from 'lucide-react';
 import { useState } from 'react';
+import { enrollmentFormAction } from '@/app/actions';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
   programName: z.string().min(1, { message: 'Please select a program.' }),
 });
-
-async function enrollmentFormAction(data: z.infer<typeof formSchema>) {
-  // In a real application, you would send this to your backend.
-  console.log('Enrollment form submitted:', data);
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  return { success: true };
-}
 
 const trainingPrograms = [
     'AI Solutions Development',
@@ -48,7 +42,7 @@ export function EnrollmentForm({ programName }: { programName?: string }) {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     const result = await enrollmentFormAction(values);
-    if(result.success) {
+    if(result?.success) {
         toast({
             title: "Enrollment Submitted!",
             description: "Thank you for your interest. We'll be in touch with the next steps shortly.",
@@ -58,7 +52,7 @@ export function EnrollmentForm({ programName }: { programName?: string }) {
         toast({
             variant: "destructive",
             title: "Uh oh! Something went wrong.",
-            description: "There was a problem with your request. Please try again.",
+            description: result?.error || "There was a problem with your request. Please try again.",
         });
     }
     setIsSubmitting(false);

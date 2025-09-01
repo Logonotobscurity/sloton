@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useForm } from 'react-hook-form';
@@ -9,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Send } from 'lucide-react';
+import { contactFormAction } from '@/app/actions';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -17,13 +19,6 @@ const formSchema = z.object({
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
-async function contactFormAction(data: z.infer<typeof formSchema>) {
-  // In a real application, you would send an email here.
-  // For this example, we'll just simulate a successful submission.
-  console.log('Contact form submitted:', data);
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  return { success: true };
-}
 
 export function ContactForm() {
   const { toast } = useToast();
@@ -42,7 +37,7 @@ export function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const result = await contactFormAction(values);
-    if(result.success) {
+    if(result?.success) {
         toast({
             title: "Message Sent!",
             description: "Thank you for contacting us. We'll get back to you shortly.",
@@ -52,7 +47,7 @@ export function ContactForm() {
         toast({
             variant: "destructive",
             title: "Uh oh! Something went wrong.",
-            description: "There was a problem with your request. Please try again.",
+            description: result?.error || "There was a problem with your request. Please try again.",
         });
     }
   }
