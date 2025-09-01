@@ -32,6 +32,12 @@ const faqItems = [
       icon: <Code className="h-5 w-5 text-primary" />
   },
   {
+    value: "item-6",
+    question: "Do you offer training programs for these technologies?",
+    answer: "Yes, we do. We believe in empowering teams with the skills to drive innovation internally. Our <a href='/training' class='text-primary underline'>expert-led training programs</a> cover AI development, process automation, and digital transformation strategy. They are designed to provide practical, hands-on experience.",
+    icon: <GraduationCap className="h-5 w-5 text-primary" />
+  },
+  {
     value: "item-3",
     question: "What is your pricing model?",
     answer: "Our pricing is tailored to the scope and complexity of each project. We offer project-based pricing for specific builds and monthly retainers for ongoing support and strategic guidance. We are transparent with all costs upfront. For a detailed quote, please <a href='/contact' class='text-primary underline'>contact us</a>.",

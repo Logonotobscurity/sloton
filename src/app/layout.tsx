@@ -141,6 +141,34 @@ const localBusinessSchema = {
       "url": "https://logonsolutions.netlify.app/solutions",
       "telephone": "+234 814 306 6320",
       "email": "logo@logon.com.ng"
+    },
+    {
+      "@type": "GovernmentOffice",
+      "name": "AI Solutions",
+      "url": "https://logonsolutions.netlify.app/ai-solutions",
+      "telephone": "+234 814 306 6320",
+      "email": "logo@logon.com.ng"
+    },
+     {
+      "@type": "GovernmentOffice",
+      "name": "Process Automation",
+      "url": "https://logonsolutions.netlify.app/automation",
+      "telephone": "+234 814 306 6320",
+      "email": "logo@logon.com.ng"
+    },
+    {
+      "@type": "GovernmentOffice",
+      "name": "Web Development",
+      "url": "https://logonsolutions.netlify.app/web-development",
+      "telephone": "+234 814 306 6320",
+      "email": "logo@logon.com.ng"
+    },
+    {
+      "@type": "GovernmentOffice",
+      "name": "Training Programs",
+      "url": "https://logonsolutions.netlify.app/training",
+      "telephone": "+234 814 306 6320",
+      "email": "logo@logon.com.ng"
     }
   ]
 };
