@@ -102,74 +102,76 @@ export function SolutionRecommendationForm() {
 
   if (result && step === 4) {
     return (
-       <div className="p-1 space-y-8 max-h-[70vh] overflow-y-auto" aria-live="polite">
-        <div className="space-y-4">
-          <h3 className="text-xl font-bold text-primary">Executive Summary</h3>
-          <Card className="bg-secondary/30">
-            <CardContent className="pt-6 space-y-2 text-sm">
-                <p><strong>Overview:</strong> {result.executiveSummary.overview}</p>
-                <p><strong>Opportunity:</strong> {result.executiveSummary.primaryOpportunity}</p>
-                <p><strong>ROI Timeline:</strong> {result.executiveSummary.expectedRoiTimeframe}</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="space-y-4">
-          <h3 className="text-xl font-bold text-primary">Recommended Solution Path</h3>
+       <div className="p-1 space-y-8" aria-live="polite">
+        <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4">
+            <div className="space-y-4">
+            <h3 className="text-xl font-bold text-primary">Executive Summary</h3>
             <Card className="bg-secondary/30">
-                <CardHeader>
-                    <CardTitle>{result.recommendedSolutionPath.coreTechnology.solutionName}</CardTitle>
-                    <CardDescription>{result.recommendedSolutionPath.coreTechnology.justification}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <h4 className="font-semibold mb-4 text-foreground">Expected Outcomes</h4>
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead>Metric</TableHead>
-                                <TableHead>Current</TableHead>
-                                <TableHead>Improvement</TableHead>
-                                <TableHead>Timeframe</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {result.recommendedSolutionPath.expectedOutcomes.map((outcome, index) => (
-                                <TableRow key={index}>
-                                    <TableCell className="font-medium">{outcome.metric}</TableCell>
-                                    <TableCell>{outcome.currentState}</TableCell>
-                                    <TableCell className="text-green-500 font-semibold">{outcome.projectedImprovement}</TableCell>
-                                    <TableCell>{outcome.timeframe}</TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
+                <CardContent className="pt-6 space-y-2 text-sm">
+                    <p><strong>Overview:</strong> {result.executiveSummary.overview}</p>
+                    <p><strong>Opportunity:</strong> {result.executiveSummary.primaryOpportunity}</p>
+                    <p><strong>ROI Timeline:</strong> {result.executiveSummary.expectedRoiTimeframe}</p>
                 </CardContent>
             </Card>
-        </div>
-        
-        <div className="space-y-4">
-          <h3 className="text-xl font-bold text-primary">Next Steps</h3>
-           <Table>
-                <TableHeader>
-                    <TableRow>
-                    <TableHead>Action Item</TableHead>
-                    <TableHead>Owner</TableHead>
-                    <TableHead>Deadline</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {result.nextSteps.map((step, index) => (
-                    <TableRow key={index}>
-                        <TableCell className="font-medium">{step.actionItem}</TableCell>
-                        <TableCell>{step.owner}</TableCell>
-                        <TableCell>{step.deadline}</TableCell>
-                    </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+            </div>
+
+            <div className="space-y-4">
+            <h3 className="text-xl font-bold text-primary">Recommended Solution Path</h3>
+                <Card className="bg-secondary/30">
+                    <CardHeader>
+                        <CardTitle>{result.recommendedSolutionPath.coreTechnology.solutionName}</CardTitle>
+                        <CardDescription>{result.recommendedSolutionPath.coreTechnology.justification}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <h4 className="font-semibold mb-4 text-foreground">Expected Outcomes</h4>
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>Metric</TableHead>
+                                    <TableHead>Current</TableHead>
+                                    <TableHead>Improvement</TableHead>
+                                    <TableHead>Timeframe</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {result.recommendedSolutionPath.expectedOutcomes.map((outcome, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="font-medium">{outcome.metric}</TableCell>
+                                        <TableCell>{outcome.currentState}</TableCell>
+                                        <TableCell className="text-green-500 font-semibold">{outcome.projectedImprovement}</TableCell>
+                                        <TableCell>{outcome.timeframe}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </CardContent>
+                </Card>
+            </div>
+            
+            <div className="space-y-4">
+            <h3 className="text-xl font-bold text-primary">Next Steps</h3>
+            <Table>
+                    <TableHeader>
+                        <TableRow>
+                        <TableHead>Action Item</TableHead>
+                        <TableHead>Owner</TableHead>
+                        <TableHead>Deadline</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {result.nextSteps.map((step, index) => (
+                        <TableRow key={index}>
+                            <TableCell className="font-medium">{step.actionItem}</TableCell>
+                            <TableCell>{step.owner}</TableCell>
+                            <TableCell>{step.deadline}</TableCell>
+                        </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </div>
         </div>
 
-         <Card className="bg-secondary/50 border-primary/50 border sticky bottom-0">
+         <Card className="bg-secondary/50 border-primary/50 border mt-6">
             <CardHeader>
                 <CardTitle>Ready for the Next Step?</CardTitle>
                 <CardDescription>
@@ -340,3 +342,5 @@ export function SolutionRecommendationForm() {
     </Form>
   );
 }
+
+    
