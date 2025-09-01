@@ -21,7 +21,7 @@ const services = [
       'Computer Vision & Image Analysis',
       'Predictive Analytics & Forecasting',
     ],
-    href: '/use-cases#it-consulting'
+    href: '/ai-solutions'
   },
   {
     icon: <Zap className="h-8 w-8 text-primary" />,

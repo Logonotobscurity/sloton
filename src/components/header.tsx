@@ -26,8 +26,14 @@ const mainNavItems = [
 const solutionsNavItems = [
   { 
     href: '/solutions', 
-    label: 'Our Solutions',
+    label: 'All Solutions',
     description: 'Explore our full suite of technology services.',
+    icon: <BrainCircuit className="h-5 w-5 text-primary" />
+  },
+  { 
+    href: '/ai-solutions', 
+    label: 'AI Solutions',
+    description: 'Custom AI to solve complex business challenges.',
     icon: <BrainCircuit className="h-5 w-5 text-primary" />
   },
   { 
