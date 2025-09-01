@@ -1,8 +1,5 @@
 User-agent: *
 Allow: /
-
-# Sitemap location
-Sitemap: https://logonsolutions.netlify.app/sitemap.xml
-
-# Block non-essential pages
 Disallow: /.netlify/
+
+Sitemap: https://logonsolutions.netlify.app/sitemap.xml

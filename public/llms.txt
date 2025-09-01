@@ -1,24 +1,39 @@
-# llms.txt for LOG_ON Solutions
-# Website: https://logonsolutions.netlify.app/
-# Last updated: 2025-08-31
+# LogOn Solutions
 
-## About LOG_ON Solutions
-LOG_ON Solutions is a strategic technology partner specializing in AI automation, custom development, and digital transformation for startups, enterprises, and non-profits.
+> AI-driven technology consulting and automation solutions helping businesses cut costs, automate processes, and scale faster through custom development, digital transformation, and intelligent automation services in Nigeria and globally.
+
+LogOn Solutions is a technology consulting firm specializing in AI automation, custom software development, and digital transformation. We provide strategic technology partnerships for startups, enterprises, and non-profits seeking to leverage cutting-edge technology solutions. Our team focuses on delivering measurable results through innovative AI implementations, process automation, and scalable software solutions.
+
+Founded with a generalist approach, we think across boundaries to solve complex business challenges. We offer both consulting services and hands-on training programs to advance careers in AI and automation technologies.
 
 ## Core Services
-- AI & Automation Solutions: Machine learning models, RPA, chatbots, predictive analytics
-- Custom Development: Web applications, e-commerce platforms, API development, database solutions  
-- Digital Transformation: Technology assessment, cloud migration, process digitization, cybersecurity
+
+- [AI & Automation Solutions](/solutions#ai-solutions): Custom machine learning models, RPA, intelligent chatbots, predictive analytics, and business intelligence solutions
+- [Custom Development](/solutions#web-development): Modern web and mobile applications, e-commerce platforms, API development, and database solutions  
+- [Digital Transformation](/solutions#digital-transformation): Technology assessment, cloud migration, process digitization, and cybersecurity compliance
+- [Business Process Automation](/automation): Workflow automation, document processing, task automation, and system integrations
+- [Training Programs](/training): Expert-led AI and automation training with hands-on experience and career support
+
+## Industry Solutions
+
+- [Healthcare Automation](/use-cases#healthcare): EHR management, appointment scheduling, diagnostic imaging AI
+- [Finance & Banking Automation](/use-cases#finance): Fraud detection, compliance reporting, automated onboarding
+- [E-commerce Solutions](/use-cases#e-commerce): AI recommendation engines, inventory management, customer support chatbots
+- [Manufacturing & Logistics](/use-cases#manufacturing): Predictive maintenance, supply chain optimization, quality control automation
 
 ## Business Focus
+
 - Target clients: Ambitious startups, enterprises, non-profit organizations
 - Approach: Generalist methodology with cross-boundary thinking
 - Specialization: AI-first solutions, modern tech stack, scalable architecture
 
 ## Contact Information
-- Website: https://logonsolutions.netlify.app/
-- Services: Technology consulting, custom development, training programs
-- Approach: Partnership-focused, results-driven solutions
+
+- [Website](https://logonsolutions.netlify.app/)
+- [Services](https://logonsolutions.netlify.app/solutions)
+- [Training](https://logonsolutions.netlify.app/training)
+- [Contact Us](https://logonsolutions.netlify.app/contact)
+- [Free AI Assessment](https://logonsolutions.netlify.app/)
 
 ## Key Technologies
-Modern tech stack including AI/ML frameworks, cloud platforms, automation tools, and enterprise-grade development solutions.
+Modern tech stack including AI/ML frameworks, cloud platforms (AWS, Google Cloud, Azure), automation tools (UiPath, Automation Anywhere), and enterprise-grade development solutions.
