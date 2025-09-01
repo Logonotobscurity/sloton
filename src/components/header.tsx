@@ -16,6 +16,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { IconMedium, IconSubstack } from '@/lib/icons';
+import { ThemeToggle } from './theme-toggle';
 
 const mainNavItems = [
   { href: '/training', label: 'Training' },
@@ -205,12 +206,13 @@ export function Header() {
             ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-2">
             <Button asChild>
                 <Link href="/contact">
                 Contact Us
                 </Link>
             </Button>
+            <ThemeToggle />
         </div>
 
 
@@ -260,7 +262,8 @@ export function Header() {
 
                     <MobileNavLink href="/contact">Contact</MobileNavLink>
                 </nav>
-                <div className="border-t pt-6">
+                <div className="border-t pt-6 space-y-4">
+                    <ThemeToggle />
                     <Button asChild className="w-full">
                         <Link href="/contact" onClick={() => setSheetOpen(false)}>Contact Us</Link>
                     </Button>

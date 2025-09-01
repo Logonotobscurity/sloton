@@ -8,6 +8,7 @@ import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { WebsiteLoader } from '@/components/website-loader';
 import Script from 'next/script';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -146,7 +147,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
        <head>
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -173,12 +174,18 @@ export default function RootLayout({
       >
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7VDS354"
         height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe></noscript>
-
-        <WebsiteLoader />
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <WebsiteLoader />
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
