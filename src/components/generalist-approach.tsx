@@ -4,30 +4,30 @@ import { CheckCircle } from 'lucide-react';
 
 const features = [
   {
-    title: 'AI & Automation Solutions',
+    title: 'AI & Automation Strategy',
     details: [
-        'Custom Machine Learning Models',
+        'Proprietary 47-Dimension AI Assessment',
+        'Custom Machine Learning Model Development',
         'Robotic Process Automation (RPA)',
-        'Intelligent Chatbots & Virtual Assistants',
-        'Predictive Analytics & BI',
+        'Predictive Analytics & BI Implementation',
     ]
   },
   {
-    title: 'Custom Development',
+    title: 'Custom Platform Development',
      details: [
-        'Modern Web & Mobile Applications',
-        'E-commerce & Custom Platforms',
-        'Secure API Development & Integration',
-        'Scalable Database Solutions',
+        'High-Performance Web & Mobile Apps',
+        'Scalable E-commerce Platforms',
+        'Secure API & System Integrations',
+        'Optimized Database Architecture',
     ]
   },
   {
-    title: 'Digital Transformation',
+    title: 'Full-Cycle Digital Transformation',
      details: [
-        'Technology & Process Assessment',
-        'Cloud Migration & Management',
-        'Strategic Process Digitization',
-        'Enhanced Cybersecurity & Compliance',
+        'End-to-End Technology Roadmap',
+        'Cloud Migration & Infrastructure Management',
+        'Legacy System Modernization',
+        'Cybersecurity & Compliance Strategy',
     ]
   },
 ];
@@ -38,15 +38,15 @@ export function GeneralistApproach() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-                <p className="text-sm font-normal uppercase tracking-widest text-primary">02/ Generalist Approach</p>
+                <p className="text-sm font-normal uppercase tracking-widest text-primary">02/ Why We're Different</p>
                 <h2 className="font-headline text-[clamp(2rem,6vw,3.5rem)] !leading-tight">
-                    WE BELIEVE THE FUTURE BELONGS TO TEAMS WHO CAN THINK ACROSS BOUNDARIES AND SEE THE WHOLE PICTURE.
+                    Only 3% of tech consultants combine deep AI expertise with strategic business acumen. 
                     <br />
                     <br />
-                    <span className="text-primary">WE ARE GENERALISTS.</span>
+                    <span className="text-primary">We are in that 3%.</span>
                 </h2>
                 <p className="text-muted-foreground text-md md:text-lg">
-                    Our expertise isn't confined to a single niche. We are technologists with a broad and deep understanding of the entire digital ecosystem. This allows us to connect dots that specialists might miss, creating integrated solutions that are more robust, efficient, and innovative. We architect, build, and manage systems that drive real-world results, from AI-powered automation to scalable cloud infrastructures and custom web applications. Our holistic view ensures every component works in harmony to achieve your strategic goals.
+                    Our value isn't just in understanding technology; it's in applying it to solve your core business challenges. Our proprietary assessment methodology analyzes 47 unique business dimensions to create a holistic, data-driven technology roadmap. This comprehensive approach allows us to uncover opportunities and efficiencies that siloed specialists miss, delivering integrated solutions that produce measurable results.
                 </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

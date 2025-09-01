@@ -26,22 +26,31 @@ export function StrategicPartner() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
             <p className="text-sm font-normal uppercase tracking-widest text-primary">01/ Your Strategic Partner</p>
-            <h2 className="text-2xl md:text-4xl font-bold">Your Strategic Technology Partner</h2>
+            <h2 className="text-2xl md:text-4xl font-bold">A Clear Path to Digital Transformation</h2>
             <p className="text-muted-foreground md:text-lg">
-              We don't just build solutions; we build partnerships. Our approach is to work alongside you to understand your core business challenges and opportunities. Use our free, interactive tools to get instant, AI-powered insights and see how technology can drive your success. Start with our 3-step assessment to receive a personalized technology roadmap designed to help you scale efficiently and innovate faster. This initial consultation provides a clear, actionable plan, demonstrating the potential ROI of a strategic technology partnership with us.
+              We provide a clear, structured pathway to integrating technology that drives real business results. Our engagement model is designed to deliver immediate value while building a foundation for long-term growth. See how our free, interactive tools can kickstart your journey.
             </p>
             <div className="space-y-4">
                 <div className="flex items-start gap-4">
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold flex-shrink-0">1</div>
-                    <p className="text-muted-foreground">Describe your business goals and challenges.</p>
+                    <div>
+                        <h3 className="font-semibold">Free AI Assessment</h3>
+                        <p className="text-muted-foreground">Get an instant, data-driven analysis of your AI readiness and a high-level technology roadmap. No commitment required.</p>
+                    </div>
                 </div>
                 <div className="flex items-start gap-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold flex-shrink-0">2</div>
-                    <p className="text-muted-foreground">Provide some context about your company.</p>
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/80 text-primary-foreground font-bold flex-shrink-0">2</div>
+                    <div>
+                        <h3 className="font-semibold">Detailed Consultation</h3>
+                        <p className="text-muted-foreground">Our experts dive deep into your assessment results, refining the strategy and aligning it with your specific business goals.</p>
+                    </div>
                 </div>
                 <div className="flex items-start gap-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold flex-shrink-0">3</div>
-                    <p className="text-muted-foreground">Receive an instant, AI-generated solution strategy.</p>
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/60 text-primary-foreground font-bold flex-shrink-0">3</div>
+                     <div>
+                        <h3 className="font-semibold">Custom Proposal & Implementation</h3>
+                        <p className="text-muted-foreground">Receive a comprehensive proposal with a clear scope, timeline, and ROI projections, followed by expert implementation.</p>
+                    </div>
                 </div>
             </div>
           </div>
