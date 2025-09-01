@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Check, BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Smartphone, GitBranch, HeartPulse, Briefcase, ShoppingCart, Shield, Calculator, Factory, Building, Server, Truck, Phone } from 'lucide-react';
+import { Check, BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Smartphone, GitBranch } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -179,5 +179,3 @@ export default function SolutionsPage() {
     </div>
   );
 }
-
-    

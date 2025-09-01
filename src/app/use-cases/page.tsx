@@ -166,10 +166,9 @@ export default function UseCasesPage() {
           </p>
         </div>
 
-        <div className="mt-16 grid lg:grid-cols-1 gap-12">
+        <div className="mt-16 grid md:grid-cols-2 gap-8">
           {useCases.map((useCase) => (
             <Card key={useCase.id} id={useCase.id} className="bg-secondary/50 border-border/50 scroll-mt-24 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-              <div className="grid md:grid-cols-2">
                 <div className="p-6 md:p-8">
                   <CardHeader className="p-0">
                     <div className="flex items-center gap-4">
@@ -179,20 +178,19 @@ export default function UseCasesPage() {
                   </CardHeader>
                   <CardContent className="p-0 pt-4">
                     <p className="text-muted-foreground">{useCase.description}</p>
+                     <div className="pt-6">
+                        <h4 className="font-semibold mb-4 text-primary">Example Applications:</h4>
+                        <ul className="space-y-3">
+                            {useCase.features.map((feature) => (
+                            <li key={feature} className="flex items-start gap-3">
+                                <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                                <span className="text-muted-foreground">{feature}</span>
+                            </li>
+                            ))}
+                        </ul>
+                    </div>
                   </CardContent>
                 </div>
-                <div className="p-6 md:p-8 bg-background/50 rounded-b-lg md:rounded-r-lg md:rounded-bl-none">
-                  <h4 className="font-semibold mb-4 text-primary">Example Applications:</h4>
-                  <ul className="space-y-3">
-                    {useCase.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
             </Card>
           ))}
         </div>
