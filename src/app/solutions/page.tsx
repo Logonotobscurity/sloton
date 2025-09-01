@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Check, BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Smartphone, GitBranch } from 'lucide-react';
+import { Check, BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Smartphone, GitBranch, HeartPulse, Briefcase, ShoppingCart, Shield, Calculator, Factory, Building, Server, Truck, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -37,15 +37,27 @@ const services = [
   },
   {
     icon: <Code className="h-8 w-8 text-primary" />,
-    title: 'Web Development',
-    description: 'We build modern, responsive, and high-performance web applications tailored to your specific business needs. Using the latest technologies like React and Next.js, we create everything from dynamic e-commerce platforms and customer portals to complex enterprise-grade systems. Our focus is on delivering secure, scalable, and user-friendly web solutions that enhance your digital presence and provide an exceptional user experience.',
+    title: 'Web & Custom Development',
+    description: "At LOG_ON Solutions, we specialize in crafting custom web development projects tailored to your business needs—whether you’re a publisher, retailer, corporate entity, or running an online community. Drawing on our deep experience in IT solutions and AI automation, we build scalable, secure, and optimized digital platforms designed to help you grow.",
     features: [
-      'Custom Web Applications',
-      'E-commerce & Marketplace Solutions',
-      'Progressive Web Apps (PWAs)',
-      'API Development & Integration',
+        {
+            title: "Websites for Publishers",
+            description: "We partner with online magazines and blogs to deliver robust publishing platforms built for reliability and performance. From relaunches to SEO-driven growth strategies and monetization, we work closely with your editorial teams to fully understand their workflows and expectations. Thanks to VIP hosting and optimization, our clients have supported up to 100k concurrent visitors without disruption. Whether you’re an experienced publisher or just starting, we offer free consultations to make your online publishing more profitable and manageable."
+        },
+        {
+            title: "eCommerce Solutions",
+            description: "Selling products online requires more than a simple website—it demands a comprehensive and scalable e-commerce infrastructure. Our team integrates with top payment services like Paystack, Flutterwave, Stripe, PayPal, Mollie, and Klarna, alongside reliable delivery providers such as DHL, UPS, and DPD—covering local and international markets. No existing integration? No problem. We develop custom solutions tailored to your logistics and payment needs, ensuring your store runs smoothly and securely. From product presentation and order management to conversion rate optimization, consider us your trusted e-commerce partner."
+        },
+        {
+            title: "Corporate Websites",
+            description: "Your company's digital presence is essential for telling your story and establishing trust. We build corporate websites that highlight your brand’s history, values, governance, and human resources policies—all while ensuring a seamless online experience. Having helped many brands elevate their profiles, we offer strategic advice on where to invest your digital budget for maximum impact."
+        },
+        {
+            title: "Job Portals, Forums & Listing Platforms",
+            description: "Web development has evolved far beyond blogs. As seasoned experts, we create complex portals and directory websites tailored to your unique business needs. From job listing platforms with over 100,000 ads aggregated from multiple sources to community forums and company intranets, we use flexible, scalable technology to support your ambitions."
+        }
     ],
-    href: '/use-cases#e-commerce'
+    href: '/contact'
   },
   {
     icon: <MessageSquare className="h-8 w-8 text-primary" />,
@@ -131,18 +143,33 @@ export default function SolutionsPage() {
                 <p className="pt-4 text-muted-foreground">{service.description}</p>
               </CardHeader>
               <CardContent className="flex-grow">
-                <ul className="space-y-3">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="space-y-4">
+                    {Array.isArray(service.features) && typeof service.features[0] === 'string' ? (
+                        <ul className="space-y-3">
+                            {(service.features as string[]).map((feature) => (
+                                <li key={feature} className="flex items-start gap-3">
+                                    <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                                    <span className="text-muted-foreground">{feature}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <div className="space-y-6">
+                            {(service.features as { title: string; description: string }[]).map((feature) => (
+                                <div key={feature.title}>
+                                    <h4 className="font-semibold text-primary">{feature.title}</h4>
+                                    <p className="text-muted-foreground mt-1 text-sm">{feature.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
               </CardContent>
               <CardFooter>
                  <Button asChild>
-                  <Link href={service.href}>Learn More</Link>
+                  <Link href={service.href}>
+                    {service.title.includes('Development') ? 'Get a Free Consultation' : 'Learn More'}
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>
