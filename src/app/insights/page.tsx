@@ -7,7 +7,7 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Insights & Articles | LOG_ON connecting Advantages',
+  title: 'Technology Insights & Articles',
   description: 'Stay ahead of the curve with our expert analysis on the latest trends in technology, automation, and AI. Explore articles on the future of work, business automation, and more.',
 };
 

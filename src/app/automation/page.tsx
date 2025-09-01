@@ -7,7 +7,7 @@ import { Calculator, CheckCircle, Zap, TrendingUp, ShieldCheck } from 'lucide-re
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Intelligent Automation | LOG_ON connecting Advantages',
+  title: 'Intelligent Automation Solutions',
   description: 'Design, configure, and deploy automated IT tasks with our intelligent automation platform. Visually map workflows and get AI-powered optimization suggestions.',
 };
 

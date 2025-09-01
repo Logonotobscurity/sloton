@@ -9,7 +9,7 @@ import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Tech Training Programs | LOG_ON connecting Advantages',
+  title: 'Tech Training Programs',
   description: 'Advance your career with our expert-led online training programs. Master AI, process automation, chatbot development, and digital transformation strategy.',
 };
 
