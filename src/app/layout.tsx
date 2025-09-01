@@ -109,7 +109,6 @@ const localBusinessSchema = {
     "longitude": 3.3717
   },
   "description": "Logon Solutions provides AI-driven technology consulting and automation solutions to help businesses cut costs, automate processes, and scale faster.",
-  "servesCuisine": "N/A",
   "priceRange": "$$$",
   "openingHoursSpecification": [
     {
@@ -134,43 +133,57 @@ const localBusinessSchema = {
     },
     "geoRadius": "1000000"
   },
-  "department": [
-    {
-      "@type": "GovernmentOffice",
-      "name": "Technology Consulting",
-      "url": "https://logonsolutions.netlify.app/solutions",
-      "telephone": "+234 814 306 6320",
-      "email": "logo@logon.com.ng"
-    },
-    {
-      "@type": "GovernmentOffice",
-      "name": "AI Solutions",
-      "url": "https://logonsolutions.netlify.app/ai-solutions",
-      "telephone": "+234 814 306 6320",
-      "email": "logo@logon.com.ng"
-    },
-     {
-      "@type": "GovernmentOffice",
-      "name": "Process Automation",
-      "url": "https://logonsolutions.netlify.app/automation",
-      "telephone": "+234 814 306 6320",
-      "email": "logo@logon.com.ng"
-    },
-    {
-      "@type": "GovernmentOffice",
-      "name": "Web Development",
-      "url": "https://logonsolutions.netlify.app/web-development",
-      "telephone": "+234 814 306 6320",
-      "email": "logo@logon.com.ng"
-    },
-    {
-      "@type": "GovernmentOffice",
-      "name": "Training Programs",
-      "url": "https://logonsolutions.netlify.app/training",
-      "telephone": "+234 814 306 6320",
-      "email": "logo@logon.com.ng"
-    }
-  ]
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Technology Solutions",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Solutions",
+          "url": "https://logonsolutions.netlify.app/ai-solutions",
+          "description": "Custom AI and machine learning models to solve complex business challenges."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Process Automation",
+          "url": "https://logonsolutions.netlify.app/automation",
+          "description": "Intelligent automation and RPA to streamline workflows and increase efficiency."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Web & Custom Development",
+          "url": "https://logonsolutions.netlify.app/web-development",
+          "description": "Scalable websites, e-commerce platforms, and custom applications."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+            "@type": "Service",
+            "name": "Business Analytics",
+            "url": "https://logonsolutions.netlify.app/business-analytics",
+            "description": "Custom dashboards and BI reporting to turn data into actionable insights."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Technology Training Programs",
+          "url": "https://logonsolutions.netlify.app/training",
+          "description": "Expert-led training in AI, automation, and digital strategy."
+        }
+      }
+    ]
+  }
 };
 
 export default function RootLayout({
