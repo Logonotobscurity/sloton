@@ -81,7 +81,7 @@ const services = [
       'Key Performance Indicator (KPI) Tracking',
       'Data-driven Strategic Insights',
     ],
-    href: '/contact'
+    href: '/business-analytics'
   },
   {
     icon: <Database className="h-8 w-8 text-primary" />,
