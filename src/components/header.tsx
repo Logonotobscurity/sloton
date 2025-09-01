@@ -10,6 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetClose
 } from '@/components/ui/sheet';
 import {
   Accordion,
@@ -89,24 +90,6 @@ const useCasesNavItems = [
   },
 ]
 
-const AnimatedHamburgerIcon = ({ open }: { open: boolean }) => (
-    <div className="w-6 h-5 flex flex-col justify-between items-center" aria-hidden="true">
-        <span className={cn(
-            "block h-0.5 w-full bg-current transform transition duration-300 ease-in-out",
-            open ? "rotate-45 translate-y-2.5" : ""
-        )}></span>
-        <span className={cn(
-            "block h-0.5 w-full bg-current transition duration-300 ease-in-out",
-            open ? "opacity-0" : ""
-        )}></span>
-        <span className={cn(
-            "block h-0.5 w-full bg-current transform transition duration-300 ease-in-out",
-            open ? "-rotate-45 -translate-y-2.5" : ""
-        )}></span>
-    </div>
-);
-
-
 export function Header() {
   const [isSheetOpen, setSheetOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -125,7 +108,7 @@ export function Header() {
     if (isSheetOpen) {
       setSheetOpen(false);
     }
-  }, [pathname, isSheetOpen]);
+  }, [pathname]);
 
 
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
@@ -146,27 +129,30 @@ export function Header() {
   };
   
   const MobileNavLink = ({ href, icon, children }: { href: string; icon: React.ReactNode; children: React.ReactNode }) => (
-     <Link
-        href={href}
-        className={cn(
-            "flex items-center gap-4 py-3 text-base font-medium transition-colors hover:text-primary",
-            pathname === href ? "text-primary" : "text-foreground"
-        )}
-        onClick={() => setSheetOpen(false)}
-        prefetch={false}
-    >
-        {icon}
-        <span>{children}</span>
-    </Link>
+     <SheetClose asChild>
+        <Link
+            href={href}
+            className={cn(
+                "flex items-center gap-4 py-3 text-base font-medium transition-colors hover:text-primary",
+                pathname === href ? "text-primary" : "text-foreground"
+            )}
+            prefetch={false}
+        >
+            {icon}
+            <span>{children}</span>
+        </Link>
+     </SheetClose>
   )
 
   const Logo = () => (
-    <Link href="/" className="flex items-center" prefetch={false} onClick={() => setSheetOpen(false)}>
-        <div className="flex flex-col items-start">
-          <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
-          <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
-        </div>
-    </Link>
+    <SheetClose asChild>
+        <Link href="/" className="flex items-center" prefetch={false}>
+            <div className="flex flex-col items-start">
+            <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
+            <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
+            </div>
+        </Link>
+    </SheetClose>
   )
 
   return (
@@ -184,7 +170,12 @@ export function Header() {
       >
         {/* Desktop Header */}
         <div className="hidden md:flex items-center justify-between">
-           <Logo />
+           <Link href="/" className="flex items-center" prefetch={false}>
+                <div className="flex flex-col items-start">
+                  <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
+                  <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
+                </div>
+            </Link>
             <nav className="hidden md:flex items-center gap-8">
                 <div className="group relative">
                     <button className="flex items-center text-sm font-medium transition-colors hover:text-primary focus:outline-none relative">
@@ -250,20 +241,27 @@ export function Header() {
         {/* Mobile Header */}
         <div className="md:hidden flex items-center justify-between">
             <div className="w-10"></div> {/* Spacer to help center the logo */}
-            <Logo />
-            <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
+             <Link href="/" className="flex items-center" prefetch={false}>
+                <div className="flex flex-col items-start">
+                  <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
+                  <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
+                </div>
+            </Link>
+            <Sheet>
                 <SheetTrigger asChild>
                     <Button variant="ghost" size="icon" className="md:hidden" aria-label="Toggle navigation menu">
-                    <AnimatedHamburgerIcon open={isSheetOpen} />
+                        <Menu className="h-6 w-6" />
                     </Button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-full bg-background p-0 flex flex-col">
                     <SheetHeader className="p-4 flex-row items-center justify-between border-b">
                         <Logo />
                         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                        <Button variant="ghost" size="icon" onClick={() => setSheetOpen(false)} aria-label="Close navigation menu">
-                            <LucideX className="h-6 w-6" />
-                        </Button>
+                        <SheetClose asChild>
+                            <Button variant="ghost" size="icon" aria-label="Close navigation menu">
+                                <LucideX className="h-6 w-6" />
+                            </Button>
+                        </SheetClose>
                     </SheetHeader>
                     <div className="flex flex-col h-full justify-between p-4">
                         <nav className="flex-grow">
@@ -294,9 +292,11 @@ export function Header() {
                                 <p className="text-sm text-muted-foreground">Switch Theme</p>
                                 <ThemeToggle />
                             </div>
-                            <Button asChild className="w-full" size="lg">
-                                <Link href="/contact" onClick={() => setSheetOpen(false)}>Contact Us</Link>
-                            </Button>
+                            <SheetClose asChild>
+                                <Button asChild className="w-full" size="lg">
+                                    <Link href="/contact">Contact Us</Link>
+                                </Button>
+                            </SheetClose>
                         </div>
                     </div>
                 </SheetContent>
@@ -306,5 +306,3 @@ export function Header() {
     </header>
   );
 }
-
-    
