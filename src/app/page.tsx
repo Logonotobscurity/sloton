@@ -13,7 +13,7 @@ import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-x-hidden">
       <Hero />
       <ScrollAnimationWrapper>
         <StrategicPartner />

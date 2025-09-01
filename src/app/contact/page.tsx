@@ -30,15 +30,15 @@ const contactReasons = [
 export default function ContactPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 md:px-6 py-24 sm:py-32">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold">Get In Touch</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <h1 className="text-3xl md:text-5xl font-bold">Get In Touch</h1>
+          <p className="mt-4 text-md md:text-lg text-muted-foreground">
             We're here to help you navigate your digital transformation journey. Whether you have a specific project in mind, a question about our services, or just want to explore possibilities, our team is ready to connect. Let's start a conversation and build something great together.
           </p>
         </div>
         
-        <div className="mt-16 grid lg:grid-cols-2 gap-12 items-start">
+        <div className="mt-12 md:mt-16 grid lg:grid-cols-2 gap-12 items-start">
           <Card className="bg-secondary/50">
             <CardHeader>
               <CardTitle>Contact Form</CardTitle>
@@ -50,19 +50,19 @@ export default function ContactPage() {
           </Card>
           <div className="space-y-8 pt-4">
              <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
+                <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
                     <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                     <h3 className="text-xl font-semibold">Email</h3>
                     <p className="text-muted-foreground">Our inbox is always open for your questions and project details.</p>
-                    <a href="mailto:logo@logon.com.ng" className="text-primary hover:underline">
+                    <a href="mailto:logo@logon.com.ng" className="text-primary hover:underline break-all">
                         logo@logon.com.ng
                     </a>
                 </div>
             </div>
              <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
+                <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
                     <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>

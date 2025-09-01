@@ -45,11 +45,11 @@ const benefits = [
 export default function DatabaseSolutionsPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 md:px-6 py-24 sm:py-32">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold">Database & Data Management Solutions</h1>
-            <p className="text-lg text-muted-foreground">
+            <h1 className="text-3xl md:text-5xl font-bold">Database & Data Management Solutions</h1>
+            <p className="text-md md:text-lg text-muted-foreground">
               Your data is the backbone of your business. We design, build, and manage secure, scalable, and high-performance database systems that ensure your data is always available, consistent, and protected. From architecture to optimization, we provide end-to-end data solutions.
             </p>
              <div className="space-y-3 pt-4">
@@ -60,45 +60,45 @@ export default function DatabaseSolutionsPage() {
                     </div>
                 ))}
             </div>
-            <Button asChild size="lg" className="mt-4">
+            <Button asChild size="lg" className="mt-4 w-full sm:w-auto">
               <Link href="/contact">Get a Database Consultation</Link>
             </Button>
           </div>
-          <div className="relative h-96">
+          <div className="relative h-80 lg:h-96 mt-8 lg:mt-0">
             <div className="absolute inset-0 bg-primary/10 rounded-2xl -rotate-3 transition-transform duration-300 ease-in-out hover:rotate-0"></div>
-            <Card className="absolute inset-5 bg-background/80 backdrop-blur-lg rotate-2 transition-transform duration-300 ease-in-out hover:rotate-0 hover:scale-105">
+            <Card className="absolute inset-2 sm:inset-5 bg-background/80 backdrop-blur-lg rotate-2 transition-transform duration-300 ease-in-out hover:rotate-0 hover:scale-105">
                  <CardHeader>
                     <div className="flex justify-center mb-4">
-                        <Database className="h-16 w-16 text-primary" />
+                        <Database className="h-12 w-12 md:h-16 md:w-16 text-primary" />
                     </div>
-                    <CardTitle className="text-center text-3xl">Secure & Scalable Data</CardTitle>
+                    <CardTitle className="text-center text-2xl md:text-3xl">Secure & Scalable Data</CardTitle>
                     <CardDescription className="text-center">
                         The foundation for your digital operations.
                     </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center text-muted-foreground">
+                <CardContent className="text-center text-muted-foreground text-sm md:text-base">
                     <p>We ensure your data infrastructure is robust, performant, and ready for growth.</p>
                 </CardContent>
             </Card>
           </div>
         </section>
 
-        <section className="py-24">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold">Our Database Services</h2>
-                <p className="mt-4 text-lg text-muted-foreground">
+        <section className="py-16 md:py-24">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                <h2 className="text-2xl md:text-4xl font-bold">Our Database Services</h2>
+                <p className="mt-4 text-md md:text-lg text-muted-foreground">
                     We offer a complete range of services to manage the entire lifecycle of your data.
                 </p>
             </div>
              <div className="grid md:grid-cols-2 gap-8">
                 {databaseServices.map((service) => (
                 <Card key={service.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                    <CardHeader className="flex flex-row items-center gap-4">
+                    <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                         {service.icon}
-                        <CardTitle className="text-xl">{service.title}</CardTitle>
+                        <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-muted-foreground">{service.description}</p>
+                        <p className="text-muted-foreground text-sm md:text-base">{service.description}</p>
                     </CardContent>
                 </Card>
                 ))}
@@ -111,13 +111,13 @@ export default function DatabaseSolutionsPage() {
             description="Learn how our database solutions have helped clients achieve scalability, performance, and rock-solid security for their critical applications."
         />
 
-         <section className="text-center mt-24 py-16 bg-background rounded-lg px-4">
-            <h2 className="text-3xl md:text-4xl font-bold">Is Your Data Working For You?</h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
+            <h2 className="text-2xl md:text-4xl font-bold">Is Your Data Working For You?</h2>
+            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how our database expertise can improve your application performance and secure your data. Schedule a free consultation today.
             </p>
             <div className="mt-8 flex justify-center">
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="w-full sm:w-auto">
                     <Link href="/contact">
                         Schedule Your Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

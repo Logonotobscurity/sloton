@@ -21,12 +21,12 @@ import { Button } from './ui/button';
 
 export function StrategicPartner() {
   return (
-    <section className="py-24 sm:py-32 bg-secondary/20">
+    <section className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
             <p className="text-sm font-normal uppercase tracking-widest text-primary">01/ Your Strategic Partner</p>
-            <h2 className="text-3xl md:text-4xl font-bold">Your Strategic Technology Partner</h2>
+            <h2 className="text-2xl md:text-4xl font-bold">Your Strategic Technology Partner</h2>
             <p className="text-muted-foreground md:text-lg">
               We don't just build solutions; we build partnerships. Our approach is to work alongside you to understand your core business challenges and opportunities. Use our free, interactive tools to get instant, AI-powered insights and see how technology can drive your success. Start with our 3-step assessment to receive a personalized technology roadmap designed to help you scale efficiently and innovate faster. This initial consultation provides a clear, actionable plan, demonstrating the potential ROI of a strategic technology partnership with us.
             </p>
@@ -45,7 +45,7 @@ export function StrategicPartner() {
                 </div>
             </div>
           </div>
-          <div className="space-y-8">
+          <div className="space-y-8 mt-8 lg:mt-0">
             <Dialog>
               <DialogTrigger asChild>
                 <Card className="bg-background group flex flex-col text-left cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2">
@@ -53,7 +53,7 @@ export function StrategicPartner() {
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                           <BrainCircuit className="h-6 w-6" />
                       </div>
-                      <CardTitle className="pt-4 text-2xl">Free AI Business Assessment</CardTitle>
+                      <CardTitle className="pt-4 text-xl md:text-2xl">Free AI Business Assessment</CardTitle>
                   </CardHeader>
                   <CardContent className="flex-grow">
                       <p className="text-muted-foreground">Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning. This tool helps you identify the best technology strategies for your goals.</p>

@@ -158,10 +158,10 @@ const useCases = [
 export default function UseCasesPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 md:px-6 py-24 sm:py-32">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold">Automating Industries</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <h1 className="text-3xl md:text-5xl font-bold">Automating Industries</h1>
+          <p className="mt-4 text-md md:text-lg text-muted-foreground">
             Explore detailed examples of how LOG_ON's technology solutions drive success across various sectors. We tailor our services to meet the unique demands and challenges of your industry.
           </p>
         </div>
@@ -173,7 +173,7 @@ export default function UseCasesPage() {
                   <CardHeader className="p-0">
                     <div className="flex items-center gap-4">
                       {useCase.icon}
-                      <CardTitle className="text-2xl md:text-3xl">{useCase.title}</CardTitle>
+                      <CardTitle className="text-xl md:text-3xl">{useCase.title}</CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent className="p-0 pt-4">
@@ -194,7 +194,7 @@ export default function UseCasesPage() {
             </Card>
           ))}
         </div>
-         <div className="text-center mt-20">
+         <div className="text-center mt-16 md:mt-20">
              <p className="text-lg text-muted-foreground">Ready to see how we can help your business?</p>
               <Link href="/contact" className="text-primary text-lg font-semibold hover:underline mt-2 inline-block">
                 Contact Us Today

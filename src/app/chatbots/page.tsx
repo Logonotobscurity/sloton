@@ -45,11 +45,11 @@ const benefits = [
 export default function ChatbotsPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 md:px-6 py-24 sm:py-32">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold">AI Chatbots & Virtual Assistants</h1>
-            <p className="text-lg text-muted-foreground">
+            <h1 className="text-3xl md:text-5xl font-bold">AI Chatbots & Virtual Assistants</h1>
+            <p className="text-md md:text-lg text-muted-foreground">
               Engage every customer, 24/7. We design and build intelligent, AI-powered chatbots that integrate seamlessly with your website, WhatsApp, and other platforms. Automate customer service, qualify leads, and drive sales while your team focuses on what matters most.
             </p>
              <div className="space-y-3 pt-4">
@@ -60,45 +60,45 @@ export default function ChatbotsPage() {
                     </div>
                 ))}
             </div>
-            <Button asChild size="lg" className="mt-4">
+            <Button asChild size="lg" className="mt-4 w-full sm:w-auto">
               <Link href="/contact">Build Your Chatbot</Link>
             </Button>
           </div>
-          <div className="relative h-96">
+          <div className="relative h-80 lg:h-96 mt-8 lg:mt-0">
             <div className="absolute inset-0 bg-primary/10 rounded-2xl -rotate-3 transition-transform duration-300 ease-in-out hover:rotate-0"></div>
-            <Card className="absolute inset-5 bg-background/80 backdrop-blur-lg rotate-2 transition-transform duration-300 ease-in-out hover:rotate-0 hover:scale-105">
+            <Card className="absolute inset-2 sm:inset-5 bg-background/80 backdrop-blur-lg rotate-2 transition-transform duration-300 ease-in-out hover:rotate-0 hover:scale-105">
                  <CardHeader>
                     <div className="flex justify-center mb-4">
-                        <Bot className="h-16 w-16 text-primary" />
+                        <Bot className="h-12 w-12 md:h-16 md:w-16 text-primary" />
                     </div>
-                    <CardTitle className="text-center text-3xl">Conversational AI</CardTitle>
+                    <CardTitle className="text-center text-2xl md:text-3xl">Conversational AI</CardTitle>
                     <CardDescription className="text-center">
                         Your new, AI-powered team member that never sleeps.
                     </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center text-muted-foreground">
+                <CardContent className="text-center text-muted-foreground text-sm md:text-base">
                     <p>We build chatbots that understand context, show empathy, and solve real problems for your customers.</p>
                 </CardContent>
             </Card>
           </div>
         </section>
 
-        <section className="py-24">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold">Our Chatbot Development Services</h2>
-                <p className="mt-4 text-lg text-muted-foreground">
+        <section className="py-16 md:py-24">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                <h2 className="text-2xl md:text-4xl font-bold">Our Chatbot Development Services</h2>
+                <p className="mt-4 text-md md:text-lg text-muted-foreground">
                     From simple FAQ bots to complex, integrated virtual assistants, we offer end-to-end development.
                 </p>
             </div>
              <div className="grid md:grid-cols-2 gap-8">
                 {chatbotServices.map((service) => (
                 <Card key={service.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                    <CardHeader className="flex flex-row items-center gap-4">
+                    <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                         {service.icon}
-                        <CardTitle className="text-xl">{service.title}</CardTitle>
+                        <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-muted-foreground">{service.description}</p>
+                        <p className="text-muted-foreground text-sm md:text-base">{service.description}</p>
                     </CardContent>
                 </Card>
                 ))}
@@ -111,13 +111,13 @@ export default function ChatbotsPage() {
             description="See how our intelligent chatbots have helped businesses improve customer satisfaction and reduce support overhead."
         />
 
-         <section className="text-center mt-24 py-16 bg-background rounded-lg px-4">
-            <h2 className="text-3xl md:text-4xl font-bold">Ready to Automate Your Conversations?</h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
+            <h2 className="text-2xl md:text-4xl font-bold">Ready to Automate Your Conversations?</h2>
+            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how a custom chatbot can revolutionize your customer engagement. Schedule a free consultation with our AI experts today.
             </p>
             <div className="mt-8 flex justify-center">
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="w-full sm:w-auto">
                     <Link href="/contact">
                         Get a Free Chatbot Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

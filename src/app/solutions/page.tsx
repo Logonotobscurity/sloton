@@ -124,15 +124,15 @@ const services = [
 export default function SolutionsPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 md:px-6 py-24 sm:py-32">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold">Our Solutions</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <h1 className="text-3xl md:text-5xl font-bold">Our Solutions</h1>
+          <p className="mt-4 text-md md:text-lg text-muted-foreground">
             We provide a comprehensive suite of scalable services designed to grow with your business, tackle your most significant challenges head-on, and drive measurable results.
           </p>
         </div>
 
-        <div className="mt-20 grid lg:grid-cols-2 gap-8">
+        <div className="mt-16 grid lg:grid-cols-2 gap-8">
           {services.map((service, index) => {
             const isStringArray = Array.isArray(service.features) && typeof service.features[0] === 'string';
             
@@ -141,9 +141,9 @@ export default function SolutionsPage() {
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     {service.icon}
-                    <CardTitle className="text-2xl">{service.title}</CardTitle>
+                    <CardTitle className="text-xl md:text-2xl">{service.title}</CardTitle>
                   </div>
-                  <p className="pt-4 text-muted-foreground">{service.description}</p>
+                  <p className="pt-4 text-muted-foreground text-sm md:text-base">{service.description}</p>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <div className="space-y-4">
@@ -169,7 +169,7 @@ export default function SolutionsPage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button asChild>
+                  <Button asChild className="w-full sm:w-auto">
                     <Link href={service.href}>
                       {service.href === '/contact' ? 'Get a Free Consultation' : 'Learn More'}
                     </Link>

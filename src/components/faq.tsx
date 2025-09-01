@@ -54,7 +54,7 @@ const faqSchema = {
 
 export function Faq() {
   return (
-    <section id="faq" className="py-24 sm:py-32 bg-secondary/20">
+    <section id="faq" className="py-16 md:py-24 bg-secondary/20">
       <Script
         id="faq-schema"
         type="application/ld+json"
@@ -62,8 +62,8 @@ export function Faq() {
       />
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold">Frequently Asked Questions</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
+          <p className="mt-4 text-md md:text-lg text-muted-foreground">
             Have questions? We have answers. Here are some of the most common inquiries we receive from prospective partners.
           </p>
         </div>
@@ -71,14 +71,14 @@ export function Faq() {
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item) => (
               <AccordionItem key={item.value} value={item.value}>
-                <AccordionTrigger className="text-left">
-                  <div className="flex items-center gap-4">
+                <AccordionTrigger className="text-left text-base md:text-lg">
+                  <div className="flex items-start md:items-center gap-4">
                     {item.icon}
                     {item.question}
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                    <div className="text-muted-foreground pl-11" dangerouslySetInnerHTML={{ __html: item.answer }} />
+                    <div className="text-muted-foreground pl-9 text-sm md:text-base" dangerouslySetInnerHTML={{ __html: item.answer }} />
                 </AccordionContent>
               </AccordionItem>
             ))}

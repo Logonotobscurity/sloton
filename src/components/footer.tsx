@@ -12,7 +12,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="py-8 md:py-16 border-t border-white/10 bg-secondary/20">
+    <footer className="py-8 md:py-16 border-t bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4 text-center md:text-left">
@@ -31,8 +31,8 @@ export function Footer() {
               Powering business efficiency with smart technology solutions.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-2 md:col-span-2 gap-8">
-              <div className="text-center md:text-left">
+          <div className="grid grid-cols-2 col-span-1 md:col-span-2 gap-8 text-center md:text-left">
+              <div>
                 <h3 className="font-semibold mb-4 text-primary text-lg">Services</h3>
                 <ul className="space-y-2 list-none">
                   <li><Link href="/solutions" className="text-muted-foreground hover:text-primary text-sm transition-colors">IT Solutions</Link></li>
@@ -41,7 +41,7 @@ export function Footer() {
                   <li><Link href="/training" className="text-muted-foreground hover:text-primary text-sm transition-colors">Training</Link></li>
                 </ul>
               </div>
-              <div className="text-center md:text-left">
+              <div>
                 <h3 className="font-semibold mb-4 text-primary text-lg">Company</h3>
                  <ul className="space-y-2 list-none">
                   <li><Link href="/about" className="text-muted-foreground hover:text-primary text-sm transition-colors">About Us</Link></li>

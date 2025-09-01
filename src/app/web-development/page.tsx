@@ -37,27 +37,27 @@ const services = [
 export default function WebDevelopmentPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 md:px-6 py-24 sm:py-32">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="text-center max-w-3xl mx-auto">
             <div className="flex justify-center mb-4">
-                <Code className="h-16 w-16 text-primary" />
+                <Code className="h-12 w-12 md:h-16 md:w-16 text-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold">Web & Custom Development</h1>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <h1 className="text-3xl md:text-5xl font-bold">Web & Custom Development</h1>
+            <p className="mt-4 text-md md:text-lg text-muted-foreground">
                 We specialize in crafting custom web projects tailored to your specific business needs. Drawing on our deep experience in IT solutions and AI automation, we build scalable, secure, and optimized digital platforms designed to help you grow.
             </p>
         </section>
 
-        <section className="py-24">
+        <section className="py-16 md:py-24">
              <div className="grid md:grid-cols-2 gap-8">
                 {services.map((service) => (
                 <Card key={service.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                    <CardHeader className="flex flex-row items-center gap-4">
+                    <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                         {service.icon}
-                        <CardTitle className="text-2xl">{service.title}</CardTitle>
+                        <CardTitle className="text-lg md:text-2xl">{service.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-muted-foreground">{service.description}</p>
+                        <p className="text-muted-foreground text-sm md:text-base">{service.description}</p>
                     </CardContent>
                 </Card>
                 ))}
@@ -70,13 +70,13 @@ export default function WebDevelopmentPage() {
             description="See how our custom web development solutions have helped businesses launch high-performance platforms that drive revenue and engagement."
         />
 
-         <section className="text-center mt-24 py-16 bg-background rounded-lg px-4">
-            <h2 className="text-3xl md:text-4xl font-bold">Have a Project in Mind?</h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
+            <h2 className="text-2xl md:text-4xl font-bold">Have a Project in Mind?</h2>
+            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Whether you're an established publisher, a growing e-commerce brand, or a corporation looking to enhance your digital presence, we're here to help.
             </p>
             <div className="mt-8 flex justify-center">
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="w-full sm:w-auto">
                     <Link href="/contact">
                         Get a Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

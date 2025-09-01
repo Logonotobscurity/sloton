@@ -34,7 +34,7 @@ const features = [
 
 export function GeneralistApproach() {
   return (
-    <section className="min-h-screen w-full py-24 sm:py-32 flex items-center bg-secondary/20">
+    <section className="min-h-screen w-full py-16 md:py-24 flex items-center bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
@@ -45,11 +45,11 @@ export function GeneralistApproach() {
                     <br />
                     <span className="text-primary">WE ARE GENERALISTS.</span>
                 </h2>
-                <p className="text-muted-foreground text-lg">
+                <p className="text-muted-foreground text-md md:text-lg">
                     Our expertise isn't confined to a single niche. We are technologists with a broad and deep understanding of the entire digital ecosystem. This allows us to connect dots that specialists might miss, creating integrated solutions that are more robust, efficient, and innovative. We architect, build, and manage systems that drive real-world results, from AI-powered automation to scalable cloud infrastructures and custom web applications. Our holistic view ensures every component works in harmony to achieve your strategic goals.
                 </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {features.map((feature) => (
                     <Card key={feature.title} className="bg-background/80 backdrop-blur-sm transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
                         <CardHeader>

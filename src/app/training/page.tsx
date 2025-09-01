@@ -91,17 +91,17 @@ const trainingPrograms = [
 export default function TrainingPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 md:px-6 py-24 sm:py-32">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         
         <section className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold">Become a Tech Leader</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <h1 className="text-3xl md:text-5xl font-bold">Become a Tech Leader</h1>
+          <p className="mt-4 text-md md:text-lg text-muted-foreground">
             Master the technologies shaping the future with our comprehensive online training programs. Learn from industry experts and gain practical experience to accelerate your career.
           </p>
         </section>
 
-        <section className="py-24">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <section className="py-16 md:py-24">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                 {trainingFeatures.map(feature => (
                     <div key={feature.title} className="text-center p-4">
                         <div className="flex justify-center mb-4">{feature.icon}</div>
@@ -113,9 +113,9 @@ export default function TrainingPage() {
         </section>
 
         <section>
-            <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold">Our Training Programs</h2>
-                <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Choose a program that aligns with your career goals and start your journey today.</p>
+            <div className="text-center mb-12 md:mb-16">
+                <h2 className="text-2xl md:text-4xl font-bold">Our Training Programs</h2>
+                <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">Choose a program that aligns with your career goals and start your journey today.</p>
             </div>
             <div className="grid lg:grid-cols-2 gap-8 items-start">
                 {trainingPrograms.map(program => (
@@ -123,7 +123,7 @@ export default function TrainingPage() {
                         <CardHeader>
                             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
                                 {program.icon}
-                                <CardTitle className="text-2xl">{program.title}</CardTitle>
+                                <CardTitle className="text-xl md:text-2xl">{program.title}</CardTitle>
                             </div>
                             <p className="text-muted-foreground">{program.description}</p>
                         </CardHeader>
@@ -162,19 +162,19 @@ export default function TrainingPage() {
             </div>
         </section>
 
-        <section className="text-center mt-24 py-16 bg-secondary/30 rounded-lg px-4">
-            <h2 className="text-3xl md:text-4xl font-bold">Ready to Start Your Learning Journey?</h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+        <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-secondary/30 rounded-lg px-4">
+            <h2 className="text-2xl md:text-4xl font-bold">Ready to Start Your Learning Journey?</h2>
+            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Join our training programs and gain the skills needed to excel in the digital age. Get personalized guidance and hands-on experience.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <DialogFormWrapper
-                    trigger={<Button size="lg">Enroll Now</Button>}
+                    trigger={<Button size="lg" className="w-full sm:w-auto">Enroll Now</Button>}
                     title="Enroll Now"
                     description="Please select a program and fill out your details to enroll."
                     form={<EnrollmentForm />}
                 />
-                <Button asChild variant="secondary" size="lg">
+                <Button asChild variant="secondary" size="lg" className="w-full sm:w-auto">
                     <Link href="/contact">Contact Us</Link>
                 </Button>
             </div>

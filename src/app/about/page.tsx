@@ -56,21 +56,21 @@ const philosophies = [
 export default function AboutPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 md:px-6 py-24 sm:py-32 space-y-20">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-16 md:space-y-20">
         
         <section className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold">About LOG_ON</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <h1 className="text-3xl md:text-5xl font-bold">About LOG_ON</h1>
+          <p className="mt-4 text-md md:text-lg text-muted-foreground">
             We are a team of technologists, strategists, and innovators passionate about using technology to solve real-world business problems. Our mission is to empower organizations with intelligent automation and scalable IT solutions that drive growth and create lasting value. We believe that the right technology, implemented correctly, can unlock unprecedented efficiency and create significant competitive advantages.
           </p>
         </section>
         
         <section>
           <div className="text-center mb-12">
-             <h2 className="text-3xl md:text-4xl font-bold">Our Philosophy</h2>
-             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Our core values guide every decision we make and every solution we build.</p>
+             <h2 className="text-2xl md:text-4xl font-bold">Our Philosophy</h2>
+             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">Our core values guide every decision we make and every solution we build.</p>
           </div>
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {philosophies.map((item) => (
               <div key={item.title} className="text-center p-4">
                 <div className="flex justify-center mb-4">{item.icon}</div>
@@ -83,20 +83,20 @@ export default function AboutPage() {
 
         <section>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-3"><Users className="h-8 w-8 text-primary" /> Meet Our Team</h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">A dynamic duo of technology experts dedicated to delivering innovative solutions and exceptional service to our clients.</p>
+            <h2 className="text-2xl md:text-4xl font-bold flex items-center justify-center gap-3"><Users className="h-8 w-8 text-primary" /> Meet Our Team</h2>
+            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">A dynamic duo of technology experts dedicated to delivering innovative solutions and exceptional service to our clients.</p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {teamMembers.map((member) => (
               <Card key={member.name} className="bg-secondary/50 border-border/50 overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                <div className="grid md:grid-cols-3 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 items-center">
                    <div className="p-6 flex justify-center md:justify-start">
                      <Avatar className="w-32 h-32 border-4 border-primary">
                        <AvatarImage src={member.image} alt={member.name} data-ai-hint={member.dataAiHint} />
                        <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                      </Avatar>
                    </div>
-                   <div className="md:col-span-2 p-6">
+                   <div className="md:col-span-2 p-6 text-center md:text-left">
                       <h3 className="font-bold text-2xl">{member.name}</h3>
                       <p className="text-primary mb-3">{member.role}</p>
                       <p className="text-muted-foreground text-sm">{member.description}</p>
@@ -119,11 +119,11 @@ export default function AboutPage() {
         </section>
         
         <section className="text-center max-w-3xl mx-auto border-t border-border pt-16">
-            <h2 className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-3"><Briefcase className="h-8 w-8 text-primary" /> Join Our Team</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <h2 className="text-2xl md:text-4xl font-bold flex items-center justify-center gap-3"><Briefcase className="h-8 w-8 text-primary" /> Join Our Team</h2>
+            <p className="mt-4 text-md md:text-lg text-muted-foreground">
                 We're always looking for talented individuals who are passionate about technology and innovation. Join us in shaping the future of digital transformation in Nigeria.
             </p>
-            <div className="mt-8 flex justify-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <Button asChild>
                     <Link href="#">View Open Positions</Link>
                 </Button>

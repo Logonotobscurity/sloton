@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
@@ -17,20 +18,20 @@ export function Hero() {
     <section className="relative min-h-[90vh] flex items-center py-16">
        <div className="absolute inset-0 -z-10 overflow-hidden">
         <CircuitBackground />
-        <div className="absolute h-[500px] w-[500px] bg-primary rounded-full filter blur-3xl opacity-10 -top-40 -right-40"></div>
-        <div className="absolute h-[400px] w-[400px] bg-accent rounded-full filter blur-3xl opacity-10 -bottom-40 -left-40"></div>
+        <div className="absolute h-[200px] w-[200px] sm:h-[500px] sm:w-[500px] bg-primary rounded-full filter blur-3xl opacity-10 -top-20 -right-20 sm:-top-40 sm:-right-40"></div>
+        <div className="absolute h-[200px] w-[200px] sm:h-[400px] sm:w-[400px] bg-accent rounded-full filter blur-3xl opacity-10 -bottom-20 -left-20 sm:-bottom-40 sm:-left-40"></div>
       </div>
-      <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-4xl">
-        <span className="text-sm font-normal uppercase tracking-widest text-primary mb-6 block">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-4xl text-center md:text-left">
+        <span className="text-sm font-normal uppercase tracking-widest text-primary mb-4 md:mb-6 block">
           Your Partner in Growth
         </span>
-        <h1 className="text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-snug mb-8">
+        <h1 className="text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight mb-6 md:mb-8">
           Find the right <span className="text-primary">tech solution</span> for your business in minutes.
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl mb-12">
+        <p className="mt-6 max-w-2xl text-md md:text-xl text-muted-foreground mb-8 md:mb-12 mx-auto md:mx-0">
            Stop guessing. Our AI-driven tools and expert services help you cut costs, automate processes, and scale faster. Start with a free, instant business assessment.
         </p>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
           <Dialog>
             <DialogTrigger asChild>
               <Button size="lg">Get Your Free AI Assessment</Button>

@@ -40,15 +40,15 @@ export function CaseStudiesCarousel({ studies }: CaseStudiesCarouselProps) {
                   alt={study.title}
                   width={600}
                   height={400}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-48 sm:h-64 object-cover"
                   data-ai-hint={study.dataAiHint}
                 />
                 <CardHeader>
                   <CardDescription>{study.client}</CardDescription>
-                  <CardTitle className="text-2xl">{study.title}</CardTitle>
+                  <CardTitle className="text-xl md:text-2xl">{study.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{study.description}</p>
+                  <p className="text-muted-foreground mb-4 text-sm md:text-base">{study.description}</p>
                    <div className="flex flex-wrap gap-2">
                     {study.tags.map(tag => <Badge key={tag} variant="outline" className="border-primary text-primary">{tag}</Badge>)}
                    </div>
@@ -58,8 +58,8 @@ export function CaseStudiesCarousel({ studies }: CaseStudiesCarouselProps) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2" />
-      <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2" />
+      <CarouselPrevious className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2" />
+      <CarouselNext className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2" />
     </Carousel>
   );
 }
