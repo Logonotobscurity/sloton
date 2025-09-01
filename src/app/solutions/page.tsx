@@ -38,7 +38,7 @@ const services = [
   {
     icon: <Code className="h-8 w-8 text-primary" />,
     title: 'Web & Custom Development',
-    description: "At LOG_ON Solutions, we specialize in crafting custom web development projects tailored to your business needs—whether you’re a publisher, retailer, corporate entity, or running an online community. Drawing on our deep experience in IT solutions and AI automation, we build scalable, secure, and optimized digital platforms designed to help you grow.",
+    description: "At LOG_ON Solutions, we specialize in crafting custom web development projects tailored to your business needs whether you’re a publisher, retailer, corporate entity, or running an online community. Drawing on our deep experience in IT solutions and AI automation, we build scalable, secure, and optimized digital platforms designed to help you grow.",
     features: [
         {
             title: "Websites for Publishers",
@@ -69,7 +69,7 @@ const services = [
       '24/7 Customer Service Automation',
       'Automated Lead Generation & Qualification',
     ],
-    href: '#'
+    href: '/contact'
   },
   {
     icon: <BarChart3 className="h-8 w-8 text-primary" />,
@@ -81,7 +81,7 @@ const services = [
       'Key Performance Indicator (KPI) Tracking',
       'Data-driven Strategic Insights',
     ],
-    href: '#'
+    href: '/contact'
   },
   {
     icon: <Database className="h-8 w-8 text-primary" />,
@@ -93,7 +93,7 @@ const services = [
       'Performance Tuning & Optimization',
       'Data Security & Compliance',
     ],
-    href: '#'
+    href: '/contact'
   },
   {
     icon: <Smartphone className="h-8 w-8 text-primary" />,
@@ -105,7 +105,7 @@ const services = [
       'Mobile UI/UX Design',
       'App Store Deployment & Maintenance',
     ],
-    href: '#'
+    href: '/contact'
   },
   {
     icon: <GitBranch className="h-8 w-8 text-primary" />,
@@ -117,7 +117,7 @@ const services = [
       'Legacy System & Process Digitization',
       'Change Management & Implementation Support',
     ],
-    href: '/about'
+    href: '/contact'
   },
 ];
 

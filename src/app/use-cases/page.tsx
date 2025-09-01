@@ -36,6 +36,19 @@ const useCases = [
       'Personalized Financial Advisory Chatbots',
     ],
   },
+    {
+    id: 'e-commerce',
+    icon: <ShoppingCart className="h-8 w-8 text-primary" />,
+    title: 'E-Commerce',
+    description: 'We help retail businesses enhance customer experiences and streamline operations through intelligent automation and AI. From inventory management to personalized marketing, our solutions are designed to boost your bottom line.',
+    features: [
+      'AI-Powered Recommendation Engines',
+      'Automated Inventory & Supply Chain Management',
+      '24/7 Customer Support Chatbots',
+      'Personalized Marketing Automation',
+      'Secure Cloud-Based POS Systems',
+    ],
+  },
   {
     id: 'insurance',
     icon: <Shield className="h-8 w-8 text-primary" />,
@@ -99,19 +112,6 @@ const useCases = [
       'Cloud Infrastructure Optimization and Management',
       'DevOps and CI/CD Pipeline Automation',
       'Cybersecurity Automation and Threat Detection',
-    ],
-  },
-  {
-    id: 'e-commerce',
-    icon: <ShoppingCart className="h-8 w-8 text-primary" />,
-    title: 'E-Commerce',
-    description: 'We help retail businesses enhance customer experiences and streamline operations through intelligent automation and AI. From inventory management to personalized marketing, our solutions are designed to boost your bottom line.',
-    features: [
-      'AI-Powered Recommendation Engines',
-      'Automated Inventory & Supply Chain Management',
-      '24/7 Customer Support Chatbots',
-      'Personalized Marketing Automation',
-      'Secure Cloud-Based POS Systems',
     ],
   },
   {
