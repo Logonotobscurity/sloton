@@ -131,7 +131,7 @@ export function Header() {
     if (isSheetOpen) {
       setSheetOpen(false);
     }
-  }, [pathname, isSheetOpen]);
+  }, [pathname]);
 
 
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
@@ -307,5 +307,3 @@ export function Header() {
     </header>
   );
 }
-
-    
