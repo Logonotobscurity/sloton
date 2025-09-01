@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone, Code } from 'lucide-react';
+import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone, Code, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -53,6 +53,12 @@ const solutionsNavItems = [
     label: 'Web Development',
     description: 'Custom websites, e-commerce, and platforms.',
     icon: <Code className="h-5 w-5 text-primary" />
+  },
+  { 
+    href: '/chatbots', 
+    label: 'Chatbots & Assistants',
+    description: 'Automate support with intelligent chatbots.',
+    icon: <MessageSquare className="h-5 w-5 text-primary" />
   },
 ];
 

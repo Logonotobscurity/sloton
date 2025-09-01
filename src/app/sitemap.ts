@@ -13,7 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/training',
     '/use-cases',
     '/web-development',
-    '/ai-solutions'
+    '/ai-solutions',
+    '/chatbots'
   ];
 
   const pageUrls = pages.map(page => ({

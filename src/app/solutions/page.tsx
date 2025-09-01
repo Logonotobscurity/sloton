@@ -69,7 +69,7 @@ const services = [
       '24/7 Customer Service Automation',
       'Automated Lead Generation & Qualification',
     ],
-    href: '/contact'
+    href: '/chatbots'
   },
   {
     icon: <BarChart3 className="h-8 w-8 text-primary" />,
