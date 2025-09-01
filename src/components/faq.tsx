@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { BrainCircuit, Zap, CircleDollarSign, Calendar } from "lucide-react";
+import { BrainCircuit, Zap, CircleDollarSign, Calendar, Code, GraduationCap } from "lucide-react";
 import Link from "next/link";
 import Script from "next/script";
 import React from 'react';
@@ -16,27 +16,39 @@ const faqItems = [
   {
     value: "item-1",
     question: "What kind of results can I expect from your AI and automation solutions?",
-    answer: "Clients typically see significant improvements in efficiency, cost reduction, and scalability. For example, our AI chatbots can reduce customer support tickets by over 30%, and our RPA solutions can save dozens of hours per week by automating manual tasks. We focus on delivering measurable ROI.",
+    answer: "Clients typically see significant improvements in efficiency, cost reduction, and scalability. For example, our AI chatbots can reduce customer support tickets by over 30%, and our RPA solutions can save dozens of hours per week by automating manual tasks. We focus on delivering measurable ROI, which we outline in our initial <a href='/solutions' class='text-primary underline'>solutions proposal</a>.",
     icon: <BrainCircuit className="h-5 w-5 text-primary" />
   },
   {
     value: "item-2",
-    question: "How do you start a new project?",
-    answer: "Our process begins with a free AI Business Assessment to understand your goals. From there, we move to a discovery and planning phase to create a detailed project roadmap and timeline. We believe in a collaborative partnership, so you'll be involved at every stage.",
+    question: "How do you start a new project with a client?",
+    answer: "Our process begins with a free AI Business Assessment to understand your goals. From there, we move to a discovery and planning phase to create a detailed project roadmap and timeline. We believe in a collaborative partnership, so you'll be involved at every stage, ensuring the final solution perfectly fits your needs.",
     icon: <Zap className="h-5 w-5 text-primary" />
   },
   {
     value: "item-3",
-    question: "What is your pricing model?",
-    answer: "Our pricing is tailored to the scope and complexity of each project. We offer project-based pricing for specific builds and monthly retainers for ongoing support and strategic guidance. We are transparent with all costs upfront. For a detailed quote, please <a href='/contact' class='text-primary underline'>contact us</a>.",
+    question: "What is your pricing model for development and consulting?",
+    answer: "Our pricing is tailored to the scope and complexity of each project. We offer project-based pricing for specific builds (like a new website or AI model) and monthly retainers for ongoing support and strategic guidance. We are transparent with all costs upfront. For a detailed quote, please <a href='/contact' class='text-primary underline'>contact us</a>.",
     icon: <CircleDollarSign className="h-5 w-5 text-primary" />
   },
   {
     value: "item-4",
     question: "How long does it take to implement a solution?",
-    answer: "Timelines vary depending on the project. A simple chatbot might be deployed in 2-4 weeks, while a complex digital transformation project could take several months. We provide a detailed timeline in our project proposal after the initial assessment.",
+    answer: "Timelines vary depending on the project. A simple chatbot might be deployed in 2-4 weeks, while a complex custom web application could take several months. We provide a detailed timeline in our project proposal after the initial assessment.",
     icon: <Calendar className="h-5 w-5 text-primary" />
   },
+  {
+    value: "item-5",
+    question: "What technologies do you use for web development?",
+    answer: "We specialize in building high-performance, scalable web applications using modern technologies. Our primary stack includes React, Next.js, and TypeScript for the frontend, with Node.js and Python for backend services. We leverage cloud platforms like AWS, Google Cloud, and Vercel for hosting. You can see a broader list on our <a href='/#tech-stack' class='text-primary underline'>homepage</a>.",
+    icon: <Code className="h-5 w-5 text-primary" />
+  },
+  {
+    value: "item-6",
+    question: "Who are the instructors for your training programs?",
+    answer: "Our courses are taught by our own senior developers and architects—the same experts who lead our client projects. This ensures you learn from professionals with extensive, real-world experience in AI, automation, and digital transformation. Learn more about our <a href='/training' class='text-primary underline'>training programs</a>.",
+    icon: <GraduationCap className="h-5 w-5 text-primary" />
+  }
 ];
 
 const faqSchema = {
