@@ -37,7 +37,7 @@ const technologies = [
 
 export function TechStackCarousel() {
   return (
-    <section className="py-24 sm:py-32 bg-secondary/20">
+    <section className="py-24 sm:py-32 bg-secondary/20 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold">The Technologies We Master</h2>
         <p className="mt-4 text-muted-foreground md:text-lg max-w-2xl mx-auto">
@@ -45,22 +45,17 @@ export function TechStackCarousel() {
         </p>
       </div>
       <div
-        className="mt-16 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
+        className="mt-16 w-full"
       >
-        <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
-            {technologies.map((tech, index) => (
-                <li key={index}>
-                    <Image src={tech.icon} alt={tech.name} width={100} height={100} className="h-16 w-auto object-contain" unoptimized />
-                </li>
-            ))}
-        </ul>
-        <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll" aria-hidden="true">
-            {technologies.map((tech, index) => (
-                <li key={index}>
-                    <Image src={tech.icon} alt={tech.name} width={100} height={100} className="h-16 w-auto object-contain" unoptimized />
-                </li>
-            ))}
-        </ul>
+        <div className="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+            <div className="flex w-max animate-infinite-scroll">
+                {technologies.concat(technologies).map((tech, index) => (
+                    <div key={index} className="flex-shrink-0 w-40 h-20 flex items-center justify-center mx-4">
+                        <Image src={tech.icon} alt={tech.name} width={80} height={80} className="max-h-16 w-auto object-contain" unoptimized />
+                    </div>
+                ))}
+            </div>
+        </div>
       </div>
     </section>
   );
