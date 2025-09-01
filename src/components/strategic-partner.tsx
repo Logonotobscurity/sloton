@@ -1,3 +1,4 @@
+
 import { BrainCircuit, ArrowRight, Calculator } from 'lucide-react';
 import {
   Card,
@@ -26,7 +27,7 @@ export function StrategicPartner() {
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold">Your Strategic Technology Partner</h2>
             <p className="text-muted-foreground md:text-lg">
-              We don&apos;t just build solutions; we build partnerships. Use our free, interactive tools to get instant, AI-powered insights for your specific business challenges. Start with our 3-step assessment to get a personalized technology roadmap.
+              We don&apos;t just build solutions; we build partnerships. Our approach is to work alongside you to understand your core business challenges and opportunities. Use our free, interactive tools to get instant, AI-powered insights and see how technology can drive your success. Start with our 3-step assessment to receive a personalized technology roadmap designed to help you scale efficiently and innovate faster.
             </p>
             <div className="space-y-4">
                 <div className="flex items-start gap-4">

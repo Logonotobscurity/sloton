@@ -45,6 +45,9 @@ export function GeneralistApproach() {
                     <br />
                     <span className="text-primary">WE ARE GENERALISTS.</span>
                 </h2>
+                <p className="text-muted-foreground text-lg">
+                    Our expertise isn't confined to a single niche. We are technologists with a broad and deep understanding of the entire digital ecosystem. This allows us to connect dots that specialists might miss, creating integrated solutions that are more robust, efficient, and innovative. We architect, build, and manage systems that drive real-world results, from AI-powered automation to scalable cloud infrastructures.
+                </p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
                 {features.map((feature) => (

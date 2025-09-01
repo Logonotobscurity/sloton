@@ -48,7 +48,7 @@ const technologies = [
     { name: 'Notion', icon: 'https://iconlogovector.com/uploads/images/2024/12/lg-6763d9c3b0a77-Notion.webp' },
     { name: 'Asana', icon: 'https://media.tekpon.com/2022/03/Asana-logo-copy.webp' },
     { name: 'Trello', icon: 'https://icon2.cleanpng.com/lnd/20250227/ge/6b1e5458a8f61e8d2111df3f6d311f.webp' },
-    { name: 'AWS Bedrock', icon: 'https://assets.bizclikmedia.net/668/846396c3fa21fb9f0c015b3783028e1f:19aa669e1f574af4e8aa04754691a795/blue-prism-abbyy-partnership-pr-com-resource-440x303-1-jpg.webp' },
+    { name: 'AWS Bedrock', icon: 'https://d1.awsstatic.com/product-marketing/Bicycles/AWS-Bedrock_Icon_light-bg.a7daf942b1236afb2b4034874b3d2b8344f6f21c.png' },
     { name: 'Google Cloud AI', icon: 'https://cdn.prod.website-files.com/5c6acd483ca6bdd37537fd4c/6350d341ea7fa2c3c8047a53_Salesforce_logo_400x280.webp' },
     { name: 'Microsoft Azure AI', icon: 'https://atdev.do/img/technologies/webp/salesforce.webp' },
     { name: 'Mistral AI', icon: 'https://www.cosmico.org/content/images/2025/07/aws_to_launch_ai_agent_marketplace_with_anthropic_2025_cosmico_business_tech_Insights.webp' },
@@ -95,5 +95,3 @@ export function TechStackCarousel() {
     </section>
   );
 }
-
-    

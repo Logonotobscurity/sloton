@@ -15,7 +15,7 @@ export function PartnershipApproach() {
                    WE PARTNER WITH AMBITIOUS TEAMS - STARTUPS, AND NON-PROFITS WHO WANT TO PUSH THE BOUNDARIES OF WHAT'S POSSIBLE TODAY.
                 </h2>
                  <p className="text-muted-foreground text-lg">
-                    OUR IMPACT SPANS FROM WIDELY-USED OPEN SOURCE AI TOOLS TO ENTERPRISE SOLUTIONS. WE TRANSFORM CUSTOMER EXPERIENCES, UNLOCK DATA INTELLIGENCE, AND SOLVE COMPLEX BUSINESS CHALLENGES.
+                    OUR IMPACT SPANS FROM WIDELY-USED OPEN SOURCE AI TOOLS TO ENTERPRISE SOLUTIONS. WE TRANSFORM CUSTOMER EXPERIENCES, UNLOCK DATA INTELLIGENCE, AND SOLVE COMPLEX BUSINESS CHALLENGES. We embed ourselves with your team to understand your vision, challenges, and opportunities, ensuring the solutions we build are perfectly aligned with your goals.
                 </p>
                  <Button asChild>
                     <Link href="/contact">
