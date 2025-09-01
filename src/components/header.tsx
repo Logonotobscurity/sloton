@@ -31,12 +31,6 @@ const mainNavItems = [
 
 const solutionsNavItems = [
   { 
-    href: '/solutions', 
-    label: 'All Solutions',
-    description: 'Explore our full suite of technology services.',
-    icon: <BrainCircuit className="h-5 w-5 text-primary" />
-  },
-  { 
     href: '/ai-solutions', 
     label: 'AI Solutions',
     description: 'Custom AI to solve complex business challenges.',
@@ -131,7 +125,7 @@ export function Header() {
     if (isSheetOpen) {
       setSheetOpen(false);
     }
-  }, [pathname]);
+  }, [pathname, isSheetOpen]);
 
 
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
@@ -210,6 +204,9 @@ export function Header() {
                                         </div>
                                     </Link>
                                 ))}
+                                <Link href="/solutions" className="text-sm font-semibold text-primary flex items-center group mt-4">
+                                    View All Solutions <ArrowRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                                </Link>
                             </div>
                             <div className="space-y-4">
                                 <h4 className="font-semibold text-foreground">Popular Use Cases</h4>
@@ -274,11 +271,13 @@ export function Header() {
                             <AccordionItem value="solutions">
                             <AccordionTrigger className="text-xl font-bold">Our Solutions</AccordionTrigger>
                             <AccordionContent className="pl-4">
-                                {[...solutionsNavItems, ...useCasesNavItems].map((item) => (
+                                <MobileNavLink href="/solutions" icon={<BrainCircuit className="h-5 w-5" />}>All Solutions</MobileNavLink>
+                                {solutionsNavItems.map((item) => (
                                     <MobileNavLink key={item.label} href={item.href} icon={item.icon}>
                                         {item.label}
                                     </MobileNavLink>
                                 ))}
+                                <MobileNavLink href="/use-cases" icon={<Briefcase className="h-5 w-5" />}>All Use Cases</MobileNavLink>
                             </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="company">
