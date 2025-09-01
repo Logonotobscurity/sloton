@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { getSolutionRecommendation } from '@/app/actions';
@@ -16,7 +16,7 @@ import { Loader2, Sparkles, ArrowRight, ArrowLeft, Phone, Calendar, ClipboardChe
 import type { SolutionRecommendationOutput } from '@/ai/flows/solution-recommendation';
 import { useToast } from '@/hooks/use-toast';
 import { Progress } from '@/components/ui/progress';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from './ui/card';
 import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
@@ -50,9 +50,13 @@ export function SolutionRecommendationForm() {
   const { trigger, formState: {isValid} } = form;
 
   const handleNext = async () => {
-    const fieldsToValidate: ("businessNeeds" | "companySize" | "industry" | "budget")[] = step === 1 ? ["businessNeeds"] : ["companySize", "industry", "budget"];
-    const isValid = await trigger(fieldsToValidate);
-    if (isValid) {
+    const fieldsToValidate: ("businessNeeds" | "companySize" | "industry" | "budget" | "name" | "email")[] = 
+      step === 1 ? ["businessNeeds"] : 
+      step === 2 ? ["companySize", "industry", "budget"] :
+      [];
+
+    const isStepValid = await trigger(fieldsToValidate);
+    if (isStepValid) {
       setStep(step + 1);
     }
   };
@@ -69,11 +73,12 @@ export function SolutionRecommendationForm() {
       if (res.error) {
         toast({
           variant: 'destructive',
-          title: 'Error',
+          title: 'Error Generating Report',
           description: res.error,
         });
       } else {
         setResult(res.data);
+        setStep(4); // Move to result view
       }
     } catch (error) {
       toast({
@@ -95,61 +100,69 @@ export function SolutionRecommendationForm() {
     );
   }
 
-  if (result) {
+  if (result && step === 4) {
     return (
-      <div className="p-1 space-y-8 max-h-[70vh] overflow-y-auto" aria-live="polite">
+       <div className="p-1 space-y-8 max-h-[70vh] overflow-y-auto" aria-live="polite">
         <div className="space-y-4">
           <h3 className="text-xl font-bold text-primary">Executive Summary</h3>
-          <p className="text-sm text-foreground/90">{result.executiveSummary}</p>
+          <Card className="bg-secondary/30">
+            <CardContent className="pt-6 space-y-2 text-sm">
+                <p><strong>Overview:</strong> {result.executiveSummary.overview}</p>
+                <p><strong>Opportunity:</strong> {result.executiveSummary.primaryOpportunity}</p>
+                <p><strong>ROI Timeline:</strong> {result.executiveSummary.expectedRoiTimeframe}</p>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="space-y-4">
-           <h3 className="text-xl font-bold text-primary">Recommended Solutions</h3>
-           <div className="space-y-4">
-            {result.recommendedSolutions.map((solution, index) => (
-              <Card key={index} className="bg-secondary/30">
+          <h3 className="text-xl font-bold text-primary">Recommended Solution Path</h3>
+            <Card className="bg-secondary/30">
                 <CardHeader>
-                  <CardTitle>{solution.title}</CardTitle>
-                  <CardDescription>{solution.description}</CardDescription>
+                    <CardTitle>{result.recommendedSolutionPath.coreTechnology.solutionName}</CardTitle>
+                    <CardDescription>{result.recommendedSolutionPath.coreTechnology.justification}</CardDescription>
                 </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-4 text-sm">
-                  <div className="flex items-center gap-2">
-                    <Target className="h-4 w-4 text-accent" />
-                    <div>
-                      <p className="font-semibold">Impact</p>
-                      <p className="text-muted-foreground">{solution.impact}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Timer className="h-4 w-4 text-accent" />
-                     <div>
-                      <p className="font-semibold">Timeline</p>
-                      <p className="text-muted-foreground">{solution.timeline}</p>
-                    </div>
-                  </div>
+                <CardContent>
+                    <h4 className="font-semibold mb-4 text-foreground">Expected Outcomes</h4>
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>Metric</TableHead>
+                                <TableHead>Current</TableHead>
+                                <TableHead>Improvement</TableHead>
+                                <TableHead>Timeframe</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {result.recommendedSolutionPath.expectedOutcomes.map((outcome, index) => (
+                                <TableRow key={index}>
+                                    <TableCell className="font-medium">{outcome.metric}</TableCell>
+                                    <TableCell>{outcome.currentState}</TableCell>
+                                    <TableCell className="text-green-500 font-semibold">{outcome.projectedImprovement}</TableCell>
+                                    <TableCell>{outcome.timeframe}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
                 </CardContent>
-              </Card>
-            ))}
-           </div>
+            </Card>
         </div>
         
         <div className="space-y-4">
-          <h3 className="text-xl font-bold text-primary">Our Implementation Plan</h3>
-           <p className="text-sm text-muted-foreground">{result.implementationPlan.introduction}</p>
+          <h3 className="text-xl font-bold text-primary">Next Steps</h3>
            <Table>
                 <TableHeader>
                     <TableRow>
-                    <TableHead className="w-[150px]">Phase</TableHead>
-                    <TableHead>Description</TableHead>
-                    <TableHead className="text-right w-[120px]">Timeline</TableHead>
+                    <TableHead>Action Item</TableHead>
+                    <TableHead>Owner</TableHead>
+                    <TableHead>Deadline</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {result.implementationPlan.phases.map((phase) => (
-                    <TableRow key={phase.phase}>
-                        <TableCell className="font-medium">{phase.phase}</TableCell>
-                        <TableCell>{phase.description}</TableCell>
-                        <TableCell className="text-right">{phase.timeline}</TableCell>
+                    {result.nextSteps.map((step, index) => (
+                    <TableRow key={index}>
+                        <TableCell className="font-medium">{step.actionItem}</TableCell>
+                        <TableCell>{step.owner}</TableCell>
+                        <TableCell>{step.deadline}</TableCell>
                     </TableRow>
                     ))}
                 </TableBody>
@@ -160,19 +173,19 @@ export function SolutionRecommendationForm() {
             <CardHeader>
                 <CardTitle>Ready for the Next Step?</CardTitle>
                 <CardDescription>
-                This AI-generated plan is the first step. Let's discuss how we can make it a reality for your business.
+                  This AI-generated plan is a great starting point. A detailed consultation will allow us to refine this strategy.
                 </CardDescription>
             </CardHeader>
-            <CardContent className="grid sm:grid-cols-2 gap-4">
+            <CardFooter className="grid sm:grid-cols-2 gap-4">
                 <Button asChild>
                     <Link href="https://calendly.com/" target="_blank">
-                        <Calendar className="mr-2 h-4 w-4" /> Book a Call
+                        <Calendar className="mr-2 h-4 w-4" /> Reserve Your Free Strategy Session
                     </Link>
                 </Button>
                 <Button variant="secondary" onClick={() => { setResult(null); form.reset(); setStep(1); }}>
                     Start a New Assessment
                 </Button>
-            </CardContent>
+            </CardFooter>
         </Card>
       </div>
     );
@@ -183,6 +196,7 @@ export function SolutionRecommendationForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-1">
         <div className="px-1 py-2">
             <Progress value={(step / 3) * 100} className="w-full h-2" />
+             <p className="text-xs text-muted-foreground text-center mt-2">Step {step} of 3</p>
         </div>
         
         {step === 1 && (
@@ -193,7 +207,7 @@ export function SolutionRecommendationForm() {
                 <FormItem>
                 <FormLabel>What are your primary business goals or challenges?</FormLabel>
                 <FormControl>
-                    <Textarea placeholder="e.g., We need to automate customer support and streamline our sales process to handle more clients." {...field} rows={5} />
+                    <Textarea placeholder="e.g., We need to reduce customer support costs and improve response times, while also streamlining our sales process to handle more clients." {...field} rows={5} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
@@ -235,7 +249,7 @@ export function SolutionRecommendationForm() {
                         <FormItem>
                         <FormLabel>Industry</FormLabel>
                         <FormControl>
-                            <Input placeholder="e.g., E-commerce" {...field} />
+                            <Input placeholder="e.g., E-commerce, Finance" {...field} />
                         </FormControl>
                         <FormMessage />
                         </FormItem>
@@ -316,9 +330,9 @@ export function SolutionRecommendationForm() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
             ) : (
-                <Button type="submit" disabled={loading || !isValid} className="w-full">
+                <Button type="submit" disabled={loading} className="w-full">
                     {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-                    Generate My Free Plan
+                    Generate My Free Report
                 </Button>
             )}
         </div>
