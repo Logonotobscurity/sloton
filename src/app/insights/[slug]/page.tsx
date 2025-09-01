@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { AuthorBio } from '@/components/author-bio';
 
 // This is our mock database of articles. In a real application, this would come from a CMS or database.
-const insights = [
+export const insights = [
   {
     title: "The Future of Work: How AI is Redefining Productivity",
     slug: "future-of-work-ai",

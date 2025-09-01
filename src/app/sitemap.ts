@@ -1,32 +1,42 @@
 
-import { MetadataRoute } from 'next'
- 
+import { MetadataRoute } from 'next';
+import { insights } from '@/app/insights/[slug]/page';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://logonsolutions.netlify.app';
-  const pages = [
+
+  // Static pages
+  const staticPages = [
     '/',
     '/about',
-    '/automation',
-    '/contact',
-    '/insights',
     '/solutions',
-    '/training',
-    '/use-cases',
+    '/automation',
     '/web-development',
     '/ai-solutions',
     '/chatbots',
     '/business-analytics',
-    '/database-solutions'
+    '/database-solutions',
+    '/use-cases',
+    '/training',
+    '/insights',
+    '/contact',
   ];
 
-  const pageUrls = pages.map(page => ({
+  const staticUrls = staticPages.map((page) => ({
     url: `${baseUrl}${page}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as 'weekly',
-    priority: page === '/' ? 1 : 0.8,
+    priority: page === '/' ? 1.0 : 0.8,
   }));
 
-  return [
-    ...pageUrls,
-  ];
+  // Dynamic pages for insights/articles
+  const insightUrls = insights.map((insight) => ({
+    url: `${baseUrl}/insights/${insight.slug}`,
+    lastModified: new Date(insight.date),
+    changeFrequency: 'monthly' as 'monthly',
+    priority: 0.7,
+  }));
+
+
+  return [...staticUrls, ...insightUrls];
 }
