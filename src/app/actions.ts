@@ -9,7 +9,7 @@ import { ContactFormEmail } from '@/emails/contact-form-email';
 import { EnrollmentEmail } from '@/emails/enrollment-email';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
-const toEmail = process.env.TO_EMAIL || 'logo@logon.com.ng';
+const toEmail = process.env.TO_EMAIL || 'logonthepage@gmail.com';
 
 type FormResult<T> = {
   data?: T;

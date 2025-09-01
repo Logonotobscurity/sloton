@@ -56,8 +56,8 @@ export default function ContactPage() {
                 <div>
                     <h3 className="text-xl font-semibold">Email</h3>
                     <p className="text-muted-foreground">Our inbox is always open for your questions and project details.</p>
-                    <a href="mailto:logo@logon.com.ng" className="text-primary hover:underline break-all">
-                        logo@logon.com.ng
+                    <a href="mailto:logonthepage@gmail.com" className="text-primary hover:underline break-all">
+                        logonthepage@gmail.com
                     </a>
                 </div>
             </div>

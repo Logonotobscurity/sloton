@@ -79,7 +79,7 @@ const organizationSchema = {
     "@type": "ContactPoint",
     "telephone": "+234-814-306-6320",
     "contactType": "customer service",
-    "email": "logo@logon.com.ng"
+    "email": "logonthepage@gmail.com"
   },
   "sameAs": [
     "https://medium.com/@Logon_thepage",
@@ -97,7 +97,7 @@ const localBusinessSchema = {
   "@id": "https://logonsolutions.netlify.app",
   "url": "https://logonsolutions.netlify.app",
   "telephone": "+234 814 306 6320",
-  "email": "logo@logon.com.ng",
+  "email": "logonthepage@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Lagos",
