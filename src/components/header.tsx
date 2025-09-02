@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone, Code, MessageSquare, BarChart3, Database, LogIn, LogOut } from 'lucide-react';
+import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone, Code, MessageSquare, BarChart3, Database } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -18,12 +18,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { signIn, signOut, useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './theme-toggle';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 const mainNavItems = [
   { href: '/training', label: 'Training', icon: <GraduationCap className="h-5 w-5" /> },
@@ -94,7 +92,6 @@ const useCasesNavItems = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const { data: session } = useSession();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -148,23 +145,6 @@ export function Header() {
         </Link>
     </SheetClose>
   )
-  
-  const AuthButton = () => {
-    if (session) {
-      return (
-         <div className="flex items-center gap-2">
-            <Avatar className="h-8 w-8">
-                {session.user?.image && <AvatarImage src={session.user.image} alt={session.user.name || 'User'} />}
-                <AvatarFallback>{session.user?.name?.[0].toUpperCase()}</AvatarFallback>
-            </Avatar>
-            <Button variant="ghost" onClick={() => signOut()}>
-              Logout
-            </Button>
-        </div>
-      )
-    }
-    return <Button variant="ghost" onClick={() => signIn()}>Login</Button>
-  }
 
   return (
     <header 
@@ -240,7 +220,6 @@ export function Header() {
                 ))}
             </nav>
             <div className="hidden md:flex items-center gap-2">
-                <AuthButton />
                 <Button asChild>
                     <Link href="/contact">
                     Contact Us
@@ -300,29 +279,6 @@ export function Header() {
                         <MobileNavLink href="/contact" icon={<Phone className="h-5 w-5" />}>Contact</MobileNavLink>
                         </nav>
                         <div className="border-t pt-6 space-y-4">
-                            {session ? (
-                                 <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-2">
-                                        <Avatar className="h-8 w-8">
-                                            {session.user?.image && <AvatarImage src={session.user.image} alt={session.user.name || 'User'} />}
-                                            <AvatarFallback>{session.user?.name?.[0].toUpperCase()}</AvatarFallback>
-                                        </Avatar>
-                                        <span className="font-medium">{session.user?.name}</span>
-                                    </div>
-                                    <SheetClose asChild>
-                                        <Button variant="ghost" onClick={() => signOut()}>
-                                            <LogOut className="mr-2 h-4 w-4" /> Logout
-                                        </Button>
-                                    </SheetClose>
-                                </div>
-                            ) : (
-                                <SheetClose asChild>
-                                     <Button variant="outline" className="w-full" onClick={() => signIn()}>
-                                        <LogIn className="mr-2 h-4 w-4" /> Login
-                                    </Button>
-                                </SheetClose>
-                            )}
-                           
                             <div className="flex justify-between items-center">
                                 <p className="text-sm text-muted-foreground">Switch Theme</p>
                                 <ThemeToggle />

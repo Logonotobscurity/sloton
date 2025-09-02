@@ -9,7 +9,6 @@ import { Toaster } from '@/components/ui/toaster';
 import { WebsiteLoader } from '@/components/website-loader';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
-import { SessionProvider } from 'next-auth/react';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -223,7 +222,6 @@ export default function RootLayout({
           anton.variable,
         )}
       >
-        <SessionProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -236,7 +234,6 @@ export default function RootLayout({
             <Footer />
             <Toaster />
           </ThemeProvider>
-        </SessionProvider>
       </body>
     </html>
   );
