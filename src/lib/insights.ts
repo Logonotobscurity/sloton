@@ -12,6 +12,16 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    title: "Transforming Customer Support with AI: Crafting Custom Assistants",
+    slug: "transforming-customer-support-with-ai",
+    description: "Learn how to leverage your organization's existing documents and SOPs to build private AI support tools that revolutionize your internal support systems.",
+    image: "https://picsum.photos/1200/600?random=15",
+    dataAiHint: "AI support assistant",
+    tags: ["AI", "Training", "Customer Support"],
+    author: "Oluwamayowa Logo",
+    date: "2024-08-20"
+  },
+  {
     title: "The Future of Work: How AI is Redefining Productivity",
     slug: "future-of-work-ai",
     description: "Explore the transformative impact of artificial intelligence on modern workplaces and how businesses can adapt.",

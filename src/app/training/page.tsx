@@ -1,5 +1,5 @@
 
-import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock } from 'lucide-react';
+import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -26,6 +26,21 @@ const trainingFeatures = [
 ];
 
 const trainingPrograms = [
+  {
+    icon: <ShieldQuestion className="h-8 w-8 text-primary" />,
+    title: 'Transforming Customer Support with AI',
+    description: 'Learn to build, train, and deploy private AI assistants using your own company documents to revolutionize your support systems.',
+    duration: 'Half-Day Workshop',
+    mode: 'Online / On-site',
+    learnings: [
+      'Leveraging GenAI for Enterprise Support',
+      'Training Models on Internal SOPs & Docs',
+      'Building Interactive, Conversational Tools',
+      'Deploying AI Assistants Securely',
+      'Measuring Support Efficiency Gains',
+      'Hands-on Project: Build Your First Support Bot',
+    ],
+  },
   {
     icon: <BrainCircuit className="h-8 w-8 text-primary" />,
     title: 'AI Solutions Development',
