@@ -12,7 +12,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Loader2, Sparkles, ArrowRight, ArrowLeft, Phone, Calendar, ClipboardCheck, Timer, Target } from 'lucide-react';
+import { Loader2, Sparkles, ArrowRight, ArrowLeft, Calendar } from 'lucide-react';
 import type { SolutionRecommendationOutput } from '@/ai/flows/solution-recommendation';
 import { useToast } from '@/hooks/use-toast';
 import { Progress } from '@/components/ui/progress';
@@ -47,7 +47,7 @@ export function SolutionRecommendationForm() {
     },
   });
 
-  const { trigger, formState: {isValid} } = form;
+  const { trigger } = form;
 
   const handleNext = async () => {
     const fieldsToValidate: ("businessNeeds" | "companySize" | "industry" | "budget" | "name" | "email")[] = 
@@ -102,93 +102,128 @@ export function SolutionRecommendationForm() {
 
   if (result && step === 4) {
     return (
-       <div className="p-1 space-y-8" aria-live="polite">
-        <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4">
+       <div className="p-1 space-y-6" aria-live="polite">
+        <div className="space-y-8 max-h-[60vh] overflow-y-auto p-1">
             <div className="space-y-4">
-            <h3 className="text-xl font-bold text-primary">Executive Summary</h3>
-            <Card className="bg-secondary/30">
-                <CardContent className="pt-6 space-y-2 text-sm">
-                    <p><strong>Overview:</strong> {result.executiveSummary.overview}</p>
-                    <p><strong>Opportunity:</strong> {result.executiveSummary.primaryOpportunity}</p>
-                    <p><strong>ROI Timeline:</strong> {result.executiveSummary.expectedRoiTimeframe}</p>
-                </CardContent>
-            </Card>
+              <h3 className="text-xl font-bold text-primary">Executive Summary</h3>
+              <Card className="bg-secondary/30">
+                  <CardContent className="pt-6 space-y-2 text-sm">
+                      <p><strong>Overview:</strong> {result.executiveSummary.overview}</p>
+                      <p><strong>Opportunity:</strong> {result.executiveSummary.primaryOpportunity}</p>
+                      <p><strong>ROI Timeline:</strong> {result.executiveSummary.expectedRoiTimeframe}</p>
+                  </CardContent>
+              </Card>
             </div>
 
             <div className="space-y-4">
-            <h3 className="text-xl font-bold text-primary">Recommended Solution Path</h3>
-                <Card className="bg-secondary/30">
-                    <CardHeader>
-                        <CardTitle>{result.recommendedSolutionPath.coreTechnology.solutionName}</CardTitle>
-                        <CardDescription>{result.recommendedSolutionPath.coreTechnology.justification}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <h4 className="font-semibold mb-4 text-foreground">Expected Outcomes</h4>
-                        <Table>
-                            <TableHeader>
-                                <TableRow>
-                                    <TableHead>Metric</TableHead>
-                                    <TableHead>Current</TableHead>
-                                    <TableHead>Improvement</TableHead>
-                                    <TableHead>Timeframe</TableHead>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                {result.recommendedSolutionPath.expectedOutcomes.map((outcome, index) => (
-                                    <TableRow key={index}>
-                                        <TableCell className="font-medium">{outcome.metric}</TableCell>
-                                        <TableCell>{outcome.currentState}</TableCell>
-                                        <TableCell className="text-green-500 font-semibold">{outcome.projectedImprovement}</TableCell>
-                                        <TableCell>{outcome.timeframe}</TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </CardContent>
-                </Card>
+              <h3 className="text-xl font-bold text-primary">Recommended Solution Path</h3>
+                  <Card className="bg-secondary/30">
+                      <CardHeader>
+                          <CardTitle>{result.recommendedSolutionPath.coreTechnology.solutionName}</CardTitle>
+                          <CardDescription>{result.recommendedSolutionPath.coreTechnology.justification}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                          <h4 className="font-semibold mb-4 text-foreground">Expected Outcomes</h4>
+                          {/* Responsive Table for Outcomes */}
+                          <div className="hidden md:block">
+                              <Table>
+                                  <TableHeader>
+                                      <TableRow>
+                                          <TableHead>Metric</TableHead>
+                                          <TableHead>Current</TableHead>
+                                          <TableHead>Improvement</TableHead>
+                                          <TableHead>Timeframe</TableHead>
+                                      </TableRow>
+                                  </TableHeader>
+                                  <TableBody>
+                                      {result.recommendedSolutionPath.expectedOutcomes.map((outcome, index) => (
+                                          <TableRow key={index}>
+                                              <TableCell className="font-medium">{outcome.metric}</TableCell>
+                                              <TableCell>{outcome.currentState}</TableCell>
+                                              <TableCell className="text-green-500 font-semibold">{outcome.projectedImprovement}</TableCell>
+                                              <TableCell>{outcome.timeframe}</TableCell>
+                                          </TableRow>
+                                      ))}
+                                  </TableBody>
+                              </Table>
+                          </div>
+                          <div className="block md:hidden space-y-4">
+                              {result.recommendedSolutionPath.expectedOutcomes.map((outcome, index) => (
+                                <Card key={index} className="bg-background/50">
+                                    <CardHeader>
+                                        <CardTitle className="text-base">{outcome.metric}</CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="space-y-2 text-sm">
+                                        <div className="flex justify-between"><span>Current State:</span> <strong>{outcome.currentState}</strong></div>
+                                        <div className="flex justify-between"><span>Improvement:</span> <strong className="text-green-500">{outcome.projectedImprovement}</strong></div>
+                                        <div className="flex justify-between"><span>Timeframe:</span> <strong>{outcome.timeframe}</strong></div>
+                                    </CardContent>
+                                </Card>
+                              ))}
+                          </div>
+                      </CardContent>
+                  </Card>
             </div>
             
             <div className="space-y-4">
-            <h3 className="text-xl font-bold text-primary">Next Steps</h3>
-            <Table>
-                    <TableHeader>
-                        <TableRow>
-                        <TableHead>Action Item</TableHead>
-                        <TableHead>Owner</TableHead>
-                        <TableHead>Deadline</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {result.nextSteps.map((step, index) => (
-                        <TableRow key={index}>
-                            <TableCell className="font-medium">{step.actionItem}</TableCell>
-                            <TableCell>{step.owner}</TableCell>
-                            <TableCell>{step.deadline}</TableCell>
-                        </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
+              <h3 className="text-xl font-bold text-primary">Next Steps</h3>
+               {/* Responsive Table for Next Steps */}
+                <div className="hidden md:block">
+                  <Table>
+                      <TableHeader>
+                          <TableRow>
+                          <TableHead>Action Item</TableHead>
+                          <TableHead>Owner</TableHead>
+                          <TableHead>Deadline</TableHead>
+                          </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                          {result.nextSteps.map((step, index) => (
+                          <TableRow key={index}>
+                              <TableCell className="font-medium">{step.actionItem}</TableCell>
+                              <TableCell>{step.owner}</TableCell>
+                              <TableCell>{step.deadline}</TableCell>
+                          </TableRow>
+                          ))}
+                      </TableBody>
+                  </Table>
+                </div>
+                <div className="block md:hidden space-y-4">
+                    {result.nextSteps.map((step, index) => (
+                        <Card key={index} className="bg-background/50">
+                            <CardHeader>
+                               <CardTitle className="text-base">{step.actionItem}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-2 text-sm">
+                                <div className="flex justify-between"><span>Owner:</span> <strong>{step.owner}</strong></div>
+                                <div className="flex justify-between"><span>Deadline:</span> <strong>{step.deadline}</strong></div>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
             </div>
         </div>
 
-         <Card className="bg-secondary/50 border-primary/50 border mt-6">
-            <CardHeader>
-                <CardTitle>Ready for the Next Step?</CardTitle>
-                <CardDescription>
-                  This AI-generated plan is a great starting point. A detailed consultation will allow us to refine this strategy.
-                </CardDescription>
-            </CardHeader>
-            <CardFooter className="grid sm:grid-cols-2 gap-4">
-                <Button asChild>
-                    <Link href="https://calendly.com/" target="_blank">
-                        <Calendar className="mr-2 h-4 w-4" /> Reserve Your Free Strategy Session
-                    </Link>
-                </Button>
-                <Button variant="secondary" onClick={() => { setResult(null); form.reset(); setStep(1); }}>
-                    Start a New Assessment
-                </Button>
-            </CardFooter>
-        </Card>
+         <div className="pt-6">
+            <Card className="bg-secondary/50 border-primary/50 border mt-6">
+                <CardHeader>
+                    <CardTitle>Ready for the Next Step?</CardTitle>
+                    <CardDescription>
+                    This AI-generated plan is a great starting point. A detailed consultation will allow us to refine this strategy.
+                    </CardDescription>
+                </CardHeader>
+                <CardFooter className="flex flex-col sm:flex-row gap-4">
+                    <Button asChild className="w-full">
+                        <Link href="https://calendly.com/" target="_blank">
+                            <Calendar className="mr-2 h-4 w-4" /> Reserve Your Free Strategy Session
+                        </Link>
+                    </Button>
+                    <Button variant="secondary" onClick={() => { setResult(null); form.reset(); setStep(1); }} className="w-full">
+                        Start a New Assessment
+                    </Button>
+                </CardFooter>
+            </Card>
+         </div>
       </div>
     );
   }
@@ -218,7 +253,7 @@ export function SolutionRecommendationForm() {
         )}
 
         {step === 2 && (
-            <>
+            <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <FormField
                     control={form.control}
@@ -281,11 +316,11 @@ export function SolutionRecommendationForm() {
                     </FormItem>
                 )}
                 />
-            </>
+            </div>
         )}
 
         {step === 3 && (
-             <>
+             <div className="space-y-4">
                 <p className="text-sm text-muted-foreground">Almost there! Just a few details to finalize your personalized plan.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <FormField
@@ -315,7 +350,7 @@ export function SolutionRecommendationForm() {
                         )}
                     />
                 </div>
-            </>
+            </div>
         )}
         
         <div className="flex justify-between gap-4 pt-4">
