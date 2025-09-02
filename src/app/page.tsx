@@ -1,6 +1,7 @@
 
 import { CaseStudiesCarousel } from '@/components/case-studies-carousel';
 import { Faq } from '@/components/faq';
+import { FeaturedInsights } from '@/components/featured-insights';
 import { GeneralistApproach } from '@/components/generalist-approach';
 import { Hero } from '@/components/hero';
 import { PartnershipApproach } from '@/components/partnership-approach';
@@ -29,6 +30,9 @@ export default function Home() {
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <Statement />
+      </ScrollAnimationWrapper>
+       <ScrollAnimationWrapper>
+        <FeaturedInsights />
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <Faq />
