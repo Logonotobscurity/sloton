@@ -12,6 +12,16 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    title: "My AI Investment Playbook: The No-BS Edition 🚀",
+    slug: "ai-investment-playbook",
+    description: "I've been doubling down on AI stocks lately, and honestly? It's been a wild ride—but the good kind. Here's exactly what I'm holding and why.",
+    image: "https://picsum.photos/1200/600",
+    dataAiHint: "stock market chart",
+    tags: ["AI", "Investing", "Technology", "Stocks"],
+    author: "Oluwamayowa Logo",
+    date: "2024-08-21"
+  },
+  {
     title: "Transforming Customer Support with AI: Crafting Custom Assistants",
     slug: "transforming-customer-support-with-ai",
     description: "Learn how to leverage your organization's existing documents and SOPs to build private AI support tools that revolutionize your internal support systems.",
