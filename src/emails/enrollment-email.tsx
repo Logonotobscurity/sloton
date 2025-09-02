@@ -15,12 +15,14 @@ import { Tailwind } from "@react-email/components";
 type EnrollmentEmailProps = {
   name: string;
   email: string;
+  phone: string;
   programName: string;
 };
 
 export function EnrollmentEmail({
   name,
   email,
+  phone,
   programName,
 }: EnrollmentEmailProps) {
   return (
@@ -39,6 +41,7 @@ export function EnrollmentEmail({
               <Text><strong>Program:</strong> {programName}</Text>
               <Text><strong>Participant Name:</strong> {name}</Text>
               <Text><strong>Participant Email:</strong> {email}</Text>
+              <Text><strong>Participant Phone:</strong> {phone}</Text>
               <Hr />
                <Text>Please follow up with the participant to provide next steps and payment information.</Text>
             </Section>

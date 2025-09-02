@@ -25,6 +25,7 @@ const SolutionRecommendationInputSchema = z.object({
     .describe('The budget allocated for IT solutions and automation.'),
   name: z.string().optional().describe("The user's name."),
   email: z.string().optional().describe("The user's email address."),
+  phone: z.string().optional().describe("The user's phone number."),
 });
 export type SolutionRecommendationInput = z.infer<typeof SolutionRecommendationInputSchema>;
 
@@ -85,6 +86,7 @@ The user has provided the following information:
 - Company Size: {{{companySize}}}
 - Industry: {{{industry}}}
 - Budget: {{{budget}}}
+- Phone: {{{phone}}}
 
 Your task is to generate a detailed and professional Technology Assessment Report. You MUST follow this structure EXACTLY.
 

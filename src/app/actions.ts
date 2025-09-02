@@ -47,6 +47,7 @@ export async function getAutomatedTaskDesign(
 const contactFormSchema = z.object({
   name: z.string(),
   email: z.string().email(),
+  phone: z.string().optional(),
   subject: z.string(),
   message: z.string(),
 });
@@ -64,6 +65,7 @@ export async function contactFormAction(data: z.infer<typeof contactFormSchema>)
       react: ContactFormEmail({
         name: data.name,
         email: data.email,
+        phone: data.phone || 'Not provided',
         subject: data.subject,
         message: data.message,
       }),
@@ -79,6 +81,7 @@ export async function contactFormAction(data: z.infer<typeof contactFormSchema>)
 const enrollmentFormSchema = z.object({
   name: z.string(),
   email: z.string().email(),
+  phone: z.string(),
   programName: z.string(),
 });
 export async function enrollmentFormAction(data: z.infer<typeof enrollmentFormSchema>): Promise<FormResult<null>> {
@@ -95,6 +98,7 @@ export async function enrollmentFormAction(data: z.infer<typeof enrollmentFormSc
       react: EnrollmentEmail({
         name: data.name,
         email: data.email,
+        phone: data.phone,
         programName: data.programName,
       }),
     });

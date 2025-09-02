@@ -27,6 +27,7 @@ const formSchema = z.object({
   budget: z.string().min(1, 'Please select a budget range.'),
   name: z.string().min(2, 'Please enter your name.'),
   email: z.string().email('Please enter a valid email address.'),
+  phone: z.string().optional(),
 });
 
 export function SolutionRecommendationForm() {
@@ -44,13 +45,14 @@ export function SolutionRecommendationForm() {
       budget: '',
       name: '',
       email: '',
+      phone: '',
     },
   });
 
   const { trigger } = form;
 
   const handleNext = async () => {
-    const fieldsToValidate: ("businessNeeds" | "companySize" | "industry" | "budget" | "name" | "email")[] = 
+    const fieldsToValidate: ("businessNeeds" | "companySize" | "industry" | "budget" | "name" | "email" | "phone")[] = 
       step === 1 ? ["businessNeeds"] : 
       step === 2 ? ["companySize", "industry", "budget"] :
       [];
@@ -322,21 +324,21 @@ export function SolutionRecommendationForm() {
         {step === 3 && (
              <div className="space-y-4">
                 <p className="text-sm text-muted-foreground">Almost there! Just a few details to finalize your personalized plan.</p>
+                <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Your Name</FormLabel>
+                        <FormControl>
+                        <Input placeholder="John Doe" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Your Name</FormLabel>
-                            <FormControl>
-                            <Input placeholder="John Doe" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                        )}
-                    />
-                    <FormField
+                     <FormField
                         control={form.control}
                         name="email"
                         render={({ field }) => (
@@ -344,6 +346,19 @@ export function SolutionRecommendationForm() {
                             <FormLabel>Your Email</FormLabel>
                             <FormControl>
                             <Input placeholder="john.doe@example.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Phone (Optional)</FormLabel>
+                            <FormControl>
+                            <Input placeholder="+1 234 567 8900" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>

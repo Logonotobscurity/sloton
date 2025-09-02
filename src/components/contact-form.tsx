@@ -15,6 +15,7 @@ import { contactFormAction } from '@/app/actions';
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
+  phone: z.string().optional(),
   subject: z.string().min(5, { message: 'Subject must be at least 5 characters.' }),
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
@@ -28,6 +29,7 @@ export function ContactForm() {
     defaultValues: {
       name: '',
       email: '',
+      phone: '',
       subject: '',
       message: '',
     },
@@ -83,6 +85,19 @@ export function ContactForm() {
             )}
           />
         </div>
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Phone Number (Optional)</FormLabel>
+              <FormControl>
+                <Input placeholder="+1 234 567 8900" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="subject"
