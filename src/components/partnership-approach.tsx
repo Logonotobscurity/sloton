@@ -6,9 +6,9 @@ import Image from "next/image";
 import { CaseStudiesCarousel } from "./case-studies-carousel";
 
 const partners = [
-    { name: "Google Cloud Partner", logo: "https://img.icons8.com/color/600/google-cloud.png", dataAiHint: "Google Cloud logo" },
-    { name: "AWS Partner", logo: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/aws-color.png", dataAiHint: "Amazon Web Services logo" },
-    { name: "Microsoft Partner", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/2048px-Microsoft_Azure.svg.png", dataAiHint: "Microsoft Azure logo" },
+    { name: "Google Cloud Partner", logo: "https://img.icons8.com/color/96/google-cloud.png", dataAiHint: "Google Cloud logo" },
+    { name: "AWS Partner", logo: "https://img.icons8.com/color/96/amazon-web-services.png", dataAiHint: "AWS logo" },
+    { name: "Microsoft Partner", logo: "https://img.icons8.com/color/96/microsoft-azure.png", dataAiHint: "Microsoft Azure logo" },
     { name: "Vercel Partner", logo: "https://logowik.com/content/uploads/images/vercel1868.logowik.com.webp", dataAiHint: "Vercel logo" },
 ];
 
@@ -39,6 +39,7 @@ export function PartnershipApproach() {
                                     className="h-6 w-auto"
                                     data-ai-hint={partner.dataAiHint}
                                     loading="lazy"
+                                    unoptimized
                                 />
                                 <span className="text-sm text-muted-foreground">{partner.name}</span>
                             </div>

@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Briefcase, Users, CheckCircle, Lightbulb, Zap, Handshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'About Us | LOG_ON connecting Advantages',
@@ -17,16 +18,16 @@ const teamMembers = [
     role: 'Lead Developer & Automation Solution Architect',
     description: 'Expert in AI architecture and automation solutions with a focus on innovative technology implementation. Specializes in developing scalable solutions for business growth.',
     expertise: ['AI Architecture', 'Strategy', 'Innovation', 'Web Development', 'IT Support', 'Solution Design'],
-    image: 'https://picsum.photos/200/200?random=1',
-    dataAiHint: 'male software developer',
+    image: 'https://picsum.photos/200/200',
+    dataAiHint: 'male developer',
   },
   {
     name: 'Favour Alfred',
     role: 'Team Lead Sales & Business Process Automation',
     description: 'Results-driven professional specializing in business process automation and digital marketing strategies. Expert in optimizing workflows and driving digital transformation.',
     expertise: ['Process Automation', 'Workflow Design', 'Integration', 'Digital Marketing', 'Sales Strategy', 'Business Development'],
-    image: 'https://picsum.photos/200/200?random=2',
-    dataAiHint: 'female business professional',
+    image: 'https://picsum.photos/200/200',
+    dataAiHint: 'female professional',
   },
 ];
 
@@ -92,7 +93,9 @@ export default function AboutPage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 items-center">
                    <div className="p-6 flex justify-center md:justify-start">
                      <Avatar className="w-32 h-32 border-4 border-primary">
-                       <AvatarImage src={member.image} alt={member.name} data-ai-hint={member.dataAiHint} />
+                       <AvatarImage asChild src={member.image} alt={member.name} data-ai-hint={member.dataAiHint}>
+                          <Image src={member.image} alt={member.name} data-ai-hint={member.dataAiHint} width={200} height={200} />
+                       </AvatarImage>
                        <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                      </Avatar>
                    </div>
