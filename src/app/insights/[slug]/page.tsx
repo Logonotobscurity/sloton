@@ -51,14 +51,14 @@ const defaultArticleContent = `
 `;
 
 const investmentArticleContent = `
-<p class="mb-6 text-lg text-muted-foreground">Hey there! I've been doubling down on AI stocks lately, and honestly? It's been a wild ride, but the good kind. AI is literally taking over everything: your phone, your doctor's office, even your coffee maker (okay, maybe not yet, but give it time). So I'm putting my money where my mouth is. Here's exactly what I'm holding and why.</p>
+<p class="mb-6 text-lg text-muted-foreground">I've been doubling down on AI stocks lately, and honestly, it's been a wild ride, but the good kind. AI is literally taking over everything: your phone, your doctor's office, even your coffee maker (okay, maybe not yet, but give it time). So I'm putting my money where my mouth is. Here's exactly what I'm holding and why.</p>
 
 <h3 class="text-xl font-semibold mt-8 mb-4">AI in Everyday Life</h3>
 <p class="mb-6">AI isn't just for tech geeks anymore. It's embedded in our daily lives, from smartphones to smart homes. Here's where I'm betting my portfolio.</p>
 
 <h2 class="text-2xl font-bold mt-12 mb-4">🧠 The Big Picture: Why AI Stocks Now?</h2>
 <p class="mb-6">Look, I get it. Everyone's talking about AI, and it feels like we might be in bubble territory. But here's the thing: unlike the dot-com bubble where companies had websites but no revenue, AI companies are actually solving real problems and making real money.</p>
-<p class="mb-6">The AI market is projected to hit <a href="https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-market" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">$1.8 trillion by 2030</a>, and we're still in the early innings. Some projections go even higher. PwC estimates AI could contribute <a href="https://www.pwc.com/gx/en/issues/data-and-analytics/publications/artificial-intelligence-study.html" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">$15.7 trillion to global GDP by 2030</a>. Think about it: every company needs AI infrastructure, just like every company needed websites in the 2000s. The difference? This time, the infrastructure players are already profitable.</p>
+<p class="mb-6">The AI market is projected to hit <a href="https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-market" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">$1.8 trillion by 2030</a>, and we're still in the early innings. Some projections go even higher. PwC estimates AI could contribute <a href="https://www.pwc.com/gx/en/issues/data-and-analytics/publications/artificial-intelligence-study.html" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">$15.7 trillion to the global economy by 2030</a>. Think about it: every company needs AI infrastructure, just like every company needed websites in the 2000s. The difference? This time, the infrastructure players are already profitable.</p>
 
 <h2 class="text-2xl font-bold mt-12 mb-4">💎 My Core Holdings: The Infrastructure Play</h2>
 
@@ -78,8 +78,8 @@ const investmentArticleContent = `
 <p class="mb-6">Data centers are power-hungry beasts, and solar is becoming the cheapest way to feed them.</p>
 <p class="mb-6"><b>The Indirect Play That Makes Sense:</b></p>
 <ul class="list-disc pl-6 space-y-2 mb-6">
-    <li>AI data centers use massive amounts of electricity. Google's data centers alone consumed <a href="https://www.tech-paper.com/2024/05/googles-data-centers-doubled-electricity-use-since-2020/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">30.8 million megawatt-hours in 2024</a>, double their 2020 consumption.</li>
-    <li>U.S. data centers consumed about 4.4% of total U.S. electricity in 2023 and could reach <a href="https://www.energy.gov/articles/doe-releases-2-new-reports-future-us-energy-and-data-center-needs" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">580 TWh annually by 2028</a>.</li>
+    <li>AI data centers use massive amounts of electricity. Google's data centers alone consumed <a href="https://www.techcrunch.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">30.8 million megawatt-hours in 2024</a>, double their 2020 consumption.</li>
+    <li>U.S. data centers consumed about 4.4% of total U.S. electricity in 2023 and could reach <a href="https://www.energy.gov/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">580 TWh annually by 2028</a>.</li>
     <li>Solar is now the cheapest form of new electricity generation in most markets.</li>
     <li>Major tech companies are signing massive solar contracts to power their AI infrastructure.</li>
 </ul>
@@ -194,6 +194,96 @@ const investmentArticleContent = `
 <div id="download-guide"></div>
 `;
 
+const llmsTxtArticleContent = `
+<p class="mb-6 text-lg text-muted-foreground">As AI-driven search engines gain prominence, a new file type is emerging as a critical tool for website optimization: <code>llms.txt</code>. This simple file is becoming essential for helping websites communicate more effectively with large language models (LLMs). Here’s a breakdown of why <code>llms.txt</code> is increasingly important for modern SEO strategies.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Why LLM Optimization Matters for SEO</h2>
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>Better AI Search Visibility:</strong> An <code>llms.txt</code> file guides AI models to prioritize your most important content, increasing the likelihood of being featured in AI-generated search answers.</li>
+    <li><strong>Ensure Accurate AI Citations:</strong> It allows you to control how AI interprets and summarizes your business by highlighting the most relevant information for both machines and humans.</li>
+    <li><strong>Complement Traditional SEO:</strong> This file works alongside <code>robots.txt</code> and sitemaps, providing AI models with an additional, machine-readable index of your most valuable pages.</li>
+    <li><strong>Simple Implementation:</strong> It's just a straightforward Markdown file that you can upload to your site’s root directory, and you can even include links for additional context.</li>
+    <li><strong>Drive More Referral Traffic:</strong> By improving AI citations, you can drive more organic traffic from users who discover your site through AI-powered answers.</li>
+    <li><strong>Future-Proof Your Website:</strong> Adopting <code>llms.txt</code> prepares your site for the next wave of AI-powered search, giving you a competitive advantage.</li>
+</ul>
+
+<blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
+  <p><strong>Read Also:</strong> <a href="/insights/future-of-work-ai" class="text-primary hover:underline">LLMs vs SEO: What’s Changing in Search Discovery</a></p>
+</blockquote>
+
+
+<h2 class="text-2xl font-bold mt-12 mb-4">How Large Language Models (LLMs) Work</h2>
+<p class="mb-6">An <code>llms.txt</code> file provides AI models with a simplified, structured version of your site's most important content. It highlights key pages and offers brief descriptions for each, helping the models utilize your content more effectively, much like how search engines crawl a sitemap. Here's a simplified look at how LLMs operate:</p>
+
+<div class="my-8 flex justify-center">
+    <Image src="https://storage.googleapis.com/project-a-public-images/llm-diagram.png" alt="Diagram explaining how Large Language Models work" width={800} height={600} data-ai-hint="llm diagram" class="rounded-lg shadow-lg" />
+</div>
+
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>Trained on Massive Datasets:</strong> LLMs are trained on vast amounts of text from books, websites, and other sources to learn language patterns and relationships.</li>
+    <li><strong>Use Deep Learning & Neural Networks:</strong> They rely on complex architectures like the Generative Pre-trained Transformer (GPT) to predict and generate text based on context.</li>
+    <li><strong>Understand Context and Meaning:</strong> By analyzing sentence structures and word relationships, LLMs can generate highly relevant responses, especially when guided by a well-formatted <code>llms.txt</code> file.</li>
+    <li><strong>Have Limitations & Token Constraints:</strong> LLMs have a fixed memory (token limit), meaning they can't process unlimited data at once. This makes it crucial to highlight your most important content.</li>
+    <li><strong>Continuously Improve with Human Feedback:</strong> Models refine their outputs through techniques like Reinforcement Learning from Human Feedback (RLHF) and ongoing training.</li>
+    <li><strong>Generate, Summarize, and Analyze:</strong> LLMs can create human-like text, answer questions, translate languages, and extract key insights, which is changing business processes and adding new dimensions to SEO.</li>
+</ul>
+<p class="mb-6">Understanding these mechanics helps you optimize your web content for AI-driven search, ensuring models generate relevant responses and extract the correct context from your site.</p>
+
+<blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
+  <p><strong>Related:</strong> <a href="/insights/ai-investment-playbook" class="text-primary hover:underline">SEO vs GEO: Why Your Content Might Be Invisible in AI Search (And How to Fix It)</a></p>
+</blockquote>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">How to Optimize Your Content for AI Readability</h2>
+<p class="mb-6">AI search tools like Google and ChatGPT extract, summarize, and display content based on its structure and clarity. To improve your visibility, you must optimize your website for AI readability. Here are some key tips:</p>
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>Clear Headings & Structure:</strong> Use logical headings (H1, H2, H3) and bullet points to organize your content. This helps AI assistants navigate and interpret your pages.</li>
+    <li><strong>AI-Readable Tables:</strong> Use structured tables for comparisons, as they provide clear context and make it easy for AI to extract key information.</li>
+    <li><strong>FAQ Sections & Schema Markup:</strong> Include FAQ sections and apply schema markup to improve your chances of being featured in search results and help AI index your site more effectively.</li>
+    <li><strong>Simple, Direct Language:</strong> Use clear and direct language instead of jargon to improve AI comprehension and boost SEO performance.</li>
+    <li><strong>Internal Linking:</strong> Strong internal linking helps AI understand the relationships between different pages on your site, enhancing its ability to rank your content accurately.</li>
+    <li><strong>Optimized Metadata:</strong> Your page titles and meta descriptions significantly influence how AI algorithms rank and display your content.</li>
+</ul>
+
+<blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
+  <p><strong>See also:</strong> <a href="#" class="text-primary hover:underline">Structuring Web Pages for AI-First Indexing</a></p>
+</blockquote>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">What’s Inside an LLMs.txt File</h2>
+<p class="mb-6">Here’s what a basic structure looks like:</p>
+<pre class="bg-secondary/50 p-4 rounded-md overflow-x-auto"><code>
+# AcmeCorp
+
+> AcmeCorp builds privacy-first analytics tools for SaaS businesses.
+
+## Docs
+– [Getting Started Guide](https://acmecorp.com/docs/start): Intro for developers
+– [API Reference](https://acmecorp.com/docs/api): Complete API documentation
+
+## Tutorials
+– [Build a dashboard in 5 minutes](https://acmecorp.com/tutorials/dashboard): Step-by-step walkthrough
+– [Analytics for non-technical teams](https://acmecorp.com/tutorials/non-tech): Explains key metrics and terms
+
+## Blog
+– [Why privacy matters](https://acmecorp.com/blog/privacy): A thought leadership piece
+– [Case study: How we scaled to 1M users](https://acmecorp.com/blog/scaling): Lessons from our growth story
+
+## Optional
+– [Terms of Service](https://acmecorp.com/terms): Legal information
+– [Community Forum](https://acmecorp.com/forum): Peer support and discussion
+</code></pre>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">How to Create Your Own LLMs.txt File</h2>
+<p class="mb-6">Setting up an <code>llms.txt</code> file is simple, but doing it right ensures AI models recognize and prioritize your most important information. Follow these steps:</p>
+<ol class="list-decimal pl-6 space-y-3 mb-6">
+    <li><strong>Define Your Objective:</strong> Decide which content you want AI to focus on. A SaaS platform might highlight onboarding guides, while a blog might spotlight cornerstone articles.</li>
+    <li><strong>Map Your Content:</strong> Categorize your content into logical sections (e.g., "Product Information," "Case Studies"). Make a list of your most valuable URLs and skip pages like login, cart, or privacy policy.</li>
+    <li><strong>Write it in Markdown:</strong> Use a simple Markdown format with links, short descriptions, and clear section headings.</li>
+    <li><strong>Save and Upload:</strong> Save the file as <code>llms.txt</code> and upload it to your site's root directory (e.g., <code>https://yourwebsite.com/llms.txt</code>).</li>
+    <li><strong>Test It:</strong> Open your <code>llms.txt</code> URL to check the formatting. You can then copy the contents into ChatGPT or Claude and ask, “What does this company do?” to see how accurately the AI understands your business.</li>
+</ol>
+<p class="mb-6">By creating an <code>llms.txt</code> file, you make it easier for AI models to understand your content, improving your visibility in AI-generated search results.</p>
+`;
+
 
 const PortfolioTable = () => (
     <div className="my-8 overflow-x-auto">
@@ -296,7 +386,14 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
   }
   
   const isInvestmentArticle = article.slug === 'ai-investment-playbook';
-  const content = isInvestmentArticle ? investmentArticleContent : defaultArticleContent;
+  const isLlmsTxtArticle = article.slug === '10-content-formats-that-get-picked-up-by-llms';
+
+  let content = defaultArticleContent;
+  if (isInvestmentArticle) {
+      content = investmentArticleContent;
+  } else if (isLlmsTxtArticle) {
+      content = llmsTxtArticleContent;
+  }
 
   return (
     <div className="bg-background">
@@ -340,6 +437,7 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
                   <PortfolioTable />
                   <div dangerouslySetInnerHTML={{ __html: content.split('<div id="portfolio-table"></div>')[1].split('<div id="download-guide"></div>')[0] }} />
                   <DownloadGuideCTA />
+                   <div dangerouslySetInnerHTML={{ __html: content.split('<div id="download-guide"></div>')[1] }} />
               </div>
           ) : (
              <div className="prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
@@ -368,4 +466,3 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
     </div>
   );
 }
-

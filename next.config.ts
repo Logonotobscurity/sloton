@@ -159,6 +159,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'business.feefo.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+      },
     ],
   },
 };
