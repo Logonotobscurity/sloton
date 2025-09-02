@@ -1,6 +1,6 @@
 
 import { MetadataRoute } from 'next';
-import { insights } from '@/app/insights/[slug]/page';
+import { insights } from '@/lib/insights';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://logonsolutions.netlify.app';
