@@ -19,7 +19,7 @@ export const insights: Insight[] = [
     dataAiHint: "ai content formats",
     tags: ["AI", "SEO", "Content Strategy"],
     author: "Favour Alfred",
-    date: "2025-08-19"
+    date: "2025-08-11"
   },
   {
     title: "My AI Investment Playbook: The No-BS Edition 🚀",
