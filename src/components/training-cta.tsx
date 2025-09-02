@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Button } from './ui/button';
 import { GraduationCap, ArrowRight, Code, Share2 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from './ui/card';
 
 const featuredCourses = [
     {
@@ -40,17 +40,19 @@ export function TrainingCTA() {
           </div>
           <div className="lg:col-span-2 grid md:grid-cols-2 gap-6 mt-8 lg:mt-0">
              {featuredCourses.map((course) => (
-                <Card key={course.title} className="bg-secondary/50 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
+                <Card key={course.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
                     <CardHeader>
                         {course.icon}
                         <CardTitle className="pt-2 text-lg">{course.title}</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">{course.description}</p>
+                    <CardContent className="flex-grow">
+                        <p className="text-sm text-muted-foreground">{course.description}</p>
+                    </CardContent>
+                     <CardFooter>
                          <Button asChild variant="secondary" className="w-full">
                             <Link href={course.href}>Learn More</Link>
                         </Button>
-                    </CardContent>
+                    </CardFooter>
                 </Card>
              ))}
           </div>
