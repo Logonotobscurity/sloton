@@ -21,6 +21,7 @@ const formSchema = z.object({
 });
 
 const trainingPrograms = [
+    'AI Investment Guide',
     'Transforming Customer Support with AI',
     'AI Insights: A Practical Guide',
     'Applied AI: Building Recommendation Systems',
@@ -109,28 +110,33 @@ export function EnrollmentForm({ programName }: { programName?: string }) {
               </FormItem>
             )}
         />
-        <FormField
-            control={form.control}
-            name="programName"
-            render={({ field }) => (
-                <FormItem>
-                <FormLabel>Program of Interest</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                    <SelectTrigger>
-                        <SelectValue placeholder="Select a program" />
-                    </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                        {trainingPrograms.map(program => (
-                            <SelectItem key={program} value={program}>{program}</SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
-                <FormMessage />
-                </FormItem>
-            )}
-            />
+        {!programName || programName === "AI Investment Guide" ? (
+             <FormField
+                control={form.control}
+                name="programName"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Program of Interest</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                        <SelectTrigger>
+                            <SelectValue placeholder="Select a program" />
+                        </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                            {trainingPrograms.map(program => (
+                                <SelectItem key={program} value={program}>{program}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+        ) : (
+             <Input type="hidden" {...form.register("programName")} />
+        )}
+       
         <Button type="submit" className="w-full" disabled={isSubmitting}>
           {isSubmitting ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />

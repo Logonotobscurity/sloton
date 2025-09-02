@@ -2,12 +2,15 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, BookOpen } from 'lucide-react';
+import { ArrowLeft, BookOpen, Download } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { AuthorBio } from '@/components/author-bio';
 import { insights as allInsights } from '@/lib/insights';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
+import { EnrollmentForm } from '@/components/enrollment-form';
+
 
 // This is our mock database of articles. In a real application, this would come from a CMS or database.
 export const insights = allInsights;
@@ -188,16 +191,7 @@ const investmentArticleContent = `
 </ul>
 <p class="mb-6">The AI revolution is just getting started, but the infrastructure to support it needs to be built now. That's where the money is.</p>
 
-<h2 class="text-2xl font-bold mt-12 mb-4">🎁 Want More? Download My Complete AI Investment Guide</h2>
-<p class="mb-6">I've put together a comprehensive PDF with:</p>
-<ul class="list-disc pl-6 space-y-2 mb-6">
-    <li>Complete financial analysis of all my holdings</li>
-    <li>Sector rotation strategies for AI investing</li>
-    <li>Risk management frameworks</li>
-    <li>Monthly watchlist updates</li>
-</ul>
-<a href="#" class="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-md font-semibold hover:bg-primary/90 transition-colors">Download the Free Guide Here</a>
-<p class="text-sm text-muted-foreground mt-2">(No spam, just actionable insights)</p>
+<div id="download-guide"></div>
 `;
 
 
@@ -251,6 +245,26 @@ const PortfolioTable = () => (
                 </TableRow>
             </TableBody>
         </Table>
+    </div>
+)
+
+const DownloadGuideCTA = () => (
+    <div className="mt-12 text-center bg-secondary/50 p-8 rounded-lg">
+        <h2 className="text-2xl font-bold mb-4">🎁 Want More? Download My Complete AI Investment Guide</h2>
+        <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+            I've put together a comprehensive guide with my complete financial analysis, sector rotation strategies, risk management frameworks, and monthly watchlist updates.
+        </p>
+        <DialogFormWrapper
+            trigger={
+                <Button size="lg">
+                    <Download className="mr-2 h-5 w-5" />
+                    Download the Free Guide Here
+                </Button>
+            }
+            title="Download the AI Investment Guide"
+            description="Enter your details below to get instant access to the guide. No spam, just actionable insights."
+            form={<EnrollmentForm programName="AI Investment Guide" />}
+        />
     </div>
 )
 
@@ -324,7 +338,8 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
               <div className="prose prose-lg dark:prose-invert max-w-none">
                   <div dangerouslySetInnerHTML={{ __html: content.split('<div id="portfolio-table"></div>')[0] }} />
                   <PortfolioTable />
-                  <div dangerouslySetInnerHTML={{ __html: content.split('<div id="portfolio-table"></div>')[1] }} />
+                  <div dangerouslySetInnerHTML={{ __html: content.split('<div id="portfolio-table"></div>')[1].split('<div id="download-guide"></div>')[0] }} />
+                  <DownloadGuideCTA />
               </div>
           ) : (
              <div className="prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
@@ -353,3 +368,4 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
     </div>
   );
 }
+

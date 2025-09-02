@@ -22,7 +22,7 @@ export const insights: Insight[] = [
     date: "2024-08-21"
   },
   {
-    title: "Transforming Customer Support with AI: Crafting Custom Assistants",
+    title: "Transforming Customer Support with AI",
     slug: "transforming-customer-support-with-ai",
     description: "Learn how to leverage your organization's existing documents and SOPs to build private AI support tools that revolutionize your internal support systems.",
     image: "https://picsum.photos/1200/600",
@@ -52,8 +52,8 @@ export const insights: Insight[] = [
     date: "2024-08-18"
   },
   {
-    title: "AI Insights: A Guide to AI Types & Applications",
-    slug: "ai-types-and-applications",
+    title: "AI Insights: A Practical Guide",
+    slug: "ai-insights-a-practical-guide",
     description: "A comprehensive overview of AI types, from ANI to ASI, and their practical applications across different industries. Understand the core principles of AI strategy.",
     image: "https://picsum.photos/1200/600",
     dataAiHint: "ai brain",
@@ -61,7 +61,7 @@ export const insights: Insight[] = [
     author: "Oluwamayowa Logo",
     date: "2024-08-17"
   },
-    {
+  {
     title: "Prompt Engineering for Business Users",
     slug: "prompt-engineering-for-business",
     description: "Learn how to harness prompt engineering skills for ChatGPT and GPT-4 to boost productivity, supercharge communications, and revolutionize business processes.",
@@ -102,7 +102,7 @@ export const insights: Insight[] = [
     date: "2024-08-05"
   },
   {
-    title: "The Rise of No-Code/Low-Code Platforms in Nigeria",
+    title: "The Rise of No Code and Low Code Platforms in Nigeria",
     slug: "no-code-low-code-nigeria",
     description: "How visual development tools are empowering a new generation of creators and entrepreneurs.",
     image: "https://picsum.photos/1200/600",
@@ -122,7 +122,7 @@ export const insights: Insight[] = [
     date: "2024-07-22"
   },
    {
-    title: "Data-Driven Decisions: A Primer on Business Analytics",
+    title: "Data Driven Decisions: A Primer on Business Analytics",
     slug: "primer-on-business-analytics",
     description: "Learn how to leverage data to make smarter, faster, and more effective business decisions.",
     image: "https://picsum.photos/1200/600",
@@ -132,3 +132,4 @@ export const insights: Insight[] = [
     date: "2024-07-15"
   }
 ];
+
