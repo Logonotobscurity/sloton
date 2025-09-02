@@ -105,7 +105,7 @@ export function SolutionRecommendationForm() {
   if (result && step === 4) {
     return (
        <div className="p-1 space-y-6" aria-live="polite">
-        <div className="space-y-8 max-h-[60vh] overflow-y-auto p-1">
+        <div className="space-y-8 max-h-[60vh] overflow-y-auto p-4 -m-4">
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-primary">Executive Summary</h3>
               <Card className="bg-secondary/30">
@@ -126,7 +126,6 @@ export function SolutionRecommendationForm() {
                       </CardHeader>
                       <CardContent>
                           <h4 className="font-semibold mb-4 text-foreground">Expected Outcomes</h4>
-                          {/* Responsive Table for Outcomes */}
                           <div className="hidden md:block">
                               <Table>
                                   <TableHeader>
@@ -149,18 +148,16 @@ export function SolutionRecommendationForm() {
                                   </TableBody>
                               </Table>
                           </div>
-                          <div className="block md:hidden space-y-4">
+                          <div className="block md:hidden space-y-2 text-sm">
                               {result.recommendedSolutionPath.expectedOutcomes.map((outcome, index) => (
-                                <Card key={index} className="bg-background/50">
-                                    <CardHeader>
-                                        <CardTitle className="text-base">{outcome.metric}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="space-y-2 text-sm">
-                                        <div className="flex justify-between"><span>Current State:</span> <strong>{outcome.currentState}</strong></div>
-                                        <div className="flex justify-between"><span>Improvement:</span> <strong className="text-green-500">{outcome.projectedImprovement}</strong></div>
-                                        <div className="flex justify-between"><span>Timeframe:</span> <strong>{outcome.timeframe}</strong></div>
-                                    </CardContent>
-                                </Card>
+                                <div key={index} className="p-3 rounded-md bg-background/50">
+                                    <p className="font-semibold">{outcome.metric}</p>
+                                    <div className="flex justify-between items-center text-muted-foreground mt-1">
+                                      <span>Current State: {outcome.currentState}</span>
+                                      <span className="text-green-500 font-semibold">{outcome.projectedImprovement}</span>
+                                    </div>
+                                    <p className="text-xs text-muted-foreground mt-1">Timeframe: {outcome.timeframe}</p>
+                                </div>
                               ))}
                           </div>
                       </CardContent>
@@ -169,7 +166,6 @@ export function SolutionRecommendationForm() {
             
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-primary">Next Steps</h3>
-               {/* Responsive Table for Next Steps */}
                 <div className="hidden md:block">
                   <Table>
                       <TableHeader>
@@ -190,17 +186,15 @@ export function SolutionRecommendationForm() {
                       </TableBody>
                   </Table>
                 </div>
-                <div className="block md:hidden space-y-4">
+                <div className="block md:hidden space-y-2 text-sm">
                     {result.nextSteps.map((step, index) => (
-                        <Card key={index} className="bg-background/50">
-                            <CardHeader>
-                               <CardTitle className="text-base">{step.actionItem}</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-2 text-sm">
-                                <div className="flex justify-between"><span>Owner:</span> <strong>{step.owner}</strong></div>
-                                <div className="flex justify-between"><span>Deadline:</span> <strong>{step.deadline}</strong></div>
-                            </CardContent>
-                        </Card>
+                        <div key={index} className="p-3 rounded-md bg-background/50">
+                            <p className="font-semibold">{step.actionItem}</p>
+                            <div className="flex justify-between items-center text-muted-foreground mt-1">
+                                <span>Owner: {step.owner}</span>
+                                <span className="font-semibold">{step.deadline}</span>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -392,5 +386,3 @@ export function SolutionRecommendationForm() {
     </Form>
   );
 }
-
-    
