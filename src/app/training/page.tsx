@@ -1,5 +1,5 @@
 
-import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion } from 'lucide-react';
+import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -39,6 +39,65 @@ const trainingPrograms = [
       'Deploying AI Assistants Securely',
       'Measuring Support Efficiency Gains',
       'Hands-on Project: Build Your First Support Bot',
+    ],
+  },
+  {
+    icon: <Lightbulb className="h-8 w-8 text-primary" />,
+    title: 'AI Insights: A Practical Guide',
+    description: "A comprehensive overview of AI types, principles, and their practical applications, enhancing participants' ability to leverage AI in their fields.",
+    duration: 'Half-Day Workshop',
+    mode: 'Online',
+    learnings: [
+        'Understand different AI types (ANI, AGI, ASI)',
+        'Explore real-world applications across various sectors',
+        'Discuss ethical considerations and reliability',
+        'Gain foundational knowledge for strategic AI adoption',
+        'Interactive Q&A with AI experts'
+    ],
+  },
+   {
+    icon: <Share2 className="h-8 w-8 text-primary" />,
+    title: 'Applied AI: Building Recommendation Systems',
+    description: 'Quick Start to Designing, Building and Deploying Scalable Recommendation Models using Python, Pandas, Pinecone and More.',
+    duration: '2-Day Intensive',
+    mode: 'Online',
+    learnings: [
+        'Core concepts of recommendation systems',
+        'Data manipulation with Pandas',
+        'Building content-based recommenders',
+        'Hands-on labs with Pinecone',
+        'Deploying and scaling models',
+        'Optimizing for user engagement'
+    ],
+  },
+   {
+    icon: <Code className="h-8 w-8 text-primary" />,
+    title: 'Quick Start to Prompt Engineering for Developers',
+    description: 'Supercharge your coding skills, development efforts, and processes with AI. Learn to automate tasks, generate code, and build more effective AI-driven solutions.',
+    duration: '1-Day Course',
+    mode: 'Online',
+    learnings: [
+        'Advanced prompt design for GPT-4',
+        'Text preprocessing and data cleansing for AI',
+        'Automating coding tasks with OpenAI Codex',
+        'Implementing multi-turn conversations',
+        'Ethical considerations in prompt engineering',
+        'Hands-on labs with the OpenAI API'
+    ],
+  },
+  {
+    icon: <Briefcase className="h-8 w-8 text-primary" />,
+    title: 'Quick Start to Prompt Engineering for Business Users',
+    description: 'Harness Prompt Engineering skills for OpenAI, ChatGPT / GPT-4 to boost productivity, supercharge your communications and revolutionize your business processes.',
+    duration: '1-Day Workshop',
+    mode: 'Online',
+    learnings: [
+        'Crafting effective prompts for business tasks',
+        'Integrating prompt solutions into existing workflows',
+        'Enhancing customer support and sales pitches',
+        'Automating content creation and internal communications',
+        'Best practices from our expert instructors',
+        'Hands-on experimentation with innovative tools'
     ],
   },
   {
@@ -199,3 +258,5 @@ export default function TrainingPage() {
     </div>
   );
 }
+
+    

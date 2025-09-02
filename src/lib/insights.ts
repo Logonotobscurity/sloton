@@ -22,6 +22,46 @@ export const insights: Insight[] = [
     date: "2024-08-20"
   },
   {
+    title: "Quick Start to Prompt Engineering for Developers",
+    slug: "prompt-engineering-for-developers",
+    description: "Discover how prompt engineering can supercharge your coding skills and development processes. Learn to automate tasks, generate code, and build more effective AI-driven solutions.",
+    image: "https://picsum.photos/1200/600?random=16",
+    dataAiHint: "code on screen",
+    tags: ["AI", "Training", "Development", "Prompt Engineering"],
+    author: "Oluwamayowa Logo",
+    date: "2024-08-19"
+  },
+  {
+    title: "Building Recommendation Systems with Python",
+    slug: "building-recommendation-systems",
+    description: "Take a deep dive into building and deploying scalable recommendation models using Python, Pandas, and Pinecone to create personalized user experiences.",
+    image: "https://picsum.photos/1200/600?random=17",
+    dataAiHint: "data science network",
+    tags: ["AI", "Training", "Python", "Data Science"],
+    author: "Favour Alfred",
+    date: "2024-08-18"
+  },
+  {
+    title: "AI Insights: A Guide to AI Types & Applications",
+    slug: "ai-types-and-applications",
+    description: "A comprehensive overview of AI types, from ANI to ASI, and their practical applications across different industries. Understand the core principles of AI strategy.",
+    image: "https://picsum.photos/1200/600?random=18",
+    dataAiHint: "artificial intelligence brain",
+    tags: ["AI", "Training", "Strategy"],
+    author: "Oluwamayowa Logo",
+    date: "2024-08-17"
+  },
+    {
+    title: "Prompt Engineering for Business Users",
+    slug: "prompt-engineering-for-business",
+    description: "Learn how to harness prompt engineering skills for ChatGPT and GPT-4 to boost productivity, supercharge communications, and revolutionize business processes.",
+    image: "https://picsum.photos/1200/600?random=19",
+    dataAiHint: "business meeting",
+    tags: ["AI", "Training", "Business", "Prompt Engineering"],
+    author: "Favour Alfred",
+    date: "2024-08-16"
+  },
+  {
     title: "The Future of Work: How AI is Redefining Productivity",
     slug: "future-of-work-ai",
     description: "Explore the transformative impact of artificial intelligence on modern workplaces and how businesses can adapt.",
@@ -82,3 +122,5 @@ export const insights: Insight[] = [
     date: "2024-07-15"
   }
 ];
+
+    

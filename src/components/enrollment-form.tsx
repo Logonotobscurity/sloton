@@ -21,6 +21,11 @@ const formSchema = z.object({
 });
 
 const trainingPrograms = [
+    'Transforming Customer Support with AI',
+    'AI Insights: A Practical Guide',
+    'Applied AI: Building Recommendation Systems',
+    'Quick Start to Prompt Engineering for Developers',
+    'Quick Start to Prompt Engineering for Business Users',
     'AI Solutions Development',
     'Process Automation Mastery',
     'Chatbot Development',
@@ -138,3 +143,5 @@ export function EnrollmentForm({ programName }: { programName?: string }) {
     </Form>
   );
 }
+
+    
