@@ -11,6 +11,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import { EnrollmentForm } from '@/components/enrollment-form';
 import Script from 'next/script';
+import { ShareModal } from '@/components/share-modal';
 
 export const insights = allInsights;
 
@@ -576,6 +577,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
     case 'seo-vs-geo-invisible-in-ai-search':
         contentHtml = seoVsGeoArticleContent;
         break;
+
     case '10-content-formats-that-get-picked-up-by-llms':
         contentHtml = tenFormatsArticleContent;
         break;
@@ -608,10 +610,13 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
                 ))}
               </div>
               <h1 className="text-3xl md:text-5xl font-bold mb-4">{insight.title}</h1>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span>By {insight.author}</span>
-                <span>•</span>
-                <span>{new Date(insight.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-muted-foreground">
+                 <div className="flex items-center gap-4">
+                    <span>By {insight.author}</span>
+                    <span>•</span>
+                    <span>{new Date(insight.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                </div>
+                <ShareModal title={insight.title} />
               </div>
             </header>
 
