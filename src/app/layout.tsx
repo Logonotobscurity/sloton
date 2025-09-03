@@ -9,7 +9,6 @@ import { Toaster } from '@/components/ui/toaster';
 import { WebsiteLoader } from '@/components/website-loader';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
-import { BotpressWebchat } from '@/components/botpress-webchat';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -234,8 +233,9 @@ export default function RootLayout({
             <main className="flex-grow">{children}</main>
             <Footer />
             <Toaster />
-            <BotpressWebchat />
           </ThemeProvider>
+           <Script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></Script>
+           <Script src="https://files.bpcontent.cloud/2025/09/03/00/20250903000320-J2QZTSYJ.js" defer></Script>
       </body>
     </html>
   );
