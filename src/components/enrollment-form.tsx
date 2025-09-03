@@ -149,5 +149,3 @@ export function EnrollmentForm({ programName }: { programName?: string }) {
     </Form>
   );
 }
-
-    
