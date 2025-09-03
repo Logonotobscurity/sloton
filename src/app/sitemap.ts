@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/training',
     '/insights',
     '/contact',
+    '/ab-testing',
   ];
 
   const staticUrls = staticPages.map((page) => ({

@@ -1,7 +1,9 @@
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { MessageCircle, Share2 } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import { MessageCircle, Share2, Beaker } from 'lucide-react';
 import { ShareModal } from './share-modal';
+import { Button } from './ui/button';
+import Link from 'next/link';
 
 export function ChatbotEmbed() {
   return (
@@ -36,6 +38,15 @@ export function ChatbotEmbed() {
                 title="Botpress Chatbot"
               ></iframe>
             </CardContent>
+            <CardFooter className="bg-secondary/50 p-4 flex-col sm:flex-row items-center justify-center gap-4 text-center">
+                <p className="text-sm text-muted-foreground">Want to run your own tests?</p>
+                <Button asChild variant="outline">
+                    <Link href="/ab-testing">
+                        <Beaker className="mr-2 h-4 w-4" />
+                        Go to our A/B Testing Tool
+                    </Link>
+                </Button>
+            </CardFooter>
           </Card>
         </div>
       </div>
