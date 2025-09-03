@@ -2,18 +2,52 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, BookOpen, Download } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { AuthorBio } from '@/components/author-bio';
 import { insights as allInsights } from '@/lib/insights';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
-import { EnrollmentForm } from '@/components/enrollment-form';
 import Script from 'next/script';
 import { ShareModal } from '@/components/share-modal';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 export const insights = allInsights;
+
+type Props = {
+  params: { slug: string }
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const insight = insights.find((insight) => insight.slug === params.slug);
+
+  if (!insight) {
+    return {
+      title: "Insight Not Found",
+      description: "The requested article could not be found.",
+    }
+  }
+
+  const previousImages = (await parent).openGraph?.images || []
+
+  return {
+    title: insight.title,
+    description: insight.description,
+    openGraph: {
+      title: insight.title,
+      description: insight.description,
+      images: [insight.image, ...previousImages],
+    },
+     twitter: {
+      card: 'summary_large_image',
+      title: insight.title,
+      description: insight.description,
+      images: [insight.image], 
+    },
+  }
+}
 
 const investmentArticleContent = `
 <p class="mb-6 text-lg text-muted-foreground">I've been doubling down on AI stocks lately, and honestly, it's been a wild ride, but the good kind. AI is literally taking over everything: your phone, your doctor's office, even your coffee maker (okay, maybe not yet, but give it time). So I'm putting my money where my mouth is. Here's exactly what I'm holding and why.</p>
@@ -582,8 +616,6 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
         contentHtml = tenFormatsArticleContent;
         break;
     default:
-      // Find content for other slugs or use a default
-      // For now, let's just create a simple default paragraph
       contentHtml = `<p>${insight.description}</p>`;
       break;
   }
@@ -616,7 +648,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
                     <span>•</span>
                     <span>{new Date(insight.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                 </div>
-                <ShareModal title={insight.title} />
+                <ShareModal title={insight.title} image={insight.image} />
               </div>
             </header>
 
@@ -642,5 +674,3 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
     </div>
   );
 }
-
-    

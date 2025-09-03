@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -8,13 +9,15 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogDescription,
+  DialogFooter,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { Share2, Copy, X, Linkedin, Facebook, MessageCircle } from 'lucide-react';
+import Image from 'next/image';
 
-export function ShareModal({ title }: { title: string }) {
+export function ShareModal({ title, image }: { title: string; image: string }) {
   const [currentUrl, setCurrentUrl] = useState('');
   const { toast } = useToast();
 
@@ -33,7 +36,7 @@ export function ShareModal({ title }: { title: string }) {
 
   const socialShares = [
     {
-      name: 'X (Twitter)',
+      name: 'X',
       icon: <X className="h-5 w-5" />,
       url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(title)}`,
     },
@@ -62,14 +65,19 @@ export function ShareModal({ title }: { title: string }) {
           Share
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>Share this article</DialogTitle>
+          <DialogTitle>Share this content</DialogTitle>
           <DialogDescription>
-            Anyone with this link will be able to view this article.
+            Help spread the word by sharing on your favorite platforms.
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
+            {image && (
+                <div className="rounded-lg overflow-hidden border">
+                    <Image src={image} alt={title} width={600} height={315} className="w-full h-auto object-cover" />
+                </div>
+            )}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {socialShares.map((social) => (
                     <a
@@ -81,7 +89,7 @@ export function ShareModal({ title }: { title: string }) {
                     >
                         <Button variant="outline" className="w-full">
                             {social.icon}
-                            <span className="ml-2">{social.name}</span>
+                            <span className="ml-2 hidden sm:inline">{social.name}</span>
                         </Button>
                     </a>
                 ))}

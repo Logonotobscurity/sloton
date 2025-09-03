@@ -200,7 +200,7 @@ export function SolutionRecommendationForm() {
             </div>
         </div>
 
-        <div className="pt-6 flex items-center justify-center gap-4">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild>
                 <Link href="https://calendly.com/" target="_blank">
                     <Calendar className="mr-2 h-4 w-4" /> Book a Free Consultation
