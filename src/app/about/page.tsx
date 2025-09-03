@@ -18,16 +18,12 @@ const teamMembers = [
     role: 'Lead Developer & Automation Solution Architect',
     description: 'Expert in AI architecture and automation solutions with a focus on innovative technology implementation. Specializes in developing scalable solutions for business growth.',
     expertise: ['AI Architecture', 'Strategy', 'Innovation', 'Web Development', 'IT Support', 'Solution Design'],
-    image: 'https://images.surferseo.art/bfd93c97-2b4c-44bd-a1f1-a46c0354f0fb.png',
-    dataAiHint: 'male developer',
   },
   {
     name: 'Favour Alfred',
     role: 'Team Lead Sales & Business Process Automation',
     description: 'Results-driven professional specializing in business process automation and digital marketing strategies. Expert in optimizing workflows and driving digital transformation.',
     expertise: ['Process Automation', 'Workflow Design', 'Integration', 'Digital Marketing', 'Sales Strategy', 'Business Development'],
-    image: 'https://images.surferseo.art/af18ff8e-9af7-47c5-aa6d-45c2e59a6094.png',
-    dataAiHint: 'female professional',
   },
 ];
 
@@ -90,21 +86,11 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {teamMembers.map((member) => (
               <Card key={member.name} className="bg-secondary/50 border-border/50 overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                <div className="grid grid-cols-1 md:grid-cols-3 items-center">
-                   <div className="p-6 flex justify-center md:justify-start">
-                     <Avatar className="w-32 h-32 border-4 border-primary">
-                       <AvatarImage asChild src={member.image} alt={member.name} data-ai-hint={member.dataAiHint}>
-                          <Image src={member.image} alt={member.name} data-ai-hint={member.dataAiHint} width={200} height={200} />
-                       </AvatarImage>
-                       <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                     </Avatar>
-                   </div>
-                   <div className="md:col-span-2 p-6 text-center md:text-left">
-                      <h3 className="font-bold text-2xl">{member.name}</h3>
-                      <p className="text-primary mb-3">{member.role}</p>
-                      <p className="text-muted-foreground text-sm">{member.description}</p>
-                   </div>
-                </div>
+                 <div className="p-6 text-center md:text-left">
+                    <h3 className="font-bold text-2xl">{member.name}</h3>
+                    <p className="text-primary mb-3">{member.role}</p>
+                    <p className="text-muted-foreground text-sm">{member.description}</p>
+                 </div>
                  <div className="bg-background/50 p-6">
                     <h4 className="font-semibold mb-4 text-primary">Areas of Expertise</h4>
                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
