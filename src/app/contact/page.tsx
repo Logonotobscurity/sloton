@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { ContactForm } from '@/components/contact-form';
 import { Mail, Phone, Briefcase, Lightbulb, MessageCircle } from 'lucide-react';
 import type { Metadata } from 'next';
+import { ChatbotEmbed } from '@/components/chatbot-embed';
 
 export const metadata: Metadata = {
   title: 'Contact Us | LOG_ON connecting Advantages',
@@ -66,16 +67,6 @@ export default function ContactPage() {
            </div>
 
           <div className="space-y-8">
-            <Card className="bg-secondary/50">
-                <CardHeader>
-                  <CardTitle>Chat With Our Assistant</CardTitle>
-                  <CardDescription>Ask our AI assistant, GIGPILOT, any questions you have about our services or pricing.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <div id="webchat" style={{width: '100%', height: '500px'}}></div>
-                </CardContent>
-            </Card>
-
              <div className="flex items-start gap-4">
                 <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
                     <Mail className="h-6 w-6 text-primary" />

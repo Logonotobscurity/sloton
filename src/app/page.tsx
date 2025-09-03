@@ -10,6 +10,7 @@ import { StrategicPartner } from '@/components/strategic-partner';
 import { TechStackCarousel } from '@/components/tech-stack-carousel';
 import { TrainingCTA } from '@/components/training-cta';
 import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
+import { ChatbotEmbed } from '@/components/chatbot-embed';
 
 
 export default function Home() {
@@ -36,6 +37,9 @@ export default function Home() {
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <Faq />
+      </ScrollAnimationWrapper>
+       <ScrollAnimationWrapper>
+        <ChatbotEmbed />
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <TechStackCarousel />

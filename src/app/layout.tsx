@@ -234,8 +234,6 @@ export default function RootLayout({
             <Footer />
             <Toaster />
           </ThemeProvider>
-           <Script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></Script>
-           <Script src="https://files.bpcontent.cloud/2025/09/03/00/20250903000320-J2QZTSYJ.js" defer></Script>
       </body>
     </html>
   );
