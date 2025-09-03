@@ -12,8 +12,6 @@ import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import { EnrollmentForm } from '@/components/enrollment-form';
 import Script from 'next/script';
 
-
-// This is our mock database of articles. In a real application, this would come from a CMS or database.
 export const insights = allInsights;
 
 const investmentArticleContent = `
@@ -378,3 +376,266 @@ const llmsTxtArticleContent = `
 <p class="mb-6">Any site that wants to be better understood by AI models can benefit from an <code>LLMs.txt</code> file. For example, a SaaS platform could use it to highlight onboarding guides, docs, product manuals, or support pages. To improve structure and clarity, you can create two versions of the file—one for core pages and another for supplemental materials—organizing them into clearly labeled file lists. This format ensures that AI tools can efficiently navigate your content and access the most relevant information, improving both inference and discovery.</p>
 <h3 class="text-xl font-semibold mt-8 mb-4">Can large language models assist with code generation?</h3>
 <p class="mb-6">Yes. LLMs are widely used in development workflows to generate, refactor, or debug code. By analyzing vast programming datasets—including code embedded in HTML, APIs, and scripts published across the web—they can produce functional snippets in multiple languages. Many developer platforms now integrate AI assistants that pull context from a website’s structure or URLs, helping teams enhance productivity, reduce errors, and accelerate software development cycles.</p>
+`;
+
+const seoVsGeoArticleContent = `
+<p class="mb-6 text-lg text-muted-foreground">Search isn’t what it used to be. While Google is still the dominant player, more people are turning to tools like ChatGPT, Perplexity, and Google’s SGE (Search Generative Experience) for quick, AI-generated answers. Instead of scanning links, users are asking questions and expecting summaries, citations, and clear takeaways right away.</p>
+<p class="mb-6">That shift is giving rise to a new approach to content visibility: Generative Engine Optimization (GEO). Unlike traditional SEO, which focuses on ranking in search engines, GEO makes your content useful and accessible to AI tools that generate answers.</p>
+<p class="mb-6">In this post, we’ll break down what GEO is, how it compares to traditional SEO, and what strategies actually work if you want your content to show up in AI-driven search engines.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">What is Generative Engine Optimization (GEO)?</h2>
+<p class="mb-6">Generative Engine Optimization (GEO) is the process of optimizing content to make it prioritized, cited, and integrated into AI-driven search engines’ responses. The goal is to make content highly relevant and accessible for generative AI to include in its synthesized answers.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">How GEO works in the context of AI-driven searches</h3>
+<p class="mb-6">Generative AI platforms rely on large language models (LLMs) trained on vast datasets to generate direct, conversational answers. When users input queries, these systems:</p>
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>Analyze intent:</strong> They interpret the user’s intent beyond simple keyword matching.</li>
+    <li><strong>Synthesize information:</strong> The AI scans its indexed data or real-time web sources, extracts relevant information, and generates a cohesive response.</li>
+    <li><strong>Prioritize content:</strong> Content that is clear, well-structured, and authoritative is more likely to be cited or featured in these AI-generated answers.</li>
+</ul>
+<p class="mb-6">GEO makes sure your content aligns with these systems’ preferences by focusing on clarity, relevance, and structured data formats.</p>
+<blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
+  <p><strong>Dig deeper:</strong> <a href="/insights/why-llms-txt-matters-for-seo" class="text-primary hover:underline">LLMs.txt Files: The New SEO Hack for AI-Powered Search</a></p>
+</blockquote>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Examples: How content appears in generative AI research platforms</h2>
+<p class="mb-6"><strong>ChatGPT:</strong> If optimized effectively, your content might be directly quoted or summarized when users search for specific topics like “best digital marketing strategies.”</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/12d21d90-9031-44b3-983c-b64ff2905901.png" alt="ChatGPT interface showing an AI generated answer." class="rounded-lg shadow-lg" />
+</div>
+<p class="mb-6"><strong>Perplexity:</strong> Your content could be highlighted as a trusted source when users select specific focus modes such as “Academic Focus” for scholarly insights or “Web Focus” for general information.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/27897d8a-4f2a-4957-8dc5-3654aa9a6a1f.png" alt="Perplexity AI interface with multiple sources." class="rounded-lg shadow-lg" />
+</div>
+<p class="mb-6"><strong>Gemini & Google AI Overviews:</strong> Your content might appear as part of a multimodal response that combines text with supplementary visuals or videos for richer user engagement.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/40ca9760-cd1a-49c4-932d-725f3fea1955.png" alt="Google AI Overviews showing a summarized answer." class="rounded-lg shadow-lg" />
+</div>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">What is traditional SEO?</h2>
+<p class="mb-6">Traditional SEO strategy refers to the foundational practices used to improve a website’s visibility and rankings on search engine results pages (SERPs). Its primary goal is to attract organic traffic by optimizing various elements of a website, such as relevant keywords, content, and technical aspects, while building authority through backlinks. Traditional SEO relies on aligning content with user intent and search engine algorithms for relevance and credibility.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">How traditional SEO works</h3>
+<p class="mb-6">Traditional SEO operates through a combination of on-page, off-page, and technical optimization techniques:</p>
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>On-page optimization:</strong> Keyword research, content creation, and crafting optimized title tags and meta descriptions.</li>
+    <li><strong>Off-page optimization:</strong> Acquiring backlinks from reputable websites to boost domain authority and credibility.</li>
+    <li><strong>Technical SEO:</strong> Ensuring fast load times, mobile responsiveness, and using structured data to help search engines understand content.</li>
+</ul>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">GEO vs SEO: Key differences</h2>
+<div class="my-8 flex justify-center">
+    <img src="https://www.quoleady.com/wp-content/uploads/2025/04/SEO-vs-GEO_-Why-Your-Content-Might-Be-Invisible-in-AI-Search-And-How-to-Fix-It.png" alt="Diagram comparing SEO and GEO." class="rounded-lg shadow-lg" />
+</div>
+<table class="w-full text-left border-collapse my-8">
+  <thead>
+    <tr>
+      <th class="border-b-2 p-4 font-semibold text-primary">Aspect</th>
+      <th class="border-b-2 p-4 font-semibold text-primary">Traditional SEO</th>
+      <th class="border-b-2 p-4 font-semibold text-primary">Generative Engine Optimization (GEO)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="border-b">
+      <td class="p-4 font-semibold">Target platforms</td>
+      <td class="p-4">Traditional search engines (Google, Bing)</td>
+      <td class="p-4">AI-driven platforms (Google SGE, ChatGPT, Perplexity, Gemini)</td>
+    </tr>
+    <tr class="border-b">
+      <td class="p-4 font-semibold">Primary goal</td>
+      <td class="p-4">Improve rankings on SERPs to drive organic traffic</td>
+      <td class="p-4">Content is cited or featured in AI-generated answers</td>
+    </tr>
+    <tr class="border-b">
+        <td class="p-4 font-semibold">Optimization focus</td>
+        <td class="p-4">Keywords, backlinks, meta tags, and technical SEO</td>
+        <td class="p-4">Content structure, E-E-A-T, contextual relevance, and AI readability</td>
+    </tr>
+     <tr class="border-b">
+        <td class="p-4 font-semibold">Key metrics</td>
+        <td class="p-4">Traffic volume, keyword rankings, CTR</td>
+        <td class="p-4">Inclusion in AI responses, citation frequency, response accuracy</td>
+    </tr>
+    <tr class="border-b">
+        <td class="p-4 font-semibold">Content approach</td>
+        <td class="p-4">Keyword-rich, in-depth articles optimized for human readers</td>
+        <td class="p-4">Clear, scannable answers with citations, stats, and structured data</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Top 5 GEO optimization strategies</h2>
+<p class="mb-6">GEO requires a tailored approach to make your content accessible, relevant, and prioritized by AI-driven platforms. Below are key strategies to optimize for GEO effectively:</p>
+<ol class="list-decimal pl-6 space-y-4 mb-6">
+    <li><strong>Get cited with content that AI can reference:</strong> Focus on credibility by including well-researched data, authoritative quotes, and statistics. Make sure your content demonstrates Experience, Expertise, Authority, and Trustworthiness (E-E-A-T).</li>
+    <li><strong>Use structured data and clear headers:</strong> Use schema markup to highlight key elements like FAQs, and organize content with clear headings to improve readability for both users and AI systems.</li>
+    <li><strong>Fix content structure with summaries and FAQs:</strong> Start with concise summaries that provide quick insights. Answer specific, high-intent questions using a Q&A format.</li>
+    <li><strong>Prioritize topical authority and clarity:</strong> Build depth in your niche by creating pillar content and supporting cluster articles. Use simple, conversational language that aligns with natural user queries.</li>
+    <li><strong>Publish on trusted, crawlable platforms:</strong> Host your content on well-maintained, easily crawlable websites. Regularly update your content to stay relevant.</li>
+</ol>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Conclusion</h2>
+<p class="mb-6">The rise of AI-driven search necessitates a shift towards GEO. It focuses on optimizing content for AI platforms by ensuring it is credible, well-structured, and easily accessible. While traditional SEO remains important, integrating GEO strategies is crucial to maintain visibility and enhance credibility in this new era of search.</p>
+<blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
+  <p><strong>Related:</strong> <a href="/insights/10-content-formats-that-get-picked-up-by-llms" class="text-primary hover:underline">10 Content Formats That Get Picked Up by LLMs</a></p>
+</blockquote>
+`;
+
+const tenFormatsArticleContent = `
+<p class="mb-6 text-lg text-muted-foreground">These days, a lot of people aren’t Googling for answers, they’re asking LLMs like ChatGPT, and getting instant, summarized advice right in the chat. That means your content doesn’t always have to rank #1 in Google anymore to get seen. If an LLM picks it up and uses it in an answer you get visibility anyway. Sometimes even more than you would from a traditional blog click.</p>
+<p class="mb-6">But LLMs aren’t quoting just anything. They pull content that’s clear, genuinely useful, easy to summarize, and structured for AI-first indexing. If your content checks those boxes, you’re way more likely to get cited, mentioned, and discovered by new customers.</p>
+<p class="mb-6">In this post, I’ll walk you through 10 content formats that LLMs actually like and how to use them to get your brand in ChatGPT answers. Let’s get into it.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Top content formats to get featured in LLM answers</h2>
+<p class="mb-6">Not all content is LLM-friendly but some formats consistently show up in AI answers. Here are a few you should definitely be using on your SaaS site if you want more visibility without fighting for the top spot in Google.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">1. Original research & data-driven content</h3>
+<p class="mb-6">LLMs prefer fresh data. If you’ve got unique stats, benchmarks, or survey results, you’re sitting on a goldmine. If you’ve got access to your industry usage data, customer trends, or can run a quick survey, share it! Publish your findings as a blog post, a report, or even a simple chart. This kind of content gets picked up because it’s both useful and hard to find anywhere else.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/90f19dea-8d34-4b32-b0ef-e8c67ca5c6fb.png" alt="Data analytics dashboard with charts and graphs" class="rounded-lg shadow-lg" />
+</div>
+<p class="mb-6"><strong>Why LLMs pick it up:</strong> AI looks for facts that stand out. If your site is the source of a stat or trend, that makes you quote-worthy.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">2. Expert quotes & professional insights</h3>
+<p class="mb-6">LLMs are surprisingly good at spotting fluff – and they’ll skip right over your generic “thought leadership” if it sounds like everyone else. LLMs are looking for expert takes that are either backed by real experience or offer a contrarian (but logical) viewpoint. Plus, memorable opinions make your brand stick in people’s minds.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">3. Step-by-step how-to guides</h3>
+<p class="mb-6">LLMs prefer structure. Numbered steps, short sentences, bullet points, and clear headings make your content easy to read and easy for AI to summarize. Whether it’s onboarding, troubleshooting, or a process breakdown, actionable guides are exactly what users (and LLMs) want when they’re trying to solve a problem.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/0213ee7b-071d-43f0-83a0-2a8cb26a531e.png" alt="Diagram showing a structured workflow" class="rounded-lg shadow-lg" />
+</div>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">4. Comparison posts (X vs Y)</h3>
+<p class="mb-6">People love asking LLMs to compare tools, features, and approaches before making a decision – “X vs Y,” “Is A better than B,” “What’s the difference between X and Z.” If you’ve got clear, side-by-side breakdowns, you’re already ahead. But if your post is too salesy or biased, LLMs will skip over you. Focus more on clarity and less on hype.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">5. Q&A and FAQ pages</h3>
+<p class="mb-6">You don’t need a separate FAQ page. Just work questions into your blog posts, product pages, or help docs, and answer them clearly. LLMs are trained to spot and answer questions, so the more your content mirrors how people actually ask, the better your chances of being featured in AI answers.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">6. Case studies & success stories</h3>
+<p class="mb-6">LLMs prefer to cite real scenarios because it adds credibility to their answers. Even simple before-and-after examples can work wonders, as long as they’re clear, focused, and actually prove a point. Case studies give your content that real-world weight most blogs don’t have.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://www.quoleady.com/wp-content/uploads/2025/07/a-photograph-of-a-meticulously-crafted-c_uS-LcVIBTrieDESlLIYHMA_Qwt8ezinQVubColkHeraMA-300x168.png" alt="A case study document on a desk" class="rounded-lg shadow-lg" />
+</div>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">7. Lists, tables, and summaries</h3>
+<p class="mb-6">If there’s one thing both readers and LLMs appreciate, it’s content that’s easy to skim. Lists, tables, and TL;DRs make your posts more digestible and easier to quote. Summaries or recap boxes at the top or bottom of your posts give LLMs easy info to grab and cite. Lists and tables break down info so it’s quick to scan, compare, and share.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">8. Checklists and cheat sheets</h3>
+<p class="mb-6">Checklists and cheat sheets are easy to skim for LLMs. You can easily break down detailed topics. They’re practical, actionable, and get easily featured into an AI-generated answer.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">9. Schema markup & structured data (JSON-LD, XML)</h3>
+<p class="mb-6">Producing great content is not enough, you need to format it properly. Schema markup and structured data help both LLMs and search engines “read” your content more easily.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">10. Multimodal content (infographics, videos, audio)</h3>
+<p class="mb-6">Text isn’t the only thing LLMs are learning to understand. Models are getting better at picking up cues from images, audio, and video, especially when it’s paired with good metadata and transcripts.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Conclusion: LLMs pick smart, structured content</h2>
+<p class="mb-6">If your web content is clear, supported with structured data, and optimized with consistent file formats like XML, large language models are far more likely to feature it. You don’t even have to rank #1 to show up in AI-generated answers. Structured data and clean LLM-content-format give language models a foundation for better understanding and quoting your material.</p>
+<blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
+  <p><strong>Related:</strong> <a href="/insights/why-llms-txt-matters-for-seo" class="text-primary hover:underline">Why LLMs.txt Matters for Modern SEO</a></p>
+</blockquote>
+`;
+
+export default function InsightPage({ params }: { params: { slug: string } }) {
+  const insight = insights.find((insight) => insight.slug === params.slug);
+
+  if (!insight) {
+    notFound();
+  }
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": insight.title,
+    "description": insight.description,
+    "image": insight.image,
+    "author": {
+      "@type": "Person",
+      "name": insight.author
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "LOG_ON connecting Advantages",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://logonsolutions.netlify.app/og-image.png"
+        }
+    },
+    "datePublished": insight.date,
+  };
+
+  let contentHtml = '';
+  switch (params.slug) {
+    case 'ai-investment-playbook':
+      contentHtml = investmentArticleContent;
+      break;
+    case 'why-llms-txt-matters-for-seo':
+        contentHtml = llmsTxtArticleContent;
+        break;
+    case 'seo-vs-geo-invisible-in-ai-search':
+        contentHtml = seoVsGeoArticleContent;
+        break;
+    case '10-content-formats-that-get-picked-up-by-llms':
+        contentHtml = tenFormatsArticleContent;
+        break;
+    default:
+      // Find content for other slugs or use a default
+      // For now, let's just create a simple default paragraph
+      contentHtml = `<p>${insight.description}</p>`;
+      break;
+  }
+
+  return (
+    <div className="bg-background">
+       <Script 
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+        <div className="max-w-4xl mx-auto">
+          <Link href="/insights" className="text-primary hover:underline flex items-center gap-2 mb-8">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Insights
+          </Link>
+
+          <article>
+            <header className="mb-8">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {insight.tags.map(tag => (
+                  <Badge key={tag} variant="outline" className="border-primary text-primary">{tag}</Badge>
+                ))}
+              </div>
+              <h1 className="text-3xl md:text-5xl font-bold mb-4">{insight.title}</h1>
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <span>By {insight.author}</span>
+                <span>•</span>
+                <span>{new Date(insight.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              </div>
+            </header>
+
+            <Image
+              src={insight.image}
+              alt={insight.title}
+              width={1200}
+              height={600}
+              className="w-full h-auto object-cover rounded-lg mb-8"
+              data-ai-hint={insight.dataAiHint}
+              priority
+            />
+
+            <div className="prose prose-lg dark:prose-invert max-w-none mx-auto" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+            
+             <section className="mt-16 border-t pt-8">
+                <h3 className="text-2xl font-bold mb-4">About the Author</h3>
+                <AuthorBio authorName={insight.author} />
+             </section>
+          </article>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+    
