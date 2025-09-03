@@ -25,7 +25,6 @@ export function ChatbotEmbed() {
                 </div>
                  <ShareModal 
                     title="Check out GIGPILOT - An AI Assistant from LOG_ON"
-                    image="https://logonsolutions.netlify.app/og-image.png"
                  />
              </CardHeader>
             <CardContent className="p-0">

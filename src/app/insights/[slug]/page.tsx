@@ -648,7 +648,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
                     <span>•</span>
                     <span>{new Date(insight.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                 </div>
-                <ShareModal title={insight.title} image={insight.image} />
+                <ShareModal title={insight.title} />
               </div>
             </header>
 

@@ -9,15 +9,13 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogDescription,
-  DialogFooter,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { Share2, Copy, X, Linkedin, Facebook, MessageCircle } from 'lucide-react';
-import Image from 'next/image';
 
-export function ShareModal({ title, image }: { title: string; image: string }) {
+export function ShareModal({ title }: { title: string }) {
   const [currentUrl, setCurrentUrl] = useState('');
   const { toast } = useToast();
 
@@ -73,11 +71,6 @@ export function ShareModal({ title, image }: { title: string; image: string }) {
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
-            {image && (
-                <div className="rounded-lg overflow-hidden border">
-                    <Image src={image} alt={title} width={600} height={315} className="w-full h-auto object-cover" />
-                </div>
-            )}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {socialShares.map((social) => (
                     <a
