@@ -1,4 +1,6 @@
 
+"use client"
+
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
@@ -10,6 +12,13 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import Script from 'next/script';
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata, ResolvingMetadata } from 'next';
+import React, { useEffect, useRef } from 'react';
+import { createRoot } from 'react-dom/client';
+import { InvestmentPortfolioChart } from '@/components/investment-portfolio-chart';
+import { EnrollmentForm } from '@/components/enrollment-form';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+
 
 export const insights = allInsights;
 
@@ -31,6 +40,7 @@ export async function generateMetadata(
   }
 
   const previousImages = (await parent).openGraph?.images || []
+  const absoluteImageUrl = new URL(insight.image, (await parent).metadataBase || undefined).toString();
 
   return {
     title: insight.title,
@@ -38,13 +48,13 @@ export async function generateMetadata(
     openGraph: {
       title: insight.title,
       description: insight.description,
-      images: [insight.image, ...previousImages],
+      images: [absoluteImageUrl, ...previousImages],
     },
      twitter: {
       card: 'summary_large_image',
       title: insight.title,
       description: insight.description,
-      images: [insight.image], 
+      images: [absoluteImageUrl], 
     },
   }
 }
@@ -119,8 +129,10 @@ const investmentArticleContent = `
 <p class="mb-6"><b>Position Size:</b> This is my largest single holding, but I'm not adding more at current levels.</p>
 
 <h2 class="text-2xl font-bold mt-12 mb-4">📊 My Portfolio Breakdown</h2>
-<!-- This will be replaced by a proper table component -->
-<div id="portfolio-table"></div>
+<!-- This will be replaced by a proper chart component -->
+<div id="portfolio-chart-container" class="my-8"></div>
+<p class="text-sm text-center text-muted-foreground">This is an illustrative portfolio based on the article's thesis, not direct financial advice.</p>
+
 
 <h2 class="text-2xl font-bold mt-12 mb-4">⚠️ My Biggest Risks (And How I'm Hedging)</h2>
 <p class="mb-6">Diversification isn't just about different stocks. It's about different risk factors.</p>
@@ -574,6 +586,41 @@ const tenFormatsArticleContent = `
 
 export default function InsightPage({ params }: { params: { slug: string } }) {
   const insight = insights.find((insight) => insight.slug === params.slug);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (contentRef.current) {
+        // Mount InvestmentPortfolioChart
+        const chartContainer = contentRef.current.querySelector('#portfolio-chart-container');
+        if (chartContainer && !chartContainer.hasChildNodes()) {
+            const root = createRoot(chartContainer);
+            root.render(<InvestmentPortfolioChart />);
+        }
+
+        // Mount EnrollmentForm
+        const downloadGuideContainer = contentRef.current.querySelector('#download-guide');
+        if (downloadGuideContainer && !downloadGuideContainer.hasChildNodes()) {
+            const root = createRoot(downloadGuideContainer);
+            root.render(
+                <Dialog>
+                    <DialogTrigger asChild>
+                        <Button size="lg" className="w-full mt-8">Download the Full Investment Guide</Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-lg bg-background">
+                        <DialogHeader>
+                            <DialogTitle>Get the Full Guide</DialogTitle>
+                            <DialogDescription>
+                                To receive the complete AI Investment Guide, please provide your details below.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <EnrollmentForm programName="AI Investment Guide" />
+                    </DialogContent>
+                </Dialog>
+            );
+        }
+    }
+  }, [params.slug]);
+
 
   if (!insight) {
     notFound();
@@ -611,7 +658,6 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
     case 'seo-vs-geo-invisible-in-ai-search':
         contentHtml = seoVsGeoArticleContent;
         break;
-
     case '10-content-formats-that-get-picked-up-by-llms':
         contentHtml = tenFormatsArticleContent;
         break;
@@ -662,7 +708,11 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
               priority
             />
 
-            <div className="prose prose-lg dark:prose-invert max-w-none mx-auto" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+            <div 
+              ref={contentRef}
+              className="prose prose-lg dark:prose-invert max-w-none mx-auto" 
+              dangerouslySetInnerHTML={{ __html: contentHtml }} 
+            />
             
              <section className="mt-16 border-t pt-8">
                 <h3 className="text-2xl font-bold mb-4">About the Author</h3>
