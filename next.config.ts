@@ -152,7 +152,7 @@ const nextConfig: NextConfig = {
         hostname: 'veloarchia.odoo.com',
       },
       {
-        protocol: 'https',
+        protocol: 'https|',
         hostname: 'e-time.it',
       },
       {
@@ -170,6 +170,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images.surferseo.art',
+      },
+      {
+        protocol: 'https',
+        hostname: 'logonsolutions.netlify.app',
       },
     ],
   },
