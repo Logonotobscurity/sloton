@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
-import { BrainCircuit } from 'lucide-react';
+import { BrainCircuit, ArrowDown } from 'lucide-react';
 import { CircuitBackground } from './circuit-background';
 
 export function Hero() {
@@ -51,6 +51,14 @@ export function Hero() {
               Explore Our Services
             </Link>
           </Button>
+        </div>
+        <div className="mt-12 text-center md:text-left">
+            <Button asChild variant="ghost" className="text-muted-foreground hover:text-primary">
+                <Link href="/#gigpilot-chat">
+                    Or, chat with our AI assistant
+                    <ArrowDown className="ml-2 h-4 w-4" />
+                </Link>
+            </Button>
         </div>
       </div>
     </section>
