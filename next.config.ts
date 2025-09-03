@@ -152,7 +152,7 @@ const nextConfig: NextConfig = {
         hostname: 'veloarchia.odoo.com',
       },
       {
-        protocol: 'https|',
+        protocol: 'https',
         hostname: 'e-time.it',
       },
       {
