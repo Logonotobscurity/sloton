@@ -195,53 +195,57 @@ const investmentArticleContent = `
 `;
 
 const llmsTxtArticleContent = `
-<p class="mb-6 text-lg text-muted-foreground">SEO is shifting fast, and a quiet but powerful change is gaining traction: the <code>llms.txt</code> file. This simple text document, placed on your website, serves as a clear guide for AI systems like chatbots and advanced search tools, helping them understand your content more effectively.</p>
-<p class="mb-6">Think of it as a specialized map written specifically for machines. While traditional websites are designed for human eyes, an <code>llms.txt</code> file provides AI with a clean, structured version of your most important pages. This allows models to grasp context faster, reduces confusion, and ensures the right information is presented to users. For SaaS companies and content-heavy sites, it’s a crucial step toward better AI visibility and more accurate brand representation.</p>
+<p class="mb-6 text-lg text-muted-foreground">SEO is shifting fast, and a quiet change is gaining traction: the <code>llms.txt</code> file. This simple text file sits on your website and helps AI systems—like chatbots and search tools—understand what your content is about.</p>
+<p class="mb-6">Think of it as a guide written for machines. While traditional websites are built with humans in mind, an <code>llms.txt</code> file gives AI a cleaner, clearer version of your most important pages. It helps models pick up context faster, reduce confusion, and get the right information in front of the right people.</p>
 
-<h2 class="text-2xl font-bold mt-12 mb-4">What Exactly is an llms.txt File?</h2>
+<h2 class="text-2xl font-bold mt-12 mb-4">What is LLMs.txt?</h2>
+<p class="mb-6"><code>LLMs.txt</code> is a new proposed web standard designed to help large language models (LLMs)—like ChatGPT, Claude, or Gemini—easily understand your website by providing detailed information about its most important pages.</p>
+<p class="mb-6">Think of it like a custom guidebook for AI. While <code>robots.txt</code> controls what bots can crawl and <code>sitemap.xml</code> lists your pages, <code>LLMs.txt</code> tells AI which pages actually matter, and why. It’s a human-readable and AI-friendly Markdown file that lives at the root of your website.</p>
+<p class="mb-6">For SaaS companies and content-heavy websites, implementing <code>LLMs.txt</code> can improve AI visibility, drive better citations, and improve user engagement.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Why LLM matters for SEO</h2>
 <div class="my-8 flex justify-center">
-    <Image src="https://images.surferseo.art/7352a56a-7547-4589-9f0c-1fccf99e2b8e.png" alt="A diagram showing the benefits of llms.txt for SEO, including better visibility, accurate citations, and driving more traffic." width={800} height={450} data-ai-hint="llm seo benefits diagram" class="rounded-lg shadow-lg" />
+    <img src="https://images.surferseo.art/7352a56a-7547-4589-9f0c-1fccf99e2b8e.png" alt="A diagram showing the benefits of llms.txt for SEO, including better visibility, accurate citations, and driving more traffic." class="rounded-lg shadow-lg" />
 </div>
-<p class="mb-6"><code>LLMs.txt</code> is an emerging web standard designed to help Large Language Models (LLMs)—such as ChatGPT, Claude, or Gemini—easily interpret your website by providing explicit details about its most important pages. It functions as a human-readable and AI-friendly Markdown file that you place in the root directory of your website.</p>
-<p class="mb-6">While <code>robots.txt</code> tells bots what they can and cannot crawl and a <code>sitemap.xml</code> lists all your pages, <code>llms.txt</code> goes a step further by highlighting which pages are most valuable and why. For SaaS companies, e-commerce sites, and publishers, implementing this file can significantly improve AI visibility, lead to more accurate citations, and enhance user engagement.</p>
-
-
-<h2 class="text-2xl font-bold mt-12 mb-4">Why LLMs.txt is Crucial for Modern SEO</h2>
-<p class="mb-6">As AI-powered search becomes more prevalent, preparing your content for machine consumption is no longer optional. Here’s why an <code>llms.txt</code> file is essential for any forward-thinking SEO strategy:</p>
+<p class="mb-6">As AI-powered search engines become more important, <code>LLMs.txt</code> is turning into a key tool for helping websites work better with large language models (LLMs). Here’s why <code>llms.txt</code> files matter for SEO strategies:</p>
 <ul class="list-disc pl-6 space-y-3 mb-6">
-    <li><strong>Enhanced Visibility in AI Search:</strong> It guides AI models to prioritize your most important content, increasing the likelihood that your site will be featured and cited in AI-generated search answers.</li>
-    <li><strong>Ensures Accurate AI Citations:</strong> It gives you more control over how AI models interpret and summarize your business by highlighting the most relevant information for both machines and humans.</li>
-    <li><strong>Complements Traditional SEO:</strong> This file works in tandem with <code>robots.txt</code> and sitemaps, providing AI models with an additional, machine-readable index of your most valuable pages.</li>
-    <li><strong>Simple Implementation:</strong> It’s just a straightforward Markdown file. You upload it to your site’s root directory, and you can even include links for additional context.</li>
-    <li><strong>Drives More Referral Traffic:</strong> By improving how your content is cited in AI-generated answers, you can drive more high-intent organic traffic from users who discover your brand through these new search experiences.</li>
-    <li><strong>Future-Proofs Your Website:</strong> Adopting <code>llms.txt</code> prepares your site for the next wave of AI-powered search, giving you a significant competitive advantage.</li>
+    <li><strong>Better visibility in AI search:</strong> Guides AI models to prioritize your key information, increasing the chances of being referenced in AI-generated responses.</li>
+    <li><strong>Ensures accurate AI citations:</strong> Helps control what AI says about your business by highlighting the relevant information for both AI systems and human readers.</li>
+    <li><strong>Works alongside traditional SEO:</strong> Complements <code>robots.txt</code> and sitemaps by directing AI models to your most valuable pages and acting as an additional index for machine-readable content.</li>
+    <li><strong>Easy to implement:</strong> It’s just a simple Markdown file you upload to your site, and you can even include links to additional resources for context.</li>
+    <li><strong>Drives more referral traffic:</strong> Boosts AI citations, leading to more organic visits from AI-generated answers.</li>
+    <li><strong>Future-proofs your website:</strong> Prepares your site for the rise of AI-powered search, giving you a competitive edge.</li>
 </ul>
-<blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
-  <p><strong>Read Also:</strong> <a href="/insights/10-content-formats-that-get-picked-up-by-llms" class="text-primary hover:underline">10 Content Formats That Get Picked Up by LLMs</a></p>
-</blockquote>
 
-
-<h2 class="text-2xl font-bold mt-12 mb-4">How Do Large Language Models Work?</h2>
-<p class="mb-6">An <code>llms.txt</code> file provides AI models with a simplified, structured version of your site's most important content. It highlights key pages and offers brief descriptions for each, helping the models utilize your content more effectively—much like how search engines crawl a sitemap. Here’s a simplified look at how LLMs operate:</p>
-
+<h2 class="text-2xl font-bold mt-12 mb-4">How large language models (LLMS) work</h2>
 <div class="my-8 flex justify-center">
-    <Image src="https://www.quoleady.com/wp-content/uploads/2025/07/a-simple-clean-background-establishes-th_8OSCW8DQTW6xAQ1fbNsnKg_5uC4hOO1Sfy2p6OslUgIYQ-300x168.png" alt="Diagram explaining how Large Language Models work" width={800} height={600} data-ai-hint="llm diagram" class="rounded-lg shadow-lg" />
+    <img src="https://www.quoleady.com/wp-content/uploads/2025/07/a-simple-clean-background-establishes-th_8OSCW8DQTW6xAQ1fbNsnKg_5uC4hOO1Sfy2p6OslUgIYQ-300x168.png" alt="Diagram explaining how Large Language Models work" class="rounded-lg shadow-lg" />
 </div>
-
+<p class="mb-6"><code>LLMs.txt</code> gives AI a simplified, structured version of your most important content. It highlights your top pages and provides short descriptions for each, helping models utilize web content more effectively—much like how search engines crawl and interpret websites. Here’s a simplified breakdown of how large language models work:</p>
 <ul class="list-disc pl-6 space-y-3 mb-6">
-    <li><strong>Training on Massive Datasets:</strong> LLMs are trained on vast amounts of text from books, websites, and other sources to learn language patterns and relationships.</li>
-    <li><strong>Deep Learning & Neural Networks:</strong> They rely on complex architectures like the Generative Pre-trained Transformer (GPT) to predict and generate text based on context.</li>
-    <li><strong>Understanding Context and Meaning:</strong> By analyzing sentence structures and word relationships, LLMs can generate highly relevant responses, especially when guided by a well-formatted <code>llms.txt</code> file.</li>
-    <li><strong>Token and Context Window Limitations:</strong> LLMs have a fixed memory (a "context window" measured in tokens), meaning they can't process unlimited data at once. This makes it crucial to highlight your most important content clearly.</li>
-    <li><strong>Continuous Improvement with Feedback:</strong> Models refine their outputs through techniques like Reinforcement Learning from Human Feedback (RLHF) and ongoing training.</li>
-    <li><strong>Versatile Capabilities:</strong> LLMs can generate human-like text, answer questions, translate languages, and extract key insights, which is changing business processes and adding new dimensions to SEO.</li>
+    <li><strong>Trained on massive data sets:</strong> LLMs process textual data from books, websites, and other sources to learn language patterns and utilize web content effectively.</li>
+    <li><strong>Use deep learning & neural networks:</strong> They rely on generative pre-trained transformer models (like GPT and Claude) to predict and generate text based on context, requiring a deep understanding of programming languages and structured HTML pages.</li>
+    <li><strong>Understand context & meaning:</strong> By analyzing sentence structures, relationships between words, and user prompts, LLMs generate relevant responses—especially when guided by a properly formatted <code>txt</code> file like <code>LLMs.txt</code> placed at your site’s root path.</li>
+    <li><strong>Limitations & token vocabulary constraints:</strong> LLMs have a fixed memory (token limit), meaning they can’t process unlimited data in one go and prioritize the most relevant indexable pages. This makes it even more important to highlight the following sections clearly within your content.</li>
+    <li><strong>Continuously improve with human feedback:</strong> Models refine their outputs through reinforcement learning, user interactions, and training data.</li>
+    <li><strong>Generate content, summarize, and analyze:</strong> LLMs can generate human-like text and create articles, answer questions, translate text, and extract key insights from complex tasks. This content creation is changing many business processes and introduces new dimensions to search engine optimization.</li>
 </ul>
-<p class="mb-6">Understanding these mechanics helps you optimize your web content for AI-driven search, ensuring models generate relevant responses and extract the correct context from your site.</p>
+<p class="mb-6">Understanding how LLMs work helps you optimize web content for AI-driven search, ensuring AI automatically generates relevant responses and extracts the right context from your site.</p>
 
-<h2 class="text-2xl font-bold mt-12 mb-4">What’s Inside an LLMs.txt File?</h2>
-<p class="mb-6">An <code>llms.txt</code> file uses a simple, human-readable Markdown format. Here’s what a basic structure looks like for a fictional company:</p>
-<pre class="bg-secondary/50 p-4 rounded-md overflow-x-auto"><code>
-# AcmeCorp
+<h2 class="text-2xl font-bold mt-12 mb-4">How to optimize your content for AI readability</h2>
+<p class="mb-6">Google, ChatGPT, and AI search engines extract, summarize, and display web content based on structure, clarity, and format. If you’re still not appearing in AI results, then you need to optimize your website for AI readability—making sure your important information is easy for models to find and understand—using the tips mentioned below:</p>
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>Clear headings & structure:</strong> Use clear headings like H1, H2, H3, and include bullet points to organize content, especially if your site contains complex HTML. This helps AI assistants easily navigate and interpret your pages.</li>
+    <li><strong>AI-readable tables:</strong> For comparisons, use structured tables that provide additional context and make it easier for AI to extract key information from your content.</li>
+    <li><strong>FAQ sections & schema markup:</strong> Include FAQ sections and apply schema markup to improve your chances of being featured in Google search results and help AI index your site more effectively.</li>
+    <li><strong>Simple, direct language:</strong> Use simple and direct language instead of complex jargon to improve AI’s comprehension and boost your SEO performance.</li>
+    <li><strong>Internal linking:</strong> Internal linking helps AI understand the relationships between different pieces of content on your site, enhancing its ability to rank your pages accurately.</li>
+    <li><strong>Optimized metadata:</strong> Optimize your titles and descriptions in your metadata to significantly influence how AI algorithms rank and display your content in search results. For example, properly formatted content that follows these guidelines is more likely to be favored by AI-driven search tools.</li>
+</ul>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">What’s inside an LLMs.txt file</h2>
+<p class="mb-6">Here’s what a basic structure looks like:</p>
+<pre class="bg-secondary/50 p-4 rounded-md overflow-x-auto"><code># AcmeCorp
 
 > AcmeCorp builds privacy-first analytics tools for SaaS businesses.
 
@@ -259,77 +263,329 @@ const llmsTxtArticleContent = `
 
 ## Optional
 – [Terms of Service](https://acmecorp.com/terms): Legal information
-– [Community Forum](https://acmecorp.com/forum): Peer support and discussion
-</code></pre>
+– [Community Forum](https://acmecorp.com/forum): Peer support and discussion</code></pre>
 
-<h2 class="text-2xl font-bold mt-12 mb-4">How to Create and Implement Your Own LLMs.txt File</h2>
-<p class="mb-6">Setting up an <code>llms.txt</code> file is simple, but doing it right ensures AI models recognize and prioritize your most important information. Follow these steps:</p>
-<ol class="list-decimal pl-6 space-y-3 mb-6">
-    <li><strong>Define Your Objective:</strong> Decide which content you want AI to focus on. A SaaS platform might highlight onboarding guides, while a blog might spotlight cornerstone articles.</li>
-    <li><strong>Map Your Key Content:</strong> Categorize your content into logical sections (e.g., "Product Information," "Case Studies"). Make a list of your most valuable URLs and skip non-essential pages like login, cart, or privacy policies.</li>
-    <li><strong>Write it in Markdown:</strong> Use a simple Markdown format with links, short descriptions, and clear section headings.</li>
-    <li><strong>Save and Upload:</strong> Save the file as <code>llms.txt</code> and upload it to your site's root directory (e.g., <code>https://yourwebsite.com/llms.txt</code>).</li>
-    <li><strong>Test It:</strong> Open your <code>llms.txt</code> URL to check the formatting. You can then copy the contents into ChatGPT or Claude and ask, “What does this company do?” to see how accurately the AI understands your business.</li>
+<h2 class="text-2xl font-bold mt-12 mb-4">How to create your own LLMs.txt file</h2>
+<p class="mb-6">Setting up an <code>LLMs.txt</code> file is simple, but doing it right ensures AI models recognize and prioritize your most important information. This helps AI accurately index your site and surface the content that matters most. Follow these steps to create and implement your own <code>LLMs.txt</code> file:</p>
+<ol class="list-decimal pl-6 space-y-4 mb-6">
+    <li>
+        <h3 class="text-lg font-semibold">Define your objective</h3>
+        <p>Decide which content you want AI models to focus on. For example:</p>
+        <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>A SaaS platform may highlight onboarding guides and product documents.</li>
+            <li>A blog-focused site might spotlight cornerstone articles and explainers.</li>
+            <li>An e-commerce brand could feature key product categories or buyer’s guides.</li>
+        </ul>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold">Map your content</h3>
+        <p>Categorize content into sections, such as “Product Information,” “Case Studies,” or “Help Docs.” Structure it in a way that makes it easy for AI models to process. Make a list of high-value URLs. Skip pages like /login, /cart, /privacy-policy.</p>
+        <p class="mt-2"><strong>Example for a SaaS company:</strong></p>
+        <pre class="bg-secondary/50 p-2 rounded-md text-sm mt-1"><code>/docs/start
+/docs/api
+/tutorials/integrate-slack
+/pricing
+/case-studies/team-growth</code></pre>
+        <p class="mt-2"><strong>Example for a content-heavy blog:</strong></p>
+        <pre class="bg-secondary/50 p-2 rounded-md text-sm mt-1"><code>/blog/how-to-use-ai-in-content-marketing
+/blog/seo-for-ai-search
+/resources/checklists/content-brief-template</code></pre>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold">Write it in Markdown</h3>
+        <p>Use a simple Markdown-style format. Include links, short descriptions, and keywords for clarity. Structure the file like this:</p>
+        <pre class="bg-secondary/50 p-4 rounded-md overflow-x-auto text-sm mt-2"><code># Project Name
+
+> Short summary of your company or purpose.
+
+## Section name
+– [Page title](url): 1-sentence summary of what the page offers</code></pre>
+        <p class="mt-2">Use multiple sections (like Docs, Blog, Examples) to keep it organized. Include only the most useful links in each.</p>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold">Save and upload</h3>
+        <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>Save it as <code>llms.txt</code></li>
+            <li>Upload it to the root directory of your site (e.g., https://yourwebsite.com/llms.txt)</li>
+            <li>You can also create a longer version, <code>llms-full.txt</code>, which includes full documentation content (optional)</li>
+        </ul>
+    </li>
 </ol>
-<p class="mb-6">By creating an <code>llms.txt</code> file, you make it easier for AI models to understand your content, improving your visibility in AI-generated search results.</p>
+
+
+<h2 class="text-2xl font-bold mt-12 mb-4">How to add LLMs.txt file to WordPress</h2>
+<p class="mb-6">Adding an <code>LLMs.txt</code> file to WordPress is straightforward, especially with the help of plugins. Here’s how you can do it:</p>
+<ol class="list-decimal pl-6 space-y-4 mb-6">
+    <li><strong>Install an LLMs.txt plugin:</strong> Download a plugin such as “LLMs.txt for WP” or “Website LLMs.txt” from the WordPress plugin repository or GitHub. Navigate to your WordPress dashboard and go to Plugins > Add New > Upload Plugin. Upload the plugin ZIP file, then activate it.</li>
+    <li><strong>Configure the plugin settings:</strong> After activation, go to Settings > LLMs.txt Settings in your WordPress admin panel. Select the pages, posts, or custom post types you want to include in the <code>LLMs.txt</code> file. You can also set limits on the number of posts or pages to include.</li>
+    <li><strong>Generate and access the file:</strong> The plugin will automatically generate the <code>LLMs.txt</code> file and place it in your site’s root directory (e.g., https://yourwebsite.com/llms.txt). Visit this URL to confirm that the file is correctly formatted and accessible by AI crawlers.</li>
+    <li><strong>Optional: enable markdown support:</strong> Some plugins allow you to enable Markdown versions of your posts by appending <code>.md</code> to URLs (e.g., https://yourwebsite.com/your-post.md).</li>
+</ol>
+<p class="mb-6">By using these plugins, you can easily manage and update your <code>LLMs.txt</code> file without any coding knowledge.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">How to add LLMs.txt file to Webflow</h2>
+<p class="mb-6">To add an <code>/llms.txt</code> file to your Webflow website, you’ll need to upload the file to Webflow’s asset manager, then create a 301 redirect from the <code>/llms.txt</code> URL to the uploaded file’s URL. Here’s a step-by-step guide:</p>
+<ol class="list-decimal pl-6 space-y-4 mb-6">
+    <li><strong>Create and upload the /llms.txt file:</strong> Create a text file named <code>llms.txt</code> containing the information you want to provide to LLMs. Go to the Webflow designer, open the “Assets” panel, and upload your <code>llms.txt</code> file.</li>
+    <li><strong>Get the asset URL:</strong> Find the uploaded <code>llms.txt</code> file in the Assets panel. Right-click on the file and select “Open in browser” to get the URL of the uploaded file.</li>
+    <li><strong>Create a 301 redirect:</strong> Go to Project Settings in the Webflow designer, click on “Project Settings”. Go to the “Hosting” tab. Click on “Add Redirect” and create a new 301 redirect. Set the redirect from: Enter <code>/llms.txt</code>. To: Paste the URL of the uploaded <code>llms.txt</code> file (obtained in step 2). Type: Choose “301 Permanent Redirect”. Save the redirect settings.</li>
+    <li><strong>Publish your website:</strong> Publish your Webflow website to make the changes live.</li>
+    <li><strong>(Optional) Add an HTTP header:</strong> To clarify the file’s purpose, add: <code>X-Robots-Tag: llms-txt</code></li>
+    <li><strong>Test it:</strong> Open https://yourwebsite.com/llms.txt to check formatting. Copy the contents into ChatGPT or Claude and ask, “What does this company do?” See how accurately AI understands your business.</li>
+</ol>
+<p class="mb-6"><strong>Important Notes:</strong> Webflow users don’t have direct access to the root directory, so this method uses redirects to simulate it. Ensure the file is uploaded to the Webflow assets and not just linked to. After implementing, test that the <code>/llms.txt</code> file is accessible at the correct URL.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Tools to generate your file</h2>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/bfd93c97-2b4c-44bd-a1f1-a46c0354f0fb.png" alt="Abstract image of tools generating documentation" class="rounded-lg shadow-lg" />
+</div>
+<p class="mb-6">Creating an <code>LLMs.txt</code> file manually is simple, but using the right tools can speed up the process and ensure accuracy, ultimately enhancing model performance. Here are some useful tools to help you generate and manage your <code>LLMs.txt</code> file:</p>
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>Firecrawl Generator:</strong> An AI-powered tool that helps parse complex HTML and structure <code>LLMs.txt</code> automatically. It scrapes your site much like how search engines crawl, suggesting the most relevant pages for AI indexing and building a comprehensive file.</li>
+    <li><strong>Dotenv llmstxt:</strong> Ideal for developers looking to integrate <code>LLMs.txt</code> management into their workflows and development environments. It automates content updates based on changes in your CMS and automatically generates <code>llms.txt</code> from <code>sitemap.xml</code>, ensuring detailed information is always up to date.</li>
+    <li><strong>Mintlify:</strong> Best for documentation-heavy websites, ensuring AI models and AI tools can access structured knowledge bases. It auto-generates <code>llms.txt</code> from your existing files, optimizing content for the limited context window of large language models.</li>
+    <li><strong>WordPress Plugin:</strong> If your site runs on WordPress, some SEO plugins now offer <code>LLMs.txt</code> integration, letting you manage AI-specific indexing directly from your admin panel.</li>
+    <li><strong>Custom scripts & automation:</strong> For a tailored approach, create scripts to dynamically update <code>LLMs.txt</code>—especially useful for large SaaS platforms where content changes frequently.</li>
+</ul>
+<p class="mb-6">Using these tools, you can efficiently create, update, and optimize your LLMs txt file, helping AI models understand and prioritize your content for accurate answers and better visibility.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Best practices</h2>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/af18ff8e-9af7-47c5-aa6d-45c2e59a6094.png" alt="Checklist of best practices for SEO" class="rounded-lg shadow-lg" />
+</div>
+<p class="mb-6">To make the most of your <code>LLMs.txt</code> file, follow these best practices to ensure AI models can easily process and prioritize your content.</p>
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>Start with the essentials:</strong> Only include pages that provide real value to users or showcase your expertise, such as programming documentation or key resources. Skip outdated, low-quality, or irrelevant content to respect the context window limitations of AI models.</li>
+    <li><strong>Use clear, concise descriptions:</strong> Keep descriptions short and to the point—1–2 sentences max. Avoid jargon unless it’s widely understood in your industry or by AI tools.</li>
+    <li><strong>Organize with H2 sections:</strong> Structure your <code>LLMs.txt</code> file by content type (e.g., Docs, Blog, Case Studies, Features) in a specific order. This makes it easier for AI models to go through your website and navigation menus to find the most important content. Consider using two files if your site has a broad range of content—for example, one file for core pages and another for supplemental materials.</li>
+    <li><strong>Keep it updated:</strong> Review and update your domain-specific <code>LLMs</code> files at least once a quarter, especially after major content updates, new product launches, or significant site changes.</li>
+    <li><strong>Use the “Optional” section wisely:</strong> Place secondary content like changelogs, terms of service, or community pages there. This helps AI models prioritize core content while still referencing less critical pages when needed.</li>
+</ul>
+<p class="mb-6">Following these best practices ensures your <code>LLMs.txt</code> file stays clean, well formatted, and AI-friendly—improving your chances of being cited with accurate answers in AI-generated responses.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">How AI models use LLMs.txt</h2>
+<p class="mb-6">Currently, AI models don’t automatically detect <code>LLMs.txt</code> files, meaning you need to manually introduce them to Artificial Intelligence tools. Here’s how you can use them effectively:</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">With ChatGPT or Claude:</h3>
+<ul class="list-disc pl-6 space-y-2 mb-6">
+    <li>Paste the <code>LLMs.txt</code> content or upload the file directly into the chat.</li>
+    <li>Ask targeted questions like: “What are AcmeCorp’s main services?” to guide AI responses based on your curated content.</li>
+</ul>
+<h3 class="text-xl font-semibold mt-8 mb-4">With Cursor:</h3>
+<ul class="list-disc pl-6 space-y-2 mb-6">
+    <li>Add the file to your AI workspace via the <code>@Docs</code> feature.</li>
+    <li>AI will then reference it when generating responses, keeping your content in context.</li>
+</ul>
+<p class="mb-6">As LLMs adoption grows, AI tools may start automatically parsing <code>LLMs.txt</code> when available, making it a crucial part of future AI-driven search and content discovery.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Real-world examples</h2>
+<p class="mb-6">Many companies are already using <code>LLMs.txt</code> to improve how AI models interact with their content. Here are some real-world examples:</p>
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>Anthropic:</strong> Uses <code>LLMs.txt</code> to help AI models understand its API and prompt library, ensuring accurate AI-generated responses.</li>
+    <li><strong>Perplexity:</strong> Maintains a comprehensive <code>llms-full.txt</code> file for deep indexing of its help center, making its content more accessible to AI tools.</li>
+    <li><strong>Cloudflare:</strong> Leverages <code>LLMs.txt</code> to direct AI toward thousands of developer documentation pages, improving discoverability.</li>
+    <li><strong>Mintlify:</strong> Automates <code>LLMs.txt</code> creation for all the documentation it hosts, ensuring AI models always reference the latest information.</li>
+</ul>
+<p class="mb-6">These examples show how <code>LLMs.txt</code> is already playing a key role in AI-first content optimization, helping businesses improve AI visibility and ensure accurate information retrieval.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Conclusion</h2>
+<p class="mb-6"><code>LLMs.txt</code> is a small yet powerful file that can dramatically boost your website’s presence across AI-driven search platforms. With just a simple HTML or text format, this file gives language models direct access to your most important documents, making it easier for them to understand your content and deliver more accurate results in AI tools like Google’s AI Overviews or ChatGPT.</p>
+<p class="mb-6">By listing your key URLs and organizing them by content type (e.g., Docs, Blog, Case Studies), <code>LLMs.txt</code> reduces AI inference time, helping models find relevant information faster. It also eliminates the guesswork, providing systems with the context they need for smarter indexing and better responses.</p>
+<p class="mb-6">If your site includes a wide range of content, consider using two files—one for core pages and another for supplemental materials—to improve structure and clarity.</p>
+<p class="mb-6">The best part? Setting up <code>LLMs.txt</code> takes less than an hour. It’s a fast, low-effort upgrade that future-proofs your SEO strategy in a world where AI access and retrieval are becoming the new standard for search.</p>
+
+<blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
+  <p><strong>Related:</strong> <a href="/insights/10-content-formats-that-get-picked-up-by-llms" class="text-primary hover:underline">10 Content Formats That Get Picked Up by LLMs</a></p>
+</blockquote>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">FAQS</h2>
+<h3 class="text-xl font-semibold mt-8 mb-4">What are foundation models, and why are they important for LLMs?</h3>
+<p class="mb-6">Foundation models are large-scale machine learning systems trained on vast datasets across the internet, including websites, documents, and code repositories. These models power large language models (LLMs), enabling them to handle a wide range of tasks like text generation, code completion, and data analysis. Their ability to generalize across domains makes them foundational to AI assistants and generative AI tools that support modern business use cases.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">How does fine-tuning improve the performance of large language models?</h3>
+<p class="mb-6">Fine-tuning allows businesses to adapt pre-trained LLMs using their own content—such as internal docs, product pages, or customer service chats. By introducing company-specific data, you expand the model’s context window with domain-relevant knowledge. This ensures more relevant and accurate outputs, whether for generating helpdesk responses or assisting users navigating technical documentation.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">What is generative AI, and how does it relate to SEO?</h3>
+<p class="mb-6">Generative AI produces content—text, visuals, or code—based on user input. In SEO, it plays a key role in content creation and optimization. AI can write copy that aligns with search intent, structure site content for discoverability, or help generate structured files like <code>LLMs.txt</code> that improve visibility in AI-driven search engines such as Google. These files guide AI assistants by pointing them to high-priority URLs and page types.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">How does artificial intelligence impact modern SEO strategies?</h3>
+<p class="mb-6">AI is reshaping how content is found and ranked. Instead of relying solely on traditional search signals, AI-powered tools now favor clear structure, readable HTML format, accurate sources, and relevance to user queries. Features like <code>LLMs.txt</code> help by giving AI systems a map of your site’s most important content—such as navigation menus, landing pages, or support docs—enhancing retrieval accuracy and boosting organic traffic.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">How do large language models generate text?</h3>
+<p class="mb-6">LLMs use transformer-based architectures to analyze context from input prompts and predict the most likely next token in a sequence. This prediction-based generation allows them to produce human-like responses for tasks ranging from article drafting to code generation. The size of their context window—how much input they can process at once—plays a key role in the quality and coherence of their output.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">What business applications can benefit from using LLMs.txt?</h3>
+<p class="mb-6">Any site that wants to be better understood by AI models can benefit from an <code>LLMs.txt</code> file. For example, a SaaS platform could use it to highlight onboarding guides, docs, product manuals, or support pages. To improve structure and clarity, you can create two versions of the file—one for core pages and another for supplemental materials—organizing them into clearly labeled file lists. This format ensures that AI tools can efficiently navigate your content and access the most relevant information, improving both inference and discovery.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">Can large language models assist with code generation?</h3>
+<p class="mb-6">Yes. LLMs are widely used in development workflows to generate, refactor, or debug code. By analyzing vast programming datasets—including code embedded in HTML, APIs, and scripts published across the web—they can produce functional snippets in multiple languages. Many developer platforms now integrate AI assistants that pull context from a website’s structure or URLs, helping teams enhance productivity, reduce errors, and accelerate software development cycles.</p>
 `;
 
 const contentFormatsArticleContent = `
-<p class="mb-6 text-lg text-muted-foreground">These days, many users are turning to LLMs like ChatGPT for instant, summarized advice instead of traditional search engines. This shift means your content doesn't need to rank #1 on Google to be seen. If an LLM features your work in an answer, you gain valuable visibility, often more impactful than a standard blog click.</p>
-<p class="mb-6">However, LLMs are selective. They favor content that is clear, genuinely useful, easy to summarize, and structured for AI-first indexing. In this guide, we'll explore 10 content formats that LLMs love and how you can leverage them to get your brand featured in AI-driven answers.</p>
+<p class="mb-6 text-lg text-muted-foreground">These days, a lot of people aren’t Googling for answers; they’re asking LLMs like ChatGPT and getting instant, summarized advice right in the chat. That means your content doesn’t always have to rank #1 in Google anymore to get seen. If an LLM picks it up and uses it in an answer, you get visibility anyway—sometimes even more than you would from a traditional blog click.</p>
+<p class="mb-6">But LLMs aren’t quoting just anything. They pull content that’s clear, genuinely useful, easy to summarize, and structured for AI-first indexing. If your content checks those boxes, you’re way more likely to get cited, mentioned, and discovered by new customers.</p>
+<p class="mb-6">In this post, I’ll walk you through 10 content formats that LLMs actually like and how to use them to get your brand in ChatGPT answers. Let’s get into it.</p>
 
-<h2 class="text-2xl font-bold mt-12 mb-4">1. Original Research & Data-Driven Content</h2>
-<p class="mb-6">LLMs prioritize fresh, unique data. If you have original statistics, industry benchmarks, or survey results, you are sitting on a content goldmine. Even simple charts and data points can make your content highly quotable and authoritative.</p>
+<h2 class="text-2xl font-bold mt-12 mb-4">Top content formats to get featured in LLM answers</h2>
+<p class="mb-6">Not all content is LLM-friendly, but some formats consistently show up in AI answers. Here are a few you should definitely be using on your SaaS site if you want more visibility without fighting for the top spot in Google.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">1. Original research & data-driven content</h3>
+<p class="mb-6">LLMs prefer fresh data. If you’ve got unique stats, benchmarks, or survey results, you’re sitting on a goldmine. If you’ve got access to your industry usage data, customer trends, or can run a quick survey, share it! Publish your findings as a blog post, a report, or even a simple chart. This kind of content gets picked up because it’s both useful and hard to find anywhere else.</p>
 <div class="my-8 flex justify-center">
-    <Image src="https://images.surferseo.art/af18ff8e-9af7-47c5-aa6d-45c2e59a6094.png" alt="Dashboard showing original research data and charts" width={800} height={450} data-ai-hint="analytics dashboard data" class="rounded-lg shadow-lg" />
+    <img src="https://images.surferseo.art/af18ff8e-9af7-47c5-aa6d-45c2e59a6094.png" alt="Dashboard showing original research data and charts" class="rounded-lg shadow-lg" />
 </div>
-<h3 class="text-lg font-semibold mt-6 mb-2">Why it works:</h3>
-<p class="mb-4">AI models look for distinctive facts. If your website is the source of a compelling statistic, it becomes a prime candidate for citation.</p>
-<h3 class="text-lg font-semibold mt-6 mb-2">How to do it:</h3>
+<h4 class="text-lg font-semibold mt-6 mb-2">Why LLMs pick it up:</h4>
+<p class="mb-4">AI looks for facts that stand out. If your site is the source of a stat or trend, that makes you quote-worthy.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">How you can do it:</h4>
 <ul class="list-disc pl-6 space-y-2 mb-4">
-    <li>Share anonymized usage data from your SaaS tool, like in <a href="https://www.hubspot.com/state-of-marketing" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">HubSpot's State of Marketing report</a>.</li>
-    <li>Conduct a brief survey with your user base or LinkedIn audience.</li>
-    <li>Compile and publish industry benchmarks, a strategy effectively used by <a href="https://databox.com/marketing-benchmarks-by-industry" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Databox</a>.</li>
+    <li>Share anonymized usage data from your own SaaS tool (example: <a href="https://www.hubspot.com/state-of-marketing" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">HubSpot's State of Marketing report</a>).</li>
+    <li>Run a quick survey with your user base or LinkedIn audience.</li>
+    <li>Compile industry benchmarks no one else is publishing (DataBox is great with this: <a href="https://databox.com/marketing-benchmarks-by-industry" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Databox</a>).</li>
+</ul>
+<p class="mb-6">You don’t need a full-blown research report. Even a few solid stats in a blog post can get picked up.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">2. Expert quotes & professional insights</h3>
+<p class="mb-6">LLMs are surprisingly good at spotting fluff – and they’ll skip right over your generic “thought leadership” if it sounds like everyone else. LLMs are looking for expert takes that are either backed by real experience or offer a contrarian (but logical) viewpoint. Plus, memorable opinions make your brand stick in people’s minds.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://media.tekpon.com/wp-content/uploads/2024/05/expert-insights.png" alt="Graphic with a lightbulb and the words Expert Insights" class="rounded-lg shadow-lg" />
+</div>
+<h4 class="text-lg font-semibold mt-6 mb-2">Why it works:</h4>
+<p class="mb-4">LLMs prefer expert voices and citing unique perspectives, especially when they’re backed by real experience or data.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">How to do it:</h4>
+<ul class="list-disc pl-6 space-y-2 mb-4">
+    <li>Interview industry experts or customers with niche knowledge.</li>
+    <li>Add comments from your product or content team.</li>
+    <li>Quote respected experts in your field and add your own spin.</li>
 </ul>
 
-<h2 class="text-2xl font-bold mt-12 mb-4">2. Expert Quotes & Professional Insights</h2>
-<p class="mb-6">Generic thought leadership is often overlooked by LLMs. They seek out expert opinions backed by real-world experience or logical, contrarian viewpoints. Including memorable insights from professionals helps your brand stand out and build authority.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">3. Step-by-step how-to guides</h3>
+<p class="mb-6">LLMs prefer structure. Numbered steps, short sentences, bullet points, and clear headings make your content easy to read and easy for AI to summarize. Whether it’s onboarding, troubleshooting, or a process breakdown, actionable guides are exactly what users (and LLMs) want when they’re trying to solve a problem. A well-structured format ensures the information can be easily parsed by top models and adapted for various tasks.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">Why it works:</h4>
+<p class="mb-4">LLMs are trying to help people solve problems and answer questions. Step-by-step guides, when well structured and fine-tuned, give them something useful to pull from. Because AI is trained on next-word prediction, content with a consistent format and clear context has a higher chance of being cited.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">How to do it:</h4>
+<ul class="list-disc pl-6 space-y-2 mb-4">
+    <li>Write practical how-to guides for your product.</li>
+    <li>Create onboarding walkthroughs with screenshots or short videos.</li>
+    <li>Break down complex processes into simple, numbered steps with clear section headings.</li>
+</ul>
+<p class="mb-6">Keep it skimmable, use subheadings, and avoid info dumps. The cleaner the format, the more likely it’ll show up in an AI-generated answer. For SaaS and tech companies, investing in content design that is easily parsed and paired with other forms of media will help AI systems understand content.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">4. Comparison posts (X vs Y)</h3>
+<p class="mb-6">People love asking LLMs to compare tools, features, and approaches before making a decision – “X vs Y,” “Is A better than B,” “What’s the difference between X and Z.” If you’ve got clear, side-by-side breakdowns, you’re already ahead. But if your post is too salesy or biased, LLMs will skip over you. Focus more on clarity and less on hype.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/86b5622a-b2a7-4e12-88da-74b6fe18bde0.png" alt="A comparison chart layout for different products" class="rounded-lg shadow-lg" />
+</div>
+<h4 class="text-lg font-semibold mt-6 mb-2">Why it works:</h4>
+<p class="mb-4">LLMs prefer structured comparisons for users deciding between tools, features, or strategies. It’s a go-to format for answering buyer questions.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">How to do it:</h4>
+<ul class="list-disc pl-6 space-y-2 mb-4">
+    <li>Create honest, detailed comparison posts between your SaaS and competitors.</li>
+    <li>Break down differences in features, pricing, integrations, and use cases.</li>
+    <li>Keep it neutral and useful – avoid salesy language or biased scoring tables.</li>
+</ul>
+<p class="mb-6">Being real builds trust (with readers and machines).</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">5. Q&A and FAQ pages</h3>
+<p class="mb-6">You don’t need a separate FAQ page. Just work questions into your blog posts, product pages, or help docs, and answer them clearly. LLMs are trained to spot and answer questions, so the more your content mirrors how people actually ask, the better your chances of being featured in AI answers.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://masteriyo.com/wp-content/uploads/2023/11/Screenshot_23.png" alt="An example of a FAQ section on a website" class="rounded-lg shadow-lg" />
+</div>
+<h4 class="text-lg font-semibold mt-6 mb-2">Why it works:</h4>
+<p class="mb-4">Direct, question-based content mirrors how people talk to LLMs. That makes it super easy for AI to pull your answers.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">How to do it:</h4>
+<ul class="list-disc pl-6 space-y-2 mb-4">
+    <li>Add H2/H3 questions throughout your blog posts (and answer them right after).</li>
+    <li>Create a FAQ section on key product or feature pages.</li>
+    <li>Use customer support tickets or sales calls to find common questions to address.</li>
+</ul>
+<p class="mb-6">It’s a simple format, but it works really well for LLM visibility.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">6. Case studies & success stories</h3>
+<p class="mb-6">LLMs prefer to cite real scenarios because it adds credibility to their answers. Even simple before-and-after examples can work wonders, as long as they’re clear, focused, and actually prove a point. Case studies give your content that real-world weight most blogs don’t have.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://bucketwebebis.s3.eu-north-1.amazonaws.com/wp-content/uploads/2023/11/17094926/Frame-60-1-1024x585.png" alt="Example of a case study showing results" class="rounded-lg shadow-lg" />
+</div>
+<h4 class="text-lg font-semibold mt-6 mb-2">Why it works:</h4>
+<p class="mb-4">Real-life examples build credibility and help users picture your product in action. LLMs use them to support broader points.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">How to do it:</h4>
+<ul class="list-disc pl-6 space-y-2 mb-4">
+    <li>Share customer success stories with specific outcomes.</li>
+    <li>Include data (time saved, revenue gained, churn reduced, etc.).</li>
+    <li>Highlight before/after situations or unique product use cases.</li>
+</ul>
+<p class="mb-6">Just keep it concise. There’s no need to write a 2,000-word case study to understand how your product helped.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">7. Lists, tables, and summaries</h3>
+<p class="mb-6">If there’s one thing both readers and LLMs appreciate, it’s content that’s easy to skim. Lists, tables, and TL;DRs make your posts more digestible and easier to quote. Summaries or recap boxes at the top or bottom of your posts give LLMs easy info to grab and cite. Lists and tables break down info so it’s quick to scan, compare, and share.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://veloarchia.odoo.com/web/image/348-73b313d5/e-commerce-table.png" alt="A well-structured comparison table" class="rounded-lg shadow-lg" />
+</div>
+<h4 class="text-lg font-semibold mt-6 mb-2">Why it works:</h4>
+<p class="mb-4">Easy to parse, easy to cite. Structured info like this gives LLMs clean chunks to pull from without needing to “guess” what’s important.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">How to do it:</h4>
+<ul class="list-disc pl-6 space-y-2 mb-4">
+    <li>Use bullet points for key takeaways.</li>
+    <li>Add comparison tables when talking about features or pricing.</li>
+    <li>Drop a summary box at the top or bottom of longer posts (TL;DR-style).</li>
+</ul>
+<p class="mb-6">This kind of structure helps people and machines get what they need.</p>
+
+
+<h3 class="text-xl font-semibold mt-8 mb-4">8. Checklists and cheat sheets</h3>
+<p class="mb-6">Checklists and cheat sheets are easy to skim for LLMs. You can easily break down detailed topics. They’re practical, actionable, and get easily featured into an AI-generated answer.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://e-time.it/wp-content/uploads/2023/07/Check-list.png" alt="A checklist graphic" class="rounded-lg shadow-lg" />
+</div>
+<h4 class="text-lg font-semibold mt-6 mb-2">Why it works:</h4>
+<p class="mb-4">LLMs prefer short, actionable formats. Checklists are easy to understand and easy to use, which makes them perfect to be in AI responses.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">How to do it:</h4>
+<ul class="list-disc pl-6 space-y-2 mb-4">
+    <li>Create checklists for common workflows (SEO audits, onboarding, setup, etc.).</li>
+    <li>Keep items short and clear – one action per line.</li>
+    <li>Turn blog content into printable or downloadable cheat sheets.</li>
+</ul>
+<p class="mb-6">Bonus: checklists are also great lead magnets if you want to double up on value.</p>
+
+
+<h3 class="text-xl font-semibold mt-8 mb-4">9. Schema markup & structured data (JSON-LD, XML)</h3>
+<p class="mb-6">Producing great content is not enough; you need to format it properly. Schema markup and structured data help both LLMs and search engines “read” your content more easily.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">Why it works:</h4>
+<p class="mb-4">Making your content machine-readable with the help of schema and structured data for LLM visibility means a higher chance of getting picked up, cited, or featured in snippets.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">How to do it:</h4>
+<ul class="list-disc pl-6 space-y-2 mb-4">
+    <li>Use schema for blog posts, FAQs, product reviews, and how-to guides.</li>
+    <li>Implement JSON-LD (easiest option) on your pages.</li>
+    <li>If you’re publishing at scale, automate it via your CMS or SEO plugin.</li>
+</ul>
+<p class="mb-6">You don’t need a dev team to get the basics in place.</p>
+
+
+<h3 class="text-xl font-semibold mt-8 mb-4">10. Multimodal content (infographics, videos, audio)</h3>
+<p class="mb-6">Text isn’t the only thing LLMs are learning to understand. Models are getting better at picking up cues from images, audio, and video, especially when it’s paired with good metadata and transcripts.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/33444110-7677-414b-920b-05364ebe2e57.png" alt="An example of a vibrant infographic" class="rounded-lg shadow-lg" />
+</div>
+<h4 class="text-lg font-semibold mt-6 mb-2">Why it matters:</h4>
+<p class="mb-4">Infographics, charts, and explainer videos can all show up in AI tools (and in Google’s AI Overviews). The richer your content, the more angles you can be cited from.</p>
+<h4 class="text-lg font-semibold mt-6 mb-2">How to do it:</h4>
+<ul class="list-disc pl-6 space-y-2 mb-4">
+    <li>Add descriptive alt text to images and infographics.</li>
+    <li>Include transcripts with your videos and podcast episodes.</li>
+    <li>Use visuals to support key points.</li>
+</ul>
+<p class="mb-6">Even if AI doesn’t fully get your graphic today, you’re future-proofing your content for what’s coming next.</p>
+
 <blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
-  <p><strong>Read Also:</strong> <a href="/insights/why-llms-txt-matters-for-seo" class="text-primary hover:underline">Why llms.txt Matters for Modern SEO</a></p>
+  <p><strong>Related:</strong> <a href="/insights/why-llms-txt-matters-for-seo" class="text-primary hover:underline">Why llms.txt Matters for Modern SEO</a></p>
 </blockquote>
 
-<h2 class="text-2xl font-bold mt-12 mb-4">3. Step-by-Step How-To Guides</h2>
-<p class="mb-6">Structure is key for LLM readability. Numbered steps, bullet points, and clear headings make your content easy for AI to parse and summarize. Actionable guides are highly valued by both users and LLMs looking to solve specific problems.</p>
+<h2 class="text-2xl font-bold mt-12 mb-4">Client Results in LLMs and Google AI Overviews</h2>
+<p class="mb-6">At LOG_ON, we don’t just talk about LLM-friendly content — we build it. And our clients are already seeing the results show up in real AI-powered searches.</p>
 
-<h2 class="text-2xl font-bold mt-12 mb-4">4. Comparison Posts (X vs. Y)</h2>
-<p class="mb-6">Users frequently ask LLMs to compare tools and strategies. Clear, side-by-side comparisons of features, pricing, and use cases are incredibly effective. To be credible, focus on clarity and objectivity over sales-oriented hype.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">Case study: Client A</h3>
+<p class="mb-6">We put ChatGPT to the test with the query “loyalty cards providers.” The result: our clients Loopy Loyalty and PassKit showed up as the #1 and #2 answers. This isn’t just luck; their content was clear, structured, and packed with unique insights, so LLMs trusted it enough to feature right at the top. That’s visibility you can’t buy with paid ads or even a #1 Google ranking.</p>
 <div class="my-8 flex justify-center">
-    <Image src="https://images.surferseo.art/86b5622a-b2a7-4e12-88da-74b6fe18bde0.png" alt="A comparison chart layout for different products" width={800} height={450} data-ai-hint="comparison chart" class="rounded-lg shadow-lg" />
+    <img src="https://business.feefo.com/hs-fs/hubfs/Screenshot%202023-09-07%20at%2016.14.01.png?width=1000&height=524&name=Screenshot%202023-09-07%20at%2016.14.01.png" alt="Client results in ChatGPT" class="rounded-lg shadow-lg" />
 </div>
 
-<h2 class="text-2xl font-bold mt-12 mb-4">5. Q&A and FAQ Pages</h2>
-<p class="mb-6">Integrate question-and-answer formats directly into your content. LLMs are designed to answer questions, so mirroring the conversational style of user queries increases your chances of being featured.</p>
+<h2 class="text-2xl font-bold mt-12 mb-4">Conclusion: LLMs pick smart, structured content</h2>
+<p class="mb-6">If your web content is clear, supported with structured data, and optimized with consistent file formats like XML, large language models are far more likely to feature it. These language models don’t just copy text — they analyze context, process natural language, and look for formats that can be parsed quickly even at inference time.</p>
+<p class="mb-6">You don’t even have to rank #1 to show up in AI-generated answers. Structured data and clean LLM-content-format give language models a foundation for better understanding and quoting your material.</p>
+<p class="mb-6"><strong>Action step:</strong> Pick 2–3 of the formats above and apply them to your next blog, landing page, or even short social media posts. It doesn’t have to be a complete content overhaul — small improvements to structured data, file formats like XML, and how you present context can make a huge difference.</p>
 
-<h2 class="text-2xl font-bold mt-12 mb-4">6. Case Studies & Success Stories</h2>
-<p class="mb-6">Real-world scenarios add significant credibility. LLMs prefer to cite actual examples, even simple before-and-after stories, to support their answers. Focus on specific, measurable outcomes to prove your point effectively.</p>
-
-<h2 class="text-2xl font-bold mt-12 mb-4">7. Lists, Tables, and Summaries</h2>
-<p class="mb-6">Content that is easy to skim is appreciated by both human readers and AI. Lists, tables, and TL;DR summaries make your posts more digestible and provide clean, quotable snippets for LLMs.</p>
-
-<h2 class="text-2xl font-bold mt-12 mb-4">8. Checklists and Cheat Sheets</h2>
-<p class="mb-6">These formats are practical, actionable, and perfectly suited for AI-generated answers. They break down complex topics into simple, easy-to-follow steps, making them ideal for being featured.</p>
-
-<h2 class="text-2xl font-bold mt-12 mb-4">9. Schema Markup & Structured Data</h2>
-<p class="mb-6">Properly formatting your content with schema markup (like JSON-LD) helps both search engines and LLMs understand it better, increasing the likelihood of it being cited or featured in rich snippets.</p>
-
-<h2 class="text-2xl font-bold mt-12 mb-4">10. Multimodal Content (Infographics, Videos, Audio)</h2>
-<p class="mb-6">LLMs are increasingly capable of understanding more than just text. Infographics, videos with transcripts, and audio files, when supported by good metadata, provide additional avenues for your content to be discovered and referenced by AI.</p>
-<div class="my-8 flex justify-center">
-    <Image src="https://images.surferseo.art/33444110-7677-414b-920b-05364ebe2e57.png" alt="An example of a vibrant infographic" width={800} height={600} data-ai-hint="infographic design" class="rounded-lg shadow-lg" />
-</div>
-
-<h2 class="text-2xl font-bold mt-12 mb-4">Conclusion</h2>
-<p class="mb-6">Optimizing for LLMs doesn't mean abandoning traditional SEO. It means enhancing your content with structure, clarity, and authority. By adopting these ten formats, you can significantly increase your chances of being featured in AI-powered search results, driving new audiences to your brand.</p>
 `;
 
 
@@ -492,7 +748,7 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
                    <div dangerouslySetInnerHTML={{ __html: content.split('<div id="download-guide"></div>')[1] }} />
               </div>
           ) : (
-             <div className="prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content.replace(/<Image[^>]*>/g, '') }} />
+             <div className="prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content.replace(/<img[^>]*>/g, (match) => match.replace(/src="([^"]*)"/g, 'src="$1" width="800" height="450" class="rounded-lg shadow-lg"')) }} />
           )}
 
           <footer className="mt-16 border-t pt-8">
@@ -517,3 +773,4 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
     </div>
   );
 }
+
