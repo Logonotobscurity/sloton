@@ -1,64 +1,31 @@
-# Logon Solutions - AI & Technology Consulting
+# LOG_ON connecting Advantages
 
-## Company Overview
-Logon Solutions is a technology consulting firm specializing in AI implementation, intelligent automation, and digital transformation for businesses worldwide. We help companies identify, evaluate, and implement the right technology solutions to drive growth and efficiency.
+> LOG_ON provides expert AI and automation consulting to help businesses increase efficiency, reduce costs, and scale effectively.
 
 ## Core Services
-- AI Business Assessment: Free comprehensive evaluation of AI readiness and opportunities
-- Custom AI Solutions: Tailored artificial intelligence implementations for specific business needs
-- Intelligent Automation: Process automation using AI and machine learning technologies
-- Technology Consulting: Strategic guidance for digital transformation initiatives
-- Tech Training Programs: Educational programs for teams adopting new technologies
+- [/ai-solutions]: Custom AI and machine learning models to solve complex business challenges.
+- [/automation]: Intelligent automation and RPA to streamline workflows and increase efficiency.
+- [/web-development]: Scalable websites, e-commerce platforms, and custom applications using Next.js.
+- [/business-analytics]: Custom dashboards and BI reporting to turn data into actionable insights.
+- [/chatbots]: AI-powered chatbots for 24/7 customer support and lead generation.
+- [/database-solutions]: Secure SQL & NoSQL database architecture, migration, and management.
 
-## Key Features & Capabilities
-- Free AI Business Assessment tool for rapid opportunity identification
-- Industry-specific use cases across multiple sectors
-- Remote-first service delivery model serving clients worldwide
-- Comprehensive technology stack evaluation and recommendation
-- End-to-end implementation support from strategy to deployment
+## Key Use Cases
+- [/use-cases#finance]: AI-driven fraud detection and process automation for financial institutions.
+- [/use-cases#e-commerce]: AI-powered recommendation engines and inventory automation for retail.
+- [/use-cases#healthcare]: Secure EHR management and automated appointment scheduling for healthcare providers.
 
-## Key Value Propositions
-1. Rapid Assessment: "Find the right tech solution for your business in minutes"
-2. Strategic Partnership: Long-term technology consulting relationships
-3. Future-Focused: Preparing teams for emerging technology trends
-4. Practical Implementation: Focus on measurable business outcomes
-5. Local Authority: Deep understanding of Nigerian and West African business environment
-6. Regional Expertise: Proven experience with African market challenges and opportunities
+## Training Programs
+- [/training]: Expert-led training in AI, process automation, and digital strategy.
+- [/insights/transforming-customer-support-with-ai]: Workshop on building private AI assistants using company documents.
+- [/insights/prompt-engineering-for-developers]: Course on using advanced prompt engineering to improve development workflows.
 
-## Target Audience
-- Nigerian small to medium businesses looking to implement AI solutions
-- West African companies seeking digital transformation guidance
-- Lagos-based organizations needing automation of manual processes
-- African teams requiring technology training and upskilling
-- Nigerian businesses wanting to assess their AI readiness
-- International companies expanding into West African markets
-- Local startups and established enterprises in Lagos tech ecosystem
+## Top Insights & Thought Leadership
+- [/insights/seo-vs-geo-invisible-in-ai-search]: Explains the difference between traditional SEO and Generative Engine Optimization (GEO).
+- [/insights/10-content-formats-that-get-picked-up-by-llms]: A guide on creating content structured for AI visibility and citation.
+- [/insights/ai-investment-playbook]: An analysis of key AI infrastructure stocks and investment strategies.
+- [/insights/why-llms-txt-matters-for-seo]: A guide to using llms.txt to improve how AI models understand a website.
 
-## Website Structure
-- Homepage: Main value proposition and service overview
-- Solutions (/solutions): Comprehensive service catalog
-- AI & Automation (/automation): Intelligent automation services
-- Use Cases (/use-cases): Industry-specific implementation examples
-- Training Programs (/training): Educational offerings
-- Insights & Articles (/insights): Technology thought leadership
-- About (/about): Company information and expertise
-
-## Regional Authority & Expertise
-- Local Market Leadership: Recognized technology consulting firm in Lagos, Nigeria
-- West African Focus: Specialized understanding of regional business challenges and opportunities
-- Nigerian Business Context: Deep knowledge of local regulatory requirements and market dynamics
-- Regional Case Studies: Proven track record with Nigerian companies across various industries
-- Local Technology Ecosystem: Active participant in Lagos startup and tech community
-- Cultural Understanding: Expertise in implementing global technologies within African business contexts
-- Regional Partnerships: Established relationships with local businesses, educational institutions, and government entities
-- Language Capabilities: English (primary), with understanding of local business communication preferences
-
-## Contact & Location
-- Primary Region: Lagos, Nigeria (West Africa)
-- Service Area: Nigeria, West Africa, and global remote delivery
-- Local Expertise: Deep understanding of Nigerian business landscape and regulatory environment
-- Regional Authority: Established presence in Lagos technology ecosystem
-- Time Zone: West Africa Time (WAT) - UTC+1
-- Local Market Focus: Nigerian SMEs and enterprises seeking digital transformation
-- Regional Partnerships: Connected with Lagos tech community and business networks
-- Virtual Office: Professional address in Lagos with global service delivery capabilities
+## Company Information
+- [/about]: Meet the team and understand our generalist, results-driven philosophy.
+- [/contact]: Contact information for project inquiries and service questions.
