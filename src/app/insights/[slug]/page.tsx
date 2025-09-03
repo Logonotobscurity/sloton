@@ -195,7 +195,7 @@ const investmentArticleContent = `
 `;
 
 const llmsTxtArticleContent = `
-<p class="mb-6 text-lg text-muted-foreground">As AI-driven search engines gain prominence, a new file type is emerging as a critical tool for website optimization: <code>llms.txt</code>. This simple file is becoming essential for helping websites communicate more effectively with large language models (LLMs). Here’s a breakdown of why <code>llms.txt</code> is increasingly important for modern SEO strategies.</p>
+<p class="mb-6 text-lg text-muted-foreground">As AI-powered search engines gain prominence, a new file type is emerging as a critical tool for website optimization: <code>llms.txt</code>. This simple file is becoming essential for helping websites communicate more effectively with large language models (LLMs). Here’s a breakdown of why <code>llms.txt</code> is increasingly important for modern SEO strategies.</p>
 
 <h2 class="text-2xl font-bold mt-12 mb-4">Why LLM Optimization Matters for SEO</h2>
 
@@ -287,6 +287,64 @@ const llmsTxtArticleContent = `
     <li><strong>Test It:</strong> Open your <code>llms.txt</code> URL to check the formatting. You can then copy the contents into ChatGPT or Claude and ask, “What does this company do?” to see how accurately the AI understands your business.</li>
 </ol>
 <p class="mb-6">By creating an <code>llms.txt</code> file, you make it easier for AI models to understand your content, improving your visibility in AI-generated search results.</p>
+`;
+
+const llmsContentFormatsArticleContent = `
+<p class="mb-6 text-lg text-muted-foreground">These days, many users are turning to LLMs like ChatGPT for instant, summarized advice instead of traditional search engines. This shift means your content doesn't need to rank #1 on Google to be seen. If an LLM features your work in an answer, you gain valuable visibility, often more impactful than a standard blog click.</p>
+<p class="mb-6">However, LLMs are selective. They favor content that is clear, genuinely useful, easy to summarize, and structured for AI-first indexing. In this guide, we'll explore 10 content formats that LLMs love and how you can leverage them to get your brand featured in AI-driven answers.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">1. Original Research & Data-Driven Content</h2>
+<p class="mb-6">LLMs prioritize fresh, unique data. If you have original statistics, industry benchmarks, or survey results, you are sitting on a content goldmine. Even simple charts and data points can make your content highly quotable and authoritative.</p>
+<div class="my-8 flex justify-center">
+    <Image src="https://storage.googleapis.com/project-a-public-images/data-analytics-dashboard.png" alt="Dashboard showing original research data and charts" width={800} height={450} data-ai-hint="analytics dashboard data" class="rounded-lg shadow-lg" />
+</div>
+<h3 class="text-lg font-semibold mt-6 mb-2">Why it works:</h3>
+<p class="mb-4">AI models look for distinctive facts. If your website is the source of a compelling statistic, it becomes a prime candidate for citation.</p>
+<h3 class="text-lg font-semibold mt-6 mb-2">How to do it:</h3>
+<ul class="list-disc pl-6 space-y-2 mb-4">
+    <li>Share anonymized usage data from your SaaS tool, like in <a href="https://www.hubspot.com/state-of-marketing" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">HubSpot's State of Marketing report</a>.</li>
+    <li>Conduct a brief survey with your user base or LinkedIn audience.</li>
+    <li>Compile and publish industry benchmarks, a strategy effectively used by <a href="https://databox.com/marketing-benchmarks-by-industry" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Databox</a>.</li>
+</ul>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">2. Expert Quotes & Professional Insights</h2>
+<p class="mb-6">Generic thought leadership is often overlooked by LLMs. They seek out expert opinions backed by real-world experience or logical, contrarian viewpoints. Including memorable insights from professionals helps your brand stand out and build authority.</p>
+<blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
+  <p><strong>Read Also:</strong> <a href="/insights/why-llms-txt-matters-for-seo" class="text-primary hover:underline">Why llms.txt Matters for Modern SEO</a></p>
+</blockquote>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">3. Step-by-Step How-To Guides</h2>
+<p class="mb-6">Structure is key for LLM readability. Numbered steps, bullet points, and clear headings make your content easy for AI to parse and summarize. Actionable guides are highly valued by both users and LLMs looking to solve specific problems.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">4. Comparison Posts (X vs. Y)</h2>
+<p class="mb-6">Users frequently ask LLMs to compare tools and strategies. Clear, side-by-side comparisons of features, pricing, and use cases are incredibly effective. To be credible, focus on clarity and objectivity over sales-oriented hype.</p>
+<div class="my-8 flex justify-center">
+    <Image src="https://storage.googleapis.com/project-a-public-images/comparison-chart.png" alt="A comparison chart layout for different products" width={800} height={450} data-ai-hint="comparison chart" class="rounded-lg shadow-lg" />
+</div>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">5. Q&A and FAQ Pages</h2>
+<p class="mb-6">Integrate question-and-answer formats directly into your content. LLMs are designed to answer questions, so mirroring the conversational style of user queries increases your chances of being featured.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">6. Case Studies & Success Stories</h2>
+<p class="mb-6">Real-world scenarios add significant credibility. LLMs prefer to cite actual examples, even simple before-and-after stories, to support their answers. Focus on specific, measurable outcomes to prove your point effectively.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">7. Lists, Tables, and Summaries</h2>
+<p class="mb-6">Content that is easy to skim is appreciated by both human readers and AI. Lists, tables, and TL;DR summaries make your posts more digestible and provide clean, quotable snippets for LLMs.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">8. Checklists and Cheat Sheets</h2>
+<p class="mb-6">These formats are practical, actionable, and perfectly suited for AI-generated answers. They break down complex topics into simple, easy-to-follow steps, making them ideal for being featured.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">9. Schema Markup & Structured Data</h2>
+<p class="mb-6">Properly formatting your content with schema markup (like JSON-LD) helps both search engines and LLMs understand it better, increasing the likelihood of it being cited or featured in rich snippets.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">10. Multimodal Content (Infographics, Videos, Audio)</h2>
+<p class="mb-6">LLMs are increasingly capable of understanding more than just text. Infographics, videos with transcripts, and audio files, when supported by good metadata, provide additional avenues for your content to be discovered and referenced by AI.</p>
+<div class="my-8 flex justify-center">
+    <Image src="https://storage.googleapis.com/project-a-public-images/infographic-design.png" alt="An example of a vibrant infographic" width={800} height={600} data-ai-hint="infographic design" class="rounded-lg shadow-lg" />
+</div>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Conclusion</h2>
+<p class="mb-6">Optimizing for LLMs doesn't mean abandoning traditional SEO. It means enhancing your content with structure, clarity, and authority. By adopting these ten formats, you can significantly increase your chances of being featured in AI-powered search results, driving new audiences to your brand.</p>
 `;
 
 
@@ -391,14 +449,18 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
   }
   
   const isInvestmentArticle = article.slug === 'ai-investment-playbook';
-  const isLlmsTxtArticle = article.slug === '10-content-formats-that-get-picked-up-by-llms';
+  const isLlmsTxtArticle = article.slug === 'why-llms-txt-matters-for-seo';
+  const isContentFormatsArticle = article.slug === '10-content-formats-that-get-picked-up-by-llms';
 
   let content = defaultArticleContent;
   if (isInvestmentArticle) {
       content = investmentArticleContent;
   } else if (isLlmsTxtArticle) {
       content = llmsTxtArticleContent;
+  } else if (isContentFormatsArticle) {
+      content = llmsContentFormatsArticleContent;
   }
+
 
   return (
     <div className="bg-background">
@@ -445,9 +507,8 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
                    <div dangerouslySetInnerHTML={{ __html: content.split('<div id="download-guide"></div>')[1] }} />
               </div>
           ) : (
-             <div className="prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
+             <div className="prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content.replace(/<Image[^>]*>/g, '') }} />
           )}
-
 
           <footer className="mt-16 border-t pt-8">
             <AuthorBio authorName={article.author} />

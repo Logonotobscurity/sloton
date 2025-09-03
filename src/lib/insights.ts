@@ -22,6 +22,16 @@ export const insights: Insight[] = [
     date: "2025-08-11"
   },
   {
+    title: "Why llms.txt Matters for Modern SEO",
+    slug: "why-llms-txt-matters-for-seo",
+    description: "Learn how the llms.txt file is becoming a key tool for helping websites communicate effectively with large language models and improve SEO.",
+    image: "https://storage.googleapis.com/project-a-public-images/llm-file-icon.png",
+    dataAiHint: "text file document",
+    tags: ["SEO", "AI", "Technical SEO"],
+    author: "Oluwamayowa Logo",
+    date: "2025-08-19"
+  },
+  {
     title: "My AI Investment Playbook: The No-BS Edition 🚀",
     slug: "ai-investment-playbook",
     description: "I've been doubling down on AI stocks lately, and honestly? It's been a wild ride—but the good kind. Here's exactly what I'm holding and why.",
