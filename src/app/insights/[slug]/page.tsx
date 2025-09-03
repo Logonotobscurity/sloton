@@ -588,6 +588,125 @@ const contentFormatsArticleContent = `
 
 `;
 
+const seoVsGeoArticleContent = `
+<p class="mb-6 text-lg text-muted-foreground">Search isn’t what it used to be. While Google is still the dominant player, more people are turning to tools like ChatGPT, Perplexity, and Google’s SGE (Search Generative Experience) for quick, AI-generated answers. Instead of scanning links, users are asking questions and expecting summaries, citations, and clear takeaways right away.</p>
+<p class="mb-6">That shift is giving rise to a new approach to content visibility: Generative Engine Optimization (GEO). Unlike traditional SEO, which focuses on ranking in search engines, GEO makes your content useful and accessible to AI tools that generate answers.</p>
+<p class="mb-6">In this post, we’ll break down what GEO is, how it compares to traditional SEO, and what strategies actually work if you want your content to show up in AI-driven search engines.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">What is Generative Engine Optimization (GEO) in digital marketing?</h2>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/40ca9760-cd1a-49c4-932d-725f3fea1955.png" alt="Diagram explaining Generative Engine Optimization" class="rounded-lg shadow-lg" />
+</div>
+<p class="mb-6">Generative Engine Optimization (GEO) is the process of optimizing content to make it prioritized, cited, and integrated into AI-driven search engines’ responses. The goal is to make content highly relevant and accessible for generative AI to include in its synthesized answers.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">How GEO works in the context of AI-driven searches</h3>
+<p class="mb-6">Generative AI platforms rely on large language models (LLMs) trained on vast datasets to generate direct, conversational answers. When users input queries, these systems:</p>
+<ul class="list-disc pl-6 space-y-2 mb-6">
+    <li><strong>Analyze intent:</strong> They interpret the user’s intent beyond simple keyword matching.</li>
+    <li><strong>Synthesize information:</strong> The AI scans its indexed data or real-time web sources, extracts relevant information, and generates a cohesive response.</li>
+    <li><strong>Prioritize content:</strong> Content that is clear, well-structured, and authoritative is more likely to be cited or featured in these AI-generated answers.</li>
+</ul>
+<p class="mb-6">GEO makes sure your content aligns with these systems’ preferences by focusing on clarity, relevance, and structured data formats.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Examples: How content appears in generative AI research platforms</h2>
+<p class="mb-6"><strong>ChatGPT:</strong> If optimized effectively, your content might be directly quoted or summarized when users search for specific topics like “best digital marketing strategies.”</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/12d21d90-9031-44b3-983c-b64ff2905901.png" alt="ChatGPT showing a summarized answer" class="rounded-lg shadow-lg" />
+</div>
+<p class="mb-6"><strong>Perplexity:</strong> Your content could be highlighted as a trusted source when users select specific focus modes such as “Academic Focus” for scholarly insights or “Web Focus” for general information.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/27897d8a-4f2a-4957-8dc5-3654aa9a6a1f.png" alt="Perplexity AI showing a cited source" class="rounded-lg shadow-lg" />
+</div>
+<p class="mb-6"><strong>Gemini:</strong> Your content might appear as part of a multimodal response that combines text with supplementary visuals or videos for richer user engagement.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/27754d3b-00b8-42b3-aa87-dc2a57f28cdb.png" alt="Google's Gemini showing a rich response" class="rounded-lg shadow-lg" />
+</div>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">What is traditional SEO?</h2>
+<p class="mb-6">Traditional SEO strategy refers to the foundational practices used to improve a website’s visibility and rankings on search engine results pages (SERPs). Its primary goal is to attract organic traffic by optimizing various elements of a website, such as relevant keywords, content, and technical aspects, while building authority through backlinks. Traditional SEO relies on aligning content with user intent and search engine algorithms for relevance and credibility.</p>
+
+<h3 class="text-xl font-semibold mt-8 mb-4">How traditional SEO works</h3>
+<p class="mb-6">Traditional SEO operates through a combination of on-page, off-page, and technical optimization techniques:</p>
+<ul class="list-disc pl-6 space-y-4 mb-6">
+    <li><strong>On-page optimization:</strong> Keyword research, high-quality content creation, and crafting optimized title tags and meta descriptions.</li>
+    <li><strong>Off-page optimization:</strong> Acquiring backlinks from reputable websites and guest blogging to generate traffic and establish industry authority.</li>
+    <li><strong>Technical SEO:</strong> Ensuring fast site speed, mobile responsiveness, and using structured data like schema markup.</li>
+</ul>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">GEO vs SEO: Key differences</h2>
+<div id="geo-vs-seo-table"></div>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Unique factors influencing GEO visibility</h2>
+<p class="mb-6">While GEO shares many principles with traditional SEO, there are unique factors that specifically influence visibility in AI-driven platforms. According to our research, these differences highlight subtle shifts in optimization strategies required for generative engines:</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/90f19dea-8d34-4b32-b0ef-e8c67ca5c6fb.png" alt="Diagram of unique GEO factors" class="rounded-lg shadow-lg" />
+</div>
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>Unlinked brand mentions:</strong> Unlike SEO, where backlinks are critical, unlinked text mentions of your brand or content can significantly improve visibility in large language models (LLMs).</li>
+    <li><strong>Reduced impact of off-topic links:</strong> GEO prioritizes contextual relevance over sheer link volume.</li>
+    <li><strong>Content type variations:</strong> Certain content types, such as PDF documents and knowledge bases, have a greater impact on LLM visibility.</li>
+    <li><strong>Non-traditional data sources:</strong> Generative engines often train on data outside traditional SEO’s scope, including public GitHub repositories and code samples.</li>
+    <li><strong>JavaScript limitations:</strong> AI crawlers currently cannot process client-side JavaScript, making JS-based content invisible to LLMs.</li>
+</ul>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Top 5 GEO optimization strategies</h2>
+<p class="mb-6">GEO requires a tailored approach to make your content accessible, relevant, and prioritized by AI-driven platforms. Below are key strategies to optimize for GEO effectively:</p>
+<ol class="list-decimal pl-6 space-y-4 mb-6">
+  <li><strong>Get cited with content that AI can reference:</strong> Focus on credibility with well-researched data and authoritative quotes. Use E-E-A-T (Experience, Expertise, Authority, and Trustworthiness) principles.</li>
+  <li><strong>Use structured data and clear headers:</strong> Use schema markup to highlight key elements and organize content with clear headings for better AI synthesis.</li>
+  <li><strong>Fix content structure with summaries and FAQs:</strong> Start with concise summaries and include FAQ sections to provide direct answers to high-intent questions.</li>
+  <li><strong>Prioritize topical authority and clarity:</strong> Build depth in your niche with pillar content and use simple, conversational language.</li>
+  <li><strong>Publish on trusted, crawlable platforms:</strong> Host content on well-maintained websites and update it regularly to stay relevant.</li>
+</ol>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Using both SEO & GEO for B2B SaaS marketing</h2>
+<p class="mb-6">If you’re doing B2B SaaS marketing, using both GEO and SEO together helps you get seen in more places – from Google searches to AI tools like ChatGPT. This way, your content shows up whether someone’s doing deep research or just looking for a quick answer.</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/55b1ef9c-e060-49b7-8031-2b33b2c83bfd.png" alt="Combining SEO and GEO strategies" class="rounded-lg shadow-lg" />
+</div>
+<ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>Build once, optimize twice:</strong> Start with quality SEO content, then add GEO-friendly elements like summaries and clear headings.</li>
+    <li><strong>Think like an AI:</strong> Create clean, structured content that answers questions quickly.</li>
+    <li><strong>Build a strong SEO foundation:</strong> Ensure your site is fast, mobile-friendly, and easy to index.</li>
+    <li><strong>Align with the B2B SaaS buyer’s journey:</strong> Tailor content for each stage, from educational blog posts to detailed comparison guides.</li>
+    <li><strong>Use trusted platforms for publishing:</strong> Publish on your own authoritative site and distribute through other trusted platforms like LinkedIn.</li>
+</ul>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Tools and platforms supporting GEO</h2>
+<p class="mb-6">Generative Engine Optimization is still evolving, but a few platforms and tools are already playing a big role. For B2B SaaS teams looking to get ahead, here’s where to focus:</p>
+<div class="my-8 flex justify-center">
+    <img src="https://images.surferseo.art/0213ee7b-071d-43f0-83a0-2a8cb26a531e.png" alt="Logos of GEO tools" class="rounded-lg shadow-lg" />
+</div>
+<h3 class="text-xl font-semibold mt-8 mb-4">AI Search platforms to watch:</h3>
+<ul class="list-disc pl-6 space-y-2 mb-6">
+  <li>ChatGPT (with Browsing & Plugins)</li>
+  <li>Perplexity AI</li>
+  <li>Google SGE (Search Generative Experience)</li>
+  <li>You.com and Bing Chat</li>
+</ul>
+<h3 class="text-xl font-semibold mt-8 mb-4">Tools that can help you optimize for GEO:</h3>
+<ul class="list-disc pl-6 space-y-2 mb-6">
+  <li><strong>SparkToro:</strong> To understand search behavior and audience interests.</li>
+  <li><strong>AlsoAsked & AnswerThePublic:</strong> To find real questions your audience is asking.</li>
+  <li><strong>Surfer SEO or Clearscope:</strong> To optimize for readability, clarity, and keyword use.</li>
+  <li><strong>Google Search Console:</strong> To track traditional performance and identify pages ready for GEO tweaks.</li>
+</ul>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">Conclusion</h2>
+<p class="mb-6">The rise of AI-driven search necessitates a shift towards GEO. It focuses on optimizing content for AI platforms by ensuring it is credible, well-structured, and easily accessible. While traditional SEO remains important, integrating GEO strategies is important to maintain visibility and enhance credibility.</p>
+
+<h2 class="text-2xl font-bold mt-12 mb-4">FAQs</h2>
+<h3 class="text-xl font-semibold mt-8 mb-4">What is the difference between SEO and GEO?</h3>
+<p class="mb-6">SEO aims to focus on ranking in search engine results pages (SERPs), while GEO makes your content accessible and quotable by AI tools that generate answers, like ChatGPT or Perplexity.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">What does GEO mean in SEO?</h3>
+<p class="mb-6">GEO stands for Generative Engine Optimization. It’s an approach that complements SEO by optimizing content for visibility in AI-generated responses instead of just traditional search rankings.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">Will GEO replace traditional organic search strategies?</h3>
+<p class="mb-6">No, GEO won’t replace SEO but will work alongside it. As Artificial Intelligence tools become more common, brands need to optimize for both GEO and SEO to increase their online visibility.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">What type of content quality is most likely to be cited by AI tools?</h3>
+<p class="mb-6">Clear, factual, and well-structured content performs best. AI tools prefer concise answers, proper formatting (like headers and bullet points), and sources that are easy to reference.</p>
+<h3 class="text-xl font-semibold mt-8 mb-4">Can GEO and SEO work together in a single content strategy?</h3>
+<p class="mb-6">Yes. You can create SEO-optimized content and enhance it with GEO-friendly elements like summaries, structured answers, and clean formatting to cover both types of search.</p>
+`;
 
 const PortfolioTable = () => (
     <div className="my-8 overflow-x-auto">
@@ -642,6 +761,52 @@ const PortfolioTable = () => (
     </div>
 )
 
+const GeoVsSeoTable = () => (
+    <div className="my-8 overflow-x-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Aspect</TableHead>
+                    <TableHead>Traditional SEO</TableHead>
+                    <TableHead>Generative Engine Optimization (GEO)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                <TableRow>
+                    <TableCell className="font-medium">Target platforms</TableCell>
+                    <TableCell>Traditional search engines (Google, Bing)</TableCell>
+                    <TableCell>AI-driven platforms (Google SGE, ChatGPT, Perplexity, Gemini)</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell className="font-medium">Primary goal</TableCell>
+                    <TableCell>Improve rankings on SERPs to drive organic traffic</TableCell>
+                    <TableCell>Content is cited or featured in AI-generated answers</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell className="font-medium">Optimization focus</TableCell>
+                    <TableCell>Keywords, backlinks, meta tags, and technical SEO</TableCell>
+                    <TableCell>Content structure, E-E-A-T, contextual relevance, and AI readability</TableCell>
+                </TableRow>
+                 <TableRow>
+                    <TableCell className="font-medium">Key metrics</TableCell>
+                    <TableCell>Traffic volume, keyword rankings, CTR</TableCell>
+                    <TableCell>Inclusion in AI responses, citation frequency, response accuracy</TableCell>
+                </TableRow>
+                 <TableRow>
+                    <TableCell className="font-medium">Content approach</TableCell>
+                    <TableCell>Keyword-rich, in-depth articles optimized for human readers</TableCell>
+                    <TableCell>Clear, scannable answers with citations, stats, and structured data</TableCell>
+                </TableRow>
+                 <TableRow>
+                    <TableCell className="font-medium">User interaction</TableCell>
+                    <TableCell>Users click through to websites for information</TableCell>
+                    <TableCell>Users consume answers directly in AI responses, often without visiting sites</TableCell>
+                </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+);
+
 const DownloadGuideCTA = () => (
     <div className="mt-12 text-center bg-secondary/50 p-8 rounded-lg">
         <h2 className="text-2xl font-bold mb-4">🎁 Want More? Download My Complete AI Investment Guide</h2>
@@ -692,6 +857,7 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
   const isInvestmentArticle = article.slug === 'ai-investment-playbook';
   const isLlmsTxtArticle = article.slug === 'why-llms-txt-matters-for-seo';
   const isContentFormatsArticle = article.slug === '10-content-formats-that-get-picked-up-by-llms';
+  const isSeoVsGeoArticle = article.slug === 'seo-vs-geo-invisible-in-ai-search';
 
   let content = defaultArticleContent;
   if (isInvestmentArticle) {
@@ -700,7 +866,35 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
       content = llmsTxtArticleContent;
   } else if (isContentFormatsArticle) {
       content = contentFormatsArticleContent;
+  } else if (isSeoVsGeoArticle) {
+      content = seoVsGeoArticleContent;
   }
+
+  const renderContent = () => {
+    if (isInvestmentArticle) {
+      return (
+        <div className="prose prose-lg dark:prose-invert max-w-none">
+            <div dangerouslySetInnerHTML={{ __html: content.split('<div id="portfolio-table"></div>')[0] }} />
+            <PortfolioTable />
+            <div dangerouslySetInnerHTML={{ __html: content.split('<div id="portfolio-table"></div>')[1].split('<div id="download-guide"></div>')[0] }} />
+            <DownloadGuideCTA />
+            <div dangerouslySetInnerHTML={{ __html: content.split('<div id="download-guide"></div>')[1] }} />
+        </div>
+      );
+    }
+    if (isSeoVsGeoArticle) {
+        return (
+            <div className="prose prose-lg dark:prose-invert max-w-none">
+                <div dangerouslySetInnerHTML={{ __html: content.split('<div id="geo-vs-seo-table"></div>')[0] }} />
+                <GeoVsSeoTable />
+                <div dangerouslySetInnerHTML={{ __html: content.split('<div id="geo-vs-seo-table"></div>')[1] }} />
+            </div>
+        )
+    }
+    return (
+      <div className="prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content.replace(/<img[^>]*>/g, (match) => match.replace(/src="([^"]*)"/g, 'src="$1" width="800" height="450" class="rounded-lg shadow-lg"')) }} />
+    );
+  };
 
 
   return (
@@ -739,17 +933,7 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
             priority
           />
 
-          {isInvestmentArticle ? (
-              <div className="prose prose-lg dark:prose-invert max-w-none">
-                  <div dangerouslySetInnerHTML={{ __html: content.split('<div id="portfolio-table"></div>')[0] }} />
-                  <PortfolioTable />
-                  <div dangerouslySetInnerHTML={{ __html: content.split('<div id="portfolio-table"></div>')[1].split('<div id="download-guide"></div>')[0] }} />
-                  <DownloadGuideCTA />
-                   <div dangerouslySetInnerHTML={{ __html: content.split('<div id="download-guide"></div>')[1] }} />
-              </div>
-          ) : (
-             <div className="prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content.replace(/<img[^>]*>/g, (match) => match.replace(/src="([^"]*)"/g, 'src="$1" width="800" height="450" class="rounded-lg shadow-lg"')) }} />
-          )}
+          {renderContent()}
 
           <footer className="mt-16 border-t pt-8">
             <AuthorBio authorName={article.author} />
@@ -773,4 +957,3 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
     </div>
   );
 }
-

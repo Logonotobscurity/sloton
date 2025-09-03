@@ -41,6 +41,16 @@ export const insights: Insight[] = [
     author: "Oluwamayowa Logo",
     date: "2024-08-21"
   },
+    {
+    title: "SEO vs GEO: Why Your Content Might Be Invisible in AI Search",
+    slug: "seo-vs-geo-invisible-in-ai-search",
+    description: "Learn the difference between traditional SEO and Generative Engine Optimization (GEO) and discover the strategies that actually work for AI-driven search engines.",
+    image: "https://www.quoleady.com/wp-content/uploads/2025/04/SEO-vs-GEO_-Why-Your-Content-Might-Be-Invisible-in-AI-Search-And-How-to-Fix-It.png",
+    dataAiHint: "seo versus geo diagram",
+    tags: ["SEO", "GEO", "AI Search", "Content Strategy"],
+    author: "Favour Alfred",
+    date: "2025-04-14"
+  },
   {
     title: "Transforming Customer Support with AI",
     slug: "transforming-customer-support-with-ai",
