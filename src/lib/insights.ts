@@ -96,7 +96,7 @@ export const insights: Insight[] = [
     slug: "prompt-engineering-for-business",
     description: "Learn how to harness prompt engineering skills for ChatGPT and GPT-4 to boost productivity, supercharge communications, and revolutionize business processes.",
     image: "https://images.surferseo.art/bfd93c97-2b4c-44bd-a1f1-a46c0354f0fb.png",
-    dataAiHint: "professionals in meeting",
+    dataAiHint: "professionals meeting",
     tags: ["AI", "Training", "Business", "Prompt Engineering"],
     author: "Favour Alfred",
     date: "2024-08-16"
