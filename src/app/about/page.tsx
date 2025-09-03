@@ -18,7 +18,7 @@ const teamMembers = [
     role: 'Lead Developer & Automation Solution Architect',
     description: 'Expert in AI architecture and automation solutions with a focus on innovative technology implementation. Specializes in developing scalable solutions for business growth.',
     expertise: ['AI Architecture', 'Strategy', 'Innovation', 'Web Development', 'IT Support', 'Solution Design'],
-    image: 'https://picsum.photos/200/200',
+    image: 'https://images.surferseo.art/bfd93c97-2b4c-44bd-a1f1-a46c0354f0fb.png',
     dataAiHint: 'male developer',
   },
   {
@@ -26,7 +26,7 @@ const teamMembers = [
     role: 'Team Lead Sales & Business Process Automation',
     description: 'Results-driven professional specializing in business process automation and digital marketing strategies. Expert in optimizing workflows and driving digital transformation.',
     expertise: ['Process Automation', 'Workflow Design', 'Integration', 'Digital Marketing', 'Sales Strategy', 'Business Development'],
-    image: 'https://picsum.photos/200/200',
+    image: 'https://images.surferseo.art/af18ff8e-9af7-47c5-aa6d-45c2e59a6094.png',
     dataAiHint: 'female professional',
   },
 ];
