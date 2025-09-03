@@ -200,7 +200,7 @@ const llmsTxtArticleContent = `
 <h2 class="text-2xl font-bold mt-12 mb-4">Why LLM Optimization Matters for SEO</h2>
 
 <div class="my-8 flex justify-center">
-    <Image src="https://storage.googleapis.com/project-a-public-images/benefits-of-llms-txt.png" alt="A diagram showing the benefits of llms.txt for SEO, including better visibility, accurate citations, and driving more traffic." width={800} height={450} data-ai-hint="llm seo benefits diagram" class="rounded-lg shadow-lg" />
+    <Image src="https://images.surferseo.art/7352a56a-7547-4589-9f0c-1fccf99e2b8e.png" alt="A diagram showing the benefits of llms.txt for SEO, including better visibility, accurate citations, and driving more traffic." width={800} height={450} data-ai-hint="llm seo benefits diagram" class="rounded-lg shadow-lg" />
 </div>
 
 <ul class="list-disc pl-6 space-y-3 mb-6">
@@ -221,7 +221,7 @@ const llmsTxtArticleContent = `
 <p class="mb-6">An <code>llms.txt</code> file provides AI models with a simplified, structured version of your site's most important content. It highlights key pages and offers brief descriptions for each, helping the models utilize your content more effectively, much like how search engines crawl a sitemap. Here's a simplified look at how LLMs operate:</p>
 
 <div class="my-8 flex justify-center">
-    <Image src="https://storage.googleapis.com/project-a-public-images/llm-diagram.png" alt="Diagram explaining how Large Language Models work" width={800} height={600} data-ai-hint="llm diagram" class="rounded-lg shadow-lg" />
+    <Image src="https://www.quoleady.com/wp-content/uploads/2025/07/a-simple-clean-background-establishes-th_8OSCW8DQTW6xAQ1fbNsnKg_5uC4hOO1Sfy2p6OslUgIYQ-300x168.png" alt="Diagram explaining how Large Language Models work" width={800} height={600} data-ai-hint="llm diagram" class="rounded-lg shadow-lg" />
 </div>
 
 <ul class="list-disc pl-6 space-y-3 mb-6">
@@ -296,7 +296,7 @@ const llmsContentFormatsArticleContent = `
 <h2 class="text-2xl font-bold mt-12 mb-4">1. Original Research & Data-Driven Content</h2>
 <p class="mb-6">LLMs prioritize fresh, unique data. If you have original statistics, industry benchmarks, or survey results, you are sitting on a content goldmine. Even simple charts and data points can make your content highly quotable and authoritative.</p>
 <div class="my-8 flex justify-center">
-    <Image src="https://storage.googleapis.com/project-a-public-images/data-analytics-dashboard.png" alt="Dashboard showing original research data and charts" width={800} height={450} data-ai-hint="analytics dashboard data" class="rounded-lg shadow-lg" />
+    <Image src="https://images.surferseo.art/af18ff8e-9af7-47c5-aa6d-45c2e59a6094.png" alt="Dashboard showing original research data and charts" width={800} height={450} data-ai-hint="analytics dashboard data" class="rounded-lg shadow-lg" />
 </div>
 <h3 class="text-lg font-semibold mt-6 mb-2">Why it works:</h3>
 <p class="mb-4">AI models look for distinctive facts. If your website is the source of a compelling statistic, it becomes a prime candidate for citation.</p>
@@ -319,7 +319,7 @@ const llmsContentFormatsArticleContent = `
 <h2 class="text-2xl font-bold mt-12 mb-4">4. Comparison Posts (X vs. Y)</h2>
 <p class="mb-6">Users frequently ask LLMs to compare tools and strategies. Clear, side-by-side comparisons of features, pricing, and use cases are incredibly effective. To be credible, focus on clarity and objectivity over sales-oriented hype.</p>
 <div class="my-8 flex justify-center">
-    <Image src="https://storage.googleapis.com/project-a-public-images/comparison-chart.png" alt="A comparison chart layout for different products" width={800} height={450} data-ai-hint="comparison chart" class="rounded-lg shadow-lg" />
+    <Image src="https://images.surferseo.art/86b5622a-b2a7-4e12-88da-74b6fe18bde0.png" alt="A comparison chart layout for different products" width={800} height={450} data-ai-hint="comparison chart" class="rounded-lg shadow-lg" />
 </div>
 
 <h2 class="text-2xl font-bold mt-12 mb-4">5. Q&A and FAQ Pages</h2>
@@ -340,7 +340,7 @@ const llmsContentFormatsArticleContent = `
 <h2 class="text-2xl font-bold mt-12 mb-4">10. Multimodal Content (Infographics, Videos, Audio)</h2>
 <p class="mb-6">LLMs are increasingly capable of understanding more than just text. Infographics, videos with transcripts, and audio files, when supported by good metadata, provide additional avenues for your content to be discovered and referenced by AI.</p>
 <div class="my-8 flex justify-center">
-    <Image src="https://storage.googleapis.com/project-a-public-images/infographic-design.png" alt="An example of a vibrant infographic" width={800} height={600} data-ai-hint="infographic design" class="rounded-lg shadow-lg" />
+    <Image src="https://images.surferseo.art/33444110-7677-414b-920b-05364ebe2e57.png" alt="An example of a vibrant infographic" width={800} height={600} data-ai-hint="infographic design" class="rounded-lg shadow-lg" />
 </div>
 
 <h2 class="text-2xl font-bold mt-12 mb-4">Conclusion</h2>
