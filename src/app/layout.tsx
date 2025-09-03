@@ -9,6 +9,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { WebsiteLoader } from '@/components/website-loader';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
+import { BotpressWebchat } from '@/components/botpress-webchat';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -233,6 +234,7 @@ export default function RootLayout({
             <main className="flex-grow">{children}</main>
             <Footer />
             <Toaster />
+            <BotpressWebchat />
           </ThemeProvider>
       </body>
     </html>

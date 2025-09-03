@@ -39,16 +39,43 @@ export default function ContactPage() {
         </div>
         
         <div className="mt-12 md:mt-16 grid lg:grid-cols-2 gap-12 items-start">
-          <Card className="bg-secondary/50">
-            <CardHeader>
-              <CardTitle>Contact Form</CardTitle>
-              <CardDescription>Fill out the form below and we'll get back to you as soon as possible.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ContactForm />
-            </CardContent>
-          </Card>
-          <div className="space-y-8 pt-4">
+           <div className="space-y-8">
+              <Card className="bg-secondary/50">
+                <CardHeader>
+                  <CardTitle>Contact Form</CardTitle>
+                  <CardDescription>Fill out the form below and we'll get back to you as soon as possible.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ContactForm />
+                </CardContent>
+              </Card>
+               <div className="border-t border-border pt-8">
+                 <h3 className="text-xl font-semibold mb-4">Why Get In Touch?</h3>
+                 <div className="space-y-4">
+                    {contactReasons.map(reason => (
+                        <div key={reason.title} className="flex items-start gap-3">
+                            <div className="flex-shrink-0">{reason.icon}</div>
+                            <div>
+                                <h4 className="font-semibold">{reason.title}</h4>
+                                <p className="text-muted-foreground text-sm">{reason.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                 </div>
+            </div>
+           </div>
+
+          <div className="space-y-8">
+            <Card className="bg-secondary/50">
+                <CardHeader>
+                  <CardTitle>Chat With Our Assistant</CardTitle>
+                  <CardDescription>Ask our AI assistant, GIGPILOT, any questions you have about our services or pricing.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <div id="webchat" style={{width: '100%', height: '500px'}}></div>
+                </CardContent>
+            </Card>
+
              <div className="flex items-start gap-4">
                 <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
                     <Mail className="h-6 w-6 text-primary" />
@@ -73,22 +100,6 @@ export default function ContactPage() {
                     </a>
                 </div>
             </div>
-            
-            <div className="border-t border-border pt-8">
-                 <h3 className="text-xl font-semibold mb-4">Why Get In Touch?</h3>
-                 <div className="space-y-4">
-                    {contactReasons.map(reason => (
-                        <div key={reason.title} className="flex items-start gap-3">
-                            <div className="flex-shrink-0">{reason.icon}</div>
-                            <div>
-                                <h4 className="font-semibold">{reason.title}</h4>
-                                <p className="text-muted-foreground text-sm">{reason.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                 </div>
-            </div>
-
           </div>
         </div>
       </div>
