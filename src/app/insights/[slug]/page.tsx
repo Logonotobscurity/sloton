@@ -198,6 +198,11 @@ const llmsTxtArticleContent = `
 <p class="mb-6 text-lg text-muted-foreground">As AI-driven search engines gain prominence, a new file type is emerging as a critical tool for website optimization: <code>llms.txt</code>. This simple file is becoming essential for helping websites communicate more effectively with large language models (LLMs). Here’s a breakdown of why <code>llms.txt</code> is increasingly important for modern SEO strategies.</p>
 
 <h2 class="text-2xl font-bold mt-12 mb-4">Why LLM Optimization Matters for SEO</h2>
+
+<div class="my-8 flex justify-center">
+    <Image src="https://storage.googleapis.com/project-a-public-images/benefits-of-llms-txt.png" alt="A diagram showing the benefits of llms.txt for SEO, including better visibility, accurate citations, and driving more traffic." width={800} height={450} data-ai-hint="llm seo benefits diagram" class="rounded-lg shadow-lg" />
+</div>
+
 <ul class="list-disc pl-6 space-y-3 mb-6">
     <li><strong>Better AI Search Visibility:</strong> An <code>llms.txt</code> file guides AI models to prioritize your most important content, increasing the likelihood of being featured in AI-generated search answers.</li>
     <li><strong>Ensure Accurate AI Citations:</strong> It allows you to control how AI interprets and summarizes your business by highlighting the most relevant information for both machines and humans.</li>
@@ -245,7 +250,7 @@ const llmsTxtArticleContent = `
 </ul>
 
 <blockquote class="border-l-4 border-primary pl-4 italic text-muted-foreground my-8">
-  <p><strong>See also:</strong> <a href="#" class="text-primary hover:underline">Structuring Web Pages for AI-First Indexing</a></p>
+  <p><strong>See also:</strong> <a href="/insights/prompt-engineering-for-developers" class="text-primary hover:underline">Structuring Web Pages for AI-First Indexing</a></p>
 </blockquote>
 
 <h2 class="text-2xl font-bold mt-12 mb-4">What’s Inside an LLMs.txt File</h2>
