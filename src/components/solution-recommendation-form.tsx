@@ -12,7 +12,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Loader2, Sparkles, ArrowRight, ArrowLeft, Calendar } from 'lucide-react';
+import { Loader2, Sparkles, ArrowRight, ArrowLeft, Calendar, RefreshCw } from 'lucide-react';
 import type { SolutionRecommendationOutput } from '@/ai/flows/solution-recommendation';
 import { useToast } from '@/hooks/use-toast';
 import { Progress } from '@/components/ui/progress';
@@ -200,26 +200,16 @@ export function SolutionRecommendationForm() {
             </div>
         </div>
 
-         <div className="pt-6">
-            <Card className="bg-secondary/50 border-primary/50 border mt-6">
-                <CardHeader>
-                    <CardTitle>Ready for the Next Step?</CardTitle>
-                    <CardDescription>
-                    This AI-generated plan is a great starting point. A detailed consultation will allow us to refine this strategy.
-                    </CardDescription>
-                </CardHeader>
-                <CardFooter className="flex flex-col sm:flex-row gap-4">
-                    <Button asChild className="w-full">
-                        <Link href="https://calendly.com/" target="_blank">
-                            <Calendar className="mr-2 h-4 w-4" /> Reserve Your Free Strategy Session
-                        </Link>
-                    </Button>
-                    <Button variant="secondary" onClick={() => { setResult(null); form.reset(); setStep(1); }} className="w-full">
-                        Start a New Assessment
-                    </Button>
-                </CardFooter>
-            </Card>
-         </div>
+        <div className="pt-6 flex items-center justify-center gap-4">
+            <Button asChild>
+                <Link href="https://calendly.com/" target="_blank">
+                    <Calendar className="mr-2 h-4 w-4" /> Book a Free Consultation
+                </Link>
+            </Button>
+            <Button variant="outline" size="icon" onClick={() => { setResult(null); form.reset(); setStep(1); }} title="Start a New Assessment">
+                <RefreshCw className="h-4 w-4" />
+            </Button>
+        </div>
       </div>
     );
   }
