@@ -33,7 +33,7 @@ export function AuthorBio({ authorName }: { authorName: string }) {
         <div className="flex items-center gap-4">
           <Avatar className="h-16 w-16">
             <AvatarImage asChild src={author.image} alt={author.name} data-ai-hint={author.dataAiHint}>
-                <Image src={author.image} alt={author.name} data-ai-hint={author.dataAiHint} width={160} height={160} />
+                <Image src={author.image} alt={author.name} data-ai-hint={author.dataAiHint} width={64} height={64} />
             </AvatarImage>
             <AvatarFallback>{author.name.charAt(0)}</AvatarFallback>
           </Avatar>
