@@ -57,7 +57,6 @@ export function TechStackCarousel() {
                             width={64} 
                             height={64} 
                             className="max-h-12 w-auto object-contain" 
-                            unoptimized 
                             data-ai-hint={tech.dataAiHint}
                          />
                     </div>

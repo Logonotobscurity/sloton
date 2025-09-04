@@ -38,7 +38,6 @@ export function PartnershipApproach() {
                                     height={24}
                                     className="h-6 w-auto"
                                     data-ai-hint={partner.dataAiHint}
-                                    unoptimized
                                 />
                                 <span className="text-sm text-muted-foreground">{partner.name}</span>
                             </div>
