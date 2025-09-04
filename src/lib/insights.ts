@@ -12,16 +12,6 @@ export interface Insight {
 
 export const insights: Insight[] = [
    {
-    title: "10 Content Formats That Get Picked Up by LLMs",
-    slug: "10-content-formats-that-get-picked-up-by-llms",
-    description: "Discover how to structure your content to improve visibility in AI-powered search engines and ensure your key information is accurately represented.",
-    image: "https://www.quoleady.com/wp-content/uploads/2025/07/AI-img-1.png",
-    dataAiHint: "ai content formats",
-    tags: ["AI", "SEO", "Content Strategy"],
-    author: "Favour Alfred",
-    date: "2025-08-11"
-  },
-  {
     title: "Why llms.txt Matters for Modern SEO",
     slug: "why-llms-txt-matters-for-seo",
     description: "Learn how the llms.txt file is becoming a key tool for helping websites communicate effectively with large language models and improve SEO.",
@@ -32,16 +22,16 @@ export const insights: Insight[] = [
     date: "2025-08-19"
   },
   {
-    title: "My AI Investment Playbook: The No-BS Edition 🚀",
-    slug: "ai-investment-playbook",
-    description: "I've been doubling down on AI stocks lately, and honestly? It's been a wild ride—but the good kind. Here's exactly what I'm holding and why.",
-    image: "https://www.quoleady.com/wp-content/uploads/2025/07/a-photograph-of-a-meticulously-crafted-c_uS-LcVIBTrieDESlLIYHMA_Qwt8ezinQVubColkHeraMA-300x168.png",
-    dataAiHint: "stock market chart",
-    tags: ["AI", "Investing", "Technology", "Stocks"],
-    author: "Oluwamayowa Logo",
-    date: "2024-08-21"
+    title: "10 Content Formats That Get Picked Up by LLMs",
+    slug: "10-content-formats-that-get-picked-up-by-llms",
+    description: "Discover how to structure your content to improve visibility in AI-powered search engines and ensure your key information is accurately represented.",
+    image: "https://www.quoleady.com/wp-content/uploads/2025/07/AI-img-1.png",
+    dataAiHint: "ai content formats",
+    tags: ["AI", "SEO", "Content Strategy"],
+    author: "Favour Alfred",
+    date: "2025-08-11"
   },
-    {
+  {
     title: "SEO vs GEO: Why Your Content Might Be Invisible in AI Search",
     slug: "seo-vs-geo-invisible-in-ai-search",
     description: "Learn the difference between traditional SEO and Generative Engine Optimization (GEO) and discover the strategies that actually work for AI-driven search engines.",
@@ -50,6 +40,16 @@ export const insights: Insight[] = [
     tags: ["SEO", "GEO", "AI Search", "Content Strategy"],
     author: "Favour Alfred",
     date: "2025-04-14"
+  },
+  {
+    title: "My AI Investment Playbook: The No-BS Edition 🚀",
+    slug: "ai-investment-playbook",
+    description: "I've been doubling down on AI stocks lately, and honestly? It's been a wild ride—but the good kind. Here's exactly what I'm holding and why.",
+    image: "https://www.quoleady.com/wp-content/uploads/2025/07/a-photograph-of-a-meticulously-crafted-c_uS-LcVIBTrieDESlLIYHMA_Qwt8ezinQVubColkHeraMA-300x168.png",
+    dataAiHint: "stock market chart",
+    tags: ["AI", "Investing", "Technology", "Stocks"],
+    author: "Oluwamayowa Logo",
+    date: "2024-08-21"
   },
   {
     title: "Transforming Customer Support with AI",
@@ -161,4 +161,4 @@ export const insights: Insight[] = [
     author: "Favour Alfred",
     date: "2024-07-15"
   }
-];
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
