@@ -6,7 +6,7 @@ import { Check, BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Sma
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Our Solutions | LOG_ON connecting Advantages',
+  title: 'Technology Solutions',
   description: 'Explore our suite of scalable services including AI Solutions, Process Automation, Web Development, and more. We provide technology solutions to grow your business.',
 };
 

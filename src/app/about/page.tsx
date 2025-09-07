@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'About Us | LOG_ON connecting Advantages',
+  title: 'About Us',
   description: 'Meet the expert team at LOG_ON, a dynamic duo of technology experts dedicated to delivering innovative solutions and exceptional service to drive your business forward.',
 };
 

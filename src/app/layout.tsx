@@ -27,14 +27,14 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://logonsolutions.netlify.app'),
   title: {
     default: 'LOG_ON | AI & Automation for Business Efficiency',
-    template: '%s | LOG_ON connecting Advantages',
+    template: '%s | LOG_ON',
   },
   description: 'We power business efficiency with smart technology. Get a free AI assessment to discover automation and IT solutions tailored to your business needs.',
   openGraph: {
-    title: 'LOG_ON connecting Advantages',
+    title: 'LOG_ON | AI & Automation for Business Efficiency',
     description: 'We power business efficiency with smart technology.',
     url: 'https://logonsolutions.netlify.app',
-    siteName: 'LOG_ON connecting Advantages',
+    siteName: 'LOG_ON',
     images: [
       {
         url: '/og-image.png', 
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LOG_ON connecting Advantages',
+    title: 'LOG_ON | AI & Automation for Business Efficiency',
     description: 'We power business efficiency with smart technology.',
     images: ['/og-image.png'], 
   },

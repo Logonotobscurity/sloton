@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import { ChatbotEmbed } from '@/components/chatbot-embed';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | LOG_ON connecting Advantages',
+  title: 'Contact Us',
   description: "Get in touch with the LOG_ON team. Have a project in mind or want to learn more about our automation and IT solutions? We'd love to hear from you.",
 };
 
