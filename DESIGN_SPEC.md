@@ -50,11 +50,30 @@ The typographic scale is designed for clarity, hierarchy, and readability.
 
 ---
 
-## 2. Landing Page Breakdown (`src/app/page.tsx`)
+## 2. Header Component (`src/components/header.tsx`)
+
+The header is a responsive and interactive global component that provides site navigation.
+
+*   **Layout**: A sticky header (`sticky top-0 z-50`) that adapts its styling based on the user's scroll position.
+*   **Dynamic Styling**:
+    *   **Initial State**: The header is larger (`py-4`) and sits within a `max-w-4xl` container, blending with the page content.
+    *   **Scrolled State**: When the user scrolls down (`isScrolled` state is true), the header shrinks (`py-2`), adopts a semi-transparent background with a backdrop blur (`bg-background/80 backdrop-blur-lg`), gains a subtle shadow (`shadow-lg`), and expands to a `max-w-6xl` container to feel more like a persistent UI element.
+*   **Desktop Navigation**:
+    *   **Structure**: A three-part flex layout: Logo on the left, navigation in the center, and a "Contact Us" button with a `ThemeToggle` on the right.
+    *   **Solutions Dropdown**: A complex, multi-column dropdown menu for the "Solutions" link, activated on hover (`group-hover`). It contains lists of services and use cases, each with an icon and a brief description.
+    *   **Active Link Indicator**: The current page's link is highlighted with a `text-primary` color and a subtle underline element, providing clear visual feedback.
+*   **Mobile Navigation**:
+    *   **Structure**: Uses a `Sheet` component that slides in from the right, triggered by a `Menu` icon.
+    *   **Content**: The `Sheet` contains the logo, a close button, and an `Accordion` to organize navigation links into "Solutions" and "Company" sections. This is an effective pattern for handling nested navigation on mobile.
+    *   **Actions**: A "Contact Us" button and the `ThemeToggle` are placed at the bottom of the sheet for easy access.
+
+---
+
+## 3. Landing Page Breakdown (`src/app/page.tsx`)
 
 The landing page is composed of several distinct, reusable components, each serving a specific purpose.
 
-### 2.1. Hero Section (`src/components/hero.tsx`)
+### 3.1. Hero Section (`src/components/hero.tsx`)
 
 *   **Layout**: A full-viewport-height section (`min-h-[90vh]`) using Flexbox (`flex items-center`) to vertically center content. Content is in a `container` with a `max-w-4xl`.
 *   **Background**: Features a subtle `CircuitBackground` component and decorative, blurred gradient blobs for visual depth. This is achieved with absolute positioning and a high `blur-3xl` filter.
@@ -66,7 +85,7 @@ The landing page is composed of several distinct, reusable components, each serv
     *   **Buttons**: Two primary CTAs (`Button` component): "Get Your Free AI Assessment" (default variant) and "Explore Our Services" (secondary variant). The first button triggers a `Dialog` modal.
     *   **Dialog**: The modal (`<Dialog />`) contains the `SolutionRecommendationForm` component for lead capture.
 
-### 2.2. Strategic Partner Section (`src/components/strategic-partner.tsx`)
+### 3.2. Strategic Partner Section (`src/components/strategic-partner.tsx`)
 
 *   **Layout**: A two-column layout on large screens (`grid lg:grid-cols-2 gap-16`). The background is a muted color (`bg-secondary/20`) to visually separate it from the hero.
 *   **Left Column (Text Content)**:
@@ -78,7 +97,7 @@ The landing page is composed of several distinct, reusable components, each serv
     *   **Elements**: Each `Card` is interactive, triggering a `Dialog`. They contain an icon (`BrainCircuit`, `Calculator`), a `CardTitle`, a `CardDescription`, and a call-to-action link with an animated `ArrowRight` icon.
     *   **Styling**: Cards have a hover effect (`hover:-translate-y-2`) for interactivity.
 
-### 2.3. Generalist Approach Section (`src/components/generalist-approach.tsx`)
+### 3.3. Generalist Approach Section (`src/components/generalist-approach.tsx`)
 
 *   **Layout**: Similar to the previous section, it uses a responsive two-column grid (`grid lg:grid-cols-2 gap-16`). The background is also `bg-secondary/20`.
 *   **Left Column (Text Content)**:
@@ -88,7 +107,7 @@ The landing page is composed of several distinct, reusable components, each serv
     *   **Elements**: Each card contains a `CardTitle` and a list of features, with each feature prefixed by a `CheckCircle` icon for visual confirmation.
     *   **Styling**: Cards have a semi-transparent background (`bg-background/80`) and a `backdrop-blur-sm` effect, along with a `hover:scale-105` transition.
 
-### 2.4. Partnership Approach Section (`src/components/partnership-approach.tsx`)
+### 3.4. Partnership Approach Section (`src/components/partnership-approach.tsx`)
 
 *   **Layout**: Another two-column grid layout (`grid lg:grid-cols-2 gap-12`).
 *   **Left Column (Text Content)**:
@@ -98,20 +117,20 @@ The landing page is composed of several distinct, reusable components, each serv
     *   **Element**: Features the `CaseStudiesCarousel` component, which displays client success stories in an interactive, auto-scrolling carousel.
     *   **Styling**: The carousel uses custom navigation arrows and is built with `embla-carousel-react`.
 
-### 2.5. Training CTA Section (`src/components/training-cta.tsx`)
+### 3.5. Training CTA Section (`src/components/training-cta.tsx`)
 
 *   **Layout**: A three-column grid (`grid lg:grid-cols-3`) on a darker background (`bg-secondary/20`) with content inside a rounded container.
 *   **Left Column**: Contains a title with a `GraduationCap` icon, descriptive text, and a primary `Button` to explore training programs.
 *   **Right Columns**: A two-column grid (`lg:col-span-2 grid md:grid-cols-2`) displaying two featured course `Card`s. Each card has an icon, title, description, and a "Learn More" button.
 
-### 2.6. Statement Section (`src/components/statement.tsx`)
+### 3.6. Statement Section (`src/components/statement.tsx`)
 
 *   **Layout**: A full-width, centered text section (`text-center max-w-4xl`).
 *   **Background**: Utilizes the `CircuitBackground` component for a tech-themed visual texture.
 *   **Typography**: A single, powerful H2 headline with a clamped font size and uppercase text (`text-[clamp(1.8rem,5vw,3rem)] font-bold uppercase`). Key words like "small," "versatile," and "results" are highlighted with primary and accent colors.
 *   **CTA**: A single, centered `Button` encourages users to "Start a Conversation".
 
-### 2.7. Featured Insights Section (`src/components/featured-insights.tsx`)
+### 3.7. Featured Insights Section (`src/components/featured-insights.tsx`)
 
 *   **Layout**: A three-column grid (`grid lg:grid-cols-3 gap-8`) for displaying article cards.
 *   **Elements**: Each `Card` represents a blog post and includes:
@@ -121,19 +140,19 @@ The landing page is composed of several distinct, reusable components, each serv
     *   A "Read More" link with an animated `ArrowRight` icon.
 *   **CTA**: A centered `Button` below the grid links to the main insights page.
 
-### 2.8. FAQ Section (`src/components/faq.tsx`)
+### 3.8. FAQ Section (`src/components/faq.tsx`)
 
 *   **Layout**: A centered section (`max-w-3xl mx-auto`) on a `bg-secondary/20` background.
 *   **Element**: Uses the `Accordion` component (`src/components/ui/accordion.tsx`) to create a clean, interactive FAQ list. Each `AccordionItem` has a question as the trigger and an answer in the content.
 *   **Icons**: Each question is prefixed with a relevant `lucide-react` icon.
 
-### 2.9. Chatbot Embed Section (`src/components/chatbot-embed.tsx`)
+### 3.9. Chatbot Embed Section (`src/components/chatbot-embed.tsx`)
 
 *   **Layout**: A centered section (`max-w-4xl mx-auto`).
 *   **Element**: The core of this section is an `iframe` that embeds a Botpress chatbot. The `iframe` is housed within a `Card` component to give it a native look and feel.
 *   **Card Structure**: The `CardHeader` includes a title and a `ShareModal`, while the `CardFooter` provides a link to the A/B Testing page.
 
-### 2.10. Tech Stack Carousel Section (`src/components/tech-stack-carousel.tsx`)
+### 3.10. Tech Stack Carousel Section (`src/components/tech-stack-carousel.tsx`)
 
 *   **Layout**: A full-width section with a horizontally scrolling, infinite marquee effect.
 *   **Animation**: The infinite scroll is achieved with custom CSS animation (`animate-infinite-scroll` defined in `tailwind.config.ts`).
