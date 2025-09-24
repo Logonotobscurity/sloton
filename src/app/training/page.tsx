@@ -1,4 +1,5 @@
-import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb, HeartHand, Globe } from 'lucide-react';
+
+import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb, HeartHandshake, Globe } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -104,7 +105,7 @@ const communityProjects = [
         description: 'Designed and launched a behavior-based learning curriculum that trained over 50 individuals in high-demand digital skills (Digital Marketing, Cybersecurity, Data Science, RPA), culminating in multiple career placements. Pioneered a "Seek and Ye Shall Find" pedagogical model that empowers learners to direct their own skill acquisition, resulting in an estimated 30% reduction in traditional instruction time.'
     },
     {
-        icon: <HeartHand className="h-8 w-8 text-primary" />,
+        icon: <HeartHandshake className="h-8 w-8 text-primary" />,
         title: 'LISTNER: AI Mental Health Chatbot',
         description: 'A multilingual NLP AI mental health chatbot designed to provide compassionate, accessible, and confidential support to users in need. This project focuses on leveraging technology to destigmatize mental health conversations.'
     },
