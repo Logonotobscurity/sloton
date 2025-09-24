@@ -7,35 +7,20 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Send } from 'lucide-react';
+import { Loader2, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import { communityLeadAction } from '@/app/actions';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
-  phone: z.string().min(10, { message: 'Please enter a valid phone number.' }),
-  programName: z.string().min(1, { message: 'Please select a program.' }),
+  interest: z.string().optional(),
 });
-
-const trainingPrograms = [
-    'AI Investment Guide',
-    'Transforming Customer Support with AI',
-    'AI Insights: A Practical Guide',
-    'Applied AI: Building Recommendation Systems',
-    'Quick Start to Prompt Engineering for Developers',
-    'Quick Start to Prompt Engineering for Business Users',
-    'AI Solutions Development',
-    'Process Automation Mastery',
-    'Chatbot Development',
-    'Digital Transformation Strategy'
-];
 
 const whatsappLink = "https://wa.me/qr/QFSBRGKZGHP3F1";
 
-export function EnrollmentForm({ programName }: { programName?: string }) {
+export function CommunityLeadForm({ interest }: { interest?: string }) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   
@@ -44,14 +29,13 @@ export function EnrollmentForm({ programName }: { programName?: string }) {
     defaultValues: {
       name: '',
       email: '',
-      phone: '',
-      programName: programName || '',
+      interest: interest || 'General Inquiry',
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    const result = await communityLeadAction({name: values.name, email: values.email, interest: values.programName});
+    const result = await communityLeadAction(values);
     if(result?.success) {
         toast({
             title: "Let's Talk!",
@@ -100,53 +84,16 @@ export function EnrollmentForm({ programName }: { programName?: string }) {
                 )}
             />
         </div>
-        <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Phone Number</FormLabel>
-                <FormControl>
-                  <Input placeholder="+1 234 567 8900" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-        />
-        {!programName || programName === "AI Investment Guide" ? (
-             <FormField
-                control={form.control}
-                name="programName"
-                render={({ field }) => (
-                    <FormItem>
-                    <FormLabel>Program of Interest</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                        <SelectTrigger>
-                            <SelectValue placeholder="Select a program" />
-                        </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                            {trainingPrograms.map(program => (
-                                <SelectItem key={program} value={program}>{program}</SelectItem>
-                            ))}
-                        </SelectContent>
-                    </Select>
-                    <FormMessage />
-                    </FormItem>
-                )}
-                />
-        ) : (
-             <Input type="hidden" {...form.register("programName")} />
-        )}
+       
+        <Input type="hidden" {...form.register("interest")} />
        
         <Button type="submit" className="w-full" disabled={isSubmitting}>
           {isSubmitting ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           ) : (
-            <Send className="mr-2 h-4 w-4" />
+            <MessageCircle className="mr-2 h-4 w-4" />
           )}
-          Submit Enrollment
+          Chat on WhatsApp
         </Button>
       </form>
     </Form>

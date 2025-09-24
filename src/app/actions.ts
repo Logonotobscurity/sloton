@@ -77,34 +77,33 @@ export async function contactFormAction(data: z.infer<typeof contactFormSchema>)
   }
 }
 
-// Enrollment Form Action
-const enrollmentFormSchema = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  phone: z.string(),
-  programName: z.string(),
+// Enrollment / Community Lead Form Action
+const communityLeadSchema = z.object({
+  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
+  email: z.string().email({ message: 'Please enter a valid email address.' }),
+  interest: z.string().optional(),
 });
-export async function enrollmentFormAction(data: z.infer<typeof enrollmentFormSchema>): Promise<FormResult<null>> {
+export async function communityLeadAction(data: z.infer<typeof communityLeadSchema>): Promise<FormResult<null>> {
    if (!resend) {
       console.warn("RESEND_API_KEY is not set. Skipping enrollment email.");
-      return { success: true }; // Pretend it worked
+      return { success: true };
    }
    try {
     await resend.emails.send({
-      from: 'LOG_ON Training Enrollment <noreply@logon.com.ng>',
+      from: 'LOG_ON Community Lead <noreply@logon.com.ng>',
       to: toEmail,
-      subject: `New Enrollment for ${data.programName}`,
+      subject: `New Community/Training Lead: ${data.interest || 'General Inquiry'}`,
       reply_to: data.email,
       react: EnrollmentEmail({
         name: data.name,
         email: data.email,
-        phone: data.phone,
-        programName: data.programName,
+        phone: 'Not provided in this form',
+        programName: data.interest || 'General Inquiry',
       }),
     });
     return { success: true };
   } catch (e: any) {
-    console.error('Error in enrollmentFormAction:', e);
+    console.error('Error in communityLeadAction:', e);
     return { error: e.message || 'An unknown error occurred.' };
   }
 }

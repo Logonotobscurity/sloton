@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { EnrollmentForm } from '@/components/enrollment-form';
 import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import type { Metadata } from 'next';
+import { CommunityLeadForm } from '@/components/community-lead-form';
 
 export const metadata: Metadata = {
   title: 'Community & Training | AI, Automation, & Leadership Programs',
@@ -18,7 +18,7 @@ const trainingFeatures = [
   { icon: <Award className="h-8 w-8 text-primary" />, title: 'Industry Expert Instructors', description: 'Learn from professionals with real-world experience.' },
   { icon: <BookOpen className="h-8 w-8 text-primary" />, title: 'Hands-on Projects', description: 'Apply your knowledge to real business scenarios.' },
   { icon: <TrendingUp className="h-8 w-8 text-primary" />, title: 'Career Support', description: 'Get guidance on career advancement and job opportunities.' },
-  { icon: <BrainCircuit className="h-8 w-8 text-primary" />, title: 'AI-Powered Learning', description: 'Personalized learning experience with AI assistance.' },
+  { icon: <Users className="h-8 w-8 text-primary" />, title: 'Community-Driven Learning', description: 'Collaborate with peers and build your network.' },
 ];
 
 const trainingPrograms = [
@@ -124,7 +124,7 @@ const communityProjects = [
 export default function TrainingPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-24">
         
         <section className="text-center max-w-3xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-bold">Community &amp; Innovation</h1>
@@ -133,12 +133,12 @@ export default function TrainingPage() {
           </p>
         </section>
 
-        <section className="py-16 md:py-24">
+        <section id="training" className="scroll-mt-20">
             <div className="text-center mb-12 md:mb-16">
                 <h2 className="text-2xl md:text-4xl font-bold">Our Training Programs</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">Choose a program that aligns with your career goals and start your journey today.</p>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                 {trainingFeatures.map(feature => (
                     <div key={feature.title} className="text-center p-4">
                         <div className="flex justify-center mb-4">{feature.icon}</div>
@@ -180,11 +180,11 @@ export default function TrainingPage() {
                         <CardFooter>
                            <DialogFormWrapper
                                 trigger={
-                                    <Button className="w-full">Enroll Now</Button>
+                                    <Button className="w-full">Start a Conversation</Button>
                                 }
-                                title="Enroll Now"
-                                description={`You are enrolling in the ${program.title} program. Please fill out your details below.`}
-                                form={<EnrollmentForm programName={program.title} />}
+                                title="Start Your Learning Journey"
+                                description={`Let's talk about the "${program.title}" program. Fill out your details below to connect with us.`}
+                                form={<CommunityLeadForm interest={program.title} />}
                             />
                         </CardFooter>
                     </Card>
@@ -213,20 +213,17 @@ export default function TrainingPage() {
         </section>
 
         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-secondary/30 rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold">Ready to Start Your Learning Journey?</h2>
+            <h2 className="text-2xl md:text-4xl font-bold">Ready to Start a Conversation?</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Join our training programs and gain the skills needed to excel in the digital age. Get personalized guidance and hands-on experience.
+                Whether you're interested in a training program or want to collaborate on an impact project, we'd love to hear from you.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <DialogFormWrapper
-                    trigger={<Button size="lg" className="w-full sm:w-auto">Enroll Now</Button>}
-                    title="Enroll Now"
-                    description="Please select a program and fill out your details to enroll."
-                    form={<EnrollmentForm />}
+                    trigger={<Button size="lg" className="w-full sm:w-auto">Get In Touch</Button>}
+                    title="Let's Connect"
+                    description="Please fill out your details below to start a conversation with our team."
+                    form={<CommunityLeadForm />}
                 />
-                <Button asChild variant="secondary" size="lg" className="w-full sm:w-auto">
-                    <Link href="/contact">Contact Us</Link>
-                </Button>
             </div>
         </section>
 
