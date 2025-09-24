@@ -21,24 +21,24 @@ import {
   IconSupport,
   IconGeneral
 } from '@/lib/icons';
-import { templates as allTemplates } from '@/lib/workflow-templates';
+import { templates as allTemplates, Template } from '@/lib/workflow-templates';
 import { TaskAutomationForm } from './task-automation-form';
 import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink } from '@/components/ui/pagination';
 import { cn } from '@/lib/utils';
 
 const categories = [
-  { name: 'Show All', icon: IconGeneral, color: 'text-gray-600', borderColor: 'border-gray-300', bgColor: 'hover:bg-gray-50' },
-  { name: 'Finance', icon: IconFinance, color: 'text-green-600', borderColor: 'border-green-300', bgColor: 'hover:bg-green-50' },
-  { name: 'Human Resources', icon: IconHumanResources, color: 'text-blue-600', borderColor: 'border-blue-300', bgColor: 'hover:bg-blue-50' },
-  { name: 'Sales', icon: IconSales, color: 'text-orange-600', borderColor: 'border-orange-300', bgColor: 'hover:bg-orange-50' },
-  { name: 'Marketing', icon: IconMarketing, color: 'text-purple-600', borderColor: 'border-purple-300', bgColor: 'hover:bg-purple-50' },
-  { name: 'Real Estate', icon: IconRealEstate, color: 'text-violet-600', borderColor: 'border-violet-300', bgColor: 'hover:bg-violet-50' },
-  { name: 'IT Operations', icon: IconItOperations, color: 'text-pink-600', borderColor: 'border-pink-300', bgColor: 'hover:bg-pink-50' },
-  { name: 'Procurement', icon: IconProcurement, color: 'text-indigo-600', borderColor: 'border-indigo-300', bgColor: 'hover:bg-indigo-50' },
-  { name: 'Development', icon: IconDevelopment, color: 'text-red-600', borderColor: 'border-red-300', bgColor: 'hover:bg-red-50' },
-  { name: 'Healthcare', icon: IconHealthcare, color: 'text-emerald-600', borderColor: 'border-emerald-300', bgColor: 'hover:bg-emerald-50' },
-  { name: 'Admin and Ops', icon: IconAdminOps, color: 'text-yellow-600', borderColor: 'border-yellow-300', bgColor: 'hover:bg-yellow-50' },
-  { name: 'CS and Support', icon: IconSupport, color: 'text-cyan-600', borderColor: 'border-cyan-300', bgColor: 'hover:bg-cyan-50' },
+  { name: 'Show All', icon: IconGeneral },
+  { name: 'Finance', icon: IconFinance },
+  { name: 'Human Resources', icon: IconHumanResources },
+  { name: 'Sales', icon: IconSales },
+  { name: 'Marketing', icon: IconMarketing },
+  { name: 'Real Estate', icon: IconRealEstate },
+  { name: 'IT Operations', icon: IconItOperations },
+  { name: 'Procurement', icon: IconProcurement },
+  { name: 'Development', icon: IconDevelopment },
+  { name: 'Healthcare', icon: IconHealthcare },
+  { name: 'Admin and Ops', icon: IconAdminOps },
+  { name: 'CS and Support', icon: IconSupport },
 ];
 
 const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string, color: string } } = {
@@ -53,18 +53,63 @@ const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string
   'Healthcare': { icon: IconHealthcare, iconBg: "bg-emerald-100 dark:bg-emerald-900/50", color: "text-emerald-600 dark:text-emerald-400" },
   'Admin and Ops': { icon: IconAdminOps, iconBg: "bg-yellow-100 dark:bg-yellow-900/50", color: "text-yellow-600 dark:text-yellow-400" },
   'CS and Support': { icon: IconSupport, iconBg: "bg-cyan-100 dark:bg-cyan-900/50", color: "text-cyan-600 dark:text-cyan-400" },
+  'General': { icon: IconGeneral, iconBg: "bg-gray-100 dark:bg-gray-900/50", color: "text-gray-600 dark:text-gray-400" },
 };
 
 const ITEMS_PER_PAGE = 8;
+
+interface TemplateCardProps {
+  template: Template;
+  onUse: (template: Template) => void;
+}
+
+const TemplateCard: React.FC<TemplateCardProps> = ({ template, onUse }) => {
+  const style = categoryStyles[template.category] || categoryStyles['General'];
+  return (
+    <Card className="bg-background/50 flex flex-col p-6 rounded-xl border-border/50 group transition-colors duration-300 hover:border-primary">
+      <CardHeader className="p-0">
+        <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center", style.iconBg)}>
+          <style.icon className={cn("h-6 w-6", style.color)} />
+        </div>
+        <CardTitle className="pt-4 text-xl font-semibold">{template.name}</CardTitle>
+      </CardHeader>
+      <CardContent className="p-0 flex-grow pt-2">
+        <p className="text-muted-foreground leading-relaxed line-clamp-3">{template.description}</p>
+      </CardContent>
+      <CardFooter className="p-0 pt-6">
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm" className="rounded-full hover:bg-secondary">
+            <Eye className="mr-2 h-4 w-4" /> Preview
+          </Button>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="rounded-full bg-primary/10 text-primary border-primary/20 hover:bg-primary/20"
+            onClick={() => onUse(template)}
+          >
+            Use template
+          </Button>
+        </div>
+      </CardFooter>
+    </Card>
+  );
+};
 
 export function WorkflowTemplateLibrary() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === 'Show All' ? 'All' : category);
     setCurrentPage(1);
+  };
+  
+  const handleUseTemplate = (template: Template) => {
+    setSelectedTemplate(template);
+    setIsDialogOpen(true);
   };
 
   const filteredTemplates = useMemo(() => allTemplates.filter(template => {
@@ -80,14 +125,18 @@ export function WorkflowTemplateLibrary() {
   const handlePageChange = (page: number) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 300, behavior: 'smooth' });
   };
 
   return (
     <div className="py-16 md:py-24">
       <div className="bg-secondary/20 dark:bg-zinc-900/50 -mx-4 md:-mx-10 lg:-mx-20 px-4 md:px-10 lg:px-20 py-12 rounded-t-3xl">
-        <div className="max-w-3xl mx-auto">
-          <div className="relative">
+        <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Workflow Template Library</h2>
+             <p className="text-md md:text-lg text-muted-foreground mt-4">
+              Browse our library of pre-built workflow templates to get started. Use them as-is or as a starting point for your own custom automation.
+            </p>
+          <div className="relative max-w-xl mx-auto mt-8">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input
               type="text"
@@ -98,19 +147,19 @@ export function WorkflowTemplateLibrary() {
             />
           </div>
           <div className="flex flex-wrap gap-3 justify-center mt-6">
-            {categories.map(({ name, icon: Icon, color }) => (
+            {categories.map(({ name, icon: Icon }) => (
               <Button
                 key={name}
                 variant="outline"
                 className={cn(
                   "rounded-full border bg-background transition-colors",
-                  selectedCategory === name || (name === 'Show All' && selectedCategory === 'All') 
+                  selectedCategory === (name === 'Show All' ? 'All' : name)
                   ? 'bg-primary text-primary-foreground border-primary' 
                   : 'text-foreground border-border hover:bg-secondary'
                 )}
                 onClick={() => handleCategoryClick(name)}
               >
-                <Icon className={cn("mr-2 h-4 w-4", selectedCategory !== name && color)} />
+                <Icon className={cn("mr-2 h-4 w-4", selectedCategory !== name && categoryStyles[name]?.color)} />
                 {name}
               </Button>
             ))}
@@ -124,70 +173,14 @@ export function WorkflowTemplateLibrary() {
                 {selectedCategory === 'All' ? 'Showing All Templates' : `Workflow template results for ${selectedCategory}`}
             </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="bg-background/50 flex flex-col p-6 rounded-xl border-border/50 group transition-colors duration-300 hover:border-primary">
-            <CardHeader className="p-0">
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-orange-100 dark:bg-orange-900/50">
-                <Cog className="h-6 w-6 text-orange-600 dark:text-orange-400" />
-              </div>
-              <CardTitle className="pt-4 text-xl font-semibold">Automation Task Designer</CardTitle>
-            </CardHeader>
-            <CardContent className="p-0 flex-grow pt-2">
-              <p className="text-muted-foreground leading-relaxed">Our Workflow Template Generator recognizes your specific needs and generates custom templates in moments.</p>
-            </CardContent>
-            <CardFooter className="p-0 pt-6">
-               <Dialog>
-                <DialogTrigger asChild>
-                  <div className="relative w-full">
-                    <Input placeholder="Enter a workflow name" className="bg-muted rounded-full h-12 pl-4 pr-14" />
-                    <Button size="icon" className="absolute right-1 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-foreground hover:bg-foreground/80">
-                      <ArrowRight className="h-5 w-5 text-background" />
-                    </Button>
-                  </div>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[600px] bg-background">
-                    <DialogHeader>
-                        <DialogTitle className="text-2xl font-semibold flex items-center gap-2"><Cog className="h-6 w-6 text-accent" /> Automation Task Designer</DialogTitle>
-                        <DialogDescription>
-                            Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.
-                        </DialogDescription>
-                    </DialogHeader>
-                    <TaskAutomationForm />
-                </DialogContent>
-               </Dialog>
-            </CardFooter>
-          </Card>
-
-          {paginatedTemplates.map(template => {
-            const style = categoryStyles[template.category] || { icon: IconGeneral, iconBg: "bg-gray-100 dark:bg-gray-900/50", color: "text-gray-600 dark:text-gray-400" };
-            return (
-              <Card key={template.name} className="bg-background/50 flex flex-col p-6 rounded-xl border-border/50 group transition-colors duration-300 hover:border-primary">
-                <CardHeader className="p-0">
-                  <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center", style.iconBg)}>
-                    <style.icon className={cn("h-6 w-6", style.color)} />
-                  </div>
-                  <CardTitle className="pt-4 text-xl font-semibold">{template.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-0 flex-grow pt-2">
-                  <p className="text-muted-foreground leading-relaxed line-clamp-3">{template.description}</p>
-                </CardContent>
-                <CardFooter className="p-0 pt-6">
-                   <div className="flex items-center gap-2">
-                      <Button variant="outline" size="sm" className="rounded-full hover:bg-secondary">
-                        <Eye className="mr-2 h-4 w-4" /> Preview
-                      </Button>
-                      <Button variant="outline" size="sm" className="rounded-full bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
-                        Use template
-                      </Button>
-                    </div>
-                </CardFooter>
-              </Card>
-            )
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {paginatedTemplates.map(template => (
+            <TemplateCard key={template.name} template={template} onUse={handleUseTemplate} />
+          ))}
         </div>
 
         {filteredTemplates.length === 0 && (
-           <div className="text-center py-16 col-span-1 md:col-span-2 lg:col-span-3">
+           <div className="text-center py-16 col-span-full">
               <Search className="mx-auto h-12 w-12 text-muted-foreground" />
               <h3 className="mt-4 text-xl font-semibold">No Templates Found</h3>
               <p className="mt-2 text-muted-foreground">Try adjusting your search or category filters.</p>
@@ -230,6 +223,23 @@ export function WorkflowTemplateLibrary() {
           </Pagination>
         </div>
       )}
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-[600px] bg-background">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-semibold flex items-center gap-2">
+              <Cog className="h-6 w-6 text-accent" /> Customize Workflow
+            </DialogTitle>
+            <DialogDescription>
+              You are using the "{selectedTemplate?.name}" template. Feel free to modify the description below to fit your needs.
+            </DialogDescription>
+          </DialogHeader>
+          <TaskAutomationForm 
+            initialValues={{ workflowDescription: selectedTemplate?.description || '' }} 
+            onSuccessfulSubmit={() => setIsDialogOpen(false)}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

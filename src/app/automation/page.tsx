@@ -1,6 +1,7 @@
 
 import type { Metadata } from 'next';
 import { TaskAutomationForm } from '@/components/task-automation-form';
+import { WorkflowTemplateLibrary } from '@/components/workflow-template-library';
 
 export const metadata: Metadata = {
   title: 'Intelligent Automation Solutions | RPA & Workflow Design',
@@ -22,7 +23,13 @@ export default function AutomationPage() {
         <div className="mt-12 max-w-4xl mx-auto">
             <TaskAutomationForm />
         </div>
+
+        <div className="mt-24">
+          <WorkflowTemplateLibrary />
+        </div>
+
       </div>
     </div>
   );
 }
+

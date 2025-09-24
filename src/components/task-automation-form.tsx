@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -21,7 +21,12 @@ const formSchema = z.object({
   optimizationSuggestions: z.string().optional(),
 });
 
-export function TaskAutomationForm() {
+interface TaskAutomationFormProps {
+  initialValues?: Partial<z.infer<typeof formSchema>>;
+  onSuccessfulSubmit?: () => void;
+}
+
+export function TaskAutomationForm({ initialValues, onSuccessfulSubmit }: TaskAutomationFormProps) {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AutomateTaskDesignOutput | null>(null);
   const { toast } = useToast();
@@ -29,10 +34,17 @@ export function TaskAutomationForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      workflowDescription: '',
-      optimizationSuggestions: '',
+      workflowDescription: initialValues?.workflowDescription || '',
+      optimizationSuggestions: initialValues?.optimizationSuggestions || '',
     },
   });
+
+  useEffect(() => {
+    if (initialValues) {
+      form.reset(initialValues);
+    }
+  }, [initialValues, form]);
+
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
@@ -47,6 +59,7 @@ export function TaskAutomationForm() {
         });
       } else {
         setResult(res.data);
+        if(onSuccessfulSubmit) onSuccessfulSubmit();
       }
     } catch (error) {
        toast({
