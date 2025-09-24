@@ -3,24 +3,31 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 export function WebsiteLoader() {
   const [loading, setLoading] = useState(true);
+  const pathname = usePathname();
 
   useEffect(() => {
-    // Simulate page loading. 
-    // In a real app, you might use router events or data fetching status to control this.
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // Loader will be visible for 2 seconds
+    setLoading(false);
+  }, [pathname]); // End loading on route change, not after a timeout.
 
-    return () => clearTimeout(timer);
+  // This effect handles the initial load
+  useEffect(() => {
+    if (document.readyState === 'complete') {
+        setLoading(false);
+    } else {
+        const handleLoad = () => setLoading(false);
+        window.addEventListener('load', handleLoad);
+        return () => window.removeEventListener('load', handleLoad);
+    }
   }, []);
 
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[200] flex items-center justify-center bg-background transition-opacity duration-1000",
+        "fixed inset-0 z-[200] flex items-center justify-center bg-background transition-opacity duration-500",
         loading ? "opacity-100" : "opacity-0 pointer-events-none"
       )}
     >

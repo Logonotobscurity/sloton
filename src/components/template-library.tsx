@@ -4,24 +4,23 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { ArrowLeft, ArrowRight, Home, TrendingUp, PlusSquare, Eye } from 'lucide-react';
-import { useCarousel, Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
+import { ArrowRight, Eye, Cog } from 'lucide-react';
 import { GatedFeatureModal } from './gated-feature-modal';
 import Link from 'next/link';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { TaskAutomationForm } from './task-automation-form';
-import { Cog } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Home, TrendingUp } from 'lucide-react';
 
-const templates = [
-  {
+const generatorTemplate = {
     icon: <Cog className="h-6 w-6 text-amber-600" />,
     iconBg: "bg-amber-100 dark:bg-amber-900/50",
     title: 'Template Generator',
     description: 'Our Workflow Template Generator recognizes your specific needs and requirements and generates custom workflow templates in moments, just give it a few pointers about what kind of workflow you need.',
     isGenerator: true,
-  },
+};
+
+const templates = [
   {
     icon: <Home className="h-6 w-6 text-purple-600" />,
     iconBg: "bg-purple-100 dark:bg-purple-900/50",
@@ -49,7 +48,7 @@ const templates = [
 ];
 
 export function TemplateLibrary() {
-  const displayedTemplates = templates.slice(0, 4);
+  const displayedTemplates = [generatorTemplate, ...templates.slice(0, 3)];
 
   return (
     <section className="w-full py-16 md:py-24 bg-background">
