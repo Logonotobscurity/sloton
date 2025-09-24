@@ -221,43 +221,46 @@ export function Header() {
                         Solutions <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
                         {(pathname.startsWith('/solutions') || pathname.startsWith('/use-cases') || pathname.startsWith('/web-development') || pathname.startsWith('/ai-solutions') || pathname.startsWith('/chatbots') || pathname.startsWith('/business-analytics') || pathname.startsWith('/database-solutions')) && !pathname.startsWith('/automation') && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"></span>}
                     </button>
-                    <div className="absolute top-full -left-1/2 -translate-x-1/4 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
-                        <div className="bg-background rounded-lg shadow-2xl border w-[600px] p-6 grid grid-cols-2 gap-x-8 gap-y-6">
-                            <div className="space-y-4">
-                                <h4 className="font-semibold text-foreground">Our Services</h4>
-                                {solutionsNavItems.map(item => (
-                                    <Link key={item.label} href={item.href} className="flex items-start gap-4 group/item">
-                                        <div className="bg-secondary/50 p-2 rounded-md group-hover/item:bg-primary/10 transition-colors">{item.icon}</div>
-                                        <div>
-                                            <p className="font-semibold text-foreground group-hover/item:text-primary transition-colors">{item.label}</p>
-                                            <p className="text-xs text-muted-foreground">{item.description}</p>
-                                        </div>
-                                    </Link>
+                    <div className="absolute top-full -left-1/2 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
+                        <div className="bg-background rounded-lg shadow-2xl border w-[550px] p-6 grid grid-cols-2 gap-x-6">
+                            <div>
+                                <h4 className="font-semibold text-foreground mb-3">Our Services</h4>
+                                <ul className="space-y-3">
+                                {solutionsNavItems.slice(0,3).map(item => (
+                                    <li key={item.label}>
+                                        <Link href={item.href} className="flex items-start gap-3 group/item">
+                                            <div className="bg-secondary/50 p-2 rounded-md group-hover/item:bg-primary/10 transition-colors">{item.icon}</div>
+                                            <div>
+                                                <p className="font-semibold text-sm text-foreground group-hover/item:text-primary transition-colors">{item.label}</p>
+                                                <p className="text-xs text-muted-foreground">{item.description}</p>
+                                            </div>
+                                        </Link>
+                                    </li>
                                 ))}
-                                <Link href="/solutions" className="text-sm font-semibold text-primary flex items-center group mt-4">
-                                    View All Solutions <ArrowRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                                </Link>
+                                </ul>
+                                 <Button asChild variant="link" size="sm" className="p-0 h-auto mt-3">
+                                    <Link href="/solutions" className="text-primary">
+                                        View All Solutions <ArrowRight className="ml-1 h-3 w-3" />
+                                    </Link>
+                                 </Button>
                             </div>
-                            <div className="space-y-4">
-                                <h4 className="font-semibold text-foreground">Popular Use Cases</h4>
+                            <div>
+                                <h4 className="font-semibold text-foreground mb-3">Popular Use Cases</h4>
+                                <ul className="space-y-2">
                                 {useCasesNavItems.map(item => (
-                                    <Link key={item.label} href={item.href} className="flex items-center gap-3 group/item">
-                                        {item.icon}
-                                        <p className="text-sm font-medium text-muted-foreground group-hover/item:text-primary transition-colors">{item.label}</p>
-                                    </Link>
+                                     <li key={item.label}>
+                                        <Link href={item.href} className="flex items-center gap-3 group/item">
+                                            {item.icon}
+                                            <p className="text-sm font-medium text-muted-foreground group-hover/item:text-primary transition-colors">{item.label}</p>
+                                        </Link>
+                                    </li>
                                 ))}
-                                <Link href="/use-cases" className="text-sm font-semibold text-primary flex items-center group mt-4">
-                                    View All Industries <ArrowRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                            </div>
-                            <div className="col-span-2 border-t pt-4">
-                                <Link href="/insights" className="flex items-center justify-center gap-4 p-4 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors">
-                                    <Lightbulb className="h-6 w-6 text-yellow-400" />
-                                    <div>
-                                        <p className="font-semibold text-foreground">Featured Insight</p>
-                                        <p className="text-sm text-muted-foreground">The Future of Work: How AI is Redefining Productivity</p>
-                                    </div>
-                                </Link>
+                                </ul>
+                                <Button asChild variant="link" size="sm" className="p-0 h-auto mt-3">
+                                    <Link href="/use-cases" className="text-primary">
+                                        View All Industries <ArrowRight className="ml-1 h-3 w-3" />
+                                    </Link>
+                                </Button>
                             </div>
                         </div>
                     </div>

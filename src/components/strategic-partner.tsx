@@ -1,5 +1,5 @@
 
-import { BrainCircuit, ArrowRight, Calculator } from 'lucide-react';
+import { BrainCircuit, ArrowRight, Calculator, Cog } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -67,7 +67,7 @@ export function StrategicPartner() {
                       <CardTitle className="pt-4 text-xl md:text-2xl">Free AI Business Assessment</CardTitle>
                   </CardHeader>
                   <CardContent className="flex-grow">
-                      <p className="text-muted-foreground">Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning. This tool helps you identify the best technology strategies for your goals.</p>
+                      <p className="text-muted-foreground">Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning.</p>
                   </CardContent>
                   <div className="p-6 pt-0">
                       <div className="text-primary font-semibold flex items-center">
@@ -86,17 +86,37 @@ export function StrategicPartner() {
                 <SolutionRecommendationForm />
               </DialogContent>
             </Dialog>
+
+             <Dialog>
+              <DialogTrigger asChild>
+                <Card className="bg-background group flex flex-col text-left cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2">
+                  <CardHeader>
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                          <Cog className="h-6 w-6" />
+                      </div>
+                      <CardTitle className="pt-4 text-xl md:text-2xl">Automation Task Designer</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                      <p className="text-muted-foreground">Describe a repetitive task or workflow and get a configured, optimized automation plan in seconds.</p>
+                  </CardContent>
+                  <div className="p-6 pt-0">
+                      <div className="text-primary font-semibold flex items-center">
+                      Design an Automation <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+              </Card>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[600px] bg-background">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl flex items-center gap-2"><Cog className="h-6 w-6 text-accent" /> Automation Task Designer</DialogTitle>
+                  <DialogDescription>
+                     Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.
+                  </DialogDescription>
+                </DialogHeader>
+                <TaskAutomationForm />
+              </DialogContent>
+            </Dialog>
             
-            <DialogFormWrapper
-              trigger={
-                <Button variant="secondary" className="w-full">
-                    Or, Design a Specific Automation Task
-                </Button>
-              }
-              title="Automation Task Designer"
-              description="Describe a workflow to generate a configured, optimized task design, complete with AI suggestions."
-              form={<TaskAutomationForm />}
-            />
           </div>
         </div>
       </div>

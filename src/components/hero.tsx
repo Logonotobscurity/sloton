@@ -26,7 +26,7 @@ export function Hero() {
           Your Partner in Growth
         </span>
         <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight mb-6 md:mb-8">
-          Find the right <span className="text-primary">tech solution</span> for your business in minutes.
+          Find the right <span className="text-primary font-extrabold">tech solution</span> for your business in minutes.
         </h1>
         <p className="mt-6 max-w-2xl text-md md:text-xl text-muted-foreground mb-8 md:mb-12 mx-auto md:mx-0">
            Stop guessing. Our AI-driven tools and expert services help you cut costs, automate processes, and scale faster. Start with a free, instant business assessment.
