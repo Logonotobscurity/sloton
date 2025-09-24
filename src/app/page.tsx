@@ -22,7 +22,7 @@ export default function Home() {
       <div className="bg-black">
         <div className="relative">
           <div className="absolute inset-0 -z-10">
-            <Prism timeScale={0.2} noise={0.7} hueShift={1.2} />
+            <Prism />
           </div>
           <Hero />
         </div>
