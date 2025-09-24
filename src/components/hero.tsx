@@ -16,53 +16,52 @@ import Prism from './prism-background';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-24 overflow-hidden">
+    <section className="container relative mx-auto flex min-h-screen items-center justify-center overflow-hidden px-4 py-24 text-center md:px-6">
       <Prism />
-      <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-        <div className="flex flex-col items-center">
-            <span className="text-sm font-normal uppercase tracking-widest text-primary mb-4 md:mb-6 block">
-              Your Partner in Growth
-            </span>
-            <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight mb-6 md:mb-8 text-white max-w-4xl">
-              Find the right <span className="text-primary font-extrabold">tech solution</span> for your business in minutes.
-            </h1>
-            <p className="mt-6 max-w-2xl text-md md:text-xl text-slate-300 mb-8 md:mb-12 mx-auto">
-              Stop guessing. Our AI-driven tools and expert services help you cut costs, automate processes, and scale faster. Start with a free, instant business assessment.
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button className="group flex justify-center gap-2 items-center">
-                    Get Your Free AI Assessment
-                    <ArrowIcon />
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[600px] bg-background">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl flex items-center gap-2"><BrainCircuit className="h-6 w-6 text-accent" /> AI Business Assessment</DialogTitle>
-                    <DialogDescription>
-                      Describe your business needs to receive tailored IT solution recommendations from our AI consultant. This tool helps you identify the best technology strategies for your goals.
-                    </DialogDescription>
-                  </DialogHeader>
-                  <SolutionRecommendationForm />
-                </DialogContent>
-              </Dialog>
-              <Button asChild variant="secondary" size="lg">
-                <Link href="/solutions">
-                  Explore Our Services
-                </Link>
+      <div className="relative z-10 flex flex-col items-center">
+        <span className="mb-4 block text-sm font-normal uppercase tracking-widest text-primary md:mb-6">
+          Your Partner in Growth
+        </span>
+        <h1 className="mb-6 max-w-4xl font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight text-white md:mb-8">
+          Find the right <span className="font-extrabold text-primary">tech solution</span> for your business in minutes.
+        </h1>
+        <p className="mx-auto mt-6 mb-8 max-w-2xl text-md text-slate-300 md:mb-12 md:text-xl">
+          Stop guessing. Our AI-driven tools and expert services help you cut costs, automate processes, and scale faster. Start with a free, instant business assessment.
+        </p>
+        <div className="flex flex-col flex-wrap justify-center gap-4 sm:flex-row">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="group flex items-center justify-center gap-2">
+                Get Your Free AI Assessment
+                <ArrowIcon />
               </Button>
-            </div>
-            <div className="mt-12 text-center text-white">
-                <Button asChild variant="ghost" className="text-slate-300 hover:text-primary">
-                    <Link href="/#strategic-partner">
-                        Explore How We Work
-                        <ArrowDown className="ml-2 h-4 w-4" />
-                    </Link>
-                </Button>
-            </div>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[600px] bg-background">
+              <DialogHeader>
+                <DialogTitle className="flex items-center gap-2 text-2xl"><BrainCircuit className="h-6 w-6 text-accent" /> AI Business Assessment</DialogTitle>
+                <DialogDescription>
+                  Describe your business needs to receive tailored IT solution recommendations from our AI consultant. This tool helps you identify the best technology strategies for your goals.
+                </DialogDescription>
+              </DialogHeader>
+              <SolutionRecommendationForm />
+            </DialogContent>
+          </Dialog>
+          <Button asChild variant="secondary" size="lg">
+            <Link href="/solutions">
+              Explore Our Services
+            </Link>
+          </Button>
+        </div>
+        <div className="mt-12 text-center text-white">
+            <Button asChild variant="ghost" className="text-slate-300 hover:text-primary">
+                <Link href="/#strategic-partner">
+                    Explore How We Work
+                    <ArrowDown className="ml-2 h-4 w-4" />
+                </Link>
+            </Button>
         </div>
       </div>
     </section>
   );
 }
+
