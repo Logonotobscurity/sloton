@@ -19,11 +19,13 @@ import Prism from '@/components/prism-background';
 export default function Home() {
   return (
     <div className="flex flex-col overflow-x-hidden">
-      <div className="relative">
-        <div className="absolute inset-0 -z-10">
-          <Prism timeScale={0.2} noise={0.7} hueShift={1.2} />
+      <div className="bg-black">
+        <div className="relative">
+          <div className="absolute inset-0 -z-10">
+            <Prism timeScale={0.2} noise={0.7} hueShift={1.2} />
+          </div>
+          <Hero />
         </div>
-        <Hero />
       </div>
       <ScrollAnimationWrapper>
         <StrategicPartner />
