@@ -494,4 +494,8 @@ export const templates: Template[] = [
     description: 'This process manages customer requests, surveys their satisfaction, and ensures quick responses.'
   },
   {
-    category: 'CS
+    category: 'CS and Support',
+    name: 'Service Desk',
+    description: 'A comprehensive tool for managing IT tickets and ensuring key metric achievement.'
+  },
+];
