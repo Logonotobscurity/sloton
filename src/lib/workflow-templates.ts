@@ -1,0 +1,365 @@
+
+export interface Template {
+  category: 'Finance' | 'Human Resources' | 'Sales' | 'Marketing' | 'Real Estate' | 'General Business';
+  name: string;
+  description: string;
+}
+
+export const templates: Template[] = [
+  // Finance Templates
+  {
+    category: 'Finance',
+    name: 'Accounts Payable',
+    description: 'Controls company expenses, ensures adherence to SLAs, monitors requests, and measures progress. Manages payments to suppliers for products or services procured, including invoice verification and approval acquisition.'
+  },
+  {
+    category: 'Finance',
+    name: 'Accounts Receivable',
+    description: 'Streamlines and improves the financial process by managing accounts receivable effectively. Involves evaluating and extending credit to clients, collecting timely payments, and maintaining healthy cash flow.'
+  },
+  {
+    category: 'Finance',
+    name: 'Budget Transfer Request',
+    description: 'A process for employees to submit budget relocation approval requests, including justification for the transfer.'
+  },
+  {
+    category: 'Finance',
+    name: 'Business plan budgeting',
+    description: 'Assists in the annual budgeting process to manage how funds will be allocated over the next year.'
+  },
+  {
+    category: 'Finance',
+    name: 'Business Revenue',
+    description: 'Track your budget and plan expenses using organized automations, alerts, reports, and more to keep finances organized.'
+  },
+  {
+    category: 'Finance',
+    name: 'CAPEX Request',
+    description: 'Automates the Capital Expenditure management system to expedite request and review processes while securing audit records for governance purposes.'
+  },
+  {
+    category: 'Finance',
+    name: 'Check Request',
+    description: 'Streamlines the receiving, analyzing, and approving of check requests within a company\'s finance and accounting organization.'
+  },
+  {
+    category: 'Finance',
+    name: 'Corporate Card Request',
+    description: 'Enables employees to pay for pre-approved business expenses such as hotels, meals, rental cars, and flights through an automated workflow.'
+  },
+  {
+    category: 'Finance',
+    name: 'Debt Collection',
+    description: 'Manages defaulting clients more easily and intuitively through a structured collection process.'
+  },
+  {
+    category: 'Finance',
+    name: 'Employee Expense Claim',
+    description: 'Allows employees to seek reimbursement for business-related expenses incurred during the course of their job.'
+  },
+  {
+    category: 'Finance',
+    name: 'Employee Loan',
+    description: 'Manages the process of loaning money to employees, from requirement processing to permission approval and payment.'
+  },
+  {
+    category: 'Finance',
+    name: 'Expense Reimbursement',
+    description: 'Transforms expense reimbursement with digital workflows that receive requests, invoices, receipts, and documents in a single place for finance team processing.'
+  },
+  {
+    category: 'Finance',
+    name: 'Expense Report',
+    description: 'A streamlined process to automate the sending of receipts and reports, and get approvals quickly from finance managers.'
+  },
+  {
+    category: 'Finance',
+    name: 'Financial Department Requests',
+    description: 'Centralizes finance department requests in a single place, providing full visibility and control of operational workflows.'
+  },
+
+  // Human Resources Templates
+  {
+    category: 'Human Resources',
+    name: '360-Degree Feedback',
+    description: 'A comprehensive performance evaluation process that gathers insights from various sources including managers, peers, subordinates, and self-assessments.'
+  },
+  {
+    category: 'Human Resources',
+    name: '9-Box Performance Grid',
+    description: 'Manages employee performance and potential using a proven talent management method.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Attendance Management',
+    description: 'Efficiently tracks and manages employee time and attendance, including time in/out, working hours, and leave requests.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Candidates Screening and Interviews',
+    description: 'A structured process to guide HR through candidates screening and interviews.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Covid-19 - Employees Status',
+    description: 'Helps track and manage employees\' health statuses during the COVID-19 pandemic.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Employee Confirmation',
+    description: 'A structured approach to ensure successful integration of new employees, involving assessments of performance and company fit.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Employee Feedback',
+    description: 'Automates feedback surveys to gauge employee satisfaction and engagement, identifying factors impacting motivation.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Employee Nomination',
+    description: 'A systematic approach to acknowledge and reward employees for exceptional work and achievements through structured nomination processes.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Employee Offboarding',
+    description: 'Streamlines the final step in the employee journey when staff members leave the organization.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Employee Onboarding',
+    description: 'Integrates new hires into the company and its culture, ensuring they feel welcomed and ready to contribute from day one.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Employee Performance Evaluation',
+    description: 'Structures and standardizes performance evaluation processes based on market best practices to ensure consistent employee assessment.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Employee Promotion Process',
+    description: 'Evaluates and promotes deserving employees through an intuitive interface and structured process.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Employee Referral',
+    description: 'Facilitates faster hiring by leveraging current employees\' networks, automating referral tracking and candidate management.'
+  },
+  {
+    category: 'Human Resources',
+    name: 'Employee Time Tracking',
+    description: 'Automates tracking of employee working hours, offering filtering capabilities and time reports for various tasks.'
+  },
+
+  // Sales Templates
+  {
+    category: 'Sales',
+    name: 'Cold Calling',
+    description: 'A structured process to guide sales teams in cold calling potential customers and closing big deals.'
+  },
+  {
+    category: 'Sales',
+    name: 'Commercial Proposal for Services',
+    description: 'Guides through the preparation and management of commercial proposals for services.'
+  },
+  {
+    category: 'Sales',
+    name: 'Contract Renewal',
+    description: 'Manages contract renewal processes carried out by legal teams, providing opportunities to enhance contracts with latest organizational standards.'
+  },
+  {
+    category: 'Sales',
+    name: 'Exceptional Pricing Approval for SaaS',
+    description: 'Manages approval of exceptional pricing for SaaS companies with priority setting, due date establishment, and automatic notifications.'
+  },
+  {
+    category: 'Sales',
+    name: 'Franchise Lead Management',
+    description: 'Designed to manage prospective franchisees for franchise owners through a structured pipeline.'
+  },
+  {
+    category: 'Sales',
+    name: 'Funding Request Pipeline',
+    description: 'A step-by-step process to aid in creating and managing funding strategies.'
+  },
+  {
+    category: 'Sales',
+    name: 'Lead Generation Form',
+    description: 'Helps skyrocket lead generation and conversion rates through customizable, easy-to-use forms.'
+  },
+  {
+    category: 'Sales',
+    name: 'New Location Prospecting for Franchises',
+    description: 'Prospects new partners for franchise projects, arranging documents, designing business plans, and setting contractual details.'
+  },
+  {
+    category: 'Sales',
+    name: 'Outbound Marketing Prospecting Leads',
+    description: 'Helps sales reps in outbound business development, gathering information to identify and contact qualified leads.'
+  },
+  {
+    category: 'Sales',
+    name: 'Real Estate Sales',
+    description: 'Manages real estate sales processes from listing to contract with ease and efficiency.'
+  },
+  {
+    category: 'Sales',
+    name: 'Request for Proposal',
+    description: 'Simplifies the selection of IT providers and finding the best tech partners using structured RFP processes.'
+  },
+  {
+    category: 'Sales',
+    name: 'Reseller Prospecting',
+    description: 'Organizes and coordinates stages of identifying, evaluating, and concluding reseller prospects.'
+  },
+  {
+    category: 'Sales',
+    name: 'Sales CRM',
+    description: 'Connects all pipeline stages from lead generation to conversion in a comprehensive CRM template.'
+  },
+
+  // Marketing Templates
+  {
+    category: 'Marketing',
+    name: 'A/B Testing',
+    description: 'Organizes and standardizes A/B testing processes to aid business growth through systematic testing.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Advertising Campaign',
+    description: 'Used to create, execute, and evaluate advertisement campaigns from planning to analysis.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Marketing Agency Client Onboarding',
+    description: 'Helps marketing agencies flawlessly welcome new clients through structured onboarding processes.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Agency Project Development',
+    description: 'A comprehensive system for managing agency project developments from inception to delivery.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Buyer Personas',
+    description: 'Understands customer profiles and behavior using market research and existing customer data.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Campaign Briefing',
+    description: 'Collects multiple requests for marketing teams to create and execute ad campaigns.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Co-marketing Management',
+    description: 'Manages joint marketing campaigns between two brands through coordinated processes.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Content Marketing',
+    description: 'A comprehensive template for controlling, executing, and delivering impeccable content marketing strategies.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Contest Management',
+    description: 'Manages and tracks contest subscriptions and contender evaluations.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Conversion Rate Optimization Process',
+    description: 'Aids in discovering optimal website page layouts through systematic testing and data analysis.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Copy Management',
+    description: 'Structures, organizes, and reviews text content for businesses.'
+  },
+
+  // Real Estate Templates
+  {
+    category: 'Real Estate',
+    name: 'Asset and Leasing Management',
+    description: 'Manages real estate assets and their leasing status through comprehensive tracking systems.'
+  },
+  {
+    category: 'Real Estate',
+    name: 'Brokerage Pipeline',
+    description: 'Manages real estate selling and brokerage processes in a single interface.'
+  },
+  {
+    category: 'Real Estate',
+    name: 'Buy-Side Real Estate Management',
+    description: 'Helps manage clients\' real estate needs and track suitable listings for buyers.'
+  },
+  {
+    category: 'Real Estate',
+    name: 'Coworking Space Rental',
+    description: 'Manages the rental of coworking spaces while maintaining effective communication with clients.'
+  },
+  {
+    category: 'Real Estate',
+    name: 'Facilities Delivery',
+    description: 'Allows facilities teams to manage new installation requests efficiently.'
+  },
+  {
+    category: 'Real Estate',
+    name: 'Facilities Management',
+    description: 'Manages requests for facilities adjustments, including maintenance, workstation setups, parking permits, and cleaning services.'
+  },
+  {
+    category: 'Real Estate',
+    name: 'Industrial Building Project Request',
+    description: 'Manages new projects for industrial buildings, assigns suppliers, analyzes documentation, and documents operational impacts.'
+  },
+  {
+    category: 'Real Estate',
+    name: 'Inventory Adjustment',
+    description: 'Adjusts and manages inventory based on data inputs and required approvals.'
+  },
+  {
+    category: 'Real Estate',
+    name: 'Inventory Inbound for E-commerce',
+    description: 'Manages the receipt and inventory of goods in e-commerce operations.'
+  },
+  {
+    category: 'Real Estate',
+    name: 'Lease Management',
+    description: 'Manages tenants from contract signing to turnover for real estate agencies.'
+  },
+  {
+    category: 'Real Estate',
+    name: 'Lease Tracker',
+    description: 'Registers, manages, and updates tenant information while controlling lease payments.'
+  },
+
+  // General Business Templates
+  {
+    category: 'General Business',
+    name: '5S Auditing',
+    description: 'A regular process for conducting 5S audits to maintain organization and eliminate waste in workplace operations.'
+  },
+  {
+    category: 'General Business',
+    name: 'Business Contract Analysis',
+    description: 'Creates and manages company contracts effectively through structured analysis and management processes.'
+  },
+  {
+    category: 'General Business',
+    name: 'Business Process Mapping',
+    description: 'Supports mapping, evaluating, and managing business processes for optimal efficiency and documentation.'
+  },
+  {
+    category: 'General Business',
+    name: 'Commodities Strategy',
+    description: 'Organizes data for forecasting market trends in a simple kanban view for traders and analysts.'
+  },
+  {
+    category: 'General Business',
+    name: 'Competitive Analysis',
+    description: 'Investigates competitors, analyzes their strategies, and documents their strengths and weaknesses for strategic planning.'
+  },
+  {
+    category: 'General Business',
+    name: 'Design Thinking',
+    description: 'A template for solving complex problems using Herbert Simon\'s Design Thinking methodology through structured innovation processes.'
+  },
+];
