@@ -1,4 +1,6 @@
 
+"use client";
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
@@ -12,10 +14,12 @@ import {
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { BrainCircuit, ArrowDown } from 'lucide-react';
 import { ArrowIcon } from './ui/arrow-icon';
+import { GlitchOrbBackground } from './glitch-orb-background';
 
 export function Hero() {
   return (
     <section className="relative z-10 flex min-h-screen items-center justify-center overflow-hidden bg-transparent py-24 text-center">
+       <GlitchOrbBackground />
       <div className="container mx-auto flex flex-col items-center px-4 md:px-6">
         <span className="mb-4 block text-sm font-normal uppercase tracking-widest text-primary md:mb-6">
           Your Partner in Growth

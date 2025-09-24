@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 export function ArrowIcon({ className }: { className?: string }) {
     return (
         <svg
-            className={cn("w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 dark:border-white/80 group-hover:border-none p-2 rotate-45", className)}
+            className={cn("w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-border dark:border-white/80 group-hover:border-none p-2 rotate-45", className)}
             viewBox="0 0 16 19"
             xmlns="http://www.w3.org/2000/svg"
         >
