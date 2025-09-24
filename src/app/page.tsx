@@ -12,6 +12,7 @@ import { TrainingCTA } from '@/components/training-cta';
 import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
 import { ChatbotEmbed } from '@/components/chatbot-embed';
 import { IntegrationsHighlight } from '@/components/integrations-highlight';
+import { TemplateLibrary } from '@/components/template-library';
 
 
 export default function Home() {
@@ -23,6 +24,9 @@ export default function Home() {
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <GeneralistApproach />
+      </ScrollAnimationWrapper>
+       <ScrollAnimationWrapper>
+        <TemplateLibrary />
       </ScrollAnimationWrapper>
        <ScrollAnimationWrapper>
         <IntegrationsHighlight />
