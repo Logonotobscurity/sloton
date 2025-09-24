@@ -1,6 +1,6 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
+import { GlowingCard } from './ui/glowing-card';
 
 const features = [
   {
@@ -40,11 +40,12 @@ export function GeneralistApproach() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto mt-16">
             {features.map((feature) => (
-                <Card key={feature.title} className="bg-secondary/20 backdrop-blur-sm transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                    <CardHeader>
-                        <CardTitle>{feature.title}</CardTitle>
+                <GlowingCard key={feature.title}>
+                  <div className="p-6">
+                    <CardHeader className="p-0">
+                        <CardTitle className="animate-color-change">{feature.title}</CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="p-0 pt-4">
                          <ul className="space-y-3">
                             {feature.details.map((detail) => (
                             <li key={detail} className="flex items-start gap-3">
@@ -54,7 +55,8 @@ export function GeneralistApproach() {
                             ))}
                         </ul>
                     </CardContent>
-                </Card>
+                    </div>
+                </GlowingCard>
             ))}
         </div>
       </div>

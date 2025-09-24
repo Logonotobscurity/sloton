@@ -1,4 +1,3 @@
-
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -103,12 +102,32 @@ export default {
           '0%': { backgroundPosition: '200% 0' },
           '100%': { backgroundPosition: '-200% 0' },
         },
+        'border-follow': {
+          '0%': { left: '0', top: '0', transform: 'translate(-50%, -50%)' },
+          '25%': { left: '100%', top: '0', transform: 'translate(-50%, -50%)' },
+          '50%': { left: '100%', top: '100%', transform: 'translate(-50%, -50%)' },
+          '75%': { left: '0', top: '100%', transform: 'translate(-50%, -50%)' },
+          '100%': { left: '0', top: '0', transform: 'translate(-50%, -50%)' },
+        },
+        'color-change': {
+          '0%, 100%': { color: 'hsl(var(--primary))' },
+          '33%': { color: 'hsl(var(--accent))' },
+          '66%': { color: '#ef4444' }, // Using a red as a third color
+        },
+        'border-color-change': {
+          '0%, 100%': { 'border-color': 'hsl(var(--primary))' },
+          '33%': { 'border-color': 'hsl(var(--accent))' },
+          '66%': { 'border-color': '#ef4444' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'infinite-scroll': 'infinite-scroll 50s linear infinite',
         shimmer: 'shimmer 2.5s infinite linear',
+        'border-follow': 'border-follow 5s linear infinite',
+        'color-change': 'color-change 5s linear infinite',
+        'border-color-change': 'border-color-change 5s linear infinite',
       },
     },
   },
