@@ -21,15 +21,6 @@ const features = [
         'Optimized Database Architecture',
     ]
   },
-  {
-    title: 'Full-Cycle Digital Transformation',
-     details: [
-        'End-to-End Technology Roadmap',
-        'Cloud Migration & Infrastructure Management',
-        'Legacy System Modernization',
-        'Cybersecurity & Compliance Strategy',
-    ]
-  },
 ];
 
 export function GeneralistApproach() {

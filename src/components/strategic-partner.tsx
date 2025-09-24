@@ -18,6 +18,8 @@ import {
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { TaskAutomationForm } from './task-automation-form';
 import { Button } from './ui/button';
+import { DialogFormWrapper } from './dialog-form-wrapper';
+import { CommunityLeadForm } from './community-lead-form';
 
 export function StrategicPartner() {
   return (
@@ -26,7 +28,7 @@ export function StrategicPartner() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
             <p className="text-sm font-normal uppercase tracking-widest text-primary">01/ Your Strategic Partner</p>
-            <h2 className="text-2xl md:text-4xl font-bold">A Clear Path to Digital Transformation</h2>
+            <h2 className="font-headline text-2xl md:text-4xl font-bold">A Clear Path to Digital Transformation</h2>
             <p className="text-muted-foreground md:text-lg">
               We provide a clear, structured pathway to integrating technology that drives real business results. Our engagement model is designed to deliver immediate value while building a foundation for long-term growth. See how our free, interactive tools can kickstart your journey.
             </p>
@@ -85,22 +87,16 @@ export function StrategicPartner() {
               </DialogContent>
             </Dialog>
             
-            <Dialog>
-                <DialogTrigger asChild>
-                   <Button variant="secondary" className="w-full">
-                       Or, Design a Specific Automation Task
-                   </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[600px] bg-background">
-                    <DialogHeader>
-                        <DialogTitle className="text-2xl flex items-center gap-2"><Calculator className="h-6 w-6 text-accent" /> Automation Task Designer</DialogTitle>
-                        <DialogDescription>
-                            Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.
-                        </DialogDescription>
-                    </DialogHeader>
-                    <TaskAutomationForm />
-                </DialogContent>
-            </Dialog>
+            <DialogFormWrapper
+              trigger={
+                <Button variant="secondary" className="w-full">
+                    Or, Design a Specific Automation Task
+                </Button>
+              }
+              title="Automation Task Designer"
+              description="Describe a workflow to generate a configured, optimized task design, complete with AI suggestions."
+              form={<TaskAutomationForm />}
+            />
           </div>
         </div>
       </div>

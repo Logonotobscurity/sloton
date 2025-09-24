@@ -27,7 +27,7 @@ export function TrainingCTA() {
           <div className="lg:col-span-1 space-y-4">
             <div className="flex items-center gap-3 text-primary">
               <GraduationCap className="h-8 w-8" />
-              <h2 className="text-2xl md:text-3xl font-bold">Advance Your Career</h2>
+              <h2 className="font-headline text-2xl md:text-3xl font-bold">Advance Your Career</h2>
             </div>
             <p className="text-md text-muted-foreground">
               Ready to master the most in-demand tech skills? Our expert-led training programs are designed to provide you with hands-on experience and a cutting-edge curriculum.

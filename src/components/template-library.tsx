@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -6,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ArrowLeft, ArrowRight, Home, TrendingUp, PlusSquare, Eye } from 'lucide-react';
 import { useCarousel, Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
+import { GatedFeatureModal } from './gated-feature-modal';
+import Link from 'next/link';
 
 const templates = [
   {
@@ -19,6 +22,7 @@ const templates = [
     icon: <Home className="h-6 w-6 text-purple-600" />,
     iconBg: "bg-purple-100 dark:bg-purple-900/50",
     title: '5S Auditing',
+    slug: '5s-auditing',
     description: 'A regular process for conducting 5S audits to maintain organization and eliminate waste.',
     isGenerator: false,
   },
@@ -26,13 +30,15 @@ const templates = [
     icon: <TrendingUp className="h-6 w-6 text-indigo-600" />,
     iconBg: "bg-indigo-100 dark:bg-indigo-900/50",
     title: 'A/B Testing',
+    slug: 'ab-testing',
     description: 'This process standardizes experimentation for business growth.',
     isGenerator: false,
   },
   {
     icon: <Home className="h-6 w-6 text-purple-600" />,
     iconBg: "bg-purple-100 dark:bg-purple-900/50",
-    title: '5S Auditing',
+    title: 'Accounts Payable',
+    slug: 'accounts-payable',
     description: 'A regular process for conducting 5S audits to maintain organization and eliminate waste.',
     isGenerator: false,
   },
@@ -95,12 +101,19 @@ export function TemplateLibrary() {
                           </div>
                         ) : (
                           <div className="flex items-center gap-2">
-                            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
-                              <Eye className="mr-2 h-4 w-4 text-amber-500" /> Preview
+                             <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                                <Link href={`/automation/${template.slug}`}>
+                                    <Eye className="mr-2 h-4 w-4 text-amber-500" /> Preview
+                                </Link>
                             </Button>
-                            <Button variant="outline" size="sm" className="rounded-full border-amber-500/50 text-amber-600 hover:bg-amber-500/10 hover:text-amber-500">
-                              Use template
-                            </Button>
+                             <GatedFeatureModal
+                                trigger={
+                                    <Button variant="outline" size="sm" className="rounded-full border-amber-500/50 text-amber-600 hover:bg-amber-500/10 hover:text-amber-500">
+                                        Use template
+                                    </Button>
+                                }
+                                featureName="Workflow Customization"
+                            />
                           </div>
                         )}
                       </CardFooter>
