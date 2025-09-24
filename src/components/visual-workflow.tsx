@@ -1,6 +1,7 @@
 
 "use client";
 
+import React from "react";
 import { AutomateTaskDesignOutput } from "@/ai/flows/automated-task-design";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
