@@ -33,7 +33,7 @@ export default function ContactPage() {
     <div className="bg-background">
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold">Get In Touch</h1>
+          <h1 className="text-3xl md:text-5xl font-bold font-headline">Get In Touch</h1>
           <p className="mt-4 text-md md:text-lg text-muted-foreground">
             We're here to help you navigate your digital transformation journey. Whether you have a specific project in mind, a question about our services, or just want to explore possibilities, our team is ready to connect. Let's start a conversation and build something great together.
           </p>

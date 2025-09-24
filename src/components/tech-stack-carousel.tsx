@@ -39,7 +39,7 @@ export function TechStackCarousel() {
   return (
     <section className="py-24 sm:py-32 bg-secondary/20 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold">The Technologies We Master</h2>
+        <h2 className="text-3xl md:text-4xl font-bold font-headline">The Technologies We Master</h2>
         <p className="mt-4 text-muted-foreground md:text-lg max-w-2xl mx-auto">
           We leverage a modern, robust, and scalable tech stack to build enterprise-grade solutions that stand the test of time and deliver real business value.
         </p>

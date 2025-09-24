@@ -24,7 +24,7 @@ export default function ABTestingPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold">A/B Testing & Conversion Optimization</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-headline">A/B Testing & Conversion Optimization</h1>
             <p className="text-md md:text-lg text-muted-foreground">
               Stop guessing what works and start knowing. Our A/B testing tool allows you to test variations of your headlines, buttons, images, and layouts to discover what truly drives conversions. Make small changes that lead to big results.
             </p>
@@ -60,7 +60,7 @@ export default function ABTestingPage() {
         </section>
 
          <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-secondary/30 rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold">Ready to Improve Your Conversion Rates?</h2>
+            <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Improve Your Conversion Rates?</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how our A/B testing and optimization services can help you achieve your business goals. Schedule a free consultation today.
             </p>

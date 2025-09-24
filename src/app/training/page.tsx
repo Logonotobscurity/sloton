@@ -127,7 +127,7 @@ export default function TrainingPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-24">
         
         <section className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold">Community &amp; Innovation</h1>
+          <h1 className="text-3xl md:text-5xl font-bold font-headline">Community &amp; Innovation</h1>
           <p className="mt-4 text-md md:text-lg text-muted-foreground">
             We believe in building more than just technology; we're dedicated to building skills, fostering leadership, and making a positive community impact. Explore our training programs and our commitment to ethical innovation.
           </p>
@@ -135,7 +135,7 @@ export default function TrainingPage() {
 
         <section id="training" className="scroll-mt-20">
             <div className="text-center mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold">Our Training Programs</h2>
+                <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Training Programs</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">Choose a program that aligns with your career goals and start your journey today.</p>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -194,7 +194,7 @@ export default function TrainingPage() {
 
         <section id="impact" className="py-16 md:py-24 border-t scroll-mt-20">
             <div className="text-center mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold">Leadership &amp; Community Impact</h2>
+                <h2 className="text-2xl md:text-4xl font-bold font-headline">Leadership &amp; Community Impact</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">Our commitment to innovation extends beyond our client work. We actively lead and contribute to projects that drive positive change.</p>
             </div>
              <div className="grid lg:grid-cols-2 gap-8">
@@ -213,7 +213,7 @@ export default function TrainingPage() {
         </section>
 
         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-secondary/30 rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold">Ready to Start a Conversation?</h2>
+            <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Start a Conversation?</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Whether you're interested in a training program or want to collaborate on an impact project, we'd love to hear from you.
             </p>

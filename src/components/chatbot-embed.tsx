@@ -10,7 +10,7 @@ export function ChatbotEmbed() {
     <section id="gigpilot-chat" className="py-16 md:py-24 scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold">Chat with GIGPILOT</h2>
+          <h2 className="text-2xl md:text-4xl font-bold font-headline">Chat with GIGPILOT</h2>
           <p className="mt-4 text-md md:text-lg text-muted-foreground">
             It's one of our AI Agents we are currently testing. Its capabilities are still being tested, so feel free to enjoy it!
           </p>

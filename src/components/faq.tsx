@@ -74,7 +74,7 @@ export function Faq() {
       />
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
+          <h2 className="text-2xl md:text-4xl font-bold font-headline">Frequently Asked Questions</h2>
           <p className="mt-4 text-md md:text-lg text-muted-foreground">
             Have questions? We have answers. Here are some of the most common inquiries we receive from prospective partners.
           </p>

@@ -14,7 +14,7 @@ export default function AutomationPage() {
     <div className="bg-background">
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-5xl font-bold">Intelligent Automation Task Designer</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-headline">Intelligent Automation Task Designer</h1>
             <p className="text-md md:text-lg text-muted-foreground mt-4">
               Describe a workflow to generate a configured, optimized task design, complete with AI suggestions. Go from idea to a fully-structured automation plan in seconds.
             </p>
@@ -32,4 +32,3 @@ export default function AutomationPage() {
     </div>
   );
 }
-

@@ -56,7 +56,7 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-16 md:space-y-20">
         
         <section className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold">About LOG_ON</h1>
+          <h1 className="text-3xl md:text-5xl font-bold font-headline">About LOG_ON</h1>
           <p className="mt-4 text-md md:text-lg text-muted-foreground">
             WE ARE GENERALISTS. Our expertise isn't confined to a single niche. We are technologists with a broad and deep understanding of the entire digital ecosystem. This allows us to connect dots that specialists might miss, creating integrated solutions that are more robust, efficient, and innovative. We architect, build, and manage systems that drive real-world results, from AI-powered automation to scalable cloud infrastructures and custom web applications. Our holistic view ensures every component works in harmony to achieve your strategic goals.
           </p>
@@ -64,7 +64,7 @@ export default function AboutPage() {
         
         <section>
           <div className="text-center mb-12">
-             <h2 className="text-2xl md:text-4xl font-bold">Our Philosophy</h2>
+             <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Philosophy</h2>
              <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">Our core values guide every decision we make and every solution we build.</p>
           </div>
            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -80,7 +80,7 @@ export default function AboutPage() {
 
         <section>
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-4xl font-bold flex items-center justify-center gap-3"><Users className="h-8 w-8 text-primary" /> Meet Our Team</h2>
+            <h2 className="text-2xl md:text-4xl font-bold flex items-center justify-center gap-3 font-headline"><Users className="h-8 w-8 text-primary" /> Meet Our Team</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">A dynamic duo of technology experts dedicated to delivering innovative solutions and exceptional service to our clients.</p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -108,7 +108,7 @@ export default function AboutPage() {
         </section>
         
         <section className="text-center max-w-3xl mx-auto border-t border-border pt-16">
-            <h2 className="text-2xl md:text-4xl font-bold flex items-center justify-center gap-3"><Briefcase className="h-8 w-8 text-primary" /> Join Our Team</h2>
+            <h2 className="text-2xl md:text-4xl font-bold flex items-center justify-center gap-3 font-headline"><Briefcase className="h-8 w-8 text-primary" /> Join Our Team</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground">
                 We're always looking for talented individuals who are passionate about technology and innovation. Join us in shaping the future of digital transformation in Nigeria.
             </p>

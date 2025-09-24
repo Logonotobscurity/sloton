@@ -48,7 +48,7 @@ export default function ChatbotsPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold">AI Chatbots & Virtual Assistants</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-headline">AI Chatbots & Virtual Assistants</h1>
             <p className="text-md md:text-lg text-muted-foreground">
               Engage every customer, 24/7. We design and build intelligent, AI-powered chatbots that integrate seamlessly with your website, WhatsApp, and other platforms. Automate customer service, qualify leads, and drive sales while your team focuses on what matters most.
             </p>
@@ -85,7 +85,7 @@ export default function ChatbotsPage() {
 
         <section className="py-16 md:py-24">
             <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold">Our Chatbot Development Services</h2>
+                <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Chatbot Development Services</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground">
                     From simple FAQ bots to complex, integrated virtual assistants, we offer end-to-end development.
                 </p>
@@ -112,7 +112,7 @@ export default function ChatbotsPage() {
         />
 
          <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold">Ready to Automate Your Conversations?</h2>
+            <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Automate Your Conversations?</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how a custom chatbot can revolutionize your customer engagement. Schedule a free consultation with our AI experts today.
             </p>

@@ -26,14 +26,14 @@ export default function InsightsPage() {
     <div className="bg-background">
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold">Insights & Articles</h1>
+          <h1 className="text-3xl md:text-5xl font-bold font-headline">Insights & Articles</h1>
           <p className="mt-4 text-md md:text-lg text-muted-foreground">
             Welcome to our hub for expert analysis and thought leadership. Here, we delve into the technologies and strategies that are shaping the future of business. Stay ahead of the curve with our in-depth articles on everything from artificial intelligence to digital transformation.
           </p>
         </div>
         
         <div className="my-16 md:my-24 max-w-4xl mx-auto">
-             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Topics We Cover</h2>
+             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 font-headline">Topics We Cover</h2>
              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                 {topics.map(topic => (
                     <div key={topic} className="flex items-center gap-3">

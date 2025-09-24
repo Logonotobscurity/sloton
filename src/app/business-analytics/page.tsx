@@ -48,7 +48,7 @@ export default function BusinessAnalyticsPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold">Business Analytics & Intelligence</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-headline">Business Analytics & Intelligence</h1>
             <p className="text-md md:text-lg text-muted-foreground">
               Turn your data into your most valuable asset. We help you move from simply collecting data to actively using it to drive strategy, optimize operations, and uncover new opportunities. Our custom business analytics solutions provide the clarity you need to make confident, data-driven decisions.
             </p>
@@ -85,7 +85,7 @@ export default function BusinessAnalyticsPage() {
 
         <section className="py-16 md:py-24">
             <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold">Our Business Analytics Services</h2>
+                <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Business Analytics Services</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground">
                     We offer end-to-end analytics services, from data integration to strategic reporting.
                 </p>
@@ -112,7 +112,7 @@ export default function BusinessAnalyticsPage() {
         />
 
          <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold">Ready to Unlock Your Data's Potential?</h2>
+            <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Unlock Your Data's Potential?</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how our custom analytics solutions can provide the insights you need to get ahead. Schedule a free consultation today.
             </p>

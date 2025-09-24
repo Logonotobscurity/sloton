@@ -160,7 +160,7 @@ export default function UseCasesPage() {
     <div className="bg-background">
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold">Automating Industries</h1>
+          <h1 className="text-3xl md:text-5xl font-bold font-headline">Automating Industries</h1>
           <p className="mt-4 text-md md:text-lg text-muted-foreground">
             Explore detailed examples of how LOG_ON's technology solutions drive success across various sectors. We tailor our services to meet the unique demands and challenges of your industry.
           </p>

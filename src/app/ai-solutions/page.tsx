@@ -48,7 +48,7 @@ export default function AiSolutionsPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold">Custom AI Solutions to Power Your Business</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-headline">Custom AI Solutions to Power Your Business</h1>
             <p className="text-md md:text-lg text-muted-foreground">
               At LOG_ON, we don't just use AI—we build it. We specialize in creating bespoke artificial intelligence and machine learning solutions that integrate seamlessly with your operations to solve your most complex challenges. Our expert team partners with you to transform your data into a strategic asset, driving efficiency, innovation, and measurable growth.
             </p>
@@ -85,7 +85,7 @@ export default function AiSolutionsPage() {
 
         <section className="py-16 md:py-24">
             <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold">Our AI Development Services</h2>
+                <h2 className="text-2xl md:text-4xl font-bold font-headline">Our AI Development Services</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground">
                     We offer a comprehensive suite of AI services designed to address your specific needs and deliver tangible results.
                 </p>
@@ -112,7 +112,7 @@ export default function AiSolutionsPage() {
         />
 
          <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold">Ready to Unlock Your AI Potential?</h2>
+            <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Unlock Your AI Potential?</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how our custom AI solutions can revolutionize your business. Schedule a free, no-obligation consultation with our AI experts today.
             </p>

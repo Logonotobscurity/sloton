@@ -42,7 +42,7 @@ export default function WebDevelopmentPage() {
             <div className="flex justify-center mb-4">
                 <Code className="h-12 w-12 md:h-16 md:w-16 text-primary" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold">Web & Custom Development</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-headline">Web & Custom Development</h1>
             <p className="mt-4 text-md md:text-lg text-muted-foreground">
                 We specialize in crafting custom web projects tailored to your specific business needs. Drawing on our deep experience in IT solutions and AI automation, we build scalable, secure, and optimized digital platforms designed to help you grow.
             </p>
@@ -71,7 +71,7 @@ export default function WebDevelopmentPage() {
         />
 
          <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold">Have a Project in Mind?</h2>
+            <h2 className="text-2xl md:text-4xl font-bold font-headline">Have a Project in Mind?</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Whether you're an established publisher, a growing e-commerce brand, or a corporation looking to enhance your digital presence, we're here to help.
             </p>

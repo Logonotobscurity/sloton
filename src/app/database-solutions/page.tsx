@@ -48,7 +48,7 @@ export default function DatabaseSolutionsPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold">Database & Data Management Solutions</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-headline">Database & Data Management Solutions</h1>
             <p className="text-md md:text-lg text-muted-foreground">
               Your data is the backbone of your business. We design, build, and manage secure, scalable, and high-performance database systems that ensure your data is always available, consistent, and protected. From architecture to optimization, we provide end-to-end data solutions.
             </p>
@@ -85,7 +85,7 @@ export default function DatabaseSolutionsPage() {
 
         <section className="py-16 md:py-24">
             <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold">Our Database Services</h2>
+                <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Database Services</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground">
                     We offer a complete range of services to manage the entire lifecycle of your data.
                 </p>
@@ -112,7 +112,7 @@ export default function DatabaseSolutionsPage() {
         />
 
          <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold">Is Your Data Working For You?</h2>
+            <h2 className="text-2xl md:text-4xl font-bold font-headline">Is Your Data Working For You?</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how our database expertise can improve your application performance and secure your data. Schedule a free consultation today.
             </p>
