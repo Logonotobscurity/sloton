@@ -4,11 +4,14 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { templates } from '@/lib/workflow-templates';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog } from 'lucide-react';
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata } from 'next';
 import { IconAdminOps, IconSupport, IconDevelopment, IconFinance, IconHealthcare, IconHumanResources, IconItOperations, IconMarketing, IconProcurement, IconRealEstate, IconSales, IconGeneral } from '@/lib/icons';
+import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { TaskAutomationForm } from '@/components/task-automation-form';
+import { cn } from '@/lib/utils';
 
 const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string, color: string } } = {
   'Finance': { icon: IconFinance, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
@@ -94,7 +97,22 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                 <h2 className="text-2xl font-bold">Ready to use this template?</h2>
                 <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Streamline your business process by deploying our library workflow template and then customizing it to best meet your needs.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-                    <Button size="lg">Use Template</Button>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                           <Button size="lg">Use Template</Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[600px] bg-background">
+                            <DialogHeader>
+                                <DialogTitle className="text-2xl flex items-center gap-2"><Cog className="h-6 w-6 text-accent" /> Customize Workflow</DialogTitle>
+                                <DialogDescription>
+                                You are using the "{template.name}" template. Feel free to modify the description below to fit your needs.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <TaskAutomationForm 
+                                initialValues={{ workflowDescription: template.description || '' }}
+                            />
+                        </DialogContent>
+                    </Dialog>
                     <Button size="lg" variant="secondary" asChild>
                         <Link href="https://calendly.com/" target="_blank">Book a Demo</Link>
                     </Button>
@@ -107,21 +125,44 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                     {relatedTemplates.map(related => {
                        const style = categoryStyles[related.category] || categoryStyles['General'];
                        return (
-                          <Link key={related.slug} href={`/automation/${related.slug}`} className="block">
-                              <Card className="h-full hover:border-primary transition-colors bg-background/50 group">
-                                  <CardHeader className="flex flex-row items-center gap-4">
-                                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 ${style.iconBg}`}>
-                                          <style.icon className={`h-6 w-6 ${style.color}`} />
-                                      </div>
-                                      <div>
-                                        <CardTitle className="text-lg group-hover:text-primary transition-colors">{related.name}</CardTitle>
-                                      </div>
-                                  </CardHeader>
-                                  <CardContent>
-                                      <CardDescription className="line-clamp-2">{related.description}</CardDescription>
-                                  </CardContent>
-                              </Card>
-                          </Link>
+                          <Card key={related.slug} className="bg-background/50 flex flex-col p-6 rounded-xl border-border/50 group transition-colors duration-300 hover:border-primary">
+                            <CardHeader className="p-0">
+                              <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center", style.iconBg)}>
+                                <style.icon className={cn("h-6 w-6", style.color)} />
+                              </div>
+                              <CardTitle className="pt-4 text-xl font-semibold">{related.name}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-0 flex-grow pt-2">
+                              <p className="text-muted-foreground leading-relaxed line-clamp-3">{related.description}</p>
+                            </CardContent>
+                            <CardFooter className="p-0 pt-6">
+                                <div className="flex items-center gap-2">
+                                    <Button asChild variant="outline" size="sm" className="rounded-full hover:bg-secondary">
+                                        <Link href={`/automation/${related.slug}`}>
+                                            <Eye className="mr-2 h-4 w-4" /> Preview
+                                        </Link>
+                                    </Button>
+                                    <Dialog>
+                                        <DialogTrigger asChild>
+                                            <Button variant="outline" size="sm" className="rounded-full bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
+                                                Use template
+                                            </Button>
+                                        </DialogTrigger>
+                                        <DialogContent className="sm:max-w-[600px] bg-background">
+                                            <DialogHeader>
+                                                <DialogTitle className="text-2xl flex items-center gap-2"><Cog className="h-6 w-6 text-accent" /> Customize Workflow</DialogTitle>
+                                                <DialogDescription>
+                                                You are using the "{related.name}" template. Feel free to modify the description below to fit your needs.
+                                                </DialogDescription>
+                                            </DialogHeader>
+                                            <TaskAutomationForm 
+                                                initialValues={{ workflowDescription: related.description || '' }}
+                                            />
+                                        </DialogContent>
+                                    </Dialog>
+                                </div>
+                            </CardFooter>
+                          </Card>
                        )
                     })}
                  </div>
