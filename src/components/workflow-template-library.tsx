@@ -26,12 +26,12 @@ import { TaskAutomationForm } from './task-automation-form';
 import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink, PaginationEllipsis } from '@/components/ui/pagination';
 
 const categories = [
+  { name: 'Show All', icon: IconGeneral, color: 'text-gray-600', borderColor: 'border-gray-300', bgColor: 'hover:bg-gray-50' },
   { name: 'Finance', icon: IconFinance, color: 'text-green-600', borderColor: 'border-green-300', bgColor: 'hover:bg-green-50' },
   { name: 'Human Resources', icon: IconHumanResources, color: 'text-blue-600', borderColor: 'border-blue-300', bgColor: 'hover:bg-blue-50' },
   { name: 'Sales', icon: IconSales, color: 'text-orange-600', borderColor: 'border-orange-300', bgColor: 'hover:bg-orange-50' },
   { name: 'Marketing', icon: IconMarketing, color: 'text-purple-600', borderColor: 'border-purple-300', bgColor: 'hover:bg-purple-50' },
   { name: 'Real Estate', icon: IconRealEstate, color: 'text-violet-600', borderColor: 'border-violet-300', bgColor: 'hover:bg-violet-50' },
-  { name: 'General Business', icon: IconGeneral, color: 'text-gray-600', borderColor: 'border-gray-300', bgColor: 'hover:bg-gray-50' },
   { name: 'IT Operations', icon: IconItOperations, color: 'text-pink-600', borderColor: 'border-pink-300', bgColor: 'hover:bg-pink-50' },
   { name: 'Procurement', icon: IconProcurement, color: 'text-indigo-600', borderColor: 'border-indigo-300', bgColor: 'hover:bg-indigo-50' },
   { name: 'Development', icon: IconDevelopment, color: 'text-red-600', borderColor: 'border-red-300', bgColor: 'hover:bg-red-50' },
@@ -46,7 +46,6 @@ const categoryIconMap: { [key: string]: React.ElementType } = {
   'Sales': IconSales,
   'Marketing': IconMarketing,
   'Real Estate': IconRealEstate,
-  'General Business': IconGeneral,
   'IT Operations': IconItOperations,
   'Procurement': IconProcurement,
   'Development': IconDevelopment,
@@ -63,7 +62,11 @@ export function WorkflowTemplateLibrary() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const handleCategoryClick = (category: string) => {
-    setSelectedCategory(category === selectedCategory ? 'All' : category);
+    if (category === 'Show All') {
+        setSelectedCategory('All');
+    } else {
+        setSelectedCategory(category === selectedCategory ? 'All' : category);
+    }
     setCurrentPage(1); // Reset to first page on filter change
   };
 
@@ -101,10 +104,10 @@ export function WorkflowTemplateLibrary() {
               <Button
                 key={name}
                 variant="outline"
-                className={`rounded-full border ${selectedCategory === name ? 'bg-primary text-primary-foreground' : 'bg-background'} ${borderColor} ${bgColor} transition-colors`}
+                className={`rounded-full border ${(selectedCategory === name || (name === 'Show All' && selectedCategory === 'All')) ? 'bg-primary text-primary-foreground' : 'bg-background'} ${borderColor} ${bgColor} transition-colors`}
                 onClick={() => handleCategoryClick(name)}
               >
-                <Icon className={`mr-2 h-4 w-4 ${color}`} />
+                <Icon className={`mr-2 h-4 w-4 ${(selectedCategory === name || (name === 'Show All' && selectedCategory === 'All')) ? '' : color}`} />
                 {name}
               </Button>
             ))}

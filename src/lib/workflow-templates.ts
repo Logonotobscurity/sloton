@@ -1,6 +1,6 @@
 
 export interface Template {
-  category: 'Finance' | 'Human Resources' | 'Sales' | 'Marketing' | 'Real Estate' | 'General Business' | 'IT Operations' | 'Procurement' | 'Development' | 'Healthcare' | 'Admin and Ops' | 'CS and Support';
+  category: 'Finance' | 'Human Resources' | 'Sales' | 'Marketing' | 'Real Estate' | 'IT Operations' | 'Procurement' | 'Development' | 'Healthcare' | 'Admin and Ops' | 'CS and Support';
   name: string;
   description: string;
 }
@@ -331,38 +331,6 @@ export const templates: Template[] = [
     description: 'Registers, manages, and updates tenant information while controlling lease payments.'
   },
 
-  // General Business Templates
-  {
-    category: 'General Business',
-    name: '5S Auditing',
-    description: 'A regular process for conducting 5S audits to maintain organization and eliminate waste in workplace operations.'
-  },
-  {
-    category: 'General Business',
-    name: 'Business Contract Analysis',
-    description: 'Creates and manages company contracts effectively through structured analysis and management processes.'
-  },
-  {
-    category: 'General Business',
-    name: 'Business Process Mapping',
-    description: 'Supports mapping, evaluating, and managing business processes for optimal efficiency and documentation.'
-  },
-  {
-    category: 'General Business',
-    name: 'Commodities Strategy',
-    description: 'Organizes data for forecasting market trends in a simple kanban view for traders and analysts.'
-  },
-  {
-    category: 'General Business',
-    name: 'Competitive Analysis',
-    description: 'Investigates competitors, analyzes their strategies, and documents their strengths and weaknesses for strategic planning.'
-  },
-  {
-    category: 'General Business',
-    name: 'Design Thinking',
-    description: 'A template for solving complex problems using Herbert Simon\'s Design Thinking methodology through structured innovation processes.'
-  },
-
   // IT Operations Templates
   {
     category: 'IT Operations',
@@ -641,7 +609,7 @@ export const templates: Template[] = [
     description: 'A standardized workflow to manage customer churn effectively, offering a good experience even up until the last engagement.'
   },
   {
-    category: 'CS and Support',
+    category: 'CS' and Support',
     name: 'Class Scheduling',
     description: 'This business process is designed to assist in the creation and management of class schedules.'
   },
@@ -694,6 +662,11 @@ export const templates: Template[] = [
     category: 'CS and Support',
     name: 'Lodging Requests',
     description: 'This process is aimed at facilitating lodging requisition in hotels or Airbnb.'
+  },
+  {
+    category: 'Marketing',
+    name: 'Marketing Agency Client Onboarding',
+    description: 'This process is designed to help marketing agencies flawlessly welcome new clients, ensuring that all small details are executed perfectly to build a loyal and satisfied long-term customer base.'
   },
   {
     category: 'CS and Support',
