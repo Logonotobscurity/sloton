@@ -293,7 +293,7 @@ export const templates: Template[] = [
         { name: 'Anonymous Survey Deployment', description: 'HR deploys a confidential feedback survey (e.g., an eNPS or engagement survey) to all employees via email or a platform like Slack.' },
         { name: 'Automated Data Collection & Aggregation', description: 'The system collects and aggregates anonymous responses in real-time, ensuring employee privacy.' },
         { name: 'Results Analysis & Dashboard', description: 'HR analyzes the survey results, which are visualized in a dashboard, to identify trends, departmental hotspots, and key drivers of engagement or dissatisfaction.' },
-        { name:ag-plan', description: 'Leadership and department heads use the insights to create and communicate transparent action plans to address the feedback, closing the loop with employees.' },
+        { name: 'Action Plan', description: 'Leadership and department heads use the insights to create and communicate transparent action plans to address the feedback, closing the loop with employees.' },
     ]
   },
   {
@@ -920,7 +920,7 @@ export const templates: Template[] = [
     steps: [
       { name: 'Incident Detected & Logged', description: 'An IT incident (e.g., a system is down, an application is slow) is detected by monitoring tools or reported by a user, and a ticket is automatically created in the ITSM tool.' },
       { name: 'Categorization, Prioritization & Initial Diagnosis', description: 'The incident is categorized and assigned a priority based on its business impact and urgency. The service desk performs an initial diagnosis.' },
-      { name:gation', description: 'If the service desk cannot resolve the incident, it is escalated to a specialized Level 2 or Level 3 support team for in-depth investigation and diagnosis.' },
+      { name: 'Escalation & Investigation', description: 'If the service desk cannot resolve the incident, it is escalated to a specialized Level 2 or Level 3 support team for in-depth investigation and diagnosis.' },
       { name: 'Resolution & Recovery', description: 'A fix or workaround is implemented, and service is restored. The resolution is documented in the incident ticket.' },
       { name: 'Incident Closure & User Confirmation', description: 'After confirming with the user that normal service has been restored, the incident ticket is formally closed. A knowledge base article may be created from the resolution.' },
     ]
@@ -1241,7 +1241,7 @@ export const templates: Template[] = [
         { name: 'Define Requirements & Create Scorecard', description: 'A cross-functional team creates a list of "must-have" and "nice-to-have" features, as well as technical and security requirements. These are turned into a weighted scorecard.' },
         { name: 'Identify Vendors & Shortlist', description: 'Research and create a longlist of potential vendors. Send out a Request for Information (RFI) to narrow this down to a shortlist of 3-5 vendors.' },
         { name: 'Conduct Demos & Score Vendors', description: 'Schedule scripted demos with each shortlisted vendor, where they must show how their solution meets your specific requirements. The team scores each vendor on the scorecard during the demo.' },
-        { name:g & Selection', description: 'Conduct reference calls with existing customers of the top 2 vendors. Use the final scores and reference feedback to select the winning vendor and proceed to contract negotiation.' },
+        { name: 'Reference Checking & Selection', description: 'Conduct reference calls with existing customers of the top 2 vendors. Use the final scores and reference feedback to select the winning vendor and proceed to contract negotiation.' },
     ]
   },
   {
@@ -1711,7 +1711,7 @@ export const templates: Template[] = [
       purpose: 'This workflow helps medical offices manage patient appointment scheduling in an efficient and patient-friendly manner. It provides a structured way for receptionists to book new appointments, manage reschedules, and send automated reminders to patients. This helps to reduce costly no-shows, keep the office schedule running smoothly, and improve the overall patient experience.',
       steps: [
         { name: 'Patient Request for Appointment', description: 'A patient calls or uses an online portal to request an appointment with a specific provider for a specific reason.' },
-        { name:ag & Scheduling', description: 'The receptionist finds an available slot in the provider\'s calendar that matches the patient\'s needs and schedules the appointment in the Practice Management System (PMS).' },
+        { name: 'Booking & Scheduling', description: 'The receptionist finds an available slot in the provider\'s calendar that matches the patient\'s needs and schedules the appointment in the Practice Management System (PMS).' },
         { name: 'Automated Appointment Reminders', description: 'The system automatically sends email and/or SMS reminders to the patient before their appointment (e.g., 72 hours and 24 hours before) with an easy way to confirm or request a reschedule.' },
         { name: 'Patient Check-in & Intake Forms', description: 'When the patient arrives for their appointment, they check in. New patients may have been sent digital intake forms to complete before their visit.' },
       ]
@@ -1919,7 +1919,7 @@ export const templates: Template[] = [
       steps: [
           { name: 'New Signal / Data Point', description: 'A new piece of market information (e.g., a weather report, a geopolitical event, an industry report) is added as a card to the "Incoming Signals" column.' },
           { name: 'Analysis & Hypothesis', description: 'An analyst researches the signal, assesses its potential impact on a specific commodity, and forms a hypothesis (e.g., "This drought will likely increase wheat prices").' },
-          { name:g Strategy Formulation', description: 'Based on the analysis, a potential trading strategy is formulated, including entry points, exit points, and risk management parameters.' },
+          { name: 'Trading Strategy Formulation', description: 'Based on the analysis, a potential trading strategy is formulated, including entry points, exit points, and risk management parameters.' },
           { name: 'Execution & Monitoring', description: 'If the strategy is approved, it is executed by a trader. The performance of the trade is then monitored against the original hypothesis.' },
       ]
   },
