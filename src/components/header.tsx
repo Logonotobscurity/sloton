@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone, Code, MessageSquare, BarChart3, Database } from 'lucide-react';
+import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone, Code, MessageSquare, BarChart3, Database, Cog } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -22,6 +22,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './theme-toggle';
+import { IconFinance, IconHumanResources, IconSales, IconMarketing, IconItOperations } from '@/lib/icons';
 
 const mainNavItems = [
   { href: '/training', label: 'Training', icon: <GraduationCap className="h-5 w-5" /> },
@@ -90,11 +91,36 @@ const useCasesNavItems = [
 ]
 
 const automationTemplatesNavItems = [
-    { href: '/automation?category=Finance', label: 'Finance Templates' },
-    { href: '/automation?category=Human+Resources', label: 'HR Templates' },
-    { href: '/automation?category=Sales', label: 'Sales Templates' },
-    { href: '/automation?category=Marketing', label: 'Marketing Templates' },
-    { href: '/automation?category=IT+Operations', label: 'IT Operations Templates' },
+    { 
+        href: '/automation?category=Finance', 
+        label: 'Finance',
+        description: 'Automate invoices, expense reports, and budgeting.',
+        icon: <IconFinance className="h-5 w-5 text-primary" />
+    },
+    { 
+        href: '/automation?category=Human+Resources', 
+        label: 'Human Resources',
+        description: 'Streamline onboarding, offboarding, and payroll.',
+        icon: <IconHumanResources className="h-5 w-5 text-primary" />
+    },
+    { 
+        href: '/automation?category=Sales', 
+        label: 'Sales',
+        description: 'Manage leads, proposals, and contract renewals.',
+        icon: <IconSales className="h-5 w-5 text-primary" />
+    },
+    { 
+        href: '/automation?category=Marketing', 
+        label: 'Marketing',
+        description: 'Coordinate campaigns and client onboarding.',
+        icon: <IconMarketing className="h-5 w-5 text-primary" />
+    },
+    { 
+        href: '/automation?category=IT+Operations', 
+        label: 'IT Operations',
+        description: 'Handle access requests, incident management, and asset tracking.',
+        icon: <IconItOperations className="h-5 w-5 text-primary" />
+    },
 ];
 
 
@@ -231,17 +257,35 @@ export function Header() {
                        </span>
                     </NavLink>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
-                        <div className="bg-background rounded-lg shadow-2xl border w-60">
-                            <div className="p-2">
+                        <div className="bg-background rounded-lg shadow-2xl border w-[600px] p-6 grid grid-cols-2 gap-x-8 gap-y-6">
+                            <div className="space-y-4">
+                                <h4 className="font-semibold text-foreground">Workflow Templates</h4>
                                 {automationTemplatesNavItems.map(item => (
-                                    <Link key={item.label} href={item.href} className="block px-4 py-2 text-sm rounded-md text-foreground hover:bg-secondary hover:text-primary">
-                                       {item.label}
+                                    <Link key={item.label} href={item.href} className="flex items-start gap-4 group/item">
+                                        <div className="bg-secondary/50 p-2 rounded-md group-hover/item:bg-primary/10 transition-colors">{item.icon}</div>
+                                        <div>
+                                            <p className="font-semibold text-foreground group-hover/item:text-primary transition-colors">{item.label}</p>
+                                            <p className="text-xs text-muted-foreground">{item.description}</p>
+                                        </div>
                                     </Link>
                                 ))}
-                                 <div className="border-t my-2"></div>
-                                 <Link href="/automation" className="block px-4 py-2 text-sm font-semibold rounded-md text-primary hover:bg-secondary">
-                                   View All Templates
+                                <Link href="/automation" className="text-sm font-semibold text-primary flex items-center group mt-4">
+                                    View All Templates <ArrowRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                                 </Link>
+                            </div>
+                             <div className="bg-secondary/50 rounded-lg p-6 flex flex-col justify-between">
+                                 <div>
+                                    <h4 className="font-semibold text-foreground flex items-center gap-2">
+                                        <Cog className="h-5 w-5 text-accent" />
+                                        AI Workflow Generator
+                                    </h4>
+                                    <p className="text-sm text-muted-foreground mt-2">
+                                        Can't find a template? Describe your process and our AI will design a custom workflow for you in seconds.
+                                    </p>
+                                 </div>
+                                <Button asChild variant="secondary" className="mt-4">
+                                    <Link href="/automation">Create a Custom Workflow</Link>
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -306,8 +350,8 @@ export function Header() {
                                 <AccordionContent className="pl-4">
                                      <MobileNavLink href="/automation" icon={<Zap className="h-5 w-5" />}>Automation Hub</MobileNavLink>
                                      {automationTemplatesNavItems.map((item) => (
-                                        <MobileNavLink key={item.label} href={item.href} icon={<Zap className="h-5 w-5" />}>
-                                            {item.label}
+                                        <MobileNavLink key={item.label} href={item.href} icon={item.icon}>
+                                            {item.label} Templates
                                         </MobileNavLink>
                                     ))}
                                 </AccordionContent>
@@ -340,3 +384,5 @@ export function Header() {
     </header>
   );
 }
+
+    
