@@ -19,6 +19,7 @@ import { Progress } from '@/components/ui/progress';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from './ui/card';
 import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { ArrowIcon } from './ui/arrow-icon';
 
 const formSchema = z.object({
   businessNeeds: z.string().min(20, 'Please describe your business needs in at least 20 characters.'),
@@ -201,7 +202,7 @@ export function SolutionRecommendationForm() {
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild>
+            <Button asChild className="group flex justify-center gap-2 items-center">
                 <Link href="https://calendly.com/" target="_blank">
                     <Calendar className="mr-2 h-4 w-4" /> Book a Free Consultation
                 </Link>
@@ -361,12 +362,12 @@ export function SolutionRecommendationForm() {
             )}
 
             {step < 3 ? (
-                <Button type="button" onClick={handleNext} className={step === 1 ? "w-full" : ""}>
+                <Button type="button" onClick={handleNext} className="group flex justify-center gap-2 items-center">
                     Next
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowIcon />
                 </Button>
             ) : (
-                <Button type="submit" disabled={loading} className="w-full">
+                <Button type="submit" disabled={loading} className="group flex justify-center gap-2 items-center w-full">
                     {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
                     Generate My Free Report
                 </Button>

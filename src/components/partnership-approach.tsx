@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { CaseStudiesCarousel } from "./case-studies-carousel";
+import { ArrowIcon } from "./ui/arrow-icon";
 
 const partners = [
     { name: "Google Cloud Partner", logo: "https://img.icons8.com/color/96/google-cloud.png", dataAiHint: "Google Cloud logo" },
@@ -48,9 +49,10 @@ export function PartnershipApproach() {
                          </div>
                      </div>
                  </div>
-                 <Button asChild className="w-full sm:w-auto mt-4">
+                 <Button asChild className="group w-full sm:w-auto mt-4 flex justify-center gap-2 items-center">
                     <Link href="/contact">
-                        Start a Project <ArrowRight className="ml-2 h-4 w-4" />
+                        Start a Project
+                        <ArrowIcon />
                     </Link>
                 </Button>
             </div>

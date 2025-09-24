@@ -15,6 +15,7 @@ import type { AutomateTaskDesignOutput } from '@/ai/flows/automated-task-design'
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent } from './ui/card';
 import { VisualWorkflow } from './visual-workflow';
+import { ArrowIcon } from './ui/arrow-icon';
 
 const formSchema = z.object({
   workflowDescription: z.string().min(20, 'Please describe your workflow in at least 20 characters.'),
@@ -154,9 +155,9 @@ export function TaskAutomationForm({ initialValues, onSuccessfulSubmit }: TaskAu
                     </FormItem>
                 )}
                 />
-                <Button type="submit" disabled={loading} className="w-full" size="lg">
-                {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-                Generate Task Design
+                <Button type="submit" disabled={loading} className="group w-full flex justify-center gap-2 items-center">
+                    {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
+                    Generate Task Design
                 </Button>
             </form>
             </Form>

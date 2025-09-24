@@ -8,6 +8,7 @@ import { Badge } from "./ui/badge";
 import { Workflow, CheckCircle, Lightbulb, BarChart, ExternalLink, ArrowDown, ArrowRight } from 'lucide-react';
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { ArrowIcon } from "./ui/arrow-icon";
 
 interface VisualWorkflowProps {
   result: AutomateTaskDesignOutput;
@@ -110,10 +111,10 @@ export function VisualWorkflow({ result }: VisualWorkflowProps) {
             <p className="mt-2 text-muted-foreground max-w-xl mx-auto">
                 Our team of experts can help you build, integrate, and manage this workflow to ensure it runs seamlessly within your business operations.
             </p>
-            <Button asChild size="lg" className="mt-6">
+            <Button asChild className="group mt-6 flex justify-center gap-2 items-center">
                 <Link href="/contact">
                     Start a Project with Us
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowIcon />
                 </Link>
             </Button>
         </div>

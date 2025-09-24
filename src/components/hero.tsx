@@ -12,6 +12,7 @@ import {
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { BrainCircuit, ArrowDown } from 'lucide-react';
 import { CircuitBackground } from './circuit-background';
+import { ArrowIcon } from './ui/arrow-icon';
 
 export function Hero() {
   return (
@@ -34,7 +35,10 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
           <Dialog>
             <DialogTrigger asChild>
-              <Button size="lg">Get Your Free AI Assessment</Button>
+              <Button className="group flex justify-center gap-2 items-center">
+                Get Your Free AI Assessment
+                <ArrowIcon />
+              </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[600px] bg-background">
               <DialogHeader>

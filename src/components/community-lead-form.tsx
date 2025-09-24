@@ -11,6 +11,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import { communityLeadAction } from '@/app/actions';
+import { ArrowIcon } from './ui/arrow-icon';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -87,13 +88,15 @@ export function CommunityLeadForm({ interest }: { interest?: string }) {
        
         <Input type="hidden" {...form.register("interest")} />
        
-        <Button type="submit" className="w-full" disabled={isSubmitting}>
+        <Button type="submit" className="group w-full flex justify-center gap-2 items-center" disabled={isSubmitting}>
           {isSubmitting ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           ) : (
-            <MessageCircle className="mr-2 h-4 w-4" />
+            <>
+              Chat on WhatsApp
+              <ArrowIcon />
+            </>
           )}
-          Chat on WhatsApp
         </Button>
       </form>
     </Form>

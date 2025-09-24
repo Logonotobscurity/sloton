@@ -23,6 +23,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './theme-toggle';
 import { IconFinance, IconHumanResources, IconSales, IconMarketing, IconItOperations } from '@/lib/icons';
+import { ArrowIcon } from './ui/arrow-icon';
 
 const mainNavItems = [
   { href: '/about', label: 'About', icon: <Info className="h-5 w-5" /> },
@@ -332,9 +333,10 @@ export function Header() {
                 ))}
             </nav>
             <div className="hidden md:flex items-center gap-2">
-                <Button asChild>
+                <Button asChild className="group flex justify-center gap-2 items-center">
                     <Link href="/contact">
-                    Contact Us
+                        Contact Us
+                        <ArrowIcon />
                     </Link>
                 </Button>
                 <ThemeToggle />
@@ -414,8 +416,11 @@ export function Header() {
                                 <ThemeToggle />
                             </div>
                              <SheetClose asChild>
-                                <Button asChild className="w-full" size="lg">
-                                    <Link href="/contact">Contact Us</Link>
+                                <Button asChild className="group w-full flex justify-center gap-2 items-center" size="lg">
+                                    <Link href="/contact">
+                                        Contact Us
+                                        <ArrowIcon />
+                                    </Link>
                                 </Button>
                             </SheetClose>
                         </div>
