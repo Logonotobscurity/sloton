@@ -1,0 +1,50 @@
+
+"use client";
+
+import React from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+  DialogFooter,
+} from '@/components/ui/dialog';
+import { Button } from './ui/button';
+import { Lock, Calendar } from 'lucide-react';
+import Link from 'next/link';
+
+interface GatedFeatureModalProps {
+  trigger: React.ReactNode;
+  featureName: string;
+}
+
+export function GatedFeatureModal({ trigger, featureName }: GatedFeatureModalProps) {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        {trigger}
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-md bg-background text-center p-8">
+        <DialogHeader className="space-y-4">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+            <Lock className="h-6 w-6 text-primary" />
+          </div>
+          <DialogTitle className="text-2xl font-bold">Access Advanced Features</DialogTitle>
+          <DialogDescription className="text-muted-foreground">
+            The "{featureName}" is an advanced feature. To unlock its full potential and get a personalized setup, please book a free demo with our team.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter className="mt-6 sm:justify-center">
+            <Button asChild size="lg">
+                <Link href="https://calendly.com/" target="_blank">
+                    <Calendar className="mr-2 h-4 w-4" />
+                    Book a Free Demo
+                </Link>
+            </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}

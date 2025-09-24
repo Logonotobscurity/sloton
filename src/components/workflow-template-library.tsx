@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Search, ArrowRight, Eye, Cog } from 'lucide-react';
+import { Search, ArrowRight, Eye, Cog, Calendar } from 'lucide-react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import {
   IconHumanResources,
@@ -27,6 +27,7 @@ import { templates as allTemplates, Template } from '@/lib/workflow-templates';
 import { TaskAutomationForm } from './task-automation-form';
 import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink } from '@/components/ui/pagination';
 import { cn } from '@/lib/utils';
+import { GatedFeatureModal } from './gated-feature-modal';
 
 const categories = [
   { name: 'Show All', icon: IconGeneral },
@@ -62,10 +63,9 @@ const ITEMS_PER_PAGE = 9;
 
 interface TemplateCardProps {
   template: Template;
-  onUse: (template: Template) => void;
 }
 
-const TemplateCard: React.FC<TemplateCardProps> = ({ template, onUse }) => {
+const TemplateCard: React.FC<TemplateCardProps> = ({ template }) => {
   const style = categoryStyles[template.category] || categoryStyles['General'];
   return (
     <Card className="bg-background/50 flex flex-col p-6 rounded-xl border-border/50 group transition-colors duration-300 hover:border-primary">
@@ -85,14 +85,18 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template, onUse }) => {
                     <Eye className="mr-2 h-4 w-4" /> Preview
                 </Link>
             </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="rounded-full bg-primary/10 text-primary border-primary/20 hover:bg-primary/20"
-            onClick={() => onUse(template)}
-          >
-            Use template
-          </Button>
+            <GatedFeatureModal 
+                trigger={
+                     <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="rounded-full bg-primary/10 text-primary border-primary/20 hover:bg-primary/20"
+                    >
+                        Use template
+                    </Button>
+                }
+                featureName="Workflow Customization"
+            />
         </div>
       </CardFooter>
     </Card>
@@ -103,19 +107,12 @@ export function WorkflowTemplateLibrary() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
+ 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === 'Show All' ? 'All' : category);
     setCurrentPage(1);
   };
   
-  const handleUseTemplate = (template: Template) => {
-    setSelectedTemplate(template);
-    setIsDialogOpen(true);
-  };
-
   const filteredTemplates = useMemo(() => {
     const designerTemplate = {
       name: 'Automation Task Designer',
@@ -230,7 +227,7 @@ export function WorkflowTemplateLibrary() {
                 </Card>
               )
             }
-            return <TemplateCard key={template.slug} template={template} onUse={handleUseTemplate} />
+            return <TemplateCard key={template.slug} template={template} />
           })}
         </div>
 
@@ -278,23 +275,6 @@ export function WorkflowTemplateLibrary() {
           </Pagination>
         </div>
       )}
-
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-[600px] bg-background">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-semibold flex items-center gap-2">
-              <Cog className="h-6 w-6 text-accent" /> Customize Workflow
-            </DialogTitle>
-            <DialogDescription>
-              You are using the "{selectedTemplate?.name}" template. Feel free to modify the description below to fit your needs.
-            </DialogDescription>
-          </DialogHeader>
-          <TaskAutomationForm 
-            initialValues={{ workflowDescription: selectedTemplate?.description || '' }} 
-            onSuccessfulSubmit={() => setIsDialogOpen(false)}
-          />
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }

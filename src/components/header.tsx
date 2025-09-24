@@ -89,6 +89,15 @@ const useCasesNavItems = [
   },
 ]
 
+const automationTemplatesNavItems = [
+    { href: '/automation?category=Finance', label: 'Finance Templates' },
+    { href: '/automation?category=Human+Resources', label: 'HR Templates' },
+    { href: '/automation?category=Sales', label: 'Sales Templates' },
+    { href: '/automation?category=Marketing', label: 'Marketing Templates' },
+    { href: '/automation?category=IT+Operations', label: 'IT Operations Templates' },
+];
+
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
@@ -171,7 +180,7 @@ export function Header() {
                 <div className="group relative">
                     <button className="flex items-center text-sm font-medium transition-colors hover:text-primary focus:outline-none relative">
                         Solutions <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
-                        {(pathname.startsWith('/solutions') || pathname.startsWith('/automation') || pathname.startsWith('/use-cases') || pathname.startsWith('/web-development') || pathname.startsWith('/ai-solutions') || pathname.startsWith('/chatbots') || pathname.startsWith('/business-analytics') || pathname.startsWith('/database-solutions')) && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"></span>}
+                        {(pathname.startsWith('/solutions') || pathname.startsWith('/use-cases') || pathname.startsWith('/web-development') || pathname.startsWith('/ai-solutions') || pathname.startsWith('/chatbots') || pathname.startsWith('/business-analytics') || pathname.startsWith('/database-solutions')) && !pathname.startsWith('/automation') && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"></span>}
                     </button>
                     <div className="absolute top-full -left-1/2 -translate-x-1/4 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
                         <div className="bg-background rounded-lg shadow-2xl border w-[600px] p-6 grid grid-cols-2 gap-x-8 gap-y-6">
@@ -209,6 +218,29 @@ export function Header() {
                                         <p className="font-semibold text-foreground">Featured Insight</p>
                                         <p className="text-sm text-muted-foreground">The Future of Work: How AI is Redefining Productivity</p>
                                     </div>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="group relative">
+                    <NavLink href="/automation">
+                       <span className="flex items-center">
+                           Automation <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                       </span>
+                    </NavLink>
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
+                        <div className="bg-background rounded-lg shadow-2xl border w-60">
+                            <div className="p-2">
+                                {automationTemplatesNavItems.map(item => (
+                                    <Link key={item.label} href={item.href} className="block px-4 py-2 text-sm rounded-md text-foreground hover:bg-secondary hover:text-primary">
+                                       {item.label}
+                                    </Link>
+                                ))}
+                                 <div className="border-t my-2"></div>
+                                 <Link href="/automation" className="block px-4 py-2 text-sm font-semibold rounded-md text-primary hover:bg-secondary">
+                                   View All Templates
                                 </Link>
                             </div>
                         </div>
@@ -268,6 +300,17 @@ export function Header() {
                                 ))}
                                 <MobileNavLink href="/use-cases" icon={<Briefcase className="h-5 w-5" />}>All Use Cases</MobileNavLink>
                             </AccordionContent>
+                            </AccordionItem>
+                             <AccordionItem value="automation">
+                                <AccordionTrigger className="text-xl font-bold">Automation</AccordionTrigger>
+                                <AccordionContent className="pl-4">
+                                     <MobileNavLink href="/automation" icon={<Zap className="h-5 w-5" />}>Automation Hub</MobileNavLink>
+                                     {automationTemplatesNavItems.map((item) => (
+                                        <MobileNavLink key={item.label} href={item.href} icon={<Zap className="h-5 w-5" />}>
+                                            {item.label}
+                                        </MobileNavLink>
+                                    ))}
+                                </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="company">
                             <AccordionTrigger className="text-xl font-bold">Company</AccordionTrigger>
