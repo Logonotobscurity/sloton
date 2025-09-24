@@ -11,17 +11,13 @@ import {
 } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { BrainCircuit, ArrowDown } from 'lucide-react';
-import { CircuitBackground } from './circuit-background';
+import { GlitchOrbBackground } from './glitch-orb-background';
 import { ArrowIcon } from './ui/arrow-icon';
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center py-16">
-       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <CircuitBackground />
-        <div className="absolute h-[200px] w-[200px] sm:h-[500px] sm:w-[500px] bg-primary rounded-full filter blur-3xl opacity-10 -top-20 -right-20 sm:-top-40 sm:-right-40"></div>
-        <div className="absolute h-[200px] w-[200px] sm:h-[400px] sm:w-[400px] bg-accent rounded-full filter blur-3xl opacity-10 -bottom-20 -left-20 sm:-bottom-40 sm:-left-40"></div>
-      </div>
+    <section className="relative min-h-screen flex items-center py-16">
+      <GlitchOrbBackground />
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-4xl text-center md:text-left">
         <span className="text-sm font-normal uppercase tracking-widest text-primary mb-4 md:mb-6 block">
           Your Partner in Growth
