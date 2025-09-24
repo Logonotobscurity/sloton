@@ -5,7 +5,9 @@ import React from "react";
 import { AutomateTaskDesignOutput } from "@/ai/flows/automated-task-design";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Workflow, CheckCircle, Lightbulb, BarChart, ExternalLink, ArrowDown } from 'lucide-react';
+import { Workflow, CheckCircle, Lightbulb, BarChart, ExternalLink, ArrowDown, ArrowRight } from 'lucide-react';
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 interface VisualWorkflowProps {
   result: AutomateTaskDesignOutput;
@@ -102,6 +104,19 @@ export function VisualWorkflow({ result }: VisualWorkflowProps) {
             </Card>
         </div>
       </div>
+
+       <div className="text-center mt-12 pt-8 border-t border-dashed">
+            <h3 className="text-2xl font-bold">Ready to bring this automation to life?</h3>
+            <p className="mt-2 text-muted-foreground max-w-xl mx-auto">
+                Our team of experts can help you build, integrate, and manage this workflow to ensure it runs seamlessly within your business operations.
+            </p>
+            <Button asChild size="lg" className="mt-6">
+                <Link href="/contact">
+                    Start a Project with Us
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+            </Button>
+        </div>
     </div>
   );
 }
