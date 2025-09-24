@@ -18,12 +18,12 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center py-24 overflow-hidden">
       <Prism />
-      <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-4xl text-center">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
         <div className="flex flex-col items-center">
             <span className="text-sm font-normal uppercase tracking-widest text-primary mb-4 md:mb-6 block">
               Your Partner in Growth
             </span>
-            <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight mb-6 md:mb-8 text-white">
+            <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight mb-6 md:mb-8 text-white max-w-4xl">
               Find the right <span className="text-primary font-extrabold">tech solution</span> for your business in minutes.
             </h1>
             <p className="mt-6 max-w-2xl text-md md:text-xl text-slate-300 mb-8 md:mb-12 mx-auto">
