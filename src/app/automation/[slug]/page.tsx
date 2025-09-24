@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { templates } from '@/lib/workflow-templates';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog, Calendar, MessageCircle } from 'lucide-react';
+import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog, Calendar, MessageCircle, Edit } from 'lucide-react';
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata } from 'next';
 import { IconAdminOps, IconSupport, IconDevelopment, IconFinance, IconHealthcare, IconHumanResources, IconItOperations, IconMarketing, IconProcurement, IconRealEstate, IconSales, IconGeneral } from '@/lib/icons';
@@ -52,6 +52,8 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
   if (!template) {
     notFound();
   }
+  
+  const fullDescription = template.steps ? template.steps.map(step => `${step.name}: ${step.description}`).join('; ') : template.description;
 
   const relatedTemplates = templates
     .filter(t => t.category === template.category && t.slug !== template.slug)
@@ -68,7 +70,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
 
           <header className="mb-8 md:mb-12">
             <div className="flex items-center justify-between">
-                <h1 className="text-3xl md:text-5xl font-bold">{template.name}</h1>
+                <h1 className="text-3xl md:text-5xl font-bold font-headline">{template.name}</h1>
                 <ShareModal title={template.name} />
             </div>
             <p className="mt-4 text-md md:text-lg text-muted-foreground">{template.description}</p>
@@ -97,12 +99,14 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
 
            <section className="mt-12 text-center bg-primary/10 p-8 rounded-lg">
                 <h2 className="text-2xl font-bold">Ready to use this template?</h2>
-                <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Streamline your business process by deploying our library workflow template and then customizing it to best meet your needs.</p>
+                <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Take the next step by deploying this workflow, or customize it to your exact needs using our AI-powered designer.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-                    <GatedFeatureModal
-                        trigger={<Button size="lg">Use Template</Button>}
-                        featureName="Workflow Customization"
-                    />
+                    <Button asChild size="lg">
+                        <Link href={`/automation?workflow=${encodeURIComponent(fullDescription)}`}>
+                            <Edit className="mr-2 h-4 w-4" />
+                            Customize with AI
+                        </Link>
+                    </Button>
                     <DialogFormWrapper
                         trigger={<Button size="lg" variant="secondary">Book a Demo</Button>}
                         title="Book a Free Demo"
