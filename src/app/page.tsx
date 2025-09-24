@@ -13,12 +13,18 @@ import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
 import { ChatbotEmbed } from '@/components/chatbot-embed';
 import { IntegrationsHighlight } from '@/components/integrations-highlight';
 import { TemplateLibrary } from '@/components/template-library';
+import Prism from '@/components/prism-background';
 
 
 export default function Home() {
   return (
     <div className="flex flex-col overflow-x-hidden">
-      <Hero />
+      <div className="relative">
+        <div className="absolute inset-0 -z-10">
+          <Prism />
+        </div>
+        <Hero />
+      </div>
       <ScrollAnimationWrapper>
         <StrategicPartner />
       </ScrollAnimationWrapper>

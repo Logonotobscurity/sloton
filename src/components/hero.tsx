@@ -12,13 +12,11 @@ import {
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { BrainCircuit, ArrowDown } from 'lucide-react';
 import { ArrowIcon } from './ui/arrow-icon';
-import Prism from './prism-background';
 
 export function Hero() {
   return (
-    <section className="container relative mx-auto flex min-h-screen items-center justify-center overflow-hidden px-4 py-24 text-center md:px-6">
-      <Prism />
-      <div className="relative z-10 flex flex-col items-center">
+    <section className="relative z-10 flex min-h-screen items-center justify-center overflow-hidden bg-transparent py-24 text-center">
+      <div className="container mx-auto flex flex-col items-center px-4 md:px-6">
         <span className="mb-4 block text-sm font-normal uppercase tracking-widest text-primary md:mb-6">
           Your Partner in Growth
         </span>
@@ -64,4 +62,3 @@ export function Hero() {
     </section>
   );
 }
-
