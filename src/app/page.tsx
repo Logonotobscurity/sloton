@@ -21,7 +21,7 @@ export default function Home() {
     <div className="flex flex-col overflow-x-hidden">
       <div className="relative">
         <div className="absolute inset-0 -z-10">
-          <Prism />
+          <Prism timeScale={0.2} noise={0.7} hueShift={2.1} />
         </div>
         <Hero />
       </div>
