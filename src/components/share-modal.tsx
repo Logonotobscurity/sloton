@@ -28,7 +28,7 @@ export function ShareModal({ title }: { title: string }) {
     navigator.clipboard.writeText(currentUrl);
     toast({
       title: 'Link Copied!',
-      description: 'The article link has been copied to your clipboard.',
+      description: 'The link has been copied to your clipboard.',
     });
   };
 
