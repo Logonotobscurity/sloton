@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone, Code, MessageSquare, BarChart3, Database, Cog } from 'lucide-react';
+import { ChevronDown, Menu, X as LucideX, ArrowRight, BrainCircuit, Zap, ShoppingCart, HeartPulse, Briefcase, Lightbulb, GraduationCap, Info, BookOpen, Phone, Code, MessageSquare, BarChart3, Database, Cog, Users, Landmark } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -25,10 +25,24 @@ import { ThemeToggle } from './theme-toggle';
 import { IconFinance, IconHumanResources, IconSales, IconMarketing, IconItOperations } from '@/lib/icons';
 
 const mainNavItems = [
-  { href: '/training', label: 'Training', icon: <GraduationCap className="h-5 w-5" /> },
   { href: '/about', label: 'About', icon: <Info className="h-5 w-5" /> },
   { href: '/insights', label: 'Insights', icon: <BookOpen className="h-5 w-5" /> },
 ];
+
+const communityNavItems = [
+    { 
+    href: '/training', 
+    label: 'Training Programs',
+    description: 'Advance your career with our expert-led tech courses.',
+    icon: <GraduationCap className="h-5 w-5 text-primary" />
+  },
+  { 
+    href: '/training#impact', 
+    label: 'Leadership & Community Impact',
+    description: 'Explore our initiatives in ethical AI and skill development.',
+    icon: <Users className="h-5 w-5 text-primary" />
+  },
+]
 
 const solutionsNavItems = [
   { 
@@ -168,7 +182,7 @@ export function Header() {
             <span>{children}</span>
         </Link>
      </SheetClose>
-  )
+  );
 
   const Logo = () => (
     <SheetClose asChild>
@@ -179,7 +193,7 @@ export function Header() {
             </div>
         </Link>
     </SheetClose>
-  )
+  );
 
   return (
     <header 
@@ -291,6 +305,26 @@ export function Header() {
                     </div>
                 </div>
 
+                <div className="group relative">
+                    <button className="flex items-center text-sm font-medium transition-colors hover:text-primary focus:outline-none relative">
+                        Community <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                        {pathname.startsWith('/training') && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"></span>}
+                    </button>
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
+                        <div className="bg-background rounded-lg shadow-2xl border w-[350px] p-6 space-y-4">
+                            {communityNavItems.map(item => (
+                                <Link key={item.label} href={item.href} className="flex items-start gap-4 group/item">
+                                    <div className="bg-secondary/50 p-2 rounded-md group-hover/item:bg-primary/10 transition-colors">{item.icon}</div>
+                                    <div>
+                                        <p className="font-semibold text-foreground group-hover/item:text-primary transition-colors">{item.label}</p>
+                                        <p className="text-xs text-muted-foreground">{item.description}</p>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                
                 {mainNavItems.map((item) => (
                     <NavLink key={item.href} href={item.href}>{item.label}</NavLink>
                 ))}
@@ -336,24 +370,31 @@ export function Header() {
                             <AccordionItem value="solutions">
                             <AccordionTrigger className="text-xl font-bold">Our Solutions</AccordionTrigger>
                             <AccordionContent className="pl-4">
-                                <MobileNavLink href="/solutions" icon={<BrainCircuit className="h-5 w-5" />}>All Solutions</MobileNavLink>
+                                <MobileNavLink href="/solutions" icon={<BrainCircuit className="h-5 w-5" />}}>All Solutions</MobileNavLink>
                                 {solutionsNavItems.map((item) => (
                                     <MobileNavLink key={item.label} href={item.href} icon={item.icon}>
                                         {item.label}
                                     </MobileNavLink>
                                 ))}
-                                <MobileNavLink href="/use-cases" icon={<Briefcase className="h-5 w-5" />}>All Use Cases</MobileNavLink>
+                                <MobileNavLink href="/use-cases" icon={<Briefcase className="h-5 w-5" />}}>All Use Cases</MobileNavLink>
                             </AccordionContent>
                             </AccordionItem>
                              <AccordionItem value="automation">
                                 <AccordionTrigger className="text-xl font-bold">Automation</AccordionTrigger>
                                 <AccordionContent className="pl-4">
-                                     <MobileNavLink href="/automation" icon={<Zap className="h-5 w-5" />}>Automation Hub</MobileNavLink>
+                                     <MobileNavLink href="/automation" icon={<Zap className="h-5 w-5" />}}>Automation Hub</MobileNavLink>
                                      {automationTemplatesNavItems.map((item) => (
                                         <MobileNavLink key={item.label} href={item.href} icon={item.icon}>
                                             {item.label} Templates
                                         </MobileNavLink>
                                     ))}
+                                </AccordionContent>
+                            </AccordionItem>
+                             <AccordionItem value="community">
+                                <AccordionTrigger className="text-xl font-bold">Community</AccordionTrigger>
+                                <AccordionContent className="pl-4">
+                                    <MobileNavLink href="/training" icon={<GraduationCap className="h-5 w-5" />}}>Training Programs</MobileNavLink>
+                                    <MobileNavLink href="/training#impact" icon={<Users className="h-5 w-5" />}}>Leadership &amp; Impact</MobileNavLink>
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="company">
@@ -363,7 +404,7 @@ export function Header() {
                             </AccordionContent>
                             </AccordionItem>
                         </Accordion>
-                        <MobileNavLink href="/contact" icon={<Phone className="h-5 w-5" />}>Contact</MobileNavLink>
+                        <MobileNavLink href="/contact" icon={<Phone className="h-5 w-5" />}}>Contact</MobileNavLink>
                         </nav>
                         <div className="border-t pt-6 space-y-4">
                             <div className="flex justify-between items-center">
@@ -384,5 +425,3 @@ export function Header() {
     </header>
   );
 }
-
-    

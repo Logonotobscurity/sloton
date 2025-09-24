@@ -1,5 +1,4 @@
-
-import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb } from 'lucide-react';
+import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb, HeartHand, Globe } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -9,8 +8,8 @@ import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Tech Training Programs | AI, Automation, & Development Courses',
-  description: 'Advance your career with our expert-led online training programs. Master AI, process automation, chatbot development, and digital transformation strategy.',
+  title: 'Community & Training | AI, Automation, & Leadership Programs',
+  description: 'Advance your career with our expert-led online training programs and explore our community impact initiatives in ethical AI and digital skill development.',
 };
 
 
@@ -19,10 +18,6 @@ const trainingFeatures = [
   { icon: <BookOpen className="h-8 w-8 text-primary" />, title: 'Hands-on Projects', description: 'Apply your knowledge to real business scenarios.' },
   { icon: <TrendingUp className="h-8 w-8 text-primary" />, title: 'Career Support', description: 'Get guidance on career advancement and job opportunities.' },
   { icon: <BrainCircuit className="h-8 w-8 text-primary" />, title: 'AI-Powered Learning', description: 'Personalized learning experience with AI assistance.' },
-  { icon: <Zap className="h-8 w-8 text-primary" />, title: 'Cutting-edge Curriculum', description: 'Stay updated with the latest industry trends.' },
-  { icon: <Users className="h-8 w-8 text-primary" />, title: 'Networking Opportunities', description: 'Connect with industry professionals and peers.' },
-  { icon: <BarChart2 className="h-8 w-8 text-primary" />, title: 'Performance Analytics', description: 'Track your progress with detailed analytics.' },
-  { icon: <Clock className="h-8 w-8 text-primary" />, title: 'Flexible Learning', description: 'Learn at your own pace with flexible schedules.' },
 ];
 
 const trainingPrograms = [
@@ -100,67 +95,30 @@ const trainingPrograms = [
         'Hands-on experimentation with innovative tools'
     ],
   },
-  {
-    icon: <BrainCircuit className="h-8 w-8 text-primary" />,
-    title: 'AI Solutions Development',
-    description: 'Master the art of building intelligent systems and AI-powered applications.',
-    duration: '12 Weeks',
-    mode: 'Online',
-    learnings: [
-      'Machine Learning Fundamentals',
-      'Deep Learning & Neural Networks',
-      'Natural Language Processing',
-      'Computer Vision Applications',
-      'AI Model Deployment',
-      'Real-world Project Implementation',
-    ],
-  },
-  {
-    icon: <Zap className="h-8 w-8 text-primary" />,
-    title: 'Process Automation Mastery',
-    description: 'Learn to automate business processes and workflows for maximum efficiency.',
-    duration: '10 Weeks',
-    mode: 'Online',
-    learnings: [
-      'RPA Fundamentals',
-      'Business Process Analysis',
-      'Workflow Optimization',
-      'Integration Techniques',
-      'Automation Tools Mastery',
-      'Process Mining',
-    ],
-  },
-  {
-    icon: <Bot className="h-8 w-8 text-primary" />,
-    title: 'Chatbot Development',
-    description: 'Create intelligent conversational interfaces and AI-powered chatbots.',
-    duration: '8 Weeks',
-    mode: 'Online',
-    learnings: [
-      'Conversational AI',
-      'NLP Integration',
-      'Dialog Management',
-      'Multi-platform Development',
-      'Integration with Business Systems',
-      'Analytics & Optimization',
-    ],
-  },
-  {
-    icon: <TrendingUp className="h-8 w-8 text-primary" />,
-    title: 'Digital Transformation Strategy',
-    description: 'Lead organizational change through technology adoption and innovation.',
-    duration: '12 Weeks',
-    mode: 'Online',
-    learnings: [
-      'Digital Strategy Development',
-      'Change Management',
-      'Technology Assessment',
-      'Innovation Frameworks',
-      'Implementation Planning',
-      'ROI Measurement',
-    ],
-  },
 ];
+
+const communityProjects = [
+    {
+        icon: <Users className="h-8 w-8 text-primary" />,
+        title: 'Community Skill Synchronization Initiative',
+        description: 'Designed and launched a behavior-based learning curriculum that trained over 50 individuals in high-demand digital skills (Digital Marketing, Cybersecurity, Data Science, RPA), culminating in multiple career placements. Pioneered a "Seek and Ye Shall Find" pedagogical model that empowers learners to direct their own skill acquisition, resulting in an estimated 30% reduction in traditional instruction time.'
+    },
+    {
+        icon: <HeartHand className="h-8 w-8 text-primary" />,
+        title: 'LISTNER: AI Mental Health Chatbot',
+        description: 'A multilingual NLP AI mental health chatbot designed to provide compassionate, accessible, and confidential support to users in need. This project focuses on leveraging technology to destigmatize mental health conversations.'
+    },
+    {
+        icon: <Globe className="h-8 w-8 text-primary" />,
+        title: 'Cultural Bridge Tech: Ethical AI',
+        description: 'A research project and toolkit for identifying and mitigating cultural bias in large language models (LLMs). This initiative demonstrates our commitment to building more equitable and ethical AI systems for a global audience.'
+    },
+    {
+        icon: <Zap className="h-8 w-8 text-primary" />,
+        title: 'Gigpilot: AI Gig Economy Assistant',
+        description: 'An AI-powered gig economy assistant designed to convert job seekers into engaged users through intelligent job matching, progressive data capture, and automated lead nurturing. This tool empowers independent workers to find opportunities more efficiently.'
+    }
+]
 
 export default function TrainingPage() {
   return (
@@ -168,14 +126,18 @@ export default function TrainingPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         
         <section className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold">Become a Tech Leader</h1>
+          <h1 className="text-3xl md:text-5xl font-bold">Community &amp; Innovation</h1>
           <p className="mt-4 text-md md:text-lg text-muted-foreground">
-            Master the technologies shaping the future with our comprehensive online training programs. Learn from industry experts and gain practical experience to accelerate your career.
+            We believe in building more than just technology; we're dedicated to building skills, fostering leadership, and making a positive community impact. Explore our training programs and our commitment to ethical innovation.
           </p>
         </section>
 
         <section className="py-16 md:py-24">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center mb-12 md:mb-16">
+                <h2 className="text-2xl md:text-4xl font-bold">Our Training Programs</h2>
+                <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">Choose a program that aligns with your career goals and start your journey today.</p>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 {trainingFeatures.map(feature => (
                     <div key={feature.title} className="text-center p-4">
                         <div className="flex justify-center mb-4">{feature.icon}</div>
@@ -183,13 +145,6 @@ export default function TrainingPage() {
                         <p className="text-sm text-muted-foreground mt-1">{feature.description}</p>
                     </div>
                 ))}
-            </div>
-        </section>
-
-        <section>
-            <div className="text-center mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold">Our Training Programs</h2>
-                <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">Choose a program that aligns with your career goals and start your journey today.</p>
             </div>
             <div className="grid lg:grid-cols-2 gap-8 items-start">
                 {trainingPrograms.map(program => (
@@ -232,6 +187,26 @@ export default function TrainingPage() {
                             />
                         </CardFooter>
                     </Card>
+                ))}
+            </div>
+        </section>
+
+        <section id="impact" className="py-16 md:py-24 border-t scroll-mt-20">
+            <div className="text-center mb-12 md:mb-16">
+                <h2 className="text-2xl md:text-4xl font-bold">Leadership &amp; Community Impact</h2>
+                <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">Our commitment to innovation extends beyond our client work. We actively lead and contribute to projects that drive positive change.</p>
+            </div>
+             <div className="grid lg:grid-cols-2 gap-8">
+                {communityProjects.map((project) => (
+                <Card key={project.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
+                    <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        {project.icon}
+                        <CardTitle className="text-lg md:text-xl">{project.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-muted-foreground text-sm md:text-base">{project.description}</p>
+                    </CardContent>
+                </Card>
                 ))}
             </div>
         </section>
