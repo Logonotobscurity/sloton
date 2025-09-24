@@ -429,6 +429,68 @@ export const templates: Template[] = [
     name: 'Tool Management',
     description: 'Manage and track your company\'s tool ordering, analysis, purchase, and approval process.'
   },
+  
+  // Procurement Templates
+  {
+    category: 'Procurement',
+    name: 'Accounts Payable',
+    description: 'This process controls company expenses, ensures adherence to SLAs, monitors requests, and measures progress.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Business Contract Analysis',
+    description: 'A process for creating and managing your company\'s contracts effectively.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Make or Buy Decision',
+    description: 'This process helps in deciding the best options for onboarding new software.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Processing Changes and Creating POs',
+    description: 'This process saves time on completing purchase orders and updates process changes more efficiently.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Procurement Approval Process',
+    description: 'A process for reviewing and approving documents across your company.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Procurement Request (Banking)',
+    description: 'This process is designed to manage the purchase request, approval, bidding, and negotiation phases in the banking sector.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Purchase Process',
+    description: 'A digitized and automated purchasing process providing complete visibility and control of purchase requisitions.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Request Management',
+    description: 'A process to centralize and manage all your requests efficiently.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Risk Management Plan',
+    description: 'Identify, assess, foresee and mitigate risks before they come to life.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Supplier Performance Analysis',
+    description: 'An organized process for managing and evaluating supplier performance intuitively.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Vendor Management',
+    description: 'A process to manage, control, and evaluate suppliers effectively.'
+  },
+  {
+    category: 'Procurement',
+    name: 'Vendor Registration',
+    description: 'Vendor registration is a critical process that involves careful evaluation of vendors and enables your procurement team to establish effective contracts.'
+  },
 
   // Development Templates
   {
