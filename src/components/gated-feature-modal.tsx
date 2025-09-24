@@ -12,8 +12,9 @@ import {
   DialogFooter,
 } from '@/components/ui/dialog';
 import { Button } from './ui/button';
-import { Lock, Calendar } from 'lucide-react';
-import Link from 'next/link';
+import { Lock, MessageCircle } from 'lucide-react';
+import { DialogFormWrapper } from './dialog-form-wrapper';
+import { CommunityLeadForm } from './community-lead-form';
 
 interface GatedFeatureModalProps {
   trigger: React.ReactNode;
@@ -37,12 +38,17 @@ export function GatedFeatureModal({ trigger, featureName }: GatedFeatureModalPro
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="mt-6 sm:justify-center">
-            <Button asChild size="lg">
-                <Link href="https://calendly.com/" target="_blank">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book a Free Demo
-                </Link>
-            </Button>
+            <DialogFormWrapper
+                trigger={
+                    <Button size="lg">
+                        <MessageCircle className="mr-2 h-4 w-4" />
+                        Book a Free Demo
+                    </Button>
+                }
+                title="Book a Free Demo"
+                description={`Interested in the "${featureName}" feature? Fill out your details below to connect with our team on WhatsApp.`}
+                form={<CommunityLeadForm interest={featureName} />}
+            />
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -5,13 +5,15 @@ import Link from 'next/link';
 import { templates } from '@/lib/workflow-templates';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog, Calendar } from 'lucide-react';
+import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog, Calendar, MessageCircle } from 'lucide-react';
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata } from 'next';
 import { IconAdminOps, IconSupport, IconDevelopment, IconFinance, IconHealthcare, IconHumanResources, IconItOperations, IconMarketing, IconProcurement, IconRealEstate, IconSales, IconGeneral } from '@/lib/icons';
 import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
+import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
+import { CommunityLeadForm } from '@/components/community-lead-form';
 
 const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string, color: string } } = {
   'Finance': { icon: IconFinance, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
@@ -101,9 +103,12 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                         trigger={<Button size="lg">Use Template</Button>}
                         featureName="Workflow Customization"
                     />
-                    <Button size="lg" variant="secondary" asChild>
-                        <Link href="https://calendly.com/" target="_blank">Book a Demo</Link>
-                    </Button>
+                    <DialogFormWrapper
+                        trigger={<Button size="lg" variant="secondary">Book a Demo</Button>}
+                        title="Book a Free Demo"
+                        description={`Interested in the "${template.name}" template? Fill out your details below to connect with our team on WhatsApp.`}
+                        form={<CommunityLeadForm interest={`Template: ${template.name}`} />}
+                    />
                 </div>
            </section>
 
