@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,24 +10,24 @@ import {
 } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { BrainCircuit, ArrowDown } from 'lucide-react';
-import { GlitchOrbBackground } from './glitch-orb-background';
 import { ArrowIcon } from './ui/arrow-icon';
+import { PrismBackground } from './prism-background';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center py-16">
-      <GlitchOrbBackground />
-      <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-4xl text-center md:text-left">
+    <section className="relative min-h-screen flex items-center justify-center py-16 overflow-hidden">
+      <PrismBackground />
+      <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-4xl text-center">
         <span className="text-sm font-normal uppercase tracking-widest text-primary mb-4 md:mb-6 block">
           Your Partner in Growth
         </span>
-        <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight mb-6 md:mb-8">
+        <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight mb-6 md:mb-8 text-white">
           Find the right <span className="text-primary font-extrabold">tech solution</span> for your business in minutes.
         </h1>
-        <p className="mt-6 max-w-2xl text-md md:text-xl text-muted-foreground mb-8 md:mb-12 mx-auto md:mx-0">
+        <p className="mt-6 max-w-2xl text-md md:text-xl text-slate-300 mb-8 md:mb-12 mx-auto">
            Stop guessing. Our AI-driven tools and expert services help you cut costs, automate processes, and scale faster. Start with a free, instant business assessment.
         </p>
-        <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
           <Dialog>
             <DialogTrigger asChild>
               <Button className="group flex justify-center gap-2 items-center">
@@ -52,10 +51,10 @@ export function Hero() {
             </Link>
           </Button>
         </div>
-        <div className="mt-12 text-center md:text-left">
-            <Button asChild variant="ghost" className="text-muted-foreground hover:text-primary">
-                <Link href="/#gigpilot-chat">
-                    Or, chat with our AI assistant
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center text-white">
+            <Button asChild variant="ghost" className="text-slate-300 hover:text-primary">
+                <Link href="/#strategic-partner">
+                    Explore How We Work
                     <ArrowDown className="ml-2 h-4 w-4" />
                 </Link>
             </Button>
