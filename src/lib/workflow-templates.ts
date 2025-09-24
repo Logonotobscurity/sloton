@@ -66,7 +66,7 @@ export const templates: Template[] = [
     steps: [
         { name: 'Budget Kick-off', description: 'The finance team sends out budget templates and guidelines to all department heads.' },
         { name: 'Departmental Budget Submission', description: 'Each department head submits their proposed budget for the next fiscal year, including revenue projections and expense forecasts.' },
-        { name 'Finance Review & Consolidation', description: 'The finance team reviews departmental submissions, asks clarifying questions, and consolidates them into a master budget.' },
+        { name: 'Finance Review & Consolidation', description: 'The finance team reviews departmental submissions, asks clarifying questions, and consolidates them into a master budget.' },
         { name: 'Executive Approval', description: 'The consolidated budget is presented to the executive team for review, adjustments, and final approval.' },
     ]
   },
@@ -93,7 +93,7 @@ export const templates: Template[] = [
       { name: 'Request Submission', description: 'An employee submits a detailed CAPEX request, including item description, cost, business justification, and ROI analysis.' },
       { name: 'Department Manager Review', description: 'The department manager reviews the request for alignment with departmental goals and budget.' },
       { name: 'Finance Review', description: 'The finance department analyzes the financial impact, ROI viability, and compliance with company policies.' },
-      { name 'Executive Approval', description: 'Requests exceeding a certain threshold are routed to senior leadership or a CAPEX committee for final approval.' },
+      { name: 'Executive Approval', description: 'Requests exceeding a certain threshold are routed to senior leadership or a CAPEX committee for final approval.' },
       { name: 'Procurement & Fulfillment', description: 'Once approved, the request is sent to the procurement team to handle the purchasing process.' },
     ]
   },
@@ -133,7 +133,7 @@ export const templates: Template[] = [
         { name: 'Identify Overdue Account', description: 'The system automatically flags invoices that are past their due date by a specified number of days (e.g., 30 days).' },
         { name: 'Initial Reminder Series', description: 'An automated series of emails and/or SMS messages are sent to the client over a set period.' },
         { name: 'Internal Collections Call', description: 'If the debt remains unpaid, a task is created for an internal collections agent to call the client.' },
-        { name 'Formal Demand Letter', description: 'If the debt is still outstanding, a formal demand letter is generated and sent.' },
+        { name: 'Formal Demand Letter', description: 'If the debt is still outstanding, a formal demand letter is generated and sent.' },
         { name: 'Escalate to Agency/Legal', description: 'After a final review, the account is escalated to a third-party collection agency or the legal department.' },
     ]
   },
@@ -172,7 +172,7 @@ export const templates: Template[] = [
     steps: [
       { name: 'Submit Request', description: 'Employee submits expense details and uploads digital receipts through a centralized portal or mobile app.' },
       { name: 'Automated Policy Check', description: 'The system automatically flags any expenses that are outside of company policy for further review.' },
-      { name 'Manager Review & Approval', description: 'The employee\'s manager receives a notification to review and approve the expense report online.' },
+      { name: 'Manager Review & Approval', description: 'The employee\'s manager receives a notification to review and approve the expense report online.' },
       { name: 'Finance Processing & Payment', description: 'Approved reports are sent directly to the finance team for final audit and payment processing via payroll or direct deposit.' },
     ]
   },
@@ -266,7 +266,7 @@ export const templates: Template[] = [
     steps: [
         { name: 'Daily Health Attestation', description: 'Employees fill out a daily health screening form before entering the workplace.' },
         { name: 'Positive Case Reporting', description: 'Employees confidentially report a positive test result to HR through a secure form.' },
-        { name 'Contact Tracing', description: 'HR works to identify and confidentially notify any employees who may have been in close contact.' },
+        { name: 'Contact Tracing', description: 'HR works to identify and confidentially notify any employees who may have been in close contact.' },
         { name: 'Return-to-Work Clearance', description: 'HR manages the process for an employee to safely return to the office based on health guidelines.' },
     ]
   },
@@ -516,7 +516,7 @@ export const templates: Template[] = [
     steps: [
         { name: 'Listing Agreement Signed', description: 'The agent signs a listing agreement with the seller and prepares the property for market (photos, description, etc.).' },
         { name: 'Marketing & Showings', description: 'The property is listed on the MLS and other platforms. The agent coordinates showings and open houses.' },
-        { name 'Offer, Negotiation & Acceptance', description: 'The agent receives and presents offers to the seller, negotiates terms, and gets a final agreement in writing.' },
+        { name: 'Offer, Negotiation & Acceptance', description: 'The agent receives and presents offers to the seller, negotiates terms, and gets a final agreement in writing.' },
         { name: 'Escrow & Inspections', description: 'The signed contract is sent to the title/escrow company. The agent coordinates inspections and negotiates any repairs.' },
         { name: 'Closing', description: 'The agent ensures all paperwork is complete, and coordinates the final closing appointment where ownership is transferred.' },
     ]
@@ -1559,17 +1559,17 @@ export const templates: Template[] = [
       ]
   },
   {
-      category: 'CS and Support',
-      name: 'Class Scheduling',
-      slug: 'class-scheduling',
-      description: 'This business process is designed to assist in the creation and management of class schedules.',
-      purpose: 'This workflow is for educational institutions or training companies to manage the process of scheduling classes. It helps to coordinate teachers, rooms, and students to create an optimal schedule. It ensures that there are no conflicts and that all resources are utilized efficiently.',
-      steps: [
-          { name: 'Course Offering Setup', description: 'Define the list of courses to be offered for the upcoming semester or session.' },
-          { name: 'Teacher & Room Assignment', description: 'Assign teachers to courses and schedule them into available rooms, avoiding conflicts.' },
-          { name: 'Student Registration', description: 'Students register for the classes they wish to take.' },
-          { name: 'Final Schedule Publication', description: 'The final class schedule is published to students and faculty.' },
-      ]
+    category: 'CS and Support',
+    name: 'Class Scheduling',
+    slug: 'class-scheduling',
+    description: 'This business process is designed to assist in the creation and management of class schedules.',
+    purpose: 'This workflow is for educational institutions or training companies to manage the process of scheduling classes. It helps to coordinate teachers, rooms, and students to create an optimal schedule. It ensures that there are no conflicts and that all resources are utilized efficiently.',
+    steps: [
+        { name: 'Course Offering Setup', description: 'Define the list of courses to be offered for the upcoming semester or session.' },
+        { name: 'Teacher & Room Assignment', description: 'Assign teachers to courses and schedule them into available rooms, avoiding conflicts.' },
+        { name: 'Student Registration', description: 'Students register for the classes they wish to take.' },
+        { name: 'Final Schedule Publication', description: 'The final class schedule is published to students and faculty.' },
+    ]
   },
   {
       category: 'CS and Support',
@@ -1593,7 +1593,7 @@ export const templates: Template[] = [
       steps: [
           { name: 'Log Complaint', description: 'A customer complaint is received and logged in the system.' },
           { name: 'Acknowledge & Investigate', description: 'The customer receives an automated acknowledgement. A case manager investigates the complaint.' },
-          { name 'Propose Resolution', description: 'The case manager proposes a resolution to the customer.' },
+          { name: 'Propose Resolution', description: 'The case manager proposes a resolution to the customer.' },
           { name: 'Implement Resolution & Close', description: 'Once the customer agrees to the resolution, it is implemented, and the complaint case is closed.' },
       ]
   },
