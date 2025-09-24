@@ -155,7 +155,7 @@ export default function TrainingPage() {
                         <CardHeader className="p-0">
                             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
                                 {program.icon}
-                                <CardTitle className="text-xl md:text-2xl animate-color-change">{program.title}</CardTitle>
+                                <CardTitle className="text-xl md:text-2xl">{program.title}</CardTitle>
                             </div>
                             <p className="text-muted-foreground">{program.description}</p>
                         </CardHeader>
@@ -206,7 +206,7 @@ export default function TrainingPage() {
                   <div className="p-6 h-full flex flex-col">
                     <CardHeader className="p-0 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                         {project.icon}
-                        <CardTitle className="text-lg md:text-xl animate-color-change">{project.title}</CardTitle>
+                        <CardTitle className="text-lg md:text-xl">{project.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-0 pt-4">
                         <p className="text-muted-foreground text-sm md:text-base">{project.description}</p>

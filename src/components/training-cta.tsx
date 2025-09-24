@@ -45,7 +45,7 @@ export function TrainingCTA() {
                   <div className="p-6 flex flex-col h-full">
                     <CardHeader className="p-0">
                         {course.icon}
-                        <CardTitle className="pt-2 text-lg animate-color-change">{course.title}</CardTitle>
+                        <CardTitle className="pt-2 text-lg">{course.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-0 pt-4 flex-grow">
                         <p className="text-sm text-muted-foreground">{course.description}</p>

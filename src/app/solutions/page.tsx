@@ -143,7 +143,7 @@ export default function SolutionsPage() {
                   <CardHeader className="p-0">
                     <div className="flex items-center gap-4">
                       {service.icon}
-                      <CardTitle className="text-xl md:text-2xl animate-color-change">{service.title}</CardTitle>
+                      <CardTitle className="text-xl md:text-2xl">{service.title}</CardTitle>
                     </div>
                     <p className="pt-4 text-muted-foreground text-sm md:text-base">{service.description}</p>
                   </CardHeader>

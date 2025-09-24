@@ -174,7 +174,7 @@ export default function UseCasesPage() {
                 <CardHeader className="p-0">
                   <div className="flex items-center gap-4">
                     {useCase.icon}
-                    <CardTitle className="text-xl md:text-3xl animate-color-change">{useCase.title}</CardTitle>
+                    <CardTitle className="text-xl md:text-3xl">{useCase.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="p-0 pt-4 flex-grow">

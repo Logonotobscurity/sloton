@@ -44,7 +44,7 @@ export function FeaturedInsights() {
                      ))}
                   </div>
                   <CardTitle className="text-lg md:text-xl">
-                      <Link href={`/insights/${insight.slug}`} className="hover:text-primary transition-colors animate-color-change">
+                      <Link href={`/insights/${insight.slug}`} className="hover:text-primary transition-colors">
                           {insight.title}
                       </Link>
                   </CardTitle>

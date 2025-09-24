@@ -88,7 +88,7 @@ export default function AboutPage() {
             {teamMembers.map((member) => (
               <GlowingCard key={member.name}>
                  <div className="p-6 text-center md:text-left">
-                    <h3 className="font-bold text-2xl animate-color-change">{member.name}</h3>
+                    <h3 className="font-bold text-2xl">{member.name}</h3>
                     <p className="text-primary mb-3">{member.role}</p>
                     <p className="text-muted-foreground text-sm">{member.description}</p>
                  </div>
