@@ -25,10 +25,16 @@ export default function Home() {
       <ScrollAnimationWrapper>
         <GeneralistApproach />
       </ScrollAnimationWrapper>
-       <ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <ChatbotEmbed />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <TechStackCarousel />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
         <TemplateLibrary />
       </ScrollAnimationWrapper>
-       <ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
         <IntegrationsHighlight />
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
@@ -45,12 +51,6 @@ export default function Home() {
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <Faq />
-      </ScrollAnimationWrapper>
-       <ScrollAnimationWrapper>
-        <ChatbotEmbed />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <TechStackCarousel />
       </ScrollAnimationWrapper>
     </div>
   );
