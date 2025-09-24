@@ -2,7 +2,8 @@
 import Link from 'next/link';
 import { Button } from './ui/button';
 import { GraduationCap, ArrowRight, Code, Share2 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from './ui/card';
+import { CardContent, CardHeader, CardTitle, CardFooter } from './ui/card';
+import { GlowingCard } from './ui/glowing-card';
 
 const featuredCourses = [
     {
@@ -40,20 +41,22 @@ export function TrainingCTA() {
           </div>
           <div className="lg:col-span-2 grid md:grid-cols-2 gap-6 mt-8 lg:mt-0">
              {featuredCourses.map((course) => (
-                <Card key={course.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                    <CardHeader>
+                <GlowingCard key={course.title}>
+                  <div className="p-6 flex flex-col h-full">
+                    <CardHeader className="p-0">
                         {course.icon}
-                        <CardTitle className="pt-2 text-lg">{course.title}</CardTitle>
+                        <CardTitle className="pt-2 text-lg animate-color-change">{course.title}</CardTitle>
                     </CardHeader>
-                    <CardContent className="flex-grow">
+                    <CardContent className="p-0 pt-4 flex-grow">
                         <p className="text-sm text-muted-foreground">{course.description}</p>
                     </CardContent>
-                     <CardFooter>
+                     <CardFooter className="p-0 pt-4 mt-auto">
                          <Button asChild variant="secondary" className="w-full">
                             <Link href={course.href}>Learn More</Link>
                         </Button>
                     </CardFooter>
-                </Card>
+                  </div>
+                </GlowingCard>
              ))}
           </div>
         </div>

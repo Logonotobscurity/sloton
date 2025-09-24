@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 import { insights } from '@/lib/insights';
+import { GlowingCard } from '@/components/ui/glowing-card';
 
 export const metadata: Metadata = {
   title: 'Technology Insights & Articles',
@@ -46,38 +47,40 @@ export default function InsightsPage() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {insights.map((insight) => (
-            <Card key={insight.title} className="bg-secondary/50 flex flex-col group overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-              <CardHeader className="p-0">
-                <Link href={`/insights/${insight.slug}`}>
-                  <Image
-                    src={insight.image}
-                    alt={insight.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    data-ai-hint={insight.dataAiHint}
-                  />
-                </Link>
-              </CardHeader>
-              <CardContent className="p-6 flex-grow">
-                <div className="flex flex-wrap gap-2 mb-2">
-                   {insight.tags.map(tag => (
-                     <Badge key={tag} variant="outline" className="border-primary text-primary">{tag}</Badge>
-                   ))}
-                </div>
-                <CardTitle className="text-lg md:text-xl">
-                    <Link href={`/insights/${insight.slug}`} className="hover:text-primary transition-colors">
-                        {insight.title}
-                    </Link>
-                </CardTitle>
-                <CardDescription className="mt-2 text-sm">{insight.description}</CardDescription>
-              </CardContent>
-              <CardFooter className="p-6 pt-0">
-                <Link href={`/insights/${insight.slug}`} className="text-primary font-semibold flex items-center group">
-                  Read More <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </CardFooter>
-            </Card>
+            <GlowingCard key={insight.title}>
+              <div className="flex flex-col h-full">
+                <CardHeader className="p-0">
+                  <Link href={`/insights/${insight.slug}`}>
+                    <Image
+                      src={insight.image}
+                      alt={insight.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl"
+                      data-ai-hint={insight.dataAiHint}
+                    />
+                  </Link>
+                </CardHeader>
+                <CardContent className="p-6 flex-grow">
+                  <div className="flex flex-wrap gap-2 mb-2">
+                     {insight.tags.map(tag => (
+                       <Badge key={tag} variant="outline" className="border-primary text-primary">{tag}</Badge>
+                     ))}
+                  </div>
+                  <CardTitle className="text-lg md:text-xl">
+                      <Link href={`/insights/${insight.slug}`} className="hover:text-primary transition-colors animate-color-change">
+                          {insight.title}
+                      </Link>
+                  </CardTitle>
+                  <CardDescription className="mt-2 text-sm">{insight.description}</CardDescription>
+                </CardContent>
+                <CardFooter className="p-6 pt-0 mt-auto">
+                  <Link href={`/insights/${insight.slug}`} className="text-primary font-semibold flex items-center group">
+                    Read More <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </CardFooter>
+              </div>
+            </GlowingCard>
           ))}
         </div>
       </div>

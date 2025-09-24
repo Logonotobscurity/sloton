@@ -3,13 +3,6 @@
 
 import { BrainCircuit, ArrowRight, Cog } from 'lucide-react';
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import {
   Dialog,
   DialogContent,
   DialogHeader,
@@ -19,6 +12,8 @@ import {
 } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { TaskAutomationForm } from './task-automation-form';
+import { GlowingCard } from './ui/glowing-card';
+import { CardHeader, CardTitle, CardContent } from './ui/card';
 
 const steps = [
     {
@@ -69,22 +64,24 @@ export function StrategicPartner() {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Dialog>
               <DialogTrigger asChild>
-                <Card className="bg-background group flex flex-col text-left cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2">
-                  <CardHeader>
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                          <BrainCircuit className="h-6 w-6" />
+                 <GlowingCard className="cursor-pointer">
+                  <div className="p-6">
+                    <CardHeader className="p-0">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                            <BrainCircuit className="h-6 w-6" />
+                        </div>
+                        <CardTitle className="pt-4 text-xl md:text-2xl animate-color-change">Free AI Business Assessment</CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0 pt-4 flex-grow">
+                        <p className="text-muted-foreground">Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning.</p>
+                    </CardContent>
+                    <div className="p-6 pt-4 -mx-6">
+                        <div className="text-primary font-semibold flex items-center">
+                        Launch Assessment Tool <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                       </div>
-                      <CardTitle className="pt-4 text-xl md:text-2xl">Free AI Business Assessment</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                      <p className="text-muted-foreground">Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning.</p>
-                  </CardContent>
-                  <div className="p-6 pt-0">
-                      <div className="text-primary font-semibold flex items-center">
-                      Launch Assessment Tool <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
-              </Card>
+                </GlowingCard>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[600px] bg-background">
                 <DialogHeader>
@@ -99,22 +96,24 @@ export function StrategicPartner() {
 
              <Dialog>
               <DialogTrigger asChild>
-                <Card className="bg-background group flex flex-col text-left cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2">
-                  <CardHeader>
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                          <Cog className="h-6 w-6" />
+                <GlowingCard className="cursor-pointer">
+                   <div className="p-6">
+                    <CardHeader className="p-0">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                            <Cog className="h-6 w-6" />
+                        </div>
+                        <CardTitle className="pt-4 text-xl md:text-2xl animate-color-change">Automation Task Designer</CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0 pt-4 flex-grow">
+                        <p className="text-muted-foreground">Describe a repetitive task or workflow and get a configured, optimized automation plan in seconds.</p>
+                    </CardContent>
+                     <div className="p-6 pt-4 -mx-6">
+                        <div className="text-primary font-semibold flex items-center">
+                        Design an Automation <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                       </div>
-                      <CardTitle className="pt-4 text-xl md:text-2xl">Automation Task Designer</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                      <p className="text-muted-foreground">Describe a repetitive task or workflow and get a configured, optimized automation plan in seconds.</p>
-                  </CardContent>
-                  <div className="p-6 pt-0">
-                      <div className="text-primary font-semibold flex items-center">
-                      Design an Automation <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </div>
-                  </div>
-              </Card>
+                   </div>
+                </GlowingCard>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[600px] bg-background">
                 <DialogHeader>

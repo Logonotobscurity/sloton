@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/componen
 import { Button } from '@/components/ui/button';
 import { Check, BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Smartphone, GitBranch } from 'lucide-react';
 import type { Metadata } from 'next';
+import { GlowingCard } from '@/components/ui/glowing-card';
 
 export const metadata: Metadata = {
   title: 'Technology Solutions',
@@ -137,45 +138,47 @@ export default function SolutionsPage() {
             const isStringArray = Array.isArray(service.features) && typeof service.features[0] === 'string';
             
             return (
-              <Card key={index} className="bg-secondary/50 border-border/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    {service.icon}
-                    <CardTitle className="text-xl md:text-2xl">{service.title}</CardTitle>
-                  </div>
-                  <p className="pt-4 text-muted-foreground text-sm md:text-base">{service.description}</p>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <div className="space-y-4">
-                      {isStringArray ? (
-                          <ul className="space-y-3">
-                              {(service.features as string[]).map((feature) => (
-                                  <li key={feature} className="flex items-start gap-3">
-                                      <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                                      <span className="text-muted-foreground">{feature}</span>
-                                  </li>
-                              ))}
-                          </ul>
-                      ) : (
-                          <div className="space-y-6">
-                              {(service.features as { title: string; description: string }[]).map((feature) => (
-                                  <div key={feature.title}>
-                                      <h4 className="font-semibold text-primary">{feature.title}</h4>
-                                      <p className="text-muted-foreground mt-1 text-sm">{feature.description}</p>
-                                  </div>
-                              ))}
-                          </div>
-                      )}
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild className="w-full sm:w-auto">
-                    <Link href={service.href}>
-                      {service.href === '/contact' ? 'Get a Free Consultation' : 'Learn More'}
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
+              <GlowingCard key={index}>
+                <div className="p-6 h-full flex flex-col">
+                  <CardHeader className="p-0">
+                    <div className="flex items-center gap-4">
+                      {service.icon}
+                      <CardTitle className="text-xl md:text-2xl animate-color-change">{service.title}</CardTitle>
+                    </div>
+                    <p className="pt-4 text-muted-foreground text-sm md:text-base">{service.description}</p>
+                  </CardHeader>
+                  <CardContent className="p-0 pt-4 flex-grow">
+                    <div className="space-y-4">
+                        {isStringArray ? (
+                            <ul className="space-y-3">
+                                {(service.features as string[]).map((feature) => (
+                                    <li key={feature} className="flex items-start gap-3">
+                                        <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                                        <span className="text-muted-foreground">{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <div className="space-y-6">
+                                {(service.features as { title: string; description: string }[]).map((feature) => (
+                                    <div key={feature.title}>
+                                        <h4 className="font-semibold text-primary">{feature.title}</h4>
+                                        <p className="text-muted-foreground mt-1 text-sm">{feature.description}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                  </CardContent>
+                  <CardFooter className="p-0 pt-6 mt-auto">
+                    <Button asChild className="w-full sm:w-auto">
+                      <Link href={service.href}>
+                        {service.href === '/contact' ? 'Get a Free Consultation' : 'Learn More'}
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </div>
+              </GlowingCard>
             )
           })}
         </div>

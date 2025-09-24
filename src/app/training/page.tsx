@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import type { Metadata } from 'next';
 import { CommunityLeadForm } from '@/components/community-lead-form';
+import { GlowingCard } from '@/components/ui/glowing-card';
 
 export const metadata: Metadata = {
   title: 'Community & Training | AI, Automation, & Leadership Programs',
@@ -149,15 +150,16 @@ export default function TrainingPage() {
             </div>
             <div className="grid lg:grid-cols-2 gap-8 items-start">
                 {trainingPrograms.map(program => (
-                    <Card key={program.title} className="bg-secondary/50 flex flex-col h-full transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                        <CardHeader>
+                    <GlowingCard key={program.title}>
+                      <div className="flex flex-col h-full p-6">
+                        <CardHeader className="p-0">
                             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
                                 {program.icon}
-                                <CardTitle className="text-xl md:text-2xl">{program.title}</CardTitle>
+                                <CardTitle className="text-xl md:text-2xl animate-color-change">{program.title}</CardTitle>
                             </div>
                             <p className="text-muted-foreground">{program.description}</p>
                         </CardHeader>
-                        <CardContent className="flex-grow">
+                        <CardContent className="p-0 pt-4 flex-grow">
                              <div className="flex items-center gap-6 mb-6">
                                 <div className="flex items-center gap-2">
                                     <Clock className="h-5 w-5 text-accent" />
@@ -177,7 +179,7 @@ export default function TrainingPage() {
                                 ))}
                              </ul>
                         </CardContent>
-                        <CardFooter>
+                        <CardFooter className="p-0 pt-6 mt-auto">
                            <DialogFormWrapper
                                 trigger={
                                     <Button className="w-full">Start a Conversation</Button>
@@ -187,7 +189,8 @@ export default function TrainingPage() {
                                 form={<CommunityLeadForm interest={program.title} />}
                             />
                         </CardFooter>
-                    </Card>
+                      </div>
+                    </GlowingCard>
                 ))}
             </div>
         </section>
@@ -199,15 +202,17 @@ export default function TrainingPage() {
             </div>
              <div className="grid lg:grid-cols-2 gap-8">
                 {communityProjects.map((project) => (
-                <Card key={project.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                    <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <GlowingCard key={project.title}>
+                  <div className="p-6 h-full flex flex-col">
+                    <CardHeader className="p-0 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                         {project.icon}
-                        <CardTitle className="text-lg md:text-xl">{project.title}</CardTitle>
+                        <CardTitle className="text-lg md:text-xl animate-color-change">{project.title}</CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="p-0 pt-4">
                         <p className="text-muted-foreground text-sm md:text-base">{project.description}</p>
                     </CardContent>
-                </Card>
+                  </div>
+                </GlowingCard>
                 ))}
             </div>
         </section>

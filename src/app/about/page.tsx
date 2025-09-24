@@ -6,6 +6,7 @@ import { Briefcase, Users, CheckCircle, Lightbulb, Zap, Handshake } from 'lucide
 import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { GlowingCard } from '@/components/ui/glowing-card';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -85,13 +86,13 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {teamMembers.map((member) => (
-              <Card key={member.name} className="bg-secondary/50 border-border/50 overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
+              <GlowingCard key={member.name}>
                  <div className="p-6 text-center md:text-left">
-                    <h3 className="font-bold text-2xl">{member.name}</h3>
+                    <h3 className="font-bold text-2xl animate-color-change">{member.name}</h3>
                     <p className="text-primary mb-3">{member.role}</p>
                     <p className="text-muted-foreground text-sm">{member.description}</p>
                  </div>
-                 <div className="bg-background/50 p-6">
+                 <div className="bg-secondary/20 p-6">
                     <h4 className="font-semibold mb-4 text-primary">Areas of Expertise</h4>
                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
                         {member.expertise.map(skill => (
@@ -102,7 +103,7 @@ export default function AboutPage() {
                         ))}
                     </div>
                 </div>
-              </Card>
+              </GlowingCard>
             ))}
           </div>
         </section>

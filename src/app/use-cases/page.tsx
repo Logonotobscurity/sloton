@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Briefcase, HeartPulse, ShoppingCart, Shield, Calculator, Factory, Building, Server, Truck, Zap, Phone } from 'lucide-react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { GlowingCard } from '@/components/ui/glowing-card';
 
 export const metadata: Metadata = {
   title: 'Industry Use Cases | AI & Automation Solutions by Sector',
@@ -168,30 +169,30 @@ export default function UseCasesPage() {
 
         <div className="mt-16 grid md:grid-cols-2 gap-8">
           {useCases.map((useCase) => (
-            <Card key={useCase.id} id={useCase.id} className="bg-secondary/50 border-border/50 scroll-mt-24 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                <div className="p-6 md:p-8">
-                  <CardHeader className="p-0">
-                    <div className="flex items-center gap-4">
-                      {useCase.icon}
-                      <CardTitle className="text-xl md:text-3xl">{useCase.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-0 pt-4">
-                    <p className="text-muted-foreground">{useCase.description}</p>
-                     <div className="pt-6">
-                        <h4 className="font-semibold mb-4 text-primary">Example Applications:</h4>
-                        <ul className="space-y-3">
-                            {useCase.features.map((feature) => (
-                            <li key={feature} className="flex items-start gap-3">
-                                <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                                <span className="text-muted-foreground">{feature}</span>
-                            </li>
-                            ))}
-                        </ul>
-                    </div>
-                  </CardContent>
-                </div>
-            </Card>
+            <GlowingCard key={useCase.id} >
+              <div id={useCase.id} className="p-6 md:p-8 h-full flex flex-col scroll-mt-24">
+                <CardHeader className="p-0">
+                  <div className="flex items-center gap-4">
+                    {useCase.icon}
+                    <CardTitle className="text-xl md:text-3xl animate-color-change">{useCase.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-0 pt-4 flex-grow">
+                  <p className="text-muted-foreground">{useCase.description}</p>
+                   <div className="pt-6">
+                      <h4 className="font-semibold mb-4 text-primary">Example Applications:</h4>
+                      <ul className="space-y-3">
+                          {useCase.features.map((feature) => (
+                          <li key={feature} className="flex items-start gap-3">
+                              <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-muted-foreground">{feature}</span>
+                          </li>
+                          ))}
+                      </ul>
+                  </div>
+                </CardContent>
+              </div>
+            </GlowingCard>
           ))}
         </div>
          <div className="text-center mt-16 md:mt-20">
