@@ -1,3 +1,4 @@
+
 "use client";
 import { useEffect, useRef } from "react";
 import { Renderer, Triangle, Program, Mesh } from "ogl";
@@ -6,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const PrismBackground = ({
+const Prism = ({
   height = 3.5,
   baseWidth = 5.5,
   animationType = "3drotate",
@@ -412,7 +413,6 @@ export const PrismBackground = ({
         else stopRAF();
       });
       io.observe(container);
-      startRAF();
       (container as any).__prismIO = io;
     } else {
       startRAF();

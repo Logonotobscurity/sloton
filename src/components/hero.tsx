@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,12 +12,12 @@ import {
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { BrainCircuit, ArrowDown } from 'lucide-react';
 import { ArrowIcon } from './ui/arrow-icon';
-import { PrismBackground } from './prism-background';
+import Prism from './prism-background';
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center py-16 overflow-hidden">
-      <PrismBackground />
+      <Prism />
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-4xl text-center">
         <span className="text-sm font-normal uppercase tracking-widest text-primary mb-4 md:mb-6 block">
           Your Partner in Growth
