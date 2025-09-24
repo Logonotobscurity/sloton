@@ -1,6 +1,6 @@
 
 export interface Template {
-  category: 'Finance' | 'Human Resources' | 'Sales' | 'Marketing' | 'Real Estate' | 'General Business';
+  category: 'Finance' | 'Human Resources' | 'Sales' | 'Marketing' | 'Real Estate' | 'General Business' | 'IT Operations' | 'Procurement' | 'Development' | 'Healthcare' | 'Admin and Ops' | 'CS and Support';
   name: string;
   description: string;
 }
@@ -362,4 +362,136 @@ export const templates: Template[] = [
     name: 'Design Thinking',
     description: 'A template for solving complex problems using Herbert Simon\'s Design Thinking methodology through structured innovation processes.'
   },
-];
+
+  // IT Operations Templates
+  {
+    category: 'IT Operations',
+    name: 'Access Requests — Remote Work',
+    description: 'This process manages access requests for remote work to ensure company security.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Asset Management',
+    description: 'This process manages IT assets from request to delivery ensuring nothing is left behind.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Change Management',
+    description: 'IT Change Management is a business process that involves the proactive or reactive implementation of changes in IT infrastructure to enhance service delivery.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Change Request',
+    description: 'Manage and track recurrent and new IT change requests for consistent data and results.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Incident Management',
+    description: 'This process is designed to manage and store all information about an IT incident systematically.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Onboarding',
+    description: 'The IT Onboarding process is designed to efficiently integrate new hires into the organization by providing them with the necessary tools and addressing any account related issues.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Onboarding Process',
+    description: 'A process to standardize IT onboarding activities and ensure no information is missed.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Order Management',
+    description: 'A process to track and manage IT maintenance and failure issues.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Problem Management',
+    description: 'The IT Problem Management process aims to quickly resolve IT-related issues to prevent disruptions or downtime, understand root causes, and take preventive measures for business continuity.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Project Request',
+    description: 'Manage and track valuable project ideas to improve your company.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Release Management',
+    description: 'A process designed for IT departments to manage the release process from planning to review.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'IT Service Request',
+    description: 'The IT Service Request process is a critical aspect of an organization\'s IT department. It ensures employees have access to required IT services for optimal performance, handling requests like password recovery, app access, new hardware provision, software license purchases and upgrades.'
+  },
+  {
+    category: 'IT Operations',
+    name: 'Tool Management',
+    description: 'Manage and track your company\'s tool ordering, analysis, purchase, and approval process.'
+  },
+
+  // Development Templates
+  {
+    category: 'Development',
+    name: 'Agile Software Development',
+    description: 'A template to streamline and customize your agile development process for efficient workflow.'
+  },
+  {
+    category: 'Development',
+    name: 'Bug Tracking and Reporting',
+    description: 'Manage and streamline bugs resolution process with Pneumatic’s bug tracking template.'
+  },
+  {
+    category: 'Development',
+    name: 'IT Bug Tracking',
+    description: 'IT Bug Tracking is a vital process for software development teams that involves identifying, investigating, and resolving software bugs in a timely manner.'
+  },
+  {
+    category: 'Development',
+    name: 'Product Management',
+    description: 'This process organizes, prioritizes, designs, tests, and releases new product features.'
+  },
+  {
+    category: 'Development',
+    name: 'Software Comparison',
+    description: 'A process for selecting the best tech solutions for your company.'
+  },
+  {
+    category: 'Development',
+    name: 'Software Debugging Process',
+    description: 'This process manages bug correction data, enhancing productivity and teamwork during debugging phases.'
+  },
+  {
+    category: 'Development',
+    name: 'Software Deployment',
+    description: 'This process is designed to aid in the efficient and successful deployment of new software and updates.'
+  },
+  {
+    category: 'Development',
+    name: 'Software Performance Testing',
+    description: 'Plan, organize and manage your software performance tests efficiently.'
+  },
+  {
+    category: 'Development',
+    name: 'Software Testing Tutorial',
+    description: 'A guide to simplify the process of software testing using Pneumatic’s Software Testing Tutorial Template.'
+  },
+  {
+    category: 'Development',
+    name: 'Task Management',
+    description: 'A process designed to increase efficiency in handling tasks, from simple to complex.'
+  },
+
+  // CS and Support Templates
+  {
+    category: 'CS and Support',
+    name: 'Customer Support & Help Desk',
+    description: 'A system for receiving, managing, and resolving customer ticket requests in a single place.'
+  },
+  {
+    category: 'CS and Support',
+    name: 'IT Customer Relationship Management',
+    description: 'This process manages customer requests, surveys their satisfaction, and ensures quick responses.'
+  },
+  {
+    category: 'CS
