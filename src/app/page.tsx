@@ -11,6 +11,7 @@ import { TechStackCarousel } from '@/components/tech-stack-carousel';
 import { TrainingCTA } from '@/components/training-cta';
 import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
 import { ChatbotEmbed } from '@/components/chatbot-embed';
+import { IntegrationsHighlight } from '@/components/integrations-highlight';
 
 
 export default function Home() {
@@ -22,6 +23,9 @@ export default function Home() {
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <GeneralistApproach />
+      </ScrollAnimationWrapper>
+       <ScrollAnimationWrapper>
+        <IntegrationsHighlight />
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <PartnershipApproach />
