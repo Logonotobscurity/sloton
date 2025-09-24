@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send } from 'lucide-react';
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata } from 'next';
-import { IconAdminOps, IconCs, IconDevelopment, IconFinance, IconHealthcare, IconHumanResources, IconItOperations, IconMarketing, IconProcurement, IconRealEstate, IconSales, IconGeneral } from '@/lib/icons';
+import { IconAdminOps, IconSupport, IconDevelopment, IconFinance, IconHealthcare, IconHumanResources, IconItOperations, IconMarketing, IconProcurement, IconRealEstate, IconSales, IconGeneral } from '@/lib/icons';
 
 const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string, color: string } } = {
   'Finance': { icon: IconFinance, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
@@ -21,7 +21,7 @@ const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string
   'Development': { icon: IconDevelopment, iconBg: "bg-red-100 dark:bg-red-900/50", color: "text-red-600 dark:text-red-400" },
   'Healthcare': { icon: IconHealthcare, iconBg: "bg-emerald-100 dark:bg-emerald-900/50", color: "text-emerald-600 dark:text-emerald-400" },
   'Admin and Ops': { icon: IconAdminOps, iconBg: "bg-yellow-100 dark:bg-yellow-900/50", color: "text-yellow-600 dark:text-yellow-400" },
-  'CS and Support': { icon: IconCs, iconBg: "bg-cyan-100 dark:bg-cyan-900/50", color: "text-cyan-600 dark:text-cyan-400" },
+  'CS and Support': { icon: IconSupport, iconBg: "bg-cyan-100 dark:bg-cyan-900/50", color: "text-cyan-600 dark:text-cyan-400" },
   'General': { icon: IconGeneral, iconBg: "bg-gray-100 dark:bg-gray-900/50", color: "text-gray-600 dark:text-gray-400" },
 };
 
