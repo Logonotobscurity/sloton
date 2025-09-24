@@ -32,9 +32,9 @@ Colors are defined using HSL variables in `src/app/globals.css` to support light
 
 The typographic scale is designed for clarity, hierarchy, and readability.
 
-*   **Headline Font**: `Anton` (imported in `src/app/layout.tsx`)
-    *   **Usage**: Used for all major H1 and H2 headings with the `font-headline` class. It provides a bold, high-impact look for grabbing user attention.
-*   **Body Font**: `Rubik` (imported in `src/app/layout.tsx`)
+*   **Headline Font**: `Abhaya Libre` (imported in `src/app/layout.tsx`)
+    *   **Usage**: Used for all major H1 and H2 headings with the `font-headline` class. It provides a strong, distinctive look for grabbing user attention.
+*   **Body Font**: `Nunito` (imported in `src/app/layout.tsx`)
     *   **Usage**: Used for all body text, paragraphs, labels, and navigation items with the `font-body` class. It's chosen for its excellent readability at various sizes.
 
 **Rules & Sizing:**

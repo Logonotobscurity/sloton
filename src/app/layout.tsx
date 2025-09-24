@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next';
-import { Rubik, Anton } from 'next/font/google';
+import { Nunito, Abhaya_Libre } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
@@ -10,16 +10,17 @@ import { WebsiteLoader } from '@/components/website-loader';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
 
-const rubik = Rubik({
+const nunito = Nunito({
   subsets: ['latin'],
-  variable: '--font-rubik',
+  variable: '--font-nunito',
   display: 'swap',
+  weight: ['400', '700'],
 });
 
-const anton = Anton({
+const abhayaLibre = Abhaya_Libre({
   subsets: ['latin'],
-  variable: '--font-anton',
-  weight: '400',
+  variable: '--font-abhaya-libre',
+  weight: '800',
   display: 'swap',
 });
 
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
         url: '/og-image.png', 
         width: 1200,
         height: 630,
-        alt: 'LOG_ON connecting Advantages',
+        alt: 'LOG_ON',
       },
     ],
     locale: 'en_US',
@@ -65,7 +66,7 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "LOG_ON connecting Advantages",
+  "name": "LOG_ON",
   "url": "https://logonsolutions.netlify.app",
   "logo": "https://logonsolutions.netlify.app/og-image.png",
   "contactPoint": {
@@ -85,7 +86,7 @@ const organizationSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "LOG_ON connecting Advantages",
+  "name": "LOG_ON",
   "image": "https://logonsolutions.netlify.app/og-image.png",
   "@id": "https://logonsolutions.netlify.app",
   "url": "https://logonsolutions.netlify.app",
@@ -211,8 +212,8 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen bg-background font-body antialiased',
-          rubik.variable,
-          anton.variable,
+          nunito.variable,
+          abhayaLibre.variable,
         )}
       >
           <ThemeProvider

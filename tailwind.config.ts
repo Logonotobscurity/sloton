@@ -18,8 +18,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-rubik)', 'sans-serif'],
-        headline: ['var(--font-anton)', 'sans-serif'],
+        body: ['var(--font-nunito)', 'sans-serif'],
+        headline: ['var(--font-abhaya-libre)', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
