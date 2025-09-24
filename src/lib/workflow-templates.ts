@@ -513,229 +513,255 @@ export const templates: Template[] = [
   },
 
   // CS and Support Templates
-  {
-    category: 'CS and Support',
-    name: 'Customer Contact Log & Form',
-    description: 'A process designed to facilitate the registration and storage of customer contact information using a standardized template.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Customer Feedback',
-    description: 'A standardized and centralized process for collecting and tracking customer feedback.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Customer Help Desk',
-    description: 'Designed to exceed customer expectations by efficiently addressing their queries or complaints through a ticketing system.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Customer Interviews',
-    description: 'A step-by-step guide to conducting effective customer interviews to enhance product development.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Customer Onboarding',
-    description: 'A crucial process to help customers get familiar with and start using a product, adapting to its learning curve.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Customer Satisfaction Survey',
-    description: 'Gathers insights from customers to improve product or service quality and enhance customer experiences.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Customer Satisfaction Survey - Phone',
-    description: 'A structured process for conducting post-sales customer satisfaction surveys via phone.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Customer Satisfaction Survey Form',
-    description: 'A process for centralizing customer satisfaction survey responses, organizing and extracting survey data.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Customer Success Management',
-    description: 'Focuses on managing customer success with full visibility of companies and tasks, ensuring adherence to SLAs.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Damaged or Lost Baggage',
-    description: 'A process for managing requests for luggage repairs and lost luggage claims, from claim to compensation payment.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Early Check-in (Double Room)',
-    description: 'Designed to enable guests to check-in early, streamlining the process for both guests and hosts.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Field Service Management',
-    description: 'This process helps in organizing the field operations of a team of service professionals.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Helpdesk | Tracking received emails',
-    description: 'Efficiently manage and track every email received by creating a new ticket/card in the pipe for each email.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Hotel Booking Request',
-    description: 'Organize your team hotel booking request with this new template.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Application Maintenance and Support',
-    description: 'This process aims to manage and organize the support issues reported in a business using a kanban model.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Bike Rental Management',
-    description: 'A comprehensive process to manage and track bike rentals for bike rental shops.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Cargo Vehicle Insurance Claim',
-    description: 'This process is for reporting and handling insurance claims related to cargo vehicles.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Case Management',
-    description: 'Efficiently managing and handling cases by leveraging a public form, quick information analysis, and automated email communication.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Churn Management',
-    description: 'A standardized workflow to manage customer churn effectively, offering a good experience even up until the last engagement.'
-  },
-  {
-    category: 'CS' and Support',
-    name: 'Class Scheduling',
-    description: 'This business process is designed to assist in the creation and management of class schedules.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Client\'s Equipment Maintenance',
-    description: 'A process for controlling and tracking clients\' repair requests and keeping the client informed through automatic email templates.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Complaint Management',
-    description: 'A simple and complete way to organize your complaints in your company.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Complaints Follow-up Agroindustrial',
-    description: 'Helps agroindustrial managers track, control, and communicate effectively with customers about their issues and complaints.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Concierge Service',
-    description: 'A crucial aspect of a hotel\'s customer service, handling a variety of guest needs.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Concierge Services',
-    description: 'A process to handle and fulfill hotel guest requests for restaurant, museum, concert, and theater reservations.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Contact Inbox',
-    description: 'Aimed at centralizing, organizing, and responding to customer contacts effectively and efficiently.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Customer Communication Management',
-    description: 'Manages all communication with customers including assigning responsible persons, drafting release notes, and managing channels.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Implementation',
-    description: 'A detailed process to understand customer expectations, implement solutions, schedule training, and organize feedback.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Incoming Net Promoter Scores',
-    description: 'Manage all your NPS scores, send emails and ask for feedback using this template.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Lodging Requests',
-    description: 'This process is aimed at facilitating lodging requisition in hotels or Airbnb.'
-  },
-  {
-    category: 'Marketing',
-    name: 'Marketing Agency Client Onboarding',
-    description: 'This process is designed to help marketing agencies flawlessly welcome new clients, ensuring that all small details are executed perfectly to build a loyal and satisfied long-term customer base.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Medical Appointment Scheduling',
-    description: 'A streamlined process for scheduling medical appointments and sending out automated confirmation emails.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Medical Care (Clinic)',
-    description: 'This process is designed for clinics to manage their patients\' details, from scheduling to departure.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Medical Care (Hospital)',
-    description: 'A comprehensive system designed for hospitals to manage their patients\' journey from triage to discharge.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Missing, lost, or damaged shipment',
-    description: 'A process to handle cases of missing, damaged, or lost shipments reported by clients.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'NDA Request',
-    description: 'This process involves the error-proof execution of signing Non-Disclosure Agreements (NDAs).'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Problem handling for Telecom',
-    description: 'Manage all internal problems related to telecommunications using a specific problem-solving methodology.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Product & Technical Support',
-    description: 'Organize all the products that need technical support to improve support time and customer management.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Product return management',
-    description: 'This is a process to manage returns, with refund or exchange options.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Service Problem Management',
-    description: 'This process aims to respond immediately to customer-affecting service issues or failures in the telecommunications sector.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Service Scheduling',
-    description: 'A process designed to ensure that an organization\'s services and resources are scheduled as optimally and efficiently as possible.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Shipment Tracking',
-    description: 'A process for tracking the current location of a product shipment, monitoring its status from posted to delivered.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Technical Repair',
-    description: 'This business process focuses on managing and fulfilling customer requests for appliance and electronics repairs.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Warranty Claim',
-    description: 'A structured process to manage and track customer\'s warranty claims in case of product malfunction or defect.'
-  },
-  {
-    category: 'CS and Support',
-    name: 'Warranty Management',
-    description: 'Managing the entire product warranty process, from diagnosis to repair, while also establishing the required time and cost.'
-  }
+    {
+        category: 'CS and Support',
+        name: 'Customer Contact Log & Form',
+        description: 'A process designed to facilitate the registration and storage of customer contact information using a standardized template.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Customer Feedback',
+        description: 'A standardized and centralized process for collecting and tracking customer feedback.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Customer Help Desk',
+        description: 'Designed to exceed customer expectations by efficiently addressing their queries or complaints through a ticketing system.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Customer Interviews',
+        description: 'A step-by-step guide to conducting effective customer interviews to enhance product development.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Customer Onboarding',
+        description: 'A crucial process to help customers get familiar with and start using a product, adapting to its learning curve.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Customer Satisfaction Survey',
+        description: 'Gathers insights from customers to improve product or service quality and enhance customer experiences.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Customer Satisfaction Survey - Phone',
+        description: 'A structured process for conducting post-sales customer satisfaction surveys via phone.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Customer Satisfaction Survey Form',
+        description: 'A process for centralizing customer satisfaction survey responses, organizing and extracting survey data.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Customer Success Management',
+        description: 'Focuses on managing customer success with full visibility of companies and tasks, ensuring adherence to SLAs.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Damaged or Lost Baggage',
+        description: 'A process for managing requests for luggage repairs and lost luggage claims, from claim to compensation payment.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Early Check-in (Double Room)',
+        description: 'Designed to enable guests to check-in early, streamlining the process for both guests and hosts.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Field Service Management',
+        description: 'This process helps in organizing the field operations of a team of service professionals.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Helpdesk | Tracking received emails',
+        description: 'Efficiently manage and track every email received by creating a new ticket/card in the pipe for each email.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Hotel Booking Request',
+        description: 'Organize your team hotel booking request with this new template.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Application Maintenance and Support',
+        description: 'This process aims to manage and organize the support issues reported in a business using a kanban model.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Bike Rental Management',
+        description: 'A comprehensive process to manage and track bike rentals for bike rental shops.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Cargo Vehicle Insurance Claim',
+        description: 'This process is for reporting and handling insurance claims related to cargo vehicles.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Case Management',
+        description: 'Efficiently managing and handling cases by leveraging a public form, quick information analysis, and automated email communication.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Churn Management',
+        description: 'A standardized workflow to manage customer churn effectively, offering a good experience even up until the last engagement.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Class Scheduling',
+        description: 'This business process is designed to assist in the creation and management of class schedules.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Client\'s Equipment Maintenance',
+        description: 'A process for controlling and tracking clients\' repair requests and keeping the client informed through automatic email templates.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Complaint Management',
+        description: 'A simple and complete way to organize your complaints in your company.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Complaints Follow-up Agroindustrial',
+        description: 'Helps agroindustrial managers track, control, and communicate effectively with customers about their issues and complaints.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Concierge Service',
+        description: 'A crucial aspect of a hotel\'s customer service, handling a variety of guest needs.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Concierge Services',
+        description: 'A process to handle and fulfill hotel guest requests for restaurant, museum, concert, and theater reservations.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Contact Inbox',
+        description: 'Aimed at centralizing, organizing, and responding to customer contacts effectively and efficiently.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Coworking Space Rental',
+        description: 'This business process aims to streamline the management of coworking space rental requests and foster effective communication with clients.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Customer Communication Management',
+        description: 'This business process is aimed at managing all communication with customers including assigning responsible persons, drafting and managing release notes, managing communication channels and automating email sending.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Implementation',
+        description: 'A detailed process to understand customer\'s expectations, implement solutions, schedule training meetings, and organize feedbacks using this Implementation Template.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Incoming Net Promoter Scores',
+        description: 'Manage all your NPS scores, send emails and ask for feedback using this Incoming Net Promoter Scores template.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Lodging Requests',
+        description: 'This process is aimed at facilitating lodging requisition in hotels or Airbnb. It involves various phases, each requiring specific inputs.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Medical Appointment Scheduling',
+        description: 'A streamlined process for scheduling medical appointments and sending out automated confirmation emails.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Medical Care (Clinic)',
+        description: 'This process is designed for clinics to manage their patients\' details, from the moment they schedule the appointment to leave the clinic.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Medical Care (Hospital)',
+        description: 'A comprehensive system designed for hospitals to manage their patients\' journey from triage to discharge.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Missing, lost, or damaged shipment',
+        description: 'A process to handle cases of missing, damaged, or lost shipments reported by clients.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'NDA Request',
+        description: 'This process involves the error-proof and flawless execution of signing Non-Disclosure Agreements (NDAs) to avoid future complications. Automation plays a key role in simplifying and streamlining the entire workflow.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Problem handling for Telecom',
+        description: 'Manage all internal problems related to telecommunications using a specific problem-solving methodology.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Product & Technical Support',
+        description: 'This process aims to organize all the products that need technical support to improve support time and customer management.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Product return management',
+        description: 'This is a process to manage returns, with refund or exchange options.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Service Problem Management',
+        description: 'This process aims to respond immediately to customer-affecting service issues or failures in the telecommunications sector.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Service Scheduling',
+        description: 'A process designed to ensure that an organization\'s services and resources are scheduled as optimally and efficiently as possible.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Shipment Tracking',
+        description: 'A process for tracking the current location of a product shipment. It monitors whether the shipment has been posted, is en route, or has been delivered.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Technical Repair',
+        description: 'This business process focuses on managing and fulfilling customer requests for appliance and electronics repairs in a timely and efficient manner.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Warranty Claim',
+        description: 'A structured process to manage and track customer\'s warranty claims in case of product malfunction or defect.'
+    },
+    {
+        category: 'CS and Support',
+        name: 'Warranty Management',
+        description: 'Managing the entire product warranty process, from diagnosis to repair, while also establishing the required time and cost.'
+    },
+    {
+        category: 'Admin and Ops',
+        name: '5S Auditing',
+        description: 'A regular process for conducting 5S audits to maintain organization and eliminate waste in workplace operations.'
+    },
+    {
+        category: 'Admin and Ops',
+        name: 'Business Process Mapping',
+        description: 'Supports mapping, evaluating, and managing business processes for optimal efficiency and documentation.'
+    },
+    {
+        category: 'Admin and Ops',
+        name: 'Commodities Strategy',
+        description: 'Organizes data for forecasting market trends in a simple kanban view for traders and analysts.'
+    },
+    {
+        category: 'Admin and Ops',
+        name: 'Competitive Analysis',
+        description: 'Investigates competitors, analyzes their strategies, and documents their strengths and weaknesses for strategic planning.'
+    },
+    {
+        category: 'Admin and Ops',
+        name: 'Design Thinking',
+        description: 'A template for solving complex problems using Herbert Simon\'s Design Thinking methodology through structured innovation processes.'
+    }
 ];
+
