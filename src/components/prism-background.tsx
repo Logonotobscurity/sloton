@@ -7,7 +7,7 @@ const Prism = ({
   height = 3.5,
   baseWidth = 5.5,
   animationType = "rotate",
-  glow = 1,
+  glow = 0.7,
   offset = { x: 0, y: 0 },
   noise = 0.5,
   transparent = true,
@@ -16,7 +16,7 @@ const Prism = ({
   colorFrequency = 1,
   hoverStrength = 2,
   inertia = 0.05,
-  bloom = 1,
+  bloom = 0.5,
   suspendWhenOffscreen = false,
   timeScale = 0.5,
 }) => {
@@ -175,7 +175,9 @@ const Prism = ({
 
         vec3 col = o.rgb;
         float n = rand(gl_FragCoord.xy + vec2(iTime));
-        col += (n - 0.5) * uNoise;
+        
+        vec3 noiseColor = vec3(0.4, 0.45, 0.42); // Corresponds to a desaturated green/gray
+        col += (n - 0.5) * uNoise * noiseColor;
         col = clamp(col, 0.0, 1.0);
 
         float L = dot(col, vec3(0.2126, 0.7152, 0.0722));
