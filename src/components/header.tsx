@@ -137,6 +137,50 @@ const automationTemplatesNavItems = [
     },
 ];
 
+const NavLink = ({ href, children, pathname }: { href: string; children: React.ReactNode, pathname: string }) => {
+  const isActive = pathname === href;
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "relative text-sm font-medium transition-colors hover:text-primary",
+        isActive ? "text-primary" : "text-foreground"
+      )}
+      prefetch={false}
+    >
+      {children}
+      {isActive && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"></span>}
+    </Link>
+  );
+};
+
+const MobileNavLink = ({ href, icon, children, onClick, pathname }: { href: string; icon: React.ReactNode; children: React.ReactNode; onClick?: () => void, pathname: string }) => (
+   <SheetClose asChild>
+      <Link
+          href={href}
+          onClick={onClick}
+          className={cn(
+              "flex items-center gap-4 py-3 text-base font-medium transition-colors hover:text-primary",
+              pathname === href ? "text-primary" : "text-foreground"
+          )}
+          prefetch={false}
+      >
+          {icon}
+          <span>{children}</span>
+      </Link>
+   </SheetClose>
+);
+
+const Logo = () => (
+    <SheetClose asChild>
+        <Link href="/" className="flex items-center" prefetch={false}>
+            <div className="flex flex-col items-start">
+            <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
+            <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
+            </div>
+        </Link>
+    </SheetClose>
+);
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -149,51 +193,6 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
-  const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
-    const isActive = pathname === href;
-    return (
-      <Link
-        href={href}
-        className={cn(
-          "relative text-sm font-medium transition-colors hover:text-primary",
-          isActive ? "text-primary" : "text-foreground"
-        )}
-        prefetch={false}
-      >
-        {children}
-        {isActive && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"></span>}
-      </Link>
-    );
-  };
-  
-  const MobileNavLink = ({ href, icon, children, onClick }: { href: string; icon: React.ReactNode; children: React.ReactNode; onClick?: () => void }) => (
-     <SheetClose asChild>
-        <Link
-            href={href}
-            onClick={onClick}
-            className={cn(
-                "flex items-center gap-4 py-3 text-base font-medium transition-colors hover:text-primary",
-                pathname === href ? "text-primary" : "text-foreground"
-            )}
-            prefetch={false}
-        >
-            {icon}
-            <span>{children}</span>
-        </Link>
-     </SheetClose>
-  );
-
-  const Logo = () => (
-    <SheetClose asChild>
-        <Link href="/" className="flex items-center" prefetch={false}>
-            <div className="flex flex-col items-start">
-            <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
-            <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
-            </div>
-        </Link>
-    </SheetClose>
-  );
 
   return (
     <header 
@@ -265,7 +264,7 @@ export function Header() {
                 </div>
 
                 <div className="group relative">
-                    <NavLink href="/automation">
+                    <NavLink href="/automation" pathname={pathname}>
                        <span className="flex items-center">
                            Automation <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
                        </span>
@@ -326,7 +325,7 @@ export function Header() {
                 </div>
                 
                 {mainNavItems.map((item) => (
-                    <NavLink key={item.href} href={item.href}>{item.label}</NavLink>
+                    <NavLink key={item.href} href={item.href} pathname={pathname}>{item.label}</NavLink>
                 ))}
             </nav>
             <div className="hidden md:flex items-center gap-2">
@@ -370,21 +369,21 @@ export function Header() {
                             <AccordionItem value="solutions">
                             <AccordionTrigger className="text-xl font-bold">Our Solutions</AccordionTrigger>
                             <AccordionContent className="pl-4">
-                                <MobileNavLink href="/solutions" icon={<BrainCircuit className="h-5 w-5" />}}>All Solutions</MobileNavLink>
+                                <MobileNavLink href="/solutions" icon={<BrainCircuit className="h-5 w-5" />} pathname={pathname}>All Solutions</MobileNavLink>
                                 {solutionsNavItems.map((item) => (
-                                    <MobileNavLink key={item.label} href={item.href} icon={item.icon}>
+                                    <MobileNavLink key={item.label} href={item.href} icon={item.icon} pathname={pathname}>
                                         {item.label}
                                     </MobileNavLink>
                                 ))}
-                                <MobileNavLink href="/use-cases" icon={<Briefcase className="h-5 w-5" />}}>All Use Cases</MobileNavLink>
+                                <MobileNavLink href="/use-cases" icon={<Briefcase className="h-5 w-5" />} pathname={pathname}>All Use Cases</MobileNavLink>
                             </AccordionContent>
                             </AccordionItem>
                              <AccordionItem value="automation">
                                 <AccordionTrigger className="text-xl font-bold">Automation</AccordionTrigger>
                                 <AccordionContent className="pl-4">
-                                     <MobileNavLink href="/automation" icon={<Zap className="h-5 w-5" />}}>Automation Hub</MobileNavLink>
+                                     <MobileNavLink href="/automation" icon={<Zap className="h-5 w-5" />} pathname={pathname}>Automation Hub</MobileNavLink>
                                      {automationTemplatesNavItems.map((item) => (
-                                        <MobileNavLink key={item.label} href={item.href} icon={item.icon}>
+                                        <MobileNavLink key={item.label} href={item.href} icon={item.icon} pathname={pathname}>
                                             {item.label} Templates
                                         </MobileNavLink>
                                     ))}
@@ -393,18 +392,18 @@ export function Header() {
                              <AccordionItem value="community">
                                 <AccordionTrigger className="text-xl font-bold">Community</AccordionTrigger>
                                 <AccordionContent className="pl-4">
-                                    <MobileNavLink href="/training" icon={<GraduationCap className="h-5 w-5" />}}>Training Programs</MobileNavLink>
-                                    <MobileNavLink href="/training#impact" icon={<Users className="h-5 w-5" />}}>Leadership &amp; Impact</MobileNavLink>
+                                    <MobileNavLink href="/training" icon={<GraduationCap className="h-5 w-5" />} pathname={pathname}>Training Programs</MobileNavLink>
+                                    <MobileNavLink href="/training#impact" icon={<Users className="h-5 w-5" />} pathname={pathname}>Leadership &amp; Impact</MobileNavLink>
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="company">
                             <AccordionTrigger className="text-xl font-bold">Company</AccordionTrigger>
                             <AccordionContent className="pl-4">
-                                {mainNavItems.map((item) => <MobileNavLink key={item.href} href={item.href} icon={item.icon}>{item.label}</MobileNavLink>)}
+                                {mainNavItems.map((item) => <MobileNavLink key={item.href} href={item.href} icon={item.icon} pathname={pathname}>{item.label}</MobileNavLink>)}
                             </AccordionContent>
                             </AccordionItem>
                         </Accordion>
-                        <MobileNavLink href="/contact" icon={<Phone className="h-5 w-5" />}}>Contact</MobileNavLink>
+                        <MobileNavLink href="/contact" icon={<Phone className="h-5 w-5" />} pathname={pathname}>Contact</MobileNavLink>
                         </nav>
                         <div className="border-t pt-6 space-y-4">
                             <div className="flex justify-between items-center">
