@@ -22,7 +22,9 @@ export default function Home() {
       <div className="bg-black">
         <div className="relative">
           <div className="absolute inset-0 -z-10">
-            <Prism />
+            <Prism 
+              suspendWhenOffscreen={true}
+            />
           </div>
           <Hero />
         </div>
