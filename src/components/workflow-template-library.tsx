@@ -113,6 +113,11 @@ export function WorkflowTemplateLibrary() {
       </div>
 
       <div className="mt-16">
+        <div className="mb-8">
+            <h2 className="text-2xl font-bold">
+                {selectedCategory === 'All' ? 'Showing All Templates' : `Workflow template results for ${selectedCategory}`}
+            </h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <Dialog>
             <DialogTrigger asChild>
