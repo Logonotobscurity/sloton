@@ -1,11 +1,12 @@
 
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Search, ArrowRight, BookUser } from 'lucide-react';
+import { Search, ArrowRight, BookUser, Calculator } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import {
   IconHumanResources,
   IconSales,
@@ -20,7 +21,9 @@ import {
   IconSupport,
   IconGeneral
 } from '@/lib/icons';
-import { templates as allTemplates, Template } from '@/lib/workflow-templates';
+import { templates as allTemplates } from '@/lib/workflow-templates';
+import { TaskAutomationForm } from './task-automation-form';
+import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink, PaginationEllipsis } from '@/components/ui/pagination';
 
 const categories = [
   { name: 'Finance', icon: IconFinance, color: 'text-green-600', borderColor: 'border-green-300', bgColor: 'hover:bg-green-50' },
@@ -44,30 +47,40 @@ const categoryIconMap: { [key: string]: React.ElementType } = {
   'Marketing': IconMarketing,
   'Real Estate': IconRealEstate,
   'General Business': IconGeneral,
+  'IT Operations': IconItOperations,
+  'Procurement': IconProcurement,
+  'Development': IconDevelopment,
+  'Healthcare': IconHealthcare,
+  'Admin and Ops': IconAdminOps,
+  'CS and Support': IconSupport,
 };
+
+const ITEMS_PER_PAGE = 8; // 9 total cards including the static one
 
 export function WorkflowTemplateLibrary() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === selectedCategory ? 'All' : category);
+    setCurrentPage(1); // Reset to first page on filter change
   };
 
-  const filteredTemplates = allTemplates.filter(template => {
+  const filteredTemplates = useMemo(() => allTemplates.filter(template => {
     const matchesCategory = selectedCategory === 'All' || template.category === selectedCategory;
     const matchesSearch = template.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           template.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
-  });
-  
-  const groupedTemplates = filteredTemplates.reduce((acc, template) => {
-    if (!acc[template.category]) {
-      acc[template.category] = [];
-    }
-    acc[template.category].push(template);
-    return acc;
-  }, {} as Record<string, Template[]>);
+  }), [selectedCategory, searchTerm]);
+
+  const totalPages = Math.ceil(filteredTemplates.length / ITEMS_PER_PAGE);
+  const paginatedTemplates = filteredTemplates.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="py-16 md:py-24">
@@ -80,7 +93,7 @@ export function WorkflowTemplateLibrary() {
               placeholder="Search template"
               className="w-full h-14 pl-12 pr-4 rounded-lg bg-background border-border/50 shadow-sm"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1); }}
             />
           </div>
           <div className="flex flex-wrap gap-3 justify-center mt-6">
@@ -100,43 +113,104 @@ export function WorkflowTemplateLibrary() {
       </div>
 
       <div className="mt-16">
-        {Object.keys(groupedTemplates).length > 0 ? (
-          Object.entries(groupedTemplates).map(([category, templates]) => (
-            <div key={category} className="mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold mb-8">{category}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {templates.map(template => {
-                  const Icon = categoryIconMap[template.category] || BookUser;
-                  return (
-                    <Card key={template.name} className="bg-secondary/50 flex flex-col group transition-transform duration-300 ease-in-out hover:-translate-y-2">
-                       <CardHeader>
-                        <div className="flex items-center gap-4">
-                           <Icon className="h-6 w-6 text-primary" />
-                           <CardTitle className="text-lg">{template.name}</CardTitle>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <CardDescription>{template.description}</CardDescription>
-                      </CardContent>
-                      <CardFooter>
-                         <Button variant="link" className="p-0 text-primary group">
-                            Use Template <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                         </Button>
-                      </CardFooter>
-                    </Card>
-                  )
-                })}
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Card className="bg-secondary/50 flex flex-col group transition-transform duration-300 ease-in-out hover:-translate-y-2 cursor-pointer border-dashed border-primary hover:border-primary/80">
+                <CardHeader>
+                  <div className="flex items-center gap-4">
+                    <Calculator className="h-6 w-6 text-primary" />
+                    <CardTitle className="text-lg">Automation Task Designer</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardDescription>Have a unique workflow? Describe it here to generate a custom, optimized automation plan instantly.</CardDescription>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="link" className="p-0 text-primary group">
+                      Create Custom Workflow <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </CardFooter>
+              </Card>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[600px] bg-background">
+                <DialogHeader>
+                    <DialogTitle className="text-2xl flex items-center gap-2"><Calculator className="h-6 w-6 text-accent" /> Automation Task Designer</DialogTitle>
+                    <DialogDescription>
+                        Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.
+                    </DialogDescription>
+                </DialogHeader>
+                <TaskAutomationForm />
+            </DialogContent>
+          </Dialog>
+
+          {paginatedTemplates.map(template => {
+            const Icon = categoryIconMap[template.category] || BookUser;
+            return (
+              <Card key={template.name} className="bg-secondary/50 flex flex-col group transition-transform duration-300 ease-in-out hover:-translate-y-2">
+                <CardHeader>
+                  <div className="flex items-center gap-4">
+                    <Icon className="h-6 w-6 text-primary" />
+                    <CardTitle className="text-lg">{template.name}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardDescription>{template.description}</CardDescription>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="link" className="p-0 text-primary group">
+                      Use Template <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </CardFooter>
+              </Card>
+            )
+          })}
+        </div>
+
+        {filteredTemplates.length === 0 && (
+           <div className="text-center py-16 col-span-3">
+              <Search className="mx-auto h-12 w-12 text-muted-foreground" />
+              <h3 className="mt-4 text-xl font-semibold">No Templates Found</h3>
+              <p className="mt-2 text-muted-foreground">Try adjusting your search or category filters.</p>
             </div>
-          ))
-        ) : (
-          <div className="text-center py-16">
-            <Search className="mx-auto h-12 w-12 text-muted-foreground" />
-            <h3 className="mt-4 text-xl font-semibold">No Templates Found</h3>
-            <p className="mt-2 text-muted-foreground">Try adjusting your search or category filters.</p>
-          </div>
         )}
       </div>
+      
+       {totalPages > 1 && (
+        <div className="mt-16">
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious 
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); if(currentPage > 1) handlePageChange(currentPage - 1); }}
+                  className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
+                />
+              </PaginationItem>
+              
+              {[...Array(totalPages)].map((_, i) => (
+                  <PaginationItem key={i}>
+                    <PaginationLink 
+                      href="#"
+                      isActive={currentPage === i + 1}
+                      onClick={(e) => { e.preventDefault(); handlePageChange(i + 1); }}
+                    >
+                      {i + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+              ))}
+
+              <PaginationItem>
+                <PaginationNext
+                   href="#"
+                   onClick={(e) => { e.preventDefault(); if(currentPage < totalPages) handlePageChange(currentPage + 1); }}
+                   className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
+      )}
     </div>
   );
 }
