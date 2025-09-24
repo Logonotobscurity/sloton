@@ -1,5 +1,7 @@
 
-import { BrainCircuit, ArrowRight, Calculator, Cog } from 'lucide-react';
+"use client";
+
+import { BrainCircuit, ArrowRight, Cog } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -17,46 +19,54 @@ import {
 } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { TaskAutomationForm } from './task-automation-form';
-import { Button } from './ui/button';
-import { DialogFormWrapper } from './dialog-form-wrapper';
-import { CommunityLeadForm } from './community-lead-form';
+
+const steps = [
+    {
+        name: "Free AI Assessment",
+        description: "Get an instant, data-driven analysis of your AI readiness and a high-level technology roadmap. No commitment required."
+    },
+    {
+        name: "Detailed Consultation",
+        description: "Our experts dive deep into your assessment results, refining the strategy and aligning it with your specific business goals."
+    },
+     {
+        name: "Custom Proposal & Implementation",
+        description: "Receive a comprehensive proposal with a clear scope, timeline, and ROI projections, followed by expert implementation."
+    }
+]
 
 export function StrategicPartner() {
   return (
     <section className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6">
+        <div className="max-w-3xl mx-auto text-center">
             <p className="text-sm font-normal uppercase tracking-widest text-primary">01/ Your Strategic Partner</p>
-            <h2 className="font-headline text-2xl md:text-4xl font-bold">A Clear Path to Digital Transformation</h2>
-            <p className="text-muted-foreground md:text-lg">
+            <h2 className="font-headline text-3xl md:text-4xl font-bold mt-4">A Clear Path to Digital Transformation</h2>
+            <p className="text-muted-foreground md:text-lg mt-6">
               We provide a clear, structured pathway to integrating technology that drives real business results. Our engagement model is designed to deliver immediate value while building a foundation for long-term growth. See how our free, interactive tools can kickstart your journey.
             </p>
-            <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold flex-shrink-0">1</div>
-                    <div>
-                        <h3 className="font-semibold">Free AI Assessment</h3>
-                        <p className="text-muted-foreground">Get an instant, data-driven analysis of your AI readiness and a high-level technology roadmap. No commitment required.</p>
+        </div>
+
+        <div className="relative mt-16">
+            {/* Dotted line */}
+            <div className="absolute left-1/2 top-4 hidden h-full w-px border-l-2 border-dashed border-border/50 lg:block"></div>
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {steps.map((step, index) => (
+                    <div key={index} className="flex flex-col items-center text-center">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold flex-shrink-0 z-10">
+                            {index + 1}
+                        </div>
+                        <div className="mt-4">
+                            <h3 className="font-semibold text-xl">{step.name}</h3>
+                            <p className="text-muted-foreground mt-2 text-sm">{step.description}</p>
+                        </div>
                     </div>
-                </div>
-                <div className="flex items-start gap-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/80 text-primary-foreground font-bold flex-shrink-0">2</div>
-                    <div>
-                        <h3 className="font-semibold">Detailed Consultation</h3>
-                        <p className="text-muted-foreground">Our experts dive deep into your assessment results, refining the strategy and aligning it with your specific business goals.</p>
-                    </div>
-                </div>
-                <div className="flex items-start gap-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/60 text-primary-foreground font-bold flex-shrink-0">3</div>
-                     <div>
-                        <h3 className="font-semibold">Custom Proposal & Implementation</h3>
-                        <p className="text-muted-foreground">Receive a comprehensive proposal with a clear scope, timeline, and ROI projections, followed by expert implementation.</p>
-                    </div>
-                </div>
+                ))}
             </div>
-          </div>
-          <div className="space-y-8 mt-8 lg:mt-0">
+        </div>
+        
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Dialog>
               <DialogTrigger asChild>
                 <Card className="bg-background group flex flex-col text-left cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2">
@@ -116,8 +126,6 @@ export function StrategicPartner() {
                 <TaskAutomationForm />
               </DialogContent>
             </Dialog>
-            
-          </div>
         </div>
       </div>
     </section>

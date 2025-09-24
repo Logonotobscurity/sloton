@@ -40,12 +40,10 @@ export function PartnershipApproach() {
                                     className="h-6 w-auto"
                                     data-ai-hint={partner.dataAiHint}
                                 />
-                                <span className="text-sm text-muted-foreground">{partner.name}</span>
                             </div>
                         ))}
                          <div className="flex items-center gap-2" title="Cybersecurity & Compliance">
                             <ShieldCheck className="h-6 w-6 text-primary" />
-                             <span className="text-sm text-muted-foreground">Security Compliant</span>
                          </div>
                      </div>
                  </div>

@@ -10,7 +10,7 @@ const integrations = [
     { name: "Webflow", logo: "https://cdn.prod.website-files.com/6009ec8cda7f305645c9d91b/651f2091caa28de325c11530_BlogHeader_Introducing-webflow-2-2400x1260.webp", dataAiHint: "Webflow logo" },
     { name: "Salesforce", logo: "https://ciberspring.com/_astro/06238f8955e49480293f6f5dbd31f85c6932dcbb-1208x1096_Z1PBML4.webp", dataAiHint: "Salesforce logo" },
     { name: "Notion", logo: "https://iconlogovector.com/uploads/images/2024/12/lg-6763d9c3b0a77-Notion.webp", dataAiHint: "Notion logo" },
-     { name: "UiPath", logo: "https://assets.bizclikmedia.net/600/6368d6f519520e743a175898f09511ae:5f458532083a2185c84d72a95c812a6e/uipath-logo-1-1.jpg", dataAiHint: "UiPath logo" },
+    { name: "UiPath", logo: "https://assets.bizclikmedia.net/600/6368d6f519520e743a175898f09511ae:5f458532083a2185c84d72a95c812a6e/uipath-logo-1-1.jpg", dataAiHint: "UiPath logo" },
 ];
 
 export function IntegrationsHighlight() {
@@ -31,9 +31,13 @@ export function IntegrationsHighlight() {
                 </Link>
             </Button>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {integrations.map((integration) => (
-              <div key={integration.name} className="flex flex-col items-center justify-center p-6 bg-background rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-110">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {integrations.map((integration, index) => (
+              <div 
+                key={integration.name} 
+                className="flex flex-col items-center justify-center p-4 bg-background rounded-lg shadow-md transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/20 hover:shadow-lg"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <Image
                   src={integration.logo}
                   alt={`${integration.name} logo`}
@@ -42,7 +46,6 @@ export function IntegrationsHighlight() {
                   className="h-10 w-auto object-contain"
                   data-ai-hint={integration.dataAiHint}
                 />
-                <p className="mt-4 font-semibold text-sm text-muted-foreground">{integration.name}</p>
               </div>
             ))}
           </div>
