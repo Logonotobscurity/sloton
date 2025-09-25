@@ -260,13 +260,16 @@ export function Header() {
       )}>
         {/* Desktop Header */}
         <div className="hidden md:flex items-center justify-between w-full">
-           <div className="flex items-center gap-8">
+            <div className="flex-shrink-0">
                 <Logo />
-                <nav className="hidden md:flex items-center gap-1">
+            </div>
+            
+            <div className="flex-1 flex justify-center">
+                <nav className="flex items-center">
                     {navLinks.map((item) => (
                          <div key={item.label} className="group relative flex h-full items-center">
                             <Link href={item.href} className={cn(
-                            "flex items-center text-sm font-medium transition-colors hover:text-primary px-3 py-2 rounded-md",
+                            "flex items-center text-sm font-medium transition-colors hover:text-primary px-2 py-2 rounded-md",
                             pathname.startsWith(item.href) ? "bg-secondary text-primary" : ""
                             )}>
                                 {item.label} <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
@@ -282,9 +285,9 @@ export function Header() {
                         </div>
                     ))}
                 </nav>
-           </div>
+            </div>
             
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-shrink-0">
                 <ThemeToggle />
                 <Button asChild>
                     <Link href="/contact">Contact Us</Link>
