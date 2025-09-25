@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
@@ -6,7 +7,6 @@ import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Input } from '@/components/ui/input';
 import { MessageSquare, Send, X, Bot, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useHotkeys } from 'react-hotkeys-hook';
 
 export function BotWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,18 @@ export function BotWidget() {
   const panelRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useHotkeys('esc', () => setIsOpen(false), { enableOnFormTags: true });
+  useEffect(() => {
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
