@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -51,10 +52,10 @@ export function Hero() {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   const handleSlideChange = (index: number) => {
-    setActiveSlideIndex(index);
+    setActiveSlideIndex(index % slideData.length);
   };
   
-  const currentSlide = slideData[activeSlideIndex];
+  const currentSlide = slideData[activeSlideIndex] || slideData[0];
 
   return (
      <section 
