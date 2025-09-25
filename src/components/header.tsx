@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ChevronDown, Menu, X as LucideX, Phone } from 'lucide-react';
+import { ChevronDown, Menu, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -28,13 +28,13 @@ import Image from 'next/image';
 const { products, industries, learning, partners, company, support } = menuData.menu;
 
 const MegaMenuLink = ({ item, onLinkClick }: { item: any, onLinkClick?: () => void }) => (
-  <Link href={item.href || '#'} onClick={onLinkClick} className="group/item block p-4 rounded-md transition-colors hover:bg-secondary">
+  <Link href={item.href || '#'} onClick={onLinkClick} className="group/item block p-3 rounded-md transition-colors hover:bg-secondary">
     <div className="flex items-center gap-3">
       {item.icon}
       <div className="flex flex-col">
-        <span className="font-semibold text-foreground">{item.title}</span>
-        {item.description && <span className="text-sm text-muted-foreground">{item.description}</span>}
-        {item.shortDescription && <span className="text-sm text-muted-foreground">{item.shortDescription}</span>}
+        <span className="font-semibold text-sm text-foreground">{item.title}</span>
+        {item.description && <span className="text-xs text-muted-foreground">{item.description}</span>}
+        {item.shortDescription && <span className="text-xs text-muted-foreground">{item.shortDescription}</span>}
       </div>
     </div>
   </Link>
@@ -66,18 +66,18 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
         case 'Products':
             const { heading: pHeading, intro: pIntro, cta: pCta, items: pItems } = products;
             return (
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
                     <div className="lg:col-span-3 p-4">
-                        <h3 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground px-4">{pHeading}</h3>
-                        <p className="text-sm text-muted-foreground mt-2 px-4">{pIntro}</p>
-                        <div className="px-4 mt-4">
+                        <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground px-2">{pHeading}</h3>
+                        <p className="text-xs text-muted-foreground mt-2 px-2">{pIntro}</p>
+                        <div className="px-2 mt-4">
                             <Button asChild size="sm">
                                 <Link href={pCta.href}>{pCta.label}</Link>
                             </Button>
                         </div>
                     </div>
-                    <div className="lg:col-span-9 p-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                    <div className="lg:col-span-9 p-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
                             {pItems.map(item => <MegaMenuLink key={item.title} item={item} onLinkClick={onLinkClick} />)}
                         </div>
                     </div>
@@ -86,18 +86,18 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
         case 'Industries':
             const { heading: iHeading, intro: iIntro, cta: iCta, items: iItems } = industries;
             return (
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
                     <div className="lg:col-span-3 p-4">
-                        <h3 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground px-4">{iHeading}</h3>
-                        <p className="text-sm text-muted-foreground mt-2 px-4">{iIntro}</p>
-                         <div className="px-4 mt-4">
+                        <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground px-2">{iHeading}</h3>
+                        <p className="text-xs text-muted-foreground mt-2 px-2">{iIntro}</p>
+                         <div className="px-2 mt-4">
                             <Button asChild size="sm">
                                 <Link href={iCta.href}>{iCta.label}</Link>
                             </Button>
                         </div>
                     </div>
-                    <div className="lg:col-span-9 p-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                    <div className="lg:col-span-9 p-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
                             {iItems.map(item => <MegaMenuLink key={item.title} item={{...item, href: item.href || '/use-cases'}} onLinkClick={onLinkClick} />)}
                         </div>
                     </div>
@@ -106,25 +106,25 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
         case 'Learning':
              const { heading: lHeading, leftNav: lLeftNav, center: lCenter } = learning;
             return (
-                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                    <div className="lg:col-span-3 p-6 border-r border-border/50">
-                         <h3 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground px-4 mb-4">{lHeading}</h3>
+                 <div className="grid grid-cols-12">
+                    <div className="col-span-3 p-4 border-r border-border/50" style={{width: '260px'}}>
+                         <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground px-2 mb-2">{lHeading}</h3>
                          <ul className="space-y-1">
-                            {lLeftNav.map(item => <li key={item}><Link href="/training" onClick={onLinkClick} className="block p-3 rounded-md hover:bg-secondary">{item}</Link></li>)}
+                            {lLeftNav.map(item => <li key={item}><Link href="/training" onClick={onLinkClick} className="block p-2 text-sm rounded-md hover:bg-secondary">{item}</Link></li>)}
                          </ul>
                     </div>
-                    <div className="lg:col-span-9 p-6">
-                        <h3 className="text-lg font-bold text-primary mb-2">{lCenter.title}</h3>
-                        <p className="text-muted-foreground mb-6">{lCenter.intro}</p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="col-span-9 p-4" style={{ flex: '1 1 0%'}}>
+                        <h3 className="text-base font-bold text-primary mb-1">{lCenter.title}</h3>
+                        <p className="text-xs text-muted-foreground mb-4">{lCenter.intro}</p>
+                        <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                             {lCenter.links.map(link => (
                                  <Link href={link.href || '/training'} key={link.title} className="group" onClick={onLinkClick}>
-                                     <h4 className="font-semibold group-hover:text-primary">{link.title}</h4>
-                                     <p className="text-sm text-muted-foreground">{link.desc}</p>
+                                     <h4 className="font-semibold text-sm group-hover:text-primary">{link.title}</h4>
+                                     <p className="text-xs text-muted-foreground">{link.desc}</p>
                                  </Link>
                             ))}
                         </div>
-                         <div className="mt-8">
+                         <div className="mt-6">
                              <Button asChild>
                                 <Link href={lCenter.cta.href}>{lCenter.cta.label}</Link>
                              </Button>
@@ -135,19 +135,19 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
         case 'Partners':
              const { heading: paHeading, intro: paIntro, cta: paCta, items: paItems } = partners;
             return (
-                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                     <div className="lg:col-span-4 p-6">
-                         <h3 className="text-lg font-bold text-primary mb-2">{paHeading}</h3>
-                         <p className="text-muted-foreground mb-4">{paIntro}</p>
+                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                     <div className="lg:col-span-4 p-4">
+                         <h3 className="text-base font-bold text-primary mb-1">{paHeading}</h3>
+                         <p className="text-xs text-muted-foreground mb-3">{paIntro}</p>
                          <Button asChild>
                             <Link href={paCta.href}>{paCta.label}</Link>
                          </Button>
                      </div>
-                     <div className="lg:col-span-8 p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                     <div className="lg:col-span-8 p-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
                          {paItems.map(item => (
                             <Link href={item.href || '/contact'} key={item.title} className="group" onClick={onLinkClick}>
-                                <h4 className="font-semibold group-hover:text-primary">{item.title}</h4>
-                                <p className="text-sm text-muted-foreground">{item.desc}</p>
+                                <h4 className="font-semibold text-sm group-hover:text-primary">{item.title}</h4>
+                                <p className="text-xs text-muted-foreground">{item.desc}</p>
                             </Link>
                          ))}
                      </div>
@@ -156,51 +156,51 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
         case 'Company':
             const { heading: coHeading, intro: coIntro, cta: coCta, items: coItems } = company;
             return (
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                    <div className="lg:col-span-4 p-6 bg-secondary/30">
-                        <h3 className="text-lg font-bold text-primary mb-2">{coHeading}</h3>
-                        <p className="text-muted-foreground mb-4">{coIntro}</p>
+                <div className="grid grid-cols-12">
+                    <div className="col-span-4 p-4 bg-secondary/30" style={{width: '320px'}}>
+                        <h3 className="text-base font-bold text-primary mb-1">{coHeading}</h3>
+                        <p className="text-xs text-muted-foreground mb-3">{coIntro}</p>
                         <Button asChild>
                             <Link href={coCta.href}>{coCta.label}</Link>
                         </Button>
                     </div>
-                    <div className="lg:col-span-5 p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div className="col-span-5 p-4 grid grid-cols-2 gap-x-6 gap-y-4" style={{ flex: '1 1 0%'}}>
                         {coItems.map(item => (
                             <Link href={item.href || '/about'} key={item.title} className="group" onClick={onLinkClick}>
-                                <h4 className="font-semibold group-hover:text-primary">{item.title}</h4>
-                                <p className="text-sm text-muted-foreground">{item.desc}</p>
+                                <h4 className="font-semibold text-sm group-hover:text-primary">{item.title}</h4>
+                                <p className="text-xs text-muted-foreground">{item.desc}</p>
                             </Link>
                         ))}
                     </div>
-                    <div className="lg:col-span-3 p-6">
-                         <Image src="https://picsum.photos/seed/company/600/800" alt="Company Collage" width={600} height={800} className="rounded-lg object-cover w-full h-full" data-ai-hint="office people" />
+                    <div className="col-span-3">
+                         <Image src="https://picsum.photos/seed/company/600/800" alt="Company Collage" width={600} height={800} className="rounded-r-lg object-cover w-full h-full" data-ai-hint="office people" />
                     </div>
                 </div>
             );
         case 'Support':
              const { heading: sHeading, leftNav: sLeftNav, center: sCenter, promo: sPromo } = support;
             return (
-                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                    <div className="lg:col-span-3 p-6 border-r border-border/50">
-                         <h3 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground px-4 mb-4">{sHeading}</h3>
+                 <div className="grid grid-cols-12">
+                    <div className="col-span-3 p-4 border-r border-border/50" style={{width: '260px'}}>
+                         <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground px-2 mb-2">{sHeading}</h3>
                          <ul className="space-y-1">
-                            {sLeftNav.map(item => <li key={item}><Link href="/support" onClick={onLinkClick} className="block p-3 rounded-md hover:bg-secondary">{item}</Link></li>)}
+                            {sLeftNav.map(item => <li key={item}><Link href="/support" onClick={onLinkClick} className="block p-2 text-sm rounded-md hover:bg-secondary">{item}</Link></li>)}
                          </ul>
                     </div>
-                    <div className="lg:col-span-5 p-6">
-                        <h3 className="text-lg font-bold text-primary mb-2">{sCenter.title}</h3>
-                        <p className="text-muted-foreground mb-6">{sCenter.intro}</p>
+                    <div className="col-span-5 p-4" style={{ flex: '1 1 0%'}}>
+                        <h3 className="text-base font-bold text-primary mb-1">{sCenter.title}</h3>
+                        <p className="text-xs text-muted-foreground mb-4">{sCenter.intro}</p>
                         {sCenter.links.map(link => (
                             <Link href={link.href || '/support'} key={link.title} className="group" onClick={onLinkClick}>
-                                <h4 className="font-semibold group-hover:text-primary">{link.title}</h4>
-                                <p className="text-sm text-muted-foreground">{link.desc}</p>
+                                <h4 className="font-semibold text-sm group-hover:text-primary">{link.title}</h4>
+                                <p className="text-xs text-muted-foreground">{link.desc}</p>
                             </Link>
                          ))}
                     </div>
-                     <aside className="lg:col-span-4 p-6 bg-secondary/30 rounded-r-lg">
+                     <aside className="col-span-4 p-4 bg-secondary/30 rounded-r-lg" style={{width: '320px'}}>
                         <h4 className="font-semibold mb-2">{sPromo.title}</h4>
                         <p className="text-sm text-muted-white mb-4">{sPromo.desc}</p>
-                        <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
+                        <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
                             <Link href={sPromo.cta.href || '/support'}>{sPromo.cta.label}</Link>
                         </Button>
                     </aside>
@@ -272,10 +272,10 @@ export function Header() {
                                 {item.label} <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
                             </Link>
                             <div className={cn(
-                                "absolute top-full pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
+                                "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
                                 "w-screen max-w-5xl -translate-x-1/2 left-1/2"
                             )}>
-                                <div className="bg-background rounded-lg shadow-2xl border max-h-[calc(100vh-100px)] overflow-y-auto">
+                                <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
                                     <MegaMenuContent navItem={item} />
                                 </div>
                             </div>
