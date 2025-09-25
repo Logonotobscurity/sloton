@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -16,6 +17,9 @@ export default {
       },
     },
     extend: {
+      gridTemplateColumns: {
+        mega: '260px 1fr 320px'
+      },
       fontFamily: {
         body: ['var(--font-nunito)', 'sans-serif'],
         headline: ['var(--font-abhaya-libre)', 'sans-serif'],
@@ -74,11 +78,17 @@ export default {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
         },
+        'logon-800': '#073541',
+        'logon-700': '#07373c',
+        'logon-gold': '#D4AF37',
+        'logon-gold-600': '#C99A2B',
+        'muted-white': 'rgba(255,255,255,0.75)'
       },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        card: '8px'
       },
       keyframes: {
         'accordion-down': {

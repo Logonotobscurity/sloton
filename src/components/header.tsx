@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -17,19 +18,20 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { ThemeToggle } from './theme-toggle';
-import { IconFinance, IconHumanResources, IconSales, IconMarketing, IconItOperations } from '@/lib/icons';
 import { ArrowIcon } from './ui/arrow-icon';
 import { Separator } from './ui/separator';
+import { menuData } from '@/lib/menu-data';
+
+const { industries, learning, partners } = menuData.menu;
 
 const topNavItems = [
-    { label: 'Industries', href: '/use-cases' },
-    { label: 'Learning', href: '/training' },
+    { label: 'Industries', key: 'industries' },
+    { label: 'Learning', key: 'learning' },
     { label: 'Support', href: '/contact' },
-    { label: 'Partners', href: '#' },
+    { label: 'Partners', key: 'partners' },
     { label: 'Company', href: '/about' },
 ];
 
@@ -60,82 +62,115 @@ const solutionsSubNav = [
     { label: 'Finance and Supply Chain', href: '/use-cases#finance' },
 ];
 
-const ProductsMegaMenu = () => (
-    <div className="absolute top-full left-0 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto w-screen max-w-[1000px] -translate-x-1/4">
-        <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
-            <div className="grid grid-cols-[250px_1fr_300px] h-[600px]">
-                {/* Left Column */}
-                <div className="bg-secondary/30 p-6 flex flex-col justify-between">
-                    <div>
-                        <h3 className="text-xl font-bold mb-4">Products</h3>
-                        <ul className="space-y-1">
-                            {['Featured products', 'LOG_ON AI Platform', 'Demo Library'].map((item, i) => (
-                                <li key={item}>
-                                    <Link href="#" className={cn("block p-2 rounded-md text-sm font-medium transition-colors hover:bg-primary/10 hover:text-primary", i === 0 && "bg-primary/10 text-primary")}>
-                                        {item}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                        <Separator className="my-4" />
-                        <h4 className="text-sm font-semibold uppercase text-muted-foreground mb-3">Solutions</h4>
-                        <ul className="space-y-1">
-                            {solutionsSubNav.map(item => (
-                                <li key={item.label}>
-                                    <Link href={item.href} className="block p-2 rounded-md text-sm font-medium transition-colors hover:bg-primary/10 hover:text-primary">
-                                        {item.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <Button variant="link" asChild className="p-0 justify-start">
-                        <Link href="/solutions">View All Products <ArrowRight className="ml-1 h-4 w-4" /></Link>
-                    </Button>
-                </div>
-
-                {/* Center Column */}
-                <div className="p-8 overflow-y-auto">
-                    <h2 className="text-3xl font-bold font-headline">Products</h2>
-                    <p className="mt-2 text-muted-foreground">Unite people, processes, and systems with AI-powered products for all your workflows.</p>
-                    <Button asChild variant="outline" className="mt-4">
-                        <Link href="/solutions">See All Products</Link>
-                    </Button>
-                    <Separator className="my-6" />
-                    <h4 className="text-sm font-semibold uppercase text-muted-foreground mb-4">Featured Products</h4>
-                    <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-                        <div>
-                            {featuredProductsLeft.map(item => (
-                                <div key={item.title} className="mb-4">
-                                    <h5 className="font-semibold text-sm hover:text-primary"><Link href="#">{item.title}</Link></h5>
-                                    <p className="text-xs text-muted-foreground">{item.description}</p>
-                                </div>
-                            ))}
-                        </div>
-                         <div>
-                            {featuredProductsRight.map(item => (
-                                <div key={item.title} className="mb-4">
-                                    <h5 className="font-semibold text-sm hover:text-primary"><Link href="#">{item.title}</Link></h5>
-                                    <p className="text-xs text-muted-foreground">{item.description}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Right Column */}
-                <div className="bg-secondary/30 p-8">
-                     <div className="border border-card-border rounded-lg p-6 h-full flex flex-col justify-center text-center bg-background/50">
-                        <h4 className="font-bold text-lg">Put AI to work with the LOG_ON AI Platform</h4>
-                        <p className="text-sm text-muted-foreground mt-2 mb-4">Connect and automate workflows across the enterprise with a single AI platform for business transformation.</p>
-                        <Button asChild variant="outline">
-                            <Link href="/ai-solutions">Explore LOG_ON AI Platform</Link>
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        </div>
+const MegaMenuPanel = ({ children, x, y, strategy, panelRef, 'aria-label': ariaLabel, open }: any) => (
+    <div
+      ref={panelRef}
+      role="dialog"
+      aria-label={ariaLabel}
+      style={{ position: strategy, left: x ?? 0, top: y ?? 0 }}
+      className={cn("z-50 mt-2 w-[100vw] max-w-full transition-opacity duration-300", open ? "opacity-100" : "opacity-0 pointer-events-none")}
+    >
+      <div className="mx-auto max-w-7xl bg-logon-700/95 backdrop-blur-sm border border-logon-800 p-6 grid grid-cols-mega gap-6 rounded-md shadow-lg"
+           style={{ maxHeight: 'calc(100vh - 120px)', overflowY: 'auto' }}>
+        {children}
+      </div>
     </div>
+);
+
+
+const IndustriesMegaMenu = () => (
+    <>
+        <aside className="pr-4 border-r border-logon-gold-600/10">
+            <h3 className="text-xl font-bold mb-4">{industries.heading}</h3>
+            <p className="text-sm text-muted-white mb-4">{industries.intro}</p>
+            <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
+                <Link href={industries.cta.href}>{industries.cta.label}</Link>
+            </Button>
+            <div className="mt-6 pt-6 border-t border-logon-gold-600/10">
+                <Link href="/use-cases" className="text-sm text-logon-gold hover:underline">View All Industries</Link>
+            </div>
+        </aside>
+        <main className="px-4 col-span-2">
+            <h2 className="text-2xl font-bold mb-4">Industries</h2>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6 mt-4">
+                {industries.items.map((item, i) => (
+                    <article key={i}>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href="/use-cases">{item.title}</Link></h3>
+                        <p className="text-sm text-muted-white mt-1">{item.shortDescription}</p>
+                    </article>
+                ))}
+            </div>
+        </main>
+    </>
+);
+
+const LearningMegaMenu = () => {
+    const [activeItem, setActiveItem] = useState(learning.leftNav[0]);
+    return(
+    <>
+        <aside className="pr-4 border-r border-logon-gold-600/10">
+             <h3 className="text-xl font-bold mb-4">{learning.heading}</h3>
+             <ul role="menu" aria-label={`${learning.heading} categories`} className="space-y-1">
+                {learning.leftNav.map((item, idx) => (
+                    <li key={item}>
+                        <button
+                            role="menuitem"
+                            onClick={() => setActiveItem(item)}
+                            className={cn("w-full text-left px-3 py-2 rounded text-sm", activeItem === item ? "bg-white/10 text-logon-gold font-semibold" : "hover:bg-white/5")}
+                        >
+                            {item}
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        </aside>
+        <main className="px-4">
+            <h2 className="text-2xl font-bold mb-2">{learning.center.title}</h2>
+            <p className="text-sm text-muted-white mb-4">{learning.center.intro}</p>
+            <Button asChild variant="outline" className="mb-6 border-logon-gold hover:bg-logon-gold/10">
+              <Link href={learning.center.cta.href}>{learning.center.cta.label}</Link>
+            </Button>
+
+            <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-4">
+                {learning.center.links.map((link, i) => (
+                    <article key={i}>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href="#">{link.title}</Link></h3>
+                        <p className="text-sm text-muted-white mt-1">{link.desc}</p>
+                    </article>
+                ))}
+            </div>
+        </main>
+        <aside className="rounded-card border border-logon-gold-600/10 p-4 bg-black/20">
+            <h4 className="font-semibold mb-2">RiseUp with LOG_ON</h4>
+            <p className="text-sm text-muted-white mb-4">Empower individuals in emerging technology field communities with key skills to launch tech careers.</p>
+            <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
+                <Link href="/training">Explore Expert Programs</Link>
+            </Button>
+        </aside>
+    </>
+)};
+
+const PartnersMegaMenu = () => (
+     <>
+        <aside className="pr-4 border-r border-logon-gold-600/10">
+            <h3 className="text-xl font-bold mb-4">{partners.heading}</h3>
+            <p className="text-sm text-muted-white mb-4">{partners.intro}</p>
+             <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
+                <Link href={partners.cta.href}>{partners.cta.label}</Link>
+            </Button>
+        </aside>
+        <main className="px-4 col-span-2">
+            <h2 className="text-2xl font-bold mb-4">Partners</h2>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-4">
+                {partners.items.map((item, i) => (
+                    <article key={i}>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href="#">{item.title}</Link></h3>
+                        <p className="text-sm text-muted-white mt-1">{item.desc}</p>
+                    </article>
+                ))}
+            </div>
+        </main>
+    </>
 );
 
 
@@ -183,6 +218,9 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -191,6 +229,14 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const menuComponents: Record<string, React.ComponentType> = {
+    industries: IndustriesMegaMenu,
+    learning: LearningMegaMenu,
+    partners: PartnersMegaMenu,
+  };
+  
+  const CurrentMenu = openMenu ? menuComponents[openMenu] : null;
 
   return (
     <header 
@@ -210,11 +256,101 @@ export function Header() {
                             Products <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
                             {pathname.startsWith('/solutions') && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-accent-gold rounded-full"></span>}
                         </button>
-                        <ProductsMegaMenu />
+                        <div className="absolute top-full left-0 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto w-screen max-w-[1000px] -translate-x-1/4">
+                            <div className="bg-logon-700/95 backdrop-blur-sm rounded-lg shadow-2xl border border-logon-800 overflow-hidden">
+                                <div className="grid grid-cols-[250px_1fr_300px] h-[600px]">
+                                    {/* Left Column */}
+                                    <div className="bg-logon-800/50 p-6 flex flex-col justify-between">
+                                        <div>
+                                            <h3 className="text-xl font-bold mb-4">Products</h3>
+                                            <ul className="space-y-1">
+                                                {['Featured products', 'LOG_ON AI Platform', 'Demo Library'].map((item, i) => (
+                                                    <li key={item}>
+                                                        <Link href="#" className={cn("block p-2 rounded-md text-sm font-medium transition-colors hover:bg-white/10 hover:text-logon-gold", i === 0 && "bg-white/10 text-logon-gold")}>
+                                                            {item}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                            <Separator className="my-4 bg-logon-gold-600/10" />
+                                            <h4 className="text-sm font-semibold uppercase text-muted-white mb-3">Solutions</h4>
+                                            <ul className="space-y-1">
+                                                {solutionsSubNav.map(item => (
+                                                    <li key={item.label}>
+                                                        <Link href={item.href} className="block p-2 rounded-md text-sm font-medium transition-colors hover:bg-white/10 hover:text-logon-gold">
+                                                            {item.label}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        <Button variant="link" asChild className="p-0 justify-start text-logon-gold">
+                                            <Link href="/solutions">View All Products <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                                        </Button>
+                                    </div>
+
+                                    {/* Center Column */}
+                                    <div className="p-8 overflow-y-auto">
+                                        <h2 className="text-3xl font-bold font-headline">Products</h2>
+                                        <p className="mt-2 text-muted-white">Unite people, processes, and systems with AI-powered products for all your workflows.</p>
+                                        <Button asChild variant="outline" className="mt-4 border-logon-gold hover:bg-logon-gold/10">
+                                            <Link href="/solutions">See All Products</Link>
+                                        </Button>
+                                        <Separator className="my-6 bg-logon-gold-600/10" />
+                                        <h4 className="text-sm font-semibold uppercase text-muted-white mb-4">Featured Products</h4>
+                                        <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+                                            <div>
+                                                {featuredProductsLeft.map(item => (
+                                                    <div key={item.title} className="mb-4">
+                                                        <h5 className="font-semibold text-sm hover:text-logon-gold"><Link href="#">{item.title}</Link></h5>
+                                                        <p className="text-xs text-muted-white">{item.description}</p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div>
+                                                {featuredProductsRight.map(item => (
+                                                    <div key={item.title} className="mb-4">
+                                                        <h5 className="font-semibold text-sm hover:text-logon-gold"><Link href="#">{item.title}</Link></h5>
+                                                        <p className="text-xs text-muted-white">{item.description}</p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Right Column */}
+                                     <div className="bg-logon-800/50 p-8">
+                                         <div className="border border-card-border rounded-lg p-6 h-full flex flex-col justify-center text-center bg-black/20">
+                                            <h4 className="font-bold text-lg">Put AI to work with the LOG_ON AI Platform</h4>
+                                            <p className="text-sm text-muted-white mt-2 mb-4">Connect and automate workflows across the enterprise with a single AI platform for business transformation.</p>
+                                            <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
+                                                <Link href="/ai-solutions">Explore LOG_ON AI Platform</Link>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
                     {topNavItems.map((item) => (
-                        <NavLink key={item.href} href={item.href} pathname={pathname}>{item.label}</NavLink>
+                        item.href ? (
+                            <NavLink key={item.href} href={item.href} pathname={pathname}>{item.label}</NavLink>
+                        ) : (
+                        <div key={item.key} className="group relative flex h-full items-center">
+                            <button className="flex items-center text-sm font-medium transition-colors hover:text-accent-gold focus:outline-none relative">
+                                {item.label} <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                                {pathname.startsWith(`/${item.key}`) && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-accent-gold rounded-full"></span>}
+                            </button>
+                             <div className="absolute top-full left-0 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto w-screen max-w-[1000px] -translate-x-1/2">
+                                <div className="bg-logon-700/95 backdrop-blur-sm rounded-lg shadow-2xl border border-logon-800 overflow-hidden">
+                                     {item.key === 'industries' && <div className="grid grid-cols-[300px_1fr] p-6 gap-6"><IndustriesMegaMenu /></div>}
+                                     {item.key === 'learning' && <div className="grid grid-cols-mega p-6 gap-6"><LearningMegaMenu /></div>}
+                                     {item.key === 'partners' && <div className="grid grid-cols-[300px_1fr] p-6 gap-6"><PartnersMegaMenu /></div>}
+                                </div>
+                            </div>
+                        </div>
+                        )
                     ))}
                 </nav>
            </div>
@@ -256,22 +392,24 @@ export function Header() {
                             </Button>
                         </SheetClose>
                     </SheetHeader>
-                    <div className="flex flex-col h-full justify-between p-6">
+                    <div className="flex flex-col h-full justify-between p-6 overflow-y-auto">
                         <nav className="flex-grow">
                         <Accordion type="multiple" className="w-full">
-                            <AccordionItem value="products">
+                             <AccordionItem value="products">
                                 <AccordionTrigger className="text-xl font-bold">Products</AccordionTrigger>
                                 <AccordionContent className="pl-4 space-y-2">
-                                    <MobileNavLink href="/solutions" pathname={pathname} onOpenChange={setMobileMenuOpen}>All Products</MobileNavLink>
-                                    <h4 className="font-semibold text-muted-foreground pt-2">SOLUTIONS</h4>
+                                     <MobileNavLink href="/solutions" pathname={pathname} onOpenChange={setMobileMenuOpen}>All Products</MobileNavLink>
+                                     <h4 className="font-semibold text-muted-foreground pt-2">SOLUTIONS</h4>
                                     {solutionsSubNav.map((item) => (
                                         <MobileNavLink key={item.label} href={item.href} pathname={pathname} onOpenChange={setMobileMenuOpen}>{item.label}</MobileNavLink>
                                     ))}
                                 </AccordionContent>
                             </AccordionItem>
-                             {topNavItems.map(item => (
-                                <MobileNavLink key={item.href} href={item.href} pathname={pathname} onOpenChange={setMobileMenuOpen}>{item.label}</MobileNavLink>
-                             ))}
+                             <MobileNavLink href="/use-cases" pathname={pathname} onOpenChange={setMobileMenuOpen}>Industries</MobileNavLink>
+                             <MobileNavLink href="/training" pathname={pathname} onOpenChange={setMobileMenuOpen}>Learning</MobileNavLink>
+                             <MobileNavLink href="/contact" pathname={pathname} onOpenChange={setMobileMenuOpen}>Support</MobileNavLink>
+                             <MobileNavLink href="#" pathname={pathname} onOpenChange={setMobileMenuOpen}>Partners</MobileNavLink>
+                             <MobileNavLink href="/about" pathname={pathname} onOpenChange={setMobileMenuOpen}>Company</MobileNavLink>
                         </Accordion>
                         </nav>
                         <div className="border-t pt-6 space-y-4">
@@ -296,3 +434,4 @@ export function Header() {
     </header>
   );
 }
+
