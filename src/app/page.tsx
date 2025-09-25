@@ -23,6 +23,7 @@ export default function Home() {
       <GeneralistApproach />
       <TechStackCarousel />
       <IndustriesBento />
+      <TemplateLibrary />
       <ChatbotEmbed />
       <PartnershipApproach />
       <TrainingCTA />
