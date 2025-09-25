@@ -212,7 +212,7 @@ const SupportMegaMenu = () => {
                 <h4 className="font-semibold mb-2">{promo.title}</h4>
                 <p className="text-sm text-muted-white mb-4">{promo.desc}</p>
                 <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
-                    <Link href={promo.cta.href}>{promo.cta.label}</Link>
+                    <Link href={promo.cta.href || '/support'}>{promo.cta.label}</Link>
                 </Button>
             </aside>
         </div>
@@ -320,12 +320,9 @@ export function Header() {
            </div>
             
             <div className="flex items-center gap-2">
-                <Button variant="ghost" size="icon"><Search className="h-5 w-5" /></Button>
-                <Button variant="ghost" size="icon"><Globe className="h-5 w-5" /></Button>
                 <ThemeToggle />
-                <Button variant="ghost">Sign In</Button>
                 <Button asChild>
-                    <Link href="/contact">Get Started</Link>
+                    <Link href="/contact">Contact Us</Link>
                 </Button>
             </div>
         </div>
@@ -375,5 +372,7 @@ export function Header() {
     </header>
   );
 }
+
+    
 
     
