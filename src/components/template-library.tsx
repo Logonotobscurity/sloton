@@ -92,7 +92,7 @@ export function TemplateLibrary() {
                         </DialogContent>
                       </Dialog>
                     ) : (
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2">
                             <Button asChild variant="outline" size="sm" className="rounded-full hover:bg-secondary">
                                 <Link href={`/automation/${template.slug}`}>
                                     <Eye className="mr-2 h-4 w-4" /> Preview
