@@ -87,7 +87,7 @@ export function Hero() {
             </div>
         </div>
 
-        <HeroCarousel slides={slideData.flatMap(s => s.carouselItems)} activeSlideIndex={activeSlideIndex} onSlideChange={handleSlideChange} />
+        <HeroCarousel slides={slideData.flatMap(s => s.carouselItems)} onSlideChange={handleSlideChange} />
         
         {/* Visually hidden for screen readers */}
         <div className="sr-only" aria-live="polite" aria-atomic="true">

@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -16,12 +17,12 @@ interface CarouselItem {
 
 interface HeroCarouselProps {
   slides: CarouselItem[];
-  activeSlideIndex: number;
   onSlideChange: (index: number) => void;
 }
 
-export function HeroCarousel({ slides, activeSlideIndex, onSlideChange }: HeroCarouselProps) {
+export function HeroCarousel({ slides, onSlideChange }: HeroCarouselProps) {
   const [isPlaying, setIsPlaying] = useState(true);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
@@ -36,31 +37,31 @@ export function HeroCarousel({ slides, activeSlideIndex, onSlideChange }: HeroCa
     if (!autoplay) return;
     if (autoplay.isPlaying()) autoplay.stop();
     else autoplay.play();
-    setIsPlaying(autoplay.isPlaying());
   }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
     
     const onSelect = (api: EmblaCarouselType) => {
-      onSlideChange(api.selectedScrollSnap());
-      setIsPlaying(api.plugins().autoplay.isPlaying());
+      const selectedIndex = api.selectedScrollSnap();
+      setActiveSlideIndex(selectedIndex);
+      onSlideChange(selectedIndex);
     };
     
+    const onPlayStateChange = () => {
+        setIsPlaying(emblaApi.plugins().autoplay.isPlaying());
+    };
+
     emblaApi.on('select', onSelect);
-    emblaApi.on('autoplay:play', () => setIsPlaying(true));
-    emblaApi.on('autoplay:stop', () => setIsPlaying(false));
+    emblaApi.on('autoplay:play', onPlayStateChange);
+    emblaApi.on('autoplay:stop', onPlayStateChange);
 
     return () => {
       emblaApi.off('select', onSelect);
+      emblaApi.off('autoplay:play', onPlayStateChange);
+      emblaApi.off('autoplay:stop', onPlayStateChange);
     };
   }, [emblaApi, onSlideChange]);
-  
-   useEffect(() => {
-    if (emblaApi && emblaApi.selectedScrollSnap() !== activeSlideIndex) {
-      emblaApi.scrollTo(activeSlideIndex);
-    }
-  }, [activeSlideIndex, emblaApi]);
 
   return (
     <div className="absolute bottom-0 left-0 w-full" aria-roledescription="carousel" aria-label="Showcase of AI platform features">
