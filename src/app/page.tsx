@@ -13,6 +13,7 @@ import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
 import { ChatbotEmbed } from '@/components/chatbot-embed';
 import { TemplateLibrary } from '@/components/template-library';
 import { BottomCta } from '@/components/bottom-cta';
+import { IndustriesBento } from '@/components/industries-bento';
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
       <StrategicPartner />
       <GeneralistApproach />
       <TechStackCarousel />
-      <TemplateLibrary />
+      <IndustriesBento />
       <ChatbotEmbed />
       <PartnershipApproach />
       <TrainingCTA />

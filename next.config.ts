@@ -183,6 +183,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.servicenow.com',
       },
+       {
+        protocol: 'https',
+        hostname: 'cdn.magicui.design',
+      },
     ],
   },
 };

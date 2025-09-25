@@ -73,7 +73,8 @@ export const BentoCard = ({
   href: string;
   cta: string;
 }) => (
-  <motion.div
+  <motion.a
+    href={href}
     initial="initial"
     whileHover="hover"
     className={cn(
@@ -86,38 +87,24 @@ export const BentoCard = ({
     )}
   >
     <div>{background}</div>
-    <motion.div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover/bento:-translate-y-10">
+    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover/bento:-translate-y-10">
       <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 -translate-y-12 transition-all duration-300 ease-in-out group-hover/bento:scale-75" />
       <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
         {name}
       </h3>
       <p className="max-w-lg text-neutral-400">{description}</p>
-    </motion.div>
+    </div>
 
-    <motion.div
-      variants={{
-        initial: {
-          x: 24,
-          opacity: 0,
-        },
-        hover: {
-          x: 0,
-          opacity: 1,
-        },
-      }}
-      transition={{
-        duration: 0.2,
-      }}
-      className="pointer-events-none absolute bottom-0 right-0 z-10 -translate-y-[70%] translate-x-1/2 p-4 opacity-0 transition-all duration-300 group-hover/bento:translate-x-0 group-hover/bento:opacity-100"
+    <div
+      className={cn(
+        "pointer-events-none absolute bottom-0 right-0 z-10 flex items-center justify-center rounded-full bg-white p-4 opacity-0 transition-all duration-300 group-hover/bento:-translate-y-4 group-hover/bento:opacity-100",
+        "dark:bg-black"
+      )}
     >
-      <Image
-        alt="image"
-        width={100}
-        height={100}
-        className="h-20 w-20 rounded-full bg-white object-contain p-4 shadow-xl dark:bg-black"
-        src="https://cdn.magicui.design/icon-badge.png"
-      />
-    </motion.div>
+      <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-300">
+        {cta}
+      </div>
+    </div>
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover/bento:bg-black/[.03] group-hover/bento:dark:bg-neutral-800/10" />
-  </motion.div>
+  </motion.a>
 );
