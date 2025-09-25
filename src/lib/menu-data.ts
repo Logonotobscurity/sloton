@@ -71,6 +71,29 @@ export const menuData = {
         {"title": "Global impact", "desc": "Join us to foster a more sustainable, fair, and ethical world."},
         {"title": "Trust and compliance", "desc": "Learn the measures LOG_ON takes to keep your data secure and compliant."}
       ]
+    },
+    "support": {
+      "heading": "Support",
+      "leftNav": [
+        "Customer Support",
+        "Documentation",
+        "Best Practices",
+        "MyNow",
+        "Customer Success",
+        "Platform Releases"
+      ],
+      "center": {
+        "title": "Customer Support",
+        "intro": "Access your instances, manage tasks and explore self-service help all in one place.",
+        "links": [
+          {"title": "Community", "desc": "Connect with other customers to share tips, exchange resources, and solve problems together."}
+        ]
+      },
+      "promo": {
+        "title": "Get support",
+        "desc": "Discover answers, troubleshoot issues, and get expert help, all in our support center.",
+        "cta": {"label": "Visit Support Center", "href": "/contact"}
+      }
     }
   }
 };
