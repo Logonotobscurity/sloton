@@ -55,6 +55,22 @@ export const menuData = {
         {"title": "Partner portal", "desc": "Find tasks, alerts, and information you need, all in one place."},
         {"title": "Partner applications", "desc": "Explore innovative apps that extend and complement the LOG_ON AI Platform."}
       ]
+    },
+    "company": {
+      "heading": "Discover why LOG_ON is the AI platform for business transformation",
+      "intro": "Bring AI Agents to every corner of your business.",
+      "cta": {"label": "Learn More", "href": "/about"},
+      "items": [
+        {"title": "Careers", "desc": "Make your next career move with the fastest growing enterprise software company."},
+        {"title": "Investors", "desc": "Explore investor news and resources."},
+        {"title": "LOG_ON Research", "desc": "Learn how we keep innovation moving forward through our AI research team, labs, and partnerships."},
+        {"title": "Leadership", "desc": "Meet the LOG_ON leadership team."},
+        {"title": "Locations", "desc": "See LOG_ON office locations around the world."},
+        {"title": "Newsroom", "desc": "LOG_ON is making headlines. Find announcements, media kits, and more."},
+        {"title": "Analyst Reports", "desc": "Get expert insights from top industry analysts on LOG_ON."},
+        {"title": "Global impact", "desc": "Join us to foster a more sustainable, fair, and ethical world."},
+        {"title": "Trust and compliance", "desc": "Learn the measures LOG_ON takes to keep your data secure and compliant."}
+      ]
     }
   }
 };

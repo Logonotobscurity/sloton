@@ -24,15 +24,16 @@ import { cn } from '@/lib/utils';
 import { ArrowIcon } from './ui/arrow-icon';
 import { Separator } from './ui/separator';
 import { menuData } from '@/lib/menu-data';
+import Image from 'next/image';
 
-const { industries, learning, partners } = menuData.menu;
+const { industries, learning, partners, company } = menuData.menu;
 
 const topNavItems = [
     { label: 'Industries', key: 'industries' },
     { label: 'Learning', key: 'learning' },
     { label: 'Support', href: '/contact' },
     { label: 'Partners', key: 'partners' },
-    { label: 'Company', href: '/about' },
+    { label: 'Company', key: 'company' },
 ];
 
 const featuredProductsLeft = [
@@ -61,22 +62,6 @@ const solutionsSubNav = [
     { label: 'App Development', href: '/web-development' },
     { label: 'Finance and Supply Chain', href: '/use-cases#finance' },
 ];
-
-const MegaMenuPanel = ({ children, x, y, strategy, panelRef, 'aria-label': ariaLabel, open }: any) => (
-    <div
-      ref={panelRef}
-      role="dialog"
-      aria-label={ariaLabel}
-      style={{ position: strategy, left: x ?? 0, top: y ?? 0 }}
-      className={cn("z-50 mt-2 w-[100vw] max-w-full transition-opacity duration-300", open ? "opacity-100" : "opacity-0 pointer-events-none")}
-    >
-      <div className="mx-auto max-w-7xl bg-logon-700/95 backdrop-blur-sm border border-logon-800 p-6 grid grid-cols-mega gap-6 rounded-md shadow-lg"
-           style={{ maxHeight: 'calc(100vh - 120px)', overflowY: 'auto' }}>
-        {children}
-      </div>
-    </div>
-);
-
 
 const IndustriesMegaMenu = () => (
     <>
@@ -173,12 +158,46 @@ const PartnersMegaMenu = () => (
     </>
 );
 
+const CompanyMegaMenu = () => (
+    <>
+        <aside className="pr-4 border-r border-logon-gold-600/10 flex flex-col justify-center">
+            <h3 className="text-xl font-bold mb-4">{company.heading}</h3>
+            <p className="text-sm text-muted-white mb-4">{company.intro}</p>
+            <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
+                <Link href={company.cta.href}>{company.cta.label}</Link>
+            </Button>
+        </aside>
+        <main className="px-4">
+            <h2 className="text-2xl font-bold mb-4">Company</h2>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-4">
+                {company.items.map((item, i) => (
+                    <article key={i}>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href="/about">{item.title}</Link></h3>
+                        <p className="text-sm text-muted-white mt-1">{item.desc}</p>
+                    </article>
+                ))}
+            </div>
+        </main>
+        <aside className="rounded-card overflow-hidden">
+            <Image 
+                src="https://picsum.photos/seed/company-collage/600/800" 
+                alt="Company Collage" 
+                width={600}
+                height={800}
+                className="w-full h-full object-cover"
+                data-ai-hint="company team"
+            />
+        </aside>
+    </>
+);
 
-const NavLink = ({ href, children, pathname }: { href: string; children: React.ReactNode, pathname: string }) => {
+
+const NavLink = ({ href, children, onOpenChange, pathname }: { href: string; children: React.ReactNode; onOpenChange: (open: boolean) => void, pathname: string }) => {
   const isActive = pathname === href;
   return (
     <Link
       href={href}
+      onClick={() => onOpenChange(false)}
       className={cn(
         "relative text-sm font-medium transition-colors hover:text-accent-gold",
         isActive ? "text-accent-gold" : "text-foreground"
@@ -219,9 +238,6 @@ export function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -229,14 +245,6 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const menuComponents: Record<string, React.ComponentType> = {
-    industries: IndustriesMegaMenu,
-    learning: LearningMegaMenu,
-    partners: PartnersMegaMenu,
-  };
-  
-  const CurrentMenu = openMenu ? menuComponents[openMenu] : null;
 
   return (
     <header 
@@ -273,7 +281,7 @@ export function Header() {
                                                 ))}
                                             </ul>
                                             <Separator className="my-4 bg-logon-gold-600/10" />
-                                            <h4 className="text-sm font-semibold uppercase text-muted-white mb-3">Solutions</h4>
+                                            <h4 className="text-sm font-semibold uppercase text-muted-white mb-3">SOLUTIONS</h4>
                                             <ul className="space-y-1">
                                                 {solutionsSubNav.map(item => (
                                                     <li key={item.label}>
@@ -335,7 +343,7 @@ export function Header() {
                     
                     {topNavItems.map((item) => (
                         item.href ? (
-                            <NavLink key={item.href} href={item.href} pathname={pathname}>{item.label}</NavLink>
+                            <NavLink key={item.href} href={item.href} pathname={pathname} onOpenChange={setMobileMenuOpen}>{item.label}</NavLink>
                         ) : (
                         <div key={item.key} className="group relative flex h-full items-center">
                             <button className="flex items-center text-sm font-medium transition-colors hover:text-accent-gold focus:outline-none relative">
@@ -347,6 +355,7 @@ export function Header() {
                                      {item.key === 'industries' && <div className="grid grid-cols-[300px_1fr] p-6 gap-6"><IndustriesMegaMenu /></div>}
                                      {item.key === 'learning' && <div className="grid grid-cols-mega p-6 gap-6"><LearningMegaMenu /></div>}
                                      {item.key === 'partners' && <div className="grid grid-cols-[300px_1fr] p-6 gap-6"><PartnersMegaMenu /></div>}
+                                     {item.key === 'company' && <div className="grid grid-cols-mega p-6 gap-6"><CompanyMegaMenu /></div>}
                                 </div>
                             </div>
                         </div>
@@ -408,7 +417,7 @@ export function Header() {
                              <MobileNavLink href="/use-cases" pathname={pathname} onOpenChange={setMobileMenuOpen}>Industries</MobileNavLink>
                              <MobileNavLink href="/training" pathname={pathname} onOpenChange={setMobileMenuOpen}>Learning</MobileNavLink>
                              <MobileNavLink href="/contact" pathname={pathname} onOpenChange={setMobileMenuOpen}>Support</MobileNavLink>
-                             <MobileNavLink href="#" pathname={pathname} onOpenChange={setMobileMenuOpen}>Partners</MobileNavLink>
+                             <MobileNavLink href="/contact" pathname={pathname} onOpenChange={setMobileMenuOpen}>Partners</MobileNavLink>
                              <MobileNavLink href="/about" pathname={pathname} onOpenChange={setMobileMenuOpen}>Company</MobileNavLink>
                         </Accordion>
                         </nav>
@@ -434,4 +443,3 @@ export function Header() {
     </header>
   );
 }
-
