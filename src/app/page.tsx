@@ -12,6 +12,7 @@ import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
 import { ChatbotEmbed } from '@/components/chatbot-embed';
 import { IntegrationsHighlight } from '@/components/integrations-highlight';
 import { TemplateLibrary } from '@/components/template-library';
+import { BottomCta } from '@/components/bottom-cta';
 
 export default function Home() {
   return (
@@ -49,6 +50,9 @@ export default function Home() {
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <Faq />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <BottomCta />
       </ScrollAnimationWrapper>
     </div>
   );
