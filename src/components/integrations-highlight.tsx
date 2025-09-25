@@ -1,14 +1,14 @@
 
+
 import Image from 'next/image';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { caseStudies } from '@/lib/case-studies';
+import { CaseStudiesCarousel } from './case-studies-carousel';
 
 export function IntegrationsHighlight() {
-  const relevantCaseStudy = caseStudies.find(cs => cs.tags.includes('Chatbot'));
-  const displayImage = relevantCaseStudy ? relevantCaseStudy.image : 'https://picsum.photos/seed/integration/1200/800';
-  const dataAiHint = relevantCaseStudy ? relevantCaseStudy.dataAiHint : 'customer support';
+  const relevantCaseStudies = caseStudies.filter(cs => cs.tags.includes('AI') || cs.tags.includes('Chatbot'));
 
   return (
     <section className="py-16 md:py-24 bg-primary/5">
@@ -27,14 +27,8 @@ export function IntegrationsHighlight() {
                 </Link>
             </Button>
           </div>
-          <div className="relative h-80 lg:h-full rounded-lg overflow-hidden">
-             <Image
-                  src={displayImage}
-                  alt="Exceptional customer experiences"
-                  fill
-                  className="object-cover"
-                  data-ai-hint={dataAiHint}
-                />
+          <div className="min-h-[350px]">
+             <CaseStudiesCarousel studies={relevantCaseStudies} />
           </div>
         </div>
       </div>

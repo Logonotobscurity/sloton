@@ -30,9 +30,6 @@ export default function Home() {
         <GeneralistApproach />
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
-        <ChatbotEmbed />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
         <TechStackCarousel />
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
@@ -40,6 +37,9 @@ export default function Home() {
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <IntegrationsHighlight />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <ChatbotEmbed />
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper>
         <PartnershipApproach />
