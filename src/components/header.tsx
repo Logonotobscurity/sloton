@@ -195,7 +195,7 @@ const LearningMegaMenu = () => {
             <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-4">
                 {learning.center.links.map((link, i) => (
                     <article key={i}>
-                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={link.href || '/training'}>{link.title}</Link></h3>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={(link as any).href || '/training'}>{link.title}</Link></h3>
                         <p className="text-sm text-muted-white mt-1">{link.desc}</p>
                     </article>
                 ))}
@@ -225,7 +225,7 @@ const PartnersMegaMenu = () => (
             <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-4">
                 {partners.items.map((item, i) => (
                     <article key={i}>
-                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={item.href || '/contact'}>{item.title}</Link></h3>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={(item as any).href || '/contact'}>{item.title}</Link></h3>
                         <p className="text-sm text-muted-white mt-1">{item.desc}</p>
                     </article>
                 ))}
@@ -248,7 +248,7 @@ const CompanyMegaMenu = () => (
             <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-4">
                 {company.items.map((item, i) => (
                     <article key={i}>
-                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={item.href || '/about'}>{item.title}</Link></h3>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={(item as any).href || '/about'}>{item.title}</Link></h3>
                         <p className="text-sm text-muted-white mt-1">{item.desc}</p>
                     </article>
                 ))}
@@ -300,29 +300,22 @@ const SupportMegaMenu = () => (
             <h4 className="font-semibold mb-2">{support.promo.title}</h4>
             <p className="text-sm text-muted-white mb-4">{support.promo.desc}</p>
             <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
-                <Link href={support.promo.href}>{support.promo.cta.label}</Link>
+                <Link href={support.promo.cta.href}>{support.promo.cta.label}</Link>
             </Button>
         </aside>
     </div>
 );
 
-const MobileNavLink = ({ href, children, onLinkClick }: { href: string; children: React.ReactNode; onLinkClick: () => void }) => {
-    const pathname = usePathname();
-    const isActive = pathname === href;
-    return (
-        <Link
-            href={href}
-            onClick={onLinkClick}
-            className={cn(
-                "block py-2 text-base font-medium transition-colors hover:text-accent-gold",
-                isActive ? "text-accent-gold" : "text-foreground"
-            )}
-            prefetch={false}
-        >
-            {children}
-        </Link>
-    );
-};
+const MobileNavLink = ({ href, children, onLinkClick }: { href: string; children: React.ReactNode; onLinkClick: () => void }) => (
+    <Link
+        href={href}
+        onClick={onLinkClick}
+        className="block py-2 text-base font-medium transition-colors hover:text-accent-gold text-foreground"
+        prefetch={false}
+    >
+        {children}
+    </Link>
+);
 
 
 const Logo = ({ onLinkClick }: { onLinkClick?: () => void }) => (
