@@ -88,25 +88,11 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-[100] flex flex-col items-end">
        <div aria-live="polite" className="sr-only">
          {isOpen ? 'Chatbot panel is open.' : 'Chatbot panel is closed.'}
        </div>
-       {/* Collapsed State */}
-       <Button
-        ref={triggerRef}
-        aria-expanded={isOpen}
-        aria-controls="bot-panel"
-        onClick={() => setIsOpen(true)}
-        className={cn(
-          "rounded-full h-14 px-6 shadow-lg bg-accent-green hover:bg-accent-green-2 transition-all duration-300 flex items-center gap-2",
-          isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
-        )}
-      >
-        <MessageSquare className="h-6 w-6 text-white" />
-        <span className="font-semibold text-white">Contact Now</span>
-      </Button>
-
+      
       {/* Expanded State */}
        <div
         id="bot-panel"
@@ -115,13 +101,13 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
         aria-modal="true"
         aria-label="Chatbot Panel"
         className={cn(
-          "w-[calc(100vw-32px)] h-[70vh] sm:w-80 md:w-[340px] md:h-[480px] bg-background border-2 border-card-glass rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right",
+          "w-[calc(100vw-32px)] h-[70vh] sm:w-80 md:w-[340px] md:h-[480px] bg-background border rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right mb-2",
           isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
         )}
       >
-        <CardHeader className="flex flex-row items-center justify-between p-3 border-b border-card-glass">
+        <CardHeader className="flex flex-row items-center justify-between p-3 border-b">
             <div className="flex items-center gap-2">
-                <Bot className="h-6 w-6 text-accent-green" />
+                <Bot className="h-6 w-6 text-primary" />
                 <h3 className="font-semibold">LOG_ON Assistant</h3>
             </div>
           <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setIsOpen(false)}>
@@ -132,7 +118,7 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
         <CardContent className="flex-1 p-3 overflow-y-auto space-y-4" role="log">
            {messages.map((msg, index) => (
              <div key={index} className={cn("flex items-start gap-2", msg.from === 'user' ? 'justify-end' : '')}>
-                {msg.from === 'bot' && <Bot className="h-5 w-5 text-accent-green flex-shrink-0 mt-1" />}
+                {msg.from === 'bot' && <Bot className="h-5 w-5 text-primary flex-shrink-0 mt-1" />}
                 <p className={cn(
                   "p-2 rounded-lg max-w-[80%]",
                   msg.from === 'bot' ? 'bg-muted' : 'bg-primary text-primary-foreground'
@@ -143,7 +129,7 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
              </div>
            ))}
         </CardContent>
-        <CardFooter className="p-3 border-t border-card-glass">
+        <CardFooter className="p-3 border-t">
           <form onSubmit={handleSendMessage} className="w-full flex items-center gap-2">
             <Input 
               ref={inputRef}
@@ -152,13 +138,28 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
               placeholder="Ask about our solutions..."
               className="flex-1 bg-muted"
             />
-            <Button type="submit" size="icon" className="bg-accent-green hover:bg-accent-green-2">
+            <Button type="submit" size="icon" className="bg-primary hover:bg-primary/90">
               <Send className="h-4 w-4" />
               <span className="sr-only">Send Message</span>
             </Button>
           </form>
         </CardFooter>
       </div>
+
+       {/* Collapsed State Trigger Button */}
+       <Button
+        ref={triggerRef}
+        aria-expanded={isOpen}
+        aria-controls="bot-panel"
+        onClick={() => setIsOpen(prev => !prev)}
+        className={cn(
+          "rounded-full h-14 w-14 p-0 shadow-lg bg-primary hover:bg-primary/90 transition-transform duration-300 flex items-center justify-center"
+        )}
+      >
+        {isOpen ? <X className="h-6 w-6 text-primary-foreground" /> : <MessageSquare className="h-6 w-6 text-primary-foreground" />}
+        <span className="sr-only">{isOpen ? "Close Chatbot" : "Open Chatbot"}</span>
+      </Button>
+
     </div>
   );
 }
