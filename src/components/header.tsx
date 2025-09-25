@@ -1,8 +1,7 @@
-
 "use client";
 
 import Link from 'next/link';
-import { Menu, Phone, ChevronDown } from 'lucide-react';
+import { Menu, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -256,7 +255,7 @@ export function Header() {
                                 "w-screen max-w-4xl -translate-x-1/2 left-1/2"
                             )}>
                                 <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
-                                    <MegaMenuContent navItem={item} />
+                                    <MegaMenuContent navItem={item} onLinkClick={handleMobileLinkClick} />
                                 </div>
                             </div>
                         </div>
@@ -320,5 +319,3 @@ export function Header() {
     </header>
   );
 }
-
-    
