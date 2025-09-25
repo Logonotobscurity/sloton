@@ -1,6 +1,6 @@
 
-import { BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Cog, Users, Landmark, Search, Globe, Building, Briefcase, HeartPulse, ShoppingCart, Shield, Calculator, Factory, Server, Truck, Phone } from 'lucide-react';
 import React from 'react';
+import { BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Cog, Users, Landmark, Search, Globe, Building, Briefcase, HeartPulse, ShoppingCart, Shield, Calculator, Factory, Server, Truck, Phone } from 'lucide-react';
 
 export const menuData = {
   "menuVersion": "1.0",
@@ -11,37 +11,31 @@ export const menuData = {
        "cta": {"label": "See All Products", "href": "/solutions"},
        "items": [
           {
-            icon: React.createElement(BrainCircuit, { className: "h-5 w-5 text-primary" }),
             title: 'AI Solutions',
             href: '/ai-solutions',
             description: 'Custom AI models to solve complex business challenges.'
           },
           {
-            icon: React.createElement(Zap, { className: "h-5 w-5 text-primary" }),
             title: 'Process Automation',
             href: '/automation',
             description: 'Streamline workflows and boost operational efficiency.'
           },
           {
-            icon: React.createElement(Code, { className: "h-5 w-5 text-primary" }),
             title: 'Web & Custom Development',
             href: '/web-development',
             description: 'Scalable websites and applications tailored to your needs.'
           },
           {
-            icon: React.createElement(MessageSquare, { className: "h-5 w-5 text-primary" }),
             title: 'AI Chatbots',
             href: '/chatbots',
             description: 'Engage customers 24/7 with intelligent virtual assistants.'
           },
           {
-            icon: React.createElement(BarChart3, { className: "h-5 w-5 text-primary" }),
             title: 'Business Analytics',
             href: '/business-analytics',
             description: 'Turn data into actionable insights with custom dashboards.'
           },
           {
-            icon: React.createElement(Database, { className: "h-5 w-5 text-primary" }),
             title: 'Database Solutions',
             href: '/database-solutions',
             description: 'Secure, scalable, and high-performance data management.'
@@ -53,16 +47,16 @@ export const menuData = {
       "intro": "Browse solutions to help you solve the complex business challenges unique to your industry.",
       "cta": {"label": "Learn More", "href": "/use-cases"},
       "items": [
-        {"icon": React.createElement(Briefcase, { className: "h-5 w-5 text-primary" }), "title": "Finance and Banking", "shortDescription": "Future-proof your bank with one AI platform.", "href": "/use-cases#finance"},
-        {"icon": React.createElement(HeartPulse, { className: "h-5 w-5 text-primary" }), "title": "Healthcare", "shortDescription": "Fuel efficiency, reduce costs, and deliver quality care.", "href": "/use-cases#healthcare"},
-        {"icon": React.createElement(ShoppingCart, { className: "h-5 w-5 text-primary" }), "title": "E-Commerce", "shortDescription": "Enhance retail experiences with AI-powered insights.", "href": "/use-cases#e-commerce"},
-        {"icon": React.createElement(Shield, { className: "h-5 w-5 text-primary" }), "title": "Insurance", "shortDescription": "Be the trusted carrier of choice with one AI platform.", "href": "/use-cases#insurance"},
-        {"icon": React.createElement(Calculator, { className: "h-5 w-5 text-primary" }), "title": "Accounting", "shortDescription": "Streamline your accounting workflows with automated data entry.", "href": "/use-cases#accounting"},
-        {"icon": React.createElement(Factory, { className: "h-5 w-5 text-primary" }), "title": "Manufacturing", "shortDescription": "Drive manufacturing efficiency with one AI platform.", "href": "/use-cases#manufacturing"},
-        {"icon": React.createElement(Building, { className: "h-5 w-5 text-primary" }), "title": "Real Estate", "shortDescription": "Enhance client engagement with AI-powered chatbots.", "href": "/use-cases#real-estate"},
-        {"icon": React.createElement(Server, { className: "h-5 w-5 text-primary" }), "title": "IT Consulting", "shortDescription": "Enhance your service offerings and internal efficiencies.", "href": "/use-cases#it-consulting"},
-        {"icon": React.createElement(Truck, { className: "h-5 w-5 text-primary" }), "title": "Logistics & Transport", "shortDescription": "Optimize your logistics network with AI-driven route planning.", "href": "/use-cases#logistics"},
-        {"icon": React.createElement(Phone, { className: "h-5 w-5 text-primary" }), "title": "Telecom", "shortDescription": "Manage infrastructure on one AI platform.", "href": "/use-cases#telecom"}
+        {"title": "Finance and Banking", "shortDescription": "Future-proof your bank with one AI platform.", "href": "/use-cases#finance"},
+        {"title": "Healthcare", "shortDescription": "Fuel efficiency, reduce costs, and deliver quality care.", "href": "/use-cases#healthcare"},
+        {"title": "E-Commerce", "shortDescription": "Enhance retail experiences with AI-powered insights.", "href": "/use-cases#e-commerce"},
+        {"title": "Insurance", "shortDescription": "Be the trusted carrier of choice with one AI platform.", "href": "/use-cases#insurance"},
+        {"title": "Accounting", "shortDescription": "Streamline your accounting workflows with automated data entry.", "href": "/use-cases#accounting"},
+        {"title": "Manufacturing", "shortDescription": "Drive manufacturing efficiency with one AI platform.", "href": "/use-cases#manufacturing"},
+        {"title": "Real Estate", "shortDescription": "Enhance client engagement with AI-powered chatbots.", "href": "/use-cases#real-estate"},
+        {"title": "IT Consulting", "shortDescription": "Enhance your service offerings and internal efficiencies.", "href": "/use-cases#it-consulting"},
+        {"title": "Logistics & Transport", "shortDescription": "Optimize your logistics network with AI-driven route planning.", "href": "/use-cases#logistics"},
+        {"title": "Telecom", "shortDescription": "Manage infrastructure on one AI platform.", "href": "/use-cases#telecom"}
       ]
     },
     "learning": {
