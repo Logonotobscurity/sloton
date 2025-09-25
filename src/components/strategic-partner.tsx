@@ -12,7 +12,8 @@ import {
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { TaskAutomationForm } from './task-automation-form';
 import { GlowingCard } from './ui/glowing-card';
-import { CardHeader, CardTitle, CardContent } from './ui/card';
+import { CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
+import { Button } from './ui/button';
 
 const steps = [
     {
@@ -59,9 +60,8 @@ export function StrategicPartner() {
 
         <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-4xl mx-auto">
             <Dialog>
-              <DialogTrigger asChild>
-                 <GlowingCard className="cursor-pointer">
-                  <div className="p-6 text-center">
+                <GlowingCard>
+                  <div className="p-6 text-center flex flex-col h-full">
                     <CardHeader className="p-0 items-center">
                         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                             <BrainCircuit className="h-6 w-6" />
@@ -71,14 +71,15 @@ export function StrategicPartner() {
                     <CardContent className="p-0 pt-4 flex-grow">
                         <p className="text-muted-foreground">Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning.</p>
                     </CardContent>
-                    <div className="p-6 pt-4 -mx-6">
-                        <div className="text-primary font-semibold flex items-center justify-center">
-                        Launch Assessment Tool <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
+                    <CardFooter className="p-0 pt-6 mt-auto flex justify-center">
+                        <DialogTrigger asChild>
+                             <Button variant="secondary" className="group">
+                                Launch Assessment Tool <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </DialogTrigger>
+                    </CardFooter>
                   </div>
                 </GlowingCard>
-              </DialogTrigger>
               <DialogContent className="sm:max-w-[600px] bg-background">
                 <DialogHeader>
                   <DialogTitle className="text-2xl flex items-center gap-2"><BrainCircuit className="h-6 w-6 text-accent" /> AI Business Assessment</DialogTitle>
@@ -91,9 +92,8 @@ export function StrategicPartner() {
             </Dialog>
 
              <Dialog>
-              <DialogTrigger asChild>
-                <GlowingCard className="cursor-pointer">
-                   <div className="p-6 text-center">
+                <GlowingCard>
+                   <div className="p-6 text-center flex flex-col h-full">
                     <CardHeader className="p-0 items-center">
                         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                             <Cog className="h-6 w-6" />
@@ -103,14 +103,15 @@ export function StrategicPartner() {
                     <CardContent className="p-0 pt-4 flex-grow">
                         <p className="text-muted-foreground">Describe a repetitive task or workflow and get a configured, optimized automation plan in seconds.</p>
                     </CardContent>
-                     <div className="p-6 pt-4 -mx-6">
-                        <div className="text-primary font-semibold flex items-center justify-center">
-                        Design an Automation <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
+                     <CardFooter className="p-0 pt-6 mt-auto flex justify-center">
+                        <DialogTrigger asChild>
+                            <Button variant="secondary" className="group">
+                                Design an Automation <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </DialogTrigger>
+                    </CardFooter>
                    </div>
                 </GlowingCard>
-              </DialogTrigger>
               <DialogContent className="sm:max-w-[600px] bg-background">
                 <DialogHeader>
                   <DialogTitle className="text-2xl flex items-center gap-2"><Cog className="h-6 w-6 text-accent" /> Automation Task Designer</DialogTitle>
