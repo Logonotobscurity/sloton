@@ -10,52 +10,54 @@
     --card-foreground: 200 5% 90%;
     --popover: 200 13% 9%;
     --popover-foreground: 200 5% 90%;
-    --primary: 44 86% 50%;
-    --primary-foreground: 44 90% 10%;
+    --primary: 115 68% 56%;
+    --primary-foreground: 115 90% 10%;
     --secondary: 195 12% 24%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 195 12% 24%;
-    --muted-foreground: 200 5% 75%;
-    --accent: 44 86% 50%;
-    --accent-foreground: 44 90% 10%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 115 68% 56%;
+    --accent-foreground: 115 90% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 195 12% 24%;
-    --input: 195 12% 24%;
-    --ring: 44 86% 50%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 115 68% 56%;
     --radius: 0.5rem;
-    
+
     /* LOG_ON Accents */
-    --accent-gold: #D4AF37;
-    --cta-gold: #C99A2B;
-    --card-border: rgba(212,175,55,0.12);
+    --bg-deep: #052B38;
+    --accent-green: #57D24C;
+    --accent-green-2: #2FB24B;
+    --card-glass: rgba(255,255,255,0.04);
   }
 
   .dark {
-    --background: 194 46% 10%;
-    --foreground: 60 8% 90%;
-    --card: 194 40% 13%;
-    --card-foreground: 60 8% 90%;
-    --popover: 194 46% 8%;
-    --popover-foreground: 60 8% 90%;
-    --primary: 44 76% 62%;
-    --primary-foreground: 44 100% 11%;
-    --secondary: 195 12% 24%;
-    --secondary-foreground: 156 31% 87%;
-    --muted: 195 12% 24%;
-    --muted-foreground: 155 20% 75%;
-    --accent: 44 86% 65%;
-    --accent-foreground: 44 100% 28%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 195 12% 24%;
-    --input: 195 12% 24%;
-    --ring: 44 76% 62%;
-
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 115 60% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 115 60% 50%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 115 60% 50%;
+    
     /* LOG_ON Accents */
-    --accent-gold: #D4AF37;
-    --cta-gold: #C99A2B;
-    --card-border: rgba(212,175,55,0.12);
+    --bg-deep: #052B38;
+    --accent-green: #57D24C;
+    --accent-green-2: #2FB24B;
+    --card-glass: rgba(255,255,255,0.04);
   }
 }
 

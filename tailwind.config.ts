@@ -1,4 +1,3 @@
-
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -13,13 +12,21 @@ export default {
       center: true,
       padding: '2rem',
       screens: {
-        '2xl': '1400px',
+        '2xl': '1440px',
       },
     },
     extend: {
+      spacing: {
+        '1': '8px',
+        '2': '16px',
+        '3': '24px',
+        '4': '40px',
+      },
+      fontSize: {
+        'h1-clamp': 'clamp(48px, 6.6vw, 96px)',
+      },
       gridTemplateColumns: {
         'mega': 'repeat(auto-fit, minmax(280px, 1fr))',
-        'mega-products': '250px 1fr 300px',
       },
       fontFamily: {
         body: ['var(--font-nunito)', 'sans-serif'],
@@ -52,14 +59,15 @@ export default {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
         },
-        'accent-gold': 'var(--accent-gold)',
-        'cta-gold': 'var(--cta-gold)',
+        'bg-deep': 'var(--bg-deep)',
+        'accent-green': 'var(--accent-green)',
+        'accent-green-2': 'var(--accent-green-2)',
+        'card-glass': 'var(--card-glass)',
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
         border: 'hsl(var(--border))',
-        'card-border': 'var(--card-border)',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         chart: {
@@ -86,9 +94,10 @@ export default {
         'muted-white': 'rgba(255,255,255,0.75)'
       },
       borderRadius: {
+        xl: '20px',
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        sm: '8px',
         card: '8px'
       },
       keyframes: {

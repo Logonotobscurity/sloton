@@ -1,75 +1,100 @@
-
 "use client";
 
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogTrigger,
-} from '@/components/ui/dialog';
-import { SolutionRecommendationForm } from './solution-recommendation-form';
-import { BrainCircuit, ArrowDown } from 'lucide-react';
-import { ArrowIcon } from './ui/arrow-icon';
+import { HeroCarousel } from './hero-carousel';
+import { BotWidget } from './bot-widget';
+
+const slideData = [
+  {
+    headline: "ServiceNow AI Platform for any industry",
+    description: "Put the ServiceNow advantage to work. One platform bringing any AI, any data, and any workflows together to power your business.",
+    cta1: "Discover Platform",
+    cta2: "Schedule Demo",
+    carouselItems: [
+      { image: 'https://picsum.photos/seed/1/360/240', dataAiHint: "abstract infinity loop" },
+      { image: 'https://picsum.photos/seed/2/360/240', dataAiHint: "woman smiling computer" },
+      { image: 'https://picsum.photos/seed/3/360/240', dataAiHint: "glowing orbs network" },
+      { image: 'https://picsum.photos/seed/4/360/240', dataAiHint: "futuristic user interface" },
+      { image: 'https://picsum.photos/seed/5/360/240', dataAiHint: "data visualization chart" },
+    ]
+  },
+  {
+    headline: "Automate and Optimize with LOG_ON",
+    description: "Leverage our expertise to build custom AI-powered workflows that drive efficiency and innovation across your entire organization.",
+    cta1: "Explore Automation",
+    cta2: "Get Free Assessment",
+     carouselItems: [
+      { image: 'https://picsum.photos/seed/6/360/240', dataAiHint: "robot arm gears" },
+      { image: 'https://picsum.photos/seed/7/360/240', dataAiHint: "data server room" },
+      { image: 'https://picsum.photos/seed/8/360/240', dataAiHint: "business people meeting" },
+      { image: 'https://picsum.photos/seed/9/360/240', dataAiHint: "analytics dashboard graph" },
+      { image: 'https://picsum.photos/seed/10/360/240', dataAiHint: "glowing brain icon" },
+    ]
+  },
+  {
+    headline: "Your Strategic Partner in Digital Transformation",
+    description: "We help you navigate the complexities of technology to create scalable, secure, and future-proof solutions that grow with your business.",
+    cta1: "Our Solutions",
+    cta2: "Contact Us",
+     carouselItems: [
+      { image: 'https://picsum.photos/seed/11/360/240', dataAiHint: "cloud computing architecture" },
+      { image: 'https://picsum.photos/seed/12/360/240', dataAiHint: "global network connections" },
+      { image: 'https://picsum.photos/seed/13/360/240', dataAiHint: "team collaborating whiteboard" },
+      { image: 'https://picsum.photos/seed/14/360/240', dataAiHint: "secure data lock" },
+      { image: 'https://picsum.photos/seed/15/360/240', dataAiHint: "person using tablet" },
+    ]
+  }
+];
 
 export function Hero() {
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+
+  const handleSlideChange = (index: number) => {
+    setActiveSlideIndex(index);
+  };
+  
+  const currentSlide = slideData[activeSlideIndex];
+
   return (
-    <section className="relative z-10 flex min-h-screen items-center justify-center overflow-hidden bg-transparent py-24 text-center">
-      <div className="container mx-auto flex flex-col items-center px-4 md:px-6">
-        <span className="mb-4 block text-sm font-normal uppercase tracking-widest text-primary md:mb-6">
-          Your Partner in Growth
-        </span>
-        <h1 
-          className="mb-6 max-w-4xl font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight text-white md:mb-8"
-          style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}
-        >
-          Find the right <span className="font-extrabold text-primary">tech solution</span> for your business in minutes.
-        </h1>
-        <p 
-          className="mx-auto mt-6 mb-8 max-w-2xl text-md text-slate-300 md:mb-12 md:text-xl"
-          style={{ textShadow: '0 1px 5px rgba(0, 0, 0, 0.5)' }}
-        >
-          Stop guessing. Our AI-driven tools and expert services help you cut costs, automate processes, and scale faster. Start with a free, instant business assessment.
-        </p>
-        <div className="flex flex-col flex-wrap justify-center gap-4 sm:flex-row">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button 
-                className="group flex items-center justify-center gap-2"
-                aria-label="Get Your Free AI Business Assessment"
-              >
-                Get Your Free AI Assessment
-                <ArrowIcon />
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[600px] bg-background">
-              <DialogHeader>
-                <DialogTitle className="flex items-center gap-2 text-2xl"><BrainCircuit className="h-6 w-6 text-accent" /> AI Business Assessment</DialogTitle>
-                <DialogDescription>
-                  Describe your business needs to receive tailored IT solution recommendations from our AI consultant. This tool helps you identify the best technology strategies for your goals.
-                </DialogDescription>
-              </DialogHeader>
-              <SolutionRecommendationForm />
-            </DialogContent>
-          </Dialog>
-          <Button asChild variant="secondary" size="lg" aria-label="Explore Our Services">
-            <Link href="/solutions">
-              Explore Our Services
-            </Link>
-          </Button>
+     <section 
+        className="relative w-full h-screen min-h-[700px] md:min-h-[800px] flex flex-col bg-bg-deep overflow-hidden"
+        role="region" 
+        aria-roledescription="carousel" 
+        aria-label="Hero content"
+    >
+        <div className="container mx-auto px-4 md:px-6 flex-grow grid md:grid-cols-2 lg:grid-cols-[1fr_420px] items-center gap-8 md:gap-16 pt-24 md:pt-0">
+            {/* Left Column */}
+            <div className="text-center md:text-left relative z-10">
+                <h1 className="font-headline text-h1-clamp !leading-tight text-white transition-opacity duration-500">
+                    {currentSlide.headline}
+                </h1>
+            </div>
+
+            {/* Right Column */}
+            <div className="relative z-10 flex flex-col items-center md:items-start justify-center gap-4 text-center md:text-left">
+                <p className="text-lg text-white/80 transition-opacity duration-500">
+                    {currentSlide.description}
+                </p>
+                <div className="flex flex-col sm:flex-row md:flex-col gap-4 w-full md:w-auto">
+                    <Button size="lg" className="bg-accent-green hover:bg-accent-green-2 text-white w-full md:w-auto">
+                        {currentSlide.cta1}
+                    </Button>
+                    <Button size="lg" variant="outline" className="text-white border-white/50 hover:bg-white/10 hover:text-white w-full md:w-auto">
+                        {currentSlide.cta2}
+                    </Button>
+                </div>
+            </div>
         </div>
-        <div className="mt-12 text-center text-white">
-            <Button asChild variant="ghost" className="text-slate-300 hover:text-primary">
-                <Link href="/#strategic-partner">
-                    Explore How We Work
-                    <ArrowDown className="ml-2 h-4 w-4" />
-                </Link>
-            </Button>
+
+        <HeroCarousel slides={slideData.flatMap(s => s.carouselItems)} activeSlideIndex={activeSlideIndex} onSlideChange={handleSlideChange} />
+        
+        <BotWidget />
+
+        {/* Visually hidden for screen readers */}
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+            {`Slide ${activeSlideIndex + 1} of ${slideData.length}: ${currentSlide.headline}`}
         </div>
-      </div>
     </section>
   );
 }

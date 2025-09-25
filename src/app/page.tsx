@@ -1,4 +1,3 @@
-
 import { CaseStudiesCarousel } from '@/components/case-studies-carousel';
 import { Faq } from '@/components/faq';
 import { FeaturedInsights } from '@/components/featured-insights';
@@ -13,16 +12,11 @@ import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
 import { ChatbotEmbed } from '@/components/chatbot-embed';
 import { IntegrationsHighlight } from '@/components/integrations-highlight';
 import { TemplateLibrary } from '@/components/template-library';
-import { GlitchOrbBackground } from '@/components/glitch-orb-background';
-
 
 export default function Home() {
   return (
     <div className="flex flex-col overflow-x-hidden">
-       <div className="relative bg-black">
-        <GlitchOrbBackground suspendWhenOffscreen={true} />
-        <Hero />
-      </div>
+      <Hero />
       <ScrollAnimationWrapper>
         <StrategicPartner />
       </ScrollAnimationWrapper>
