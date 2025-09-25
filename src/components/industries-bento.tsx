@@ -1,8 +1,8 @@
-
 "use client";
 
 import React from 'react';
-import { BentoCard, BentoGrid } from '@/components/ui/bento-grid';
+import { Button } from './ui/button';
+import Link from 'next/link';
 import { menuData } from '@/lib/menu-data';
 import {
   IconFinance,
@@ -14,10 +14,13 @@ import {
   IconProcurement,
   IconDevelopment,
   IconAdminOps,
-  IconSupport
+  IconSupport,
+  IconGeneral
 } from '@/lib/icons';
-import { Button } from './ui/button';
-import Link from 'next/link';
+import { GlowingCard } from './ui/glowing-card';
+import { CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
+import { ArrowRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const { items: industries } = menuData.menu.industries;
 
@@ -34,35 +37,19 @@ const iconMap: { [key: string]: React.ElementType } = {
   "Telecom": IconItOperations,
 };
 
-const placeholderImages = [
-    "https://picsum.photos/seed/industry1/800/600",
-    "https://picsum.photos/seed/industry2/800/600",
-    "https://picsum.photos/seed/industry3/800/600",
-    "https://picsum.photos/seed/industry4/800/600",
-    "https://picsum.photos/seed/industry5/800/600",
-    "https://picsum.photos/seed/industry6/800/600",
-    "https://picsum.photos/seed/industry7/800/600",
-    "https://picsum.photos/seed/industry8/800/600",
-    "https://picsum.photos.seed/industry9/800/600",
-    "https://picsum.photos/seed/industry10/800/600",
+const backgroundColors = [
+  "bg-[--color-primary-light]",
+  "bg-[--color-secondary-light]",
+  "bg-[--color-accent-light]",
+  "bg-[--color-hightlight-light]",
 ];
-
-const features = industries.map((industry, i) => ({
-  name: industry.title,
-  description: industry.shortDescription || "Click to learn more.",
-  href: industry.href || '/use-cases',
-  cta: "Learn More",
-  background: <img className="absolute -right-20 -top-20 opacity-60" src={placeholderImages[i % placeholderImages.length]} alt={industry.title} />,
-  Icon: iconMap[industry.title] || IconGeneral,
-  className: i === 0 || i === 5 ? "md:col-span-2" : "md:col-span-1",
-}));
 
 export function IndustriesBento() {
   return (
     <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium">
+                <h2 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium font-headline">
                     Solutions For Your Industry
                 </h2>
                 <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-muted-foreground text-center font-normal">
@@ -70,11 +57,32 @@ export function IndustriesBento() {
                 </p>
             </div>
 
-            <BentoGrid className="lg:grid-rows-3 mt-12">
-                {features.map((feature) => (
-                    <BentoCard key={feature.name} {...feature} />
-                ))}
-            </BentoGrid>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                {industries.slice(0, 9).map((feature, i) => {
+                    const Icon = iconMap[feature.title] || IconGeneral;
+                    return (
+                        <GlowingCard key={feature.title} className={cn(backgroundColors[i % backgroundColors.length], "text-neutral-content")}>
+                            <div className="flex flex-col h-full p-6">
+                                <CardHeader className="p-0">
+                                    <Icon className="h-10 w-10 mb-4" />
+                                    <CardTitle className="font-headline text-2xl">{feature.name}</CardTitle>
+                                </CardHeader>
+                                <CardContent className="p-0 pt-4 flex-grow">
+                                    <p className="opacity-90">{feature.shortDescription}</p>
+                                </CardContent>
+                                <CardFooter className="p-0 pt-6 mt-auto">
+                                    <Button asChild variant="outline" className="bg-transparent border-neutral-content/50 text-neutral-content hover:bg-neutral-content/10">
+                                        <Link href={feature.href || '/use-cases'}>
+                                            Learn More
+                                            <ArrowRight className="ml-2 h-4 w-4" />
+                                        </Link>
+                                    </Button>
+                                </CardFooter>
+                            </div>
+                        </GlowingCard>
+                    )
+                })}
+            </div>
 
             <div className="mt-16 text-center">
                  <Button asChild size="lg">

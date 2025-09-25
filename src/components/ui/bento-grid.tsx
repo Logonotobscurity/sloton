@@ -36,7 +36,9 @@ export const BentoGridItem = ({
   icon?: React.ReactNode;
 }) => {
   return (
-    <div
+    <motion.div
+      initial="initial"
+      whileHover="hover"
       className={cn(
         "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
         className
@@ -52,7 +54,7 @@ export const BentoGridItem = ({
           {description}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -86,9 +88,11 @@ export const BentoCard = ({
       className
     )}
   >
-    <div>{background}</div>
+    <div className="absolute inset-0">
+        {background}
+    </div>
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover/bento:-translate-y-10">
-      <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 -translate-y-12 transition-all duration-300 ease-in-out group-hover/bento:scale-75" />
+      <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover/bento:scale-75" />
       <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
         {name}
       </h3>
