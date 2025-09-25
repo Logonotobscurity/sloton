@@ -3,97 +3,62 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { HeroCarousel } from './hero-carousel';
-import Prism from './prism-background';
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { SolutionRecommendationForm } from './solution-recommendation-form';
+import { CircuitBackground } from './ui/circuit-background';
 
 const slideData = [
   {
-    headline: "ServiceNow AI Platform for any industry",
-    description: "Put the ServiceNow advantage to work. One platform bringing any AI, any data, and any workflows together to power your business.",
-    cta1: "Discover Platform",
-    cta2: "Schedule Demo",
-    carouselItems: [
-      { image: 'https://picsum.photos/seed/1/360/240', dataAiHint: "abstract infinity loop" },
-      { image: 'https://picsum.photos/seed/2/360/240', dataAiHint: "woman smiling computer" },
-      { image: 'https://picsum.photos/seed/3/360/240', dataAiHint: "glowing orbs network" },
-      { image: 'https://picsum.photos/seed/4/360/240', dataAiHint: "futuristic user interface" },
-      { image: 'https://picsum.photos/seed/5/360/240', dataAiHint: "data visualization chart" },
-    ]
-  },
-  {
-    headline: "Automate and Optimize with LOG_ON",
-    description: "Leverage our expertise to build custom AI-powered workflows that drive efficiency and innovation across your entire organization.",
-    cta1: "Explore Automation",
-    cta2: "Get Free Assessment",
-     carouselItems: [
-      { image: 'https://picsum.photos/seed/6/360/240', dataAiHint: "robot arm gears" },
-      { image: 'https://picsum.photos/seed/7/360/240', dataAiHint: "data server room" },
-      { image: 'https://picsum.photos/seed/8/360/240', dataAiHint: "business people meeting" },
-      { image: 'https://picsum.photos/seed/9/360/240', dataAiHint: "analytics dashboard graph" },
-      { image: 'https://picsum.photos/seed/10/360/240', dataAiHint: "glowing brain icon" },
-    ]
-  },
-  {
-    headline: "Your Strategic Partner in Digital Transformation",
-    description: "We help you navigate the complexities of technology to create scalable, secure, and future-proof solutions that grow with your business.",
-    cta1: "Our Solutions",
-    cta2: "Contact Us",
-     carouselItems: [
-      { image: 'https://picsum.photos/seed/11/360/240', dataAiHint: "cloud computing architecture" },
-      { image: 'https://picsum.photos/seed/12/360/240', dataAiHint: "global network connections" },
-      { image: 'https://picsum.photos/seed/13/360/240', dataAiHint: "team collaborating whiteboard" },
-      { image: 'https://picsum.photos/seed/14/360/240', dataAiHint: "secure data lock" },
-      { image: 'https://picsum.photos/seed/15/360/240', dataAiHint: "person using tablet" },
-    ]
+    preheadline: "Your Partner in Growth",
+    headline: "The modern, AI-powered tech solution",
+    description: "We build and manage scalable, secure, and intelligent systems that help businesses cut costs, automate processes, and scale faster. Get a free AI assessment to see how we can help.",
+    cta1: "Get Your Free AI Assessment",
+    cta2: "Explore Our Services",
   }
 ];
 
 export function Hero() {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-
-  const handleSlideChange = (index: number) => {
-    setActiveSlideIndex(index % slideData.length);
-  };
   
-  const currentSlide = slideData[activeSlideIndex];
+  const currentSlide = slideData[0];
 
   return (
      <section 
-        className="relative w-full h-screen min-h-[700px] md:min-h-[800px] flex flex-col bg-transparent overflow-hidden"
-        role="region" 
-        aria-roledescription="carousel" 
-        aria-label="Hero content"
+        className="relative w-full min-h-[90vh] flex items-center bg-background overflow-hidden"
     >
-      <Prism />
-        <div className="container mx-auto px-4 md:px-6 flex-grow grid md:grid-cols-2 lg:grid-cols-[1fr_420px] items-start md:items-center gap-8 md:gap-16 pt-28 md:pt-0">
-            {/* Left Column */}
-            <div className="text-center md:text-left relative z-10">
-                <h1 className="font-headline text-h1-clamp !leading-tight text-white transition-opacity duration-500">
-                    {currentSlide.headline}
-                </h1>
-            </div>
+      <CircuitBackground />
+      <div className="absolute inset-0 -z-10 h-full w-full bg-background [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,hsl(var(--primary))_100%)]"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl opacity-30 animate-blob"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
 
-            {/* Right Column */}
-            <div className="relative z-10 flex flex-col items-center md:items-start justify-center gap-4 text-center md:text-left">
-                <p className="text-lg text-white/80 transition-opacity duration-500">
+        <div className="container mx-auto px-4 md:px-6 z-10">
+            <div className="max-w-4xl mx-auto text-center">
+                <p className="text-sm font-normal uppercase tracking-widest text-primary">{currentSlide.preheadline}</p>
+                <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] !leading-tight my-4">
+                    The modern, AI-powered <span className="text-primary">tech solution</span>
+                </h1>
+                <p className="text-md md:text-xl text-muted-foreground max-w-2xl mx-auto">
                     {currentSlide.description}
                 </p>
-                <div className="flex flex-col sm:flex-row md:flex-col gap-4 w-full md:w-auto">
-                    <Button size="lg" className="bg-accent-green hover:bg-accent-green-2 text-white w-full md:w-auto">
-                        {currentSlide.cta1}
-                    </Button>
-                    <Button size="lg" variant="outline" className="text-white border-white/50 hover:bg-white/10 hover:text-white w-full md:w-auto">
-                        {currentSlide.cta2}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                     <Dialog>
+                        <DialogTrigger asChild>
+                            <Button size="lg">{currentSlide.cta1}</Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
+                            <DialogHeader>
+                                <DialogTitle className="text-2xl">Free AI Business Assessment</DialogTitle>
+                                <DialogDescription>
+                                Describe your business needs to receive tailored IT solution recommendations from our AI consultant. This tool helps you identify the best technology strategies for your goals.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <SolutionRecommendationForm />
+                        </DialogContent>
+                    </Dialog>
+                    <Button size="lg" variant="secondary" asChild>
+                        <a href="/solutions">{currentSlide.cta2}</a>
                     </Button>
                 </div>
             </div>
-        </div>
-
-        <HeroCarousel slides={slideData.flatMap(s => s.carouselItems)} onSlideChange={handleSlideChange} />
-        
-        {/* Visually hidden for screen readers */}
-        <div className="sr-only" aria-live="polite" aria-atomic="true">
-            {`Slide ${activeSlideIndex + 1} of ${slideData.length}: ${currentSlide.headline}`}
         </div>
     </section>
   );
