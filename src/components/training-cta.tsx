@@ -24,8 +24,8 @@ export function TrainingCTA() {
   return (
     <section className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-3 gap-8 md:gap-12 items-center bg-background p-8 md:p-12 rounded-lg">
-          <div className="lg:col-span-1 space-y-4">
+        <div className="grid lg:grid-cols-5 gap-8 md:gap-12 items-center bg-background p-8 md:p-12 rounded-lg">
+          <div className="lg:col-span-3 space-y-4">
             <div className="flex items-center gap-3 text-primary">
               <GraduationCap className="h-8 w-8" />
               <h2 className="font-headline text-2xl md:text-3xl font-bold">Advance Your Career</h2>
@@ -39,7 +39,7 @@ export function TrainingCTA() {
               </Link>
             </Button>
           </div>
-          <div className="lg:col-span-2 grid md:grid-cols-2 gap-6 mt-8 lg:mt-0">
+          <div className="lg:col-span-2 grid sm:grid-cols-1 gap-6 mt-8 lg:mt-0">
              {featuredCourses.map((course) => (
                 <GlowingCard key={course.title}>
                   <div className="p-6 flex flex-col h-full">
