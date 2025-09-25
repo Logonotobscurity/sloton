@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/ab-testing',
     '/solutions',
     '/partners',
+    '/support',
   ];
 
   const staticUrls = staticPages.map((page) => ({
