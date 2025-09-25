@@ -65,7 +65,7 @@ export function Hero() {
         aria-label="Hero content"
     >
       <Prism />
-        <div className="container mx-auto px-4 md:px-6 flex-grow grid md:grid-cols-2 lg:grid-cols-[1fr_420px] items-center gap-8 md:gap-16 pt-24 md:pt-0">
+        <div className="container mx-auto px-4 md:px-6 flex-grow grid md:grid-cols-2 lg:grid-cols-[1fr_420px] items-start md:items-center gap-8 md:gap-16 pt-28 md:pt-0">
             {/* Left Column */}
             <div className="text-center md:text-left relative z-10">
                 <h1 className="font-headline text-h1-clamp !leading-tight text-white transition-opacity duration-500">
