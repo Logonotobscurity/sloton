@@ -175,6 +175,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'logonsolutions.netlify.app',
       },
+       {
+        protocol: 'https',
+        hostname: 'cdn-benkb.nitrocdn.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.servicenow.com',
+      },
     ],
   },
 };
