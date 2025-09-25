@@ -2,6 +2,11 @@
 export const menuData = {
   "menuVersion": "1.0",
   "menu": {
+    "products": {
+       "heading": "Products",
+       "intro": "Unite people, processes, and systems with AI-powered products for all your workflows.",
+       "cta": {"label": "See All Products", "href": "/solutions"}
+    },
     "industries": {
       "heading": "Industries",
       "intro": "Browse solutions to help you solve the complex business challenges unique to your industry.",

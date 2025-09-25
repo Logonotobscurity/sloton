@@ -26,7 +26,9 @@ import { Separator } from './ui/separator';
 import { menuData } from '@/lib/menu-data';
 import Image from 'next/image';
 
-const { industries, learning, partners, company, support } = menuData.menu;
+const { menu } = menuData;
+const { products, industries, learning, partners, company, support } = menu;
+
 
 const topNavItems = [
     { label: 'Products', key: 'products' },
@@ -64,16 +66,18 @@ const solutionsSubNav = [
     { label: 'Finance and Supply Chain', href: '/use-cases#finance' },
 ];
 
-const ProductsMegaMenu = () => (
-    <div className="grid grid-cols-[250px_1fr_300px] h-[600px]">
+const ProductsMegaMenu = () => {
+    if (!products) return null;
+    return (
+    <div className="grid grid-cols-1 md:grid-cols-mega-products gap-6">
         {/* Left Column */}
-        <div className="bg-logon-800/50 p-6 flex flex-col justify-between">
+        <div className="md:col-span-1 bg-logon-800/50 p-6 flex flex-col justify-between">
             <div>
                 <h3 className="text-xl font-bold mb-4">Products</h3>
                 <ul className="space-y-1">
                     {['Featured products', 'LOG_ON AI Platform', 'Demo Library'].map((item, i) => (
                         <li key={item}>
-                            <Link href="#" className={cn("block p-2 rounded-md text-sm font-medium transition-colors hover:bg-white/10 hover:text-logon-gold", i === 0 && "bg-white/10 text-logon-gold")}>
+                            <Link href="/solutions" className={cn("block p-2 rounded-md text-sm font-medium transition-colors hover:bg-white/10 hover:text-logon-gold", i === 0 && "bg-white/10 text-logon-gold")}>
                                 {item}
                             </Link>
                         </li>
@@ -97,7 +101,7 @@ const ProductsMegaMenu = () => (
         </div>
 
         {/* Center Column */}
-        <div className="p-8 overflow-y-auto">
+        <div className="md:col-span-1 p-8 overflow-y-auto">
             <h2 className="text-3xl font-bold font-headline">Products</h2>
             <p className="mt-2 text-muted-white">Unite people, processes, and systems with AI-powered products for all your workflows.</p>
             <Button asChild variant="outline" className="mt-4 border-logon-gold hover:bg-logon-gold/10">
@@ -105,11 +109,11 @@ const ProductsMegaMenu = () => (
             </Button>
             <Separator className="my-6 bg-logon-gold-600/10" />
             <h4 className="text-sm font-semibold uppercase text-muted-white mb-4">Featured Products</h4>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
                 <div>
                     {featuredProductsLeft.map(item => (
                         <div key={item.title} className="mb-4">
-                            <h5 className="font-semibold text-sm hover:text-logon-gold"><Link href="#">{item.title}</Link></h5>
+                            <h5 className="font-semibold text-sm hover:text-logon-gold"><Link href="/solutions">{item.title}</Link></h5>
                             <p className="text-xs text-muted-white">{item.description}</p>
                         </div>
                     ))}
@@ -117,7 +121,7 @@ const ProductsMegaMenu = () => (
                 <div>
                     {featuredProductsRight.map(item => (
                         <div key={item.title} className="mb-4">
-                            <h5 className="font-semibold text-sm hover:text-logon-gold"><Link href="#">{item.title}</Link></h5>
+                            <h5 className="font-semibold text-sm hover:text-logon-gold"><Link href="/solutions">{item.title}</Link></h5>
                             <p className="text-xs text-muted-white">{item.description}</p>
                         </div>
                     ))}
@@ -126,7 +130,7 @@ const ProductsMegaMenu = () => (
         </div>
 
         {/* Right Column */}
-         <div className="bg-logon-800/50 p-8">
+         <div className="md:col-span-1 bg-logon-800/50 p-8">
              <div className="border border-card-border rounded-lg p-6 h-full flex flex-col justify-center text-center bg-black/20">
                 <h4 className="font-bold text-lg">Put AI to work with the LOG_ON AI Platform</h4>
                 <p className="text-sm text-muted-white mt-2 mb-4">Connect and automate workflows across the enterprise with a single AI platform for business transformation.</p>
@@ -136,43 +140,49 @@ const ProductsMegaMenu = () => (
             </div>
         </div>
     </div>
-);
+)};
 
 
-const IndustriesMegaMenu = () => (
-    <div className="grid grid-cols-[300px_1fr] p-6 gap-6">
-        <aside className="pr-4 border-r border-logon-gold-600/10">
-            <h3 className="text-xl font-bold mb-4">{industries.heading}</h3>
-            <p className="text-sm text-muted-white mb-4">{industries.intro}</p>
-            <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
-                <Link href={industries.cta.href}>{industries.cta.label}</Link>
-            </Button>
-            <div className="mt-6 pt-6 border-t border-logon-gold-600/10">
-                <Link href="/use-cases" className="text-sm text-logon-gold hover:underline">View All Industries</Link>
-            </div>
-        </aside>
-        <main className="px-4">
-            <h2 className="text-2xl font-bold mb-4">Industries</h2>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6 mt-4">
-                {industries.items.map((item, i) => (
-                    <article key={i}>
-                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={(item as any).href || '/use-cases'}>{item.title}</Link></h3>
-                        <p className="text-sm text-muted-white mt-1">{item.shortDescription}</p>
-                    </article>
-                ))}
-            </div>
-        </main>
+const IndustriesMegaMenu = () => {
+  if (!industries) return null;
+  const { heading, intro, cta, items } = industries;
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 p-6 gap-6">
+      <aside className="md:col-span-1 pr-4 border-r-0 md:border-r border-b md:border-b-0 pb-6 md:pb-0 border-logon-gold-600/10">
+        <h3 className="text-xl font-bold mb-4">{heading}</h3>
+        <p className="text-sm text-muted-white mb-4">{intro}</p>
+        <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
+          <Link href={cta.href}>{cta.label}</Link>
+        </Button>
+        <div className="mt-6 pt-6 border-t border-logon-gold-600/10">
+          <Link href="/use-cases" className="text-sm text-logon-gold hover:underline">View All Industries</Link>
+        </div>
+      </aside>
+      <main className="md:col-span-2 px-4">
+        <h2 className="text-2xl font-bold mb-4">Industries</h2>
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6 mt-4">
+          {items.map((item, i) => (
+            <article key={i}>
+              <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={item.href || '/use-cases'}>{item.title}</Link></h3>
+              <p className="text-sm text-muted-white mt-1">{item.shortDescription}</p>
+            </article>
+          ))}
+        </div>
+      </main>
     </div>
-);
+  );
+};
 
 const LearningMegaMenu = () => {
+    if (!learning) return null;
     const [activeItem, setActiveItem] = useState(learning.leftNav[0]);
     return(
-    <div className="grid grid-cols-mega p-6 gap-6">
-        <aside className="pr-4 border-r border-logon-gold-600/10">
+    <div className="grid grid-cols-1 lg:grid-cols-mega gap-6 p-6">
+        <aside className="lg:col-span-1 pr-0 lg:pr-4 lg:border-r border-b lg:border-b-0 pb-6 lg:pb-0 border-logon-gold-600/10">
              <h3 className="text-xl font-bold mb-4">{learning.heading}</h3>
              <ul role="menu" aria-label={`${learning.heading} categories`} className="space-y-1">
-                {learning.leftNav.map((item, idx) => (
+                {learning.leftNav.map((item) => (
                     <li key={item}>
                         <button
                             role="menuitem"
@@ -185,23 +195,23 @@ const LearningMegaMenu = () => {
                 ))}
             </ul>
         </aside>
-        <main className="px-4">
+        <main className="lg:col-span-1 px-0 lg:px-4">
             <h2 className="text-2xl font-bold mb-2">{learning.center.title}</h2>
             <p className="text-sm text-muted-white mb-4">{learning.center.intro}</p>
             <Button asChild variant="outline" className="mb-6 border-logon-gold hover:bg-logon-gold/10">
               <Link href={learning.center.cta.href}>{learning.center.cta.label}</Link>
             </Button>
 
-            <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mt-4">
                 {learning.center.links.map((link, i) => (
                     <article key={i}>
-                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={(link as any).href || '/training'}>{link.title}</Link></h3>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={link.href || '/training'}>{link.title}</Link></h3>
                         <p className="text-sm text-muted-white mt-1">{link.desc}</p>
                     </article>
                 ))}
             </div>
         </main>
-        <aside className="rounded-card border border-logon-gold-600/10 p-4 bg-black/20">
+        <aside className="lg:col-span-1 rounded-card border border-logon-gold-600/10 p-4 bg-black/20">
             <h4 className="font-semibold mb-2">RiseUp with LOG_ON</h4>
             <p className="text-sm text-muted-white mb-4">Empower individuals in emerging technology field communities with key skills to launch tech careers.</p>
             <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
@@ -211,50 +221,54 @@ const LearningMegaMenu = () => {
     </div>
 )};
 
-const PartnersMegaMenu = () => (
-     <div className="grid grid-cols-[300px_1fr] p-6 gap-6">
-        <aside className="pr-4 border-r border-logon-gold-600/10">
+const PartnersMegaMenu = () => {
+    if (!partners) return null;
+    return (
+     <div className="grid grid-cols-1 md:grid-cols-3 p-6 gap-6">
+        <aside className="md:col-span-1 pr-0 md:pr-4 md:border-r border-b md:border-b-0 pb-6 md:pb-0 border-logon-gold-600/10">
             <h3 className="text-xl font-bold mb-4">{partners.heading}</h3>
             <p className="text-sm text-muted-white mb-4">{partners.intro}</p>
              <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
                 <Link href={partners.cta.href}>{partners.cta.label}</Link>
             </Button>
         </aside>
-        <main className="px-4">
+        <main className="md:col-span-2 px-0 md:px-4">
             <h2 className="text-2xl font-bold mb-4">Partners</h2>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mt-4">
                 {partners.items.map((item, i) => (
                     <article key={i}>
-                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={(item as any).href || '/contact'}>{item.title}</Link></h3>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={item.href || '/contact'}>{item.title}</Link></h3>
                         <p className="text-sm text-muted-white mt-1">{item.desc}</p>
                     </article>
                 ))}
             </div>
         </main>
     </div>
-);
+)};
 
-const CompanyMegaMenu = () => (
-    <div className="grid grid-cols-mega p-6 gap-6">
-        <aside className="pr-4 border-r border-logon-gold-600/10 flex flex-col justify-center">
+const CompanyMegaMenu = () => {
+    if (!company) return null;
+    return (
+    <div className="grid grid-cols-1 lg:grid-cols-mega p-6 gap-6">
+        <aside className="lg:col-span-1 pr-0 lg:pr-4 lg:border-r border-b lg:border-b-0 pb-6 lg:pb-0 border-logon-gold-600/10 flex flex-col justify-center">
             <h3 className="text-xl font-bold mb-4">{company.heading}</h3>
             <p className="text-sm text-muted-white mb-4">{company.intro}</p>
             <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
                 <Link href={company.cta.href}>{company.cta.label}</Link>
             </Button>
         </aside>
-        <main className="px-4">
+        <main className="lg:col-span-1 px-0 lg:px-4">
             <h2 className="text-2xl font-bold mb-4">Company</h2>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mt-4">
                 {company.items.map((item, i) => (
                     <article key={i}>
-                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={(item as any).href || '/about'}>{item.title}</Link></h3>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={item.href || '/about'}>{item.title}</Link></h3>
                         <p className="text-sm text-muted-white mt-1">{item.desc}</p>
                     </article>
                 ))}
             </div>
         </main>
-        <aside className="rounded-card overflow-hidden">
+        <aside className="lg:col-span-1 rounded-card overflow-hidden">
             <Image 
                 src="https://picsum.photos/seed/company-collage/600/800" 
                 alt="Company Collage" 
@@ -265,14 +279,16 @@ const CompanyMegaMenu = () => (
             />
         </aside>
     </div>
-);
+)};
 
-const SupportMegaMenu = () => (
-    <div className="grid grid-cols-[260px_1fr_320px] p-6 gap-6">
-        <aside className="pr-4 border-r border-logon-gold-600/10">
+const SupportMegaMenu = () => {
+    if (!support) return null;
+    return (
+    <div className="grid grid-cols-1 lg:grid-cols-mega p-6 gap-6">
+        <aside className="lg:col-span-1 pr-0 lg:pr-4 lg:border-r border-b lg:border-b-0 pb-6 lg:pb-0 border-logon-gold-600/10">
              <h3 className="text-xl font-bold mb-4">{support.heading}</h3>
              <ul role="menu" aria-label={`${support.heading} categories`} className="space-y-1">
-                {support.leftNav.map((item, idx) => (
+                {support.leftNav.map((item) => (
                     <li key={item}>
                         <Link
                             href="/contact"
@@ -284,19 +300,19 @@ const SupportMegaMenu = () => (
                 ))}
             </ul>
         </aside>
-        <main className="px-4">
+        <main className="lg:col-span-1 px-0 lg:px-4">
             <h2 className="text-2xl font-bold mb-2">{support.center.title}</h2>
             <p className="text-sm text-muted-white mb-6">{support.center.intro}</p>
             <div className="space-y-6">
                 {support.center.links.map((link, i) => (
                     <article key={i}>
-                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={(link as any).href || '/contact'}>{link.title}</Link></h3>
+                        <h3 className="text-base font-semibold hover:text-logon-gold"><Link href={link.href || '/contact'}>{link.title}</Link></h3>
                         <p className="text-sm text-muted-white mt-1">{link.desc}</p>
                     </article>
                 ))}
             </div>
         </main>
-        <aside className="rounded-card border border-logon-gold-600/10 p-6 bg-black/20 flex flex-col justify-center">
+        <aside className="lg:col-span-1 rounded-card border border-logon-gold-600/10 p-6 bg-black/20 flex flex-col justify-center">
             <h4 className="font-semibold mb-2">{support.promo.title}</h4>
             <p className="text-sm text-muted-white mb-4">{support.promo.desc}</p>
             <Button asChild variant="outline" className="border-logon-gold hover:bg-logon-gold/10">
@@ -304,7 +320,7 @@ const SupportMegaMenu = () => (
             </Button>
         </aside>
     </div>
-);
+)};
 
 const MobileNavLink = ({ href, children, onLinkClick }: { href: string; children: React.ReactNode; onLinkClick: () => void }) => (
     <Link
@@ -360,8 +376,8 @@ export function Header() {
                                 {item.label} <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
                                 {pathname.startsWith(`/${item.key}`) && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-accent-gold rounded-full"></span>}
                             </button>
-                             <div className="absolute top-full left-0 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto w-screen max-w-[1000px] -translate-x-1/2">
-                                <div className="bg-logon-700/95 backdrop-blur-sm rounded-lg shadow-2xl border border-logon-800 overflow-hidden">
+                             <div className="absolute top-full left-1/2 pt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto w-screen max-w-7xl -translate-x-1/2">
+                                <div className="bg-logon-700/95 backdrop-blur-sm rounded-lg shadow-2xl border border-logon-800 overflow-hidden max-h-[calc(100vh-100px)]">
                                      {item.key === 'products' && <ProductsMegaMenu />}
                                      {item.key === 'industries' && <IndustriesMegaMenu />}
                                      {item.key === 'learning' && <LearningMegaMenu />}
@@ -404,8 +420,8 @@ export function Header() {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-full bg-background p-0 flex flex-col">
                     <SheetHeader className="p-4 flex-row items-center justify-between border-b">
-                         <SheetClose asChild>
-                            <Logo />
+                        <SheetClose asChild>
+                            <Logo onLinkClick={handleMobileLinkClick} />
                         </SheetClose>
                         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                         <SheetClose asChild>
@@ -429,8 +445,8 @@ export function Header() {
                             </AccordionItem>
                              <MobileNavLink href="/use-cases" onLinkClick={handleMobileLinkClick}>Industries</MobileNavLink>
                              <MobileNavLink href="/training" onLinkClick={handleMobileLinkClick}>Learning</MobileNavLink>
-                             <MobileNavLink href="/contact" onLinkClick={handleMobileLinkClick}>Support</MobileNavLink>
-                             <MobileNavLink href="/contact" onLinkClick={handleMobileLinkClick}>Partners</MobileNavLink>
+                             <MobileNavLink href="/support" onLinkClick={handleMobileLinkClick}>Support</MobileNavLink>
+                             <MobileNavLink href="/partners" onLinkClick={handleMobileLinkClick}>Partners</MobileNavLink>
                              <MobileNavLink href="/about" onLinkClick={handleMobileLinkClick}>Company</MobileNavLink>
                         </Accordion>
                         </nav>
@@ -454,5 +470,3 @@ export function Header() {
 }
 
     
-
-  

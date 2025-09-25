@@ -18,7 +18,8 @@ export default {
     },
     extend: {
       gridTemplateColumns: {
-        mega: '260px 1fr 320px'
+        'mega': 'repeat(auto-fit, minmax(280px, 1fr))',
+        'mega-products': '250px 1fr 300px',
       },
       fontFamily: {
         body: ['var(--font-nunito)', 'sans-serif'],
