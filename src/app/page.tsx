@@ -1,3 +1,4 @@
+
 import { CaseStudiesCarousel } from '@/components/case-studies-carousel';
 import { Faq } from '@/components/faq';
 import { FeaturedInsights } from '@/components/featured-insights';
