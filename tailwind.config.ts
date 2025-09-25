@@ -47,11 +47,14 @@ export default {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
         },
+        'accent-gold': 'var(--accent-gold)',
+        'cta-gold': 'var(--cta-gold)',
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
         border: 'hsl(var(--border))',
+        'card-border': 'var(--card-border)',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         chart: {
