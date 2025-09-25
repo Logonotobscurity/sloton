@@ -1,10 +1,9 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { HeroCarousel } from './hero-carousel';
-import { BotWidget } from './bot-widget';
 
 const slideData = [
   {
@@ -90,8 +89,6 @@ export function Hero() {
 
         <HeroCarousel slides={slideData.flatMap(s => s.carouselItems)} activeSlideIndex={activeSlideIndex} onSlideChange={handleSlideChange} />
         
-        <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
-
         {/* Visually hidden for screen readers */}
         <div className="sr-only" aria-live="polite" aria-atomic="true">
             {`Slide ${activeSlideIndex + 1} of ${slideData.length}: ${currentSlide.headline}`}

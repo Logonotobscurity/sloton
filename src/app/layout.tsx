@@ -9,6 +9,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { WebsiteLoader } from '@/components/website-loader';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
+import { BotWidget } from '@/components/bot-widget';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -246,6 +247,7 @@ export default function RootLayout({
             <WebsiteLoader />
             <Header />
             <main className="flex-grow">{children}</main>
+            <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
             <Footer />
             <Toaster />
           </ThemeProvider>
