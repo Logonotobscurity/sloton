@@ -34,8 +34,8 @@ const partnerBenefits = [
 const partners = [
     { name: "Google Cloud Partner", logo: "https://img.icons8.com/color/96/google-cloud.png", dataAiHint: "Google Cloud logo" },
     { name: "AWS Partner", logo: "https://img.icons8.com/color/96/amazon-web-services.png", dataAiHint: "AWS logo" },
-    { name: "Microsoft Partner", logo: "https://img.icons8.com/color/96/microsoft-azure.png", dataAiHint: "Microsoft Azure logo" },
-    { name: "Vercel Partner", logo: "https://logowik.com/content/uploads/images/vercel1868.logowik.com.webp", dataAiHint: "Vercel logo" },
+    { name: "Microsoft Partner", logo: "https://img.icons8.com/color/96/azure-storage-explorer.png", dataAiHint: "Microsoft Azure logo" },
+    { name: "Vercel Partner", logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/nextjs-icon.svg", dataAiHint: "Vercel logo" },
 ];
 
 export default function PartnersPage() {
@@ -48,7 +48,7 @@ export default function PartnersPage() {
             <p className="text-md md:text-lg text-muted-foreground">
               At LOG_ON, we believe that collaboration is the key to innovation. Our partner ecosystem brings together technology leaders, solution providers, and system integrators to deliver exceptional value to customers worldwide. By joining our network, you become part of a community dedicated to solving complex challenges with the power of AI and automation.
             </p>
-            <Button asChild size="lg" className="mt-4 w-full sm:w-auto">
+            <Button asChild size="lg" className="w-full sm:w-auto">
               <Link href="/contact">Become a Partner</Link>
             </Button>
           </div>

@@ -9,8 +9,8 @@ import { ShieldCheck } from "lucide-react";
 const partners = [
     { name: "Google Cloud Partner", logo: "https://img.icons8.com/color/96/google-cloud.png", dataAiHint: "Google Cloud logo" },
     { name: "AWS Partner", logo: "https://img.icons8.com/color/96/amazon-web-services.png", dataAiHint: "AWS logo" },
-    { name: "Microsoft Partner", logo: "https://img.icons8.com/color/96/microsoft-azure.png", dataAiHint: "Microsoft Azure logo" },
-    { name: "Vercel Partner", logo: "https://logowik.com/content/uploads/images/vercel1868.logowik.com.webp", dataAiHint: "Vercel logo" },
+    { name: "Microsoft Partner", logo: "https://img.icons8.com/color/96/azure-storage-explorer.png", dataAiHint: "Microsoft Azure logo" },
+    { name: "Vercel Partner", logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/nextjs-icon.svg", dataAiHint: "Vercel logo" },
 ];
 
 export function PartnershipApproach() {
