@@ -1,13 +1,13 @@
 
 import Link from 'next/link';
-import { X, Instagram } from 'lucide-react';
-import { IconMedium, IconSubstack } from '@/lib/icons';
+import { IconFacebook, IconInstagram, IconLinkedIn, IconX, IconYoutube } from '@/lib/icons';
 
 const socialLinks = [
-  { href: 'https://medium.com/@Logon_thepage', label: 'Medium', icon: <IconMedium className="w-6 h-6" /> },
-  { href: 'https://x.com/log_onthepage', label: 'X', icon: <X className="w-6 h-6" /> },
-  { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <Instagram className="w-6 h-6" /> },
-  { href: 'https://substack.com/@logonthepage', label: 'Substack', icon: <IconSubstack className="w-6 h-6" /> },
+  { href: 'https://www.facebook.com/logonthepage', label: 'Facebook', icon: <IconFacebook className="w-6 h-6" /> },
+  { href: 'https://x.com/log_onthepage', label: 'X', icon: <IconX className="w-6 h-6" /> },
+  { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <IconInstagram className="w-6 h-6" /> },
+  { href: 'https://www.linkedin.com/company/logon-connecting-advantages', label: 'LinkedIn', icon: <IconLinkedIn className="w-6 h-6" /> },
+  { href: 'https://www.youtube.com/@logonthepage', label: 'YouTube', icon: <IconYoutube className="w-6 h-6" /> },
 ];
 
 export function Footer() {

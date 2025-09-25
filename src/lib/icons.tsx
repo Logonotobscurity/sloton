@@ -150,20 +150,38 @@ export const IconTailwind = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const IconMedium = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M9.765 4.103a.503.503 0 0 0-.503.503v7.39c0 .278.225.504.503.504.278 0 .503-.226.503-.504v-7.39a.503.503 0 0 0-.503-.503Z"></path>
-        <path d="M6.055 4.103a.503.503 0 0 0-.503.503v6.391a.503.503 0 0 0 .503.503h.005a.503.503 0 0 0 .503-.503V4.606a.503.503 0 0 0-.503-.503h-.005Z"></path>
-        <path d="M3.5 4.049a.503.503 0 0 0-.503.503v3.393c0 .278.226.503.503.503.278 0 .503-.225.503-.503V4.552a.503.503 0 0 0-.503-.503Z"></path>
-        <path d="M12.75 4.032a.503.503 0 0 0-.503.503v4.93c0 .278.225.503.503.503.278 0 .503-.225.503-.503v-4.93a.503.503 0 0 0-.503-.503Z"></path>
-    </svg>
+export const IconFacebook = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21" viewBox="0 0 11 21" {...props}>
+    <path id="facebook" d="M11,0H8.167A5.044,5.044,0,0,0,2.833,5.333V8H0v4.667H2.833v8H8.167v-8H11V8H8.167V5.333H11Z" fill="currentColor"/>
+  </svg>
 );
 
-export const IconSubstack = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg fill="currentColor" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M950.8 172H73.2c-15.5 0-28 12.5-28 28v548c0 15.5 12.5 28 28 28h224.2v-280H73.2V200h877.6v288H726.6v280h224.2c15.5 0 28-12.5 28-28v-548c0-15.5-12.5-28-28-28zM355.4 776h313.2V496H355.4v280z"></path>
-    </svg>
+export const IconInstagram = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" {...props}>
+    <path d="M14.25,0H5.75A5.75,5.75,0,0,0,0,5.75v8.5A5.75,5.75,0,0,0,5.75,20h8.5A5.75,5.75,0,0,0,20,14.25V5.75A5.75,5.75,0,0,0,14.25,0Zm3.75,14.25a3.75,3.75,0,0,1-3.75,3.75h-8.5a3.75,3.75,0,0,1-3.75-3.75v-8.5A3.75,3.75,0,0,1,5.75,2h8.5a3.75,3.75,0,0,1,3.75,3.75Z" fill="currentColor"/>
+    <path d="M10,5a5,5,0,1,0,5,5A5,5,0,0,0,10,5Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,10,13Z" fill="currentColor"/>
+    <path d="M15.562,4.8a.938.938,0,1,1-.937-.937A.937.937,0,0,1,15.562,4.8Z" fill="currentColor"/>
+  </svg>
 );
+
+export const IconLinkedIn = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19" {...props}>
+    <path d="M4.167,0A4.167,4.167,0,1,0,8.333,4.167,4.167,4.167,0,0,0,4.167,0ZM.833,6.333H7.5V19H.833ZM19.167,6.333H12.5V19h6.667s0-5.833,0-6.667a4.167,4.167,0,1,0-8.333,0V19H.833s.417-11.667,0-12.667h18.333Z" fill="currentColor"/>
+  </svg>
+);
+
+export const IconX = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19" {...props}>
+    <path d="M11.021,8.033,18.5,0h-1.7L10.3,7.1,5.432,0H0l7.854,11.28L0,19H1.7l7.021-8.033L14.568,19H20ZM2.5,1.333h2.8l12.2,16.333H14.7Z" fill="currentColor"/>
+  </svg>
+);
+
+export const IconYoutube = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="19" viewBox="0 0 25 19" {...props}>
+      <path d="M24.167,4.5A3.167,3.167,0,0,0,21.833,2,63,63,0,0,0,12.5,0,63,63,0,0,0,3.167,2,3.167,3.167,0,0,0,.833,4.5,33.5,33.5,0,0,0,0,9.5a33.5,33.5,0,0,0,.833,5,3.167,3.167,0,0,0,2.333,2.5,63,63,0,0,0,9.333,2A63,63,0,0,0,21.833,17a3.167,3.167,0,0,0,2.333-2.5,33.5,33.5,0,0,0,.833-5,33.5,33.5,0,0,0-.833-5ZM10,13.25V5.75L16.25,9.5Z" fill="currentColor"/>
+  </svg>
+);
+
 
 export const IconHumanResources = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
