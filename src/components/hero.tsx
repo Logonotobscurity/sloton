@@ -55,7 +55,7 @@ export function Hero() {
     setActiveSlideIndex(index % slideData.length);
   };
   
-  const currentSlide = slideData[activeSlideIndex] || slideData[0];
+  const currentSlide = slideData[activeSlideIndex];
 
   return (
      <section 
@@ -90,7 +90,7 @@ export function Hero() {
 
         <HeroCarousel slides={slideData.flatMap(s => s.carouselItems)} activeSlideIndex={activeSlideIndex} onSlideChange={handleSlideChange} />
         
-        <BotWidget />
+        <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
 
         {/* Visually hidden for screen readers */}
         <div className="sr-only" aria-live="polite" aria-atomic="true">

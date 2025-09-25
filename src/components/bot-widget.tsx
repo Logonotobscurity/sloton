@@ -8,10 +8,14 @@ import { Input } from '@/components/ui/input';
 import { MessageSquare, Send, X, Bot, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-export function BotWidget() {
+interface BotWidgetProps {
+  initialMessage?: string;
+}
+
+export function BotWidget({ initialMessage }: BotWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { from: 'bot', text: "Hello! How can I help you discover the right LOG_ON solution today?" },
+    { from: 'bot', text: initialMessage || "Hello! How can I help you today?" },
   ]);
   const [inputValue, setInputValue] = useState('');
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -111,7 +115,7 @@ export function BotWidget() {
         aria-modal="true"
         aria-label="Chatbot Panel"
         className={cn(
-          "w-[calc(100vw-32px)] h-[70vh] sm:w-80 md:w-[340px] md:h-[480px] bg-background border-2 border-card-glass rounded-xl shadow-2xl flex flex-col transition-all duration-300",
+          "w-[calc(100vw-32px)] h-[70vh] sm:w-80 md:w-[340px] md:h-[480px] bg-background border-2 border-card-glass rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right",
           isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
         )}
       >
