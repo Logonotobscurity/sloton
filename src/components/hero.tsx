@@ -14,26 +14,33 @@ import {
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { BrainCircuit, ArrowDown } from 'lucide-react';
 import { ArrowIcon } from './ui/arrow-icon';
-import { GlitchOrbBackground } from './glitch-orb-background';
 
 export function Hero() {
   return (
     <section className="relative z-10 flex min-h-screen items-center justify-center overflow-hidden bg-transparent py-24 text-center">
-       <GlitchOrbBackground />
       <div className="container mx-auto flex flex-col items-center px-4 md:px-6">
         <span className="mb-4 block text-sm font-normal uppercase tracking-widest text-primary md:mb-6">
           Your Partner in Growth
         </span>
-        <h1 className="mb-6 max-w-4xl font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight text-white md:mb-8">
+        <h1 
+          className="mb-6 max-w-4xl font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight text-white md:mb-8"
+          style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}
+        >
           Find the right <span className="font-extrabold text-primary">tech solution</span> for your business in minutes.
         </h1>
-        <p className="mx-auto mt-6 mb-8 max-w-2xl text-md text-slate-300 md:mb-12 md:text-xl">
+        <p 
+          className="mx-auto mt-6 mb-8 max-w-2xl text-md text-slate-300 md:mb-12 md:text-xl"
+          style={{ textShadow: '0 1px 5px rgba(0, 0, 0, 0.5)' }}
+        >
           Stop guessing. Our AI-driven tools and expert services help you cut costs, automate processes, and scale faster. Start with a free, instant business assessment.
         </p>
         <div className="flex flex-col flex-wrap justify-center gap-4 sm:flex-row">
           <Dialog>
             <DialogTrigger asChild>
-              <Button className="group flex items-center justify-center gap-2">
+              <Button 
+                className="group flex items-center justify-center gap-2"
+                aria-label="Get Your Free AI Business Assessment"
+              >
                 Get Your Free AI Assessment
                 <ArrowIcon />
               </Button>
@@ -48,7 +55,7 @@ export function Hero() {
               <SolutionRecommendationForm />
             </DialogContent>
           </Dialog>
-          <Button asChild variant="secondary" size="lg">
+          <Button asChild variant="secondary" size="lg" aria-label="Explore Our Services">
             <Link href="/solutions">
               Explore Our Services
             </Link>

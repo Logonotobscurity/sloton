@@ -13,21 +13,15 @@ import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
 import { ChatbotEmbed } from '@/components/chatbot-embed';
 import { IntegrationsHighlight } from '@/components/integrations-highlight';
 import { TemplateLibrary } from '@/components/template-library';
-import Prism from '@/components/prism-background';
+import { GlitchOrbBackground } from '@/components/glitch-orb-background';
 
 
 export default function Home() {
   return (
     <div className="flex flex-col overflow-x-hidden">
-      <div className="bg-black">
-        <div className="relative">
-          <div className="absolute inset-0 -z-10">
-            <Prism 
-              suspendWhenOffscreen={true}
-            />
-          </div>
-          <Hero />
-        </div>
+       <div className="relative bg-black">
+        <GlitchOrbBackground suspendWhenOffscreen={true} />
+        <Hero />
       </div>
       <ScrollAnimationWrapper>
         <StrategicPartner />
