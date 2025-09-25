@@ -84,7 +84,7 @@ export function BotWidget() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 md:absolute md:top-1/2 md:-translate-y-1/2 md:right-12 z-50">
+    <div className="fixed bottom-4 right-4 z-50">
        <div aria-live="polite" className="sr-only">
          {isOpen ? 'Chatbot panel is open.' : 'Chatbot panel is closed.'}
        </div>
@@ -95,12 +95,12 @@ export function BotWidget() {
         aria-controls="bot-panel"
         onClick={() => setIsOpen(true)}
         className={cn(
-          "rounded-full h-14 w-14 shadow-lg bg-accent-green hover:bg-accent-green-2 transition-all duration-300",
+          "rounded-full h-14 px-6 shadow-lg bg-accent-green hover:bg-accent-green-2 transition-all duration-300 flex items-center gap-2",
           isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
         )}
       >
         <MessageSquare className="h-6 w-6 text-white" />
-        <span className="sr-only">Open Chatbot</span>
+        <span className="font-semibold text-white">Contact Now</span>
       </Button>
 
       {/* Expanded State */}
