@@ -10,6 +10,7 @@ import { WebsiteLoader } from '@/components/website-loader';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
 import { BotWidget } from '@/components/bot-widget';
+import { ParallaxBackground } from '@/components/parallax-background';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -244,9 +245,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <ParallaxBackground />
             <WebsiteLoader />
             <Header />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow relative z-20">{children}</main>
             <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
             <Footer />
             <Toaster />

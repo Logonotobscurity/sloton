@@ -1,9 +1,10 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { HeroCarousel } from './hero-carousel';
+import Prism from './prism-background';
 
 const slideData = [
   {
@@ -58,11 +59,12 @@ export function Hero() {
 
   return (
      <section 
-        className="relative w-full h-screen min-h-[700px] md:min-h-[800px] flex flex-col bg-bg-deep overflow-hidden"
+        className="relative w-full h-screen min-h-[700px] md:min-h-[800px] flex flex-col bg-transparent overflow-hidden"
         role="region" 
         aria-roledescription="carousel" 
         aria-label="Hero content"
     >
+      <Prism />
         <div className="container mx-auto px-4 md:px-6 flex-grow grid md:grid-cols-2 lg:grid-cols-[1fr_420px] items-center gap-8 md:gap-16 pt-24 md:pt-0">
             {/* Left Column */}
             <div className="text-center md:text-left relative z-10">
