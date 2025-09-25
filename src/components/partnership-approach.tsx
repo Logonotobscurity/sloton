@@ -1,10 +1,10 @@
 
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { CaseStudiesCarousel } from "./case-studies-carousel";
 import { ArrowIcon } from "./ui/arrow-icon";
+import { ShieldCheck } from "lucide-react";
 
 const partners = [
     { name: "Google Cloud Partner", logo: "https://img.icons8.com/color/96/google-cloud.png", dataAiHint: "Google Cloud logo" },
@@ -13,10 +13,9 @@ const partners = [
     { name: "Vercel Partner", logo: "https://logowik.com/content/uploads/images/vercel1868.logowik.com.webp", dataAiHint: "Vercel logo" },
 ];
 
-
 export function PartnershipApproach() {
   return (
-    <section className="min-h-screen w-full py-16 md:py-24 flex items-center bg-background">
+    <section className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="space-y-6">

@@ -40,7 +40,7 @@ export function GeneralistApproach() {
                     Our value isn't just in understanding technology; it's in applying it to solve your core business challenges. Our proprietary assessment methodology analyzes 47 unique business dimensions to create a holistic, data-driven technology roadmap. This comprehensive approach allows us to uncover opportunities and efficiencies that siloed specialists miss, delivering integrated solutions that produce measurable results.
                 </p>
             </div>
-            <div className="grid grid-cols-1 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8">
                 {features.map((feature) => (
                     <GlowingCard key={feature.title}>
                       <div className="p-6">

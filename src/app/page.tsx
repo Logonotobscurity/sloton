@@ -18,39 +18,17 @@ export default function Home() {
   return (
     <div className="flex flex-col overflow-x-hidden">
       <Hero />
-      <ScrollAnimationWrapper>
-        <StrategicPartner />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <GeneralistApproach />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <TechStackCarousel />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <TemplateLibrary />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <ChatbotEmbed />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <PartnershipApproach />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <TrainingCTA />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <Statement />
-      </ScrollAnimationWrapper>
-       <ScrollAnimationWrapper>
-        <FeaturedInsights />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <Faq />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <BottomCta />
-      </ScrollAnimationWrapper>
+      <StrategicPartner />
+      <GeneralistApproach />
+      <TechStackCarousel />
+      <TemplateLibrary />
+      <ChatbotEmbed />
+      <PartnershipApproach />
+      <TrainingCTA />
+      <Statement />
+      <FeaturedInsights />
+      <Faq />
+      <BottomCta />
     </div>
   );
 }

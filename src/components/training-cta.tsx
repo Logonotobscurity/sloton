@@ -39,7 +39,7 @@ export function TrainingCTA() {
               </Link>
             </Button>
           </div>
-          <div className="lg:col-span-2 grid sm:grid-cols-1 gap-6 mt-8 lg:mt-0">
+          <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 mt-8 lg:mt-0">
              {featuredCourses.map((course) => (
                 <GlowingCard key={course.title}>
                   <div className="p-6 flex flex-col h-full">
