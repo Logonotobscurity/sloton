@@ -1,13 +1,13 @@
 
 import Link from 'next/link';
-import { IconFacebook, IconInstagram, IconLinkedIn, IconX, IconYoutube } from '@/lib/icons';
+import { IconFacebook, IconInstagram, IconLinkedIn, IconX, IconYouTube } from '@/lib/icons';
 
 const socialLinks = [
   { href: 'https://www.facebook.com/logonthepage', label: 'Facebook', icon: <IconFacebook className="w-6 h-6" /> },
   { href: 'https://x.com/log_onthepage', label: 'X', icon: <IconX className="w-6 h-6" /> },
   { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <IconInstagram className="w-6 h-6" /> },
   { href: 'https://www.linkedin.com/company/logon-connecting-advantages', label: 'LinkedIn', icon: <IconLinkedIn className="w-6 h-6" /> },
-  { href: 'https://www.youtube.com/@logonthepage', label: 'YouTube', icon: <IconYoutube className="w-6 h-6" /> },
+  { href: 'https://www.youtube.com/@logonthepage', label: 'YouTube', icon: <IconYouTube className="w-6 h-6" /> },
 ];
 
 export function Footer() {
