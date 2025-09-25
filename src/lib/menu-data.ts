@@ -47,7 +47,7 @@ export const menuData = {
     "partners": {
       "heading": "Partners",
       "intro": "Locate the partner you need, or explore the benefits of partnering with LOG_ON.",
-      "cta": {"label": "Learn More", "href": "/contact"},
+      "cta": {"label": "Learn More", "href": "/partners"},
       "items": [
         {"title": "Find a partner", "desc": "Connect with a LOG_ON partner to reach your business goals."},
         {"title": "Become a partner", "desc": "Join our partner ecosystem. Choose partner paths that best fit your expertise and experience."},
