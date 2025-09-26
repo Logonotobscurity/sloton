@@ -22,19 +22,6 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleEsc);
-
-    return () => {
-      window.removeEventListener('keydown', handleEsc);
-    };
-  }, []);
-
-  useEffect(() => {
     if (isOpen) {
       inputRef.current?.focus();
     } else {

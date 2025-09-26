@@ -82,6 +82,7 @@ const communityLeadSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
   interest: z.string().optional(),
+  date: z.date().optional(),
 });
 export async function communityLeadAction(data: z.infer<typeof communityLeadSchema>): Promise<FormResult<null>> {
    if (!resend) {
