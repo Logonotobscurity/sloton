@@ -3,9 +3,10 @@
 
 import Link from 'next/link';
 import { Button } from './ui/button';
-import { ArrowRight, Bold, Calendar as CalendarIcon, Italic, Strikethrough, Underline, Ellipsis } from 'lucide-react';
+import { ArrowRight, Bold, Calendar as CalendarIcon, Italic, Strikethrough, Underline, Ellipsis, GraduationCap, ShieldQuestion, Lightbulb } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { GlowingCard } from './ui/glowing-card';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
 
 
 const ScheduleIllustration = ({ className, variant = 'elevated' }: { className?: string; variant?: 'elevated' | 'outlined' | 'mixed' }) => {
@@ -22,39 +23,6 @@ const ScheduleIllustration = ({ className, variant = 'elevated' }: { className?:
                     className="rounded-sm">
                     <CalendarIcon className="size-3" />
                     <span className="text-sm font-medium">Schedule</span>
-                </Button>
-                <span className="bg-border block h-4 w-px"></span>
-                <ToggleGroup
-                    type="multiple"
-                    size="sm"
-                    className="gap-0.5 *:rounded-md">
-                    <ToggleGroupItem
-                        value="bold"
-                        aria-label="Toggle bold">
-                        <Bold className="size-4" />
-                    </ToggleGroupItem>
-                    <ToggleGroupItem
-                        value="italic"
-                        aria-label="Toggle italic">
-                        <Italic className="size-4" />
-                    </ToggleGroupItem>
-                    <ToggleGroupItem
-                        value="underline"
-                        aria-label="Toggle underline">
-                        <Underline className="size-4" />
-                    </ToggleGroupItem>
-                    <ToggleGroupItem
-                        value="strikethrough"
-                        aria-label="Toggle strikethrough">
-                        <Strikethrough className="size-4" />
-                    </ToggleGroupItem>
-                </ToggleGroup>
-                <span className="bg-border block h-4 w-px"></span>
-                <Button
-                    size="icon"
-                    className="size-8"
-                    variant="ghost">
-                    <Ellipsis className="size-3" />
                 </Button>
             </div>
             <span>
@@ -89,36 +57,43 @@ export function TrainingCTA() {
           className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)]"
         />
         <div className="mx-auto w-full max-w-5xl px-6">
-            <div className="border-foreground/5 space-y-12 sm:space-y-0 sm:divide-y">
-                
-                <div className="grid sm:grid-cols-5 sm:divide-x items-center">
-                    <div className="sm:col-span-2">
-                         <CodeIllustration />
+             <div className="grid lg:grid-cols-3 gap-8 rounded-xl">
+                <div className="space-y-4">
+                    <div className="bg-primary/10 p-3 rounded-full w-fit">
+                       <GraduationCap className="h-8 w-8 text-primary" />
                     </div>
-                    <div className="mt-6 sm:col-span-3 sm:mt-0 sm:border-l sm:pl-12">
-                        <span className="text-primary">Advance Your Career</span>
-                        <h3 className="text-foreground text-2xl md:text-3xl font-semibold font-headline mt-2">Expert-Led Training Programs</h3>
-                        <p className="text-muted-foreground mt-4 text-lg">Master the most in-demand tech skills with our hands-on curriculum. Our programs in AI, Automation, and Prompt Engineering are designed to give you a competitive edge in the digital economy.</p>
-                        <Button asChild className="mt-6">
-                            <Link href="/training">Explore Programs <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                        </Button>
-                    </div>
+                    <h3 className="text-2xl font-bold font-headline">Expert-Led Training</h3>
+                    <p className="text-muted-foreground">Master in-demand skills with our hands-on curriculum in AI, Automation, and Prompt Engineering.</p>
+                    <Button asChild>
+                        <Link href="/training">Explore Training</Link>
+                    </Button>
                 </div>
-
-                <div className="grid sm:grid-cols-5 sm:divide-x items-center">
-                    <div className="pt-12 sm:col-span-3 sm:border-r sm:pr-12">
-                        <span className="text-primary">Community & Innovation</span>
-                        <h3 className="text-foreground text-2xl md:text-3xl font-semibold font-headline mt-2">Building Skills, Fostering Leadership</h3>
-                        <p className="text-muted-foreground mt-4 text-lg">We believe in building more than just technology. Explore our community impact initiatives, from our "Seek and Ye Shall Find" pedagogical model to our work in ethical AI and digital skill development.</p>
-                         <Button asChild className="mt-6">
-                            <Link href="/training#impact">Learn About Our Impact <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                        </Button>
-                    </div>
-                    <div className="row-start-1 flex items-center justify-center pt-12 sm:col-span-2 sm:row-start-auto">
-                        <ScheduleIllustration className="pt-8" />
-                    </div>
+                <div className="lg:col-span-2 grid md:grid-cols-2 gap-8">
+                     <Card className="bg-background/50">
+                        <CardHeader>
+                            <ShieldQuestion className="h-6 w-6 text-primary mb-2" />
+                            <CardTitle className="text-lg">AI Insights: A Practical Guide</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-sm text-muted-foreground">A comprehensive overview of AI types and their practical applications.</p>
+                        </CardContent>
+                        <CardFooter>
+                             <Button variant="secondary" size="sm" asChild><Link href="/training">Learn More</Link></Button>
+                        </CardFooter>
+                    </Card>
+                    <Card className="bg-background/50">
+                         <CardHeader>
+                            <Lightbulb className="h-6 w-6 text-primary mb-2" />
+                            <CardTitle className="text-lg">Transforming Customer Support</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-sm text-muted-foreground">Learn to build, train, and deploy private AI assistants using your own company documents.</p>
+                        </CardContent>
+                         <CardFooter>
+                             <Button variant="secondary" size="sm" asChild><Link href="/training">Learn More</Link></Button>
+                        </CardFooter>
+                    </Card>
                 </div>
-
             </div>
         </div>
     </section>
