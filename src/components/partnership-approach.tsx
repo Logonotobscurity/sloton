@@ -22,10 +22,10 @@ export function PartnershipApproach() {
   return (
     <section className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
-         <div className="text-center max-w-3xl mx-auto">
+         <div className="text-center max-w-3xl mx-auto space-y-6">
             <p className="text-sm font-normal uppercase tracking-widest text-primary">03/ Partnership & Results</p>
             <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-snug mt-4">
-                We embed with your team to deliver results.
+                We embed with your team to deliver results. FROM STARTUPS TO ENTERPRISES - WHO WANT TO PUSH THE BOUNDARIES OF WHAT'S POSSIBLE
             </h2>
             <p className="text-muted-foreground md:text-lg mt-4">
                 Our success is measured by your success. We partner with ambitious teams to understand their vision and deliver tangible outcomes that fuel growth and innovation.
@@ -74,4 +74,3 @@ export function PartnershipApproach() {
     </section>
   );
 }
-
