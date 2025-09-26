@@ -7,8 +7,22 @@ import { GlowingCard } from "./ui/glowing-card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Button } from './ui/button';
 import { Check, MessageCircle } from "lucide-react";
+import React from "react";
 
 export function IdeasLab() {
+  const cardRef = React.useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = React.useState(false);
+  const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      setMousePosition({ x, y });
+    }
+  };
+
   return (
     <section className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
@@ -43,7 +57,31 @@ export function IdeasLab() {
                   <h3 className="font-semibold text-lg mb-4">Let's put this agent to the test.</h3>
                   <Dialog>
                     <DialogTrigger asChild>
-                        <div className="relative bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-[0_1px_6px_0_rgba(0,0,0,0.02)] rounded-xl p-4 w-full cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">
+                       <motion.div
+                        ref={cardRef}
+                        onMouseMove={handleMouseMove}
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                        className="relative w-full cursor-pointer"
+                        style={{ perspective: "800px" }}
+                      >
+                        <motion.div
+                          className="relative bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-[0_1px_6px_0_rgba(0,0,0,0.02)] rounded-xl p-4 w-full transition-all duration-300"
+                          whileHover={{
+                            transform: "rotateY(10deg) rotateX(-5deg) scale(1.05)",
+                          }}
+                          style={{
+                            transformStyle: "preserve-3d",
+                          }}
+                        >
+                           <div
+                              className="absolute inset-0 rounded-xl transition-all duration-300"
+                              style={{
+                                background: isHovered
+                                  ? `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, hsl(var(--primary)/0.1), transparent 40%)`
+                                  : "transparent",
+                              }}
+                            />
                             <div className="flex items-center gap-4">
                                 <div className="relative h-10 w-10 flex-shrink-0">
                                     <Image
@@ -77,7 +115,8 @@ export function IdeasLab() {
                                     </Button>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
+                      </motion.div>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-2xl h-[80vh] flex flex-col p-0 gap-0">
                         <DialogHeader className="p-4 border-b">
