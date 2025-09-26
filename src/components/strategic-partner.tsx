@@ -43,7 +43,7 @@ const gridItems = [
         isDialog: false,
     },
     {
-        area: "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/2/8]",
+        area: "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/2/9]",
         icon: <Search className="h-6 w-6" />,
         title: "Free AI Assessment",
         description: "Get an instant, data-driven analysis of your AI readiness and a high-level technology roadmap. No commitment required.",
@@ -53,17 +53,7 @@ const gridItems = [
         dialogDescription: "Describe your business needs to receive tailored IT solution recommendations from our AI consultant."
     },
     {
-        area: "md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]",
-        icon: <UserCheck className="h-6 w-6" />,
-        title: "Detailed Consultation",
-        description: "Our experts dive deep into your assessment results, refining the strategy and aligning it with your specific business goals.",
-        isDialog: true,
-        dialogContent: <SolutionRecommendationForm />,
-        dialogTitle: "Book a Consultation",
-        dialogDescription: "Let's discuss your assessment results and build a concrete plan. Fill out the form to get started."
-    },
-    {
-        area: "md:[grid-area:3/1/4/7] xl:[grid-area:2/5/3/13]",
+        area: "md:[grid-area:3/1/4/7] xl:[grid-area:1/9/2/13]",
         icon: <Cog className="h-6 w-6" />,
         title: "Automation Task Designer",
         description: "Describe a repetitive task or workflow and get a configured, optimized automation plan in seconds.",
