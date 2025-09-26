@@ -12,11 +12,13 @@ import { Loader2, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import { communityLeadAction } from '@/app/actions';
 import { ArrowIcon } from './ui/arrow-icon';
+import { DatePicker } from './ui/date-picker';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
   interest: z.string().optional(),
+  date: z.date().optional(),
 });
 
 const whatsappLink = "https://wa.me/qr/QFSBRGKZGHP3F1";
@@ -85,6 +87,20 @@ export function CommunityLeadForm({ interest }: { interest?: string }) {
                 )}
             />
         </div>
+        <FormField
+          control={form.control}
+          name="date"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FormLabel>Preferred Date (Optional)</FormLabel>
+                <DatePicker 
+                    date={field.value}
+                    setDate={field.onChange}
+                />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
        
         <Input type="hidden" {...form.register("interest")} />
        
