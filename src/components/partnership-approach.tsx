@@ -104,14 +104,15 @@ export function PartnershipApproach() {
                      </div>
                  </div>
              </div>
-             <div className="pt-4">
-                <Button asChild className="group w-full sm:w-auto flex justify-center gap-2 items-center">
-                    <Link href="/contact">
-                        Start a Project
-                        <ArrowIcon />
-                    </Link>
-                </Button>
-            </div>
+        </div>
+        
+        <div className="text-center pt-4">
+            <Button asChild className="group flex justify-center gap-2 items-center">
+                <Link href="/contact">
+                    Start a Project
+                    <ArrowIcon />
+                </Link>
+            </Button>
         </div>
         
         <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[50rem] xl:grid-rows-2 mt-16">
