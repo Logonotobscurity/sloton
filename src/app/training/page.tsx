@@ -1,4 +1,4 @@
-import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb, HeartHandshake, Globe } from 'lucide-react';
+import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb, HeartHandshake, Globe, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -22,22 +22,61 @@ const features = [
     href: "/training",
     cta: "Explore Courses",
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-1 lg:col-end-2",
+    content: (
+        <ul className="space-y-3 mt-4">
+            {[
+                { icon: <Award className="h-4 w-4 text-primary" />, text: 'Industry Expert Instructors' },
+                { icon: <BookOpen className="h-4 w-4 text-primary" />, text: 'Hands-on Projects' },
+                { icon: <TrendingUp className="h-4 w-4 text-primary" />, text: 'Career Support' },
+                { icon: <Users className="h-4 w-4 text-primary" />, text: 'Community-Driven Learning' },
+            ].map(item => (
+                <li key={item.text} className="flex items-center gap-3">
+                    {item.icon}
+                    <span className="text-sm text-muted-foreground">{item.text}</span>
+                </li>
+            ))}
+        </ul>
+    )
   },
   {
-    Icon: Users,
-    name: "Leadership & Community Impact",
-    description: "Our commitment to innovation extends beyond our client work. We actively lead and contribute to projects that drive positive change, from ethical AI research to digital skill development initiatives that empower our community.",
-    href: "/training#impact",
-    cta: "See Our Projects",
-    className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-3",
-  },
-  {
-    Icon: Code,
-    name: "Quick Start to Prompt Engineering",
-    description: "A one-day intensive for developers or business users. Supercharge your productivity by learning to craft effective prompts, automate tasks, and revolutionize your workflows with AI.",
+    Icon: ShieldQuestion,
+    name: "Transforming Customer Support with AI",
+    description: "Learn to build, train, and deploy private AI assistants using your own company documents to revolutionize support systems.",
     href: "/training",
     cta: "Learn More",
-    className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-3",
+    className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+  },
+  {
+    Icon: Lightbulb,
+    name: "AI Insights: A Practical Guide",
+    description: "A comprehensive overview of AI types and their practical applications. Gain foundational knowledge for strategic AI adoption.",
+    href: "/training",
+    cta: "Learn More",
+    className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+  },
+  {
+    Icon: HeartHandshake,
+    name: "Community Impact: LISTNER AI",
+    description: "An AI mental health chatbot designed to provide compassionate, accessible, and confidential support.",
+    href: "/training#impact",
+    cta: "See Our Projects",
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
+  },
+  {
+    Icon: Globe,
+    name: "Ethical AI: Cultural Bridge Tech",
+    description: "A research project and toolkit for identifying and mitigating cultural bias in large language models (LLMs).",
+    href: "/training#impact",
+    cta: "See Our Projects",
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
+  },
+   {
+    Icon: Zap,
+    name: "Gigpilot: AI Gig Economy Assistant",
+    description: "An AI-powered tool to convert job seekers into engaged users through intelligent job matching and automated nurturing.",
+    href: "/training#impact",
+    cta: "See Our Projects",
+    className: "lg:row-start-3 lg:row-end-4 lg:col-start-2 lg:col-end-4",
   },
 ];
 
@@ -54,7 +93,7 @@ export default function TrainingPage() {
           </p>
         </section>
 
-         <BentoGrid className="lg:grid-rows-2 mt-16">
+         <BentoGrid className="lg:grid-rows-3 mt-16">
             {features.map((feature) => (
                 <BentoCard key={feature.name} {...feature} />
             ))}
