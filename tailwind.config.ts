@@ -143,6 +143,24 @@ export default {
           '33%': { 'border-color': 'hsl(var(--accent))' },
           '66%': { 'border-color': '#ef4444' },
         },
+        'fade-in': {
+          'from': { opacity: '0', transform: 'translateY(1rem)' },
+          'to': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'blob': {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+          "33%": {
+            transform: "translate(30px, -50px) scale(1.1)",
+          },
+          "66%": {
+            transform: "translate(-20px, 20px) scale(0.9)",
+          },
+          "100%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -152,6 +170,8 @@ export default {
         'border-follow': 'border-follow 5s linear infinite',
         'color-change': 'color-change 5s linear infinite',
         'border-color-change': 'border-color-change 5s linear infinite',
+        'fade-in': 'fade-in 0.5s ease-out forwards',
+        'blob': 'blob 7s infinite',
       },
     },
   },
