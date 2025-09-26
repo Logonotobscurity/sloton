@@ -90,9 +90,9 @@ export const SkeletonThree = () => {
 
 export const SkeletonTwo = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center p-8 gap-4 h-full overflow-hidden">
+    <div className="relative flex flex-col items-center h-full overflow-hidden p-8">
         <HeartPulse className="h-16 w-16 text-red-500" />
-        <h4 className="font-semibold text-center text-muted-foreground mt-4">Healthcare Innovation</h4>
+        <h4 className="font-semibold text-center text-muted-foreground mt-8">Healthcare Innovation</h4>
         <p className="text-xs text-center text-muted-foreground">Automating patient care and administrative tasks.</p>
     </div>
   );
