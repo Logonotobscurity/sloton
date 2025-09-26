@@ -33,7 +33,7 @@ interface GridItemProps {
 
 const GridItem = ({ area, study }: GridItemProps) => {
   return (
-    <li className={`min-h-[24rem] list-none ${area} border-t border-l border-border/50`}>
+    <li className={`min-h-[24rem] list-none ${area} border-l border-border/50`}>
       <div className="relative h-full rounded-3xl p-3">
         <GlowingEffect
           spread={40}
@@ -106,7 +106,7 @@ export function PartnershipApproach() {
              </div>
         </div>
         
-        <ul className="grid grid-cols-1 grid-rows-none md:grid-cols-12 md:grid-rows-3 xl:max-h-[50rem] xl:grid-rows-2 mt-16">
+        <ul className="grid grid-cols-1 grid-rows-none border-t border-border/50 md:grid-cols-12 md:grid-rows-3 xl:grid-rows-2 mt-16">
             {allCaseStudies.map((study, index) => (
                 <GridItem key={study.title} study={study} area={caseStudyGridAreas[index % caseStudyGridAreas.length]} />
             ))}
