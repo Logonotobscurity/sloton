@@ -1,12 +1,13 @@
 
 "use client";
 
-import { BrainCircuit, Calculator, CheckCircle } from 'lucide-react';
-import { Card, CardTitle, CardDescription, CardHeader } from './ui/card';
+import { BrainCircuit, Calculator, CheckCircle, ArrowRight } from 'lucide-react';
+import { Card, CardTitle, CardDescription, CardHeader, CardContent, CardFooter } from './ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { TaskAutomationForm } from './task-automation-form';
 import { Cog } from 'lucide-react';
+import { Button } from './ui/button';
 
 
 const features = [
@@ -49,16 +50,21 @@ export function GeneralistApproach() {
             <div className="space-y-8">
                 <Dialog>
                     <DialogTrigger asChild>
-                        <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-secondary/30">
-                            <CardHeader className="flex flex-col items-center text-center p-8">
-                                <div className="p-4 rounded-full bg-primary/10 mb-4">
+                        <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-secondary/30 flex flex-col h-full">
+                            <CardHeader className="flex-grow p-8">
+                                <div className="p-4 rounded-full bg-primary/10 mb-4 w-fit">
                                     <BrainCircuit className="h-10 w-10 text-primary" />
                                 </div>
                                 <CardTitle>Free AI Business Assessment</CardTitle>
-                                <CardDescription className="flex items-center mt-2">
+                                <CardDescription className="mt-2">
                                     Get a data-driven report identifying automation opportunities and tailored IT solutions for your business.
                                 </CardDescription>
                             </CardHeader>
+                            <CardFooter className="p-8 pt-0">
+                                <Button variant="ghost" className="p-0 text-primary group-hover:text-primary/90">
+                                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                                </Button>
+                            </CardFooter>
                         </Card>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
@@ -74,16 +80,21 @@ export function GeneralistApproach() {
 
                 <Dialog>
                     <DialogTrigger asChild>
-                       <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-secondary/30">
-                            <CardHeader className="flex flex-col items-center text-center p-8">
-                                <div className="p-4 rounded-full bg-primary/10 mb-4">
+                       <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-secondary/30 flex flex-col h-full">
+                            <CardHeader className="flex-grow p-8">
+                                <div className="p-4 rounded-full bg-primary/10 mb-4 w-fit">
                                     <Cog className="h-10 w-10 text-primary" />
                                 </div>
                                 <CardTitle>Intelligent Automation Designer</CardTitle>
-                                <CardDescription className="flex items-center mt-2">
+                                <CardDescription className="mt-2">
                                     Describe a workflow and our AI will generate a configured, optimized task design in seconds.
                                 </CardDescription>
                             </CardHeader>
+                            <CardFooter className="p-8 pt-0">
+                                <Button variant="ghost" className="p-0 text-primary group-hover:text-primary/90">
+                                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                                </Button>
+                            </CardFooter>
                         </Card>
                     </DialogTrigger>
                      <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
