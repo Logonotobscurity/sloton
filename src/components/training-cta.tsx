@@ -83,7 +83,11 @@ const CodeIllustration = ({ className }: { className?: string }) => {
 
 export function TrainingCTA() {
   return (
-    <section className="bg-secondary/20 py-24">
+    <section className="bg-secondary/20 py-24 relative overflow-hidden">
+        <div 
+          role="presentation"
+          className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)]"
+        />
         <div className="mx-auto w-full max-w-5xl px-6">
             <div className="border-foreground/5 space-y-12 sm:space-y-0 sm:divide-y">
                 
