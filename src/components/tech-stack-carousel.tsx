@@ -1,3 +1,4 @@
+
 "use client";
 
 import { cn } from '@/lib/utils'
@@ -14,7 +15,7 @@ const technologies = [
     { name: 'Python', icon: 'https://img.icons8.com/color/96/python.png', dataAiHint: "Python logo" },
     { name: 'AWS', icon: 'https://img.icons8.com/color/96/amazon-web-services.png', dataAiHint: "AWS logo" },
     { name: 'Google Cloud', icon: 'https://img.icons8.com/color/96/google-cloud.png', dataAiHint: "Google Cloud logo" },
-    { name: 'Azure', icon: 'https://img.icons8.com/color/96/microsoft-azure.png', dataAiHint: "Microsoft Azure logo" },
+    { name: 'Azure', icon: 'https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg', dataAiHint: "Microsoft Azure logo" },
     { name: 'Firebase', icon: 'https://img.icons8.com/color/96/firebase.png', dataAiHint: "Firebase logo" },
     { name: 'Docker', icon: 'https://img.icons8.com/color/96/docker.png', dataAiHint: "Docker logo" },
     { name: 'Kubernetes', icon: 'https://img.icons8.com/color/96/kubernetes.png', dataAiHint: "Kubernetes logo" },
@@ -59,7 +60,7 @@ export function TechStackCarousel() {
     ].filter(Boolean) as { name: string; icon: string; dataAiHint: string }[];
 
     return (
-        <section className="bg-muted dark:bg-background py-24 md:py-32">
+        <section className="bg-secondary/20 py-24 md:py-32">
             <div className="mx-auto max-w-5xl px-6">
                 <div className="dark:bg-muted/50 relative mx-auto w-fit rounded-2xl">
                     <div
