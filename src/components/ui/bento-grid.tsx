@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import React from 'react';
 
 const BentoGrid = ({
   children,
@@ -28,6 +29,7 @@ const BentoCard = ({
   description,
   href,
   cta,
+  content,
 }: {
   name: string;
   className: string;
@@ -35,6 +37,7 @@ const BentoCard = ({
   description: string;
   href: string;
   cta: string;
+  content?: React.ReactNode;
 }) => (
   <div
     key={name}
@@ -57,6 +60,7 @@ const BentoCard = ({
         {name}
       </h3>
       <p className="max-w-lg text-muted-foreground">{description}</p>
+      {content}
     </div>
 
     <div
