@@ -1,17 +1,11 @@
 
 "use client";
 
-import { BrainCircuit, ArrowRight, Cog, Search, Zap, Code } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import Autoplay from "embla-carousel-autoplay";
-import { useRef } from 'react';
+import { BrainCircuit, ArrowRight, Cog } from 'lucide-react';
+import { Card, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { SolutionRecommendationForm } from './solution-recommendation-form';
+import { TaskAutomationForm } from './task-automation-form';
 
 const numberedList = [
     { number: "01", text: "We start with a free, no-obligation AI Assessment to understand your unique business challenges and goals." },
@@ -19,35 +13,8 @@ const numberedList = [
     { number: "03", text: "We then partner with you to implement the solutions, ensuring they are perfectly aligned with your strategic objectives." },
 ];
 
-const carouselItems = [
-    {
-        icon: <BrainCircuit className="h-8 w-8 text-primary" />,
-        title: "AI & Automation Strategy",
-        description: "From our proprietary AI Assessment to custom model development, we create holistic, data-driven technology roadmaps.",
-    },
-    {
-        icon: <Zap className="h-8 w-8 text-primary" />,
-        title: "Robotic Process Automation (RPA)",
-        description: "We automate your repetitive, manual tasks, freeing up your team to focus on high-value work that drives growth.",
-    },
-    {
-        icon: <Code className="h-8 w-8 text-primary" />,
-        title: "Custom Platform Development",
-        description: "We build high-performance web and mobile apps, scalable e-commerce platforms, and optimized database architectures.",
-    },
-    {
-        icon: <Search className="h-8 w-8 text-primary" />,
-        title: "Predictive Analytics & BI",
-        description: "Unlock the power of your data with custom dashboards and predictive models that inform your business strategy.",
-    }
-];
-
 
 export function StrategicPartner() {
-  const plugin = useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  );
-
   return (
     <section id="strategic-partner" className="py-16 md:py-24 bg-secondary/20 scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
@@ -69,35 +36,63 @@ export function StrategicPartner() {
                     ))}
                 </div>
             </div>
-             <div className="lg:max-w-lg mx-auto">
-                <Carousel
-                    plugins={[plugin.current]}
-                    className="w-full"
-                    onMouseEnter={plugin.current.stop}
-                    onMouseLeave={plugin.current.reset}
-                >
-                    <CarouselContent>
-                        {carouselItems.map((item, index) => (
-                        <CarouselItem key={index}>
-                            <div className="p-1">
-                            <Card className="bg-background/80 backdrop-blur-sm h-full">
-                                <CardHeader className="items-center text-center">
-                                    <div className="p-3 rounded-full bg-primary/10">
-                                        {item.icon}
-                                    </div>
-                                    <CardTitle className="pt-2">{item.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent className="text-center">
-                                    <p className="text-muted-foreground text-sm">{item.description}</p>
-                                </CardContent>
-                            </Card>
-                            </div>
-                        </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                     <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2" />
-                     <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2" />
-                </Carousel>
+            
+            <div className="space-y-8">
+                <Dialog>
+                    <DialogTrigger asChild>
+                        <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2">
+                            <CardHeader className="flex flex-row items-center gap-4">
+                                <div className="p-3 rounded-full bg-primary/10">
+                                    <BrainCircuit className="h-8 w-8 text-primary" />
+                                </div>
+                                <div>
+                                    <CardTitle>AI Business Assessment</CardTitle>
+                                    <CardDescription className="flex items-center">
+                                        Get Your Free Report
+                                        <ArrowRight className="ml-2 h-4 w-4 transform transition-transform group-hover:translate-x-1" />
+                                    </CardDescription>
+                                </div>
+                            </CardHeader>
+                        </Card>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
+                        <DialogHeader>
+                            <DialogTitle className="text-2xl">Free AI Business Assessment</DialogTitle>
+                            <DialogDescription>
+                            Describe your business needs to receive tailored IT solution recommendations from our AI consultant. This tool helps you identify the best technology strategies for your goals.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <SolutionRecommendationForm />
+                    </DialogContent>
+                </Dialog>
+
+                <Dialog>
+                    <DialogTrigger asChild>
+                       <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2">
+                            <CardHeader className="flex flex-row items-center gap-4">
+                                <div className="p-3 rounded-full bg-primary/10">
+                                    <Cog className="h-8 w-8 text-primary" />
+                                </div>
+                                <div>
+                                    <CardTitle>Automation Task Designer</CardTitle>
+                                    <CardDescription className="flex items-center">
+                                        Design a Workflow
+                                        <ArrowRight className="ml-2 h-4 w-4 transform transition-transform group-hover:translate-x-1" />
+                                    </CardDescription>
+                                </div>
+                            </CardHeader>
+                        </Card>
+                    </DialogTrigger>
+                     <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
+                        <DialogHeader>
+                            <DialogTitle className="text-2xl flex items-center gap-2"><Cog className="h-6 w-6 text-primary" /> Automation Task Designer</DialogTitle>
+                            <DialogDescription>
+                                Describe a workflow to generate a configured, optimized task design, complete with AI suggestions. Go from idea to a fully-structured automation plan in seconds.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <TaskAutomationForm />
+                    </DialogContent>
+                </Dialog>
             </div>
          </div>
       </div>
