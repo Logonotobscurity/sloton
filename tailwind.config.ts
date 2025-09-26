@@ -126,23 +126,6 @@ export default {
           '0%': { backgroundPosition: '200% 0' },
           '100%': { backgroundPosition: '-200% 0' },
         },
-        'border-follow': {
-          '0%': { left: '0', top: '0', transform: 'translate(-50%, -50%)' },
-          '25%': { left: '100%', top: '0', transform: 'translate(-50%, -50%)' },
-          '50%': { left: '100%', top: '100%', transform: 'translate(-50%, -50%)' },
-          '75%': { left: '0', top: '100%', transform: 'translate(-50%, -50%)' },
-          '100%': { left: '0', top: '0', transform: 'translate(-50%, -50%)' },
-        },
-        'color-change': {
-          '0%, 100%': { color: 'hsl(var(--primary))' },
-          '33%': { color: 'hsl(var(--accent))' },
-          '66%': { color: '#ef4444' }, // Using a red as a third color
-        },
-        'border-color-change': {
-          '0%, 100%': { 'border-color': 'hsl(var(--primary))' },
-          '33%': { 'border-color': 'hsl(var(--accent))' },
-          '66%': { 'border-color': '#ef4444' },
-        },
         'fade-in': {
           'from': { opacity: '0', transform: 'translateY(1rem)' },
           'to': { opacity: '1', transform: 'translateY(0)' },
@@ -167,9 +150,6 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'infinite-scroll': 'infinite-scroll 50s linear infinite',
         shimmer: 'shimmer 2.5s infinite linear',
-        'border-follow': 'border-follow 5s linear infinite',
-        'color-change': 'color-change 5s linear infinite',
-        'border-color-change': 'border-color-change 5s linear infinite',
         'fade-in': 'fade-in 0.5s ease-out forwards',
         'blob': 'blob 7s infinite',
       },
