@@ -1,206 +1,116 @@
-
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Briefcase, HeartPulse, ShoppingCart, Shield, Calculator, Factory, Building, Server, Truck, Zap, Phone } from 'lucide-react';
-import Link from 'next/link';
-import type { Metadata } from 'next';
-import { GlowingCard } from '@/components/ui/glowing-card';
+import {
+  Briefcase,
+  HeartPulse,
+  ShoppingCart,
+  Shield,
+  Calculator,
+  Factory,
+  Building,
+  Server,
+  Truck,
+  Zap,
+  Phone,
+} from "lucide-react";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { caseStudies, CaseStudy } from "@/lib/case-studies";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: 'Industry Use Cases | AI & Automation Solutions by Sector',
-  description: 'Explore how LOG_ON drives success across various sectors like Healthcare, Finance, E-Commerce, and Manufacturing with tailored automation and AI solutions.',
+  title: "Industry Use Cases | AI & Automation Solutions by Sector",
+  description:
+    "Explore how LOG_ON drives success across various sectors like Healthcare, Finance, E-Commerce, and Manufacturing with tailored automation and AI solutions.",
 };
 
-const useCases = [
-  {
-    id: 'healthcare',
-    icon: <HeartPulse className="h-8 w-8 text-primary" />,
-    title: 'Healthcare',
-    description: 'Our solutions for the healthcare industry focus on improving patient outcomes and operational efficiency. We implement secure, compliant systems that automate administrative tasks and provide valuable data insights.',
-    features: [
-      'Automated Appointment Scheduling & Reminders',
-      'Secure Electronic Health Record (EHR) Management',
-      'AI for Diagnostic Imaging Analysis',
-      'Telemedicine Platform Integration',
-      'Compliance & Data Security Solutions (HIPAA)',
-    ],
-  },
-  {
-    id: 'finance',
-    icon: <Briefcase className="h-8 w-8 text-primary" />,
-    title: 'Finance and Banking',
-    description: 'We empower financial institutions with secure, scalable technology. Our services include AI-driven fraud detection, process automation for loan applications, and robust cloud infrastructure to ensure data integrity and compliance.',
-    features: [
-      'AI-Powered Fraud Detection & Risk Analysis',
-      'Robotic Process Automation (RPA) for Back-Office Tasks',
-      'Secure Cloud Infrastructure & Compliance (PCI-DSS)',
-      'Automated Customer Onboarding (KYC)',
-      'Personalized Financial Advisory Chatbots',
-    ],
-  },
-    {
-    id: 'e-commerce',
-    icon: <ShoppingCart className="h-8 w-8 text-primary" />,
-    title: 'E-Commerce',
-    description: 'We help retail businesses enhance customer experiences and streamline operations through intelligent automation and AI. From inventory management to personalized marketing, our solutions are designed to boost your bottom line.',
-    features: [
-      'AI-Powered Recommendation Engines',
-      'Automated Inventory & Supply Chain Management',
-      '24/7 Customer Support Chatbots',
-      'Personalized Marketing Automation',
-      'Secure Cloud-Based POS Systems',
-    ],
-  },
-  {
-    id: 'insurance',
-    icon: <Shield className="h-8 w-8 text-primary" />,
-    title: 'Insurance',
-    description: 'Automate claims processing, underwriting, and customer service to increase efficiency and reduce human error. Our AI models can assess risk and detect fraudulent claims, saving you time and money.',
-    features: [
-      'Automated Claims Processing & Payouts',
-      'AI-Powered Underwriting and Risk Assessment',
-      '24/7 Chatbots for Policy Inquiries and Support',
-      'Personalized Insurance Product Recommendations',
-      'Data Analytics for Actuarial Modeling',
-    ],
-  },
-  {
-    id: 'accounting',
-    icon: <Calculator className="h-8 w-8 text-primary" />,
-    title: 'Accounting',
-    description: 'Streamline your accounting workflows with automated data entry, invoice processing, and financial reporting. Our solutions integrate seamlessly with your existing software to ensure accuracy and compliance.',
-    features: [
-      'Automated Invoice and Receipt Processing (OCR)',
-      'Robotic Process Automation for Bookkeeping',
-      'Real-time Financial Dashboards and Reporting',
-      'Automated Expense Management and Approval',
-      'Integration with QuickBooks, Xero, and other platforms',
-    ],
-  },
-  {
-    id: 'manufacturing',
-    icon: <Factory className="h-8 w-8 text-primary" />,
-    title: 'Manufacturing',
-    description: 'Optimize your production lines with IoT and AI. We implement systems for predictive maintenance, quality control automation, and supply chain optimization to reduce downtime and increase output.',
-    features: [
-      'AI-Powered Predictive Maintenance',
-      'Automated Quality Control with Computer Vision',
-      'Supply Chain & Inventory Automation',
-      'Production Line Monitoring and Optimization',
-      'Robotics and Automation Integration',
-    ],
-  },
-  {
-    id: 'real-estate',
-    icon: <Building className="h-8 w-8 text-primary" />,
-    title: 'Real Estate',
-    description: 'Enhance client engagement with AI-powered chatbots for property inquiries and automated viewing schedules. We streamline administrative tasks like contract generation and client onboarding.',
-    features: [
-      'AI Chatbots for 24/7 Property Inquiries',
-      'Automated Lead Nurturing and Follow-up',
-      'Virtual Property Tours and Digital Staging',
-      'Automated Contract Generation and Management',
-      'Predictive Market Analysis Tools',
-    ],
-  },
-  {
-    id: 'it-consulting',
-    icon: <Server className="h-8 w-8 text-primary" />,
-    title: 'IT Consulting',
-    description: 'We provide strategic guidance and implementation services to help other IT firms and departments leverage automation and AI, enhancing their service offerings and internal efficiencies.',
-    features: [
-      'Automation Strategy and Roadmap Development',
-      'Custom AI Model Development and Integration',
-      'Cloud Infrastructure Optimization and Management',
-      'DevOps and CI/CD Pipeline Automation',
-      'Cybersecurity Automation and Threat Detection',
-    ],
-  },
-  {
-    id: 'logistics',
-    icon: <Truck className="h-8 w-8 text-primary" />,
-    title: 'Logistics & Transport',
-    description: 'Optimize your logistics network with AI-driven route planning, automated shipment tracking, and predictive analytics for demand forecasting. Improve efficiency and reduce transportation costs.',
-    features: [
-      'AI-Optimized Route and Fleet Management',
-      'Automated Warehouse and Inventory Systems',
-      'Real-time Shipment Tracking and Alerts',
-      'Predictive Demand and Capacity Forecasting',
-      'Automated Documentation and Customs Processing',
-    ],
-  },
-  {
-    id: 'energy',
-    icon: <Zap className="h-8 w-8 text-primary" />,
-    title: 'Energy',
-    description: 'Implement smart grid technology, automate monitoring of energy infrastructure, and use predictive analytics for maintenance and demand management. Enhance safety and operational efficiency.',
-    features: [
-      'Predictive Maintenance for Energy Grids',
-      'AI-Powered Demand and Load Forecasting',
-      'Automated Monitoring of Remote Assets (IoT)',
-      'Smart Grid Management and Optimization',
-      'Safety and Compliance Automation',
-    ],
-  },
-  {
-    id: 'telecom',
-    icon: <Phone className="h-8 w-8 text-primary" />,
-    title: 'Telecom',
-    description: 'Improve customer service with AI chatbots, automate network monitoring and diagnostics, and optimize network performance with predictive analytics to reduce downtime and enhance user experience.',
-    features: [
-      'Automated Network Monitoring and Fault Detection',
-      'AI-Powered Customer Service Chatbots',
-      'Predictive Analytics for Network Performance',
-      'Automated Service Provisioning and Activation',
-      'Fraud Detection and Prevention',
-    ],
-  },
+interface GridItemProps {
+  area: string;
+  study: CaseStudy;
+}
+
+const caseStudyGridAreas = [
+    "md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/6]",
+    "md:[grid-area:1/7/2/13] xl:[grid-area:1/6/2/10]",
+    "md:[grid-area:2/1/3/7] xl:[grid-area:1/10/2/13]",
+    "md:[grid-area:2/7/3/13] xl:[grid-area:2/1/3/7]",
+    "md:[grid-area:3/1/4/13] xl:[grid-area:2/7/3/13]",
 ];
+
+
+const GridItem = ({ area, study }: GridItemProps) => {
+  return (
+    <li className={`min-h-[24rem] list-none ${area} border-l border-border/50`}>
+      <div className="relative h-full rounded-3xl p-3">
+        <GlowingEffect
+          spread={40}
+          glow={true}
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+        />
+        <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-background p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D] md:p-6">
+            <Image
+                src={study.image}
+                alt={study.title}
+                width={study.width}
+                height={study.height}
+                className="absolute inset-0 z-0 h-full w-full object-cover opacity-20"
+                data-ai-hint={study.dataAiHint}
+            />
+            <div className="relative z-10 flex flex-1 flex-col justify-between gap-3 bg-gradient-to-t from-background/80 via-background/50 to-transparent">
+                <div />
+                <div className="space-y-3">
+                    <h3 className="font-sans text-xl/[1.375rem] font-semibold text-balance text-foreground md:text-2xl/[1.875rem]">
+                        {study.title}
+                    </h3>
+                    <p className="font-sans text-sm/[1.125rem] text-muted-foreground md:text-base/[1.375rem]">
+                        {study.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 pt-2">
+                        {study.tags.map(tag => <Badge key={tag} variant="outline" className="border-primary text-primary bg-background/50">{tag}</Badge>)}
+                   </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </li>
+  );
+};
+
 
 export default function UseCasesPage() {
   return (
     <div className="bg-background">
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold font-headline">Automating Industries</h1>
+          <h1 className="text-3xl md:text-5xl font-bold font-headline">
+            Automating Industries
+          </h1>
           <p className="mt-4 text-md md:text-lg text-muted-foreground">
-            Explore detailed examples of how LOG_ON's technology solutions drive success across various sectors. We tailor our services to meet the unique demands and challenges of your industry.
+            Explore detailed examples of how LOG_ON's technology solutions
+            drive success across various sectors. We tailor our services to
+            meet the unique demands and challenges of your industry.
           </p>
         </div>
 
-        <div className="mt-16 grid md:grid-cols-2 gap-8">
-          {useCases.map((useCase) => (
-            <GlowingCard key={useCase.id} >
-              <div id={useCase.id} className="p-6 md:p-8 h-full flex flex-col scroll-mt-24">
-                <CardHeader className="p-0">
-                  <div className="flex items-center gap-4">
-                    {useCase.icon}
-                    <CardTitle className="text-xl md:text-3xl">{useCase.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-0 pt-4 flex-grow">
-                  <p className="text-muted-foreground">{useCase.description}</p>
-                   <div className="pt-6">
-                      <h4 className="font-semibold mb-4 text-primary">Example Applications:</h4>
-                      <ul className="space-y-3">
-                          {useCase.features.map((feature) => (
-                          <li key={feature} className="flex items-start gap-3">
-                              <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                              <span className="text-muted-foreground">{feature}</span>
-                          </li>
-                          ))}
-                      </ul>
-                  </div>
-                </CardContent>
-              </div>
-            </GlowingCard>
-          ))}
+        <ul className="grid grid-cols-1 grid-rows-none border-t border-border/50 md:grid-cols-12 md:grid-rows-3 xl:grid-rows-2 mt-16">
+            {caseStudies.map((study, index) => (
+                <GridItem key={study.title} study={study} area={caseStudyGridAreas[index % caseStudyGridAreas.length]} />
+            ))}
+        </ul>
+
+        <div className="text-center mt-16 md:mt-20">
+          <p className="text-lg text-muted-foreground">
+            Ready to see how we can help your business?
+          </p>
+          <Link
+            href="/contact"
+            className="text-primary text-lg font-semibold hover:underline mt-2 inline-block"
+          >
+            Contact Us Today
+          </Link>
         </div>
-         <div className="text-center mt-16 md:mt-20">
-             <p className="text-lg text-muted-foreground">Ready to see how we can help your business?</p>
-              <Link href="/contact" className="text-primary text-lg font-semibold hover:underline mt-2 inline-block">
-                Contact Us Today
-              </Link>
-         </div>
       </div>
     </div>
   );
