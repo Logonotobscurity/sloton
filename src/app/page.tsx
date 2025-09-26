@@ -21,13 +21,13 @@ export default function Home() {
       <Hero />
       <StrategicPartner />
       <GeneralistApproach />
-      <TechStackCarousel />
-      <IndustriesBento />
       <TemplateLibrary />
       <ChatbotEmbed />
       <PartnershipApproach />
       <TrainingCTA />
       <Statement />
+      <IndustriesBento />
+      <TechStackCarousel />
       <FeaturedInsights />
       <Faq />
       <BottomCta />
