@@ -10,7 +10,6 @@ import { StrategicPartner } from '@/components/strategic-partner';
 import { TechStackCarousel } from '@/components/tech-stack-carousel';
 import { TrainingCTA } from '@/components/training-cta';
 import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
-import { ChatbotEmbed } from '@/components/chatbot-embed';
 import { TemplateLibrary } from '@/components/template-library';
 import { BottomCta } from '@/components/bottom-cta';
 import { IndustriesBento } from '@/components/industries-bento';
@@ -24,7 +23,6 @@ export default function Home() {
       <GeneralistApproach />
       <TemplateLibrary />
       <IdeasLab />
-      <ChatbotEmbed />
       <PartnershipApproach />
       <TrainingCTA />
       <Statement />
