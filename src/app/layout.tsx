@@ -11,6 +11,7 @@ import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
 import { BotWidget } from '@/components/bot-widget';
 import { ParallaxBackground } from '@/components/parallax-background';
+import { BookDemoWidget } from '@/components/book-demo-widget';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -249,6 +250,7 @@ export default function RootLayout({
             <WebsiteLoader />
             <Header />
             <main className="flex-grow relative z-20">{children}</main>
+            <BookDemoWidget />
             <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
             <Footer />
             <Toaster />

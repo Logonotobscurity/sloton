@@ -5,11 +5,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { MessageSquare, Send, X, Bot, User, Calendar } from 'lucide-react';
+import { MessageSquare, Send, X, Bot, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { DatePicker } from './ui/date-picker';
-import { Label } from './ui/label';
 
 interface BotWidgetProps {
   initialMessage?: string;
@@ -132,33 +129,6 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
              </div>
            ))}
         </CardContent>
-         <CardFooter className="p-3 border-t bg-secondary/50">
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button variant="outline" size="sm">
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Schedule a Demo
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-80">
-                <div className="grid gap-4">
-                  <div className="space-y-2">
-                    <h4 className="font-medium leading-none">Schedule a Demo</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Pick a date and we'll get in touch to confirm.
-                    </p>
-                  </div>
-                  <div className="grid gap-2">
-                    <div className="grid grid-cols-3 items-center gap-4">
-                      <Label htmlFor="date">Date</Label>
-                       <DatePicker />
-                    </div>
-                  </div>
-                   <Button size="sm">Submit</Button>
-                </div>
-              </PopoverContent>
-            </Popover>
-          </CardFooter>
         <CardFooter className="p-3 border-t">
           <form onSubmit={handleSendMessage} className="w-full flex items-center gap-2">
             <Input 
