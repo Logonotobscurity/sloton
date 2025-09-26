@@ -18,25 +18,22 @@ const features = [
     description: "Master in-demand skills with our hands-on curriculum in AI, Automation, and Prompt Engineering. Elevate your career with industry-relevant knowledge.",
     href: "/training",
     cta: "Explore Courses",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-1 lg:col-end-2",
   },
   {
     Icon: ShieldQuestion,
-    name: "AI Insights: A Practical Guide",
-    description: "A comprehensive overview of AI types and their practical applications. Gain foundational knowledge for strategic AI adoption.",
-    href: "/training",
-    cta: "Learn More",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
-  },
-  {
-    Icon: Lightbulb,
     name: "Transforming Customer Support with AI",
     description: "Learn to build, train, and deploy private AI assistants using your own company documents to revolutionize support systems.",
     href: "/training",
     cta: "Learn More",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+  },
+  {
+    Icon: Lightbulb,
+    name: "AI Insights: A Practical Guide",
+    description: "A comprehensive overview of AI types and their practical applications. Gain foundational knowledge for strategic AI adoption.",
+    href: "/training",
+    cta: "Learn More",
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
   },
   {
@@ -45,7 +42,6 @@ const features = [
     description: "An AI mental health chatbot designed to provide compassionate, accessible, and confidential support.",
     href: "/training#impact",
     cta: "See Our Projects",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
   },
   {
@@ -54,7 +50,6 @@ const features = [
     description: "A research project and toolkit for identifying and mitigating cultural bias in large language models (LLMs).",
     href: "/training#impact",
     cta: "See Our Projects",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
   },
    {
@@ -63,7 +58,6 @@ const features = [
     description: "An AI-powered tool to convert job seekers into engaged users through intelligent job matching and automated nurturing.",
     href: "/training#impact",
     cta: "See Our Projects",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:row-start-3 lg:row-end-4 lg:col-start-2 lg:col-end-4",
   },
 ];
