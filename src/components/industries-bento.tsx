@@ -3,17 +3,10 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import {
-  BarChart,
-  Bar,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-} from "recharts"
-import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { Briefcase, HeartPulse, Server, ShoppingCart, Workflow } from "lucide-react";
+import { Briefcase, HeartPulse, Server, ShoppingCart, Building, Cog } from "lucide-react";
+import { GlowingCard } from "./ui/glowing-card";
 
 const FeatureCard = ({
   children,
@@ -23,17 +16,17 @@ const FeatureCard = ({
   className?: string;
 }) => {
   return (
-    <div className={cn(`p-4 sm:p-8 relative overflow-hidden bg-secondary/30`, className)}>
+    <GlowingCard className={cn(`p-4 sm:p-6 relative overflow-hidden`, className)}>
       {children}
-    </div>
+    </GlowingCard>
   );
 };
 
 const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <p className="max-w-5xl mx-auto text-left tracking-tight font-headline text-foreground text-xl md:text-2xl md:leading-snug">
+    <h3 className="text-lg md:text-xl font-semibold text-foreground">
       {children}
-    </p>
+    </h3>
   );
 };
 
@@ -41,8 +34,7 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
   return (
     <p
       className={cn(
-        "text-sm md:text-base max-w-4xl text-left mx-auto",
-        "text-muted-foreground text-left max-w-sm mx-0 md:text-sm my-2"
+        "text-sm text-muted-foreground mt-2",
       )}
     >
       {children}
@@ -50,120 +42,46 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
   );
 };
 
-export const SkeletonOne = () => {
-    const data = [
-        { name: "Jan", value: 30 }, { name: "Feb", value: 40 },
-        { name: "Mar", value: 20 }, { name: "Apr", value: 50 },
-        { name: "May", value: 45 }, { name: "Jun", value: 60 },
-    ];
-  return (
-    <div className="relative flex p-2 md:p-8 gap-10 h-full">
-      <div className="w-full h-full p-2 md:p-5 mx-auto bg-background/50 shadow-2xl group flex flex-col justify-center items-center">
-         <Briefcase className="h-10 w-10 text-primary mb-4" />
-         <h4 className="font-semibold text-center text-muted-foreground">Financial Services & Banking</h4>
-        <ResponsiveContainer width="100%" height={100}>
-            <LineChart data={data}>
-                <Line type="monotone" dataKey="value" stroke="hsl(var(--primary))" strokeWidth={2} />
-            </LineChart>
-        </ResponsiveContainer>
-      </div>
-    </div>
-  );
-};
-
-export const SkeletonThree = () => {
-  return (
-    <Link
-      href="/use-cases#e-commerce"
-      className="relative flex gap-10 h-full group/image"
-    >
-      <div className="w-full mx-auto bg-transparent dark:bg-transparent group h-full">
-        <div className="flex flex-1 w-full h-full flex-col space-y-2 relative items-center justify-center">
-          <ShoppingCart className="h-20 w-20 absolute z-10 inset-0 text-primary m-auto transition-transform duration-300 group-hover/image:scale-110" />
-          <div className="h-full w-full aspect-square bg-secondary/50 rounded-lg blur-sm group-hover/image:blur-md transition-all duration-200"></div>
-           <p className="absolute bottom-4 text-sm text-muted-foreground">Explore E-commerce Solutions</p>
-        </div>
-      </div>
-    </Link>
-  );
-};
-
-export const SkeletonTwo = () => {
-  return (
-    <div className="relative flex flex-col items-center h-full overflow-hidden p-8">
-        <HeartPulse className="h-16 w-16 text-red-500" />
-        <h4 className="font-semibold text-center text-muted-foreground mt-8">Healthcare Innovation</h4>
-        <p className="text-xs text-center text-muted-foreground">Automating patient care and administrative tasks.</p>
-    </div>
-  );
-};
-
-export const SkeletonFour = () => {
-  return (
-    <div className="h-60 md:h-60 flex flex-col items-center justify-center relative bg-transparent dark:bg-transparent mt-10">
-        <div className="flex flex-row gap-4 items-center">
-            <Server className="h-12 w-12 text-primary" />
-            <motion.div
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }}
-            >
-                <svg width="100" height="20">
-                    <path d="M 10 10 L 90 10" stroke="hsl(var(--primary))" strokeWidth="2" />
-                </svg>
-            </motion.div>
-             <Workflow className="h-12 w-12 text-primary" />
-        </div>
-       <h4 className="font-semibold text-center text-muted-foreground mt-4">IT & Logistics</h4>
-       <p className="text-xs text-center text-muted-foreground">Optimizing your infrastructure and supply chain.</p>
-    </div>
-  );
-};
-
-
-export function IndustriesBento() {
-    const features = [
+const features = [
     {
       title: "Finance & Banking",
-      description: (
-        <>
-          We empower financial institutions with <strong>AI-driven fraud detection</strong>, <strong>RPA for back-office tasks</strong> like loan processing, and robust cloud infrastructure to ensure data integrity and compliance.
-        </>
-      ),
-      skeleton: <SkeletonOne />,
-      className: "col-span-1 md:col-span-4 lg:col-span-4 border-b md:border-r dark:border-neutral-800",
+      description: "AI-driven fraud detection, RPA for back-office tasks, and robust cloud infrastructure.",
+      icon: <Briefcase className="w-8 h-8 text-primary" />,
+      className: "lg:col-span-2",
     },
     {
       title: "Healthcare",
-      description: (
-        <>
-          Our solutions improve patient outcomes by <strong>automating administrative tasks</strong>, enabling <strong>secure EHR management</strong>, and implementing AI for diagnostic analysis, freeing up providers to focus on care.
-        </>
-      ),
-      skeleton: <SkeletonTwo />,
-      className: "col-span-1 md:col-span-2 lg:col-span-2 border-b dark:border-neutral-800",
+      description: "Automating administrative tasks and enabling secure EHR management to improve patient outcomes.",
+      icon: <HeartPulse className="w-8 h-8 text-primary" />,
+      className: "lg:col-span-1",
+    },
+     {
+      title: "IT Consulting",
+      description: "Automation strategy, custom AI model development, and cloud infrastructure optimization.",
+      icon: <Cog className="w-8 h-8 text-primary" />,
+      className: "lg:col-span-1",
     },
     {
       title: "E-Commerce",
-      description: (
-         <>
-          Enhance retail experiences with <strong>AI-powered recommendation engines</strong>, <strong>automated inventory management</strong>, and intelligent 24/7 customer support chatbots that drive sales and improve loyalty.
-        </>
-      ),
-      skeleton: <SkeletonThree />,
-      className: "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-r dark:border-neutral-800",
+      description: "AI recommendation engines, automated inventory management, and 24/7 support chatbots.",
+      icon: <ShoppingCart className="w-8 h-8 text-primary" />,
+      className: "lg:col-span-1",
     },
     {
       title: "IT & Logistics",
-      description: (
-        <>
-          Optimize your infrastructure with <strong>predictive monitoring</strong> and streamline your supply chain with <strong>intelligent automation</strong> for route planning, warehouse management, and shipment tracking.
-        </>
-      ),
-      skeleton: <SkeletonFour />,
-      className: "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-none",
+      description: "Intelligent automation for route planning, warehouse management, and shipment tracking.",
+      icon: <Server className="w-8 h-8 text-primary" />,
+      className: "lg:col-span-2",
     },
-  ];
+     {
+      title: "Real Estate",
+      description: "AI chatbots for property inquiries, automated lead nurturing, and virtual property tours.",
+      icon: <Building className="w-8 h-8 text-primary" />,
+      className: "lg:col-span-1",
+    },
+];
+
+export function IndustriesBento() {
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -176,17 +94,19 @@ export function IndustriesBento() {
           </p>
         </div>
 
-      <div className="relative">
-        <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
           {features.map((feature) => (
             <FeatureCard key={feature.title} className={feature.className}>
-              <FeatureTitle>{feature.title}</FeatureTitle>
-              <FeatureDescription>{feature.description}</FeatureDescription>
-              <div className="h-full w-full">{feature.skeleton}</div>
+                <div className="flex flex-col h-full">
+                    {feature.icon}
+                    <div className="mt-4">
+                        <FeatureTitle>{feature.title}</FeatureTitle>
+                        <FeatureDescription>{feature.description}</FeatureDescription>
+                    </div>
+                </div>
             </FeatureCard>
           ))}
         </div>
-      </div>
 
        <div className="mt-16 text-center">
           <Button asChild size="lg">
@@ -197,6 +117,3 @@ export function IndustriesBento() {
     </section>
   );
 }
-
-
-    
