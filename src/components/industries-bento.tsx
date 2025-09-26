@@ -4,19 +4,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import {
-  IconFinance,
-  IconHealthcare,
-  IconSales,
-  IconItOperations,
-  IconMarketing,
-  IconRealEstate,
-  IconProcurement,
-  IconDevelopment,
-  IconAdminOps,
-  IconSupport,
-  IconGeneral
-} from '@/lib/icons';
-import {
   BarChart,
   Bar,
   Line,
@@ -24,20 +11,9 @@ import {
   ResponsiveContainer,
 } from "recharts"
 import { motion } from "framer-motion";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { ArrowRight, Briefcase, HeartPulse, Server, ShoppingCart, Workflow } from "lucide-react";
-import { menuData } from "@/lib/menu-data";
-
-const { items: industries } = menuData.menu.industries;
+import { Briefcase, HeartPulse, Server, ShoppingCart, Workflow } from "lucide-react";
 
 const FeatureCard = ({
   children,
@@ -149,25 +125,41 @@ export function IndustriesBento() {
     const features = [
     {
       title: "Finance & Banking",
-      description: "Future-proof your bank with one AI platform.",
+      description: (
+        <>
+          We empower financial institutions with <strong>AI-driven fraud detection</strong>, <strong>RPA for back-office tasks</strong> like loan processing, and robust cloud infrastructure to ensure data integrity and compliance.
+        </>
+      ),
       skeleton: <SkeletonOne />,
       className: "col-span-1 md:col-span-4 lg:col-span-4 border-b md:border-r dark:border-neutral-800",
     },
     {
       title: "Healthcare",
-      description: "Fuel efficiency, reduce costs, and deliver quality care.",
+      description: (
+        <>
+          Our solutions improve patient outcomes by <strong>automating administrative tasks</strong>, enabling <strong>secure EHR management</strong>, and implementing AI for diagnostic analysis, freeing up providers to focus on care.
+        </>
+      ),
       skeleton: <SkeletonTwo />,
       className: "col-span-1 md:col-span-2 lg:col-span-2 border-b dark:border-neutral-800",
     },
     {
       title: "E-Commerce",
-      description: "Enhance retail experiences with AI-powered insights.",
+      description: (
+         <>
+          Enhance retail experiences with <strong>AI-powered recommendation engines</strong>, <strong>automated inventory management</strong>, and intelligent 24/7 customer support chatbots that drive sales and improve loyalty.
+        </>
+      ),
       skeleton: <SkeletonThree />,
       className: "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-r dark:border-neutral-800",
     },
     {
       title: "IT & Logistics",
-      description: "Optimize your infrastructure and supply chain with intelligent automation.",
+      description: (
+        <>
+          Optimize your infrastructure with <strong>predictive monitoring</strong> and streamline your supply chain with <strong>intelligent automation</strong> for route planning, warehouse management, and shipment tracking.
+        </>
+      ),
       skeleton: <SkeletonFour />,
       className: "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-none",
     },
@@ -205,3 +197,6 @@ export function IndustriesBento() {
     </section>
   );
 }
+
+
+    
