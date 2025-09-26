@@ -20,7 +20,7 @@ const technologies = [
     { name: 'Python', icon: 'https://img.icons8.com/color/96/python.png', dataAiHint: "Python logo", href: "https://www.python.org/" },
     { name: 'AWS', icon: 'https://img.icons8.com/color/96/amazon-web-services.png', dataAiHint: "AWS logo", href: "https://aws.amazon.com/" },
     { name: 'Google Cloud', icon: 'https://img.icons8.com/color/96/google-cloud.png', dataAiHint: "Google Cloud logo", href: "https://cloud.google.com/" },
-    { name: 'Azure', icon: 'https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg', dataAiHint: "Microsoft Azure logo", href: "https://azure.microsoft.com/" },
+    { name: 'Azure', icon: 'https://img.icons8.com/color/96/microsoft-azure.png', dataAiHint: "Microsoft Azure logo", href: "https://azure.microsoft.com/" },
     { name: 'Firebase', icon: 'https://img.icons8.com/color/96/firebase.png', dataAiHint: "Firebase logo", href: "https://firebase.google.com/" },
     { name: 'Docker', icon: 'https://img.icons8.com/color/96/docker.png', dataAiHint: "Docker logo", href: "https://www.docker.com/" },
     { name: 'Kubernetes', icon: 'https://img.icons8.com/color/96/kubernetes.png', dataAiHint: "Kubernetes logo", href: "https://kubernetes.io/" },
@@ -143,18 +143,20 @@ export function InfiniteSlider({
 const IntegrationCard = ({
   children,
   className,
+  isCenter = false,
 }: {
   children: React.ReactNode;
   className?: string;
+  isCenter?: boolean;
 }) => {
   return (
     <div
       className={cn(
         'bg-background relative flex size-12 items-center justify-center rounded-full border',
-        className
+        className,
       )}
     >
-      <div className={cn('m-auto size-fit text-muted-foreground *:size-5')}>
+      <div className={cn('m-auto size-fit text-muted-foreground *:size-5', isCenter && '*:size-8')}>
         {children}
       </div>
     </div>
@@ -163,19 +165,19 @@ const IntegrationCard = ({
 
 
 export function TechStackCarousel() {
-  const slider1 = technologies.slice(0, 6);
-  const slider2 = technologies.slice(6, 12);
-  const slider3 = technologies.slice(12, 18);
+  const slider1 = technologies.slice(0, 8);
+  const slider2 = technologies.slice(8, 16);
+  const slider3 = technologies.slice(16, 24);
 
   return (
     <section className="bg-secondary/20 py-24 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="group relative mx-auto max-w-[22rem] items-center justify-between space-y-6 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] sm:max-w-md">
-           <div
-            role="presentation"
-            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)]"
-          ></div>
-
+        <div className="group relative mx-auto max-w-[22rem] items-center justify-between space-y-6 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] sm:max-w-md rounded-xl">
+            <div
+                role="presentation"
+                className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)]"
+            ></div>
+          
           {/* Slider Row 1 */}
           <div>
             <InfiniteSlider gap={24} speed={20} speedOnHover={10}>
