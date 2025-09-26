@@ -3,11 +3,14 @@
 
 import React, { useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
+import Image from 'next/image';
 import { InvestmentPortfolioChart } from '@/components/investment-portfolio-chart';
 import { EnrollmentForm } from '@/components/enrollment-form';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { insights } from '@/lib/insights';
+import imageData from '@/lib/placeholder-images.json';
+
 
 const investmentArticleContent = `
 <p class="mb-6 text-lg text-muted-foreground">I've been doubling down on AI stocks lately, and honestly, it's been a wild ride, but the good kind. AI is literally taking over everything: your phone, your doctor's office, even your coffee maker (okay, maybe not yet, but give it time). So I'm putting my money where my mouth is. Here's exactly what I'm holding and why.</p>
@@ -166,7 +169,7 @@ const llmsTxtArticleContent = `
 
 <h2 class="text-2xl font-bold mt-12 mb-4">Why LLM matters for SEO</h2>
 <div class="my-8 flex justify-center">
-    <img src="https://images.surferseo.art/7352a56a-7547-4589-9f0c-1fccf99e2b8e.png" alt="A diagram showing the benefits of llms.txt for SEO, including better visibility, accurate citations, and driving more traffic." class="rounded-lg shadow-lg" />
+    <div id="llms-diagram-container"></div>
 </div>
 <p class="mb-6">As AI-powered search engines become more important, <code>LLMs.txt</code> is turning into a key tool for helping websites work better with large language models (LLMs). Here’s why <code>llms.txt</code> files matter for SEO strategies:</p>
 <ul class="list-disc pl-6 space-y-3 mb-6">
@@ -180,7 +183,7 @@ const llmsTxtArticleContent = `
 
 <h2 class="text-2xl font-bold mt-12 mb-4">How large language models (LLMS) work</h2>
 <div class="my-8 flex justify-center">
-    <img src="https://www.quoleady.com/wp-content/uploads/2025/07/a-simple-clean-background-establishes-th_8OSCW8DQTW6xAQ1fbNsnKg_5uC4hOO1Sfy2p6OslUgIYQ-300x168.png" alt="Diagram explaining how Large Language Models work" class="rounded-lg shadow-lg" />
+    <div id="how-llms-work-container"></div>
 </div>
 <p class="mb-6"><code>LLMs.txt</code> gives AI a simplified, structured version of your most important content. It highlights your top pages and provides short descriptions for each, helping models utilize web content more effectively—much like how search engines crawl and interpret websites. Here’s a simplified breakdown of how large language models work:</p>
 <ul class="list-disc pl-6 space-y-3 mb-6">
@@ -298,7 +301,7 @@ const llmsTxtArticleContent = `
 
 <h2 class="text-2xl font-bold mt-12 mb-4">Tools to generate your file</h2>
 <div class="my-8 flex justify-center">
-    <img src="https://images.surferseo.art/bfd93c97-2b4c-44bd-a1f1-a46c0354f0fb.png" alt="Abstract image of tools generating documentation" class="rounded-lg shadow-lg" />
+    <div id="tools-generating-docs-container"></div>
 </div>
 <p class="mb-6">Creating an <code>LLMs.txt</code> file manually is simple, but using the right tools can speed up the process and ensure accuracy, ultimately enhancing model performance. Here are some useful tools to help you generate and manage your <code>LLMs.txt</code> file:</p>
 <ul class="list-disc pl-6 space-y-3 mb-6">
@@ -312,7 +315,7 @@ const llmsTxtArticleContent = `
 
 <h2 class="text-2xl font-bold mt-12 mb-4">Best practices</h2>
 <div class="my-8 flex justify-center">
-    <img src="https://images.surferseo.art/af18ff8e-9af7-47c5-aa6d-45c2e59a6094.png" alt="Checklist of best practices for SEO" class="rounded-lg shadow-lg" />
+    <div id="seo-checklist-container"></div>
 </div>
 <p class="mb-6">To make the most of your <code>LLMs.txt</code> file, follow these best practices to ensure AI models can easily process and prioritize your content.</p>
 <ul class="list-disc pl-6 space-y-3 mb-6">
@@ -398,15 +401,15 @@ const seoVsGeoArticleContent = `
 <h2 class="text-2xl font-bold mt-12 mb-4">Examples: How content appears in generative AI research platforms</h2>
 <p class="mb-6"><strong>ChatGPT:</strong> If optimized effectively, your content might be directly quoted or summarized when users search for specific topics like “best digital marketing strategies.”</p>
 <div class="my-8 flex justify-center">
-    <img src="https://images.surferseo.art/12d21d90-9031-44b3-983c-b64ff2905901.png" alt="ChatGPT interface showing an AI generated answer." class="rounded-lg shadow-lg" />
+    <div id="chat-gpt-example"></div>
 </div>
 <p class="mb-6"><strong>Perplexity:</strong> Your content could be highlighted as a trusted source when users select specific focus modes such as “Academic Focus” for scholarly insights or “Web Focus” for general information.</p>
 <div class="my-8 flex justify-center">
-    <img src="https://images.surferseo.art/27897d8a-4f2a-4957-8dc5-3654aa9a6a1f.png" alt="Perplexity AI interface with multiple sources." class="rounded-lg shadow-lg" />
+    <div id="perplexity-example"></div>
 </div>
 <p class="mb-6"><strong>Gemini & Google AI Overviews:</strong> Your content might appear as part of a multimodal response that combines text with supplementary visuals or videos for richer user engagement.</p>
 <div class="my-8 flex justify-center">
-    <img src="https://images.surferseo.art/40ca9760-cd1a-49c4-932d-725f3fea1955.png" alt="Google AI Overviews showing a summarized answer." class="rounded-lg shadow-lg" />
+    <div id="gemini-example"></div>
 </div>
 
 <h2 class="text-2xl font-bold mt-12 mb-4">What is traditional SEO?</h2>
@@ -422,7 +425,7 @@ const seoVsGeoArticleContent = `
 
 <h2 class="text-2xl font-bold mt-12 mb-4">GEO vs SEO: Key differences</h2>
 <div class="my-8 flex justify-center">
-    <img src="https://www.quoleady.com/wp-content/uploads/2025/04/SEO-vs-GEO_-Why-Your-Content-Might-Be-Invisible-in-AI-Search-And-How-to-Fix-It.png" alt="Diagram comparing SEO and GEO." class="rounded-lg shadow-lg" />
+    <div id="seo-vs-geo-diagram"></div>
 </div>
 <div class="overflow-x-auto">
     <table class="w-full text-left border-collapse my-8">
@@ -492,7 +495,7 @@ const tenFormatsArticleContent = `
 <h3 class="text-xl font-semibold mt-8 mb-4">1. Original research & data-driven content</h3>
 <p class="mb-6">LLMs prefer fresh data. If you’ve got unique stats, benchmarks, or survey results, you’re sitting on a goldmine. If you’ve got access to your industry usage data, customer trends, or can run a quick survey, share it! Publish your findings as a blog post, a report, or even a simple chart. This kind of content gets picked up because it’s both useful and hard to find anywhere else.</p>
 <div class="my-8 flex justify-center">
-    <img src="https://images.surferseo.art/90f19dea-8d34-4b32-b0ef-e8c67ca5c6fb.png" alt="Data analytics dashboard with charts and graphs" class="rounded-lg shadow-lg" />
+    <div id="data-analytics-dashboard-container"></div>
 </div>
 <p class="mb-6"><strong>Why LLMs pick it up:</strong> AI looks for facts that stand out. If your site is the source of a stat or trend, that makes you quote-worthy.</p>
 
@@ -502,7 +505,7 @@ const tenFormatsArticleContent = `
 <h3 class="text-xl font-semibold mt-8 mb-4">3. Step-by-step how-to guides</h3>
 <p class="mb-6">LLMs prefer structure. Numbered steps, short sentences, bullet points, and clear headings make your content easy to read and easy for AI to summarize. Whether it’s onboarding, troubleshooting, or a process breakdown, actionable guides are exactly what users (and LLMs) want when they’re trying to solve a problem.</p>
 <div class="my-8 flex justify-center">
-    <img src="https://images.surferseo.art/0213ee7b-071d-43f0-83a0-2a8cb26a531e.png" alt="Diagram showing a structured workflow" class="rounded-lg shadow-lg" />
+    <div id="workflow-diagram-container"></div>
 </div>
 
 <h3 class="text-xl font-semibold mt-8 mb-4">4. Comparison posts (X vs Y)</h3>
@@ -514,7 +517,7 @@ const tenFormatsArticleContent = `
 <h3 class="text-xl font-semibold mt-8 mb-4">6. Case studies & success stories</h3>
 <p class="mb-6">LLMs prefer to cite real scenarios because it adds credibility to their answers. Even simple before-and-after examples can work wonders, as long as they’re clear, focused, and actually prove a point. Case studies give your content that real-world weight most blogs don’t have.</p>
 <div class="my-8 flex justify-center">
-    <img src="https://www.quoleady.com/wp-content/uploads/2025/07/a-photograph-of-a-meticulously-crafted-c_uS-LcVIBTrieDESlLIYHMA_Qwt8ezinQVubColkHeraMA-300x168.png" alt="A case study document on a desk" class="rounded-lg shadow-lg" />
+    <div id="financial-data-container"></div>
 </div>
 
 <h3 class="text-xl font-semibold mt-8 mb-4">7. Lists, tables, and summaries</h3>
@@ -540,36 +543,61 @@ export function InsightPageContent({ slug }: { slug: string }) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (contentRef.current) {
-        // Mount InvestmentPortfolioChart
-        const chartContainer = contentRef.current.querySelector('#portfolio-chart-container');
-        if (chartContainer && !chartContainer.hasChildNodes()) {
-            const root = createRoot(chartContainer);
-            root.render(<InvestmentPortfolioChart />);
-        }
+    if (!contentRef.current) return;
+    
+    const containers: { [key: string]: { id: string; data: any } } = {
+        'llms-diagram-container': { id: 'llms-diagram-container', data: imageData.llmsDiagram },
+        'how-llms-work-container': { id: 'how-llms-work-container', data: imageData.howLlmsWork },
+        'tools-generating-docs-container': { id: 'tools-generating-docs-container', data: imageData.toolsGeneratingDocs },
+        'seo-checklist-container': { id: 'seo-checklist-container', data: imageData.seoChecklist },
+        'chat-gpt-example': { id: 'chat-gpt-example', data: imageData.supportChatbot },
+        'perplexity-example': { id: 'perplexity-example', data: imageData.financialData },
+        'gemini-example': { id: 'gemini-example', data: imageData.cloudInfrastructure },
+        'seo-vs-geo-diagram': { id: 'seo-vs-geo-diagram', data: imageData.seoVsGeo },
+        'data-analytics-dashboard-container': { id: 'data-analytics-dashboard-container', data: imageData.dataAnalyticsDashboard },
+        'workflow-diagram-container': { id: 'workflow-diagram-container', data: imageData.workflowDiagram },
+        'financial-data-container': { id: 'financial-data-container', data: imageData.financialData },
+    };
 
-        // Mount EnrollmentForm
-        const downloadGuideContainer = contentRef.current.querySelector('#download-guide');
-        if (downloadGuideContainer && !downloadGuideContainer.hasChildNodes()) {
-            const root = createRoot(downloadGuideContainer);
-            root.render(
-                <Dialog>
-                    <DialogTrigger asChild>
-                        <Button size="lg" className="w-full mt-8">Download the Full Investment Guide</Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-lg bg-background">
-                        <DialogHeader>
-                            <DialogTitle>Get the Full Guide</DialogTitle>
-                            <DialogDescription>
-                                To receive the complete AI Investment Guide, please provide your details below.
-                            </DialogDescription>
-                        </DialogHeader>
-                        <EnrollmentForm programName="AI Investment Guide" />
-                    </DialogContent>
-                </Dialog>
-            );
+    const mountImage = (containerId: string, data: any) => {
+        const container = contentRef.current?.querySelector(`#${containerId}`);
+        if (container && !container.hasChildNodes()) {
+            const root = createRoot(container);
+            root.render(<Image src={data.src} alt={data.alt} width={data.width} height={data.height} className="rounded-lg shadow-lg" data-ai-hint={data.dataAiHint} />);
         }
+    };
+    
+    Object.values(containers).forEach(({ id, data }) => mountImage(id, data));
+
+    // Mount InvestmentPortfolioChart
+    const chartContainer = contentRef.current.querySelector('#portfolio-chart-container');
+    if (chartContainer && !chartContainer.hasChildNodes()) {
+        const root = createRoot(chartContainer);
+        root.render(<InvestmentPortfolioChart />);
     }
+
+    // Mount EnrollmentForm
+    const downloadGuideContainer = contentRef.current.querySelector('#download-guide');
+    if (downloadGuideContainer && !downloadGuideContainer.hasChildNodes()) {
+        const root = createRoot(downloadGuideContainer);
+        root.render(
+            <Dialog>
+                <DialogTrigger asChild>
+                    <Button size="lg" className="w-full mt-8">Download the Full Investment Guide</Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-lg bg-background">
+                    <DialogHeader>
+                        <DialogTitle>Get the Full Guide</DialogTitle>
+                        <DialogDescription>
+                            To receive the complete AI Investment Guide, please provide your details below.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <EnrollmentForm programName="AI Investment Guide" />
+                </DialogContent>
+            </Dialog>
+        );
+    }
+    
   }, [slug]);
 
   const insight = insights.find((insight) => insight.slug === slug);

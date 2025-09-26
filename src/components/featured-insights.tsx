@@ -30,8 +30,8 @@ export function FeaturedInsights() {
                     <Image
                       src={insight.image}
                       alt={insight.title}
-                      width={600}
-                      height={400}
+                      width={insight.width}
+                      height={insight.height}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl"
                       data-ai-hint={insight.dataAiHint}
                     />

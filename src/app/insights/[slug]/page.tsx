@@ -114,8 +114,8 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
             <Image
               src={insight.image}
               alt={insight.title}
-              width={1200}
-              height={600}
+              width={insight.width}
+              height={insight.height}
               className="w-full h-auto object-cover rounded-lg mb-8"
               data-ai-hint={insight.dataAiHint}
               priority

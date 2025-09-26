@@ -38,8 +38,8 @@ export function CaseStudiesCarousel({ studies }: CaseStudiesCarouselProps) {
                 <Image
                   src={study.image}
                   alt={study.title}
-                  width={600}
-                  height={400}
+                  width={study.width}
+                  height={study.height}
                   className="w-full h-48 sm:h-64 object-cover"
                   data-ai-hint={study.dataAiHint}
                 />
