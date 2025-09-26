@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "./ui/button";
@@ -23,7 +24,7 @@ export function PartnershipApproach() {
          <div className="text-center max-w-3xl mx-auto space-y-6">
             <p className="text-sm font-normal uppercase tracking-widest text-primary">03/ Partnership & Results</p>
             <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-snug mt-4">
-                We embed with your team to deliver results. FROM STARTUPS TO ENTERPRISES - WHO WANT TO PUSH THE BOUNDARIES OF WHAT'S POSSIBLE
+                We embed with your team to <span className="text-primary">deliver results</span>. From startups to enterprises who want to <span className="text-primary">push the boundaries</span> of what's possible.
             </h2>
             <p className="text-muted-foreground md:text-lg mt-4">
                 Our success is measured by your success. We partner with ambitious teams to understand their vision and deliver tangible outcomes that fuel growth and innovation.
