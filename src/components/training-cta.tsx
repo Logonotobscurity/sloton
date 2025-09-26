@@ -1,101 +1,89 @@
-
 "use client";
 
-import Link from 'next/link';
-import { Button } from './ui/button';
-import { ArrowRight, Bold, Calendar as CalendarIcon, Italic, Strikethrough, Underline, Ellipsis, GraduationCap, ShieldQuestion, Lightbulb } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { GlowingCard } from './ui/glowing-card';
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import {
+    HeartHandshake,
+    Globe,
+    Zap,
+    GraduationCap,
+    ShieldQuestion,
+    Lightbulb
+} from "lucide-react";
 
 
-const ScheduleIllustration = ({ className, variant = 'elevated' }: { className?: string; variant?: 'elevated' | 'outlined' | 'mixed' }) => {
-    return (
-        <div className={cn('relative', className)}>
-            <div
-                className={cn('bg-background -translate-x-1/8 absolute flex -translate-y-[110%] items-center gap-2 rounded-lg p-1', {
-                    'shadow-black-950/10 shadow-lg': variant === 'elevated',
-                    'border-foreground/10 border': variant === 'outlined',
-                    'border-foreground/10 border shadow-md shadow-black/5': variant === 'mixed',
-                })}>
-                <Button
-                    size="sm"
-                    className="rounded-sm">
-                    <CalendarIcon className="size-3" />
-                    <span className="text-sm font-medium">Schedule</span>
-                </Button>
-            </div>
-            <span>
-                <span className="bg-secondary text-secondary-foreground py-1">Tomorrow 8:30 pm</span> is our priority.
-            </span>
-        </div>
-    )
-}
-
-const CodeIllustration = ({ className }: { className?: string }) => {
-    return (
-        <div className={cn('[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_50%,transparent_100%)]', className)}>
-            <ul className="text-muted-foreground mx-auto w-fit font-mono text-2xl font-medium">
-                {['AI Models', 'Automation', 'Workflows', 'Prompt Engineering', 'RPA'].map((item, index) => (
-                    <li
-                        key={index}
-                        className={cn(index == 3 && "text-foreground before:absolute before:-translate-x-[110%] before:text-primary before:content-['Learn']", "py-1")}>
-                        {item}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
-}
-
+const features = [
+  {
+    Icon: GraduationCap,
+    name: "Expert-Led Training Programs",
+    description: "Master in-demand skills with our hands-on curriculum in AI, Automation, and Prompt Engineering. Elevate your career with industry-relevant knowledge.",
+    href: "/training",
+    cta: "Explore Courses",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:row-start-1 lg:row-end-4 lg:col-start-1 lg:col-end-2",
+  },
+  {
+    Icon: ShieldQuestion,
+    name: "AI Insights: A Practical Guide",
+    description: "A comprehensive overview of AI types and their practical applications. Gain foundational knowledge for strategic AI adoption.",
+    href: "/training",
+    cta: "Learn More",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+  },
+  {
+    Icon: Lightbulb,
+    name: "Transforming Customer Support with AI",
+    description: "Learn to build, train, and deploy private AI assistants using your own company documents to revolutionize support systems.",
+    href: "/training",
+    cta: "Learn More",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+  },
+  {
+    Icon: HeartHandshake,
+    name: "Community Impact: LISTNER AI",
+    description: "An AI mental health chatbot designed to provide compassionate, accessible, and confidential support.",
+    href: "/training#impact",
+    cta: "See Our Projects",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
+  },
+  {
+    Icon: Globe,
+    name: "Ethical AI: Cultural Bridge Tech",
+    description: "A research project and toolkit for identifying and mitigating cultural bias in large language models (LLMs).",
+    href: "/training#impact",
+    cta: "See Our Projects",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
+  },
+   {
+    Icon: Zap,
+    name: "Gigpilot: AI Gig Economy Assistant",
+    description: "An AI-powered tool to convert job seekers into engaged users through intelligent job matching and automated nurturing.",
+    href: "/training#impact",
+    cta: "See Our Projects",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:row-start-3 lg:row-end-4 lg:col-start-2 lg:col-end-4",
+  },
+];
 
 export function TrainingCTA() {
   return (
-    <section className="bg-secondary/20 py-24 relative overflow-hidden">
-        <div 
-          role="presentation"
-          className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)]"
-        />
-        <div className="mx-auto w-full max-w-5xl px-6">
-             <div className="grid lg:grid-cols-3 gap-8 rounded-xl">
-                <div className="space-y-4">
-                    <div className="bg-primary/10 p-3 rounded-full w-fit">
-                       <GraduationCap className="h-8 w-8 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold font-headline">Expert-Led Training</h3>
-                    <p className="text-muted-foreground">Master in-demand skills with our hands-on curriculum in AI, Automation, and Prompt Engineering.</p>
-                    <Button asChild>
-                        <Link href="/training">Explore Training</Link>
-                    </Button>
+      <section className="py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
+              <div className="text-center max-w-3xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-bold font-headline">Community & Innovation</h2>
+                    <p className="mt-4 text-md md:text-lg text-muted-foreground">
+                        We believe in building more than just technology; we're dedicated to building skills, fostering leadership, and making a positive community impact. Explore our training programs and our commitment to ethical innovation.
+                    </p>
                 </div>
-                <div className="lg:col-span-2 grid md:grid-cols-2 gap-8">
-                     <Card className="bg-background/50">
-                        <CardHeader>
-                            <ShieldQuestion className="h-6 w-6 text-primary mb-2" />
-                            <CardTitle className="text-lg">AI Insights: A Practical Guide</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-sm text-muted-foreground">A comprehensive overview of AI types and their practical applications.</p>
-                        </CardContent>
-                        <CardFooter>
-                             <Button variant="secondary" size="sm" asChild><Link href="/training">Learn More</Link></Button>
-                        </CardFooter>
-                    </Card>
-                    <Card className="bg-background/50">
-                         <CardHeader>
-                            <Lightbulb className="h-6 w-6 text-primary mb-2" />
-                            <CardTitle className="text-lg">Transforming Customer Support</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-sm text-muted-foreground">Learn to build, train, and deploy private AI assistants using your own company documents.</p>
-                        </CardContent>
-                         <CardFooter>
-                             <Button variant="secondary" size="sm" asChild><Link href="/training">Learn More</Link></Button>
-                        </CardFooter>
-                    </Card>
-                </div>
-            </div>
-        </div>
+              <BentoGrid className="lg:grid-rows-3 mt-16">
+                  {features.map((feature) => (
+                      <BentoCard key={feature.name} {...feature} />
+                  ))}
+              </BentoGrid>
+          </div>
     </section>
   );
 }
