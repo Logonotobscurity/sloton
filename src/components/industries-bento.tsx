@@ -16,7 +16,7 @@ const FeatureCard = ({
   className?: string;
 }) => {
   return (
-    <GlowingCard className={cn(`p-4 sm:p-6 relative overflow-hidden`, className)}>
+    <GlowingCard className={cn(`relative overflow-hidden`, className)}>
       {children}
     </GlowingCard>
   );
@@ -51,13 +51,13 @@ const features = [
     },
     {
       title: "Healthcare",
-      description: "Automating administrative tasks and enabling secure EHR management to improve patient outcomes.",
+      description: "Automating administrative tasks and enabling secure EHR management.",
       icon: <HeartPulse className="w-8 h-8 text-primary" />,
       className: "lg:col-span-1",
     },
      {
       title: "IT Consulting",
-      description: "Automation strategy, custom AI model development, and cloud infrastructure optimization.",
+      description: "Automation strategy, custom AI model development, and cloud optimization.",
       icon: <Cog className="w-8 h-8 text-primary" />,
       className: "lg:col-span-1",
     },
@@ -94,10 +94,15 @@ export function IndustriesBento() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
-          {features.map((feature) => (
-            <FeatureCard key={feature.title} className={feature.className}>
-                <div className="flex flex-col h-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12">
+          {features.map((feature, i) => (
+            <FeatureCard key={feature.title} className={cn(feature.className, "border-t border-border/50",
+                i === 0 ? "md:border-l-0" : "md:border-l",
+                i === 1 ? "md:border-l-0" : "",
+                i % 2 !== 0 ? "md:border-l-0" : "md:border-l",
+                "lg:border-l"
+            )}>
+                <div className="flex flex-col h-full p-6">
                     {feature.icon}
                     <div className="mt-4">
                         <FeatureTitle>{feature.title}</FeatureTitle>
