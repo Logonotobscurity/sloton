@@ -1,7 +1,7 @@
 
 "use client";
 
-import { BrainCircuit, ArrowRight, Cog, CheckCircle, Search, UserCheck } from 'lucide-react';
+import { BrainCircuit, ArrowRight, Cog, Search } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -10,17 +10,16 @@ import {
   DialogDescription,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import Image from 'next/image';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { TaskAutomationForm } from './task-automation-form';
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const gridItems = [
     {
-        area: "md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]",
+        area: "md:[grid-area:1/1/2/7]",
         icon: <BrainCircuit className="h-6 w-6" />,
         title: "AI & Automation Strategy",
-        description: "From our proprietary 47-Dimension AI Assessment to custom model development, we create holistic, data-driven technology roadmaps.",
+        description: "From our proprietary AI Assessment to custom model development, we create holistic, data-driven technology roadmaps.",
         features: [
             'Proprietary AI Assessment',
             'Custom Machine Learning Models',
@@ -30,7 +29,7 @@ const gridItems = [
         isDialog: false,
     },
     {
-        area: "md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]",
+        area: "md:[grid-area:1/7/2/13]",
         icon: <Cog className="h-6 w-6" />,
         title: "Custom Platform Development",
         description: "We build high-performance web and mobile apps, scalable e-commerce platforms, and optimized database architectures.",
@@ -43,7 +42,7 @@ const gridItems = [
         isDialog: false,
     },
     {
-        area: "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/2/9]",
+        area: "md:[grid-area:2/1/3/7]",
         icon: <Search className="h-6 w-6" />,
         title: "Free AI Assessment",
         description: "Get an instant, data-driven analysis of your AI readiness and a high-level technology roadmap. No commitment required.",
@@ -53,7 +52,7 @@ const gridItems = [
         dialogDescription: "Describe your business needs to receive tailored IT solution recommendations from our AI consultant."
     },
     {
-        area: "md:[grid-area:3/1/4/7] xl:[grid-area:1/9/2/13]",
+        area: "md:[grid-area:2/7/3/13]",
         icon: <Cog className="h-6 w-6" />,
         title: "Automation Task Designer",
         description: "Describe a repetitive task or workflow and get a configured, optimized automation plan in seconds.",
@@ -99,7 +98,7 @@ const GridItem = ({ area, icon, title, description, features, children }: GridIt
                     <ul className="space-y-2 pt-2">
                         {features.map((detail) => (
                         <li key={detail} className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <svg className="h-4 w-4 text-primary mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
                             <span className="text-muted-foreground text-xs">{detail}</span>
                         </li>
                         ))}
@@ -128,7 +127,7 @@ export function StrategicPartner() {
             </p>
         </div>
 
-        <ul className="mt-16 grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[50rem] xl:grid-rows-2">
+        <ul className="mt-16 grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-2">
            {gridItems.map((item) => {
                 if (item.isDialog) {
                     return (
