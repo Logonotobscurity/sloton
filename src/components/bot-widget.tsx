@@ -19,7 +19,6 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
   ]);
   const [inputValue, setInputValue] = useState('');
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -43,37 +42,6 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
     }
   }, [isOpen]);
   
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const focusableElements = panelRef.current?.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    if (!focusableElements) return;
-    
-    const firstElement = focusableElements[0] as HTMLElement;
-    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
-
-    const handleTabKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Tab') return;
-
-      if (e.shiftKey) {
-        if (document.activeElement === firstElement) {
-          e.preventDefault();
-          lastElement.focus();
-        }
-      } else {
-        if (document.activeElement === lastElement) {
-          e.preventDefault();
-          firstElement.focus();
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleTabKey);
-    return () => document.removeEventListener('keydown', handleTabKey);
-  }, [isOpen]);
-
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
@@ -96,7 +64,6 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
       {/* Expanded State */}
        <div
         id="bot-panel"
-        ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-label="Chatbot Panel"
