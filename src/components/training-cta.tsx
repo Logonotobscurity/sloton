@@ -91,9 +91,12 @@ export function TrainingCTA() {
             className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)]"
           />
           <div className="container mx-auto px-4 md:px-6">
-              <div className="text-center max-w-3xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold font-headline">Community & Learning</h2>
-                    <p className="mt-4 text-md md:text-lg text-muted-foreground">
+              <div className="text-center max-w-3xl mx-auto space-y-6">
+                    <p className="text-sm font-normal uppercase tracking-widest text-primary">04/ Community & Learning</p>
+                    <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-snug mt-4">
+                        Building <span className="text-primary">skills</span> and fostering <span className="text-primary">innovation</span> for an AI-driven world.
+                    </h2>
+                    <p className="text-muted-foreground md:text-lg mt-4">
                         We believe in building more than just technology; we're dedicated to building skills, fostering leadership, and making a positive community impact. Explore our training programs and our commitment to ethical innovation.
                     </p>
                 </div>
