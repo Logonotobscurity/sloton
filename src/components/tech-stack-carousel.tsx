@@ -197,15 +197,6 @@ export function TechStackCarousel() {
             </InfiniteSlider>
           </div>
 
-          {/* Center Logo */}
-          <div className="absolute inset-0 m-auto flex size-fit justify-center gap-2">
-            <IntegrationCard
-              className="shadow-black-950/10 size-20 bg-white/25 shadow-xl backdrop-blur-md backdrop-grayscale dark:border-white/10 dark:bg-black/25 dark:shadow-white/15"
-              isCenter={true}
-            >
-              <MainLogoIcon />
-            </IntegrationCard>
-          </div>
         </div>
 
         {/* Text Content */}
