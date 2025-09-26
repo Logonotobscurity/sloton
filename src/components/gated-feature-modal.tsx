@@ -1,14 +1,10 @@
-
 "use client";
 
 import React from 'react';
 import {
-  Dialog,
-  DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogTrigger,
   DialogFooter,
 } from '@/components/ui/dialog';
 import { Button } from './ui/button';
@@ -23,11 +19,10 @@ interface GatedFeatureModalProps {
 
 export function GatedFeatureModal({ trigger, featureName }: GatedFeatureModalProps) {
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        {trigger}
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-md bg-background text-center p-8">
+    <DialogFormWrapper 
+        trigger={trigger}
+        className="sm:max-w-md bg-background text-center p-8"
+    >
         <DialogHeader className="space-y-4">
           <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
             <Lock className="h-6 w-6 text-primary" />
@@ -45,12 +40,17 @@ export function GatedFeatureModal({ trigger, featureName }: GatedFeatureModalPro
                         Book a Free Demo
                     </Button>
                 }
-                title="Book a Free Demo"
-                description={`Interested in the "${featureName}" feature? Fill out your details below to connect with our team on WhatsApp.`}
-                form={<CommunityLeadForm interest={featureName} />}
-            />
+                className="bg-background"
+            >
+                <DialogHeader>
+                    <DialogTitle>Book a Free Demo</DialogTitle>
+                    <DialogDescription>
+                        {`Interested in the "${featureName}" feature? Fill out your details below to connect with our team on WhatsApp.`}
+                    </DialogDescription>
+                </DialogHeader>
+                <CommunityLeadForm interest={featureName} />
+            </DialogFormWrapper>
         </DialogFooter>
-      </DialogContent>
-    </Dialog>
+    </DialogFormWrapper>
   );
 }

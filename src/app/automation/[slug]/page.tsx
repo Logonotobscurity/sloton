@@ -9,7 +9,7 @@ import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog, Ca
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata } from 'next';
 import { IconAdminOps, IconSupport, IconDevelopment, IconFinance, IconHealthcare, IconHumanResources, IconItOperations, IconMarketing, IconProcurement, IconRealEstate, IconSales, IconGeneral } from '@/lib/icons';
-import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
 import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
@@ -109,10 +109,16 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                     </Button>
                     <DialogFormWrapper
                         trigger={<Button size="lg" variant="secondary">Book a Demo</Button>}
-                        title="Book a Free Demo"
-                        description={`Interested in the "${template.name}" template? Fill out your details below to connect with our team on WhatsApp.`}
-                        form={<CommunityLeadForm interest={`Template: ${template.name}`} />}
-                    />
+                        className="bg-background"
+                    >
+                        <DialogHeader>
+                            <DialogTitle>Book a Free Demo</DialogTitle>
+                            <DialogDescription>
+                                {`Interested in the "${template.name}" template? Fill out your details below to connect with our team on WhatsApp.`}
+                            </DialogDescription>
+                        </DialogHeader>
+                        <CommunityLeadForm interest={`Template: ${template.name}`} />
+                    </DialogFormWrapper>
                 </div>
            </section>
 

@@ -1,3 +1,4 @@
+
 import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb, HeartHandshake, Globe, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,7 @@ import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import type { Metadata } from 'next';
 import { CommunityLeadForm } from '@/components/community-lead-form';
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 
 export const metadata: Metadata = {
@@ -107,10 +109,16 @@ export default function TrainingPage() {
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <DialogFormWrapper
                     trigger={<Button size="lg">Get In Touch</Button>}
-                    title="Let's Connect"
-                    description="Please fill out your details below to start a conversation with our team."
-                    form={<CommunityLeadForm />}
-                />
+                    className="bg-background"
+                >
+                    <DialogHeader>
+                        <DialogTitle>Let's Connect</DialogTitle>
+                        <DialogDescription>
+                            Please fill out your details below to start a conversation with our team.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <CommunityLeadForm />
+                </DialogFormWrapper>
             </div>
         </section>
 

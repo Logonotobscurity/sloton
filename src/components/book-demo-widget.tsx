@@ -6,6 +6,7 @@ import { Calendar } from 'lucide-react';
 import { CommunityLeadForm } from './community-lead-form';
 import { cn } from '@/lib/utils';
 import { DialogFormWrapper } from './dialog-form-wrapper';
+import { DialogHeader, DialogTitle, DialogDescription } from './ui/dialog';
 
 export function BookDemoWidget() {
   return (
@@ -22,10 +23,16 @@ export function BookDemoWidget() {
                     <span className="hidden md:inline ml-2 font-semibold">Book a Demo</span>
                 </Button>
             }
-            title="Book a Free Demo"
-            description="Choose a date that works for you, and we'll get in touch to schedule a personalized demo of our solutions."
-            form={<CommunityLeadForm interest="Free Demo Request" />}
-       />
+            className="bg-background"
+       >
+          <DialogHeader>
+            <DialogTitle className="text-2xl">Book a Free Demo</DialogTitle>
+            <DialogDescription>
+              Choose a date that works for you, and we'll get in touch to schedule a personalized demo of our solutions.
+            </DialogDescription>
+          </DialogHeader>
+          <CommunityLeadForm interest="Free Demo Request" />
+       </DialogFormWrapper>
     </div>
   );
 }
