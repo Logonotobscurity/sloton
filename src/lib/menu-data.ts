@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Cog, Users, Landmark, Search, Globe, Building, Briefcase, HeartPulse, ShoppingCart, Shield, Calculator, Factory, Server, Truck, Phone } from 'lucide-react';
 
@@ -47,16 +46,16 @@ export const menuData = {
       "intro": "Browse solutions to help you solve the complex business challenges unique to your industry.",
       "cta": {"label": "Learn More", "href": "/use-cases"},
       "items": [
-        {"title": "Finance and Banking", "shortDescription": "Future-proof your bank with one AI platform.", "href": "/use-cases#finance"},
-        {"title": "Healthcare", "shortDescription": "Fuel efficiency, reduce costs, and deliver quality care.", "href": "/use-cases#healthcare"},
-        {"title": "E-Commerce", "shortDescription": "Enhance retail experiences with AI-powered insights.", "href": "/use-cases#e-commerce"},
-        {"title": "Insurance", "shortDescription": "Be the trusted carrier of choice with one AI platform.", "href": "/use-cases#insurance"},
-        {"title": "Accounting", "shortDescription": "Streamline your accounting workflows with automated data entry.", "href": "/use-cases#accounting"},
-        {"title": "Manufacturing", "shortDescription": "Drive manufacturing efficiency with one AI platform.", "href": "/use-cases#manufacturing"},
-        {"title": "Real Estate", "shortDescription": "Enhance client engagement with AI-powered chatbots.", "href": "/use-cases#real-estate"},
-        {"title": "IT Consulting", "shortDescription": "Enhance your service offerings and internal efficiencies.", "href": "/use-cases#it-consulting"},
-        {"title": "Logistics & Transport", "shortDescription": "Optimize your logistics network with AI-driven route planning.", "href": "/use-cases#logistics"},
-        {"title": "Telecom", "shortDescription": "Manage infrastructure on one AI platform.", "href": "/use-cases#telecom"}
+        {"title": "Finance and Banking", "shortDescription": "Future-proof your bank with one AI platform.", "href": "/use-cases"},
+        {"title": "Healthcare", "shortDescription": "Fuel efficiency, reduce costs, and deliver quality care.", "href": "/use-cases"},
+        {"title": "E-Commerce", "shortDescription": "Enhance retail experiences with AI-powered insights.", "href": "/use-cases"},
+        {"title": "Insurance", "shortDescription": "Be the trusted carrier of choice with one AI platform.", "href": "/use-cases"},
+        {"title": "Accounting", "shortDescription": "Streamline your accounting workflows with automated data entry.", "href": "/use-cases"},
+        {"title": "Manufacturing", "shortDescription": "Drive manufacturing efficiency with one AI platform.", "href": "/use-cases"},
+        {"title": "Real Estate", "shortDescription": "Enhance client engagement with AI-powered chatbots.", "href": "/use-cases"},
+        {"title": "IT Consulting", "shortDescription": "Enhance your service offerings and internal efficiencies.", "href": "/use-cases"},
+        {"title": "Logistics & Transport", "shortDescription": "Optimize your logistics network with AI-driven route planning.", "href": "/use-cases"},
+        {"title": "Telecom", "shortDescription": "Manage infrastructure on one AI platform.", "href": "/use-cases"}
       ]
     },
     "learning": {
