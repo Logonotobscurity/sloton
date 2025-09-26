@@ -30,14 +30,18 @@ export function BookDemoWidget() {
                 <span className="hidden md:inline ml-2 font-semibold">Book a Demo</span>
             </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
-            <DialogHeader>
-                <DialogTitle className="text-2xl">Book a Free Demo</DialogTitle>
-                <DialogDescription>
-                    Choose a date that works for you, and we'll get in touch to schedule a personalized demo of our solutions.
-                </DialogDescription>
-            </DialogHeader>
-             <CommunityLeadForm interest="Free Demo Request" />
+        <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background p-0">
+            <div className="p-6">
+                <DialogHeader>
+                    <DialogTitle className="text-2xl">Book a Free Demo</DialogTitle>
+                    <DialogDescription>
+                        Choose a date that works for you, and we'll get in touch to schedule a personalized demo of our solutions.
+                    </DialogDescription>
+                </DialogHeader>
+            </div>
+             <div className="p-6 pt-0">
+                <CommunityLeadForm interest="Free Demo Request" />
+             </div>
         </DialogContent>
       </Dialog>
     </div>
