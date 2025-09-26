@@ -106,7 +106,13 @@ export function PartnershipApproach() {
              </div>
         </div>
         
-        <div className="text-center pt-4">
+        <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[50rem] xl:grid-rows-2 mt-16">
+            {allCaseStudies.map((study, index) => (
+                <GridItem key={study.title} study={study} area={caseStudyGridAreas[index % caseStudyGridAreas.length]} />
+            ))}
+        </ul>
+
+         <div className="text-center pt-16">
             <Button asChild className="group flex justify-center gap-2 items-center">
                 <Link href="/contact">
                     Start a Project
@@ -114,14 +120,9 @@ export function PartnershipApproach() {
                 </Link>
             </Button>
         </div>
-        
-        <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[50rem] xl:grid-rows-2 mt-16">
-            {allCaseStudies.map((study, index) => (
-                <GridItem key={study.title} study={study} area={caseStudyGridAreas[index % caseStudyGridAreas.length]} />
-            ))}
-        </ul>
 
       </div>
     </section>
   );
 }
+
