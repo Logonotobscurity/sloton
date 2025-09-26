@@ -4,7 +4,6 @@
 import { Button } from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { CaseStudiesCarousel } from "./case-studies-carousel";
 import { caseStudies } from "@/lib/case-studies";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
