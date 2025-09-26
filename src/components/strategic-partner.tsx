@@ -1,7 +1,6 @@
-
 "use client";
 
-import { BrainCircuit, ArrowRight, Cog } from 'lucide-react';
+import { BrainCircuit, ArrowRight, Cog, FileText, UserCheck, Search } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -12,24 +11,92 @@ import {
 } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { TaskAutomationForm } from './task-automation-form';
-import { GlowingCard } from './ui/glowing-card';
-import { CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
-import { Button } from './ui/button';
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
-const steps = [
+const gridItems = [
     {
-        name: "Free AI Assessment",
-        description: "Get an instant, data-driven analysis of your AI readiness and a high-level technology roadmap. No commitment required."
+        area: "md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]",
+        icon: <Search className="h-4 w-4 text-black dark:text-neutral-400" />,
+        title: "Free AI Assessment",
+        description: "Get an instant, data-driven analysis of your AI readiness and a high-level technology roadmap. No commitment required.",
+        isDialog: false,
     },
     {
-        name: "Detailed Consultation",
-        description: "Our experts dive deep into your assessment results, refining the strategy and aligning it with your specific business goals."
+        area: "md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]",
+        icon: <UserCheck className="h-4 w-4 text-black dark:text-neutral-400" />,
+        title: "Detailed Consultation",
+        description: "Our experts dive deep into your assessment results, refining the strategy and aligning it with your specific business goals.",
+        isDialog: false,
     },
-     {
-        name: "Custom Proposal & Implementation",
-        description: "Receive a comprehensive proposal with a clear scope, timeline, and ROI projections, followed by expert implementation."
-    }
-]
+    {
+        area: "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]",
+        icon: <FileText className="h-4 w-4 text-black dark:text-neutral-400" />,
+        title: "Custom Proposal & Implementation",
+        description: "Receive a comprehensive proposal with a clear scope, timeline, and ROI projections, followed by expert implementation.",
+        isDialog: false,
+    },
+    {
+        area: "md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]",
+        icon: <BrainCircuit className="h-4 w-4 text-black dark:text-neutral-400" />,
+        title: "Free AI Business Assessment",
+        description: "Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning.",
+        isDialog: true,
+        dialogContent: <SolutionRecommendationForm />,
+        dialogTitle: "AI Business Assessment",
+        dialogDescription: "Describe your business needs to receive tailored IT solution recommendations from our AI consultant."
+    },
+    {
+        area: "md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]",
+        icon: <Cog className="h-4 w-4 text-black dark:text-neutral-400" />,
+        title: "Automation Task Designer",
+        description: "Describe a repetitive task or workflow and get a configured, optimized automation plan in seconds.",
+        isDialog: true,
+        dialogContent: <TaskAutomationForm />,
+        dialogTitle: "Automation Task Designer",
+        dialogDescription: "Describe a workflow to generate a configured, optimized task design, complete with AI suggestions."
+    },
+];
+
+interface GridItemProps {
+  area: string;
+  icon: React.ReactNode;
+  title: string;
+  description: React.ReactNode;
+  children?: React.ReactNode;
+}
+
+const GridItem = ({ area, icon, title, description, children }: GridItemProps) => {
+  return (
+    <li className={`min-h-[14rem] list-none ${area}`}>
+      <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
+        <GlowingEffect
+          spread={40}
+          glow={true}
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+        />
+        <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
+          <div className="relative flex flex-1 flex-col justify-between gap-3">
+            <div className="w-fit rounded-lg border border-gray-600 p-2">
+              {icon}
+            </div>
+            <div className="space-y-3">
+              <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-black md:text-2xl/[1.875rem] dark:text-white">
+                {title}
+              </h3>
+              <h2 className="font-sans text-sm/[1.125rem] text-black md:text-base/[1.375rem] dark:text-neutral-400 [&_b]:md:font-semibold [&_strong]:md:font-semibold">
+                {description}
+              </h2>
+            </div>
+          </div>
+           {children && <div className="mt-4">{children}</div>}
+        </div>
+      </div>
+    </li>
+  );
+};
+
 
 export function StrategicPartner() {
   return (
@@ -43,87 +110,60 @@ export function StrategicPartner() {
             </p>
         </div>
 
-        <div className="max-w-5xl mx-auto mt-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
-                {steps.map((step, index) => (
-                    <div key={step.name} className="flex flex-col sm:flex-row md:flex-col text-center md:text-left items-center md:items-start gap-4">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold flex-shrink-0">
-                            {index + 1}
-                        </div>
-                        <div className="flex-grow">
-                            <h3 className="font-semibold text-lg">{step.name}</h3>
-                            <p className="text-sm text-muted-foreground mt-1">{step.description}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-4xl mx-auto">
-            <Dialog>
-                <GlowingCard>
-                  <div className="p-6 text-center flex flex-col h-full">
-                    <CardHeader className="p-0 items-center">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                            <BrainCircuit className="h-6 w-6" />
-                        </div>
-                        <CardTitle className="pt-4 text-xl md:text-2xl">{`Free AI Business Assessment`}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-0 pt-4 flex-grow">
-                        <p className="text-muted-foreground">Get a high-level technology roadmap tailored to your business goals. Ideal for strategic planning.</p>
-                    </CardContent>
-                    <CardFooter className="p-0 pt-6 mt-auto flex justify-center">
-                        <DialogTrigger asChild>
-                             <Button variant="secondary" className="group">
-                                Launch Assessment Tool <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                        </DialogTrigger>
-                    </CardFooter>
-                  </div>
-                </GlowingCard>
-              <DialogContent className="sm:max-w-[600px] bg-background">
-                <DialogHeader>
-                  <DialogTitle className="text-2xl flex items-center gap-2"><BrainCircuit className="h-6 w-6 text-accent" /> AI Business Assessment</DialogTitle>
-                  <DialogDescription>
-                    Describe your business needs to receive tailored IT solution recommendations from our AI consultant. This tool helps you identify the best technology strategies for your goals.
-                  </DialogDescription>
-                </DialogHeader>
-                <SolutionRecommendationForm />
-              </DialogContent>
-            </Dialog>
-
-             <Dialog>
-                <GlowingCard>
-                   <div className="p-6 text-center flex flex-col h-full">
-                    <CardHeader className="p-0 items-center">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                            <Cog className="h-6 w-6" />
-                        </div>
-                        <CardTitle className="pt-4 text-xl md:text-2xl">Automation Task Designer</CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-0 pt-4 flex-grow">
-                        <p className="text-muted-foreground">Describe a repetitive task or workflow and get a configured, optimized automation plan in seconds.</p>
-                    </CardContent>
-                     <CardFooter className="p-0 pt-6 mt-auto flex justify-center">
-                        <DialogTrigger asChild>
-                            <Button variant="secondary" className="group">
-                                Design an Automation <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                        </DialogTrigger>
-                    </CardFooter>
-                   </div>
-                </GlowingCard>
-              <DialogContent className="sm:max-w-[600px] bg-background">
-                <DialogHeader>
-                  <DialogTitle className="text-2xl flex items-center gap-2"><Cog className="h-6 w-6 text-accent" /> Automation Task Designer</DialogTitle>
-                  <DialogDescription>
-                     Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.
-                  </DialogDescription>
-                </DialogHeader>
-                <TaskAutomationForm />
-              </DialogContent>
-            </Dialog>
-        </div>
+        <ul className="mt-16 grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+           {gridItems.map((item) => {
+                if (item.isDialog) {
+                    return (
+                        <Dialog key={item.title}>
+                            <DialogTrigger asChild>
+                                 <li className={`min-h-[14rem] list-none ${item.area} cursor-pointer`}>
+                                  <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
+                                    <GlowingEffect
+                                      spread={40}
+                                      glow={true}
+                                      disabled={false}
+                                      proximity={64}
+                                      inactiveZone={0.01}
+                                    />
+                                    <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
+                                      <div className="relative flex flex-1 flex-col justify-between gap-3">
+                                        <div className="w-fit rounded-lg border border-gray-600 p-2">
+                                          {item.icon}
+                                        </div>
+                                        <div className="space-y-3">
+                                          <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-black md:text-2xl/[1.875rem] dark:text-white">
+                                            {item.title}
+                                          </h3>
+                                          <h2 className="font-sans text-sm/[1.125rem] text-black md:text-base/[1.375rem] dark:text-neutral-400 [&_b]:md:font-semibold [&_strong]:md:font-semibold">
+                                            {item.description}
+                                          </h2>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                            </DialogTrigger>
+                            <DialogContent className="sm:max-w-[600px] bg-background">
+                                <DialogHeader>
+                                    <DialogTitle className="text-2xl flex items-center gap-2">{item.icon} {item.dialogTitle}</DialogTitle>
+                                    <DialogDescription>{item.dialogDescription}</DialogDescription>
+                                </DialogHeader>
+                                {item.dialogContent}
+                            </DialogContent>
+                        </Dialog>
+                    );
+                }
+                return (
+                    <GridItem
+                        key={item.title}
+                        area={item.area}
+                        icon={item.icon}
+                        title={item.title}
+                        description={item.description}
+                    />
+                );
+            })}
+        </ul>
       </div>
     </section>
   );
