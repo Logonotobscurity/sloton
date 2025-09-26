@@ -48,7 +48,7 @@ export default function PartnersPage() {
             <p className="text-md md:text-lg text-muted-foreground">
               At LOG_ON, we believe that collaboration is the key to innovation. Our partner ecosystem brings together technology leaders, solution providers, and system integrators to deliver exceptional value to customers worldwide. By joining our network, you become part of a community dedicated to solving complex challenges with the power of AI and automation.
             </p>
-            <Button asChild size="lg" className="w-full sm:w-auto">
+            <Button asChild size="lg">
               <Link href="/contact">Become a Partner</Link>
             </Button>
           </div>
@@ -132,7 +132,7 @@ export default function PartnersPage() {
                Let's explore how a partnership with LOG_ON can help you achieve your business goals. Reach out to our partner team today.
             </p>
             <div className="mt-8 flex justify-center">
-                <Button asChild size="lg" className="w-full sm:w-auto">
+                <Button asChild size="lg">
                     <Link href="/contact">
                         Contact Our Partner Team <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

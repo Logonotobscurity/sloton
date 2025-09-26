@@ -171,7 +171,7 @@ export default function SolutionsPage() {
                     </div>
                   </CardContent>
                   <CardFooter className="p-0 pt-6 mt-auto">
-                    <Button asChild className="w-full sm:w-auto">
+                    <Button asChild>
                       <Link href={service.href}>
                         {service.href === '/contact' ? 'Get a Free Consultation' : 'Learn More'}
                       </Link>

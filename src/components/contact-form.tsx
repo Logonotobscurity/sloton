@@ -125,7 +125,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="group w-full flex justify-center gap-2 items-center" disabled={isSubmitting}>
+        <Button type="submit" className="group flex justify-center gap-2 items-center" disabled={isSubmitting}>
           {isSubmitting ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           ) : (

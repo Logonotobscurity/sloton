@@ -224,7 +224,7 @@ export default function TrainingPage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <DialogFormWrapper
-                    trigger={<Button size="lg" className="w-full sm:w-auto">Get In Touch</Button>}
+                    trigger={<Button size="lg">Get In Touch</Button>}
                     title="Let's Connect"
                     description="Please fill out your details below to start a conversation with our team."
                     form={<CommunityLeadForm />}

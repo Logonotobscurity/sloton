@@ -60,7 +60,7 @@ export default function ChatbotsPage() {
                     </div>
                 ))}
             </div>
-            <Button asChild size="lg" className="mt-4 w-full sm:w-auto">
+            <Button asChild size="lg" className="mt-4">
               <Link href="/contact">Build Your Chatbot</Link>
             </Button>
           </div>
@@ -117,7 +117,7 @@ export default function ChatbotsPage() {
                 Let's discuss how a custom chatbot can revolutionize your customer engagement. Schedule a free consultation with our AI experts today.
             </p>
             <div className="mt-8 flex justify-center">
-                <Button asChild size="lg" className="w-full sm:w-auto">
+                <Button asChild size="lg">
                     <Link href="/contact">
                         Get a Free Chatbot Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

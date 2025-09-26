@@ -60,7 +60,7 @@ export default function DatabaseSolutionsPage() {
                     </div>
                 ))}
             </div>
-            <Button asChild size="lg" className="mt-4 w-full sm:w-auto">
+            <Button asChild size="lg" className="mt-4">
               <Link href="/contact">Get a Database Consultation</Link>
             </Button>
           </div>
@@ -117,7 +117,7 @@ export default function DatabaseSolutionsPage() {
                 Let's discuss how our database expertise can improve your application performance and secure your data. Schedule a free consultation today.
             </p>
             <div className="mt-8 flex justify-center">
-                <Button asChild size="lg" className="w-full sm:w-auto">
+                <Button asChild size="lg">
                     <Link href="/contact">
                         Schedule Your Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

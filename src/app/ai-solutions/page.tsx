@@ -60,7 +60,7 @@ export default function AiSolutionsPage() {
                     </div>
                 ))}
             </div>
-            <Button asChild size="lg" className="mt-4 w-full sm:w-auto">
+            <Button asChild size="lg" className="mt-4">
               <Link href="/contact">Get a Free AI Consultation</Link>
             </Button>
           </div>
@@ -117,7 +117,7 @@ export default function AiSolutionsPage() {
                 Let's discuss how our custom AI solutions can revolutionize your business. Schedule a free, no-obligation consultation with our AI experts today.
             </p>
             <div className="mt-8 flex justify-center">
-                <Button asChild size="lg" className="w-full sm:w-auto">
+                <Button asChild size="lg">
                     <Link href="/contact">
                         Schedule Your Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

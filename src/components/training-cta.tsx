@@ -33,7 +33,7 @@ export function TrainingCTA() {
             <p className="text-md text-muted-foreground">
               Ready to master the most in-demand tech skills? Our expert-led training programs are designed to provide you with hands-on experience and a cutting-edge curriculum.
             </p>
-             <Button asChild size="lg" className="w-full sm:w-auto mt-4">
+             <Button asChild size="lg" className="mt-4">
               <Link href="/training">
                 Explore All Programs <ArrowRight className="ml-2 h-5 w-5" />
               </Link>

@@ -76,7 +76,7 @@ export default function WebDevelopmentPage() {
                 Whether you're an established publisher, a growing e-commerce brand, or a corporation looking to enhance your digital presence, we're here to help.
             </p>
             <div className="mt-8 flex justify-center">
-                <Button asChild size="lg" className="w-full sm:w-auto">
+                <Button asChild size="lg">
                     <Link href="/contact">
                         Get a Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

@@ -36,7 +36,7 @@ export default function ABTestingPage() {
                     </div>
                 ))}
             </div>
-            <Button asChild size="lg" className="mt-4 w-full sm:w-auto">
+            <Button asChild size="lg" className="mt-4">
               <Link href="/contact">Discuss Your Optimization Needs</Link>
             </Button>
           </div>
@@ -65,7 +65,7 @@ export default function ABTestingPage() {
                 Let's discuss how our A/B testing and optimization services can help you achieve your business goals. Schedule a free consultation today.
             </p>
             <div className="mt-8 flex justify-center">
-                <Button asChild size="lg" className="w-full sm:w-auto">
+                <Button asChild size="lg">
                     <Link href="/contact">
                         Get a Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
