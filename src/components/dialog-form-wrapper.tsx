@@ -24,7 +24,7 @@ export function DialogFormWrapper({ trigger, title, description, form }: DialogF
       <DialogTrigger asChild>
         {trigger}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
+      <DialogContent className="bg-background">
         <DialogHeader>
           <DialogTitle className="text-2xl">{title}</DialogTitle>
           <DialogDescription>
