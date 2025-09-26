@@ -2,7 +2,7 @@
 "use client";
 
 import { BrainCircuit, Calculator, CheckCircle } from 'lucide-react';
-import { Card, CardTitle, CardDescription } from './ui/card';
+import { Card, CardTitle, CardDescription, CardHeader } from './ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { TaskAutomationForm } from './task-automation-form';

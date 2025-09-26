@@ -1,6 +1,7 @@
 
 "use client";
 
+import React from 'react';
 import { BrainCircuit, ArrowRight, Cog, Bot, Zap, Code } from 'lucide-react';
 import { Card, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
