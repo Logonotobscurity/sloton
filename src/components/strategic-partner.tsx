@@ -16,7 +16,7 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const gridItems = [
     {
-        area: "md:[grid-area:1/1/2/7]",
+        area: "md:[grid-area:1/1/2/8]",
         icon: <BrainCircuit className="h-6 w-6" />,
         title: "AI & Automation Strategy",
         description: "From our proprietary AI Assessment to custom model development, we create holistic, data-driven technology roadmaps.",
@@ -29,7 +29,7 @@ const gridItems = [
         isDialog: false,
     },
     {
-        area: "md:[grid-area:1/7/2/13]",
+        area: "md:[grid-area:2/1/3/8]",
         icon: <Cog className="h-6 w-6" />,
         title: "Custom Platform Development",
         description: "We build high-performance web and mobile apps, scalable e-commerce platforms, and optimized database architectures.",
@@ -42,24 +42,26 @@ const gridItems = [
         isDialog: false,
     },
     {
-        area: "md:[grid-area:2/1/3/7]",
+        area: "md:[grid-area:1/8/2/13]",
         icon: <Search className="h-6 w-6" />,
-        title: "Free AI Assessment",
-        description: "Get an instant, data-driven analysis of your AI readiness and a high-level technology roadmap. No commitment required.",
+        title: "Free AI Business Assessment",
+        description: "Get an instant, data-driven analysis of your AI readiness and a high-level technology roadmap.",
         isDialog: true,
         dialogContent: <SolutionRecommendationForm />,
         dialogTitle: "AI Business Assessment",
-        dialogDescription: "Describe your business needs to receive tailored IT solution recommendations from our AI consultant."
+        dialogDescription: "Describe your business needs to receive tailored IT solution recommendations from our AI consultant.",
+        ctaText: "Launch Assessment"
     },
     {
-        area: "md:[grid-area:2/7/3/13]",
+        area: "md:[grid-area:2/8/3/13]",
         icon: <Cog className="h-6 w-6" />,
         title: "Automation Task Designer",
         description: "Describe a repetitive task or workflow and get a configured, optimized automation plan in seconds.",
         isDialog: true,
         dialogContent: <TaskAutomationForm />,
         dialogTitle: "Automation Task Designer",
-        dialogDescription: "Describe a workflow to generate a configured, optimized task design, complete with AI suggestions."
+        dialogDescription: "Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.",
+        ctaText: "Launch Designer"
     },
 ];
 
@@ -118,7 +120,7 @@ export function StrategicPartner() {
     <section id="strategic-partner" className="py-16 md:py-24 bg-secondary/20 scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto">
-             <p className="text-sm font-normal uppercase tracking-widest text-primary">Why We're Different & How We Work</p>
+             <p className="text-sm font-normal uppercase tracking-widest text-primary">01/ The Process</p>
             <h2 className="font-headline text-3xl md:text-4xl font-bold mt-4">
                 Only 3% of tech consultants combine deep AI expertise with strategic business acumen. <span className="text-primary">We are in that 3%.</span>
             </h2>
@@ -128,12 +130,12 @@ export function StrategicPartner() {
         </div>
 
         <ul className="mt-16 grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-2">
-           {gridItems.map((item) => {
+           {gridItems.map((item: any) => {
                 if (item.isDialog) {
                     return (
                         <Dialog key={item.title}>
                             <DialogTrigger asChild>
-                                 <li className={`min-h-[14rem] list-none ${item.area} cursor-pointer`}>
+                                 <li className={`min-h-[14rem] list-none ${item.area} cursor-pointer group`}>
                                     <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3 bg-secondary/30 border-border/50">
                                         <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01}/>
                                         <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 bg-background dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
@@ -149,7 +151,7 @@ export function StrategicPartner() {
                                                 </p>
                                             </div>
                                             <div className="flex items-center text-sm font-semibold text-primary group-hover:underline">
-                                                Try It Now <ArrowRight className="ml-2 h-4 w-4" />
+                                                {item.ctaText} <ArrowRight className="ml-2 h-4 w-4" />
                                             </div>
                                         </div>
                                     </div>
