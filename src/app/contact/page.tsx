@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { ContactForm } from '@/components/contact-form';
 import { Mail, Phone, Briefcase, Lightbulb, MessageCircle } from 'lucide-react';
 import type { Metadata } from 'next';
-import { ChatbotEmbed } from '@/components/chatbot-embed';
+import { Faq } from '@/components/faq';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -94,6 +94,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+      <Faq />
     </div>
   );
 }
