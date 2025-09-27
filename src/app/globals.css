@@ -67,10 +67,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground font-body antialiased leading-relaxed;
     font-weight: 400;
-    line-height: 1.6;
     overflow-x: hidden;
+  }
+
+  p {
+    @apply leading-relaxed;
   }
 }
 
