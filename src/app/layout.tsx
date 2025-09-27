@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import { Nunito, Abhaya_Libre } from 'next/font/google';
 import './globals.css';
