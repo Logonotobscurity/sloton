@@ -1,7 +1,9 @@
-// All credit for this code goes to https://github.com/reuno-s/21st-ui
+
 "use client";
 
 import { cn } from "@/lib/utils";
+import { ReactTyped } from "react-typed";
+import React from 'react';
 
 // @ts-ignore
 function n(e) {
@@ -179,9 +181,12 @@ function render() {
 
 function resizeCanvas() {
   // @ts-ignore
-  ctx.canvas.width = window.innerWidth - 20;
-  // @ts-ignore
-  ctx.canvas.height = window.innerHeight;
+  if (ctx && ctx.canvas) {
+    // @ts-ignore
+    ctx.canvas.width = window.innerWidth;
+    // @ts-ignore
+    ctx.canvas.height = window.innerHeight;
+  }
 }
 
 // @ts-ignore
@@ -212,6 +217,7 @@ export const renderCanvas = function () {
   if (!canvas) return;
   // @ts-ignore
   ctx = canvas.getContext("2d");
+  if (!ctx) return;
   ctx.running = true;
   ctx.frame = 1;
   f = new n({
@@ -239,8 +245,6 @@ export const renderCanvas = function () {
   resizeCanvas();
 };
 
-import { ReactTyped } from "react-typed";
-import React from "react";
 
 interface TypeWriterProps {
   strings: string[];
@@ -274,16 +278,6 @@ interface ShineBorderProps {
   children: React.ReactNode;
 }
 
-/**
- * @name Shine Border
- * @description It is an animated background border effect component with easy to use and configurable props.
- * @param borderRadius defines the radius of the border.
- * @param borderWidth defines the width of the border.
- * @param duration defines the animation duration to be applied on the shining border
- * @param color a string or string array to define border color.
- * @param className defines the class name to be applied to the component
- * @param children contains react node elements.
- */
 export function ShineBorder({
   borderRadius = 8,
   borderWidth = 1,
@@ -300,7 +294,7 @@ export function ShineBorder({
         } as React.CSSProperties
       }
       className={cn(
-        "relative grid h-full w-full place-items-center rounded-3xl bg-white p-3 text-black dark:bg-black dark:text-white",
+        "relative grid h-full w-full place-items-center rounded-lg bg-background p-3",
         className,
       )}
     >
@@ -314,7 +308,7 @@ export function ShineBorder({
             "--background-radial-gradient": `radial-gradient(transparent,transparent, ${color instanceof Array ? color.join(",") : color},transparent,transparent)`,
           } as React.CSSProperties
         }
-        className={`before:bg-shine-size before:absolute before:inset-0 before:aspect-square before:size-full before:rounded-3xl before:p-[--border-width] before:will-change-[background-position] before:content-[""] before:![-webkit-mask-composite:xor] before:[background-image:--background-radial-gradient] before:[background-size:300%_300%] before:![mask-composite:exclude] before:[mask:--mask-linear-gradient] motion-safe:before:animate-[shine-pulse_var(--shine-pulse-duration)_infinite_linear]`}
+        className={`before:bg-shine-size before:absolute before:inset-0 before:aspect-square before:size-full before:rounded-lg before:p-[--border-width] before:will-change-[background-position] before:content-[""] before:![-webkit-mask-composite:xor] before:[background-image:--background-radial-gradient] before:[background-size:300%_300%] before:![mask-composite:exclude] before:[mask:--mask-linear-gradient] motion-safe:before:animate-[shine-pulse_var(--shine-pulse-duration)_infinite_linear]`}
       ></div>
       {children}
     </div>
