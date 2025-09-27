@@ -80,6 +80,12 @@ const communityProjects = [
         title: "Gigpilot: AI Gig Economy Assistant",
         description: "An AI-powered tool to convert job seekers into engaged users through intelligent job matching and automated nurturing.",
         href: "/training#impact",
+    },
+    {
+        icon: <Users className="h-8 w-8 text-primary"/>,
+        title: "Community Skill Synchronization Initiative | 2021",
+        description: "Architected behavior-based learning products training 50+ individuals in digital skills (Cybersecurity, Data Science, RPA), securing career placements and reducing instruction time by 30%.",
+        href: "/training#impact",
     }
 ]
 
@@ -149,7 +155,7 @@ export default function TrainingPage() {
                     <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Commitment to Community</h2>
                     <p className="mt-4 text-md md:text-lg text-muted-foreground">We actively invest in projects that use technology to create a positive social impact, from promoting mental health accessibility to ensuring ethical AI development.</p>
                 </div>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 gap-8">
                      {communityProjects.map(project => (
                         <Card key={project.title} className="bg-background/50">
                             <CardHeader>
