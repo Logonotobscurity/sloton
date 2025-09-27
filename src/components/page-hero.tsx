@@ -79,10 +79,10 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
       ></div>
 
       <div className="relative z-10 flex flex-col justify-center items-center px-4 md:px-6 py-16 md:py-24">
-        <div className="text-left max-w-3xl">
-          {icon && <div className="mb-4">{icon}</div>}
+        <div className="text-center max-w-3xl">
+          {icon && <div className="mb-4 flex justify-center">{icon}</div>}
           <h1
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight font-headline"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight font-headline mb-6"
           >
             {titleWords.map((word, index) => (
               <span
@@ -95,7 +95,7 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
             ))}
           </h1>
           <p
-            className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-6"
+            className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-6 leading-relaxed"
           >
             {descriptionWords.map((word, index) => (
               <span
