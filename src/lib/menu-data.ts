@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Cog, Users, Landmark, Search, Globe, Building, Briefcase, HeartPulse, ShoppingCart, Shield, Calculator, Factory, Server, Truck, Phone } from 'lucide-react';
 
@@ -73,7 +74,7 @@ export const menuData = {
         "intro": "Discover a playground for learning, designed to help develop the skills you need for an AI-driven world.",
         "cta": {"label": "Start Learning", "href": "/training"},
         "links": [
-          {"title": "Career journeys", "desc": "Learn about key roles in high demand within the LOG_ON ecosystem.", "href": "/training"},
+          {"title": "Career journeys", "desc": "Learn about key roles in high demand within the LOG_ON ecosystem.", "href": "/about/careers"},
           {"title": "Learning Help Center", "desc": "Find answers to your questions by exploring our knowledge base.", "href": "/support"},
           {"title": "Information Community", "desc": "Connect with peers and experts in our community forums.", "href": "/support"},
           {"title": "Training and certification", "desc": "Explore the LOG_ON certification portfolio.", "href": "/training"},
