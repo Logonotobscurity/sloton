@@ -1,23 +1,66 @@
 
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import Link from "next/link";
  
 export function Hero() {
+  const gradientRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const words = document.querySelectorAll<HTMLElement>(".word");
+    words.forEach((word) => {
+      const delay = parseInt(word.getAttribute("data-delay") || "0", 10);
+      setTimeout(() => {
+        word.style.animation = "word-appear 0.8s ease-out forwards";
+      }, delay);
+    });
+
+    const gradient = gradientRef.current;
+    function onMouseMove(e: MouseEvent) {
+      if (gradient) {
+        gradient.style.left = e.clientX - 192 + "px";
+        gradient.style.top = e.clientY - 192 + "px";
+        gradient.style.opacity = "1";
+      }
+    }
+    function onMouseLeave() {
+      if (gradient) gradient.style.opacity = "0";
+    }
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseleave", onMouseLeave);
+
+    return () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseleave", onMouseLeave);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground font-body overflow-hidden relative w-full flex flex-col justify-center items-center">
+      <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="hsl(var(--border) / 0.1)" strokeWidth="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
       <div
-      className="absolute inset-0 -z-10 h-full w-full bg-background 
-      bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] 
-      bg-[size:6rem_6rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"
-    />
-      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-6">
+        id="mouse-gradient"
+        ref={gradientRef}
+        className="fixed pointer-events-none w-96 h-96 rounded-full blur-3xl transition-all duration-500 ease-out opacity-0"
+        style={{
+          background: `radial-gradient(circle, hsl(var(--primary)/0.1) 0%, transparent 100%)`,
+        }}
+      ></div>
+
+      <div className="relative z-10 flex flex-col justify-center items-center px-4 md:px-6">
           <div className="text-center max-w-4xl mx-auto">
-              <div className="animate-[fade-in_0.5s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.2s' }}>
+              <div style={{ animation: "word-appear 0.8s ease-out forwards", animationDelay: '0.2s', opacity: 0 }}>
                 <p className="text-sm font-normal uppercase tracking-widest text-primary">
                     Your Partner in Growth
                 </p>
@@ -29,14 +72,14 @@ export function Hero() {
                     </span>
                 </h1>
               </div>
-              <div className="animate-[fade-in_0.5s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.8s' }}>
+              <div style={{ animation: "word-appear 0.8s ease-out forwards", animationDelay: '0.8s', opacity: 0 }}>
                 <p className="text-md md:text-xl text-muted-foreground max-w-2xl mx-auto">
                     We build and manage scalable, secure, and intelligent systems that help businesses cut costs, automate processes, and scale faster.
                 </p>
               </div>
               <div 
-                className="flex flex-col sm:flex-row gap-4 justify-center mt-8 opacity-0 animate-[fade-in_0.5s_ease-out_forwards]"
-                style={{animationDelay: "1.2s"}}
+                className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
+                style={{ animation: "word-appear 0.8s ease-out forwards", animationDelay: '1.2s', opacity: 0 }}
               >
                   <Dialog>
                       <DialogTrigger asChild>

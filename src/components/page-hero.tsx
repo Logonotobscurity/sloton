@@ -11,13 +11,6 @@ interface PageHeroProps {
   children?: React.ReactNode;
 }
 
-const colors = {
-  50: "hsl(var(--foreground))",
-  100: "hsl(var(--foreground))",
-  200: "hsl(var(--muted-foreground))",
-  500: "hsl(var(--primary))",
-};
-
 export function PageHero({ title, description, icon, children }: PageHeroProps) {
   const gradientRef = useRef<HTMLDivElement>(null);
 
@@ -44,9 +37,23 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("mouseleave", onMouseLeave);
 
+    let scrolled = false;
+    function onScroll() {
+      if (!scrolled) {
+        scrolled = true;
+        document.querySelectorAll<HTMLElement>(".floating-element").forEach((el, index) => {
+          setTimeout(() => {
+            el.style.animationPlayState = "running";
+          }, index * 200);
+        });
+      }
+    }
+    window.addEventListener("scroll", onScroll);
+
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseleave", onMouseLeave);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
@@ -54,7 +61,7 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
   const descriptionWords = description.split(" ");
 
   return (
-    <div className="min-h-[50vh] bg-gradient-to-br from-[#1a1d18] via-black to-[#2a2e26] text-[#e6e1d7] font-body overflow-hidden relative w-full">
+    <div className="min-h-[50vh] bg-gradient-to-br from-[#1a1d18] via-black to-[#2a2e26] text-foreground font-body overflow-hidden relative w-full flex items-center justify-center">
       <svg
         className="absolute inset-0 w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
@@ -69,19 +76,26 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
             <path
               d="M 60 0 L 0 0 0 60"
               fill="none"
-              stroke="rgba(200,180,160,0.08)"
+              stroke="hsl(var(--border) / 0.1)"
               strokeWidth="0.5"
             />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#grid)" />
       </svg>
+      <div
+        id="mouse-gradient"
+        ref={gradientRef}
+        className="fixed pointer-events-none w-96 h-96 rounded-full blur-3xl transition-all duration-500 ease-out opacity-0"
+        style={{
+          background: `radial-gradient(circle, hsl(var(--primary)/0.1) 0%, transparent 100%)`,
+        }}
+      ></div>
 
       <div className="relative z-10 min-h-[50vh] flex flex-col justify-center items-center px-4 md:px-6 text-center py-16 md:py-24">
         {icon && <div className="mb-4">{icon}</div>}
         <h1
           className="text-3xl md:text-5xl lg:text-6xl font-extralight leading-tight tracking-tight max-w-3xl"
-          style={{ color: colors[50] }}
         >
           {titleWords.map((word, index) => (
             <span
@@ -94,8 +108,7 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
           ))}
         </h1>
         <p
-          className="text-lg md:text-xl lg:text-2xl font-thin leading-relaxed mt-6 max-w-3xl"
-          style={{ color: colors[200] }}
+          className="text-lg md:text-xl lg:text-2xl font-thin leading-relaxed mt-6 max-w-3xl text-muted-foreground"
         >
           {descriptionWords.map((word, index) => (
             <span
@@ -109,15 +122,6 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
         </p>
         {children && <div className="mt-8 w-full">{children}</div>}
       </div>
-
-      <div
-        id="mouse-gradient"
-        ref={gradientRef}
-        className="fixed pointer-events-none w-96 h-96 rounded-full blur-3xl transition-all duration-500 ease-out opacity-0"
-        style={{
-          background: `radial-gradient(circle, hsl(var(--primary)/0.1) 0%, transparent 100%)`,
-        }}
-      ></div>
     </div>
   );
 }
