@@ -92,36 +92,39 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
         }}
       ></div>
 
-      <div className="relative z-10 min-h-[50vh] flex flex-col justify-center items-center px-4 md:px-6 text-center py-16 md:py-24">
-        {icon && <div className="mb-4">{icon}</div>}
-        <h1
-          className="text-3xl md:text-5xl lg:text-6xl font-extralight leading-tight tracking-tight max-w-3xl"
-        >
-          {titleWords.map((word, index) => (
-            <span
-              key={index}
-              className="word"
-              data-delay={100 * index}
-            >
-              {word}{" "}
-            </span>
-          ))}
-        </h1>
-        <p
-          className="text-lg md:text-xl lg:text-2xl font-thin leading-relaxed mt-6 max-w-3xl text-muted-foreground"
-        >
-          {descriptionWords.map((word, index) => (
-            <span
-              key={index}
-              className="word"
-              data-delay={1000 + 100 * index}
-            >
-              {word}{" "}
-            </span>
-          ))}
-        </p>
-        {children && <div className="mt-8 w-full">{children}</div>}
+      <div className="relative z-10 flex flex-col justify-center items-center px-4 md:px-6 py-16 md:py-24">
+        <div className="text-left max-w-3xl">
+          {icon && <div className="mb-4">{icon}</div>}
+          <h1
+            className="text-3xl md:text-5xl lg:text-6xl font-extralight leading-tight tracking-tight"
+          >
+            {titleWords.map((word, index) => (
+              <span
+                key={index}
+                className="word"
+                data-delay={100 * index}
+              >
+                {word}{" "}
+              </span>
+            ))}
+          </h1>
+          <p
+            className="text-lg md:text-xl lg:text-2xl font-thin leading-relaxed mt-6 text-muted-foreground"
+          >
+            {descriptionWords.map((word, index) => (
+              <span
+                key={index}
+                className="word"
+                data-delay={1000 + 100 * index}
+              >
+                {word}{" "}
+              </span>
+            ))}
+          </p>
+          {children && <div className="mt-8 w-full">{children}</div>}
+        </div>
       </div>
     </div>
   );
 }
+
