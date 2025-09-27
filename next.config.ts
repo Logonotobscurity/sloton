@@ -131,6 +131,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'media.tekpon.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn-benkb.nitrocdn.com',
+      },
     ],
   },
 };
