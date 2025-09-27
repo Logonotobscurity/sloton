@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Beaker, CheckCircle, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'A/B Testing Tool | Optimize Your Digital Assets',
@@ -21,12 +22,16 @@ const benefits = [
 export default function ABTestingPage() {
   return (
     <div className="bg-background">
+      <PageHero
+        title="A/B Testing & Conversion Optimization"
+        description="Stop guessing what works and start knowing. Our A/B testing tool allows you to test variations of your headlines, buttons, images, and layouts to discover what truly drives conversions. Make small changes that lead to big results."
+      />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold font-headline">A/B Testing & Conversion Optimization</h1>
+            <h2 className="text-3xl md:text-5xl font-bold font-headline">Data-Driven Decisions</h2>
             <p className="text-md md:text-lg text-muted-foreground">
-              Stop guessing what works and start knowing. Our A/B testing tool allows you to test variations of your headlines, buttons, images, and layouts to discover what truly drives conversions. Make small changes that lead to big results.
+              Our tools provide clear insights into what your audience responds to, empowering you to create better user experiences.
             </p>
              <div className="space-y-3 pt-4">
                 {benefits.map(benefit => (
@@ -47,13 +52,13 @@ export default function ABTestingPage() {
                     <div className="flex justify-center mb-4">
                         <Beaker className="h-12 w-12 md:h-16 md:w-16 text-primary" />
                     </div>
-                    <CardTitle className="text-center text-2xl md:text-3xl">Data-Driven Decisions</CardTitle>
+                    <CardTitle className="text-center text-2xl md:text-3xl">A/B Testing</CardTitle>
                     <CardDescription className="text-center">
                         Test, measure, and optimize for success.
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground text-sm md:text-base">
-                    <p>Our tools provide clear insights into what your audience responds to, empowering you to create better user experiences.</p>
+                    <p>Unlock the power of data to create better user experiences.</p>
                 </CardContent>
             </Card>
           </div>

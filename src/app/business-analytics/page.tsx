@@ -5,6 +5,7 @@ import { CheckCircle, ArrowRight, BarChart3, LineChart, Target, Table } from 'lu
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CaseStudyFeature } from '@/components/case-study-feature';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'Business Analytics & BI Solutions | Dashboards & Reporting',
@@ -45,13 +46,13 @@ const benefits = [
 export default function BusinessAnalyticsPage() {
   return (
     <div className="bg-background">
+      <PageHero
+        title="Business Analytics & Intelligence"
+        description="Turn your data into your most valuable asset. We help you move from simply collecting data to actively using it to drive strategy, optimize operations, and uncover new opportunities. Our custom business analytics solutions provide the clarity you need to make confident, data-driven decisions."
+      />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold font-headline">Business Analytics & Intelligence</h1>
-            <p className="text-md md:text-lg text-muted-foreground">
-              Turn your data into your most valuable asset. We help you move from simply collecting data to actively using it to drive strategy, optimize operations, and uncover new opportunities. Our custom business analytics solutions provide the clarity you need to make confident, data-driven decisions.
-            </p>
              <div className="space-y-3 pt-4">
                 {benefits.map(benefit => (
                     <div key={benefit} className="flex items-center gap-3">

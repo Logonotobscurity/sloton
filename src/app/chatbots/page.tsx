@@ -5,6 +5,7 @@ import { Bot, CheckCircle, ArrowRight, MessageSquare, Repeat, Users } from 'luci
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CaseStudyFeature } from '@/components/case-study-feature';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'AI Chatbot & Virtual Assistant Development | LOG_ON',
@@ -45,13 +46,13 @@ const benefits = [
 export default function ChatbotsPage() {
   return (
     <div className="bg-background">
+      <PageHero
+        title="AI Chatbots & Virtual Assistants"
+        description="Engage every customer, 24/7. We design and build intelligent, AI-powered chatbots that integrate seamlessly with your website, WhatsApp, and other platforms. Automate customer service, qualify leads, and drive sales while your team focuses on what matters most."
+      />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold font-headline">AI Chatbots & Virtual Assistants</h1>
-            <p className="text-md md:text-lg text-muted-foreground">
-              Engage every customer, 24/7. We design and build intelligent, AI-powered chatbots that integrate seamlessly with your website, WhatsApp, and other platforms. Automate customer service, qualify leads, and drive sales while your team focuses on what matters most.
-            </p>
              <div className="space-y-3 pt-4">
                 {benefits.map(benefit => (
                     <div key={benefit} className="flex items-center gap-3">

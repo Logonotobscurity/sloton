@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { TechStackCarousel } from '@/components/tech-stack-carousel';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import Image from 'next/image';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'LOG_ON Partner Ecosystem',
@@ -41,13 +42,13 @@ const partners = [
 export default function PartnersPage() {
   return (
     <div className="bg-background">
+      <PageHero
+        title="Join the LOG_ON Partner Network"
+        description="At LOG_ON, we believe that collaboration is the key to innovation. Our partner ecosystem brings together technology leaders, solution providers, and system integrators to deliver exceptional value to customers worldwide. By joining our network, you become part of a community dedicated to solving complex challenges with the power of AI and automation."
+      />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold font-headline">Join the LOG_ON Partner Network</h1>
-            <p className="text-md md:text-lg text-muted-foreground">
-              At LOG_ON, we believe that collaboration is the key to innovation. Our partner ecosystem brings together technology leaders, solution providers, and system integrators to deliver exceptional value to customers worldwide. By joining our network, you become part of a community dedicated to solving complex challenges with the power of AI and automation.
-            </p>
             <Button asChild size="lg">
               <Link href="/contact">Become a Partner</Link>
             </Button>

@@ -5,6 +5,7 @@ import { BrainCircuit, Cpu, Eye, Languages, BarChart, CheckCircle, ArrowRight } 
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CaseStudyFeature } from '@/components/case-study-feature';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'AI Solutions | Custom AI & Machine Learning Services',
@@ -45,13 +46,13 @@ const benefits = [
 export default function AiSolutionsPage() {
   return (
     <div className="bg-background">
+      <PageHero
+        title="Custom AI Solutions to Power Your Business"
+        description="At LOG_ON, we don't just use AI—we build it. We specialize in creating bespoke artificial intelligence and machine learning solutions that integrate seamlessly with your operations to solve your most complex challenges. Our expert team partners with you to transform your data into a strategic asset, driving efficiency, innovation, and measurable growth."
+      />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold font-headline">Custom AI Solutions to Power Your Business</h1>
-            <p className="text-md md:text-lg text-muted-foreground">
-              At LOG_ON, we don't just use AI—we build it. We specialize in creating bespoke artificial intelligence and machine learning solutions that integrate seamlessly with your operations to solve your most complex challenges. Our expert team partners with you to transform your data into a strategic asset, driving efficiency, innovation, and measurable growth.
-            </p>
              <div className="space-y-3 pt-4">
                 {benefits.map(benefit => (
                     <div key={benefit} className="flex items-center gap-3">
