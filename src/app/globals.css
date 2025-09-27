@@ -67,8 +67,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased leading-relaxed;
-    font-weight: 400;
+    @apply bg-background text-foreground font-body antialiased;
     overflow-x: hidden;
   }
 
@@ -76,6 +75,7 @@
     @apply leading-relaxed;
   }
 }
+
 
 @keyframes fade-in {
   from {
@@ -182,4 +182,106 @@
   100% {
     transform: scaleY(-1) rotate(-270deg);
   }
+}
+
+@keyframes word-appear {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(100);
+    opacity: 0;
+  }
+}
+
+@keyframes line-appear {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dot-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+
+@keyframes corner-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes floating-anim {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+    opacity: 0.1;
+  }
+}
+
+.word {
+  opacity: 0;
+  display: inline-block;
+  transition: text-shadow 0.3s;
+}
+
+.grid-line {
+  stroke: hsl(var(--border));
+  stroke-width: 0.5;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: line-appear 2s ease-out forwards;
+}
+
+.detail-dot {
+  fill: hsl(var(--muted-foreground));
+  opacity: 0;
+  animation: dot-appear 1s ease-out forwards;
+}
+
+.corner-element {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  opacity: 0;
+  animation: corner-appear 1s ease-out forwards;
+}
+
+.floating-element {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid hsl(var(--primary) / 0.2);
+  border-radius: 50%;
+  animation: floating-anim 10s infinite ease-in-out;
+  animation-play-state: paused;
 }

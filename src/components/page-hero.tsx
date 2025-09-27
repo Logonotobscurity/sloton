@@ -1,49 +1,123 @@
 
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface PageHeroProps {
-    title: string;
-    description: string;
-    icon?: React.ReactNode;
-    children?: React.ReactNode;
+  title: string;
+  description: string;
+  icon?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
+const colors = {
+  50: "hsl(var(--foreground))",
+  100: "hsl(var(--foreground))",
+  200: "hsl(var(--muted-foreground))",
+  500: "hsl(var(--primary))",
+};
+
 export function PageHero({ title, description, icon, children }: PageHeroProps) {
+  const gradientRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const words = document.querySelectorAll<HTMLElement>(".page-hero-word");
-    words.forEach((word, index) => {
-      const delay = index * 80;
+    const words = document.querySelectorAll<HTMLElement>(".word");
+    words.forEach((word) => {
+      const delay = parseInt(word.getAttribute("data-delay") || "0", 10);
       setTimeout(() => {
         word.style.animation = "word-appear 0.8s ease-out forwards";
       }, delay);
     });
-  }, [title]); 
+
+    const gradient = gradientRef.current;
+    function onMouseMove(e: MouseEvent) {
+      if (gradient) {
+        gradient.style.left = e.clientX - 192 + "px";
+        gradient.style.top = e.clientY - 192 + "px";
+        gradient.style.opacity = "1";
+      }
+    }
+    function onMouseLeave() {
+      if (gradient) gradient.style.opacity = "0";
+    }
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseleave", onMouseLeave);
+
+    return () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseleave", onMouseLeave);
+    };
+  }, []);
+
+  const titleWords = title.split(" ");
+  const descriptionWords = description.split(" ");
 
   return (
-    <div
-      className="min-h-[50vh] bg-background text-foreground font-body overflow-hidden relative w-full flex flex-col justify-center items-center"
-    >
-      <div
-        className="absolute inset-0 -z-10 h-full w-full bg-background 
-        bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] 
-        bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"
-      />
+    <div className="min-h-[50vh] bg-gradient-to-br from-[#1a1d18] via-black to-[#2a2e26] text-[#e6e1d7] font-body overflow-hidden relative w-full">
+      <svg
+        className="absolute inset-0 w-full h-full"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern
+            id="grid"
+            width="60"
+            height="60"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M 60 0 L 0 0 0 60"
+              fill="none"
+              stroke="rgba(200,180,160,0.08)"
+              strokeWidth="0.5"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
 
-      <div className="relative z-10 flex flex-col justify-center items-center px-4 md:px-6 text-center py-16 md:py-24">
+      <div className="relative z-10 min-h-[50vh] flex flex-col justify-center items-center px-4 md:px-6 text-center py-16 md:py-24">
         {icon && <div className="mb-4">{icon}</div>}
-        <h1 className="font-headline text-[clamp(2.5rem,6vw,4rem)] !leading-tight max-w-3xl">
-          {title.split(" ").map((word, index) => (
-            <span key={index} className="page-hero-word inline-block opacity-0">{word} </span>
+        <h1
+          className="text-3xl md:text-5xl lg:text-6xl font-extralight leading-tight tracking-tight max-w-3xl"
+          style={{ color: colors[50] }}
+        >
+          {titleWords.map((word, index) => (
+            <span
+              key={index}
+              className="word"
+              data-delay={100 * index}
+            >
+              {word}{" "}
+            </span>
           ))}
         </h1>
-        <p className="text-md md:text-lg text-muted-foreground mt-4 max-w-3xl">
-           {description}
+        <p
+          className="text-lg md:text-xl lg:text-2xl font-thin leading-relaxed mt-6 max-w-3xl"
+          style={{ color: colors[200] }}
+        >
+          {descriptionWords.map((word, index) => (
+            <span
+              key={index}
+              className="word"
+              data-delay={1000 + 100 * index}
+            >
+              {word}{" "}
+            </span>
+          ))}
         </p>
         {children && <div className="mt-8 w-full">{children}</div>}
       </div>
+
+      <div
+        id="mouse-gradient"
+        ref={gradientRef}
+        className="fixed pointer-events-none w-96 h-96 rounded-full blur-3xl transition-all duration-500 ease-out opacity-0"
+        style={{
+          background: `radial-gradient(circle, hsl(var(--primary)/0.1) 0%, transparent 100%)`,
+        }}
+      ></div>
     </div>
   );
 }
