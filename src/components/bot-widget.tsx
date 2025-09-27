@@ -144,7 +144,7 @@ export function BotWidget() {
         aria-modal="true"
         aria-label="Chatbot Panel"
         className={cn(
-          "w-[calc(100vw-32px)] h-[80vh] sm:w-96 md:w-[440px] md:h-[700px] bg-background border rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right mb-2",
+          "w-full max-w-md h-full max-h-[80vh] bg-background border rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right mb-2",
           isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
         )}
       >
@@ -326,5 +326,7 @@ const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) 
     </CardFooter>
   </Card>
 );
+
+    
 
     
