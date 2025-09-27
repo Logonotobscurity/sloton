@@ -1,3 +1,4 @@
+
 import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb, HeartHandshake, Globe, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -7,7 +8,7 @@ import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import type { Metadata } from 'next';
 import { CommunityLeadForm } from '@/components/community-lead-form';
 import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { GlowingCard } from '../ui/glowing-card';
+import { GlowingCard } from '@/components/ui/glowing-card';
 
 
 export const metadata: Metadata = {
