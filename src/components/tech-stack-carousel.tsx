@@ -10,6 +10,7 @@ import { motion, useMotionValue, animate } from 'framer-motion';
 import useMeasure from 'react-use-measure';
 import { useEffect, useRef, useState } from 'react';
 import { Shapes } from 'lucide-react';
+import { GlowingCard } from './ui/glowing-card';
 
 
 const technologies = [
@@ -171,61 +172,64 @@ export function TechStackCarousel() {
 
   return (
     <section className="bg-secondary/20 py-24 md:py-32">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="group relative mx-auto max-w-[22rem] items-center justify-between space-y-6 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] sm:max-w-md rounded-xl">
-            <div
-                role="presentation"
-                className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)]"
-            ></div>
-          
-          {/* Slider Row 1 */}
-          <div>
-            <InfiniteSlider gap={24} speed={20} speedOnHover={10}>
-              {slider1.map((tech, index) => (
-                <IntegrationCard key={index}>
-                  <Image src={tech.icon} alt={tech.name} width={20} height={20} className="size-5" />
-                </IntegrationCard>
-              ))}
-            </InfiniteSlider>
-          </div>
+      <div className="container mx-auto px-4 md:px-6">
+        <GlowingCard className="p-8 md:p-12">
+            <div className="group relative mx-auto max-w-[22rem] items-center justify-between space-y-6 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] sm:max-w-md rounded-xl">
+                <div
+                    role="presentation"
+                    className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)]"
+                ></div>
+            
+            {/* Slider Row 1 */}
+            <div>
+                <InfiniteSlider gap={24} speed={20} speedOnHover={10}>
+                {slider1.map((tech, index) => (
+                    <IntegrationCard key={index}>
+                    <Image src={tech.icon} alt={tech.name} width={20} height={20} className="size-5" />
+                    </IntegrationCard>
+                ))}
+                </InfiniteSlider>
+            </div>
 
-          {/* Slider Row 2 */}
-          <div>
-            <InfiniteSlider gap={24} speed={20} speedOnHover={10} reverse>
-              {slider2.map((tech, index) => (
-                <IntegrationCard key={index}>
-                  <Image src={tech.icon} alt={tech.name} width={20} height={20} className="size-5" />
-                </IntegrationCard>
-              ))}
-            </InfiniteSlider>
-          </div>
+            {/* Slider Row 2 */}
+            <div>
+                <InfiniteSlider gap={24} speed={20} speedOnHover={10} reverse>
+                {slider2.map((tech, index) => (
+                    <IntegrationCard key={index}>
+                    <Image src={tech.icon} alt={tech.name} width={20} height={20} className="size-5" />
+                    </IntegrationCard>
+                ))}
+                </InfiniteSlider>
+            </div>
 
-          {/* Slider Row 3 */}
-          <div>
-            <InfiniteSlider gap={24} speed={20} speedOnHover={10}>
-              {slider3.map((tech, index) => (
-                <IntegrationCard key={index}>
-                  <Image src={tech.icon} alt={tech.name} width={20} height={20} className="size-5" />
-                </IntegrationCard>
-              ))}
-            </InfiniteSlider>
-          </div>
-        </div>
+            {/* Slider Row 3 */}
+            <div>
+                <InfiniteSlider gap={24} speed={20} speedOnHover={10}>
+                {slider3.map((tech, index) => (
+                    <IntegrationCard key={index}>
+                    <Image src={tech.icon} alt={tech.name} width={20} height={20} className="size-5" />
+                    </IntegrationCard>
+                ))}
+                </InfiniteSlider>
+            </div>
+            </div>
 
-        {/* Text Content */}
-        <div className="mx-auto mt-12 max-w-lg space-y-6 text-center">
-          <h2 className="text-balance text-3xl font-semibold md:text-4xl font-headline">
-            The Technologies We Master
-          </h2>
-          <p className="text-muted-foreground">
-            We leverage a modern, robust, and scalable tech stack to build enterprise-grade solutions that stand the test of time.
-          </p>
+            {/* Text Content */}
+            <div className="mx-auto mt-12 max-w-lg space-y-6 text-center">
+            <h2 className="text-balance text-3xl font-semibold md:text-4xl font-headline">
+                The Technologies We Master
+            </h2>
+            <p className="text-muted-foreground">
+                We leverage a modern, robust, and scalable tech stack to build enterprise-grade solutions that stand the test of time.
+            </p>
 
-          <Button variant="outline" size="sm" asChild>
-            <Link href="/solutions">Explore Our Solutions</Link>
-          </Button>
-        </div>
+            <Button variant="outline" size="sm" asChild>
+                <Link href="/solutions">Explore Our Solutions</Link>
+            </Button>
+            </div>
+        </GlowingCard>
       </div>
     </section>
   );
 }
+
