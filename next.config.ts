@@ -135,8 +135,21 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn-benkb.nitrocdn.com',
       },
+       {
+        protocol: 'https',
+        hostname: 'www.vectorlogo.zone',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.worldvectorlogo.com',
+      },
+       {
+        protocol: 'https',
+        hostname: 'www.servicenow.com',
+      },
     ],
   },
 };
 
 export default nextConfig;
+
