@@ -1,3 +1,4 @@
+import React from 'react';
 import { Faq } from '@/components/faq';
 import { FeaturedInsights } from '@/components/featured-insights';
 import { Hero } from '@/components/hero';
@@ -12,7 +13,7 @@ import { IdeasLab } from '@/components/ideas-lab';
 
 export default function Home() {
   return (
-    <div className="flex flex-col overflow-x-hidden">
+    <>
       <Hero />
       <div className="space-y-4 md:space-y-8">
           <StrategicPartner />
@@ -26,6 +27,6 @@ export default function Home() {
           <Faq />
         <BottomCta />
       </div>
-    </div>
+    </>
   );
 }

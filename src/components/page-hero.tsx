@@ -19,7 +19,7 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
     words.forEach((word) => {
       const delay = parseInt(word.getAttribute("data-delay") || "0", 10);
       setTimeout(() => {
-        word.style.animation = "word-appear 0.8s ease-out forwards";
+        word.style.animation = "fade-in 0.8s ease-out forwards";
       }, delay);
     });
 
@@ -37,23 +37,9 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("mouseleave", onMouseLeave);
 
-    let scrolled = false;
-    function onScroll() {
-      if (!scrolled) {
-        scrolled = true;
-        document.querySelectorAll<HTMLElement>(".floating-element").forEach((el, index) => {
-          setTimeout(() => {
-            el.style.animationPlayState = "running";
-          }, index * 200);
-        });
-      }
-    }
-    window.addEventListener("scroll", onScroll);
-
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseleave", onMouseLeave);
-      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
@@ -61,7 +47,7 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
   const descriptionWords = description.split(" ");
 
   return (
-    <div className="min-h-[50vh] bg-gradient-to-br from-[#1a1d18] via-black to-[#2a2e26] text-foreground font-body overflow-hidden relative w-full flex items-center justify-center">
+    <div className="min-h-[50vh] bg-background text-foreground font-body overflow-hidden relative w-full flex items-center justify-center -mx-4 md:-mx-6">
       <svg
         className="absolute inset-0 w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
@@ -96,35 +82,34 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
         <div className="text-left max-w-3xl">
           {icon && <div className="mb-4">{icon}</div>}
           <h1
-            className="text-3xl md:text-5xl lg:text-6xl font-extralight leading-tight tracking-tight"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight font-headline"
           >
             {titleWords.map((word, index) => (
               <span
                 key={index}
                 className="word"
-                data-delay={100 * index}
+                style={{ animationDelay: `${100 * index}ms`, opacity: 0 }}
               >
                 {word}{" "}
               </span>
             ))}
           </h1>
           <p
-            className="text-lg md:text-xl lg:text-2xl font-thin leading-relaxed mt-6 text-muted-foreground"
+            className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-6"
           >
             {descriptionWords.map((word, index) => (
               <span
                 key={index}
                 className="word"
-                data-delay={1000 + 100 * index}
+                style={{ animationDelay: `${1000 + 50 * index}ms`, opacity: 0 }}
               >
                 {word}{" "}
               </span>
             ))}
           </p>
-          {children && <div className="mt-8 w-full">{children}</div>}
+          {children && <div className="mt-8 w-full animate-[fade-in_0.8s_ease-out_forwards]" style={{ animationDelay: '1.5s', opacity: 0 }}>{children}</div>}
         </div>
       </div>
     </div>
   );
 }
-

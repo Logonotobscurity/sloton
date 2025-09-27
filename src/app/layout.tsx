@@ -247,7 +247,7 @@ export default function RootLayout({
           >
             <WebsiteLoader />
             <Header />
-            <main className="flex-grow relative z-20">{children}</main>
+            <main className="flex-grow relative z-20 container px-4 md:px-6">{children}</main>
             <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
             <Footer />
             <Toaster />

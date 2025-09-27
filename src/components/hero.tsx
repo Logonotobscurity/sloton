@@ -11,14 +11,6 @@ export function Hero() {
   const gradientRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    const words = document.querySelectorAll<HTMLElement>(".word");
-    words.forEach((word) => {
-      const delay = parseInt(word.getAttribute("data-delay") || "0", 10);
-      setTimeout(() => {
-        word.style.animation = "word-appear 0.8s ease-out forwards";
-      }, delay);
-    });
-
     const gradient = gradientRef.current;
     function onMouseMove(e: MouseEvent) {
       if (gradient) {
@@ -40,7 +32,7 @@ export function Hero() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-body overflow-hidden relative w-full flex flex-col justify-center items-center">
+    <div className="min-h-screen bg-background text-foreground font-body overflow-hidden relative w-full flex flex-col justify-center items-center -mx-4 md:-mx-6">
       <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -60,7 +52,7 @@ export function Hero() {
 
       <div className="relative z-10 flex flex-col justify-center items-center px-4 md:px-6">
           <div className="text-center max-w-4xl mx-auto">
-              <div style={{ animation: "word-appear 0.8s ease-out forwards", animationDelay: '0.2s', opacity: 0 }}>
+              <div className="animate-[fade-in_0.8s_ease-out_forwards]" style={{ animationDelay: '0.2s', opacity: 0 }}>
                 <p className="text-sm font-normal uppercase tracking-widest text-primary">
                     Your Partner in Growth
                 </p>
@@ -72,14 +64,14 @@ export function Hero() {
                     </span>
                 </h1>
               </div>
-              <div style={{ animation: "word-appear 0.8s ease-out forwards", animationDelay: '0.8s', opacity: 0 }}>
-                <p className="text-md md:text-xl text-muted-foreground max-w-2xl mx-auto">
+              <div className="animate-[fade-in_0.8s_ease-out_forwards]" style={{ animationDelay: '0.8s', opacity: 0 }}>
+                <p className="text-md md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                     We build and manage scalable, secure, and intelligent systems that help businesses cut costs, automate processes, and scale faster.
                 </p>
               </div>
               <div 
-                className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
-                style={{ animation: "word-appear 0.8s ease-out forwards", animationDelay: '1.2s', opacity: 0 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-[fade-in_0.8s_ease-out_forwards]"
+                style={{ animationDelay: '1.2s', opacity: 0 }}
               >
                   <Dialog>
                       <DialogTrigger asChild>
