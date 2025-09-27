@@ -1,4 +1,3 @@
-
 // This is a new file: /src/app/about/trust/page.tsx
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { ShieldCheck, Lock, DatabaseZap } from 'lucide-react';

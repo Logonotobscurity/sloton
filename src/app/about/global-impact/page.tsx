@@ -1,4 +1,3 @@
-
 // This is a new file: /src/app/about/global-impact/page.tsx
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Globe, Heart, BookOpen } from 'lucide-react';
