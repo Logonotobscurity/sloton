@@ -78,7 +78,7 @@ export const menuData = {
           {"title": "Learning Help Center", "desc": "Find answers to your questions by exploring our knowledge base.", "href": "/support"},
           {"title": "Information Community", "desc": "Connect with peers and experts in our community forums.", "href": "/support"},
           {"title": "Training and certification", "desc": "Explore the LOG_ON certification portfolio.", "href": "/training"},
-          {"title": "RiseUp with LOG_ON", "desc": "Empower individuals in emerging technology field communities with key skills to launch tech careers.", "href": "/training#impact"},
+          {"title": "RiseUp with LOG_ON", "desc": "Empower individuals in emerging technology field communities with key skills to launch tech careers.", "href": "/training"},
           {"title": "Expert programs", "desc": "Chart a course to elevate your career and become a recognized leader.", "href": "/training"}
         ]
       }
