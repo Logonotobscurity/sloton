@@ -1,4 +1,3 @@
-
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -20,6 +19,7 @@ export default {
        backgroundImage: {
         'grid-light': 'linear-gradient(to right, var(--border) 1px, transparent 1px), linear-gradient(to bottom, var(--border) 1px, transparent 1px)',
         'grid-dark': 'linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)',
+         "shine-gradient": "linear-gradient(110deg, transparent, var(--gradient-color, #A07CFE), transparent)",
       },
       spacing: {
         '1': '8px',
@@ -147,7 +147,15 @@ export default {
           "100%": {
             transform: "translate(0px, 0px) scale(1)",
           },
-        }
+        },
+         shine: {
+          "0%": {
+            backgroundPosition: "200% 0",
+          },
+          "100%": {
+            backgroundPosition: "-200% 0",
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -156,6 +164,7 @@ export default {
         shimmer: 'shimmer 2.5s infinite linear',
         'fade-in': 'fade-in 0.5s ease-out forwards',
         'blob': 'blob 7s infinite',
+        shine: "shine var(--duration, 8s) linear infinite",
       },
     },
   },

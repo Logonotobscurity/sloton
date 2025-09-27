@@ -276,3 +276,28 @@
   75% { transform: translate(10px, 20px); }
 }
 
+@property --gradient-color {
+  syntax: "<color> | <color-stop-list>";
+  inherits: false;
+  initial-value: #ff0000;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.bg-shine-gradient {
+  background-image: linear-gradient(
+    110deg,
+    transparent,
+    var(--gradient-color),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shine var(--duration) linear infinite;
+}
