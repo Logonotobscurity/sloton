@@ -37,6 +37,27 @@ const trainingPrograms = [
         description: "A deep dive into building and deploying scalable recommendation models using Python, Pandas, and Pinecone.",
         tags: ["Data Science", "Python", "Advanced"],
         href: "/training"
+    },
+    {
+        icon: <Zap className="h-8 w-8 text-primary"/>,
+        title: "Process Automation Mastery",
+        description: "Master RPA and BPA techniques to identify and automate repetitive business processes, driving efficiency across your organization.",
+        tags: ["Automation", "RPA", "Intermediate"],
+        href: "/training"
+    },
+    {
+        icon: <Bot className="h-8 w-8 text-primary"/>,
+        title: "Chatbot Development: From Concept to Production",
+        description: "An end-to-end guide on designing, building, and deploying conversational AI agents for websites and social platforms.",
+        tags: ["Chatbots", "AI", "Advanced"],
+        href: "/training"
+    },
+    {
+        icon: <Briefcase className="h-8 w-8 text-primary"/>,
+        title: "Digital Transformation Strategy for Leaders",
+        description: "A high-level course for business leaders on how to develop and implement a successful digital transformation roadmap.",
+        tags: ["Strategy", "Leadership", "Business"],
+        href: "/training"
     }
 ];
 
