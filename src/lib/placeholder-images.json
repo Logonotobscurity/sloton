@@ -187,5 +187,12 @@
     "height": 450,
     "alt": "Diagram showing a structured workflow",
     "dataAiHint": "workflow diagram"
+  },
+  "gigpilotAvatar": {
+    "src": "https://picsum.photos/seed/gigpilotAvatar/40/40",
+    "width": 40,
+    "height": 40,
+    "alt": "GIGPILOT Avatar",
+    "dataAiHint": "robot avatar"
   }
 }

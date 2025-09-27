@@ -9,6 +9,7 @@ import { Button } from './ui/button';
 import { Check, MessageCircle } from "lucide-react";
 import React from "react";
 import { Card } from "./ui/card";
+import imageData from '@/lib/placeholder-images.json';
 
 export function IdeasLab() {
 
@@ -50,11 +51,12 @@ export function IdeasLab() {
                         <div className="flex items-center gap-4">
                             <div className="relative h-10 w-10 flex-shrink-0">
                                 <Image
-                                    src="https://www.servicenow.com/content/dam/servicenow-assets/public/scripts/homepage-redesign/images/Home_Employees_No-Container.png"
+                                    src={imageData.gigpilotAvatar.src}
                                     alt="GIGPILOT Avatar"
                                     sizes="40px"
                                     fill
                                     className="rounded-full object-cover"
+                                    data-ai-hint={imageData.gigpilotAvatar.dataAiHint}
                                 />
                                 <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-background" />
                             </div>
