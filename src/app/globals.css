@@ -208,3 +208,71 @@
 #bg-layer-7 {
   z-index: 10; /* This layer will be in front of some content */
 }
+
+/* Hero Template Styles */
+.word {
+  opacity: 0;
+  transform: translateY(10px);
+  display: inline-block;
+  margin-right: 0.25em;
+  transition: text-shadow 0.3s ease;
+}
+@keyframes word-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulse-glow {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(50);
+    opacity: 0;
+  }
+}
+.grid-line {
+  stroke: hsla(var(--primary) / 0.1);
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: draw-line 2s ease-out forwards;
+}
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.detail-dot {
+  fill: hsla(var(--primary) / 0.2);
+  opacity: 0;
+  animation: word-appear 1s ease-out forwards;
+}
+.corner-element {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  opacity: 0;
+  animation: word-appear 0.8s ease-out forwards;
+}
+.floating-element {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: hsla(var(--primary) / 0.2);
+  animation: float 8s ease-in-out infinite;
+  animation-play-state: paused;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(20px, -30px); }
+  50% { transform: translate(-10px, 10px); }
+  75% { transform: translate(10px, 20px); }
+}
+
