@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import { Faq } from '@/components/faq';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -33,13 +34,11 @@ const contactReasons = [
 export default function ContactPage() {
   return (
     <div className="bg-background">
+        <PageHero 
+            title="Get In Touch"
+            description="We're here to help you navigate your digital transformation journey. Whether you have a specific project in mind, a question about our services, or just want to explore possibilities, our team is ready to connect. Let's start a conversation and build something great together."
+        />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold font-headline">Get In Touch</h1>
-          <p className="mt-4 text-md md:text-lg text-muted-foreground">
-            We're here to help you navigate your digital transformation journey. Whether you have a specific project in mind, a question about our services, or just want to explore possibilities, our team is ready to connect. Let's start a conversation and build something great together.
-          </p>
-        </div>
         
         <div className="mt-12 md:mt-16 grid lg:grid-cols-2 gap-12 items-start">
            <div className="space-y-8">

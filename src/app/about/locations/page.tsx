@@ -1,8 +1,8 @@
 
-// This is a new file: /src/app/about/locations/page.tsx
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, Globe } from 'lucide-react';
 import type { Metadata } from 'next';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'Our Locations',
@@ -21,15 +21,12 @@ const locations = [
 
 export default function LocationsPage() {
   return (
-    <div className="space-y-12">
-      <section>
-        <h1 className="text-3xl md:text-4xl font-bold font-headline">Our Locations</h1>
-        <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-3xl">
-          While our headquarters is virtually based in the vibrant tech hub of Lagos, Nigeria, our operations and impact are global. We leverage a remote-first model to collaborate with clients and partners worldwide, ensuring we can bring our expertise wherever it's needed.
-        </p>
-      </section>
-      
-      <section>
+    <div>
+      <PageHero 
+        title="Our Locations"
+        description="While our headquarters is virtually based in the vibrant tech hub of Lagos, Nigeria, our operations and impact are global. We leverage a remote-first model to collaborate with clients and partners worldwide, ensuring we can bring our expertise wherever it's needed."
+      />
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
          <div className="grid grid-cols-1 gap-8">
             {locations.map(loc => (
                 <Card key={loc.name}>
@@ -54,7 +51,7 @@ export default function LocationsPage() {
                 </Card>
             ))}
         </div>
-      </section>
+      </div>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+
 import {
   Briefcase,
   HeartPulse,
@@ -17,6 +18,7 @@ import { caseStudies, CaseStudy } from "@/lib/case-studies";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "Industry Use Cases | AI & Automation Solutions by Sector",
@@ -82,17 +84,11 @@ const GridItem = ({ area, study }: GridItemProps) => {
 export default function UseCasesPage() {
   return (
     <div className="bg-background">
+      <PageHero 
+        title="Automating Industries"
+        description="Explore detailed examples of how LOG_ON's technology solutions drive success across various sectors. We tailor our services to meet the unique demands and challenges of your industry."
+      />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold font-headline">
-            Automating Industries
-          </h1>
-          <p className="mt-4 text-md md:text-lg text-muted-foreground">
-            Explore detailed examples of how LOG_ON's technology solutions
-            drive success across various sectors. We tailor our services to
-            meet the unique demands and challenges of your industry.
-          </p>
-        </div>
 
         <ul className="grid grid-cols-1 grid-rows-none border-t border-border/50 md:grid-cols-12 md:grid-rows-3 xl:grid-rows-2 mt-16">
             {caseStudies.map((study, index) => (

@@ -1,9 +1,10 @@
-// This is a new file: /src/app/about/research/page.tsx
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, FlaskConical, Lightbulb, BrainCircuit } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'LOG_ON Research',
@@ -30,30 +31,28 @@ const researchAreas = [
 
 export default function ResearchPage() {
   return (
-    <div className="space-y-12">
-      <section>
-        <h1 className="text-3xl md:text-4xl font-bold font-headline">LOG_ON Research</h1>
-        <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-3xl">
-          Innovation is at the core of our DNA. LOG_ON Research is dedicated to exploring the frontiers of artificial intelligence and automation. Through our internal labs, partnerships with academic institutions, and contributions to open-source projects, we aim to solve fundamental challenges and pioneer the next generation of business technology.
-        </p>
-      </section>
-
-      <section>
-        <h2 className="text-2xl md:text-3xl font-bold font-headline mb-4">Our Core Research Areas</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-            {researchAreas.map(area => (
-                 <Card key={area.title}>
-                    <CardHeader>
-                        {area.icon}
-                        <CardTitle className="pt-4">{area.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-muted-foreground">{area.description}</p>
-                    </CardContent>
-                </Card>
-            ))}
-        </div>
-      </section>
+    <div>
+        <PageHero 
+            title="LOG_ON Research"
+            description="Innovation is at the core of our DNA. LOG_ON Research is dedicated to exploring the frontiers of artificial intelligence and automation. Through our internal labs, partnerships with academic institutions, and contributions to open-source projects, we aim to solve fundamental challenges and pioneer the next generation of business technology."
+        />
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-12">
+        <section>
+            <h2 className="text-2xl md:text-3xl font-bold font-headline mb-4">Our Core Research Areas</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+                {researchAreas.map(area => (
+                    <Card key={area.title}>
+                        <CardHeader>
+                            {area.icon}
+                            <CardTitle className="pt-4">{area.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground">{area.description}</p>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+        </section>
 
        <section>
         <h2 className="text-2xl md:text-3xl font-bold font-headline mb-4">Publications & Papers</h2>
@@ -70,6 +69,7 @@ export default function ResearchPage() {
               </Link>
           </Button>
       </section>
+    </div>
     </div>
   );
 }

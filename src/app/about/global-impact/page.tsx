@@ -1,8 +1,9 @@
-// This is a new file: /src/app/about/global-impact/page.tsx
+
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Globe, Heart, BookOpen } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'Global Impact',
@@ -29,42 +30,40 @@ const impactPillars = [
 
 export default function GlobalImpactPage() {
   return (
-    <div className="space-y-12">
-      <section>
-        <h1 className="text-3xl md:text-4xl font-bold font-headline">Our Global Impact</h1>
-        <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-3xl">
-          We believe that technology has the power to be a profound force for good. Our commitment to global impact extends beyond our client work into three core pillars: fostering ethical AI, empowering communities with digital skills, and supporting non-profit organizations.
-        </p>
-      </section>
+    <div>
+        <PageHero 
+            title="Our Global Impact"
+            description="We believe that technology has the power to be a profound force for good. Our commitment to global impact extends beyond our client work into three core pillars: fostering ethical AI, empowering communities with digital skills, and supporting non-profit organizations."
+        />
+        <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-12">
+            <section>
+                <div className="grid md:grid-cols-3 gap-8">
+                    {impactPillars.map(pillar => (
+                        <Card key={pillar.title}>
+                            <CardHeader>
+                                {pillar.icon}
+                                <CardTitle className="pt-4">{pillar.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">{pillar.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </section>
 
-      <section>
-          <div className="grid md:grid-cols-3 gap-8">
-              {impactPillars.map(pillar => (
-                  <Card key={pillar.title}>
-                      <CardHeader>
-                          {pillar.icon}
-                          <CardTitle className="pt-4">{pillar.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                          <p className="text-muted-foreground">{pillar.description}</p>
-                      </CardContent>
-                  </Card>
-              ))}
-          </div>
-      </section>
-
-      <section className="p-8 bg-secondary/30 rounded-lg">
-          <h2 className="text-2xl font-bold text-center">LISTNER AI Project</h2>
-          <p className="mt-4 text-muted-foreground text-center max-w-2xl mx-auto">
-              One of our flagship community projects is LISTNER AI, an AI-powered mental health chatbot designed to provide accessible, confidential, and compassionate initial support. This project embodies our commitment to using technology to address critical societal needs.
-          </p>
-           <div className="text-center mt-6">
-                <Link href="/training#impact" className="text-primary font-semibold hover:underline">
-                    Learn more about our community projects
-                </Link>
-           </div>
-      </section>
-
+            <section className="p-8 bg-secondary/30 rounded-lg">
+                <h2 className="text-2xl font-bold text-center">LISTNER AI Project</h2>
+                <p className="mt-4 text-muted-foreground text-center max-w-2xl mx-auto">
+                    One of our flagship community projects is LISTNER AI, an AI-powered mental health chatbot designed to provide accessible, confidential, and compassionate initial support. This project embodies our commitment to using technology to address critical societal needs.
+                </p>
+                <div className="text-center mt-6">
+                        <Link href="/training#impact" className="text-primary font-semibold hover:underline">
+                            Learn more about our community projects
+                        </Link>
+                </div>
+            </section>
+        </div>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+
 import {
   BrainCircuit,
   Zap,
@@ -5,11 +6,10 @@ import {
   MessageSquare,
   BarChart3,
   Database,
-  Smartphone,
-  GitBranch,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "Technology Solutions",
@@ -72,17 +72,11 @@ const services = [
 export default function SolutionsPage() {
   return (
     <div className="bg-background">
+      <PageHero 
+        title="Our Solutions"
+        description="We provide a comprehensive suite of scalable services designed to grow with your business, tackle your most significant challenges head-on, and drive measurable results."
+      />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold font-headline">
-            Our Solutions
-          </h1>
-          <p className="mt-4 text-md md:text-lg text-muted-foreground">
-            We provide a comprehensive suite of scalable services designed to
-            grow with your business, tackle your most significant challenges
-            head-on, and drive measurable results.
-          </p>
-        </div>
         <BentoGrid className="lg:grid-rows-3 mt-16">
             {services.map((service) => (
                 <BentoCard key={service.name} {...service} />

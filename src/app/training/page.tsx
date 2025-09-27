@@ -10,6 +10,7 @@ import { CommunityLeadForm } from '@/components/community-lead-form';
 import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { EnrollmentForm } from '@/components/enrollment-form';
+import { PageHero } from '@/components/page-hero';
 
 
 export const metadata: Metadata = {
@@ -99,15 +100,12 @@ const trainingBenefits = [
 export default function TrainingPage() {
   return (
     <div className="bg-background">
+      <PageHero 
+        title="Community & Innovation"
+        description="We believe in building more than just technology; we're dedicated to building skills, fostering leadership, and making a positive community impact. Explore our training programs and our commitment to ethical innovation."
+      />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         
-        <section className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold font-headline">Community &amp; Innovation</h1>
-          <p className="mt-4 text-md md:text-lg text-muted-foreground">
-            We believe in building more than just technology; we're dedicated to building skills, fostering leadership, and making a positive community impact. Explore our training programs and our commitment to ethical innovation.
-          </p>
-        </section>
-
         <section id="programs" className="py-16 md:py-24">
             <div className="text-center max-w-3xl mx-auto mb-12">
                 <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Training Programs</h2>

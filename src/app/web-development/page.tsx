@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Code, PenTool, ShoppingCart, Building, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import { CaseStudyFeature } from '@/components/case-study-feature';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'Web & Custom Development | Next.js & React Experts',
@@ -37,17 +38,12 @@ const services = [
 export default function WebDevelopmentPage() {
   return (
     <div className="bg-background">
+        <PageHero
+            title="Web & Custom Development"
+            description="We specialize in crafting custom web projects tailored to your specific business needs. Drawing on our deep experience in IT solutions and AI automation, we build scalable, secure, and optimized digital platforms designed to help you grow."
+            icon={<Code className="h-12 w-12 md:h-16 md:w-16 text-primary" />}
+        />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-        <section className="text-center max-w-3xl mx-auto">
-            <div className="flex justify-center mb-4">
-                <Code className="h-12 w-12 md:h-16 md:w-16 text-primary" />
-            </div>
-            <h1 className="text-3xl md:text-5xl font-bold font-headline">Web & Custom Development</h1>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground">
-                We specialize in crafting custom web projects tailored to your specific business needs. Drawing on our deep experience in IT solutions and AI automation, we build scalable, secure, and optimized digital platforms designed to help you grow.
-            </p>
-        </section>
-
         <section className="py-16 md:py-24">
              <div className="grid md:grid-cols-2 gap-8">
                 {services.map((service) => (

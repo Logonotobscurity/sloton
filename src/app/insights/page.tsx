@@ -7,6 +7,7 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 import { insights } from '@/lib/insights';
 import { GlowingCard } from '@/components/ui/glowing-card';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'Technology Insights & Articles',
@@ -25,13 +26,11 @@ const topics = [
 export default function InsightsPage() {
   return (
     <div className="bg-background">
+        <PageHero
+            title="Insights & Articles"
+            description="Welcome to our hub for expert analysis and thought leadership. Here, we delve into the technologies and strategies that are shaping the future of business. Stay ahead of the curve with our in-depth articles on everything from artificial intelligence to digital transformation."
+        />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold font-headline">Insights & Articles</h1>
-          <p className="mt-4 text-md md:text-lg text-muted-foreground">
-            Welcome to our hub for expert analysis and thought leadership. Here, we delve into the technologies and strategies that are shaping the future of business. Stay ahead of the curve with our in-depth articles on everything from artificial intelligence to digital transformation.
-          </p>
-        </div>
         
         <div className="my-16 md:my-24 max-w-4xl mx-auto">
              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 font-headline">Topics We Cover</h2>

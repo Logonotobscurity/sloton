@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { GlowingCard } from '@/components/ui/glowing-card';
+import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'Our Leadership',
@@ -35,38 +36,35 @@ const teamMembers = [
 
 export default function LeadershipPage() {
   return (
-    <div className="space-y-12">
-        <section>
-            <h1 className="text-3xl md:text-4xl font-bold font-headline">Meet Our Leadership</h1>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-3xl">
-                Our team is led by a dynamic duo of technology experts dedicated to delivering innovative solutions and exceptional service to our clients.
-            </p>
-        </section>
-
-        <section>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            {teamMembers.map((member) => (
-              <GlowingCard key={member.name}>
-                 <div className="p-6 text-center md:text-left">
-                    <h3 className="font-bold text-2xl">{member.name}</h3>
-                    <p className="text-primary mb-3">{member.role}</p>
-                    <p className="text-muted-foreground text-sm">{member.description}</p>
-                 </div>
-                 <div className="bg-secondary/20 p-6">
-                    <h4 className="font-semibold mb-4 text-primary">Areas of Expertise</h4>
-                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
-                        {member.expertise.map(skill => (
-                            <div key={skill} className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-accent" />
-                                <span className="text-sm text-muted-foreground">{skill}</span>
-                            </div>
-                        ))}
+    <div>
+        <PageHero 
+            title="Meet Our Leadership"
+            description="Our team is led by a dynamic duo of technology experts dedicated to delivering innovative solutions and exceptional service to our clients."
+        />
+        <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                {teamMembers.map((member) => (
+                <GlowingCard key={member.name}>
+                    <div className="p-6 text-center md:text-left">
+                        <h3 className="font-bold text-2xl">{member.name}</h3>
+                        <p className="text-primary mb-3">{member.role}</p>
+                        <p className="text-muted-foreground text-sm">{member.description}</p>
                     </div>
-                </div>
-              </GlowingCard>
-            ))}
-          </div>
-        </section>
+                    <div className="bg-secondary/20 p-6">
+                        <h4 className="font-semibold mb-4 text-primary">Areas of Expertise</h4>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
+                            {member.expertise.map(skill => (
+                                <div key={skill} className="flex items-center gap-2">
+                                    <CheckCircle className="h-4 w-4 text-accent" />
+                                    <span className="text-sm text-muted-foreground">{skill}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </GlowingCard>
+                ))}
+            </div>
+        </div>
     </div>
   );
 }
