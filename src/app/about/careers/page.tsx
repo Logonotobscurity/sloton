@@ -23,18 +23,63 @@ const openPositions = [
         title: "Senior AI Engineer",
         department: "Engineering",
         location: "Remote",
+        description: "As a Senior AI Engineer, you will architect and build the core AI models that power our solutions, directly impacting our product's intelligence and effectiveness.",
         href: "#"
     },
     {
-        title: "Business Process Automation Consultant",
-        department: "Professional Services",
-        location: "Lagos, Nigeria",
+        title: "Business Development Manager",
+        department: "Sales & Partnerships",
+        location: "Remote",
+        description: "You will drive growth by identifying new market opportunities, forging strategic partnerships, and building relationships that expand our customer base.",
         href: "#"
     },
     {
-        title: "Next.js Full-Stack Developer",
+        title: "Product Manager, AI Platforms",
+        department: "Product",
+        location: "Remote",
+        description: "You will own the product lifecycle from concept to launch, translating customer needs into features that deliver tangible value and drive user adoption.",
+        href: "#"
+    },
+    {
+        title: "Content Creator & Strategist",
+        department: "Marketing",
+        location: "Remote",
+        description: "You will shape our brand narrative, creating insightful content that establishes LOG_ON as a thought leader and attracts our target audience.",
+        href: "#"
+    },
+    {
+        title: "AI Agent Developer",
         department: "Engineering",
         location: "Remote",
+        description: "You will specialize in building and deploying the next generation of conversational AI and autonomous agents that redefine our clients' workflows.",
+        href: "#"
+    },
+    {
+        title: "AI Researcher",
+        department: "Research & Development",
+        location: "Remote",
+        description: "You will explore the frontiers of AI, publishing research and developing novel techniques that will become the foundation of our future products.",
+        href: "#"
+    },
+    {
+        title: "Community Manager",
+        department: "Marketing & Community",
+        location: "Remote",
+        description: "You will be the voice of LOG_ON, engaging with our user community, fostering a culture of learning, and gathering feedback to guide our growth.",
+        href: "#"
+    },
+     {
+        title: "AI Trainer",
+        department: "Professional Services",
+        location: "Remote",
+        description: "You will empower our clients by designing and delivering expert-led training programs that enable them to master AI and automation technologies.",
+        href: "#"
+    },
+     {
+        title: "Social Media Manager",
+        department: "Marketing",
+        location: "Remote",
+        description: "You will grow our digital footprint and drive engagement by creating and executing compelling social media strategies across all major platforms.",
         href: "#"
     }
 ]
@@ -98,16 +143,18 @@ export default function CareersPage() {
 
       <section>
         <h2 className="text-2xl md:text-3xl font-bold font-headline mb-4">Open Positions</h2>
+        <p className="text-muted-foreground mb-8">We are actively hiring for key roles across Engineering, Product, Sales, and Marketing. Each position is critical to our mission of driving growth and innovation. Find your place in our journey below.</p>
         <div className="space-y-4">
             {openPositions.map(pos => (
                  <Card key={pos.title} className="hover:bg-secondary/50 transition-colors">
                     <Link href={pos.href} className="block p-6">
                         <div className="flex flex-col sm:flex-row justify-between sm:items-center">
-                            <div>
+                            <div className="flex-1">
                                 <h3 className="text-xl font-semibold text-primary">{pos.title}</h3>
-                                <p className="text-muted-foreground text-sm">{pos.department} &middot; {pos.location}</p>
+                                <p className="text-muted-foreground text-sm mb-2">{pos.department} &middot; {pos.location}</p>
+                                <p className="text-muted-foreground text-sm max-w-2xl">{pos.description}</p>
                             </div>
-                            <div className="flex items-center text-muted-foreground mt-2 sm:mt-0">
+                            <div className="flex items-center text-muted-foreground mt-4 sm:mt-0 sm:ml-4 flex-shrink-0">
                                 Apply Now <ArrowRight className="ml-2 h-4 w-4" />
                             </div>
                         </div>
