@@ -77,7 +77,7 @@
   }
 }
 
-@keyframes word-appear {
+@keyframes fade-in {
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -86,13 +86,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.word {
-  display: inline-block;
-  opacity: 0;
-  animation-fill-mode: forwards;
-  transition: text-shadow 0.3s ease;
 }
 
 .loader {
