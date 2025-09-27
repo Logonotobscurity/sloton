@@ -13,6 +13,7 @@ import {
   ChatBubbleAvatar,
   ChatBubbleMessage,
 } from "@/components/ui/chat-bubble";
+import { ScrollArea } from './ui/scroll-area';
 
 interface BotWidgetProps {
   initialMessage?: string;
@@ -93,33 +94,35 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
             <span className="sr-only">Close Chatbot</span>
           </Button>
         </CardHeader>
-        <CardContent className="flex-1 p-4 overflow-y-auto space-y-6" role="log">
-           {messages.map((msg, index) => (
-             <ChatBubble key={index} variant={msg.from === 'user' ? 'sent' : 'received'}>
-                <ChatBubbleAvatar>
-                    <Avatar>
-                        <AvatarFallback>
-                           {msg.from === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
-                        </AvatarFallback>
-                    </Avatar>
-                </ChatBubbleAvatar>
-                <ChatBubbleMessage>
-                    {msg.text}
-                </ChatBubbleMessage>
-             </ChatBubble>
-           ))}
-            {isLoading && (
-              <ChatBubble variant="received">
-                 <ChatBubbleAvatar>
-                    <Avatar>
-                        <AvatarFallback><Bot className="h-4 w-4" /></AvatarFallback>
-                    </Avatar>
-                </ChatBubbleAvatar>
-                <ChatBubbleMessage isLoading />
+        <ScrollArea className="flex-1" role="log">
+          <CardContent className="p-4 space-y-6">
+            {messages.map((msg, index) => (
+              <ChatBubble key={index} variant={msg.from === 'user' ? 'sent' : 'received'}>
+                  <ChatBubbleAvatar>
+                      <Avatar>
+                          <AvatarFallback>
+                            {msg.from === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
+                          </AvatarFallback>
+                      </Avatar>
+                  </ChatBubbleAvatar>
+                  <ChatBubbleMessage>
+                      {msg.text}
+                  </ChatBubbleMessage>
               </ChatBubble>
-            )}
-           <div ref={messagesEndRef} />
-        </CardContent>
+            ))}
+              {isLoading && (
+                <ChatBubble variant="received">
+                  <ChatBubbleAvatar>
+                      <Avatar>
+                          <AvatarFallback><Bot className="h-4 w-4" /></AvatarFallback>
+                      </Avatar>
+                  </ChatBubbleAvatar>
+                  <ChatBubbleMessage isLoading />
+                </ChatBubble>
+              )}
+            <div ref={messagesEndRef} />
+          </CardContent>
+        </ScrollArea>
         <CardFooter className="p-4 border-t bg-background">
           <form onSubmit={handleSendMessage} className="w-full flex items-center gap-2">
             <Input 
