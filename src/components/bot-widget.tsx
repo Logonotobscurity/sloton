@@ -7,7 +7,12 @@ import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Input } from '@/components/ui/input';
 import { MessageSquare, Send, X, Bot, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { Avatar, AvatarFallback } from './ui/avatar';
+import {
+  ChatBubble,
+  ChatBubbleAvatar,
+  ChatBubbleMessage,
+} from "@/components/ui/chat-bubble";
 
 interface BotWidgetProps {
   initialMessage?: string;
@@ -19,6 +24,7 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
     { from: 'bot', text: initialMessage || "Hello! How can I help you today?" },
   ]);
   const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -38,7 +44,7 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, isLoading]);
   
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,11 +52,13 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
 
     setMessages([...messages, { from: 'user', text: inputValue }]);
     setInputValue('');
+    setIsLoading(true);
     
     // Fake bot response
     setTimeout(() => {
+        setIsLoading(false);
         setMessages(prev => [...prev, { from: 'bot', text: "That's a great question. Let me find the best solution for you..." }]);
-    }, 1000);
+    }, 1500);
   };
 
   return (
@@ -85,29 +93,31 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
             <span className="sr-only">Close Chatbot</span>
           </Button>
         </CardHeader>
-        <CardContent className="flex-1 p-4 overflow-y-auto space-y-4" role="log">
+        <CardContent className="flex-1 p-4 overflow-y-auto space-y-6" role="log">
            {messages.map((msg, index) => (
-             <div key={index} className={cn("flex items-end gap-2", msg.from === 'user' ? 'justify-end' : '')}>
-                {msg.from === 'bot' && (
-                    <Avatar className="h-6 w-6 flex-shrink-0">
-                        <AvatarFallback className="bg-primary text-primary-foreground text-xs"><Bot className="h-4 w-4" /></AvatarFallback>
+             <ChatBubble key={index} variant={msg.from === 'user' ? 'sent' : 'received'}>
+                <ChatBubbleAvatar>
+                    <Avatar>
+                        <AvatarFallback>
+                           {msg.from === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
+                        </AvatarFallback>
                     </Avatar>
-                )}
-                <p className={cn(
-                  "px-3 py-2 rounded-xl max-w-[80%] text-sm leading-relaxed",
-                  msg.from === 'bot' 
-                    ? 'bg-muted rounded-bl-sm' 
-                    : 'bg-primary text-primary-foreground rounded-br-sm'
-                )}>
+                </ChatBubbleAvatar>
+                <ChatBubbleMessage>
                     {msg.text}
-                </p>
-                {msg.from === 'user' && (
-                    <Avatar className="h-6 w-6 flex-shrink-0">
-                        <AvatarFallback className="bg-secondary text-secondary-foreground"><User className="h-4 w-4" /></AvatarFallback>
-                    </Avatar>
-                )}
-             </div>
+                </ChatBubbleMessage>
+             </ChatBubble>
            ))}
+            {isLoading && (
+              <ChatBubble variant="received">
+                 <ChatBubbleAvatar>
+                    <Avatar>
+                        <AvatarFallback><Bot className="h-4 w-4" /></AvatarFallback>
+                    </Avatar>
+                </ChatBubbleAvatar>
+                <ChatBubbleMessage isLoading />
+              </ChatBubble>
+            )}
            <div ref={messagesEndRef} />
         </CardContent>
         <CardFooter className="p-4 border-t bg-background">
@@ -119,8 +129,9 @@ export function BotWidget({ initialMessage }: BotWidgetProps) {
               placeholder="Ask a question..."
               className="flex-1 bg-muted border-border/50 h-10"
               aria-label="Your message"
+              disabled={isLoading}
             />
-            <Button type="submit" size="icon" className="bg-primary hover:bg-primary/90 flex-shrink-0">
+            <Button type="submit" size="icon" className="bg-primary hover:bg-primary/90 flex-shrink-0" disabled={isLoading}>
               <Send className="h-4 w-4" />
               <span className="sr-only">Send Message</span>
             </Button>
