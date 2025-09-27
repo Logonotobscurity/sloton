@@ -35,6 +35,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.servicenow.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn-benkb.nitrocdn.com',
+      },
     ],
   },
 };

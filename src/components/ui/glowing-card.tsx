@@ -19,7 +19,7 @@ export const GlowingCard = ({ children, className }: GlowingCardProps) => {
       <div className="absolute inset-0 z-0">
         <div 
           role="presentation"
-          className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:24px_24px] opacity-20 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)]"
+          className="absolute inset-0 bg-grid-light dark:bg-grid-dark bg-[size:24px_24px] opacity-20"
         />
         <div className="absolute inset-0 bg-[radial-gradient(40%_40%_at_50%_50%,hsl(var(--primary)/0.1),transparent)]"></div>
       </div>

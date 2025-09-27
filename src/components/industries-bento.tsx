@@ -86,7 +86,7 @@ export function IndustriesBento() {
     <section className="py-16 md:py-24 bg-background relative overflow-hidden">
         <div 
           role="presentation"
-          className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)]"
+          className="absolute inset-0 -z-10 bg-grid-light dark:bg-grid-dark bg-[size:32px_32px] opacity-20"
         />
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
