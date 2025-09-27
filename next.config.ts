@@ -131,5 +131,8 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'media.tekpon.com',
       },
-      {
-        protocol: 'https|
+    ],
+  },
+};
+
+export default nextConfig;
