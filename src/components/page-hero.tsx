@@ -19,7 +19,7 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
     words.forEach((word) => {
       const delay = parseInt(word.getAttribute("data-delay") || "0", 10);
       setTimeout(() => {
-        word.style.animation = "fade-in 0.8s ease-out forwards";
+        word.style.animation = "word-appear 0.8s ease-out forwards";
       }, delay);
     });
 
@@ -47,7 +47,7 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
   const descriptionWords = description.split(" ");
 
   return (
-    <div className="min-h-[50vh] bg-background text-foreground font-body overflow-hidden relative w-full flex items-center justify-center -mx-4 md:-mx-6">
+    <div className="min-h-[50vh] bg-background text-foreground font-body overflow-hidden relative w-full flex items-center justify-center">
       <svg
         className="absolute inset-0 w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +95,7 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
             ))}
           </h1>
           <p
-            className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-6 leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed"
           >
             {descriptionWords.map((word, index) => (
               <span
