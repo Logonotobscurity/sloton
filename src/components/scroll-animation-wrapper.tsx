@@ -14,38 +14,33 @@ export function ScrollAnimationWrapper({ children, className }: ScrollAnimationW
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(element);
+        }
       },
       {
-        threshold: 0.1, // Trigger when 10% of the element is visible
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
       }
     );
 
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    observer.observe(element);
 
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div
       ref={ref}
       className={cn(
-        'transition-opacity duration-700 ease-out',
-        isVisible ? 'opacity-100 animate-fade-in' : 'opacity-0',
+        'reveal-on-scroll',
+        isVisible && 'is-visible',
         className
       )}
     >

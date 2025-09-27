@@ -18,37 +18,39 @@ export default function Home() {
   return (
     <div className="flex flex-col overflow-x-hidden">
       <Hero />
-      <ScrollAnimationWrapper>
-        <StrategicPartner />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <GeneralistApproach />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <IdeasLab />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <PartnershipApproach />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <TrainingCTA />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <Statement />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <IndustriesBento />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <TechStackCarousel />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <FeaturedInsights />
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper>
-        <Faq />
-      </ScrollAnimationWrapper>
-      <BottomCta />
+      <div className="space-y-4 md:space-y-8">
+        <ScrollAnimationWrapper>
+          <StrategicPartner />
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper>
+          <GeneralistApproach />
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper>
+          <IdeasLab />
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper>
+          <PartnershipApproach />
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper>
+          <TrainingCTA />
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper>
+          <Statement />
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper>
+          <IndustriesBento />
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper>
+          <TechStackCarousel />
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper>
+          <FeaturedInsights />
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper>
+          <Faq />
+        </ScrollAnimationWrapper>
+        <BottomCta />
+      </div>
     </div>
   );
 }
