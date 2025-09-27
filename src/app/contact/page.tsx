@@ -1,9 +1,11 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ContactForm } from '@/components/contact-form';
-import { Mail, Phone, Briefcase, Lightbulb, MessageCircle } from 'lucide-react';
+import { Mail, Phone, Briefcase, Lightbulb, MessageCircle, Handshake } from 'lucide-react';
 import type { Metadata } from 'next';
 import { Faq } from '@/components/faq';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -23,8 +25,8 @@ const contactReasons = [
   },
   {
     icon: <MessageCircle className="h-6 w-6 text-primary" />,
-    title: "General Inquiry",
-    description: "For anything else, from partnership opportunities to media requests, don't hesitate to reach out."
+    title: "Support Request",
+    description: "Need help with one of our products or services? Our support team is here to assist you."
   }
 ]
 
@@ -91,6 +93,22 @@ export default function ContactPage() {
                     </a>
                 </div>
             </div>
+             <Card className="bg-secondary/50">
+                <CardHeader className="flex flex-row items-center gap-4">
+                    <Handshake className="h-8 w-8 text-primary" />
+                    <div>
+                        <CardTitle>Partnership Opportunities</CardTitle>
+                        <CardDescription>Interested in partnering with LOG_ON? We'd love to hear from you.</CardDescription>
+                    </div>
+                </CardHeader>
+                <CardContent>
+                  <Button asChild variant="outline">
+                    <Link href="/contact?subject=Partnership+Inquiry">
+                        Contact Partner Team
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
           </div>
         </div>
       </div>

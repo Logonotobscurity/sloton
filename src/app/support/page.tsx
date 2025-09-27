@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { LifeBuoy, Book, Users, MessageSquare, Search, ArrowRight, Lightbulb } from 'lucide-react';
+import { LifeBuoy, Book, Users, MessageSquare, Search, ArrowRight, Lightbulb, Mail, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Faq } from '@/components/faq';
@@ -17,7 +17,7 @@ const supportCategories = [
     icon: <Book className="h-8 w-8 text-primary" />,
     title: 'Knowledge Base',
     description: 'Find detailed articles, how-to guides, and product documentation to get the most out of our platform.',
-    href: '#',
+    href: '/insights',
   },
   {
     icon: <Users className="h-8 w-8 text-primary" />,
@@ -86,7 +86,51 @@ export default function SupportPage() {
             </div>
         </section>
         
-        <Faq />
+        <section className="grid md:grid-cols-2 gap-8 items-start">
+             <div className="space-y-8">
+                <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
+                        <Mail className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold">Email Us</h3>
+                        <p className="text-muted-foreground">For general inquiries, support questions, or project details, our inbox is always open.</p>
+                        <a href="mailto:logonthepage@gmail.com" className="text-primary hover:underline break-all">
+                            logonthepage@gmail.com
+                        </a>
+                    </div>
+                </div>
+                 <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
+                        <Phone className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold">Call Us</h3>
+                        <p className="text-muted-foreground">Give us a call to discuss your needs directly with a technology consultant.</p>
+                        <a href="tel:+2348143066320" className="text-primary hover:underline">
+                            +234 814 306 6320
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <Card className="bg-secondary/50">
+                <CardHeader>
+                  <CardTitle>Can't find an answer?</CardTitle>
+                  <CardDescription>Our team is ready to help. Submit a ticket and we'll get back to you as soon as possible.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button asChild>
+                    <Link href="/contact">
+                      Submit a Support Ticket
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+        </section>
+
+        <div className="mt-16">
+            <Faq />
+        </div>
 
       </div>
     </div>
