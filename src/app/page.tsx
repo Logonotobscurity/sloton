@@ -12,21 +12,42 @@ import { BottomCta } from '@/components/bottom-cta';
 import { IndustriesBento } from '@/components/industries-bento';
 import { IdeasLab } from '@/components/ideas-lab';
 import { GeneralistApproach } from '@/components/generalist-approach';
+import { ScrollAnimationWrapper } from '@/components/scroll-animation-wrapper';
 
 export default function Home() {
   return (
     <div className="flex flex-col overflow-x-hidden">
       <Hero />
-      <StrategicPartner />
-      <GeneralistApproach />
-      <IdeasLab />
-      <PartnershipApproach />
-      <TrainingCTA />
-      <Statement />
-      <IndustriesBento />
-      <TechStackCarousel />
-      <FeaturedInsights />
-      <Faq />
+      <ScrollAnimationWrapper>
+        <StrategicPartner />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <GeneralistApproach />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <IdeasLab />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <PartnershipApproach />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <TrainingCTA />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <Statement />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <IndustriesBento />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <TechStackCarousel />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <FeaturedInsights />
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper>
+        <Faq />
+      </ScrollAnimationWrapper>
       <BottomCta />
     </div>
   );
