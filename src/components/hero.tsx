@@ -50,7 +50,7 @@ export function Hero() {
         }}
       ></div>
 
-      <div className="relative z-10 flex flex-col justify-center items-center px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col justify-center items-center">
           <div className="text-center max-w-4xl mx-auto">
               <div className="animate-[fade-in_0.8s_ease-out_forwards]" style={{ animationDelay: '0.2s', opacity: 0 }}>
                 <p className="text-sm font-normal uppercase tracking-widest text-primary">

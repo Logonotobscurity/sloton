@@ -13,16 +13,18 @@ interface PageHeroProps {
 
 export function PageHero({ title, description, icon, children }: PageHeroProps) {
   const gradientRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const words = document.querySelectorAll<HTMLElement>(".word");
-    words.forEach((word) => {
-      const delay = parseInt(word.getAttribute("data-delay") || "0", 10);
-      setTimeout(() => {
-        word.style.animation = "word-appear 0.8s ease-out forwards";
-      }, delay);
-    });
-
+    const words = heroRef.current?.querySelectorAll<HTMLElement>(".word");
+    if (words) {
+      words.forEach((word, index) => {
+        const delay = word.dataset.delay || `${index * 50}`;
+        word.style.animation = `word-appear 0.8s ease-out forwards`;
+        word.style.animationDelay = `${delay}ms`;
+      });
+    }
+    
     const gradient = gradientRef.current;
     function onMouseMove(e: MouseEvent) {
       if (gradient) {
@@ -41,20 +43,20 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseleave", onMouseLeave);
     };
-  }, []);
+  }, [title, description]);
 
   const titleWords = title.split(" ");
   const descriptionWords = description.split(" ");
 
   return (
-    <div className="min-h-[50vh] bg-background text-foreground font-body overflow-hidden relative w-full flex items-center justify-center">
+    <div ref={heroRef} className="min-h-[50vh] bg-background text-foreground font-body overflow-hidden relative w-full flex items-center justify-center -mx-4 md:-mx-6">
       <svg
         className="absolute inset-0 w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
           <pattern
-            id="grid"
+            id="grid-page-hero"
             width="60"
             height="60"
             patternUnits="userSpaceOnUse"
@@ -67,10 +69,9 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
             />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
+        <rect width="100%" height="100%" fill="url(#grid-page-hero)" />
       </svg>
       <div
-        id="mouse-gradient"
         ref={gradientRef}
         className="fixed pointer-events-none w-96 h-96 rounded-full blur-3xl transition-all duration-500 ease-out opacity-0"
         style={{
@@ -78,36 +79,38 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
         }}
       ></div>
 
-      <div className="relative z-10 flex flex-col justify-center items-center px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col justify-center items-center py-16 md:py-24">
         <div className="text-center max-w-3xl">
           {icon && <div className="mb-4 flex justify-center">{icon}</div>}
           <h1
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight font-headline mb-6"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight font-headline"
           >
             {titleWords.map((word, index) => (
               <span
                 key={index}
-                className="word"
-                style={{ animationDelay: `${100 * index}ms`, opacity: 0 }}
+                className="word inline-block"
+                data-delay={`${100 * index}`}
+                style={{ opacity: 0 }}
               >
                 {word}{" "}
               </span>
             ))}
           </h1>
           <p
-            className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mt-6"
           >
             {descriptionWords.map((word, index) => (
               <span
                 key={index}
-                className="word"
-                style={{ animationDelay: `${1000 + 50 * index}ms`, opacity: 0 }}
+                className="word inline-block"
+                data-delay={`${500 + 50 * index}`}
+                style={{ opacity: 0 }}
               >
                 {word}{" "}
               </span>
             ))}
           </p>
-          {children && <div className="mt-8 w-full animate-[fade-in_0.8s_ease-out_forwards]" style={{ animationDelay: '1.5s', opacity: 0 }}>{children}</div>}
+          {children && <div className="mt-8 w-full word" data-delay="1000" style={{ opacity: 0 }}>{children}</div>}
         </div>
       </div>
     </div>
