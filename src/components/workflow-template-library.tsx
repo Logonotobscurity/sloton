@@ -25,7 +25,7 @@ import {
 } from '@/lib/icons';
 import { templates as allTemplates, Template } from '@/lib/workflow-templates';
 import { TaskAutomationForm } from './task-automation-form';
-import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink } from '@/components/ui/pagination';
+import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink, PaginationEllipsis } from '@/components/ui/pagination';
 import { cn } from '@/lib/utils';
 import { GatedFeatureModal } from './gated-feature-modal';
 
@@ -59,7 +59,7 @@ const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string
   'General': { icon: IconGeneral, iconBg: "bg-gray-100 dark:bg-gray-900/50", color: "text-gray-600 dark:text-gray-400" },
 };
 
-const ITEMS_PER_PAGE = 9;
+const ITEMS_PER_PAGE = 8; // Adjust to 8 to leave space for the generator card
 
 interface TemplateCardProps {
   template: Template;
@@ -114,36 +114,62 @@ export function WorkflowTemplateLibrary() {
   };
   
   const filteredTemplates = useMemo(() => {
-    const designerTemplate = {
-      name: 'Automation Task Designer',
-      slug: 'automation-task-designer',
-      description: 'Our Workflow Template Generator recognizes your specific needs and requirements and generates custom workflow templates in moments, just give it a few pointers about what kind of workflow you need.',
-      category: 'IT Operations', // or a special category
-      isGenerator: true,
-    } as Template & { isGenerator?: boolean };
-
-    const regularTemplates = allTemplates.filter(template => {
+    return allTemplates.filter(template => {
       const matchesCategory = selectedCategory === 'All' || template.category === selectedCategory;
       const matchesSearch = template.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             template.description.toLowerCase().includes(searchTerm.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-
-    return [designerTemplate, ...regularTemplates];
   }, [selectedCategory, searchTerm]);
 
-  const totalPages = Math.ceil((filteredTemplates.length - 1) / ITEMS_PER_PAGE);
-  const paginatedTemplates = filteredTemplates.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(filteredTemplates.length / ITEMS_PER_PAGE);
 
-  // Special handling for the designer card on the first page
-  const displayedTemplates = currentPage === 1 ? paginatedTemplates : paginatedTemplates.filter(t => !(t as any).isGenerator);
-
+  const paginatedTemplates = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredTemplates.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [currentPage, filteredTemplates]);
 
   const handlePageChange = (page: number) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
     window.scrollTo({ top: 300, behavior: 'smooth' });
   };
+  
+  const renderPagination = () => {
+    const pageNumbers = [];
+    const maxPagesToShow = 5;
+
+    if (totalPages <= maxPagesToShow) {
+        for (let i = 1; i <= totalPages; i++) {
+            pageNumbers.push(i);
+        }
+    } else {
+        if (currentPage <= 3) {
+            pageNumbers.push(1, 2, 3, 4, '...', totalPages);
+        } else if (currentPage >= totalPages - 2) {
+            pageNumbers.push(1, '...', totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+        } else {
+            pageNumbers.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
+        }
+    }
+
+    return pageNumbers.map((num, index) => (
+        <PaginationItem key={index}>
+            {typeof num === 'number' ? (
+                <PaginationLink
+                    href="#"
+                    isActive={currentPage === num}
+                    onClick={(e) => { e.preventDefault(); handlePageChange(num); }}
+                >
+                    {num}
+                </PaginationLink>
+            ) : (
+                <PaginationEllipsis />
+            )}
+        </PaginationItem>
+    ));
+  };
+
 
   return (
     <div className="py-16 md:py-24">
@@ -191,47 +217,42 @@ export function WorkflowTemplateLibrary() {
             </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {paginatedTemplates.map((template, index) => {
-            const isGenerator = (template as any).isGenerator;
-            if (isGenerator) {
-              return (
-                 <Card key="generator" className="bg-background/50 flex flex-col p-6 rounded-xl border-amber-500/50 group transition-colors duration-300">
-                    <CardHeader className="p-0">
-                        <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center", categoryStyles['IT Operations'].iconBg)}>
-                            <Cog className={cn("h-6 w-6", categoryStyles['IT Operations'].color)} />
-                        </div>
-                        <CardTitle className="pt-4 text-xl font-semibold">Automation Task Designer</CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-0 flex-grow pt-2">
-                        <p className="text-muted-foreground leading-relaxed line-clamp-3">{template.description}</p>
-                    </CardContent>
-                    <CardFooter className="p-0 pt-6">
-                        <Dialog>
-                            <DialogTrigger asChild>
-                                 <Button className="w-full">
-                                    Create Your Own
-                                    <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                            </DialogTrigger>
-                             <DialogContent className="sm:max-w-[600px] bg-background">
-                                <DialogHeader>
-                                    <DialogTitle className="text-2xl flex items-center gap-2"><Cog className="h-6 w-6 text-accent" /> Automation Task Designer</DialogTitle>
-                                    <DialogDescription>
-                                        Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.
-                                    </DialogDescription>
-                                </DialogHeader>
-                                <TaskAutomationForm />
-                            </DialogContent>
-                        </Dialog>
-                    </CardFooter>
-                </Card>
-              )
-            }
+           <Card className="bg-background/50 flex flex-col p-6 rounded-xl border-amber-500/50 group transition-colors duration-300">
+              <CardHeader className="p-0">
+                  <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center", categoryStyles['IT Operations'].iconBg)}>
+                      <Cog className={cn("h-6 w-6", categoryStyles['IT Operations'].color)} />
+                  </div>
+                  <CardTitle className="pt-4 text-xl font-semibold">Automation Task Designer</CardTitle>
+              </CardHeader>
+              <CardContent className="p-0 flex-grow pt-2">
+                  <p className="text-muted-foreground leading-relaxed line-clamp-3">Can't find a template? Describe your workflow and our AI will generate a configured, optimized task design in seconds.</p>
+              </CardContent>
+              <CardFooter className="p-0 pt-6">
+                  <Dialog>
+                      <DialogTrigger asChild>
+                           <Button className="w-full">
+                              Create Your Own
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                      </DialogTrigger>
+                       <DialogContent className="sm:max-w-[600px] bg-background">
+                          <DialogHeader>
+                              <DialogTitle className="text-2xl flex items-center gap-2"><Cog className="h-6 w-6 text-accent" /> Automation Task Designer</DialogTitle>
+                              <DialogDescription>
+                                  Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.
+                              </DialogDescription>
+                          </DialogHeader>
+                          <TaskAutomationForm />
+                      </DialogContent>
+                  </Dialog>
+              </CardFooter>
+          </Card>
+          {paginatedTemplates.map((template) => {
             return <TemplateCard key={template.slug} template={template} />
           })}
         </div>
 
-        {filteredTemplates.length === 1 && (
+        {filteredTemplates.length === 0 && (
            <div className="text-center py-16 col-span-full">
               <Search className="mx-auto h-12 w-12 text-muted-foreground" />
               <h3 className="mt-4 text-xl font-semibold">No Templates Found</h3>
@@ -252,17 +273,7 @@ export function WorkflowTemplateLibrary() {
                 />
               </PaginationItem>
               
-              {[...Array(totalPages)].map((_, i) => (
-                  <PaginationItem key={i}>
-                    <PaginationLink 
-                      href="#"
-                      isActive={currentPage === i + 1}
-                      onClick={(e) => { e.preventDefault(); handlePageChange(i + 1); }}
-                    >
-                      {i + 1}
-                    </PaginationLink>
-                  </PaginationItem>
-              ))}
+              {renderPagination()}
 
               <PaginationItem>
                 <PaginationNext
