@@ -1,129 +1,76 @@
 
 import Link from 'next/link';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Users, CheckCircle, Lightbulb, Zap, Handshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { ArrowRight, Building, Users, Scale, Globe } from 'lucide-react';
 import { GlowingCard } from '@/components/ui/glowing-card';
 
 export const metadata: Metadata = {
-  title: 'About Us',
-  description: 'Meet the expert team at LOG_ON, a dynamic duo of technology experts dedicated to delivering innovative solutions and exceptional service to drive your business forward.',
+  title: 'About LOG_ON',
+  description: 'Learn about LOG_ON, our mission, our values, and our commitment to driving business efficiency through smart technology and integrated solutions.',
 };
 
-const teamMembers = [
-  {
-    name: 'Oluwamayowa Logo',
-    role: 'Lead Developer & Automation Solution Architect',
-    description: 'Expert in AI architecture and automation solutions with a focus on innovative technology implementation. Specializes in developing scalable solutions for business growth.',
-    expertise: ['AI Architecture', 'Strategy', 'Innovation', 'Web Development', 'IT Support', 'Solution Design'],
-  },
-  {
-    name: 'Favour Alfred',
-    role: 'Team Lead Sales & Business Process Automation',
-    description: 'Results-driven professional specializing in business process automation and digital marketing strategies. Expert in optimizing workflows and driving digital transformation.',
-    expertise: ['Process Automation', 'Workflow Design', 'Integration', 'Digital Marketing', 'Sales Strategy', 'Business Development'],
-  },
-];
-
-const philosophies = [
-  {
-    icon: <Lightbulb className="h-8 w-8 text-primary" />,
-    title: 'Innovation-Driven',
-    description: 'We are committed to staying at the forefront of technology, constantly exploring new tools and methodologies to deliver cutting-edge solutions that provide a competitive edge.'
-  },
-  {
-    icon: <Users className="h-8 w-8 text-primary" />,
-    title: 'Client-Centric',
-    description: 'Your success is our success. We take the time to understand your unique challenges and goals, building relationships based on trust, transparency, and mutual respect.'
-  },
-  {
-    icon: <Handshake className="h-8 w-8 text-primary" />,
-    title: 'Strategic Partnerships',
-    description: 'We believe in collaboration and work as an extension of your team. Our goal is to build long-term partnerships that foster growth and continuous improvement.'
-  },
-   {
-    icon: <Zap className="h-8 w-8 text-primary" />,
-    title: 'Results-Oriented',
-    description: 'Our solutions are designed to deliver measurable results. We focus on creating tangible business value, whether it\'s increasing efficiency, reducing costs, or driving revenue.'
-  }
-];
+const stats = [
+    { value: '100+', label: 'Projects Completed' },
+    { value: '50+', label: 'Satisfied Clients' },
+    { value: '10+', label: 'Technology Partners' },
+    { value: '5+', label: 'Countries Served' }
+]
 
 export default function AboutPage() {
   return (
-    <div className="bg-background">
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-16 md:space-y-20">
-        
-        <section className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold font-headline">About LOG_ON</h1>
-          <p className="mt-4 text-md md:text-lg text-muted-foreground">
-            WE ARE GENERALISTS. Our expertise isn't confined to a single niche. We are technologists with a broad and deep understanding of the entire digital ecosystem. This allows us to connect dots that specialists might miss, creating integrated solutions that are more robust, efficient, and innovative. We architect, build, and manage systems that drive real-world results, from AI-powered automation to scalable cloud infrastructures and custom web applications. Our holistic view ensures every component works in harmony to achieve your strategic goals.
-          </p>
-        </section>
-        
-        <section>
-          <div className="text-center mb-12">
-             <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Philosophy</h2>
-             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">Our core values guide every decision we make and every solution we build.</p>
-          </div>
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {philosophies.map((item) => (
-              <div key={item.title} className="text-center p-4">
-                <div className="flex justify-center mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                <p className="text-muted-foreground mt-2 text-sm">{item.description}</p>
-              </div>
-            ))}
-          </div>
+    <div>
+        <section className="text-center">
+            <h1 className="text-3xl md:text-5xl font-bold font-headline">Driving Business Transformation</h1>
+            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-3xl mx-auto">
+                LOG_ON is more than a technology provider; we are your strategic partner in growth. Our mission is to empower businesses by building intelligent systems that drive efficiency, spark innovation, and create lasting competitive advantages. We believe in connecting the dots between technology and business goals to deliver integrated solutions that produce real-world results.
+            </p>
         </section>
 
-        <section>
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-4xl font-bold flex items-center justify-center gap-3 font-headline"><Users className="h-8 w-8 text-primary" /> Meet Our Team</h2>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">A dynamic duo of technology experts dedicated to delivering innovative solutions and exceptional service to our clients.</p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            {teamMembers.map((member) => (
-              <GlowingCard key={member.name}>
-                 <div className="p-6 text-center md:text-left">
-                    <h3 className="font-bold text-2xl">{member.name}</h3>
-                    <p className="text-primary mb-3">{member.role}</p>
-                    <p className="text-muted-foreground text-sm">{member.description}</p>
-                 </div>
-                 <div className="bg-secondary/20 p-6">
-                    <h4 className="font-semibold mb-4 text-primary">Areas of Expertise</h4>
-                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
-                        {member.expertise.map(skill => (
-                            <div key={skill} className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-accent" />
-                                <span className="text-sm text-muted-foreground">{skill}</span>
-                            </div>
-                        ))}
+        <section className="py-16 md:py-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                {stats.map(stat => (
+                    <div key={stat.label}>
+                        <p className="text-4xl md:text-5xl font-bold text-primary">{stat.value}</p>
+                        <p className="text-muted-foreground mt-2">{stat.label}</p>
                     </div>
-                </div>
-              </GlowingCard>
-            ))}
-          </div>
-        </section>
-        
-        <section className="text-center max-w-3xl mx-auto border-t border-border pt-16">
-            <h2 className="text-2xl md:text-4xl font-bold flex items-center justify-center gap-3 font-headline"><Briefcase className="h-8 w-8 text-primary" /> Join Our Team</h2>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground">
-                We're always looking for talented individuals who are passionate about technology and innovation. Join us in shaping the future of digital transformation in Nigeria.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-                <Button asChild>
-                    <Link href="#">View Open Positions</Link>
-                </Button>
-                <Button asChild variant="secondary">
-                    <Link href="/contact">Contact Us</Link>
-                </Button>
+                ))}
             </div>
         </section>
 
-      </div>
+        <section className="grid md:grid-cols-2 gap-8 items-center">
+            <GlowingCard>
+                <div className="p-8">
+                    <h3 className="text-2xl font-bold font-headline flex items-center gap-3"><Globe className="h-8 w-8 text-primary"/> Our Mission</h3>
+                    <p className="text-muted-foreground mt-4">To empower businesses of all sizes with scalable, intelligent technology solutions that automate processes, reduce costs, and unlock new opportunities for growth and innovation.</p>
+                </div>
+            </GlowingCard>
+            <GlowingCard>
+                <div className="p-8">
+                    <h3 className="text-2xl font-bold font-headline flex items-center gap-3"><Scale className="h-8 w-8 text-primary"/> Our Values</h3>
+                    <ul className="text-muted-foreground mt-4 space-y-2">
+                        <li><strong>Innovation-Driven:</strong> We are constantly exploring new technologies to deliver cutting-edge solutions.</li>
+                        <li><strong>Client-Centric:</strong> Your success is our ultimate metric. We build partnerships based on trust and transparency.</li>
+                        <li><strong>Results-Oriented:</strong> We design solutions focused on delivering measurable, tangible business value.</li>
+                    </ul>
+                </div>
+            </GlowingCard>
+        </section>
+
+        <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-secondary/30 rounded-lg px-4">
+            <h2 className="text-2xl md:text-4xl font-bold font-headline">Meet the People Behind the Innovation</h2>
+            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
+                Our team is a dynamic duo of technology experts dedicated to delivering exceptional service.
+            </p>
+            <div className="mt-8 flex justify-center">
+                <Button asChild size="lg">
+                    <Link href="/about/leadership">
+                        Meet Our Team <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                </Button>
+            </div>
+        </section>
     </div>
   );
 }

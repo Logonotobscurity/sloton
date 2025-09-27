@@ -100,15 +100,15 @@ export const menuData = {
       "intro": "Bring AI Agents to every corner of your business.",
       "cta": {"label": "Learn More", "href": "/about"},
       "items": [
-        {"title": "Careers", "desc": "Make your next career move with the fastest growing enterprise software company.", "href": "/about"},
-        {"title": "Investors", "desc": "Explore investor news and resources.", "href": "/about"},
-        {"title": "LOG_ON Research", "desc": "Learn how we keep innovation moving forward through our AI research team, labs, and partnerships.", "href": "/ai-solutions"},
-        {"title": "Leadership", "desc": "Meet the LOG_ON leadership team.", "href": "/about"},
-        {"title": "Locations", "desc": "See LOG_ON office locations around the world.", "href": "/contact"},
-        {"title": "Newsroom", "desc": "LOG_ON is making headlines. Find announcements, media kits, and more.", "href": "/insights"},
-        {"title": "Analyst Reports", "desc": "Get expert insights from top industry analysts on LOG_ON.", "href": "/insights"},
-        {"title": "Global impact", "desc": "Join us to foster a more sustainable, fair, and ethical world.", "href": "/training#impact"},
-        {"title": "Trust and compliance", "desc": "Learn the measures LOG_ON takes to keep your data secure and compliant.", "href": "/about"}
+        {"title": "Careers", "desc": "Make your next career move with us.", "href": "/about/careers"},
+        {"title": "Investors", "desc": "Explore investor news and resources.", "href": "/about/investors"},
+        {"title": "LOG_ON Research", "desc": "How we keep innovation moving forward.", "href": "/about/research"},
+        {"title": "Leadership", "desc": "Meet the LOG_ON leadership team.", "href": "/about/leadership"},
+        {"title": "Locations", "desc": "See LOG_ON office locations.", "href": "/about/locations"},
+        {"title": "Newsroom", "desc": "Find announcements, media kits, and more.", "href": "/about/newsroom"},
+        {"title": "Analyst Reports", "desc": "Get expert insights from top industry analysts.", "href": "/about/analyst-reports"},
+        {"title": "Global Impact", "desc": "Fostering a more sustainable and ethical world.", "href": "/about/global-impact"},
+        {"title": "Trust and Compliance", "desc": "How we keep your data secure and compliant.", "href": "/about/trust"}
       ]
     },
     "support": {
