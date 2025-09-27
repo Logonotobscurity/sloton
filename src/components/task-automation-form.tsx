@@ -10,12 +10,11 @@ import { getAutomatedTaskDesign } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
-import { Loader2, Sparkles, RefreshCw, Dices } from 'lucide-react';
+import { Loader2, Sparkles, RefreshCw } from 'lucide-react';
 import type { AutomateTaskDesignOutput } from '@/ai/flows/automated-task-design';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent } from './ui/card';
 import { VisualWorkflow } from './visual-workflow';
-import { ArrowIcon } from './ui/arrow-icon';
 
 const formSchema = z.object({
   workflowDescription: z.string().min(20, 'Please describe your workflow in at least 20 characters.'),
@@ -53,15 +52,9 @@ export function TaskAutomationForm({ initialValues, onSuccessfulSubmit }: TaskAu
     }
   }, [initialValues, form]);
   
-  const handleLoadExample = () => {
-    const currentDescription = form.getValues("workflowDescription");
-    let newExample = currentDescription;
-    while (newExample === currentDescription) {
-        newExample = exampleWorkflows[Math.floor(Math.random() * exampleWorkflows.length)];
-    }
-    form.setValue("workflowDescription", newExample);
+  const handleSetExample = (example: string) => {
+    form.setValue("workflowDescription", example);
   };
-
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
@@ -111,7 +104,7 @@ export function TaskAutomationForm({ initialValues, onSuccessfulSubmit }: TaskAu
   }
 
   return (
-    <Card className="bg-secondary/30 border-border/50">
+    <Card className="bg-background/20 border-border/50">
         <CardContent className="p-6">
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -120,41 +113,36 @@ export function TaskAutomationForm({ initialValues, onSuccessfulSubmit }: TaskAu
                 name="workflowDescription"
                 render={({ field }) => (
                     <FormItem>
-                        <div className="flex justify-between items-center">
-                            <FormLabel className="text-base">Workflow Description</FormLabel>
-                             <Button type="button" variant="ghost" size="sm" onClick={handleLoadExample}>
-                                <Dices className="mr-2 h-4 w-4"/>
-                                Load Example
-                            </Button>
-                        </div>
+                        <FormLabel className="text-base">Describe the workflow you want to automate</FormLabel>
                     <FormControl>
                         <Textarea
-                        placeholder="e.g., When a new user signs up, send a welcome email, add them to our CRM, and schedule a follow-up task for the sales team in 3 days."
+                        placeholder="e.g., When a new user signs up, send a welcome email, add them to our CRM, and schedule a follow-up task..."
                         {...field}
-                        rows={5}
+                        rows={6}
+                        className="bg-background/50"
                         />
                     </FormControl>
                     <FormMessage />
                     </FormItem>
                 )}
                 />
-                <FormField
-                control={form.control}
-                name="optimizationSuggestions"
-                render={({ field }) => (
-                    <FormItem>
-                    <FormLabel className="text-base">Optimization Suggestions (Optional)</FormLabel>
-                    <FormControl>
-                        <Textarea
-                        placeholder="e.g., Could we personalize the email based on user's country? Is it possible to notify the team on Slack?"
-                        {...field}
-                        rows={3}
-                        />
-                    </FormControl>
-                    <FormMessage />
-                    </FormItem>
-                )}
-                />
+                
+                <div>
+                  <p className="text-sm text-muted-foreground mb-3">Or try one of these examples:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {exampleWorkflows.slice(1, 4).map((example, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => handleSetExample(example)}
+                        className="text-xs text-left p-2 rounded-md bg-secondary hover:bg-secondary/80 border border-border/50 transition-colors"
+                      >
+                        {example.substring(0, 50)}...
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 <Button type="submit" disabled={loading} className="group w-full flex justify-center gap-2 items-center">
                     {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
                     Generate Task Design
