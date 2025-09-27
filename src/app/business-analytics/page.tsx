@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CheckCircle, ArrowRight, BarChart3, LineChart, Target, Table } from 'lucide-react';
@@ -119,13 +120,4 @@ export default function BusinessAnalyticsPage() {
             <div className="mt-8 flex justify-center">
                 <Button asChild size="lg">
                     <Link href="/contact">
-                        Schedule Your Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                </Button>
-            </div>
-        </section>
-
-      </div>
-    </div>
-  );
-}
+                        Schedule Your Free Consultation <ArrowRight className="ml-2 h-5 w-5

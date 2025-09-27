@@ -26,7 +26,7 @@ export function PartnershipApproach() {
             <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-snug mt-4">
                 We embed with your team to <span className="text-primary">deliver results</span>. From startups to enterprises who want to <span className="text-primary">push the boundaries</span> of what's possible.
             </h2>
-            <p className="text-muted-foreground md:text-lg mt-4">
+            <p className="text-muted-foreground md:text-lg leading-relaxed mt-4">
                 Our success is measured by your success. We partner with ambitious teams to understand their vision and deliver tangible outcomes that fuel growth and innovation.
             </p>
              <div className="mt-8">

@@ -53,7 +53,7 @@ export default function DatabaseSolutionsPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-             <div className="space-y-3 pt-4">
+             <div className="space-y-4 pt-4">
                 {benefits.map(benefit => (
                     <div key={benefit} className="flex items-center gap-3">
                         <CheckCircle className="h-5 w-5 text-primary" />
@@ -78,7 +78,7 @@ export default function DatabaseSolutionsPage() {
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground text-sm md:text-base">
-                    <p>We ensure your data infrastructure is robust, performant, and ready for growth.</p>
+                    <p className="leading-relaxed">We ensure your data infrastructure is robust, performant, and ready for growth.</p>
                 </CardContent>
             </Card>
           </div>
@@ -87,7 +87,7 @@ export default function DatabaseSolutionsPage() {
         <section className="py-16 md:py-24">
             <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
                 <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Database Services</h2>
-                <p className="mt-4 text-md md:text-lg text-muted-foreground">
+                <p className="mt-4 text-md md:text-lg text-muted-foreground leading-relaxed">
                     We offer a complete range of services to manage the entire lifecycle of your data.
                 </p>
             </div>
@@ -99,7 +99,7 @@ export default function DatabaseSolutionsPage() {
                         <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-muted-foreground text-sm md:text-base">{service.description}</p>
+                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{service.description}</p>
                     </CardContent>
                 </Card>
                 ))}
@@ -114,19 +114,10 @@ export default function DatabaseSolutionsPage() {
 
          <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
             <h2 className="text-2xl md:text-4xl font-bold font-headline">Is Your Data Working For You?</h2>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Let's discuss how our database expertise can improve your application performance and secure your data. Schedule a free consultation today.
             </p>
             <div className="mt-8 flex justify-center">
                 <Button asChild size="lg">
                     <Link href="/contact">
-                        Schedule Your Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                </Button>
-            </div>
-        </section>
-
-      </div>
-    </div>
-  );
-}
+                        Schedule Your Free Consultation <ArrowRight className="ml-2 h-5 w-5

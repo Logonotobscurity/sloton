@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { BrainCircuit, Cpu, Eye, Languages, BarChart, CheckCircle, ArrowRight } from 'lucide-react';
@@ -124,3 +123,9 @@ export default function AiSolutionsPage() {
                     </Link>
                 </Button>
             </div>
+        </section>
+
+      </div>
+    </div>
+  );
+}

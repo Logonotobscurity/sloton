@@ -2,10 +2,8 @@
 "use client";
 
 import React from 'react';
-import { BrainCircuit, ArrowRight, Cog, Bot, Zap, Code } from 'lucide-react';
+import { BrainCircuit, ArrowRight, Cog } from 'lucide-react';
 import { Card, CardDescription, CardHeader, CardTitle, CardFooter } from './ui/card';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
-import Autoplay from "embla-carousel-autoplay";
 import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
@@ -22,7 +20,7 @@ export function StrategicPartner() {
                 <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-snug">
                     We build intelligent systems that drive <span className="text-primary">efficiency</span>, spark <span className="text-primary">innovation</span>, and create lasting <span className="text-primary">competitive advantages</span>.
                 </h2>
-                <p className="text-muted-foreground md:text-lg">
+                <p className="text-muted-foreground md:text-lg leading-relaxed">
                     Our value isn't just in understanding technology; it's in applying it to solve your core business challenges. We provide a clear, structured pathway to integrating technology that drives real business results.
                 </p>
             </div>
@@ -88,7 +86,7 @@ export function StrategicPartner() {
                     </DialogContent>
                 </Dialog>
             </div>
-         </div>
+        </div>
       </div>
     </section>
   );
