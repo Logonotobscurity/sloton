@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 import { CommunityLeadForm } from '@/components/community-lead-form';
 import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { GlowingCard } from '@/components/ui/glowing-card';
+import { EnrollmentForm } from '@/components/enrollment-form';
 
 
 export const metadata: Metadata = {
@@ -116,13 +117,25 @@ export default function TrainingPage() {
                             </CardHeader>
                             <CardContent className="p-0 pt-4 flex-grow">
                                 <p className="text-muted-foreground">{program.description}</p>
-                            </CardContent>
-                            <CardFooter className="p-0 pt-6">
-                                <div className="flex flex-wrap gap-2">
+                                 <div className="flex flex-wrap gap-2 mt-4">
                                     {program.tags.map(tag => (
                                         <Badge key={tag} variant="outline">{tag}</Badge>
                                     ))}
                                 </div>
+                            </CardContent>
+                            <CardFooter className="p-0 pt-6">
+                                <DialogFormWrapper
+                                    trigger={<Button className="w-full">Register Now</Button>}
+                                    className="bg-background"
+                                >
+                                    <DialogHeader>
+                                        <DialogTitle>Enroll in: {program.title}</DialogTitle>
+                                        <DialogDescription>
+                                            Complete the form below to begin your enrollment process.
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                    <EnrollmentForm programName={program.title} />
+                                </DialogFormWrapper>
                             </CardFooter>
                         </div>
                     </GlowingCard>
