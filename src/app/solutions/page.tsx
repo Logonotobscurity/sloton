@@ -71,7 +71,7 @@ const services = [
 
 export default function SolutionsPage() {
   return (
-    <div className="bg-background">
+    <div>
       <PageHero 
         title="Our Solutions"
         description="We provide a comprehensive suite of scalable services designed to grow with your business, tackle your most significant challenges head-on, and drive measurable results."

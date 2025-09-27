@@ -1,5 +1,4 @@
 
-import { menuData } from '@/lib/menu-data';
 
 interface AboutLayoutProps {
   children: React.ReactNode;

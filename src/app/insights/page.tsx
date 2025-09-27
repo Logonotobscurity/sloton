@@ -25,7 +25,7 @@ const topics = [
 
 export default function InsightsPage() {
   return (
-    <div className="bg-background">
+    <div>
         <PageHero
             title="Insights & Articles"
             description="Welcome to our hub for expert analysis and thought leadership. Here, we delve into the technologies and strategies that are shaping the future of business. Stay ahead of the curve with our in-depth articles on everything from artificial intelligence to digital transformation."

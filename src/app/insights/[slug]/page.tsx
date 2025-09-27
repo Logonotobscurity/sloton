@@ -80,7 +80,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
   };
 
   return (
-    <div className="bg-background">
+    <div>
        <Script 
         id="article-schema"
         type="application/ld+json"

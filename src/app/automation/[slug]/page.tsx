@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
 import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import { CommunityLeadForm } from '@/components/community-lead-form';
+import { PageHero } from '@/components/page-hero';
 
 const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string, color: string } } = {
   'Finance': { icon: IconFinance, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
@@ -60,21 +61,18 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
     .slice(0, 3);
 
   return (
-    <div className="bg-background">
+    <div>
+      <PageHero
+        title={template.name}
+        description={template.description}
+        icon={<ShareModal title={template.name} />}
+      />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="max-w-4xl mx-auto">
           <Link href="/automation" className="text-primary hover:underline flex items-center gap-2 mb-8">
             <ArrowLeft className="h-4 w-4" />
             Back to Template Library
           </Link>
-
-          <header className="mb-8 md:mb-12">
-            <div className="flex items-center justify-between">
-                <h1 className="text-3xl md:text-5xl font-bold font-headline">{template.name}</h1>
-                <ShareModal title={template.name} />
-            </div>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground">{template.description}</p>
-          </header>
 
           {template.steps && (
             <section className="space-y-8">

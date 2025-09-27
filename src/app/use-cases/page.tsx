@@ -83,7 +83,7 @@ const GridItem = ({ area, study }: GridItemProps) => {
 
 export default function UseCasesPage() {
   return (
-    <div className="bg-background">
+    <div>
       <PageHero 
         title="Automating Industries"
         description="Explore detailed examples of how LOG_ON's technology solutions drive success across various sectors. We tailor our services to meet the unique demands and challenges of your industry."

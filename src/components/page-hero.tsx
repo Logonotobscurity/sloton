@@ -1,7 +1,6 @@
-"use client"
+"use client";
 import { useEffect } from "react";
-import { renderCanvas, ShineBorder, TypeWriter } from "@/components/ui/hero-designali";
-import { Plus } from "lucide-react";
+import { renderCanvas } from "@/components/ui/hero-designali";
 import React from 'react';
 
 interface PageHeroProps {
