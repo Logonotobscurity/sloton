@@ -13,9 +13,11 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const SolutionRecommendationInputSchema = z.object({
+  businessGoals: z.array(z.string()).describe("A list of the user's primary business goals (e.g., 'Increase Sales', 'Reduce Operational Costs')."),
+  challenges: z.array(z.string()).describe("A list of the user's current challenges (e.g., 'Manual data entry is slow', 'Customer support is overwhelmed')."),
   businessNeeds: z
     .string()
-    .describe('Description of the business needs and challenges.'),
+    .describe('A more detailed, free-text description of the business needs and challenges.'),
   companySize: z
     .string()
     .describe('The size of the company (e.g., small, medium, large).'),
@@ -30,41 +32,25 @@ const SolutionRecommendationInputSchema = z.object({
 export type SolutionRecommendationInput = z.infer<typeof SolutionRecommendationInputSchema>;
 
 const SolutionRecommendationOutputSchema = z.object({
-  executiveSummary: z.object({
-    overview: z.string().describe("Brief overview of key findings (2-3 sentences)."),
-    primaryOpportunity: z.string().describe("The primary opportunity identified."),
-    expectedRoiTimeframe: z.string().describe("e.g., '3-6 months'"),
-  }).describe("A concise, high-level summary of the proposed solution and its expected impact."),
-  businessContext: z.object({
-    industry: z.string(),
-    companySize: z.string(),
-    keyChallenges: z.array(z.string()).describe("A list of 3 key challenges identified from the user's input."),
+  strategicSummary: z.object({
+      title: z.string().describe("A compelling, high-level title for the proposed strategy, e.g., 'Strategy for AI-Driven Growth'."),
+      overview: z.string().describe("A 2-3 sentence overview of the key findings and the strategic direction recommended."),
+      primaryOpportunity: z.string().describe("The single most significant opportunity identified from the user's input."),
   }),
-  recommendedSolutionPath: z.object({
-    coreTechnology: z.object({
-        solutionName: z.string().describe("e.g., 'AI-Powered Customer Support Chatbot'"),
-        justification: z.string().describe("Why this solution fits the client's needs (2-3 sentences)."),
-        implementationTimeline: z.string().describe("e.g., '6-8 Weeks'"),
-    }).describe("The primary technology recommendation."),
-    expectedOutcomes: z.array(z.object({
-        metric: z.string().describe("The metric being improved, e.g., 'Support Ticket Volume'"),
-        currentState: z.string().describe("The current state of the metric, e.g., '~200/week'"),
-        projectedImprovement: z.string().describe("The projected improvement, e.g., '-40%' or '+15%'"),
-        timeframe: z.string().describe("The timeframe to see this improvement, e.g., '3 Months'"),
-    })).describe("A table of expected outcomes with measurable metrics."),
-  }),
+  suggestedInitiatives: z.array(z.object({
+      initiativeName: z.string().describe("A clear, descriptive name for the technology project, e.g., 'Implement an AI-Powered Customer Support Chatbot'."),
+      description: z.string().describe("A paragraph explaining what the initiative involves and how it addresses the user's specific goals and challenges."),
+      estimatedImpact: z.string().describe("The expected business outcome, e.g., 'Reduce support ticket volume by 30-40%' or 'Increase lead conversion rate by 15%'."),
+      relevantServices: z.array(z.string()).describe("A list of the specific LOG_ON services that would be used to deliver this initiative (e.g., 'AI Solutions', 'Chatbot Development').")
+  })).describe("A list of 2-3 concrete, actionable technology initiatives."),
   nextSteps: z.array(z.object({
       actionItem: z.string().describe("A specific action item."),
       owner: z.string().describe("Who is responsible for this action (e.g., 'Client', 'LOG_ON')."),
-      deadline: z.string().describe("The deadline for this action (e.g., '1 Week')."),
-  })).describe("A list of 3 clear, actionable next steps."),
-   appendix: z.object({
-    caseStudies: z.array(z.object({
-        reference: z.string().describe("The case study reference ID, e.g., '#GL-2023-087'"),
-        link: z.string().url().describe("A placeholder link to the case study."),
-    })).describe("A list of 1-2 relevant case studies."),
-    technologySpecifications: z.string().describe("Brief, high-level technical details of the proposed stack."),
-  }),
+  })).describe("A list of 2-3 clear, actionable next steps to move forward."),
+  leadProfile: z.object({
+      priorityScore: z.enum(['High', 'Medium', 'Low']).describe("The estimated priority of the lead based on their needs and budget."),
+      keyInterests: z.array(z.string()).describe("A list of the primary LOG_ON services the user is interested in."),
+  })
 });
 export type SolutionRecommendationOutput = z.infer<typeof SolutionRecommendationOutputSchema>;
 
@@ -79,51 +65,50 @@ const prompt = ai.definePrompt({
   name: 'solutionRecommendationPrompt',
   input: {schema: SolutionRecommendationInputSchema},
   output: {schema: SolutionRecommendationOutputSchema},
-  prompt: `You are an expert IT consultant and sales architect for LOG_ON, a global technology consulting firm. Your goal is to convert a potential client by providing a high-value, actionable technology roadmap based on their business needs. The user's name is {{{name}}}.
+  prompt: `You are an expert Solutions Architect for LOG_ON, a technology consulting firm. Your goal is to provide a high-value, actionable technology roadmap based on a prospective client's inputs. This roadmap should be professional, data-driven, and clearly tied to their stated goals and challenges.
 
 The user has provided the following information:
-- Business Needs: {{{businessNeeds}}}
+- Name: {{{name}}}
 - Company Size: {{{companySize}}}
 - Industry: {{{industry}}}
+- Stated Business Goals: {{{json businessGoals}}}
+- Stated Challenges: {{{json challenges}}}
+- Detailed Needs: {{{businessNeeds}}}
 - Budget: {{{budget}}}
-- Phone: {{{phone}}}
 
-Your task is to generate a detailed and professional Technology Assessment Report. You MUST follow this structure EXACTLY.
+Your task is to generate a personalized Technology Assessment Report. You MUST follow this structure EXACTLY and adhere to these instructions:
 
-**Report Structure Requirements:**
+**Report Generation Instructions:**
 
-1.  **Executive Summary:**
-    *   Start with a powerful overview of the proposed solution and its direct impact.
-    *   Clearly state the primary opportunity.
-    *   Provide a realistic ROI timeframe.
+1.  **Analyze the Inputs:** Carefully review all the user's inputs. Connect their goals to their challenges and business needs. Use the company size, industry, and budget to tailor the scope and scale of your recommendations.
 
-2.  **Business Context:**
-    *   Summarize the client's industry and company size.
-    *   Identify and list exactly three key challenges based on their described needs.
+2.  **Strategic Summary:**
+    *   Create a compelling, high-level title for the overall strategy.
+    *   Write a concise overview that summarizes the situation and your proposed path forward.
+    *   Identify and articulate the single most impactful opportunity for the client.
 
-3.  **Recommended Solution Path:**
-    *   **Core Technology Recommendation:**
-        *   Provide a clear, descriptive name for the solution.
-        *   Write a compelling justification for why this technology is the right fit.
-        *   Estimate a realistic implementation timeline.
-    *   **Expected Outcomes:**
-        *   Present this as a table of 2-3 measurable metrics.
-        *   For each metric, define the current state (you may need to infer a reasonable baseline), the projected improvement (e.g., +25%, -50%), and the timeframe to achieve it.
+3.  **Suggested Initiatives (Generate 2-3):**
+    *   For each initiative, provide a clear, descriptive name.
+    *   Write a detailed description explaining how this specific project will directly help them achieve their stated goals by solving their stated challenges.
+    *   Provide a concrete, quantifiable estimated impact (e.g., "reduce costs by X%", "increase sales by Y%").
+    *   List the specific LOG_ON services that would be required to implement this initiative (e.g., 'AI Solutions', 'Web Development', 'Business Analytics').
 
-4.  **Next Steps:**
-    *   Provide a list of exactly 3 actionable next steps.
-    *   Assign an owner ('Client' or 'LOG_ON') and a deadline for each step.
+4.  **Next Steps (Generate 2-3):**
+    *   Provide a list of clear, simple next steps to keep the conversation moving. Assign ownership to either 'LOG_ON' or 'Client'.
 
-5.  **Appendix:**
-    *   Reference 1-2 relevant case studies. Use a real-sounding reference ID (e.g., #GL-2024-091). Link to a relevant page on the site like /use-cases#finance.
-    *   Briefly list the potential technology stack (e.g., "Next.js, Python, AWS Lambda, Stripe API").
+5.  **Lead Profile (For internal LOG_ON use):**
+    *   **Priority Score:** Analyze the user's budget and the specificity of their needs to assign a priority score.
+        *   'High': High budget, clear and urgent needs.
+        *   'Medium': Moderate budget or well-defined needs but less urgency.
+        *   'Low': Low budget or vague, exploratory needs.
+    *   **Key Interests:** Based on your suggested initiatives, list the LOG_ON service categories the client is most likely interested in.
 
 **Tone and Style:**
-*   **Global & Professional:** Use a confident, expert tone. Reference global business concepts. Avoid Nigeria-specific language.
-*   **Data-Driven:** Frame recommendations around measurable outcomes and ROI.
-*   **Action-Oriented:** The report should make the client feel understood and eager to take the next step.
+*   **Expert & Confident:** Use the language of a seasoned solutions architect. Be direct, clear, and professional.
+*   **Value-Oriented:** Frame everything in terms of business value, ROI, and solving problems.
+*   **Action-Oriented:** The entire report should feel like a clear, actionable plan that makes the client want to take the next step.
 
-Generate the report based on the provided user information.
+Generate the report now based on the user's information.
 `,
 });
 
