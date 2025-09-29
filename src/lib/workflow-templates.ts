@@ -1,5 +1,19 @@
 
 
+import {
+    IconHumanResources,
+    IconSales,
+    IconMarketing,
+    IconBriefcase,
+    IconProcurement,
+    IconDevelopment,
+    IconHealthcare,
+    IconItOperations,
+    IconRealEstate,
+    IconAdminOps,
+    IconSupport,
+  } from '@/lib/icons';
+
 export interface TemplateStep {
     name: string;
     description: string;
@@ -459,7 +473,7 @@ export const templates: Template[] = [
     name: 'Funding Request Pipeline',
     slug: 'funding-request-pipeline',
     description: 'A step-by-step process to aid in creating and managing funding strategies.',
-    purpose: 'This workflow is designed for startups and organizations seeking investment. It structures the fundraising process, helping to manage a pipeline of potential investors (VCs, angels, etc.) from initial contact to a closed funding round. It helps the founding team stay organized, track all communications and follow-ups, and manage the due diligence process efficiently, making a complex and often chaotic process more manageable.',
+    purpose: 'This workflow is for startups and organizations seeking investment. It structures the fundraising process, helping to manage a pipeline of potential investors (VCs, angels, etc.) from initial contact to a closed funding round. It helps the founding team stay organized, track all communications and follow-ups, and manage the due diligence process efficiently, making a complex and often chaotic process more manageable.',
     steps: [
         { name: 'Investor Prospecting & Research', description: 'Create a target list of potential investors who are a good fit for the company\'s stage, industry, and desired check size. Research individual partners at each firm.' },
         { name: 'Warm Intro & Initial Outreach', description: 'Secure a warm introduction or send a highly personalized outreach email to the target investor, including a concise teaser deck.' },

@@ -1,5 +1,6 @@
 // A collection of simple SVG icons for various technologies.
 import React from 'react';
+import { Briefcase } from 'lucide-react';
 
 export const IconReact = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="-10.5 -9.45 21 18.9" fill="none" xmlns="http://www.w3.org/2000/svg" {...props} className="w-16 h-16 text-cyan-400">
@@ -193,8 +194,8 @@ export const IconMarketing = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M15 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1Z"/><path d="M9 3H4a1 1 0 0 0-1 1v1"/><path d="m21 14-9-9"/><path d="M3 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2"/><path d="M9 15v1a1 1 0 0 0 1 1h2"/></svg>
 );
 
-export const IconFinance = (props: React.SVGProps<SVGSVGElement>) => (
- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M4 10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H4Z"/><path d="M2 14h18a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z"/><path d="M6 10v12"/><path d="M10 10v12"/><path d="M14 10v12"/><path d="M18 10v12"/></svg>
+export const IconBriefcase = (props: React.SVGProps<SVGSVGElement>) => (
+ <Briefcase {...props} />
 );
 
 export const IconProcurement = (props: React.SVGProps<SVGSVGElement>) => (
