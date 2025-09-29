@@ -192,7 +192,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
         aria-modal="true"
         aria-label="Chatbot Panel"
         className={cn(
-          "w-full max-w-md h-full max-h-[80vh] bg-background border rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right mb-2",
+          "w-full max-w-md h-[80vh] bg-background border rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right mb-2",
           isChatbotOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
         )}
       >
@@ -288,7 +288,6 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
               onClick={() => setChatbotOpen(!isChatbotOpen)}
               className={cn(
                 "rounded-full h-12 shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 px-4",
-                "animate-in fade-in zoom-in-95"
               )}
             >
               {isChatbotOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <span />}
@@ -559,3 +558,5 @@ const ContactInfoForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any
     </form>
   )
 }
+
+    
