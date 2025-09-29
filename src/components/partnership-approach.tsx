@@ -4,10 +4,7 @@
 import { Button } from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { caseStudies } from "@/lib/case-studies";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { GlowingCard } from "./ui/glowing-card";
+import { CaseStudiesCarousel } from "./case-studies-carousel";
 
 const partners = [
     { name: "Google Cloud Partner", logo: "https://img.icons8.com/color/96/google-cloud.png", dataAiHint: "Google Cloud logo" },
@@ -21,54 +18,40 @@ export function PartnershipApproach() {
   return (
     <section className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
-         <div className="text-center max-w-3xl mx-auto space-y-6">
-            <p className="text-sm font-normal uppercase tracking-widest text-primary">03/ Partnership & Results</p>
-            <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-snug mt-4">
-                We embed with your team to <span className="text-primary">deliver results</span>. From startups to enterprises who want to <span className="text-primary">push the boundaries</span> of what's possible.
-            </h2>
-            <p className="text-muted-foreground md:text-lg leading-relaxed mt-4">
-                Our success is measured by your success. We partner with ambitious teams to understand their vision and deliver tangible outcomes that fuel growth and innovation.
-            </p>
-             <div className="mt-8">
-                <Button asChild size="lg">
-                    <Link href="/contact">
-                        Start a Project
-                    </Link>
-                </Button>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+                <h2 className="text-2xl md:text-4xl font-bold font-headline">Built on a Foundation of Trusted Partners</h2>
+                <p className="text-muted-foreground md:text-lg">
+                    We partner with ambitious teams to deliver tangible outcomes. Our success is measured by your success, and we leverage the best technologies to build solutions that fuel growth and innovation.
+                </p>
+                <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-4">
+                    {partners.map(partner => (
+                        <div key={partner.name} className="flex items-center gap-3" title={partner.name}>
+                            <Image 
+                                src={partner.logo} 
+                                alt={partner.name}
+                                width={32}
+                                height={32}
+                                className="h-8 w-auto"
+                                data-ai-hint={partner.dataAiHint}
+                            />
+                            <span className="font-semibold">{partner.name.replace(" Partner", "")}</span>
+                        </div>
+                    ))}
+                </div>
+                <div className="pt-4">
+                    <Button asChild>
+                        <Link href="/contact">
+                            Start a Project
+                        </Link>
+                    </Button>
+                </div>
             </div>
-         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mt-16">
-            {caseStudies.slice(0,3).map((study) => (
-                <GlowingCard key={study.title}>
-                  <div className="flex flex-col h-full">
-                    <CardHeader className="p-0">
-                         <Image
-                            src={study.image}
-                            alt={study.title}
-                            width={study.width}
-                            height={study.height}
-                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl"
-                            data-ai-hint={study.dataAiHint}
-                        />
-                    </CardHeader>
-                    <CardContent className="p-6 flex-grow">
-                      <CardDescription>{study.client}</CardDescription>
-                      <CardTitle className="text-lg md:text-xl mt-2">
-                          {study.title}
-                      </CardTitle>
-                      <CardDescription className="mt-2 text-sm line-clamp-3">{study.description}</CardDescription>
-                    </CardContent>
-                    <CardFooter className="p-6 pt-0 mt-auto">
-                      <div className="flex flex-wrap gap-2">
-                        {study.tags.map(tag => <Badge key={tag} variant="outline" className="border-primary text-primary">{tag}</Badge>)}
-                      </div>
-                    </CardFooter>
-                  </div>
-                </GlowingCard>
-            ))}
+            <div className="max-w-xl mx-auto w-full">
+                <CaseStudiesCarousel />
+            </div>
         </div>
-
       </div>
     </section>
   );
