@@ -34,15 +34,17 @@ export function CaseStudiesCarousel({ studies }: CaseStudiesCarouselProps) {
         {caseStudies.map((study, index) => (
           <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
             <div className="p-1">
-              <Card className="overflow-hidden bg-secondary/50">
-                <Image
-                  src={study.image}
-                  alt={study.title}
-                  width={study.width}
-                  height={study.height}
-                  className="w-full h-48 sm:h-64 object-cover"
-                  data-ai-hint={study.dataAiHint}
-                />
+              <Card className="overflow-hidden bg-secondary/50 group">
+                <div className="overflow-hidden">
+                    <Image
+                    src={study.image}
+                    alt={study.title}
+                    width={study.width}
+                    height={study.height}
+                    className="w-full h-48 sm:h-64 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                    data-ai-hint={study.dataAiHint}
+                    />
+                </div>
                 <CardHeader>
                   <CardDescription>{study.client}</CardDescription>
                   <CardTitle className="text-xl md:text-2xl">{study.title}</CardTitle>
