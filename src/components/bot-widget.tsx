@@ -30,7 +30,6 @@ const challengesOptions = ['Manual Data Entry', 'Overwhelmed Support Team', 'Out
 
 export function BotWidget({ initialMessage }: { initialMessage: string }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [mode, setMode] = useState<'buttons' | 'text'>('buttons');
   const [messages, setMessages] = useState<any[]>([]);
   const [step, setStep] = useState('start');
   const [formData, setFormData] = useState<any>({});
@@ -48,7 +47,6 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     setStep('start');
     setFormData({});
     setIsLoading(false);
-    setMode('buttons');
   };
   
   useEffect(() => {
@@ -62,17 +60,12 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   useEffect(() => {
     if (isOpen) {
       scrollToBottom();
+      inputRef.current?.focus();
     } else {
       setTimeout(() => triggerRef.current?.focus(), 100);
     }
   }, [isOpen]);
   
-  useEffect(() => {
-    if (mode === 'text' && isOpen) {
-        inputRef.current?.focus();
-    }
-  }, [mode, isOpen]);
-
   useEffect(() => {
     scrollToBottom();
   }, [messages, isLoading]);
@@ -168,7 +161,6 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   const handleTextInput = (text: string) => {
     const userMessage = { from: 'user', text };
     setMessages(prev => [...prev, userMessage]);
-    setMode('buttons'); // Switch back to buttons after user asks a question
     setIsLoading(true);
     
     setTimeout(() => {
@@ -219,17 +211,6 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
             </div>
           <div className="flex items-center gap-1">
              <TooltipProvider delayDuration={100}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setMode(prev => prev === 'buttons' ? 'text' : 'buttons')}>
-                      {mode === 'buttons' ? <Type className="h-4 w-4" /> : <MessageCircle className="h-4 w-4" />}
-                      <span className="sr-only">Toggle input mode</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{mode === 'buttons' ? 'Switch to Text Input' : 'Switch to Button Mode'}</p>
-                  </TooltipContent>
-                </Tooltip>
                  <Tooltip>
                   <TooltipTrigger asChild>
                      <Button variant="ghost" size="icon" className="h-8 w-8" onClick={resetConversation}>
@@ -287,16 +268,14 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
             <div ref={messagesEndRef} />
           </CardContent>
         </ScrollArea>
-        <CardFooter className="p-4 border-t bg-background">
+        <CardFooter className="p-4 border-t bg-background flex flex-col gap-4">
           <ActionPanel 
-            mode={mode} 
             currentMessage={messages[messages.length - 1]} 
             onOptionClick={handleOptionClick} 
-            onTextInput={handleTextInput}
             isLoading={isLoading} 
-            inputRef={inputRef}
             onFormPartSubmit={handleFormPartSubmit}
           />
+          <TextInputPanel onSend={handleTextInput} inputRef={inputRef} />
         </CardFooter>
       </div>
 
@@ -318,13 +297,9 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   );
 }
 
-const ActionPanel = ({ mode, currentMessage, onOptionClick, onTextInput, isLoading, inputRef, onFormPartSubmit }: { mode: string; currentMessage: any; onOptionClick: any; onTextInput: any; isLoading: boolean; inputRef: React.RefObject<HTMLInputElement>; onFormPartSubmit: any; }) => {
+const ActionPanel = ({ currentMessage, onOptionClick, isLoading, onFormPartSubmit }: { currentMessage: any; onOptionClick: any; isLoading: boolean; onFormPartSubmit: any; }) => {
     if (isLoading || !currentMessage || currentMessage.from === 'user') {
-      return <div className="h-[40px] w-full" />;
-    }
-
-    if (mode === 'text') {
-        return <TextInputPanel onSend={onTextInput} inputRef={inputRef} />;
+      return null;
     }
 
     switch (currentMessage.type) {
@@ -343,10 +318,9 @@ const ActionPanel = ({ mode, currentMessage, onOptionClick, onTextInput, isLoadi
         case 'form_part':
             return <CompanyInfoForm onFormPartSubmit={onFormPartSubmit} nextStep={currentMessage.nextStep} />;
         default:
-            return <div className="h-[40px] w-full" />; // Placeholder
+            return null; // Don't show anything if there are no actions
     }
 };
-
 
 const TextInputPanel = ({ onSend, inputRef }: { onSend: (text: string) => void; inputRef: React.RefObject<HTMLInputElement> }) => {
   const [text, setText] = useState('');
