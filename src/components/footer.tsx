@@ -2,79 +2,93 @@
 import Link from 'next/link';
 import { IconFacebook, IconInstagram, IconLinkedIn, IconX, IconYouTube } from '@/lib/icons';
 import { menuData } from '@/lib/menu-data';
+import { Button } from './ui/button';
 
 const socialLinks = [
-  { href: 'https://www.facebook.com/logonthepage', label: 'Facebook', icon: <IconFacebook className="w-6 h-6" /> },
-  { href: 'https://x.com/log_onthepage', label: 'X', icon: <IconX className="w-6 h-6" /> },
-  { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <IconInstagram className="w-6 h-6" /> },
-  { href: 'https://www.linkedin.com/company/logon-connecting-advantages', label: 'LinkedIn', icon: <IconLinkedIn className="w-6 h-6" /> },
-  { href: 'https://www.youtube.com/@logonthepage', label: 'YouTube', icon: <IconYouTube className="w-6 h-6" /> },
+  { href: 'https://www.facebook.com/logonthepage', label: 'Facebook', icon: <IconFacebook className="w-5 h-5" /> },
+  { href: 'https://x.com/log_onthepage', label: 'X', icon: <IconX className="w-5 h-5" /> },
+  { href: 'https://www.instagram.com/logon_thepage/', label: 'Instagram', icon: <IconInstagram className="w-5 h-5" /> },
+  { href: 'https://www.linkedin.com/company/logon-connecting-advantages', label: 'LinkedIn', icon: <IconLinkedIn className="w-5 h-5" /> },
+  { href: 'https://www.youtube.com/@logonthepage', label: 'YouTube', icon: <IconYouTube className="w-5 h-5" /> },
 ];
 
 const { products, company } = menuData.menu;
 
 export function Footer() {
   return (
-    <footer className="py-8 md:py-16 border-t bg-secondary/20">
+    <footer className="bg-background border-t">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4 text-center md:text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 py-16 md:py-24">
+          
+          {/* Left Column: CTA */}
+          <div className="lg:col-span-5 space-y-6 text-center lg:text-left">
             <Link href="/" className="inline-block" prefetch={false}>
-                <div className="flex flex-col items-center md:items-start">
-                  <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
-                  <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
+                <div className="flex flex-col items-center lg:items-start">
+                  <span className="font-bold text-3xl tracking-tighter text-primary leading-tight">LOG_ON</span>
+                  <span className="text-sm text-muted-foreground -mt-1">Connecting Advantages...</span>
                 </div>
             </Link>
-            <address className="text-sm text-muted-foreground not-italic">
-              LOG_ON connecting Advantages<br />
-              [Virtual Office] Lagos, Nigeria<br />
-              Serving clients worldwide
-            </address>
-            <p className="text-sm text-muted-foreground">
-              Powering business efficiency with smart technology solutions.
+             <p className="text-muted-foreground text-lg max-w-md mx-auto lg:mx-0">
+              Ready to transform your business with intelligent technology? Let's build something great together.
             </p>
+            <div>
+              <Button asChild size="lg">
+                <Link href="/contact-us">Start a Conversation</Link>
+              </Button>
+            </div>
           </div>
-          <div className="grid grid-cols-2 col-span-1 md:col-span-2 gap-8 text-center md:text-left">
+
+          {/* Right Column: Links */}
+          <div className="lg:col-span-7">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               <div>
-                <h3 className="font-semibold mb-4 text-primary text-lg">Services</h3>
-                <ul className="space-y-2 list-none">
+                <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">Services</h3>
+                <ul className="space-y-3 list-none">
                   {products.items.map((item) => (
                     <li key={item.title}>
-                      <Link href={item.href} className="text-muted-foreground hover:text-primary text-sm transition-colors">
+                      <Link href={item.href} className="text-muted-foreground hover:text-primary transition-colors">
                         {item.title}
                       </Link>
                     </li>
                   ))}
-                   <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary text-sm transition-colors">Use Cases</Link></li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold mb-4 text-primary text-lg">Company</h3>
-                 <ul className="space-y-2 list-none">
+                <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">Company</h3>
+                 <ul className="space-y-3 list-none">
                   {company.items.map((item) => (
                     <li key={item.title}>
-                      <Link href={item.href} className="text-muted-foreground hover:text-primary text-sm transition-colors">
+                      <Link href={item.href} className="text-muted-foreground hover:text-primary transition-colors">
                         {item.title}
                       </Link>
                     </li>
                   ))}
-                   <li><Link href="/contact-us" className="text-muted-foreground hover:text-primary text-sm transition-colors">Contact</Link></li>
                 </ul>
               </div>
-          </div>
-          <div className="text-center md:text-left">
-            <h3 className="font-semibold mb-4 text-primary text-lg">Connect</h3>
-            <div className="flex space-x-4 justify-center md:justify-start">
-               {socialLinks.map(link => (
-                  <a key={link.label} href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
-                    {link.icon}
-                  </a>
-                ))}
+               <div>
+                <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">Resources</h3>
+                 <ul className="space-y-3 list-none">
+                   <li><Link href="/insights" className="text-muted-foreground hover:text-primary transition-colors">Insights Blog</Link></li>
+                   <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary transition-colors">Case Studies</Link></li>
+                   <li><Link href="/support" className="text-muted-foreground hover:text-primary transition-colors">Support Center</Link></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-        <div className="border-t border-white/5 pt-8 mt-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} LOG_ON. All Rights Reserved.
+        
+        {/* Bottom Bar */}
+        <div className="border-t py-6 flex flex-col sm:flex-row items-center justify-between">
+          <div className="text-sm text-muted-foreground text-center sm:text-left">
+            © {new Date().getFullYear()} LOG_ON. All Rights Reserved.
+          </div>
+          <div className="flex space-x-4 mt-4 sm:mt-0">
+             {socialLinks.map(link => (
+                <a key={link.label} href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary p-2 rounded-full hover:bg-secondary/50 transition-colors">
+                  {link.icon}
+                </a>
+              ))}
+          </div>
         </div>
       </div>
     </footer>
