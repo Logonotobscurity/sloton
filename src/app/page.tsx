@@ -12,6 +12,7 @@ import { BottomCta } from '@/components/bottom-cta';
 import { IndustriesBento } from '@/components/industries-bento';
 import { IdeasLab } from '@/components/ideas-lab';
 import { SmarterAutomation } from '@/components/template-library';
+import { ServicesOffered } from '@/components/services-offered';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
           <StrategicPartner />
           <IdeasLab />
           <SmarterAutomation />
+          <ServicesOffered />
           <PartnershipApproach />
           <TrainingCTA />
           <Statement />
