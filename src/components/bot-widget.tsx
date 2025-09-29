@@ -43,7 +43,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
 
   const resetConversation = () => {
     setMessages([
-      { from: 'bot', text: initialMessage, options: initialOptions, type: 'buttons' },
+      { from: 'bot', text: initialMessage, type: 'buttons', options: initialOptions },
     ]);
     setStep('start');
     setFormData({});
@@ -86,7 +86,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     switch (option.value) {
       case 'assessment':
         setStep('assessment_goals');
-        botResponse = { from: 'bot', text: "Great! Let's start by understanding your primary business goals. You can select multiple options.", type: 'checkbox_group', options: goalsOptions, nextStep: 'assessment_challenges' };
+        botResponse = { from: 'bot', text: "Great! Let's start by understanding your primary business goals. You can select multiple options.", type: 'checkbox_group', options: goalsOptions, nextStep: 'assessment_challenges', partName: 'businessGoals' };
         break;
       case 'schedule':
         setStep('schedule_form');
@@ -97,24 +97,28 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
          break;
       case 'faq_link':
          window.open('/#faq', '_blank');
-         botResponse = { from: 'bot', text: 'Is there anything else I can help you with?', options: initialOptions, type: 'buttons' };
+         botResponse = { from: 'bot', text: 'Is there anything else I can help you with?', type: 'buttons', options: initialOptions };
          break;
       case 'services_link':
           window.open('/solutions', '_blank');
-          botResponse = { from: 'bot', text: 'Is there anything else I can help you with?', options: initialOptions, type: 'buttons' };
+          botResponse = { from: 'bot', text: 'Is there anything else I can help you with?', type: 'buttons', options: initialOptions };
           break;
       case 'training':
         window.open('/training', '_blank');
-        botResponse = { from: 'bot', text: 'I\'ve opened our Training Programs page for you. Is there anything else I can assist with?', options: initialOptions, type: 'buttons' };
+        botResponse = { from: 'bot', text: 'I\'ve opened our Training Programs page for you. Is there anything else I can assist with?', type: 'buttons', options: initialOptions };
         break;
       default:
-        botResponse = { from: 'bot', text: 'I\'m sorry, I didn\'t understand that. Please choose an option.', options: initialOptions, type: 'buttons' };
+        botResponse = { from: 'bot', text: 'I\'m sorry, I didn\'t understand that. Please choose an option.', type: 'buttons', options: initialOptions };
     }
     
-    setTimeout(() => setMessages(prev => [...prev, botResponse]), 500);
+    setIsLoading(true);
+    setTimeout(() => {
+        setMessages(prev => [...prev, botResponse]);
+        setIsLoading(false);
+    }, 800);
   };
 
-  const handleFormPartSubmit = (partData: any, currentStep: string, nextStep: string) => {
+  const handleFormPartSubmit = (partData: any, nextStep: string) => {
     const updatedFormData = { ...formData, ...partData };
     setFormData(updatedFormData);
     setStep(nextStep);
@@ -122,27 +126,33 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     let userMessageText = 'Selections submitted.';
     if (partData.businessGoals) userMessageText = `${partData.businessGoals.length} goals selected.`;
     if (partData.challenges) userMessageText = `${partData.challenges.length} challenges selected.`;
-    
+    if (partData.name) userMessageText = `Provided contact information.`
+
     setMessages(prev => [...prev, {from: 'user', text: userMessageText}]);
     let botResponse: any;
 
     switch (nextStep) {
       case 'assessment_challenges':
-        botResponse = { from: 'bot', text: "Understood. Now, what are the main challenges you're facing? Select all that apply.", type: 'checkbox_group', options: challengesOptions, nextStep: 'assessment_company_info' };
+        botResponse = { from: 'bot', text: "Understood. Now, what are the main challenges you're facing? Select all that apply.", type: 'checkbox_group', options: challengesOptions, nextStep: 'assessment_company_info', partName: 'challenges' };
         break;
       case 'assessment_company_info':
-        botResponse = { from: 'bot', text: "Thanks. Just a few more details to create your personalized report.", type: 'form_part', form: 'company_info', nextStep: 'assessment_submit' };
+        botResponse = { from: 'bot', text: "Thanks. Just a few more details to create your personalized report.", type: 'form_part', nextStep: 'assessment_submit' };
         break;
       case 'assessment_submit':
         handleAssessmentSubmit(updatedFormData);
         return; // Avoid duplicate message
     }
     
-    setTimeout(() => setMessages(prev => [...prev, botResponse]), 500);
+    setIsLoading(true);
+    setTimeout(() => {
+        setMessages(prev => [...prev, botResponse]);
+        setIsLoading(false);
+    }, 800);
   }
   
   const handleAssessmentSubmit = async (assessmentData: any) => {
     setIsLoading(true);
+    setMessages(prev => [...prev]); // Trigger loading state
     
     const result = await getSolutionRecommendation(assessmentData);
     
@@ -150,7 +160,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     if (result.data) {
         setMessages(prev => [...prev, {from: 'bot', text: 'Thank you! I\'ve analyzed your needs and generated a personalized Technology Assessment Report for you.', type: 'component', component: <AssessmentResult result={result.data} />}]);
     } else {
-        setMessages(prev => [...prev, {from: 'bot', text: `Sorry, there was an error generating your report. ${result.error}`, options: initialOptions, type: 'buttons' }]);
+        setMessages(prev => [...prev, {from: 'bot', text: `Sorry, there was an error generating your report. ${result.error}`, type: 'buttons', options: initialOptions }]);
     }
     setStep('assessment_complete');
   }
@@ -167,15 +177,15 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
         let botResponse: any;
 
         if (lowerCaseText.includes('price') || lowerCaseText.includes('cost') || lowerCaseText.includes('budget')) {
-            botResponse = { from: 'bot', text: "Our pricing is project-based. For a detailed quote, we recommend getting a free AI assessment or scheduling a consultation.", options: initialOptions, type: 'buttons' };
+            botResponse = { from: 'bot', text: "Our pricing is project-based. For a detailed quote, we recommend getting a free AI assessment or scheduling a consultation.", type: 'buttons', options: initialOptions };
         } else if (lowerCaseText.includes('timeline') || lowerCaseText.includes('long')) {
-            botResponse = { from: 'bot', text: "Timelines vary. A simple chatbot might take 2-4 weeks, while a larger project can take several months. A free consultation would be the best way to get a specific timeline.", options: initialOptions, type: 'buttons' };
+            botResponse = { from: 'bot', text: "Timelines vary. A simple chatbot might take 2-4 weeks, while a larger project can take several months. A free consultation would be the best way to get a specific timeline.", type: 'buttons', options: initialOptions };
         } else if (lowerCaseText.includes('ai') || lowerCaseText.includes('automation')) {
-            botResponse = { from: 'bot', text: "We specialize in AI and automation! The best way to see how we can help is with our free AI assessment. Would you like to start that?", options: initialOptions, type: 'buttons' };
+            botResponse = { from: 'bot', text: "We specialize in AI and automation! The best way to see how we can help is with our free AI assessment. Would you like to start that?", type: 'buttons', options: initialOptions };
         } else if (lowerCaseText.includes('hello') || lowerCaseText.includes('hi')) {
-            botResponse = { from: 'bot', text: "Hello! How can I help you today?", options: initialOptions, type: 'buttons' };
+            botResponse = { from: 'bot', text: "Hello! How can I help you today?", type: 'buttons', options: initialOptions };
         } else {
-            botResponse = { from: 'bot', text: "That's a great question. While I'm still learning, the best way to get an answer is to explore our services or schedule a free consultation with an expert.", options: initialOptions, type: 'buttons' };
+            botResponse = { from: 'bot', text: "That's a great question. While I'm still learning, the best way to get an answer is to explore our services or schedule a free consultation with an expert.", type: 'buttons', options: initialOptions };
         }
         setMessages(prev => [...prev, botResponse]);
     }, 1000);
@@ -259,8 +269,6 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                         </ChatBubbleAvatar>
                         <ChatBubbleMessage>
                            {msg.text}
-                           {msg.type === 'checkbox_group' && <CheckboxGroup options={msg.options} onFormPartSubmit={handleFormPartSubmit} nextStep={msg.nextStep} partName={step === 'assessment_goals' ? 'businessGoals' : 'challenges'} />}
-                           {msg.type === 'form_part' && msg.form === 'company_info' && <CompanyInfoForm onFormPartSubmit={handleFormPartSubmit} nextStep={msg.nextStep} />}
                            {msg.type === 'component' && !isLoading && <div className="py-2">{msg.component}</div>}
                         </ChatBubbleMessage>
                     </ChatBubble>
@@ -287,6 +295,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
             onTextInput={handleTextInput}
             isLoading={isLoading} 
             inputRef={inputRef}
+            onFormPartSubmit={handleFormPartSubmit}
           />
         </CardFooter>
       </div>
@@ -309,27 +318,33 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   );
 }
 
-const ActionPanel = ({ mode, currentMessage, onOptionClick, onTextInput, isLoading, inputRef }: { mode: string; currentMessage: any; onOptionClick: any; onTextInput: any; isLoading: boolean; inputRef: React.RefObject<HTMLInputElement> }) => {
-    
-    if (isLoading || (currentMessage && currentMessage.from === 'user')) return <div className="h-[40px]"></div>;
+const ActionPanel = ({ mode, currentMessage, onOptionClick, onTextInput, isLoading, inputRef, onFormPartSubmit }: { mode: string; currentMessage: any; onOptionClick: any; onTextInput: any; isLoading: boolean; inputRef: React.RefObject<HTMLInputElement>; onFormPartSubmit: any; }) => {
+    if (isLoading || !currentMessage || currentMessage.from === 'user') {
+      return <div className="h-[40px] w-full" />;
+    }
 
     if (mode === 'text') {
         return <TextInputPanel onSend={onTextInput} inputRef={inputRef} />;
     }
-    
-    if (currentMessage?.type === 'buttons') {
-        return (
-            <div className="w-full space-y-2">
-                {currentMessage.options.map((opt: any) => (
-                    <Button key={opt.value} variant="outline" className="w-full justify-start" onClick={() => onOptionClick(opt)}>
-                        {opt.icon} {opt.text}
-                    </Button>
-                ))}
-            </div>
-        );
+
+    switch (currentMessage.type) {
+        case 'buttons':
+            return (
+                <div className="w-full space-y-2">
+                    {currentMessage.options.map((opt: any) => (
+                        <Button key={opt.value} variant="outline" className="w-full justify-start" onClick={() => onOptionClick(opt)}>
+                            {opt.icon} {opt.text}
+                        </Button>
+                    ))}
+                </div>
+            );
+        case 'checkbox_group':
+            return <CheckboxGroup options={currentMessage.options} onFormPartSubmit={onFormPartSubmit} nextStep={currentMessage.nextStep} partName={currentMessage.partName} />;
+        case 'form_part':
+            return <CompanyInfoForm onFormPartSubmit={onFormPartSubmit} nextStep={currentMessage.nextStep} />;
+        default:
+            return <div className="h-[40px] w-full" />; // Placeholder
     }
-    
-    return <div className="h-[40px]"></div>; // Placeholder to maintain height
 };
 
 
@@ -437,23 +452,25 @@ const CheckboxGroup = ({ options, onFormPartSubmit, nextStep, partName }: { opti
   };
 
   const handleSubmit = () => {
-    onFormPartSubmit({ [partName]: selected }, `assessment_${partName}`, nextStep);
+    onFormPartSubmit({ [partName]: selected }, nextStep);
   }
 
   return (
     <div className="space-y-3 pt-2">
-      {options.map(option => (
-        <div key={option} className="flex items-center space-x-2">
-          <Checkbox
-            id={option}
-            checked={selected.includes(option)}
-            onCheckedChange={() => handleToggle(option)}
-          />
-          <label htmlFor={option} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-            {option}
-          </label>
+        <div className="max-h-48 overflow-y-auto pr-2">
+            {options.map(option => (
+                <div key={option} className="flex items-center space-x-2 p-1">
+                <Checkbox
+                    id={option}
+                    checked={selected.includes(option)}
+                    onCheckedChange={() => handleToggle(option)}
+                />
+                <label htmlFor={option} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                    {option}
+                </label>
+                </div>
+            ))}
         </div>
-      ))}
       <Button onClick={handleSubmit} size="sm" className="mt-2" disabled={selected.length === 0}>Continue</Button>
     </div>
   );
@@ -470,7 +487,7 @@ const CompanyInfoForm = ({ onFormPartSubmit, nextStep }: { onFormPartSubmit: any
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (companySize && industry && budget && name && email && businessNeeds) {
-      onFormPartSubmit({ companySize, industry, budget, name, email, businessNeeds }, 'assessment_company_info', nextStep);
+      onFormPartSubmit({ companySize, industry, budget, name, email, businessNeeds }, nextStep);
     }
   }
 
@@ -517,3 +534,5 @@ const CompanyInfoForm = ({ onFormPartSubmit, nextStep }: { onFormPartSubmit: any
     </form>
   )
 }
+
+    
