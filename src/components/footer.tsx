@@ -14,13 +14,16 @@ const socialLinks = [
 
 const { products, company } = menuData.menu;
 
+const essentialCompanyLinks = company.items.filter(item => 
+    ['About Us', 'Insights', 'FAQ'].includes(item.title)
+);
+
 export function Footer() {
   return (
-    <footer className="bg-background border-t">
+    <footer className="bg-secondary/20 border-t">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 py-16 md:py-24">
           
-          {/* Left Column: CTA */}
           <div className="lg:col-span-5 space-y-6 text-center lg:text-left">
             <Link href="/" className="inline-block" prefetch={false}>
                 <div className="flex flex-col items-center lg:items-start">
@@ -28,17 +31,20 @@ export function Footer() {
                   <span className="text-sm text-muted-foreground -mt-1">Connecting Advantages...</span>
                 </div>
             </Link>
+            <address className="text-sm text-muted-foreground not-italic">
+                [Virtual Office] Lagos, Nigeria<br />
+                Serving clients worldwide
+            </address>
              <p className="text-muted-foreground text-lg max-w-md mx-auto lg:mx-0">
               Ready to transform your business with intelligent technology? Let's build something great together.
             </p>
             <div>
               <Button asChild size="lg">
-                <Link href="/contact-us">Start a Conversation</Link>
+                <Link href="/contact">Start a Conversation</Link>
               </Button>
             </div>
           </div>
 
-          {/* Right Column: Links */}
           <div className="lg:col-span-7">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               <div>
@@ -56,19 +62,19 @@ export function Footer() {
               <div>
                 <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">Company</h3>
                  <ul className="space-y-3 list-none">
-                  {company.items.map((item) => (
+                  {essentialCompanyLinks.map((item) => (
                     <li key={item.title}>
                       <Link href={item.href} className="text-muted-foreground hover:text-primary transition-colors">
                         {item.title}
                       </Link>
                     </li>
                   ))}
+                   <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
                 </ul>
               </div>
                <div>
                 <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">Resources</h3>
                  <ul className="space-y-3 list-none">
-                   <li><Link href="/insights" className="text-muted-foreground hover:text-primary transition-colors">Insights Blog</Link></li>
                    <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary transition-colors">Case Studies</Link></li>
                    <li><Link href="/support" className="text-muted-foreground hover:text-primary transition-colors">Support Center</Link></li>
                 </ul>
@@ -77,7 +83,6 @@ export function Footer() {
           </div>
         </div>
         
-        {/* Bottom Bar */}
         <div className="border-t py-6 flex flex-col sm:flex-row items-center justify-between">
           <div className="text-sm text-muted-foreground text-center sm:text-left">
             © {new Date().getFullYear()} LOG_ON. All Rights Reserved.
