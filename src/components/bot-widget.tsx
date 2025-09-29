@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
-import { Bot, User, X, Sparkles, Calendar, HelpCircle, GraduationCap, Check, Loader2 } from 'lucide-react';
+import { Bot, User, X, Sparkles, Calendar, HelpCircle, GraduationCap, Check, Loader2, RefreshCw, Type, MessageCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat-bubble";
@@ -13,6 +13,9 @@ import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { CommunityLeadForm } from './community-lead-form';
 import { getSolutionRecommendation, SolutionRecommendationOutput } from '@/app/actions';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from './ui/dialog';
+import { Input } from './ui/input';
+import { useToast } from '@/hooks/use-toast';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 const initialOptions = [
   { text: 'Get a Free AI Business Assessment', value: 'assessment', icon: <Sparkles className="h-4 w-4 mr-2" /> },
@@ -26,15 +29,30 @@ const challengesOptions = ['Manual Data Entry', 'Overwhelmed Support Team', 'Out
 
 export function BotWidget({ initialMessage }: { initialMessage: string }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<any[]>([
-    { from: 'bot', text: initialMessage, options: initialOptions, type: 'buttons' },
-  ]);
+  const [mode, setMode] = useState<'buttons' | 'text'>('buttons');
+  const [messages, setMessages] = useState<any[]>([]);
   const [step, setStep] = useState('start');
   const [formData, setFormData] = useState<any>({});
   const [isLoading, setIsLoading] = useState(false);
   
   const triggerRef = useRef<HTMLButtonElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const { toast } = useToast();
+
+  const resetConversation = () => {
+    setMessages([
+      { from: 'bot', text: initialMessage, options: initialOptions, type: 'buttons' },
+    ]);
+    setStep('start');
+    setFormData({});
+    setIsLoading(false);
+    setMode('buttons');
+  };
+  
+  useEffect(() => {
+    resetConversation();
+  }, [initialMessage]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -44,10 +62,15 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     if (isOpen) {
       scrollToBottom();
     } else {
-      // Small timeout to allow the closing animation to start before focusing
       setTimeout(() => triggerRef.current?.focus(), 100);
     }
   }, [isOpen]);
+  
+  useEffect(() => {
+    if (mode === 'text' && isOpen) {
+        inputRef.current?.focus();
+    }
+  }, [mode, isOpen]);
 
   useEffect(() => {
     scrollToBottom();
@@ -90,32 +113,6 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     setTimeout(() => setMessages(prev => [...prev, botResponse]), 500);
   };
   
-  const handleCheckboxSubmit = (selected: string[]) => {
-    let userMessage;
-    let botResponse: any;
-
-    switch (step) {
-      case 'assessment_goals':
-        userMessage = { from: 'user', text: `Goals: ${selected.join(', ')}` };
-        setFormData({ ...formData, businessGoals: selected });
-        setStep('assessment_challenges');
-        botResponse = { from: 'bot', text: 'Got it. Now, what are your biggest challenges right now? (Select all that apply)', options: challengesOptions, type: 'checkbox' };
-        break;
-      case 'assessment_challenges':
-        userMessage = { from: 'user', text: `Challenges: ${selected.join(', ')}` };
-        setFormData({ ...formData, challenges: selected });
-        setStep('assessment_form');
-        botResponse = { from: 'bot', text: 'Perfect. Just a few more details to generate your personalized technology roadmap.', type: 'component', component: <SolutionRecommendationForm onFormSubmit={handleAssessmentSubmit} /> };
-        break;
-      default:
-        userMessage = { from: 'user', text: 'Selection made.' };
-        botResponse = { from: 'bot', text: 'How can I help you?', options: initialOptions, type: 'buttons' };
-    }
-    
-    setMessages(prev => [...prev, userMessage]);
-    setTimeout(() => setMessages(prev => [...prev, botResponse]), 500);
-  };
-  
   const handleAssessmentSubmit = async (assessmentData: any) => {
     const finalData = { ...formData, ...assessmentData };
     setMessages(prev => [...prev, {from: 'user', text: 'Assessment form submitted.'}]);
@@ -131,6 +128,32 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     }
     setStep('assessment_complete');
   }
+
+  const handleTextInput = (text: string) => {
+    const userMessage = { from: 'user', text };
+    setMessages(prev => [...prev, userMessage]);
+    setMode('buttons'); // Switch back to buttons after user asks a question
+    setIsLoading(true);
+    
+    setTimeout(() => {
+        setIsLoading(false);
+        const lowerCaseText = text.toLowerCase();
+        let botResponse: any;
+
+        if (lowerCaseText.includes('price') || lowerCaseText.includes('cost') || lowerCaseText.includes('budget')) {
+            botResponse = { from: 'bot', text: "Our pricing is project-based. For a detailed quote, we recommend getting a free AI assessment or scheduling a consultation.", options: initialOptions, type: 'buttons' };
+        } else if (lowerCaseText.includes('timeline') || lowerCaseText.includes('long')) {
+            botResponse = { from: 'bot', text: "Timelines vary. A simple chatbot might take 2-4 weeks, while a larger project can take several months. A free consultation would be the best way to get a specific timeline.", options: initialOptions, type: 'buttons' };
+        } else if (lowerCaseText.includes('ai') || lowerCaseText.includes('automation')) {
+            botResponse = { from: 'bot', text: "We specialize in AI and automation! The best way to see how we can help is with our free AI assessment. Would you like to start that?", options: initialOptions, type: 'buttons' };
+        } else if (lowerCaseText.includes('hello') || lowerCaseText.includes('hi')) {
+            botResponse = { from: 'bot', text: "Hello! How can I help you today?", options: initialOptions, type: 'buttons' };
+        } else {
+            botResponse = { from: 'bot', text: "That's a great question. While I'm still learning, the best way to get an answer is to explore our services or schedule a free consultation with an expert.", options: initialOptions, type: 'buttons' };
+        }
+        setMessages(prev => [...prev, botResponse]);
+    }, 1000);
+  };
 
   return (
     <div className="fixed bottom-4 right-4 z-[100] flex flex-col items-end">
@@ -158,10 +181,43 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                     <p className="text-xs text-muted-foreground flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-green-500"></span> Online</p>
                 </div>
             </div>
-          <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setIsOpen(false)}>
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close Chatbot</span>
-          </Button>
+          <div className="flex items-center gap-1">
+             <TooltipProvider delayDuration={100}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setMode(prev => prev === 'buttons' ? 'text' : 'buttons')}>
+                      {mode === 'buttons' ? <Type className="h-4 w-4" /> : <MessageCircle className="h-4 w-4" />}
+                      <span className="sr-only">Toggle input mode</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{mode === 'buttons' ? 'Switch to Text Input' : 'Switch to Button Mode'}</p>
+                  </TooltipContent>
+                </Tooltip>
+                 <Tooltip>
+                  <TooltipTrigger asChild>
+                     <Button variant="ghost" size="icon" className="h-8 w-8" onClick={resetConversation}>
+                      <RefreshCw className="h-4 w-4" />
+                      <span className="sr-only">Reset conversation</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Start a New Conversation</p>
+                  </TooltipContent>
+                </Tooltip>
+                 <Tooltip>
+                  <TooltipTrigger asChild>
+                     <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setIsOpen(false)}>
+                      <X className="h-4 w-4" />
+                      <span className="sr-only">Close Chatbot</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Close Chat</p>
+                  </TooltipContent>
+                </Tooltip>
+            </TooltipProvider>
+          </div>
         </CardHeader>
         <ScrollArea className="flex-1" role="log">
           <CardContent className="p-4 space-y-6">
@@ -179,7 +235,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                             {msg.text}
                         </ChatBubbleMessage>
                     </ChatBubble>
-                     {msg.type === 'component' && <div className="py-2">{msg.component}</div>}
+                     {msg.type === 'component' && !isLoading && <div className="py-2">{msg.component}</div>}
                 </Fragment>
             ))}
               {isLoading && (
@@ -196,7 +252,14 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
           </CardContent>
         </ScrollArea>
         <CardFooter className="p-4 border-t bg-background">
-          <ActionPanel currentMessage={messages[messages.length - 1]} onOptionClick={handleOptionClick} onCheckboxSubmit={handleCheckboxSubmit} isLoading={isLoading} />
+          <ActionPanel 
+            mode={mode} 
+            currentMessage={messages[messages.length - 1]} 
+            onOptionClick={handleOptionClick} 
+            onTextInput={handleTextInput}
+            isLoading={isLoading} 
+            inputRef={inputRef}
+          />
         </CardFooter>
       </div>
 
@@ -218,53 +281,58 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   );
 }
 
-const ActionPanel = ({ currentMessage, onOptionClick, onCheckboxSubmit, isLoading }: { currentMessage: any; onOptionClick: any; onCheckboxSubmit: any; isLoading: boolean; }) => {
-    const [selected, setSelected] = useState<string[]>([]);
+const ActionPanel = ({ mode, currentMessage, onOptionClick, onTextInput, isLoading, inputRef }: { mode: string; currentMessage: any; onOptionClick: any; onTextInput: any; isLoading: boolean; inputRef: React.RefObject<HTMLInputElement> }) => {
     
-    const handleToggle = (option: string) => {
-        setSelected(prev => prev.includes(option) ? prev.filter(item => item !== option) : [...prev, option]);
-    };
-    
-    if (!currentMessage || currentMessage.from === 'user' || isLoading) return null;
-    
-    switch (currentMessage.type) {
-        case 'buttons':
-            return (
-                <div className="w-full space-y-2">
-                    {currentMessage.options.map((opt: any) => (
-                        <Button key={opt.value} variant="outline" className="w-full justify-start" onClick={() => onOptionClick(opt)}>
-                            {opt.icon} {opt.text}
-                        </Button>
-                    ))}
-                </div>
-            );
-        case 'checkbox':
-             return (
-                <div className="w-full space-y-3">
-                    <div className="space-y-2">
-                        {currentMessage.options.map((opt: string) => (
-                             <Button
-                                key={opt}
-                                variant={selected.includes(opt) ? 'default' : 'outline'}
-                                className="w-full justify-start text-left h-auto py-2"
-                                onClick={() => handleToggle(opt)}
-                            >
-                                <div className="flex items-center">
-                                    <div className={cn("w-4 h-4 mr-3 border rounded-sm flex-shrink-0", selected.includes(opt) ? "bg-primary-foreground" : "bg-background")}>
-                                      {selected.includes(opt) && <Check className="h-4 w-4 text-primary" />}
-                                    </div>
-                                    <span className="flex-1">{opt}</span>
-                                </div>
-                            </Button>
-                        ))}
-                    </div>
-                     <Button className="w-full" onClick={() => onCheckboxSubmit(selected)} disabled={selected.length === 0}>Continue</Button>
-                </div>
-            );
-        default:
-            return null;
+    if (isLoading || (currentMessage && currentMessage.from === 'user')) return <div className="h-[40px]"></div>;
+
+    if (mode === 'text') {
+        return <TextInputPanel onSend={onTextInput} inputRef={inputRef} />;
     }
+    
+    if (currentMessage?.type === 'buttons') {
+        return (
+            <div className="w-full space-y-2">
+                {currentMessage.options.map((opt: any) => (
+                    <Button key={opt.value} variant="outline" className="w-full justify-start" onClick={() => onOptionClick(opt)}>
+                        {opt.icon} {opt.text}
+                    </Button>
+                ))}
+            </div>
+        );
+    }
+    
+    return <div className="h-[40px]"></div>; // Placeholder to maintain height
 };
+
+
+const TextInputPanel = ({ onSend, inputRef }: { onSend: (text: string) => void; inputRef: React.RefObject<HTMLInputElement> }) => {
+  const [text, setText] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (text.trim()) {
+      onSend(text.trim());
+      setText('');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="w-full flex items-center gap-2">
+      <Input
+        ref={inputRef}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Type your message..."
+        className="flex-1"
+        autoComplete="off"
+      />
+      <Button type="submit" size="icon">
+        <Send className="h-4 w-4" />
+      </Button>
+    </form>
+  );
+};
+
 
 const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) => (
   <Card className="bg-secondary/30 mt-2">
@@ -332,5 +400,7 @@ const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) 
     </CardFooter>
   </Card>
 );
+
+    
 
     
