@@ -1,6 +1,7 @@
 
 import Link from 'next/link';
 import { IconFacebook, IconInstagram, IconLinkedIn, IconX, IconYouTube } from '@/lib/icons';
+import { menuData } from '@/lib/menu-data';
 
 const socialLinks = [
   { href: 'https://www.facebook.com/logonthepage', label: 'Facebook', icon: <IconFacebook className="w-6 h-6" /> },
@@ -9,6 +10,8 @@ const socialLinks = [
   { href: 'https://www.linkedin.com/company/logon-connecting-advantages', label: 'LinkedIn', icon: <IconLinkedIn className="w-6 h-6" /> },
   { href: 'https://www.youtube.com/@logonthepage', label: 'YouTube', icon: <IconYouTube className="w-6 h-6" /> },
 ];
+
+const { products, company } = menuData.menu;
 
 export function Footer() {
   return (
@@ -35,19 +38,27 @@ export function Footer() {
               <div>
                 <h3 className="font-semibold mb-4 text-primary text-lg">Services</h3>
                 <ul className="space-y-2 list-none">
-                  <li><Link href="/solutions" className="text-muted-foreground hover:text-primary text-sm transition-colors">IT Solutions</Link></li>
-                  <li><Link href="/automation-solutions" className="text-muted-foreground hover:text-primary text-sm transition-colors">Automation</Link></li>
-                  <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary text-sm transition-colors">Use Cases</Link></li>
-                  <li><Link href="/training" className="text-muted-foreground hover:text-primary text-sm transition-colors">Training</Link></li>
+                  {products.items.map((item) => (
+                    <li key={item.title}>
+                      <Link href={item.href} className="text-muted-foreground hover:text-primary text-sm transition-colors">
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                   <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary text-sm transition-colors">Use Cases</Link></li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-semibold mb-4 text-primary text-lg">Company</h3>
                  <ul className="space-y-2 list-none">
-                  <li><Link href="/about" className="text-muted-foreground hover:text-primary text-sm transition-colors">About Us</Link></li>
-                  <li><Link href="/insights" className="text-muted-foreground hover:text-primary text-sm transition-colors">Insights</Link></li>
-                   <li><Link href="/#faq" className="text-muted-foreground hover:text-primary text-sm transition-colors">FAQ</Link></li>
-                  <li><Link href="/contact" className="text-muted-foreground hover:text-primary text-sm transition-colors">Contact</Link></li>
+                  {company.items.map((item) => (
+                    <li key={item.title}>
+                      <Link href={item.href} className="text-muted-foreground hover:text-primary text-sm transition-colors">
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                   <li><Link href="/contact-us" className="text-muted-foreground hover:text-primary text-sm transition-colors">Contact</Link></li>
                 </ul>
               </div>
           </div>
