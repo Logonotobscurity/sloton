@@ -9,13 +9,14 @@ import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat-bubble";
 import { ScrollArea } from './ui/scroll-area';
-import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { CommunityLeadForm } from './community-lead-form';
 import { getSolutionRecommendation, SolutionRecommendationOutput } from '@/app/actions';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from './ui/dialog';
 import { Input } from './ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+import { Checkbox } from './ui/checkbox';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 
 const initialOptions = [
   { text: 'Get a Free AI Business Assessment', value: 'assessment', icon: <Sparkles className="h-4 w-4 mr-2" /> },
@@ -84,8 +85,8 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     
     switch (option.value) {
       case 'assessment':
-        setStep('assessment_form');
-        botResponse = { from: 'bot', text: 'Great! I can help with that. Please answer a few questions to generate your personalized technology roadmap.', type: 'component', component: <SolutionRecommendationForm onFormSubmit={handleAssessmentSubmit} /> };
+        setStep('assessment_goals');
+        botResponse = { from: 'bot', text: "Great! Let's start by understanding your primary business goals. You can select multiple options.", type: 'checkbox_group', options: goalsOptions, nextStep: 'assessment_challenges' };
         break;
       case 'schedule':
         setStep('schedule_form');
@@ -112,13 +113,38 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     
     setTimeout(() => setMessages(prev => [...prev, botResponse]), 500);
   };
+
+  const handleFormPartSubmit = (partData: any, currentStep: string, nextStep: string) => {
+    const updatedFormData = { ...formData, ...partData };
+    setFormData(updatedFormData);
+    setStep(nextStep);
+
+    let userMessageText = 'Selections submitted.';
+    if (partData.businessGoals) userMessageText = `${partData.businessGoals.length} goals selected.`;
+    if (partData.challenges) userMessageText = `${partData.challenges.length} challenges selected.`;
+    
+    setMessages(prev => [...prev, {from: 'user', text: userMessageText}]);
+    let botResponse: any;
+
+    switch (nextStep) {
+      case 'assessment_challenges':
+        botResponse = { from: 'bot', text: "Understood. Now, what are the main challenges you're facing? Select all that apply.", type: 'checkbox_group', options: challengesOptions, nextStep: 'assessment_company_info' };
+        break;
+      case 'assessment_company_info':
+        botResponse = { from: 'bot', text: "Thanks. Just a few more details to create your personalized report.", type: 'form_part', form: 'company_info', nextStep: 'assessment_submit' };
+        break;
+      case 'assessment_submit':
+        handleAssessmentSubmit(updatedFormData);
+        return; // Avoid duplicate message
+    }
+    
+    setTimeout(() => setMessages(prev => [...prev, botResponse]), 500);
+  }
   
   const handleAssessmentSubmit = async (assessmentData: any) => {
-    const finalData = { ...formData, ...assessmentData };
-    setMessages(prev => [...prev, {from: 'user', text: 'Assessment form submitted.'}]);
     setIsLoading(true);
     
-    const result = await getSolutionRecommendation(finalData);
+    const result = await getSolutionRecommendation(assessmentData);
     
     setIsLoading(false);
     if (result.data) {
@@ -232,10 +258,12 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                             </Avatar>
                         </ChatBubbleAvatar>
                         <ChatBubbleMessage>
-                            {msg.text}
+                           {msg.text}
+                           {msg.type === 'checkbox_group' && <CheckboxGroup options={msg.options} onFormPartSubmit={handleFormPartSubmit} nextStep={msg.nextStep} partName={step === 'assessment_goals' ? 'businessGoals' : 'challenges'} />}
+                           {msg.type === 'form_part' && msg.form === 'company_info' && <CompanyInfoForm onFormPartSubmit={handleFormPartSubmit} nextStep={msg.nextStep} />}
+                           {msg.type === 'component' && !isLoading && <div className="py-2">{msg.component}</div>}
                         </ChatBubbleMessage>
                     </ChatBubble>
-                     {msg.type === 'component' && !isLoading && <div className="py-2">{msg.component}</div>}
                 </Fragment>
             ))}
               {isLoading && (
@@ -401,8 +429,91 @@ const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) 
   </Card>
 );
 
-    
+const CheckboxGroup = ({ options, onFormPartSubmit, nextStep, partName }: { options: string[], onFormPartSubmit: any, nextStep: string, partName: string }) => {
+  const [selected, setSelected] = useState<string[]>([]);
+  
+  const handleToggle = (option: string) => {
+    setSelected(prev => prev.includes(option) ? prev.filter(item => item !== option) : [...prev, option]);
+  };
 
-    
+  const handleSubmit = () => {
+    onFormPartSubmit({ [partName]: selected }, `assessment_${partName}`, nextStep);
+  }
 
-    
+  return (
+    <div className="space-y-3 pt-2">
+      {options.map(option => (
+        <div key={option} className="flex items-center space-x-2">
+          <Checkbox
+            id={option}
+            checked={selected.includes(option)}
+            onCheckedChange={() => handleToggle(option)}
+          />
+          <label htmlFor={option} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+            {option}
+          </label>
+        </div>
+      ))}
+      <Button onClick={handleSubmit} size="sm" className="mt-2" disabled={selected.length === 0}>Continue</Button>
+    </div>
+  );
+};
+
+const CompanyInfoForm = ({ onFormPartSubmit, nextStep }: { onFormPartSubmit: any, nextStep: string }) => {
+  const [companySize, setCompanySize] = useState('');
+  const [industry, setIndustry] = useState('');
+  const [budget, setBudget] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [businessNeeds, setBusinessNeeds] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (companySize && industry && budget && name && email && businessNeeds) {
+      onFormPartSubmit({ companySize, industry, budget, name, email, businessNeeds }, 'assessment_company_info', nextStep);
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4 pt-2 text-sm">
+      <div className="space-y-1">
+        <label htmlFor="name">Full Name</label>
+        <Input id="name" value={name} onChange={e => setName(e.target.value)} placeholder="John Doe" required />
+      </div>
+      <div className="space-y-1">
+        <label htmlFor="email">Email</label>
+        <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="john.doe@example.com" required />
+      </div>
+      <div className="space-y-1">
+        <label htmlFor="companySize">Company Size</label>
+         <Select onValueChange={setCompanySize} value={companySize} required>
+            <SelectTrigger><SelectValue placeholder="Select size" /></SelectTrigger>
+            <SelectContent>
+                <SelectItem value="1-10 employees">1-10 employees</SelectItem>
+                <SelectItem value="11-50 employees">11-50 employees</SelectItem>
+                <SelectItem value="51-200 employees">51-200 employees</SelectItem>
+            </SelectContent>
+        </Select>
+      </div>
+       <div className="space-y-1">
+        <label htmlFor="industry">Industry</label>
+        <Input id="industry" value={industry} onChange={e => setIndustry(e.target.value)} placeholder="e.g., E-commerce" required />
+      </div>
+       <div className="space-y-1">
+        <label htmlFor="budget">Budget</label>
+         <Select onValueChange={setBudget} value={budget} required>
+            <SelectTrigger><SelectValue placeholder="Select budget" /></SelectTrigger>
+            <SelectContent>
+                <SelectItem value="Under $5,000">Under $5,000</SelectItem>
+                <SelectItem value="$5,000 - $20,000">$5,000 - $20,000</SelectItem>
+            </SelectContent>
+        </Select>
+      </div>
+       <div className="space-y-1">
+        <label htmlFor="businessNeeds">Anything else to add?</label>
+        <Input id="businessNeeds" value={businessNeeds} onChange={e => setBusinessNeeds(e.target.value)} placeholder="Describe your needs..." required />
+      </div>
+      <Button type="submit" size="sm">Generate My Report</Button>
+    </form>
+  )
+}

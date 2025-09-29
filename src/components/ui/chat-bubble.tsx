@@ -5,7 +5,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-const chatBubbleVariants = cva("flex gap-3", {
+const chatBubbleVariants = cva("flex items-start gap-3", {
   variants: {
     variant: {
       sent: "flex-row-reverse",
@@ -40,13 +40,13 @@ const ChatBubbleMessage = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & {
     isLoading?: boolean
   }
->(({ className, isLoading, ...props }, ref) => {
+>(({ className, isLoading, children, ...props }, ref) => {
   const { variant } = React.useContext(ChatBubbleContext)
   return (
     <div
       ref={ref}
       className={cn(
-        "relative rounded-xl px-3 py-2 text-sm",
+        "relative rounded-xl px-4 py-3 text-sm max-w-[80%]",
         variant === "sent"
           ? "bg-primary text-primary-foreground rounded-br-none"
           : "bg-muted rounded-bl-none",
@@ -61,7 +61,7 @@ const ChatBubbleMessage = React.forwardRef<
           <span className="h-1.5 w-1.5 animate-[bounce_1s_infinite_400ms] rounded-full bg-current" />
         </div>
       ) : (
-        props.children
+        children
       )}
     </div>
   )
