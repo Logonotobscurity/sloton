@@ -23,11 +23,11 @@ function AutomationPageContent({ workflow }: { workflow?: string }) {
       />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         
-        <div className="mt-12 max-w-4xl mx-auto">
+        <div className="mt-8 md:mt-12 max-w-4xl mx-auto">
             <TaskAutomationForm initialValues={initialValues} />
         </div>
 
-        <div className="mt-24">
+        <div className="mt-16 md:mt-24">
           <WorkflowTemplateLibrary />
         </div>
 

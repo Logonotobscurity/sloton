@@ -14,7 +14,7 @@ export function Statement() {
         </h2>
         <Button asChild size="lg">
           <Link href="/contact">
-            Contact Us
+            Start a Conversation
           </Link>
         </Button>
       </div>

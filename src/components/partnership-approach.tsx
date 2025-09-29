@@ -30,7 +30,7 @@ export function PartnershipApproach() {
                 Our success is measured by your success. We partner with ambitious teams to understand their vision and deliver tangible outcomes that fuel growth and innovation.
             </p>
              <div className="mt-8">
-                <Button asChild>
+                <Button asChild size="lg">
                     <Link href="/contact">
                         Start a Project
                     </Link>

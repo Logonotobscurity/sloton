@@ -100,7 +100,7 @@ export function TrainingCTA() {
                         We believe in building more than just technology; we're dedicated to building skills, fostering leadership, and making a positive community impact. Explore our training programs and our commitment to ethical innovation.
                     </p>
                 </div>
-              <BentoGrid className="lg:grid-rows-3 mt-16">
+              <BentoGrid className="grid-rows-1 lg:grid-rows-3 mt-16 auto-rows-auto lg:auto-rows-[22rem]">
                   {features.map((feature) => (
                       <BentoCard key={feature.name} {...feature} />
                   ))}

@@ -37,19 +37,21 @@ const MegaMenuLink = ({ item, onLinkClick }: { item: any, onLinkClick?: () => vo
 );
 
 const MobileNavLink = ({ href, children, onLinkClick }: { href: string; children: React.ReactNode; onLinkClick: () => void }) => (
-    <Link
-        href={href}
-        onClick={onLinkClick}
-        className="block py-2 text-base font-medium transition-colors hover:text-primary"
-        prefetch={false}
-    >
-        {children}
-    </Link>
+    <SheetClose asChild>
+        <Link
+            href={href}
+            onClick={onLinkClick}
+            className="block py-2 text-base font-medium transition-colors hover:text-primary"
+            prefetch={false}
+        >
+            {children}
+        </Link>
+    </SheetClose>
 );
 
 
-const Logo = ({ inSheet, onLinkClick }: { inSheet?: boolean, onLinkClick?: () => void }) => (
-    <Link href="/" className={cn("flex items-center", inSheet ? "p-4 border-b" : "")} onClick={onLinkClick} prefetch={false}>
+const Logo = () => (
+    <Link href="/" className="flex items-center" prefetch={false}>
         <div className="flex flex-col items-start">
           <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
           <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
@@ -68,7 +70,7 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
                         <p className="text-xs text-muted-foreground mt-1 px-2">{pIntro}</p>
                          <div className="px-2 mt-3">
                             <Button asChild size="sm">
-                                <Link href={pCta.href}>{pCta.label}</Link>
+                                <Link href={pCta.href}>See All Products</Link>
                             </Button>
                         </div>
                     </div>
@@ -189,12 +191,12 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
 };
 
 const navLinks = [
-  { label: 'Products', href: '/our-solutions' },
+  { label: 'Products', href: '/solutions' },
   { label: 'Industries', href: '/use-cases' },
   { label: 'Learning', href: '/training' },
-  { label: 'Partners', href: '/our-partners' },
-  { label: 'Company', href: '/about-us' },
-  { label: 'Support', href: '/support-center' },
+  { label: 'Partners', href: '/partners' },
+  { label: 'Company', href: '/about' },
+  { label: 'Support', href: '/support' },
 ];
 
 export function Header() {
@@ -241,33 +243,31 @@ export function Header() {
                 <Logo />
             </div>
             
-            <div className="flex-1 flex justify-center">
-                <nav className="flex items-center">
-                    {navLinks.map((item) => (
-                         <div key={item.label} className="group relative flex h-full items-center">
-                            <Link href={item.href} className={cn(
-                            "flex items-center text-sm font-medium transition-colors hover:text-primary px-2 py-2 rounded-md",
-                            pathname.startsWith(item.href) ? "bg-secondary text-primary" : ""
-                            )}>
-                                {item.label}
-                            </Link>
-                            <div className={cn(
-                                "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
-                                "w-screen max-w-4xl -translate-x-1/2 left-1/2"
-                            )}>
-                                <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
-                                    <MegaMenuContent navItem={item} onLinkClick={handleMobileLinkClick} />
-                                </div>
+            <nav className="flex-1 flex justify-center items-center">
+                {navLinks.map((item) => (
+                     <div key={item.label} className="group relative flex h-full items-center">
+                        <Link href={item.href} className={cn(
+                        "flex items-center text-sm font-medium transition-colors hover:text-primary px-2 py-2 rounded-md",
+                        pathname.startsWith(item.href) ? "bg-secondary text-primary" : ""
+                        )}>
+                            {item.label}
+                        </Link>
+                        <div className={cn(
+                            "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
+                            "w-screen max-w-4xl -translate-x-1/2 left-1/2"
+                        )}>
+                            <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
+                                <MegaMenuContent navItem={item} onLinkClick={() => {}} />
                             </div>
                         </div>
-                    ))}
-                </nav>
-            </div>
+                    </div>
+                ))}
+            </nav>
             
             <div className="flex items-center gap-2 flex-shrink-0">
                 <ThemeToggle />
                 <Button asChild>
-                    <Link href="/contact-us">Contact Us</Link>
+                    <Link href="/contact">Contact Us</Link>
                 </Button>
             </div>
         </div>
@@ -283,8 +283,10 @@ export function Header() {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-full max-w-sm bg-background p-0 flex flex-col">
                     <SheetHeader>
-                        <SheetClose asChild>
-                           <Logo inSheet onLinkClick={handleMobileLinkClick} />
+                         <SheetClose asChild>
+                           <div className="p-4 border-b">
+                            <Logo />
+                           </div>
                         </SheetClose>
                          <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
                     </SheetHeader>
@@ -304,11 +306,13 @@ export function Header() {
                         </Accordion>
                     </div>
                      <div className="p-4 border-t space-y-4">
-                        <Button asChild className="w-full">
-                            <Link href="/contact-us" onClick={handleMobileLinkClick}>
-                                <Phone className="mr-2 h-4 w-4"/> Contact Us
-                            </Link>
-                        </Button>
+                        <SheetClose asChild>
+                            <Button asChild className="w-full">
+                                <Link href="/contact" onClick={handleMobileLinkClick}>
+                                    <Phone className="mr-2 h-4 w-4"/> Contact Us
+                                </Link>
+                            </Button>
+                        </SheetClose>
                         <div className="flex justify-center">
                             <ThemeToggle />
                         </div>

@@ -32,10 +32,10 @@ export function Footer() {
                 </div>
             </Link>
             <address className="text-sm text-muted-foreground not-italic">
-                [Virtual Office] Lagos, Nigeria<br />
+                Lagos, Nigeria<br />
                 Serving clients worldwide
             </address>
-             <p className="text-muted-foreground text-lg max-w-md mx-auto lg:mx-0">
+             <p className="text-muted-foreground text-base md:text-lg max-w-md mx-auto lg:mx-0">
               Ready to transform your business with intelligent technology? Let's build something great together.
             </p>
             <div>
@@ -84,10 +84,10 @@ export function Footer() {
         </div>
         
         <div className="border-t py-6 flex flex-col sm:flex-row items-center justify-between">
-          <div className="text-sm text-muted-foreground text-center sm:text-left">
+          <div className="text-sm text-muted-foreground text-center sm:text-left mb-4 sm:mb-0">
             © {new Date().getFullYear()} LOG_ON. All Rights Reserved.
           </div>
-          <div className="flex space-x-4 mt-4 sm:mt-0">
+          <div className="flex space-x-4">
              {socialLinks.map(link => (
                 <a key={link.label} href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary p-2 rounded-full hover:bg-secondary/50 transition-colors">
                   {link.icon}

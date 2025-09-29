@@ -137,13 +137,13 @@ export function TaskAutomationForm({ initialValues, onSuccessfulSubmit }: TaskAu
                         onClick={() => handleSetExample(example)}
                         className="text-xs text-left p-2 rounded-md bg-secondary hover:bg-secondary/80 border border-border/50 transition-colors"
                       >
-                        {example.substring(0, 50)}...
+                        {example.substring(0, 40)}...
                       </button>
                     ))}
                   </div>
                 </div>
 
-                <Button type="submit" disabled={loading} className="group w-full flex justify-center gap-2 items-center">
+                <Button type="submit" disabled={loading} className="group w-full flex justify-center gap-2 items-center" size="lg">
                     {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
                     Generate Task Design
                 </Button>

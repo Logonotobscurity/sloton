@@ -1,7 +1,6 @@
 
 import Link from 'next/link';
 import { Button } from './ui/button';
-import { ArrowRight } from 'lucide-react';
 import { ArrowIcon } from './ui/arrow-icon';
 
 export function BottomCta() {
@@ -11,12 +10,12 @@ export function BottomCta() {
         <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">
           Ready to Start a Project?
         </h2>
-        <p className="max-w-2xl mx-auto mb-8 text-lg">
+        <p className="max-w-2xl mx-auto mb-8 text-base md:text-lg">
           Let's talk about how we can help you achieve your goals.
         </p>
-        <Button asChild variant="secondary" className="group">
+        <Button asChild variant="secondary" size="lg" className="group">
           <Link href="/contact">
-            Contact Now <ArrowIcon />
+            Contact Now <ArrowIcon className="ml-2" />
           </Link>
         </Button>
       </div>
