@@ -49,7 +49,7 @@ const ChatBubbleMessage = React.forwardRef<
         "relative rounded-xl px-4 py-3 text-sm max-w-[80%]",
         variant === "sent"
           ? "bg-primary text-primary-foreground rounded-br-none"
-          : "bg-muted rounded-bl-none",
+          : "bg-secondary text-secondary-foreground rounded-bl-none",
         className
       )}
       {...props}
