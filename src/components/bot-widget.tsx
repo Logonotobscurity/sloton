@@ -17,6 +17,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from './ui/tooltip';
 import { Checkbox } from './ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { useChatbotStore } from '@/hooks/use-chatbot-store';
 
 const initialOptions = [
   { text: 'Get a Free AI Business Assessment', value: 'assessment', icon: <Sparkles className="h-4 w-4 mr-2" /> },
@@ -29,7 +30,7 @@ const goalsOptions = ['Increase Sales', 'Reduce Operational Costs', 'Improve Cus
 const challengesOptions = ['Manual Data Entry', 'Overwhelmed Support Team', 'Outdated Technology', 'Inefficient Workflows', 'Poor Customer Engagement', 'Lack of Data Insights'];
 
 export function BotWidget({ initialMessage }: { initialMessage: string }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isChatbotOpen, setChatbotOpen } = useChatbotStore();
   const [messages, setMessages] = useState<any[]>([]);
   const [step, setStep] = useState('start');
   const [formData, setFormData] = useState<any>({});
@@ -58,13 +59,13 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   };
 
   useEffect(() => {
-    if (isOpen) {
+    if (isChatbotOpen) {
       scrollToBottom();
       inputRef.current?.focus();
     } else {
       setTimeout(() => triggerRef.current?.focus(), 100);
     }
-  }, [isOpen]);
+  }, [isChatbotOpen]);
   
   useEffect(() => {
     scrollToBottom();
@@ -187,7 +188,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   return (
     <div className="fixed bottom-4 right-4 z-[100] flex flex-col items-end">
        <div aria-live="polite" className="sr-only">
-         {isOpen ? 'Chatbot panel is open.' : 'Chatbot panel is closed.'}
+         {isChatbotOpen ? 'Chatbot panel is open.' : 'Chatbot panel is closed.'}
        </div>
       
        <div
@@ -197,7 +198,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
         aria-label="Chatbot Panel"
         className={cn(
           "w-full max-w-md h-full max-h-[80vh] bg-background border rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right mb-2",
-          isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+          isChatbotOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
         )}
       >
         <CardHeader className="flex flex-row items-center justify-between p-4 border-b">
@@ -225,7 +226,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                 </Tooltip>
                  <Tooltip>
                   <TooltipTrigger asChild>
-                     <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setIsOpen(false)}>
+                     <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setChatbotOpen(false)}>
                       <X className="h-4 w-4" />
                       <span className="sr-only">Close Chatbot</span>
                     </Button>
@@ -251,7 +252,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                         </ChatBubbleAvatar>
                         <ChatBubbleMessage>
                            {msg.text}
-                           {msg.type === 'component' && !isLoading && <div className="py-2">{msg.component}</div>}
+                           {msg.type === 'component' && <div className="py-2">{msg.component}</div>}
                         </ChatBubbleMessage>
                     </ChatBubble>
                 </Fragment>
@@ -287,17 +288,17 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
           <TooltipTrigger asChild>
             <Button
               ref={triggerRef}
-              aria-expanded={isOpen}
+              aria-expanded={isChatbotOpen}
               aria-controls="bot-panel"
-              onClick={() => setIsOpen(prev => !prev)}
+              onClick={() => setChatbotOpen(!isChatbotOpen)}
               className={cn(
                 "rounded-full h-12 shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 px-4",
                 "animate-in fade-in zoom-in-95"
               )}
             >
-              {isOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <span />}
+              {isChatbotOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <span />}
               <span className="text-primary-foreground font-semibold">LOG_ON ASSISTANCE</span>
-              <span className="sr-only">{isOpen ? "Close Chatbot" : "Open Chatbot"}</span>
+              <span className="sr-only">{isChatbotOpen ? "Close Chatbot" : "Open Chatbot"}</span>
             </Button>
           </TooltipTrigger>
           <TooltipContent side="top" align="center" className="mb-2">
@@ -361,7 +362,7 @@ const TextInputPanel = ({ onSend, inputRef }: { onSend: (text: string) => void; 
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Type your message..."
-        className="flex-1 h-9"
+        className="flex-1 h-9 text-xs"
         autoComplete="off"
       />
       <Button type="submit" size="icon" className="h-9 w-9">

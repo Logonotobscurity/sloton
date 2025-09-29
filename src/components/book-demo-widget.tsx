@@ -14,9 +14,15 @@ import {
   DialogDescription,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { useChatbotStore } from '@/hooks/use-chatbot-store';
 
 export function BookDemoWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isChatbotOpen } = useChatbotStore();
+
+  if (isChatbotOpen) {
+    return null;
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
