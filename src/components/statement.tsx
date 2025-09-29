@@ -12,10 +12,9 @@ export function Statement() {
         <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-tight mb-12 uppercase max-w-3xl mx-auto">
           We&apos;re intentionally <span className="text-primary">small</span> and proudly <span className="text-primary">versatile</span>. While others get stuck in silos, we move <span className="text-accent">fast</span> and <span className="text-accent">adapt</span>—delivering what most big teams can&apos;t: <span className="text-primary">results</span>.
         </h2>
-        <Button asChild size="lg" className="group flex justify-center gap-2 items-center">
+        <Button asChild size="lg">
           <Link href="/contact">
-            Start a Conversation
-            <ArrowIcon />
+            Contact Us
           </Link>
         </Button>
       </div>
