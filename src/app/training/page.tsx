@@ -14,8 +14,17 @@ import { PageHero } from '@/components/page-hero';
 
 
 export const metadata: Metadata = {
-  title: 'AI & Automation Training | Community & Innovation | LOG_ON',
-  description: 'Advance your career with our expert-led online training programs and explore our community impact initiatives in ethical AI and digital skill development.',
+  title: 'Expert AI & Automation Training Programs | LOG_ON',
+  description: 'Advance your career with expert-led training in AI and automation. Explore our courses and community impact projects in ethical AI and digital skills.',
+  alternates: {
+    canonical: '/training',
+  },
+  openGraph: {
+      title: 'Expert AI & Automation Training Programs | LOG_ON',
+      description: 'Advance your career with expert-led training in AI and automation. Explore our courses and community impact projects in ethical AI and digital skills.',
+      url: '/training',
+      type: 'website',
+  }
 };
 
 const trainingPrograms = [
