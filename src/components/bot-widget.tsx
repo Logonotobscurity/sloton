@@ -34,7 +34,8 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   const [step, setStep] = useState('start');
   const [formData, setFormData] = useState<any>({});
   const [isLoading, setIsLoading] = useState(false);
-  
+  const [mode, setMode] = useState<'buttons' | 'text'>('buttons');
+
   const triggerRef = useRef<HTMLButtonElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -60,11 +61,13 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   useEffect(() => {
     if (isOpen) {
       scrollToBottom();
-      inputRef.current?.focus();
+      if (mode === 'text') {
+        inputRef.current?.focus();
+      }
     } else {
       setTimeout(() => triggerRef.current?.focus(), 100);
     }
-  }, [isOpen]);
+  }, [isOpen, mode]);
   
   useEffect(() => {
     scrollToBottom();
@@ -110,8 +113,8 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
         setIsLoading(false);
     }, 800);
   };
-
-  const handleFormPartSubmit = (partData: any, nextStep: string) => {
+  
+  const onFormPartSubmit = (partData: any, nextStep: string) => {
     const updatedFormData = { ...formData, ...partData };
     setFormData(updatedFormData);
     setStep(nextStep);
@@ -142,7 +145,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
         setIsLoading(false);
     }, 800);
   }
-  
+
   const handleAssessmentSubmit = async (assessmentData: any) => {
     setIsLoading(true);
     setMessages(prev => [...prev]); // Trigger loading state
@@ -213,6 +216,17 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
              <TooltipProvider delayDuration={100}>
                  <Tooltip>
                   <TooltipTrigger asChild>
+                     <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setMode(mode === 'text' ? 'buttons' : 'text')}>
+                      <Type className="h-4 w-4" />
+                      <span className="sr-only">Toggle Input Mode</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Toggle Typing Mode</p>
+                  </TooltipContent>
+                </Tooltip>
+                 <Tooltip>
+                  <TooltipTrigger asChild>
                      <Button variant="ghost" size="icon" className="h-8 w-8" onClick={resetConversation}>
                       <RefreshCw className="h-4 w-4" />
                       <span className="sr-only">Reset conversation</span>
@@ -273,53 +287,81 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
             currentMessage={messages[messages.length - 1]} 
             onOptionClick={handleOptionClick} 
             isLoading={isLoading} 
-            onFormPartSubmit={handleFormPartSubmit}
+            onFormPartSubmit={onFormPartSubmit}
+            mode={mode}
+            onSend={handleTextInput}
+            inputRef={inputRef}
           />
-          <TextInputPanel onSend={handleTextInput} inputRef={inputRef} />
         </CardFooter>
       </div>
 
-       <Button
-        ref={triggerRef}
-        aria-expanded={isOpen}
-        aria-controls="bot-panel"
-        onClick={() => setIsOpen(prev => !prev)}
-        className={cn(
-          "rounded-full h-16 w-16 p-0 shadow-lg bg-primary hover:bg-primary/90 transition-transform duration-300 flex items-center justify-center",
-          "animate-in fade-in zoom-in-95"
-        )}
-      >
-        {isOpen ? <X className="h-7 w-7 text-primary-foreground" /> : <Bot className="h-7 w-7 text-primary-foreground" />}
-        <span className="sr-only">{isOpen ? "Close Chatbot" : "Open Chatbot"}</span>
-      </Button>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              ref={triggerRef}
+              aria-expanded={isOpen}
+              aria-controls="bot-panel"
+              onClick={() => setIsOpen(prev => !prev)}
+              className={cn(
+                "rounded-full h-12 shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 px-4",
+                "animate-in fade-in zoom-in-95"
+              )}
+            >
+              {isOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <Bot className="h-5 w-5 text-primary-foreground" />}
+              <span className="text-primary-foreground font-semibold">LOG_ON ASSISTANCE</span>
+              <span className="sr-only">{isOpen ? "Close Chatbot" : "Open Chatbot"}</span>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="top" align="center" className="mb-2">
+            <p>Chat with our AI Assistant</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
 
     </div>
   );
 }
 
-const ActionPanel = ({ currentMessage, onOptionClick, isLoading, onFormPartSubmit }: { currentMessage: any; onOptionClick: any; isLoading: boolean; onFormPartSubmit: any; }) => {
-    if (isLoading || !currentMessage || currentMessage.from === 'user') {
+const ActionPanel = ({ currentMessage, onOptionClick, isLoading, onFormPartSubmit, mode, onSend, inputRef }: { currentMessage: any; onOptionClick: any; isLoading: boolean; onFormPartSubmit: any; mode: string, onSend: any, inputRef: any }) => {
+    if (isLoading) {
       return null;
     }
 
-    switch (currentMessage.type) {
-        case 'buttons':
-            return (
-                <div className="w-full space-y-2">
-                    {currentMessage.options.map((opt: any) => (
-                        <Button key={opt.value} variant="outline" className="w-full justify-start" onClick={() => onOptionClick(opt)}>
-                            {opt.icon} {opt.text}
-                        </Button>
-                    ))}
-                </div>
-            );
-        case 'checkbox_group':
-            return <CheckboxGroup options={currentMessage.options} onFormPartSubmit={onFormPartSubmit} nextStep={currentMessage.nextStep} partName={currentMessage.partName} />;
-        case 'form_part':
-            return <CompanyInfoForm onFormPartSubmit={onFormPartSubmit} nextStep={currentMessage.nextStep} />;
-        default:
-            return null; // Don't show anything if there are no actions
-    }
+    const renderContent = () => {
+        if (mode === 'text') {
+            return <TextInputPanel onSend={onSend} inputRef={inputRef} />;
+        }
+
+        if (!currentMessage || currentMessage.from === 'user') {
+            return <TextInputPanel onSend={onSend} inputRef={inputRef} />;
+        }
+
+        switch (currentMessage.type) {
+            case 'buttons':
+                return (
+                    <div className="w-full space-y-2">
+                        {currentMessage.options.map((opt: any) => (
+                            <Button key={opt.value} variant="outline" className="w-full justify-start" onClick={() => onOptionClick(opt)}>
+                                {opt.icon} {opt.text}
+                            </Button>
+                        ))}
+                    </div>
+                );
+            case 'checkbox_group':
+                return <CheckboxGroup options={currentMessage.options} onFormPartSubmit={onFormPartSubmit} nextStep={currentMessage.nextStep} partName={currentMessage.partName} />;
+            case 'form_part':
+                return <CompanyInfoForm onFormPartSubmit={onFormPartSubmit} nextStep={currentMessage.nextStep} />;
+            default:
+                return <TextInputPanel onSend={onSend} inputRef={inputRef} />;
+        }
+    };
+
+    return (
+        <div className="w-full">
+            {renderContent()}
+        </div>
+    )
 };
 
 const TextInputPanel = ({ onSend, inputRef }: { onSend: (text: string) => void; inputRef: React.RefObject<HTMLInputElement> }) => {
@@ -508,5 +550,3 @@ const CompanyInfoForm = ({ onFormPartSubmit, nextStep }: { onFormPartSubmit: any
     </form>
   )
 }
-
-    
