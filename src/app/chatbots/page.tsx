@@ -120,7 +120,7 @@ export default function ChatbotsPage() {
             <div className="mt-8 flex justify-center">
                 <Button asChild size="lg">
                     <Link href="/contact">
-                        Get a Free Chatbot Consultation <ArrowRight className="ml-2 h-5 w-5" />
+                        Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                 </Button>
             </div>

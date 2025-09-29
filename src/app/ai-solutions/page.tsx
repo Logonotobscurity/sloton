@@ -61,7 +61,7 @@ export default function AiSolutionsPage() {
                 ))}
             </div>
             <Button asChild size="lg" className="mt-4">
-              <Link href="/contact">Get a Free AI Consultation</Link>
+              <Link href="/contact">Free AI Consultation</Link>
             </Button>
           </div>
           <div className="relative h-80 lg:h-96 mt-8 lg:mt-0">
@@ -119,7 +119,7 @@ export default function AiSolutionsPage() {
             <div className="mt-8 flex justify-center">
                 <Button asChild size="lg">
                     <Link href="/contact">
-                        Schedule Your Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
+                        Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                 </Button>
             </div>
