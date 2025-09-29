@@ -13,7 +13,7 @@ import {
   IconHumanResources,
   IconSales,
   IconMarketing,
-  IconFinance,
+  IconBriefcase,
   IconProcurement,
   IconDevelopment,
   IconHealthcare,
@@ -31,7 +31,7 @@ import { GatedFeatureModal } from './gated-feature-modal';
 
 const categories = [
   { name: 'Show All', icon: IconGeneral },
-  { name: 'Finance', icon: IconFinance },
+  { name: 'Finance', icon: IconBriefcase },
   { name: 'Human Resources', icon: IconHumanResources },
   { name: 'Sales', icon: IconSales },
   { name: 'Marketing', icon: IconMarketing },
@@ -45,7 +45,7 @@ const categories = [
 ];
 
 const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string, color: string } } = {
-  'Finance': { icon: IconFinance, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
+  'Finance': { icon: IconBriefcase, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
   'Human Resources': { icon: IconHumanResources, iconBg: "bg-blue-100 dark:bg-blue-900/50", color: "text-blue-600 dark:text-blue-400" },
   'Sales': { icon: IconSales, iconBg: "bg-orange-100 dark:bg-orange-900/50", color: "text-orange-600 dark:text-orange-400" },
   'Marketing': { icon: IconMarketing, iconBg: "bg-purple-100 dark:bg-purple-900/50", color: "text-purple-600 dark:text-purple-400" },
