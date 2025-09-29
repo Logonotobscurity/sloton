@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
-import { Bot, User, X, Sparkles, Calendar, HelpCircle, GraduationCap, Check, Loader2, RefreshCw, Type, MessageCircle } from 'lucide-react';
+import { Bot, User, X, Sparkles, Calendar, HelpCircle, GraduationCap, Check, Loader2, RefreshCw, Type, MessageCircle, Send } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat-bubble";
@@ -400,6 +400,8 @@ const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) 
     </CardFooter>
   </Card>
 );
+
+    
 
     
 
