@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
+import { ArrowIcon } from './ui/arrow-icon';
 
 export function BottomCta() {
   return (
@@ -13,9 +14,9 @@ export function BottomCta() {
         <p className="max-w-2xl mx-auto mb-8 text-lg">
           Let's talk about how we can help you achieve your goals.
         </p>
-        <Button asChild variant="secondary" size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+        <Button asChild variant="secondary" size="lg" className="group flex justify-center gap-2 items-center bg-primary-foreground text-primary hover:bg-primary-foreground/90">
           <Link href="/contact">
-            Contact Now <ArrowRight className="ml-2 h-5 w-5" />
+            Contact Now <ArrowIcon />
           </Link>
         </Button>
       </div>
