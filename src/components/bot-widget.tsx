@@ -142,9 +142,13 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
 
   const handleAssessmentSubmit = async (assessmentData: any) => {
     setIsLoading(true);
-    setMessages(prev => [...prev]); // Trigger loading state
+    setMessages(prev => [...prev, {from: 'user', text: 'Contact information provided.'}]);
     
-    const result = await getSolutionRecommendation(assessmentData);
+    const result = await getSolutionRecommendation({
+        ...assessmentData,
+        businessGoals: formData.businessGoals || [],
+        challenges: formData.challenges || [],
+    });
     
     setIsLoading(false);
     if (result.data) {
@@ -265,15 +269,17 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
             <div ref={messagesEndRef} />
           </CardContent>
         </ScrollArea>
-        <CardFooter className="p-4 border-t bg-background flex flex-col gap-4">
-          <ActionPanel 
-            currentMessage={messages[messages.length - 1]} 
-            onOptionClick={handleOptionClick} 
-            isLoading={isLoading} 
-            onFormPartSubmit={onFormPartSubmit}
-          />
-           <TextInputPanel onSend={handleTextInput} inputRef={inputRef} />
-        </CardFooter>
+        <ScrollArea>
+            <CardFooter className="p-4 border-t bg-background flex flex-col gap-4">
+            <ActionPanel 
+                currentMessage={messages[messages.length - 1]} 
+                onOptionClick={handleOptionClick} 
+                isLoading={isLoading} 
+                onFormPartSubmit={onFormPartSubmit}
+            />
+            <TextInputPanel onSend={handleTextInput} inputRef={inputRef} />
+            </CardFooter>
+        </ScrollArea>
       </div>
 
       <TooltipProvider>
@@ -289,7 +295,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                 "animate-in fade-in zoom-in-95"
               )}
             >
-              {isOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <Bot className="h-5 w-5 text-primary-foreground" />}
+              {isOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <span />}
               <span className="text-primary-foreground font-semibold">LOG_ON ASSISTANCE</span>
               <span className="sr-only">{isOpen ? "Close Chatbot" : "Open Chatbot"}</span>
             </Button>
@@ -509,7 +515,3 @@ const CompanyInfoForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any
     </form>
   )
 }
-
-    
-
-      

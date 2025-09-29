@@ -92,7 +92,7 @@ export function CommunityLeadForm({ interest }: { interest?: string }) {
           name="date"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>Preferred Date (Optional)</FormLabel>
+              <FormLabel>Preferred Date</FormLabel>
                 <DatePicker 
                     date={field.value}
                     setDate={field.onChange}
