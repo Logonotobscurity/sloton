@@ -81,5 +81,3 @@ const ChatBubbleAvatar = React.forwardRef<
 ChatBubbleAvatar.displayName = "ChatBubbleAvatar"
 
 export { ChatBubble, ChatBubbleMessage, ChatBubbleAvatar }
-
-    

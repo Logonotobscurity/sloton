@@ -18,6 +18,8 @@ import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from './ui/t
 import { Checkbox } from './ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { useChatbotStore } from '@/hooks/use-chatbot-store';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
+import { ArrowIcon } from './ui/arrow-icon';
 
 const initialOptions = [
   { text: 'Get a Free AI Business Assessment', value: 'assessment', icon: <Sparkles className="h-4 w-4 mr-2" /> },
@@ -25,9 +27,6 @@ const initialOptions = [
   { text: 'Just Exploring / Have a Question', value: 'explore', icon: <HelpCircle className="h-4 w-4 mr-2" /> },
   { text: 'View Training Programs', value: 'training', icon: <GraduationCap className="h-4 w-4 mr-2" /> },
 ];
-
-const goalsOptions = ['Increase Sales', 'Reduce Operational Costs', 'Improve Customer Satisfaction', 'Launch a New Product', 'Enhance Data Analytics', 'Scale Infrastructure'];
-const challengesOptions = ['Manual Data Entry', 'Overwhelmed Support Team', 'Outdated Technology', 'Inefficient Workflows', 'Poor Customer Engagement', 'Lack of Data Insights'];
 
 export function BotWidget({ initialMessage }: { initialMessage: string }) {
   const { isChatbotOpen, setChatbotOpen } = useChatbotStore();
@@ -79,8 +78,8 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     
     switch (option.value) {
       case 'assessment':
-        setStep('assessment_goals');
-        botResponse = { from: 'bot', text: "Great! Let's start by understanding your primary business goals. You can select multiple options.", type: 'checkbox_group', options: goalsOptions, partName: 'businessGoals' };
+        setStep('assessment_needs');
+        botResponse = { from: 'bot', text: "Great! To start, could you please describe your primary business goals or challenges in a few sentences? This will help me tailor the recommendations for you.", type: 'form_part', partName: 'businessNeeds' };
         break;
       case 'schedule':
         setStep('schedule_form');
@@ -112,27 +111,27 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     }, 800);
   };
   
-  const onFormPartSubmit = (partData: any, partName: string, userMessageText?: string) => {
+  const onFormPartSubmit = (partData: any, partName: string, userMessageText: string) => {
     const updatedFormData = { ...formData, ...partData };
     setFormData(updatedFormData);
 
     let nextStepKey: string = '';
     let nextBotResponse: any;
 
-    if (partName === 'businessGoals') {
-      nextStepKey = 'assessment_challenges';
-      nextBotResponse = { from: 'bot', text: "Understood. Now, what are the main challenges you're facing? Select all that apply.", type: 'checkbox_group', options: challengesOptions, partName: 'challenges' };
-    } else if (partName === 'challenges') {
+    if (partName === 'businessNeeds') {
       nextStepKey = 'assessment_company_info';
-      nextBotResponse = { from: 'bot', text: "Thanks. Just a few more details to create your personalized report.", type: 'form_part', partName: 'companyInfo' };
+      nextBotResponse = { from: 'bot', text: "Perfect, that's very helpful. Just a few more details to create your personalized report.", type: 'form_part', partName: 'companyInfo' };
     } else if (partName === 'companyInfo') {
+      nextStepKey = 'assessment_contact';
+      nextBotResponse = { from: 'bot', text: "Almost there! Lastly, where should I send the final report?", type: 'form_part', partName: 'contactInfo' };
+    } else if (partName === 'contactInfo') {
       nextStepKey = 'assessment_submit';
       handleAssessmentSubmit(updatedFormData);
       return; 
     }
     
     setStep(nextStepKey);
-    setMessages(prev => [...prev, {from: 'user', text: userMessageText || 'Selection submitted.'}]);
+    setMessages(prev => [...prev, {from: 'user', text: userMessageText}]);
     
     setIsLoading(true);
     setTimeout(() => {
@@ -145,11 +144,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     setIsLoading(true);
     setMessages(prev => [...prev, {from: 'user', text: 'Contact information provided.'}]);
     
-    const result = await getSolutionRecommendation({
-        ...assessmentData,
-        businessGoals: formData.businessGoals || [],
-        challenges: formData.challenges || [],
-    });
+    const result = await getSolutionRecommendation(assessmentData);
     
     setIsLoading(false);
     if (result.data) {
@@ -208,7 +203,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                 </Avatar>
                 <div>
                     <h3 className="font-semibold text-base">LOG_ON AI Assistant</h3>
-                    <p className="text-xs text-muted-foreground flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-green-500"></span> Online</p>
+                    <p className="text-xs text-muted-foreground flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-primary"></span> Online</p>
                 </div>
             </div>
           <div className="flex items-center gap-1">
@@ -271,7 +266,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
           </CardContent>
         </ScrollArea>
         <ScrollArea>
-            <CardFooter className="p-4 border-t bg-background flex flex-col gap-4">
+          <CardFooter className="p-4 border-t bg-background flex flex-col gap-4">
             <ActionPanel 
                 currentMessage={messages[messages.length - 1]} 
                 onOptionClick={handleOptionClick} 
@@ -279,7 +274,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                 onFormPartSubmit={onFormPartSubmit}
             />
             <TextInputPanel onSend={handleTextInput} inputRef={inputRef} />
-            </CardFooter>
+          </CardFooter>
         </ScrollArea>
       </div>
 
@@ -328,10 +323,17 @@ const ActionPanel = ({ currentMessage, onOptionClick, isLoading, onFormPartSubmi
                         ))}
                     </div>
                 );
-            case 'checkbox_group':
-                return <CheckboxGroup options={currentMessage.options} onFormPartSubmit={onFormPartSubmit} partName={currentMessage.partName} />;
             case 'form_part':
-                return <CompanyInfoForm onFormPartSubmit={onFormPartSubmit} partName={currentMessage.partName} />;
+                if (currentMessage.partName === 'businessNeeds') {
+                    return <BusinessNeedsForm onFormPartSubmit={onFormPartSubmit} partName={currentMessage.partName} />;
+                }
+                if (currentMessage.partName === 'companyInfo') {
+                    return <CompanyInfoForm onFormPartSubmit={onFormPartSubmit} partName={currentMessage.partName} />;
+                }
+                 if (currentMessage.partName === 'contactInfo') {
+                    return <ContactInfoForm onFormPartSubmit={onFormPartSubmit} partName={currentMessage.partName} />;
+                }
+                return null;
             default:
                 return null;
         }
@@ -377,16 +379,14 @@ const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) 
   <Card className="bg-secondary/30 mt-2">
     <CardHeader>
       <CardTitle className="text-xl flex items-center gap-2"><Sparkles className="h-5 w-5 text-primary" /> Your Technology Roadmap</CardTitle>
-      <CardDescription>{result.strategicSummary.overview}</CardDescription>
+      <CardDescription>{result.executiveSummary.overview}</CardDescription>
     </CardHeader>
     <CardContent className="space-y-4 text-sm">
-        <h4 className="font-semibold text-foreground">Suggested Initiatives:</h4>
-        {result.suggestedInitiatives.map((item, index) => (
-          <div key={index} className="p-3 rounded-md bg-background/50 border">
-            <p className="font-semibold text-primary">{item.initiativeName}</p>
-            <p className="text-muted-foreground mt-1">{item.description}</p>
-          </div>
-        ))}
+        <h4 className="font-semibold text-foreground">Recommended Initiative:</h4>
+        <div className="p-3 rounded-md bg-background/50 border">
+          <p className="font-semibold text-primary">{result.recommendedSolutionPath.coreTechnology.solutionName}</p>
+          <p className="text-muted-foreground mt-1">{result.recommendedSolutionPath.coreTechnology.justification}</p>
+        </div>
     </CardContent>
     <CardFooter>
       <Dialog>
@@ -403,96 +403,118 @@ const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) 
           <ScrollArea className="flex-1 -mx-6 px-6">
             <div className="space-y-6 text-sm">
               <div>
-                <h3 className="font-semibold text-lg mb-2 text-primary">Strategic Summary</h3>
-                <p><strong>Title:</strong> {result.strategicSummary.title}</p>
-                <p className="text-muted-foreground"><strong>Overview:</strong> {result.strategicSummary.overview}</p>
-                <p className="text-muted-foreground"><strong>Primary Opportunity:</strong> {result.strategicSummary.primaryOpportunity}</p>
+                <h3 className="font-semibold text-lg mb-2 text-primary">Executive Summary</h3>
+                 <Card className="bg-secondary/30">
+                  <CardContent className="pt-6 space-y-2 text-sm">
+                      <p><strong>Overview:</strong> {result.executiveSummary.overview}</p>
+                      <p><strong>Primary Opportunity:</strong> {result.executiveSummary.primaryOpportunity}</p>
+                      <p><strong>Est. ROI Timeframe:</strong> {result.executiveSummary.expectedRoiTimeframe}</p>
+                  </CardContent>
+              </Card>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-2 text-primary">Suggested Initiatives</h3>
-                {result.suggestedInitiatives.map((item, index) => (
-                    <div key={index} className="p-4 rounded-lg bg-secondary/50 mb-3 border">
-                        <p className="font-semibold text-foreground">{item.initiativeName}</p>
-                        <p className="text-muted-foreground mt-1">{item.description}</p>
-                        <p className="text-muted-foreground mt-2"><strong>Estimated Impact:</strong> {item.estimatedImpact}</p>
-                        <p className="text-muted-foreground mt-1"><strong>Relevant Services:</strong> {item.relevantServices.join(', ')}</p>
-                    </div>
-                ))}
+                <h3 className="font-semibold text-lg mb-2 text-primary">Recommended Solution Path</h3>
+                <Card className="bg-secondary/30">
+                      <CardHeader>
+                          <CardTitle>{result.recommendedSolutionPath.coreTechnology.solutionName}</CardTitle>
+                          <CardDescription>{result.recommendedSolutionPath.coreTechnology.justification}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                          <h4 className="font-semibold mb-4 text-foreground">Expected Outcomes</h4>
+                              <Table>
+                                  <TableHeader>
+                                      <TableRow>
+                                          <TableHead>Metric</TableHead>
+                                          <TableHead>Improvement</TableHead>
+                                          <TableHead>Timeframe</TableHead>
+                                      </TableRow>
+                                  </TableHeader>
+                                  <TableBody>
+                                      {result.recommendedSolutionPath.expectedOutcomes.map((outcome, index) => (
+                                          <TableRow key={index}>
+                                              <TableCell className="font-medium">{outcome.metric}</TableCell>
+                                              <TableCell className="text-green-500 font-semibold">{outcome.projectedImprovement}</TableCell>
+                                              <TableCell>{outcome.timeframe}</TableCell>
+                                          </TableRow>
+                                      ))}
+                                  </TableBody>
+                              </Table>
+                      </CardContent>
+                  </Card>
               </div>
                <div>
                 <h3 className="font-semibold text-lg mb-2 text-primary">Next Steps</h3>
-                <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                   {result.nextSteps.map((step, index) => (
-                       <li key={index}><strong>{step.actionItem}</strong> (Owner: {step.owner})</li>
-                   ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2 text-primary">Internal Lead Profile</h3>
-                <p className="text-muted-foreground"><strong>Priority Score:</strong> {result.leadProfile.priorityScore}</p>
-                 <p className="text-muted-foreground"><strong>Key Interests:</strong> {result.leadProfile.keyInterests.join(', ')}</p>
+                  <Table>
+                      <TableHeader>
+                          <TableRow>
+                          <TableHead>Action Item</TableHead>
+                          <TableHead>Owner</TableHead>
+                          <TableHead>Deadline</TableHead>
+                          </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                          {result.nextSteps.map((step, index) => (
+                          <TableRow key={index}>
+                              <TableCell className="font-medium">{step.actionItem}</TableCell>
+                              <TableCell>{step.owner}</TableCell>
+                              <TableCell>{step.deadline}</TableCell>
+                          </TableRow>
+                          ))}
+                      </TableBody>
+                  </Table>
               </div>
             </div>
           </ScrollArea>
+          <DialogFooter className="pt-4 border-t">
+              <Button asChild className="w-full" size="lg">
+                <Link href="/contact" target="_blank">
+                    <Calendar className="mr-2 h-4 w-4" /> Book a Consultation
+                </Link>
+              </Button>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     </CardFooter>
   </Card>
 );
 
-const CheckboxGroup = ({ options, onFormPartSubmit, partName }: { options: string[], onFormPartSubmit: any, partName: string }) => {
-  const [selected, setSelected] = useState<string[]>([]);
-  
-  const handleToggle = (option: string) => {
-    setSelected(prev => prev.includes(option) ? prev.filter(item => item !== option) : [...prev, option]);
-  };
+const BusinessNeedsForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any, partName: string }) => {
+    const [businessNeeds, setBusinessNeeds] = useState('');
 
-  const handleSubmit = () => {
-    onFormPartSubmit({ [partName]: selected }, partName, `${selected.length} options selected.`);
-  }
-
-  return (
-    <div className="space-y-3 pt-2">
-        <div className="max-h-40 overflow-y-auto pr-2 space-y-1">
-            {options.map(option => (
-                <div key={option} className="flex items-center space-x-2 p-1 hover:bg-secondary rounded-md">
-                <Checkbox
-                    id={option}
-                    checked={selected.includes(option)}
-                    onCheckedChange={() => handleToggle(option)}
-                />
-                <label htmlFor={option} className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    {option}
-                </label>
-                </div>
-            ))}
-        </div>
-      <Button onClick={handleSubmit} size="sm" className="w-full h-8 text-xs" disabled={selected.length === 0}>Continue</Button>
-    </div>
-  );
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (businessNeeds.trim().length > 10) {
+            onFormPartSubmit({ businessNeeds }, partName, businessNeeds);
+        }
+    };
+    return (
+        <form onSubmit={handleSubmit} className="space-y-2">
+            <Input 
+                value={businessNeeds}
+                onChange={e => setBusinessNeeds(e.target.value)}
+                placeholder="e.g., Reduce support costs..."
+                required 
+                className="h-8 text-xs" 
+            />
+            <Button type="submit" size="sm" className="w-full h-8 text-xs">Continue</Button>
+        </form>
+    );
 };
 
 const CompanyInfoForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any, partName: string }) => {
   const [companySize, setCompanySize] = useState('');
   const [industry, setIndustry] = useState('');
   const [budget, setBudget] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [businessNeeds, setBusinessNeeds] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (companySize && industry && budget && name && email && businessNeeds) {
-      onFormPartSubmit({ companySize, industry, budget, name, email, businessNeeds }, partName, 'Contact information provided.');
+    if (companySize && industry && budget) {
+      onFormPartSubmit({ companySize, industry, budget }, partName, `Company info provided.`);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3 pt-2 text-xs">
-      <div className="grid grid-cols-2 gap-2">
-        <Input value={name} onChange={e => setName(e.target.value)} placeholder="Full Name" required className="h-8 text-xs" />
-        <Input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required className="h-8 text-xs" />
-      </div>
+    <form onSubmit={handleSubmit} className="space-y-2 pt-2 text-xs">
       <div className="grid grid-cols-2 gap-2">
          <Select onValueChange={setCompanySize} value={companySize} required>
             <SelectTrigger className="h-8 text-xs"><SelectValue placeholder="Company Size" /></SelectTrigger>
@@ -511,7 +533,28 @@ const CompanyInfoForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any
             <SelectItem value="$5,000 - $20,000">$5,000 - $20,000</SelectItem>
         </SelectContent>
     </Select>
-      <Input value={businessNeeds} onChange={e => setBusinessNeeds(e.target.value)} placeholder="Anything else to add?" required className="h-8 text-xs" />
+      <Button type="submit" size="sm" className="w-full h-8 text-xs">Continue</Button>
+    </form>
+  )
+}
+
+const ContactInfoForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any, partName: string }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (name && email) {
+      onFormPartSubmit({ name, email }, partName, 'Report will be sent to ' + email);
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-2 pt-2 text-xs">
+      <div className="grid grid-cols-2 gap-2">
+        <Input value={name} onChange={e => setName(e.target.value)} placeholder="Full Name" required className="h-8 text-xs" />
+        <Input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required className="h-8 text-xs" />
+      </div>
       <Button type="submit" size="sm" className="w-full h-8 text-xs">Generate My Report</Button>
     </form>
   )
