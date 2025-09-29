@@ -14,7 +14,7 @@ export function BottomCta() {
         <p className="max-w-2xl mx-auto mb-8 text-lg">
           Let's talk about how we can help you achieve your goals.
         </p>
-        <Button asChild variant="secondary" size="lg" className="group flex justify-center gap-2 items-center bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+        <Button asChild variant="secondary" className="group flex justify-center gap-2 items-center bg-primary-foreground text-primary hover:bg-primary-foreground/90">
           <Link href="/contact">
             Contact Now <ArrowIcon />
           </Link>
