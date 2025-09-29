@@ -4,8 +4,7 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Bot, User, X, Send, Sparkles, Calendar, MessageCircle, HelpCircle, GraduationCap, Check, Loader2 } from 'lucide-react';
+import { Bot, User, X, Sparkles, Calendar, HelpCircle, GraduationCap, Check, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat-bubble";
@@ -25,10 +24,10 @@ const initialOptions = [
 const goalsOptions = ['Increase Sales', 'Reduce Operational Costs', 'Improve Customer Satisfaction', 'Launch a New Product', 'Enhance Data Analytics', 'Scale Infrastructure'];
 const challengesOptions = ['Manual Data Entry', 'Overwhelmed Support Team', 'Outdated Technology', 'Inefficient Workflows', 'Poor Customer Engagement', 'Lack of Data Insights'];
 
-export function BotWidget() {
+export function BotWidget({ initialMessage }: { initialMessage: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<any[]>([
-    { from: 'bot', text: "Hello! I'm the LOG_ON AI Assistant. How can I help you unlock your business potential today?", options: initialOptions, type: 'buttons' },
+    { from: 'bot', text: initialMessage, options: initialOptions, type: 'buttons' },
   ]);
   const [step, setStep] = useState('start');
   const [formData, setFormData] = useState<any>({});
@@ -45,7 +44,8 @@ export function BotWidget() {
     if (isOpen) {
       scrollToBottom();
     } else {
-      triggerRef.current?.focus();
+      // Small timeout to allow the closing animation to start before focusing
+      setTimeout(() => triggerRef.current?.focus(), 100);
     }
   }, [isOpen]);
 
@@ -61,8 +61,8 @@ export function BotWidget() {
     
     switch (option.value) {
       case 'assessment':
-        setStep('assessment_goals');
-        botResponse = { from: 'bot', text: 'Great! Let\'s start your AI assessment. First, what are your primary business goals? (Select all that apply)', options: goalsOptions, type: 'checkbox' };
+        setStep('assessment_form');
+        botResponse = { from: 'bot', text: 'Great! I can help with that. Please answer a few questions to generate your personalized technology roadmap.', type: 'component', component: <SolutionRecommendationForm onFormSubmit={handleAssessmentSubmit} /> };
         break;
       case 'schedule':
         setStep('schedule_form');
@@ -170,7 +170,7 @@ export function BotWidget() {
                     <ChatBubble variant={msg.from === 'user' ? 'sent' : 'received'}>
                         <ChatBubbleAvatar>
                             <Avatar>
-                                <AvatarFallback className={msg.from === 'user' ? 'bg-secondary' : 'bg-primary/20'}>
+                                <AvatarFallback className={cn(msg.from === 'user' ? 'bg-secondary' : 'bg-primary/20')}>
                                 {msg.from === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4 text-primary" />}
                                 </AvatarFallback>
                             </Avatar>
@@ -196,7 +196,7 @@ export function BotWidget() {
           </CardContent>
         </ScrollArea>
         <CardFooter className="p-4 border-t bg-background">
-          <ActionPanel currentMessage={messages[messages.length - 1]} onOptionClick={handleOptionClick} onCheckboxSubmit={handleCheckboxSubmit} />
+          <ActionPanel currentMessage={messages[messages.length - 1]} onOptionClick={handleOptionClick} onCheckboxSubmit={handleCheckboxSubmit} isLoading={isLoading} />
         </CardFooter>
       </div>
 
@@ -206,10 +206,11 @@ export function BotWidget() {
         aria-controls="bot-panel"
         onClick={() => setIsOpen(prev => !prev)}
         className={cn(
-          "rounded-full h-16 w-16 p-0 shadow-lg bg-primary hover:bg-primary/90 transition-transform duration-300 flex items-center justify-center"
+          "rounded-full h-16 w-16 p-0 shadow-lg bg-primary hover:bg-primary/90 transition-transform duration-300 flex items-center justify-center",
+          "animate-in fade-in zoom-in-95"
         )}
       >
-        {isOpen ? <X className="h-7 w-7 text-primary-foreground" /> : <MessageCircle className="h-7 w-7 text-primary-foreground" />}
+        {isOpen ? <X className="h-7 w-7 text-primary-foreground" /> : <Bot className="h-7 w-7 text-primary-foreground" />}
         <span className="sr-only">{isOpen ? "Close Chatbot" : "Open Chatbot"}</span>
       </Button>
 
@@ -217,14 +218,14 @@ export function BotWidget() {
   );
 }
 
-const ActionPanel = ({ currentMessage, onOptionClick, onCheckboxSubmit }: { currentMessage: any; onOptionClick: any, onCheckboxSubmit: any }) => {
+const ActionPanel = ({ currentMessage, onOptionClick, onCheckboxSubmit, isLoading }: { currentMessage: any; onOptionClick: any; onCheckboxSubmit: any; isLoading: boolean; }) => {
     const [selected, setSelected] = useState<string[]>([]);
     
     const handleToggle = (option: string) => {
         setSelected(prev => prev.includes(option) ? prev.filter(item => item !== option) : [...prev, option]);
     };
     
-    if (!currentMessage || currentMessage.from === 'user') return null;
+    if (!currentMessage || currentMessage.from === 'user' || isLoading) return null;
     
     switch (currentMessage.type) {
         case 'buttons':
@@ -293,31 +294,36 @@ const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) 
             </DialogDescription>
           </DialogHeader>
           <ScrollArea className="flex-1 -mx-6 px-6">
-            <div className="space-y-6">
+            <div className="space-y-6 text-sm">
               <div>
-                <h3 className="font-semibold mb-2">Strategic Summary</h3>
+                <h3 className="font-semibold text-lg mb-2 text-primary">Strategic Summary</h3>
                 <p><strong>Title:</strong> {result.strategicSummary.title}</p>
-                <p><strong>Overview:</strong> {result.strategicSummary.overview}</p>
-                <p><strong>Primary Opportunity:</strong> {result.strategicSummary.primaryOpportunity}</p>
+                <p className="text-muted-foreground"><strong>Overview:</strong> {result.strategicSummary.overview}</p>
+                <p className="text-muted-foreground"><strong>Primary Opportunity:</strong> {result.strategicSummary.primaryOpportunity}</p>
               </div>
               <div>
-                <h3 className="font-semibold mb-2">Suggested Initiatives</h3>
+                <h3 className="font-semibold text-lg mb-2 text-primary">Suggested Initiatives</h3>
                 {result.suggestedInitiatives.map((item, index) => (
-                    <div key={index} className="p-3 rounded-md bg-secondary/50 mb-2 border">
-                        <p className="font-semibold text-primary">{item.initiativeName}</p>
-                        <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
-                        <p className="text-sm mt-1"><strong>Estimated Impact:</strong> {item.estimatedImpact}</p>
-                        <p className="text-sm mt-1"><strong>Relevant Services:</strong> {item.relevantServices.join(', ')}</p>
+                    <div key={index} className="p-4 rounded-lg bg-secondary/50 mb-3 border">
+                        <p className="font-semibold text-foreground">{item.initiativeName}</p>
+                        <p className="text-muted-foreground mt-1">{item.description}</p>
+                        <p className="text-muted-foreground mt-2"><strong>Estimated Impact:</strong> {item.estimatedImpact}</p>
+                        <p className="text-muted-foreground mt-1"><strong>Relevant Services:</strong> {item.relevantServices.join(', ')}</p>
                     </div>
                 ))}
               </div>
                <div>
-                <h3 className="font-semibold mb-2">Next Steps</h3>
-                <ul className="list-disc pl-5 space-y-1">
+                <h3 className="font-semibold text-lg mb-2 text-primary">Next Steps</h3>
+                <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
                    {result.nextSteps.map((step, index) => (
                        <li key={index}><strong>{step.actionItem}</strong> (Owner: {step.owner})</li>
                    ))}
                 </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-2 text-primary">Internal Lead Profile</h3>
+                <p className="text-muted-foreground"><strong>Priority Score:</strong> {result.leadProfile.priorityScore}</p>
+                 <p className="text-muted-foreground"><strong>Key Interests:</strong> {result.leadProfile.keyInterests.join(', ')}</p>
               </div>
             </div>
           </ScrollArea>
@@ -326,7 +332,5 @@ const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) 
     </CardFooter>
   </Card>
 );
-
-    
 
     
