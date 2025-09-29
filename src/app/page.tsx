@@ -13,6 +13,12 @@ import { IndustriesBento } from '@/components/industries-bento';
 import { IdeasLab } from '@/components/ideas-lab';
 import { SmarterAutomation } from '@/components/template-library';
 import { ServicesOffered } from '@/components/services-offered';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'LOG_ON | AI & Automation for Business Efficiency',
+  description: 'We power business efficiency with smart technology. Get a free AI assessment to discover automation and IT solutions tailored to your business needs.',
+};
 
 export default function Home() {
   return (

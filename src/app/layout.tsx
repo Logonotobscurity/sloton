@@ -148,7 +148,7 @@ const localBusinessSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Process Automation",
-          "url": "https://logonsolutions.netlify.app/automation",
+          "url": "https://logonsolutions.netlify.app/automation-solutions",
           "description": "Intelligent automation and RPA to streamline workflows and increase efficiency."
         }
       },

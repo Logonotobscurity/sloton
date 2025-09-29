@@ -14,7 +14,7 @@ import { PageHero } from '@/components/page-hero';
 
 
 export const metadata: Metadata = {
-  title: 'Community & Training | AI, Automation, & Leadership Programs',
+  title: 'AI & Automation Training | Community & Innovation | LOG_ON',
   description: 'Advance your career with our expert-led online training programs and explore our community impact initiatives in ethical AI and digital skill development.',
 };
 

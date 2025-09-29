@@ -8,7 +8,7 @@ export const menuData = {
     "products": {
        "heading": "Products",
        "intro": "Unite people, processes, and systems with AI-powered products for all your workflows.",
-       "cta": {"label": "See All Products", "href": "/our-solutions"},
+       "cta": {"label": "See All Products", "href": "/solutions"},
        "items": [
           {
             title: 'AI Solutions',
@@ -27,7 +27,7 @@ export const menuData = {
           },
           {
             title: 'AI Chatbots',
-            href: '/ai-chatbots',
+            href: '/chatbots',
             description: 'Engage customers 24/7 with intelligent virtual assistants.'
           },
           {
@@ -72,43 +72,43 @@ export const menuData = {
       "center": {
         "title": "LOG_ON Learning",
         "intro": "Discover a playground for learning, designed to help develop the skills you need for an AI-driven world.",
-        "cta": {"label": "Start Learning", "href": "/training-and-community"},
+        "cta": {"label": "Start Learning", "href": "/training"},
         "links": [
-          {"title": "Career journeys", "desc": "Learn about key roles in high demand within the LOG_ON ecosystem.", "href": "/about-us/careers"},
-          {"title": "Learning Help Center", "desc": "Find answers to your questions by exploring our knowledge base.", "href": "/support-center"},
-          {"title": "Information Community", "desc": "Connect with peers and experts in our community forums.", "href": "/support-center"},
-          {"title": "Training and certification", "desc": "Explore the LOG_ON certification portfolio.", "href": "/training-and-community"},
-          {"title": "RiseUp with LOG_ON", "desc": "Empower individuals in emerging technology field communities with key skills to launch tech careers.", "href": "/training-and-community"},
-          {"title": "Expert programs", "desc": "Chart a course to elevate your career and become a recognized leader.", "href": "/training-and-community"}
+          {"title": "Career journeys", "desc": "Learn about key roles in high demand within the LOG_ON ecosystem.", "href": "/about/careers"},
+          {"title": "Learning Help Center", "desc": "Find answers to your questions by exploring our knowledge base.", "href": "/support"},
+          {"title": "Information Community", "desc": "Connect with peers and experts in our community forums.", "href": "/support"},
+          {"title": "Training and certification", "desc": "Explore the LOG_ON certification portfolio.", "href": "/training"},
+          {"title": "RiseUp with LOG_ON", "desc": "Empower individuals in emerging technology field communities with key skills to launch tech careers.", "href": "/training"},
+          {"title": "Expert programs", "desc": "Chart a course to elevate your career and become a recognized leader.", "href": "/training"}
         ]
       }
     },
     "partners": {
       "heading": "Partners",
       "intro": "Locate the partner you need, or explore the benefits of partnering with LOG_ON.",
-      "cta": {"label": "Learn More", "href": "/our-partners"},
+      "cta": {"label": "Learn More", "href": "/partners"},
       "items": [
-        {"title": "Find a partner", "desc": "Connect with a LOG_ON partner to reach your business goals.", "href": "/our-partners"},
-        {"title": "Become a partner", "desc": "Join our partner ecosystem. Choose partner paths that best fit your expertise and experience.", "href": "/contact-us"},
-        {"title": "Partner awards", "desc": "Meet the global LOG_ON partners leading the way in innovation and value for our customers.", "href": "/our-partners"},
-        {"title": "Partner portal", "desc": "Find tasks, alerts, and information you need, all in one place.", "href": "/contact-us"},
-        {"title": "Partner applications", "desc": "Explore innovative apps that extend and complement the LOG_ON AI Platform.", "href": "/our-partners"}
+        {"title": "Find a partner", "desc": "Connect with a LOG_ON partner to reach your business goals.", "href": "/partners"},
+        {"title": "Become a partner", "desc": "Join our partner ecosystem. Choose partner paths that best fit your expertise and experience.", "href": "/contact"},
+        {"title": "Partner awards", "desc": "Meet the global LOG_ON partners leading the way in innovation and value for our customers.", "href": "/partners"},
+        {"title": "Partner portal", "desc": "Find tasks, alerts, and information you need, all in one place.", "href": "/contact"},
+        {"title": "Partner applications", "desc": "Explore innovative apps that extend and complement the LOG_ON AI Platform.", "href": "/partners"}
       ]
     },
     "company": {
       "heading": "Discover why LOG_ON is the AI platform for business transformation",
       "intro": "Bring AI Agents to every corner of your business.",
-      "cta": {"label": "Learn More", "href": "/about-us"},
+      "cta": {"label": "Learn More", "href": "/about"},
       "items": [
-        {"title": "Careers", "desc": "Make your next career move with us.", "href": "/about-us/careers"},
-        {"title": "Investors", "desc": "Explore investor news and resources.", "href": "/about-us/investors"},
-        {"title": "LOG_ON Research", "desc": "How we keep innovation moving forward.", "href": "/about-us/research"},
-        {"title": "Leadership", "desc": "Meet the LOG_ON leadership team.", "href": "/about-us/our-leadership"},
-        {"title": "Locations", "desc": "See LOG_ON office locations.", "href": "/about-us/locations"},
-        {"title": "Newsroom", "desc": "Find announcements, media kits, and more.", "href": "/about-us/newsroom"},
-        {"title": "Analyst Reports", "desc": "Get expert insights from top industry analysts.", "href": "/about-us/analyst-reports"},
-        {"title": "Global Impact", "desc": "Fostering a more sustainable and ethical world.", "href": "/about-us/global-impact"},
-        {"title": "Trust and Compliance", "desc": "How we keep your data secure and compliant.", "href": "/about-us/trust-center"}
+        {"title": "Careers", "desc": "Make your next career move with us.", "href": "/about/careers"},
+        {"title": "Investors", "desc": "Explore investor news and resources.", "href": "/about/investors"},
+        {"title": "LOG_ON Research", "desc": "How we keep innovation moving forward.", "href": "/about/research"},
+        {"title": "Leadership", "desc": "Meet the LOG_ON leadership team.", "href": "/about/our-leadership"},
+        {"title": "Locations", "desc": "See LOG_ON office locations.", "href": "/about/locations"},
+        {"title": "Newsroom", "desc": "Find announcements, media kits, and more.", "href": "/about/newsroom"},
+        {"title": "Analyst Reports", "desc": "Get expert insights from top industry analysts.", "href": "/about/analyst-reports"},
+        {"title": "Global Impact", "desc": "Fostering a more sustainable and ethical world.", "href": "/about/global-impact"},
+        {"title": "Trust and Compliance", "desc": "How we keep your data secure and compliant.", "href": "/about/trust-center"}
       ]
     },
     "support": {
@@ -125,13 +125,13 @@ export const menuData = {
         "title": "Customer Support",
         "intro": "Access your instances, manage tasks and explore self-service help all in one place.",
         "links": [
-          {"title": "Community", "desc": "Connect with other customers to share tips, exchange resources, and solve problems together.", "href": "/support-center"}
+          {"title": "Community", "desc": "Connect with other customers to share tips, exchange resources, and solve problems together.", "href": "/support"}
         ]
       },
       "promo": {
         "title": "Get support",
         "desc": "Discover answers, troubleshoot issues, and get expert help, all in our support center.",
-        "cta": {"label": "Visit Support Center", "href": "/support-center"}
+        "cta": {"label": "Visit Support Center", "href": "/support"}
       }
     }
   }

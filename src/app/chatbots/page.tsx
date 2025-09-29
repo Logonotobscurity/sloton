@@ -8,7 +8,7 @@ import { CaseStudyFeature } from '@/components/case-study-feature';
 import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
-  title: 'AI Chatbot & Virtual Assistant Development | LOG_ON',
+  title: 'AI Chatbot Development Services | LOG_ON',
   description: 'Engage customers 24/7 with intelligent, AI-powered chatbots for your website and WhatsApp. We build and develop chatbot solutions that automate support and generate leads.',
 };
 

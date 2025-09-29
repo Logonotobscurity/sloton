@@ -21,7 +21,7 @@ import Image from "next/image";
 import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
-  title: "Industry Use Cases | AI & Automation Solutions by Sector",
+  title: "Industry Use Cases & Case Studies | LOG_ON",
   description:
     "Explore how LOG_ON drives success across various sectors like Healthcare, Finance, E-Commerce, and Manufacturing with tailored automation and AI solutions.",
 };

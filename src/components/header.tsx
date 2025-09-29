@@ -106,13 +106,13 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
                     <div className="col-span-4 p-3 border-r border-border/50">
                          <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground px-2 mb-2">{lHeading}</h3>
                          <ul className="space-y-1">
-                            {lLeftNav.map(item => <li key={item}><Link href="/training-and-community" onClick={onLinkClick} className="block p-2 text-sm rounded-md hover:bg-secondary">{item}</Link></li>)}
+                            {lLeftNav.map(item => <li key={item}><Link href="/training" onClick={onLinkClick} className="block p-2 text-sm rounded-md hover:bg-secondary">{item}</Link></li>)}
                          </ul>
                     </div>
                     <div className="col-span-8 p-3">
                          <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                             {lCenter.links.map(link => (
-                                 <Link href={link.href || '/training-and-community'} key={link.title} className="group" onClick={onLinkClick}>
+                                 <Link href={link.href || '/training'} key={link.title} className="group" onClick={onLinkClick}>
                                      <h4 className="font-semibold text-sm group-hover:text-primary">{link.title}</h4>
                                      <p className="text-xs text-muted-foreground">{link.desc}</p>
                                  </Link>
@@ -191,7 +191,7 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
 const navLinks = [
   { label: 'Products', href: '/our-solutions' },
   { label: 'Industries', href: '/use-cases' },
-  { label: 'Learning', href: '/training-and-community' },
+  { label: 'Learning', href: '/training' },
   { label: 'Partners', href: '/our-partners' },
   { label: 'Company', href: '/about-us' },
   { label: 'Support', href: '/support-center' },

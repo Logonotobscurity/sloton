@@ -8,7 +8,7 @@ import { CaseStudyFeature } from '@/components/case-study-feature';
 import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
-  title: 'Web & Custom Development | Next.js & React Experts',
+  title: 'Custom Web & Application Development | Next.js Experts',
   description: 'Custom web development for publishers, e-commerce, and corporate clients. We build scalable, secure, and optimized digital platforms using Next.js and React to help your business grow.',
 };
 
