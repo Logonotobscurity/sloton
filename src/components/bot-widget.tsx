@@ -14,7 +14,7 @@ import { getSolutionRecommendation, SolutionRecommendationOutput } from '@/app/a
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from './ui/dialog';
 import { Input } from './ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from './ui/tooltip';
 import { Checkbox } from './ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 
@@ -34,7 +34,6 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   const [step, setStep] = useState('start');
   const [formData, setFormData] = useState<any>({});
   const [isLoading, setIsLoading] = useState(false);
-  const [mode, setMode] = useState<'buttons' | 'text'>('buttons');
 
   const triggerRef = useRef<HTMLButtonElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -61,13 +60,11 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   useEffect(() => {
     if (isOpen) {
       scrollToBottom();
-      if (mode === 'text') {
-        inputRef.current?.focus();
-      }
+      inputRef.current?.focus();
     } else {
       setTimeout(() => triggerRef.current?.focus(), 100);
     }
-  }, [isOpen, mode]);
+  }, [isOpen]);
   
   useEffect(() => {
     scrollToBottom();
@@ -82,7 +79,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     switch (option.value) {
       case 'assessment':
         setStep('assessment_goals');
-        botResponse = { from: 'bot', text: "Great! Let's start by understanding your primary business goals. You can select multiple options.", type: 'checkbox_group', options: goalsOptions, nextStep: 'assessment_challenges', partName: 'businessGoals' };
+        botResponse = { from: 'bot', text: "Great! Let's start by understanding your primary business goals. You can select multiple options.", type: 'checkbox_group', options: goalsOptions, partName: 'businessGoals' };
         break;
       case 'schedule':
         setStep('schedule_form');
@@ -114,34 +111,31 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     }, 800);
   };
   
-  const onFormPartSubmit = (partData: any, nextStep: string) => {
+  const onFormPartSubmit = (partData: any, partName: string, userMessageText?: string) => {
     const updatedFormData = { ...formData, ...partData };
     setFormData(updatedFormData);
-    setStep(nextStep);
 
-    let userMessageText = 'Selections submitted.';
-    if (partData.businessGoals) userMessageText = `${partData.businessGoals.length} goals selected.`;
-    if (partData.challenges) userMessageText = `${partData.challenges.length} challenges selected.`;
-    if (partData.name) userMessageText = `Provided contact information.`
+    let nextStepKey: string = '';
+    let nextBotResponse: any;
 
-    setMessages(prev => [...prev, {from: 'user', text: userMessageText}]);
-    let botResponse: any;
-
-    switch (nextStep) {
-      case 'assessment_challenges':
-        botResponse = { from: 'bot', text: "Understood. Now, what are the main challenges you're facing? Select all that apply.", type: 'checkbox_group', options: challengesOptions, nextStep: 'assessment_company_info', partName: 'challenges' };
-        break;
-      case 'assessment_company_info':
-        botResponse = { from: 'bot', text: "Thanks. Just a few more details to create your personalized report.", type: 'form_part', nextStep: 'assessment_submit' };
-        break;
-      case 'assessment_submit':
-        handleAssessmentSubmit(updatedFormData);
-        return; // Avoid duplicate message
+    if (partName === 'businessGoals') {
+      nextStepKey = 'assessment_challenges';
+      nextBotResponse = { from: 'bot', text: "Understood. Now, what are the main challenges you're facing? Select all that apply.", type: 'checkbox_group', options: challengesOptions, partName: 'challenges' };
+    } else if (partName === 'challenges') {
+      nextStepKey = 'assessment_company_info';
+      nextBotResponse = { from: 'bot', text: "Thanks. Just a few more details to create your personalized report.", type: 'form_part', partName: 'companyInfo' };
+    } else if (partName === 'companyInfo') {
+      nextStepKey = 'assessment_submit';
+      handleAssessmentSubmit(updatedFormData);
+      return; 
     }
+    
+    setStep(nextStepKey);
+    setMessages(prev => [...prev, {from: 'user', text: userMessageText || 'Selection submitted.'}]);
     
     setIsLoading(true);
     setTimeout(() => {
-        setMessages(prev => [...prev, botResponse]);
+        setMessages(prev => [...prev, nextBotResponse]);
         setIsLoading(false);
     }, 800);
   }
@@ -216,17 +210,6 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
              <TooltipProvider delayDuration={100}>
                  <Tooltip>
                   <TooltipTrigger asChild>
-                     <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setMode(mode === 'text' ? 'buttons' : 'text')}>
-                      <Type className="h-4 w-4" />
-                      <span className="sr-only">Toggle Input Mode</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Toggle Typing Mode</p>
-                  </TooltipContent>
-                </Tooltip>
-                 <Tooltip>
-                  <TooltipTrigger asChild>
                      <Button variant="ghost" size="icon" className="h-8 w-8" onClick={resetConversation}>
                       <RefreshCw className="h-4 w-4" />
                       <span className="sr-only">Reset conversation</span>
@@ -288,10 +271,8 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
             onOptionClick={handleOptionClick} 
             isLoading={isLoading} 
             onFormPartSubmit={onFormPartSubmit}
-            mode={mode}
-            onSend={handleTextInput}
-            inputRef={inputRef}
           />
+           <TextInputPanel onSend={handleTextInput} inputRef={inputRef} />
         </CardFooter>
       </div>
 
@@ -323,37 +304,29 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   );
 }
 
-const ActionPanel = ({ currentMessage, onOptionClick, isLoading, onFormPartSubmit, mode, onSend, inputRef }: { currentMessage: any; onOptionClick: any; isLoading: boolean; onFormPartSubmit: any; mode: string, onSend: any, inputRef: any }) => {
-    if (isLoading) {
+const ActionPanel = ({ currentMessage, onOptionClick, isLoading, onFormPartSubmit }: { currentMessage: any; onOptionClick: any; isLoading: boolean; onFormPartSubmit: any; }) => {
+    if (isLoading || !currentMessage || currentMessage.from === 'user') {
       return null;
     }
 
     const renderContent = () => {
-        if (mode === 'text') {
-            return <TextInputPanel onSend={onSend} inputRef={inputRef} />;
-        }
-
-        if (!currentMessage || currentMessage.from === 'user') {
-            return <TextInputPanel onSend={onSend} inputRef={inputRef} />;
-        }
-
         switch (currentMessage.type) {
             case 'buttons':
                 return (
                     <div className="w-full space-y-2">
                         {currentMessage.options.map((opt: any) => (
-                            <Button key={opt.value} variant="outline" className="w-full justify-start" onClick={() => onOptionClick(opt)}>
+                            <Button key={opt.value} variant="outline" size="sm" className="w-full justify-start text-xs h-8" onClick={() => onOptionClick(opt)}>
                                 {opt.icon} {opt.text}
                             </Button>
                         ))}
                     </div>
                 );
             case 'checkbox_group':
-                return <CheckboxGroup options={currentMessage.options} onFormPartSubmit={onFormPartSubmit} nextStep={currentMessage.nextStep} partName={currentMessage.partName} />;
+                return <CheckboxGroup options={currentMessage.options} onFormPartSubmit={onFormPartSubmit} partName={currentMessage.partName} />;
             case 'form_part':
-                return <CompanyInfoForm onFormPartSubmit={onFormPartSubmit} nextStep={currentMessage.nextStep} />;
+                return <CompanyInfoForm onFormPartSubmit={onFormPartSubmit} partName={currentMessage.partName} />;
             default:
-                return <TextInputPanel onSend={onSend} inputRef={inputRef} />;
+                return null;
         }
     };
 
@@ -382,10 +355,10 @@ const TextInputPanel = ({ onSend, inputRef }: { onSend: (text: string) => void; 
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Type your message..."
-        className="flex-1"
+        className="flex-1 h-9"
         autoComplete="off"
       />
-      <Button type="submit" size="icon">
+      <Button type="submit" size="icon" className="h-9 w-9">
         <Send className="h-4 w-4" />
       </Button>
     </form>
@@ -460,7 +433,7 @@ const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) 
   </Card>
 );
 
-const CheckboxGroup = ({ options, onFormPartSubmit, nextStep, partName }: { options: string[], onFormPartSubmit: any, nextStep: string, partName: string }) => {
+const CheckboxGroup = ({ options, onFormPartSubmit, partName }: { options: string[], onFormPartSubmit: any, partName: string }) => {
   const [selected, setSelected] = useState<string[]>([]);
   
   const handleToggle = (option: string) => {
@@ -468,31 +441,31 @@ const CheckboxGroup = ({ options, onFormPartSubmit, nextStep, partName }: { opti
   };
 
   const handleSubmit = () => {
-    onFormPartSubmit({ [partName]: selected }, nextStep);
+    onFormPartSubmit({ [partName]: selected }, partName, `${selected.length} options selected.`);
   }
 
   return (
     <div className="space-y-3 pt-2">
-        <div className="max-h-48 overflow-y-auto pr-2">
+        <div className="max-h-40 overflow-y-auto pr-2 space-y-1">
             {options.map(option => (
-                <div key={option} className="flex items-center space-x-2 p-1">
+                <div key={option} className="flex items-center space-x-2 p-1 hover:bg-secondary rounded-md">
                 <Checkbox
                     id={option}
                     checked={selected.includes(option)}
                     onCheckedChange={() => handleToggle(option)}
                 />
-                <label htmlFor={option} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <label htmlFor={option} className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                     {option}
                 </label>
                 </div>
             ))}
         </div>
-      <Button onClick={handleSubmit} size="sm" className="mt-2" disabled={selected.length === 0}>Continue</Button>
+      <Button onClick={handleSubmit} size="sm" className="w-full h-8 text-xs" disabled={selected.length === 0}>Continue</Button>
     </div>
   );
 };
 
-const CompanyInfoForm = ({ onFormPartSubmit, nextStep }: { onFormPartSubmit: any, nextStep: string }) => {
+const CompanyInfoForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any, partName: string }) => {
   const [companySize, setCompanySize] = useState('');
   const [industry, setIndustry] = useState('');
   const [budget, setBudget] = useState('');
@@ -503,50 +476,40 @@ const CompanyInfoForm = ({ onFormPartSubmit, nextStep }: { onFormPartSubmit: any
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (companySize && industry && budget && name && email && businessNeeds) {
-      onFormPartSubmit({ companySize, industry, budget, name, email, businessNeeds }, nextStep);
+      onFormPartSubmit({ companySize, industry, budget, name, email, businessNeeds }, partName, 'Contact information provided.');
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 pt-2 text-sm">
-      <div className="space-y-1">
-        <label htmlFor="name">Full Name</label>
-        <Input id="name" value={name} onChange={e => setName(e.target.value)} placeholder="John Doe" required />
+    <form onSubmit={handleSubmit} className="space-y-3 pt-2 text-xs">
+      <div className="grid grid-cols-2 gap-2">
+        <Input value={name} onChange={e => setName(e.target.value)} placeholder="Full Name" required className="h-8 text-xs" />
+        <Input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required className="h-8 text-xs" />
       </div>
-      <div className="space-y-1">
-        <label htmlFor="email">Email</label>
-        <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="john.doe@example.com" required />
-      </div>
-      <div className="space-y-1">
-        <label htmlFor="companySize">Company Size</label>
+      <div className="grid grid-cols-2 gap-2">
          <Select onValueChange={setCompanySize} value={companySize} required>
-            <SelectTrigger><SelectValue placeholder="Select size" /></SelectTrigger>
+            <SelectTrigger className="h-8 text-xs"><SelectValue placeholder="Company Size" /></SelectTrigger>
             <SelectContent>
                 <SelectItem value="1-10 employees">1-10 employees</SelectItem>
                 <SelectItem value="11-50 employees">11-50 employees</SelectItem>
                 <SelectItem value="51-200 employees">51-200 employees</SelectItem>
             </SelectContent>
         </Select>
+        <Input value={industry} onChange={e => setIndustry(e.target.value)} placeholder="Industry" required className="h-8 text-xs"/>
       </div>
-       <div className="space-y-1">
-        <label htmlFor="industry">Industry</label>
-        <Input id="industry" value={industry} onChange={e => setIndustry(e.target.value)} placeholder="e.g., E-commerce" required />
-      </div>
-       <div className="space-y-1">
-        <label htmlFor="budget">Budget</label>
-         <Select onValueChange={setBudget} value={budget} required>
-            <SelectTrigger><SelectValue placeholder="Select budget" /></SelectTrigger>
-            <SelectContent>
-                <SelectItem value="Under $5,000">Under $5,000</SelectItem>
-                <SelectItem value="$5,000 - $20,000">$5,000 - $20,000</SelectItem>
-            </SelectContent>
-        </Select>
-      </div>
-       <div className="space-y-1">
-        <label htmlFor="businessNeeds">Anything else to add?</label>
-        <Input id="businessNeeds" value={businessNeeds} onChange={e => setBusinessNeeds(e.target.value)} placeholder="Describe your needs..." required />
-      </div>
-      <Button type="submit" size="sm">Generate My Report</Button>
+      <Select onValueChange={setBudget} value={budget} required>
+        <SelectTrigger className="h-8 text-xs"><SelectValue placeholder="Budget" /></SelectTrigger>
+        <SelectContent>
+            <SelectItem value="Under $5,000">Under $5,000</SelectItem>
+            <SelectItem value="$5,000 - $20,000">$5,000 - $20,000</SelectItem>
+        </SelectContent>
+    </Select>
+      <Input value={businessNeeds} onChange={e => setBusinessNeeds(e.target.value)} placeholder="Anything else to add?" required className="h-8 text-xs" />
+      <Button type="submit" size="sm" className="w-full h-8 text-xs">Generate My Report</Button>
     </form>
   )
 }
+
+    
+
+      
