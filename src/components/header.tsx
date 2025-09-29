@@ -106,13 +106,13 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
                     <div className="col-span-4 p-3 border-r border-border/50">
                          <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground px-2 mb-2">{lHeading}</h3>
                          <ul className="space-y-1">
-                            {lLeftNav.map(item => <li key={item}><Link href="/training" onClick={onLinkClick} className="block p-2 text-sm rounded-md hover:bg-secondary">{item}</Link></li>)}
+                            {lLeftNav.map(item => <li key={item}><Link href="/training-and-community" onClick={onLinkClick} className="block p-2 text-sm rounded-md hover:bg-secondary">{item}</Link></li>)}
                          </ul>
                     </div>
                     <div className="col-span-8 p-3">
                          <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                             {lCenter.links.map(link => (
-                                 <Link href={link.href || '/training'} key={link.title} className="group" onClick={onLinkClick}>
+                                 <Link href={link.href || '/training-and-community'} key={link.title} className="group" onClick={onLinkClick}>
                                      <h4 className="font-semibold text-sm group-hover:text-primary">{link.title}</h4>
                                      <p className="text-xs text-muted-foreground">{link.desc}</p>
                                  </Link>
@@ -134,7 +134,7 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
                      </div>
                      <div className="lg:col-span-8 p-3 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4">
                          {paItems.map(item => (
-                            <Link href={item.href || '/contact'} key={item.title} className="group" onClick={onLinkClick}>
+                            <Link href={item.href || '/contact-us'} key={item.title} className="group" onClick={onLinkClick}>
                                 <h4 className="font-semibold text-sm group-hover:text-primary">{item.title}</h4>
                                 <p className="text-xs text-muted-foreground">{item.desc}</p>
                             </Link>
@@ -147,7 +147,7 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
             return (
                 <div className="p-3 grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-4">
                     {coItems.map(item => (
-                        <Link href={item.href || '/about'} key={item.title} className="group" onClick={onLinkClick}>
+                        <Link href={item.href || '/about-us'} key={item.title} className="group" onClick={onLinkClick}>
                             <h4 className="font-semibold text-sm group-hover:text-primary">{item.title}</h4>
                             <p className="text-xs text-muted-foreground">{item.desc}</p>
                         </Link>
@@ -161,14 +161,14 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
                     <div className="col-span-3 p-3 border-r border-border/50">
                          <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground px-2 mb-2">{sHeading}</h3>
                          <ul className="space-y-1">
-                            {sLeftNav.map(item => <li key={item}><Link href="/support" onClick={onLinkClick} className="block p-2 text-sm rounded-md hover:bg-secondary">{item}</Link></li>)}
+                            {sLeftNav.map(item => <li key={item}><Link href="/support-center" onClick={onLinkClick} className="block p-2 text-sm rounded-md hover:bg-secondary">{item}</Link></li>)}
                          </ul>
                     </div>
                      <div className="col-span-5 p-4">
                         <h3 className="text-base font-bold text-primary mb-1">{sCenter.title}</h3>
                         <p className="text-xs text-muted-foreground mb-4">{sCenter.intro}</p>
                         {sCenter.links.map(link => (
-                            <Link href={link.href || '/support'} key={link.title} className="group" onClick={onLinkClick}>
+                            <Link href={link.href || '/support-center'} key={link.title} className="group" onClick={onLinkClick}>
                                 <h4 className="font-semibold text-sm group-hover:text-primary">{link.title}</h4>
                                 <p className="text-xs text-muted-foreground">{link.desc}</p>
                             </Link>
@@ -178,7 +178,7 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
                         <h4 className="font-semibold mb-2">{sPromo.title}</h4>
                         <p className="text-sm mb-4">{sPromo.desc}</p>
                         <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
-                            <Link href={sPromo.cta.href || '/support'}>{sPromo.cta.label}</Link>
+                            <Link href={sPromo.cta.href || '/support-center'}>{sPromo.cta.label}</Link>
                         </Button>
                     </aside>
                 </div>
@@ -189,12 +189,12 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
 };
 
 const navLinks = [
-  { label: 'Products', href: '/solutions' },
+  { label: 'Products', href: '/our-solutions' },
   { label: 'Industries', href: '/use-cases' },
-  { label: 'Learning', href: '/training' },
-  { label: 'Partners', href: '/partners' },
-  { label: 'Company', href: '/about' },
-  { label: 'Support', href: '/support' },
+  { label: 'Learning', href: '/training-and-community' },
+  { label: 'Partners', href: '/our-partners' },
+  { label: 'Company', href: '/about-us' },
+  { label: 'Support', href: '/support-center' },
 ];
 
 export function Header() {
@@ -267,7 +267,7 @@ export function Header() {
             <div className="flex items-center gap-2 flex-shrink-0">
                 <ThemeToggle />
                 <Button asChild>
-                    <Link href="/contact">Contact Us</Link>
+                    <Link href="/contact-us">Contact Us</Link>
                 </Button>
             </div>
         </div>
@@ -305,7 +305,7 @@ export function Header() {
                     </div>
                      <div className="p-4 border-t space-y-4">
                         <Button asChild className="w-full">
-                            <Link href="/contact" onClick={handleMobileLinkClick}>
+                            <Link href="/contact-us" onClick={handleMobileLinkClick}>
                                 <Phone className="mr-2 h-4 w-4"/> Contact Us
                             </Link>
                         </Button>
@@ -320,5 +320,3 @@ export function Header() {
     </header>
   );
 }
-
-    

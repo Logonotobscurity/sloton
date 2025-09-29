@@ -35,19 +35,19 @@ export function Footer() {
               <div>
                 <h3 className="font-semibold mb-4 text-primary text-lg">Services</h3>
                 <ul className="space-y-2 list-none">
-                  <li><Link href="/solutions" className="text-muted-foreground hover:text-primary text-sm transition-colors">IT Solutions</Link></li>
-                  <li><Link href="/automation" className="text-muted-foreground hover:text-primary text-sm transition-colors">Automation</Link></li>
+                  <li><Link href="/our-solutions" className="text-muted-foreground hover:text-primary text-sm transition-colors">IT Solutions</Link></li>
+                  <li><Link href="/automation-solutions" className="text-muted-foreground hover:text-primary text-sm transition-colors">Automation</Link></li>
                   <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary text-sm transition-colors">Use Cases</Link></li>
-                  <li><Link href="/training" className="text-muted-foreground hover:text-primary text-sm transition-colors">Training</Link></li>
+                  <li><Link href="/training-and-community" className="text-muted-foreground hover:text-primary text-sm transition-colors">Training</Link></li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-semibold mb-4 text-primary text-lg">Company</h3>
                  <ul className="space-y-2 list-none">
-                  <li><Link href="/about" className="text-muted-foreground hover:text-primary text-sm transition-colors">About Us</Link></li>
+                  <li><Link href="/about-us" className="text-muted-foreground hover:text-primary text-sm transition-colors">About Us</Link></li>
                   <li><Link href="/insights" className="text-muted-foreground hover:text-primary text-sm transition-colors">Insights</Link></li>
                    <li><Link href="/#faq" className="text-muted-foreground hover:text-primary text-sm transition-colors">FAQ</Link></li>
-                  <li><Link href="/contact" className="text-muted-foreground hover:text-primary text-sm transition-colors">Contact</Link></li>
+                  <li><Link href="/contact-us" className="text-muted-foreground hover:text-primary text-sm transition-colors">Contact</Link></li>
                 </ul>
               </div>
           </div>

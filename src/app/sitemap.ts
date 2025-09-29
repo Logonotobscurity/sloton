@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Dynamic pages for automation templates
   const templateUrls = templates.map((template) => ({
-      url: `${baseUrl}/automation/${template.slug}`,
+      url: `${baseUrl}/automation-solutions/${template.slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as 'monthly',
       priority: 0.6
