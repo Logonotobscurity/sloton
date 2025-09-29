@@ -45,8 +45,8 @@ export type InfiniteSliderProps = {
 
 export function InfiniteSlider({
   children,
-  gap = 16,
-  speed = 100,
+  gap = 24,
+  speed = 20,
   speedOnHover,
   direction = 'horizontal',
   reverse = false,
@@ -182,7 +182,7 @@ export function TechStackCarousel() {
             
             {/* Slider Row 1 */}
             <div>
-                <InfiniteSlider gap={24} speed={20} speedOnHover={10}>
+                <InfiniteSlider speedOnHover={10}>
                 {slider1.map((tech, index) => (
                     <IntegrationCard key={index}>
                     <Image src={tech.icon} alt={tech.name} width={20} height={20} className="size-5" />
@@ -193,7 +193,7 @@ export function TechStackCarousel() {
 
             {/* Slider Row 2 */}
             <div>
-                <InfiniteSlider gap={24} speed={20} speedOnHover={10} reverse>
+                <InfiniteSlider speedOnHover={10} reverse>
                 {slider2.map((tech, index) => (
                     <IntegrationCard key={index}>
                     <Image src={tech.icon} alt={tech.name} width={20} height={20} className="size-5" />
@@ -204,7 +204,7 @@ export function TechStackCarousel() {
 
             {/* Slider Row 3 */}
             <div>
-                <InfiniteSlider gap={24} speed={20} speedOnHover={10}>
+                <InfiniteSlider speedOnHover={10}>
                 {slider3.map((tech, index) => (
                     <IntegrationCard key={index}>
                     <Image src={tech.icon} alt={tech.name} width={20} height={20} className="size-5" />
@@ -232,4 +232,3 @@ export function TechStackCarousel() {
     </section>
   );
 }
-
