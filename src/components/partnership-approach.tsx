@@ -18,13 +18,13 @@ export function PartnershipApproach() {
   return (
     <section className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
                 <h2 className="text-2xl md:text-4xl font-bold font-headline">Built on a Foundation of Trusted Partners</h2>
                 <p className="text-muted-foreground md:text-lg">
                     We partner with ambitious teams to deliver tangible outcomes. Our success is measured by your success, and we leverage the best technologies to build solutions that fuel growth and innovation.
                 </p>
-                <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-4">
+                <div className="grid grid-cols-2 gap-x-8 gap-y-6 pt-4">
                     {partners.map(partner => (
                         <div key={partner.name} className="flex items-center gap-3" title={partner.name}>
                             <Image 
@@ -35,7 +35,7 @@ export function PartnershipApproach() {
                                 className="h-8 w-auto"
                                 data-ai-hint={partner.dataAiHint}
                             />
-                            <span className="font-semibold">{partner.name.replace(" Partner", "")}</span>
+                            <span className="font-semibold text-sm">{partner.name.replace(" Partner", "")}</span>
                         </div>
                     ))}
                 </div>
