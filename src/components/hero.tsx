@@ -1,44 +1,53 @@
-
 "use client";
 
 import React from "react";
 import { Button } from '@/components/ui/button';
 import Link from "next/link";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { SolutionRecommendationForm } from "./solution-recommendation-form";
+import { CircuitBackground } from "./ui/circuit-background";
  
 export function Hero() {
-  const scrollToDesigner = () => {
-    const designerElement = document.getElementById('automation-designer');
-    if (designerElement) {
-      designerElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
 
   return (
-    <div className="relative min-h-[90vh] w-full flex flex-col justify-center items-center overflow-hidden bg-background text-foreground">
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] opacity-30" />
-      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col justify-center items-center text-center">
-        <div className="max-w-4xl mx-auto animate-[fade-in_1s_ease-in-out]">
-            <p className="text-sm font-normal uppercase tracking-widest text-primary">
-                Your Digital Architects
-            </p>
-            <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] !leading-tight my-4">
-                We don't just build solutions.
-                <br />
-                <span className="text-primary">
-                    We design your digital ecosystem.
-                </span>
-            </h1>
-            <p className="text-md md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                We craft intelligent, integrated systems that help businesses cut costs, automate processes, and scale with confidence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                <Button size="lg" onClick={scrollToDesigner}>Discover Your Automation Potential</Button>
-                <Button size="lg" variant="secondary" asChild>
-                    <Link href="/solutions">Explore Our Design Palette</Link>
-                </Button>
+    <div className="relative min-h-[90vh] w-full flex items-center overflow-hidden">
+        <CircuitBackground />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
+
+        <div className="container mx-auto px-4 md:px-6 relative z-20">
+            <div className="max-w-4xl mx-auto text-center animate-[fade-in_1s_ease-in-out]">
+                <p className="text-sm font-normal uppercase tracking-widest text-primary">
+                    Your Partner in Growth
+                </p>
+                <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] !leading-tight my-4">
+                    Your modern <span className="text-primary">tech solution</span> is here.
+                </h1>
+                <p className="text-md md:text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Get a free AI assessment to discover automation and IT solutions tailored to your business needs.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button size="lg">Get Your Free AI Assessment</Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
+                            <DialogHeader>
+                                <DialogTitle className="text-2xl">Free AI Business Assessment</DialogTitle>
+                                <DialogDescription>
+                                Describe your business needs to receive tailored IT solution recommendations from our AI consultant.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <SolutionRecommendationForm />
+                        </DialogContent>
+                    </Dialog>
+                    <Button size="lg" variant="secondary" asChild>
+                        <Link href="/solutions">Explore Our Services</Link>
+                    </Button>
+                </div>
             </div>
-        </div>
       </div>
+       <div className="absolute -bottom-1/3 -left-1/4 w-1/2 h-1/2 bg-primary/20 rounded-full blur-3xl" />
+      <div className="absolute -top-1/3 -right-1/4 w-1/2 h-1/2 bg-accent/20 rounded-full blur-3xl" />
     </div>
   );
 }
