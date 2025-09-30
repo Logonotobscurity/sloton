@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Faq } from '@/components/faq';
 import { FeaturedInsights } from '@/components/featured-insights';
@@ -13,6 +12,9 @@ import { IdeasLab } from '@/components/ideas-lab';
 import { SmarterAutomation } from '@/components/template-library';
 import { ServicesOffered } from '@/components/services-offered';
 import type { Metadata } from 'next';
+import { StrategicPartner } from '@/components/strategic-partner';
+import { GeneralistApproach } from '@/components/generalist-approach';
+import { ChatbotEmbed } from '@/components/chatbot-embed';
 
 export const metadata: Metadata = {
   title: 'LOG_ON | AI & Automation for Business Efficiency',
@@ -24,6 +26,8 @@ export default function Home() {
     <>
       <Hero />
       <div className="w-full space-y-4 md:space-y-8">
+          <StrategicPartner />
+          <GeneralistApproach />
           <IdeasLab />
           <SmarterAutomation />
           <ServicesOffered />
@@ -32,6 +36,7 @@ export default function Home() {
           <Statement />
           <IndustriesBento />
           <TechStackCarousel />
+          <ChatbotEmbed />
           <FeaturedInsights />
           <Faq />
         <BottomCta />
