@@ -14,7 +14,6 @@ import { ServicesOffered } from '@/components/services-offered';
 import type { Metadata } from 'next';
 import { StrategicPartner } from '@/components/strategic-partner';
 import { GeneralistApproach } from '@/components/generalist-approach';
-import { ChatbotEmbed } from '@/components/chatbot-embed';
 
 export const metadata: Metadata = {
   title: 'LOG_ON | AI & Automation for Business Efficiency',
@@ -36,7 +35,6 @@ export default function Home() {
           <Statement />
           <IndustriesBento />
           <TechStackCarousel />
-          <ChatbotEmbed />
           <FeaturedInsights />
           <Faq />
         <BottomCta />
