@@ -192,14 +192,14 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
         aria-modal="true"
         aria-label="Chatbot Panel"
         className={cn(
-          "w-full max-w-md h-[80vh] bg-background border rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right mb-2",
+          "w-[calc(100vw-2rem)] max-w-md h-[calc(100vh-8rem)] max-h-[700px] bg-background border rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right mb-2",
           isChatbotOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
         )}
       >
         <CardHeader className="flex flex-row items-center justify-between p-4 border-b">
             <div className="flex items-center gap-3">
                 <Avatar className="h-10 w-10 border-2 border-primary">
-                    <AvatarFallback className="bg-primary/20 text-primary"><Bot className="h-6 w-6" /></AvatarFallback>
+                    <AvatarFallback className="bg-primary/20 text-primary"><MessageCircle className="h-6 w-6" /></AvatarFallback>
                 </Avatar>
                 <div>
                     <h3 className="font-semibold text-base">LOG_ON AI Assistant</h3>
@@ -287,11 +287,12 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
               aria-controls="bot-panel"
               onClick={() => setChatbotOpen(!isChatbotOpen)}
               className={cn(
-                "rounded-full h-12 shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 px-4",
+                "rounded-full h-12 w-12 p-0 shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center",
+                "md:h-12 md:w-auto md:px-4 md:py-2 md:gap-2"
               )}
             >
               {isChatbotOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <MessageCircle className="h-5 w-5 text-primary-foreground" />}
-              <span className="text-primary-foreground font-semibold">Chat with us</span>
+              <span className="hidden md:inline text-primary-foreground font-semibold">Chat with us</span>
               <span className="sr-only">{isChatbotOpen ? "Close Chatbot" : "Open Chatbot"}</span>
             </Button>
           </TooltipTrigger>
@@ -314,10 +315,10 @@ const ActionPanel = ({ currentMessage, onOptionClick, isLoading, onFormPartSubmi
         switch (currentMessage.type) {
             case 'buttons':
                 return (
-                    <div className="w-full space-y-2">
+                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {currentMessage.options.map((opt: any) => (
-                            <Button key={opt.value} variant="outline" size="sm" className="w-full justify-start text-xs h-8" onClick={() => onOptionClick(opt)}>
-                                {opt.icon} {opt.text}
+                            <Button key={opt.value} variant="outline" size="sm" className="w-full justify-start text-xs h-auto py-2" onClick={() => onOptionClick(opt)}>
+                                <span className="flex items-center text-left">{opt.icon} {opt.text}</span>
                             </Button>
                         ))}
                     </div>
