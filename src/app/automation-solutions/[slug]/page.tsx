@@ -70,7 +70,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
       />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="max-w-4xl mx-auto">
-          <Link href="/automation-solutions" className="text-primary hover:underline flex items-center gap-2 mb-8">
+          <Link href="/automation" className="text-primary hover:underline flex items-center gap-2 mb-8">
             <ArrowLeft className="h-4 w-4" />
             Back to Template Library
           </Link>
@@ -101,7 +101,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                 <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Take the next step by deploying this workflow, or customize it to your exact needs using our AI-powered designer.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
                     <Button asChild size="lg">
-                        <Link href={`/automation-solutions?workflow=${encodeURIComponent(fullDescription)}`}>
+                        <Link href={`/automation?workflow=${encodeURIComponent(fullDescription)}`}>
                             <Edit className="mr-2 h-4 w-4" />
                             Customize with AI
                         </Link>

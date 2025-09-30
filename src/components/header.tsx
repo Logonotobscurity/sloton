@@ -294,9 +294,12 @@ export function Header() {
                         <Accordion type="multiple" className="w-full px-4">
                              {navLinks.map(navItem => (
                                 <AccordionItem value={navItem.label} key={navItem.label}>
-                                    <AccordionTrigger className="text-lg font-bold">{navItem.label}</AccordionTrigger>
+                                    <AccordionTrigger asChild>
+                                        <Link href={navItem.href} onClick={(e) => { e.stopPropagation(); handleMobileLinkClick(); }} className="flex w-full items-center justify-between py-4 text-lg font-bold">
+                                            {navItem.label}
+                                        </Link>
+                                    </AccordionTrigger>
                                     <AccordionContent className="pl-4 space-y-2">
-                                        <MobileNavLink href={navItem.href} onLinkClick={handleMobileLinkClick}>View All {navItem.label}</MobileNavLink>
                                         {getMenuItems(navItem.label).map(subItem => (
                                              <MobileNavLink key={subItem.title} href={subItem.href || '#'} onLinkClick={handleMobileLinkClick}>{subItem.title}</MobileNavLink>
                                         ))}

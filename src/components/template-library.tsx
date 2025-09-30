@@ -100,7 +100,7 @@ export function SmarterAutomation() {
                 </CardContent>
                  <CardFooter className="p-0 pt-6">
                     <Button asChild variant="outline">
-                        <Link href="/automation-solutions">
+                        <Link href="/automation">
                             Explore Automation Solutions <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                     </Button>
@@ -166,7 +166,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template }) => {
       <CardFooter className="p-0 pt-6">
         <div className="flex items-center gap-2">
             <Button asChild variant="outline" size="sm" className="rounded-full hover:bg-secondary">
-                <Link href={`/automation-solutions/${template.slug}`}>
+                <Link href={`/automation/${template.slug}`}>
                     <Eye className="mr-2 h-4 w-4" /> Preview
                 </Link>
             </Button>
@@ -375,4 +375,4 @@ export function WorkflowTemplateLibrary() {
   );
 }
 
-    
+
