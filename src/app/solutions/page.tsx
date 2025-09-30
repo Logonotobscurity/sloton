@@ -12,9 +12,9 @@ import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
-  title: "Technology Solutions",
+  title: "Our Design Palette | Technology Solutions",
   description:
-    "Explore our suite of scalable services including AI Solutions, Process Automation, Web Development, and more. We provide technology solutions to grow your business.",
+    "Explore our Design Palette of scalable services including AI Solutions, Process Automation, Web Development, and more. We provide technology solutions to grow your business.",
 };
 
 const services = [
@@ -73,7 +73,7 @@ export default function SolutionsPage() {
   return (
     <div>
       <PageHero 
-        title="Our Solutions"
+        title="Our Design Palette"
         description="We provide a comprehensive suite of scalable services designed to grow with your business, tackle your most significant challenges head-on, and drive measurable results."
       />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">

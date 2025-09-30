@@ -18,7 +18,7 @@ export function StrategicPartner() {
             <div className="space-y-6">
                 <p className="text-sm font-normal uppercase tracking-widest text-primary">01/ What We Do</p>
                 <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-snug">
-                    We build intelligent systems that drive <span className="text-primary">efficiency</span>, spark <span className="text-primary">innovation</span>, and create lasting <span className="text-primary">competitive advantages</span>.
+                    We build business habitats: integrated digital ecosystems where you can <span className="text-primary">thrive</span>.
                 </h2>
                 <p className="text-muted-foreground md:text-lg leading-relaxed">
                     Our value isn't just in understanding technology; it's in applying it to solve your core business challenges. We provide a clear, structured pathway to integrating technology that drives real business results.

@@ -9,7 +9,7 @@ import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
   title: 'About LOG_ON',
-  description: 'Learn about LOG_ON, our mission, our values, and our commitment to driving business efficiency through smart technology and integrated solutions.',
+  description: 'Learn about LOG_ON, your digital architects. We build integrated digital ecosystems where businesses thrive.',
 };
 
 const stats = [
@@ -23,7 +23,7 @@ export default function AboutPage() {
   return (
     <div>
         <PageHero 
-            title="Driving Business Transformation"
+            title="Your Digital Architects"
             description="LOG_ON is more than a technology provider; we are your strategic partner in growth. Our mission is to empower businesses by building intelligent systems that drive efficiency, spark innovation, and create lasting competitive advantages. We believe in connecting the dots between technology and business goals to deliver integrated solutions that produce real-world results."
         />
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
                 <GlowingCard>
                     <div className="p-8">
                         <h3 className="text-2xl font-bold font-headline flex items-center gap-3"><Globe className="h-8 w-8 text-primary"/> Our Mission</h3>
-                        <p className="text-muted-foreground mt-4">To empower businesses of all sizes with scalable, intelligent technology solutions that automate processes, reduce costs, and unlock new opportunities for growth and innovation.</p>
+                        <p className="text-muted-foreground mt-4">To architect and build integrated digital ecosystems where businesses of all sizes can thrive, automate, and innovate with confidence.</p>
                     </div>
                 </GlowingCard>
                 <GlowingCard>

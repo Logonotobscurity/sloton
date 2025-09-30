@@ -32,10 +32,10 @@ export const metadata: Metadata = {
     default: 'LOG_ON | AI & Automation for Business Efficiency',
     template: '%s | LOG_ON',
   },
-  description: 'We power business efficiency with smart technology. Get a free AI assessment to discover automation and IT solutions tailored to your business needs.',
+  description: 'We design your digital ecosystem. Get a free AI assessment to discover automation and IT solutions tailored to your business needs.',
   openGraph: {
     title: 'LOG_ON | AI & Automation for Business Efficiency',
-    description: 'We power business efficiency with smart technology.',
+    description: 'We design your digital ecosystem.',
     url: 'https://logonsolutions.netlify.app',
     siteName: 'LOG_ON',
     images: [
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'LOG_ON | AI & Automation for Business Efficiency',
-    description: 'We power business efficiency with smart technology.',
+    description: 'We design your digital ecosystem.',
     images: ['/og-image.png'], 
   },
   robots: {
