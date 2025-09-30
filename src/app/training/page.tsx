@@ -11,6 +11,7 @@ import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/di
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { EnrollmentForm } from '@/components/enrollment-form';
 import { PageHero } from '@/components/page-hero';
+import { AdinkraBackground } from '@/components/ui/adinkra-background';
 
 
 export const metadata: Metadata = {
@@ -218,24 +219,28 @@ export default function TrainingPage() {
         </section>
 
 
-        <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Start a Conversation?</h2>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Whether you're interested in a training program or want to collaborate on an impact project, we'd love to hear from you.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-                <DialogFormWrapper
-                    trigger={<Button size="lg">Get In Touch</Button>}
-                    className="bg-background"
-                >
-                    <DialogHeader>
-                        <DialogTitle>Let's Connect</DialogTitle>
-                        <DialogDescription>
-                            Please fill out your details below to start a conversation with our team.
-                        </DialogDescription>
-                    </DialogHeader>
-                    <CommunityLeadForm />
-                </DialogFormWrapper>
+        <section className="text-center mt-16 md:mt-24 py-16 md:py-24 bg-background rounded-lg px-4 relative overflow-hidden">
+            <AdinkraBackground />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
+            <div className="relative z-20">
+                <h2 className="text-2xl md:text-4xl font-bold font-headline text-primary">Ready to Start a Conversation?</h2>
+                <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
+                    Whether you're interested in a training program or want to collaborate on an impact project, we'd love to hear from you.
+                </p>
+                <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                    <DialogFormWrapper
+                        trigger={<Button size="lg">Get In Touch</Button>}
+                        className="bg-background"
+                    >
+                        <DialogHeader>
+                            <DialogTitle>Let's Connect</DialogTitle>
+                            <DialogDescription>
+                                Please fill out your details below to start a conversation with our team.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <CommunityLeadForm />
+                    </DialogFormWrapper>
+                </div>
             </div>
         </section>
 

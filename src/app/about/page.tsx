@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ArrowRight, Building, Users, Scale, Globe } from 'lucide-react';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { PageHero } from '@/components/page-hero';
+import { BottomCta } from '@/components/bottom-cta';
 
 export const metadata: Metadata = {
   title: 'About LOG_ON',
@@ -76,6 +77,7 @@ export default function AboutPage() {
                 </div>
             </div>
         </section>
+        <BottomCta />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { TechStackCarousel } from '@/components/tech-stack-carousel';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import Image from 'next/image';
 import { PageHero } from '@/components/page-hero';
+import { BottomCta } from '@/components/bottom-cta';
 
 export const metadata: Metadata = {
   title: 'LOG_ON Partner Ecosystem',
@@ -49,8 +50,12 @@ export default function PartnersPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
+             <h2 className="text-3xl md:text-5xl font-bold font-headline">A Partnership Built for Growth</h2>
+            <p className="text-md md:text-lg text-muted-foreground">
+              Our partner program is designed to be a two-way street. We provide you with the tools, resources, and support you need to succeed, and in turn, your expertise helps us deliver better solutions to our customers.
+            </p>
             <Button asChild size="lg">
-              <Link href="/contact">Become a Partner</Link>
+              <Link href="/contact?subject=Partnership+Inquiry">Become a Partner</Link>
             </Button>
           </div>
           <div className="relative h-80 lg:h-96 mt-8 lg:mt-0">
@@ -126,22 +131,8 @@ export default function PartnersPage() {
             </div>
         </section>
 
-
-         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Build the Future Together?</h2>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
-               Let's explore how a partnership with LOG_ON can help you achieve your business goals. Reach out to our partner team today.
-            </p>
-            <div className="mt-8 flex justify-center">
-                <Button asChild size="lg">
-                    <Link href="/contact">
-                        Contact Partner Team <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                </Button>
-            </div>
-        </section>
-
       </div>
+       <BottomCta />
     </div>
   );
 }
