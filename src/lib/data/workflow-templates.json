@@ -1313,7 +1313,7 @@
       "description": "Designed to exceed customer expectations by efficiently addressing their queries or complaints through a ticketing system.",
       "purpose": "This workflow provides a classic help desk or ticketing system for customer support. It ensures that every customer inquiry, regardless of the channel it comes from (email, web form, chat), is logged as a ticket, assigned to an agent, and tracked until it is resolved. This provides accountability, visibility for managers, and ensures that no customer request is forgotten or delayed.",
       "steps": [
-          { "name": "Ticket Creation", "description": "A customer submits a support request via email, web form, or phone, which automatically creates a new ticket in the help desk system with a unique ID." },
+          { "name": "Ticket Creation", "description": "A customer submits a support request via email, web form, or phone, which automatically creates a new ticket in the helpdesk system with a unique ID." },
           { "name": "Triage & Automated Assignment", "description": "The ticket is automatically categorized based on keywords and assigned to the appropriate support agent or team queue based on skills or workload." },
           { "name": "Investigation & Communication", "description": "The agent investigates the issue, communicates with the customer to gather more information, and works towards a resolution. All communication is logged in the ticket." },
           { "name": "Resolution & CSAT Survey", "description": "Once the issue is resolved, the agent closes the ticket. A Customer Satisfaction (CSAT) survey can be automatically sent to the customer to gather feedback on the support experience." }
@@ -1918,5 +1918,3 @@
       ]
   }
 ]
-
-    
