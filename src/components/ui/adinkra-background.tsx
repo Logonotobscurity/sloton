@@ -1,4 +1,3 @@
-
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -8,7 +7,7 @@ export function AdinkraBackground({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "absolute inset-0 z-0 overflow-hidden bg-background",
+        "absolute inset-0 z-0 overflow-hidden",
         className
       )}
       aria-hidden="true"
@@ -23,18 +22,15 @@ export function AdinkraBackground({ className }: { className?: string }) {
                 <circle cx="40" cy="40" r="35" fill="none" stroke="hsl(var(--primary)/0.2)" strokeWidth="1"/>
                 <circle cx="40" cy="40" r="25" fill="none" stroke="hsl(var(--accent)/0.2)" strokeWidth="1"/>
                 <circle cx="40" cy="40" r="15" fill="none" stroke="hsl(var(--primary)/0.3)" strokeWidth="1.5"/>
-                <circle cx="40" cy="40" r="8" fill="hsl(var(--accent)/0.2)" opacity="0.8"/>
+                <circle cx="40" cy="40" r="8" fill="hsl(var(--accent)/0.1)" opacity="0.8"/>
                 
-                <path d="M40,0 V80 M0,40 H80" stroke="hsl(var(--border))" strokeWidth="0.5"/>
-                <path d="M11.7,11.7 L68.3,68.3 M68.3,11.7 L11.7,68.3" stroke="hsl(var(--border))" strokeWidth="0.5"/>
+                <path d="M40,0 V80 M0,40 H80" stroke="hsl(var(--border)/0.2)" strokeWidth="0.5"/>
+                <path d="M11.7,11.7 L68.3,68.3 M68.3,11.7 L11.7,68.3" stroke="hsl(var(--border)/0.2)" strokeWidth="0.5"/>
                 
-                <path d="M40,10 L40,70 M10,40 L70,40" stroke="hsl(var(--border))" strokeWidth="0.5" opacity="0.7"/>
-                <path d="M21,21 L59,59 M59,21 L21,59" stroke="hsl(var(--border))" strokeWidth="0.5" opacity="0.7"/>
-                
-                <circle cx="10" cy="10" r="2" fill="hsl(var(--accent)/0.3)"/>
-                <circle cx="70" cy="10" r="2" fill="hsl(var(--accent)/0.3)"/>
-                <circle cx="10" cy="70" r="2" fill="hsl(var(--accent)/0.3)"/>
-                <circle cx="70" cy="70" r="2" fill="hsl(var(--accent)/0.3)"/>
+                <circle cx="10" cy="10" r="1.5" fill="hsl(var(--primary)/0.2)"/>
+                <circle cx="70" cy="10" r="1.5" fill="hsl(var(--primary)/0.2)"/>
+                <circle cx="10" cy="70" r="1.5" fill="hsl(var(--primary)/0.2)"/>
+                <circle cx="70" cy="70" r="1.5" fill="hsl(var(--primary)/0.2)"/>
             </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#enhancedAdinkra)"/>
