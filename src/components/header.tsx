@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -294,8 +293,8 @@ export function Header() {
                         <Accordion type="multiple" className="w-full px-4">
                              {navLinks.map(navItem => (
                                 <AccordionItem value={navItem.label} key={navItem.label}>
-                                    <AccordionTrigger asChild>
-                                        <Link href={navItem.href} onClick={(e) => { e.stopPropagation(); handleMobileLinkClick(); }} className="flex w-full items-center justify-between py-4 text-lg font-bold">
+                                    <AccordionTrigger>
+                                        <Link href={navItem.href} onClick={(e) => { e.stopPropagation(); handleMobileLinkClick(); }} className="text-lg font-bold">
                                             {navItem.label}
                                         </Link>
                                     </AccordionTrigger>
