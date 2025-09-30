@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -17,7 +16,7 @@ export function IdeasLab() {
     <section className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
         <GlowingCard>
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center p-8 md:p-12">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center p-6 md:p-12">
             <div className="space-y-6">
               <h2 className="font-headline text-3xl md:text-4xl font-bold">
                 Our Ideas Lab
