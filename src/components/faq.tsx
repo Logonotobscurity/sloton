@@ -11,6 +11,7 @@ import { BrainCircuit, Zap, CircleDollarSign, Calendar, Code, GraduationCap } fr
 import Link from "next/link";
 import Script from "next/script";
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const faqItems = [
   {
@@ -64,7 +65,19 @@ const faqSchema = {
   }))
 };
 
+
 export function Faq() {
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 }
+  };
+
   return (
     <section id="faq" className="py-16 md:py-24 bg-secondary/20">
       <Script
@@ -79,23 +92,31 @@ export function Faq() {
             Have questions? We have answers. Here are some of the most common inquiries we receive from prospective partners.
           </p>
         </div>
-        <div className="mt-12 max-w-3xl mx-auto">
+        <motion.div 
+          className="mt-12 max-w-3xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+        >
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item) => (
-              <AccordionItem key={item.value} value={item.value}>
-                <AccordionTrigger className="text-left text-base md:text-lg">
-                  <div className="flex items-start md:items-center gap-4">
-                    {item.icon}
-                    {item.question}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                    <div className="text-muted-foreground pl-9 text-sm md:text-base" dangerouslySetInnerHTML={{ __html: item.answer }} />
-                </AccordionContent>
-              </AccordionItem>
+              <motion.div key={item.value} variants={itemVariants}>
+                <AccordionItem value={item.value}>
+                  <AccordionTrigger className="text-left text-base md:text-lg">
+                    <div className="flex items-start md:items-center gap-4">
+                      {item.icon}
+                      {item.question}
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                      <div className="text-muted-foreground pl-9 text-sm md:text-base" dangerouslySetInnerHTML={{ __html: item.answer }} />
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

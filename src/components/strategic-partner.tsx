@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -7,7 +8,12 @@ import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { SolutionRecommendationForm } from './solution-recommendation-form';
 import { TaskAutomationForm } from './task-automation-form';
+import { motion } from 'framer-motion';
 
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+};
 
 export function StrategicPartner() {
   return (
@@ -27,22 +33,29 @@ export function StrategicPartner() {
             <div className="space-y-8">
                 <Dialog>
                     <DialogTrigger asChild>
-                        <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-background/80 flex flex-col h-full">
-                            <CardHeader className="flex-grow p-6 md:p-8">
-                                <div className="p-3 md:p-4 rounded-full bg-primary/10 mb-4 w-fit">
-                                    <BrainCircuit className="h-8 w-8 md:h-10 md:w-10 text-primary" />
-                                </div>
-                                <CardTitle>Free AI Business Assessment</CardTitle>
-                                <CardDescription className="mt-2">
-                                    Get a data-driven report identifying automation opportunities and tailored IT solutions for your business.
-                                </CardDescription>
-                            </CardHeader>
-                            <CardFooter className="p-6 md:p-8 pt-0">
-                                <Button variant="ghost" className="p-0 text-primary group-hover:text-primary/90">
-                                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                            </CardFooter>
-                        </Card>
+                        <motion.div
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true, amount: 0.3 }}
+                          variants={cardVariants}
+                        >
+                          <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-background/80 flex flex-col h-full">
+                              <CardHeader className="flex-grow p-6 md:p-8">
+                                  <div className="p-3 md:p-4 rounded-full bg-primary/10 mb-4 w-fit">
+                                      <BrainCircuit className="h-8 w-8 md:h-10 md:w-10 text-primary" />
+                                  </div>
+                                  <CardTitle>Free AI Business Assessment</CardTitle>
+                                  <CardDescription className="mt-2">
+                                      Get a data-driven report identifying automation opportunities and tailored IT solutions for your business.
+                                  </CardDescription>
+                              </CardHeader>
+                              <CardFooter className="p-6 md:p-8 pt-0">
+                                  <Button variant="ghost" className="p-0 text-primary group-hover:text-primary/90">
+                                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                                  </Button>
+                              </CardFooter>
+                          </Card>
+                        </motion.div>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
                         <DialogHeader>
@@ -57,22 +70,29 @@ export function StrategicPartner() {
 
                 <Dialog>
                     <DialogTrigger asChild>
-                       <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-background/80 flex flex-col h-full">
-                            <CardHeader className="flex-grow p-6 md:p-8">
-                                <div className="p-3 md:p-4 rounded-full bg-primary/10 mb-4 w-fit">
-                                    <Cog className="h-8 w-8 md:h-10 md:w-10 text-primary" />
-                                </div>
-                                <CardTitle>Intelligent Automation Designer</CardTitle>
-                                <CardDescription className="mt-2">
-                                    Describe a workflow and our AI will generate a configured, optimized task design in seconds.
-                                </CardDescription>
-                            </CardHeader>
-                            <CardFooter className="p-6 md:p-8 pt-0">
-                                <Button variant="ghost" className="p-0 text-primary group-hover:text-primary/90">
-                                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                            </CardFooter>
-                        </Card>
+                       <motion.div
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true, amount: 0.3 }}
+                          variants={cardVariants}
+                        >
+                          <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-background/80 flex flex-col h-full">
+                              <CardHeader className="flex-grow p-6 md:p-8">
+                                  <div className="p-3 md:p-4 rounded-full bg-primary/10 mb-4 w-fit">
+                                      <Cog className="h-8 w-8 md:h-10 md:w-10 text-primary" />
+                                  </div>
+                                  <CardTitle>Intelligent Automation Designer</CardTitle>
+                                  <CardDescription className="mt-2">
+                                      Describe a workflow and our AI will generate a configured, optimized task design in seconds.
+                                  </CardDescription>
+                              </CardHeader>
+                              <CardFooter className="p-6 md:p-8 pt-0">
+                                  <Button variant="ghost" className="p-0 text-primary group-hover:text-primary/90">
+                                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                                  </Button>
+                              </CardFooter>
+                          </Card>
+                        </motion.div>
                     </DialogTrigger>
                      <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
                         <DialogHeader>

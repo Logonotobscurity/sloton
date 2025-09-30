@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { CaseStudiesCarousel } from "./case-studies-carousel";
+import { motion } from 'framer-motion';
 
 const partners = [
     { name: "Google Cloud Partner", logo: "https://img.icons8.com/color/96/google-cloud.png", dataAiHint: "Google Cloud logo" },
@@ -13,18 +14,40 @@ const partners = [
     { name: "Vercel Partner", logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/nextjs-icon.svg", dataAiHint: "Vercel logo" },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.6,
+      staggerChildren: 0.1
+    } 
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
 
 export function PartnershipApproach() {
   return (
     <section className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+        >
             <div className="space-y-6">
-                <h2 className="text-2xl md:text-4xl font-bold font-headline">Built on a Foundation of Trusted Partners</h2>
-                <p className="text-muted-foreground md:text-lg">
+                <motion.h2 variants={itemVariants} className="text-2xl md:text-4xl font-bold font-headline">Built on a Foundation of Trusted Partners</motion.h2>
+                <motion.p variants={itemVariants} className="text-muted-foreground md:text-lg">
                     We partner with ambitious teams to deliver tangible outcomes. Our success is measured by your success, and we leverage the best technologies to build solutions that fuel growth and innovation.
-                </p>
-                <div className="grid grid-cols-2 gap-x-8 gap-y-6 pt-4">
+                </motion.p>
+                <motion.div variants={itemVariants} className="grid grid-cols-2 gap-x-8 gap-y-6 pt-4">
                     {partners.map(partner => (
                         <div key={partner.name} className="flex items-center gap-3" title={partner.name}>
                             <Image 
@@ -38,20 +61,20 @@ export function PartnershipApproach() {
                             <span className="font-semibold text-sm">{partner.name.replace(" Partner", "")}</span>
                         </div>
                     ))}
-                </div>
-                <div className="pt-4">
+                </motion.div>
+                <motion.div variants={itemVariants} className="pt-4">
                     <Button asChild>
                         <Link href="/contact">
                             Start a Project
                         </Link>
                     </Button>
-                </div>
+                </motion.div>
             </div>
 
-            <div className="max-w-xl mx-auto w-full">
+            <motion.div variants={itemVariants} className="max-w-xl mx-auto w-full">
                 <CaseStudiesCarousel />
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
       </div>
     </section>
   );
