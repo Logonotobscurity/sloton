@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog, Calendar, MessageCircle, Edit } from 'lucide-react';
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata } from 'next';
-import { IconAdminOps, IconSupport, IconDevelopment, IconFinance, IconHealthcare, IconHumanResources, IconItOperations, IconMarketing, IconProcurement, IconRealEstate, IconSales, IconGeneral } from '@/lib/icons';
+import { IconAdminOps, IconSupport, IconDevelopment, IconBriefcase, IconHealthcare, IconHumanResources, IconItOperations, IconMarketing, IconProcurement, IconRealEstate, IconSales, IconGeneral } from '@/lib/icons';
 import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
@@ -18,7 +18,7 @@ import { PageHero } from '@/components/page-hero';
 import { getTemplates } from '@/lib/workflow-templates';
 
 const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string, color: string } } = {
-  'Finance': { icon: IconFinance, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
+  'Finance': { icon: IconBriefcase, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
   'Human Resources': { icon: IconHumanResources, iconBg: "bg-blue-100 dark:bg-blue-900/50", color: "text-blue-600 dark:text-blue-400" },
   'Sales': { icon: IconSales, iconBg: "bg-orange-100 dark:bg-orange-900/50", color: "text-orange-600 dark:text-orange-400" },
   'Marketing': { icon: IconMarketing, iconBg: "bg-purple-100 dark:bg-purple-900/50", color: "text-purple-600 dark:text-purple-400" },
