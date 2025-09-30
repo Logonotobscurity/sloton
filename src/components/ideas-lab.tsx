@@ -3,14 +3,15 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { GlowingCard } from "./ui/glowing-card";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Button } from './ui/button';
-import { Check, MessageCircle } from "lucide-react";
+import { Check } from "lucide-react";
 import React from "react";
 import { Card } from "./ui/card";
 import imageData from '@/lib/placeholder-images.json';
+import { useChatbotStore } from "@/hooks/use-chatbot-store";
 
 export function IdeasLab() {
+  const { setChatbotOpen } = useChatbotStore();
 
   return (
     <section className="py-16 md:py-24 bg-secondary/20">
@@ -44,66 +45,45 @@ export function IdeasLab() {
               
                <div className="w-full max-w-md text-center">
                   <h3 className="font-semibold text-lg mb-4">Let's put this agent to the test.</h3>
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Card className="relative w-full cursor-pointer bg-secondary/50 p-4 rounded-xl hover:border-primary transition-colors">
-                        <div className="flex items-center gap-4">
-                            <div className="relative h-10 w-10 flex-shrink-0">
-                                <Image
-                                    src={imageData.gigpilotAvatar.src}
-                                    alt="GIGPILOT Avatar"
-                                    sizes="40px"
-                                    fill
-                                    className="rounded-full object-cover"
-                                    data-ai-hint={imageData.gigpilotAvatar.dataAiHint}
-                                />
-                                <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-background" />
-                            </div>
+                  <Card 
+                    onClick={() => setChatbotOpen(true)}
+                    className="relative w-full cursor-pointer bg-secondary/50 p-4 rounded-xl hover:border-primary transition-colors"
+                  >
+                    <div className="flex items-center gap-4">
+                        <div className="relative h-10 w-10 flex-shrink-0">
+                            <Image
+                                src={imageData.gigpilotAvatar.src}
+                                alt="GIGPILOT Avatar"
+                                sizes="40px"
+                                fill
+                                className="rounded-full object-cover"
+                                data-ai-hint={imageData.gigpilotAvatar.dataAiHint}
+                            />
+                            <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-background" />
+                        </div>
 
-                            <div className="flex-1 min-w-0 text-left">
-                                <div>
-                                    <p className="text-sm font-medium">
-                                        Chat with GIGPILOT
-                                    </p>
-                                    <p className="text-[13px] text-muted-foreground mt-0.5">
-                                        Our AI assistant is here to help you.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-2">
-                            <Button
-                                    size="sm"
-                                    className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs h-8"
-                                >
-                                    <Check className="h-3.5 w-3.5 mr-1" />
-                                    Chat Now
-                                </Button>
+                        <div className="flex-1 min-w-0 text-left">
+                            <div>
+                                <p className="text-sm font-medium">
+                                    Chat with GIGPILOT
+                                </p>
+                                <p className="text-[13px] text-muted-foreground mt-0.5">
+                                    Our AI assistant is here to help you.
+                                </p>
                             </div>
                         </div>
-                      </Card>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-2xl h-[80vh] flex flex-col p-0 gap-0">
-                        <DialogHeader className="p-4 border-b">
-                        <DialogTitle className="flex items-center gap-2">
-                            <MessageCircle className="h-5 w-5 text-primary" />
-                            GIGPILOT Assistant
-                        </DialogTitle>
-                        <DialogDescription>
-                            Your personal guide to LOG_ON solutions.
-                        </DialogDescription>
-                        </DialogHeader>
-                        <div className="flex-1">
-                        <iframe 
-                            src="https://cdn.botpress.cloud/webchat/v3.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/09/03/00/20250903000320-ROVZPK8F.json"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 'none' }}
-                            title="Botpress Chatbot"
-                        ></iframe>
+
+                        <div className="flex items-center gap-2">
+                        <Button
+                                size="sm"
+                                className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs h-8"
+                            >
+                                <Check className="h-3.5 w-3.5 mr-1" />
+                                Chat Now
+                            </Button>
                         </div>
-                    </DialogContent>
-                </Dialog>
+                    </div>
+                  </Card>
               </div>
             </div>
           </div>
