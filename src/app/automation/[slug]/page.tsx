@@ -2,7 +2,7 @@
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { templates } from '@/lib/workflow-templates';
+import { getTemplateBySlug } from '@/lib/workflow-templates';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog, Calendar, MessageCircle, Edit } from 'lucide-react';
@@ -15,6 +15,7 @@ import { GatedFeatureModal } from '@/components/gated-feature-modal';
 import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import { CommunityLeadForm } from '@/components/community-lead-form';
 import { PageHero } from '@/components/page-hero';
+import { getTemplates } from '@/lib/workflow-templates';
 
 const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string, color: string } } = {
   'Finance': { icon: IconFinance, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
@@ -37,7 +38,7 @@ type Props = {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const template = templates.find((template) => template.slug === params.slug);
+  const template = getTemplateBySlug(params.slug);
   if (!template) {
     return { title: 'Template Not Found' };
   }
@@ -48,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function TemplatePreviewPage({ params }: { params: { slug: string } }) {
-  const template = templates.find((template) => template.slug === params.slug);
+  const template = getTemplateBySlug(params.slug);
 
   if (!template) {
     notFound();
@@ -56,7 +57,8 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
   
   const fullDescription = template.steps ? template.steps.map(step => `${step.name}: ${step.description}`).join('; ') : template.description;
 
-  const relatedTemplates = templates
+  const allTemplates = getTemplates();
+  const relatedTemplates = allTemplates
     .filter(t => t.category === template.category && t.slug !== template.slug)
     .slice(0, 3);
 
@@ -186,6 +188,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
 }
 
 export async function generateStaticParams() {
+  const templates = getTemplates();
   return templates.map((template) => ({
     slug: template.slug,
   }));

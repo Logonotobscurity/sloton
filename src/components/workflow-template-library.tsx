@@ -2,7 +2,7 @@
 
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -23,7 +23,7 @@ import {
   IconSupport,
   IconGeneral
 } from '@/lib/icons';
-import { templates as allTemplates, Template } from '@/lib/workflow-templates';
+import { getTemplates, Template } from '@/lib/workflow-templates';
 import { TaskAutomationForm } from './task-automation-form';
 import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink, PaginationEllipsis } from '@/components/ui/pagination';
 import { cn } from '@/lib/utils';
@@ -104,10 +104,15 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template }) => {
 };
 
 export function WorkflowTemplateLibrary() {
+  const [allTemplates, setAllTemplates] = useState<Template[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
  
+  useEffect(() => {
+    setAllTemplates(getTemplates());
+  }, []);
+
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === 'Show All' ? 'All' : category);
     setCurrentPage(1);
@@ -120,7 +125,7 @@ export function WorkflowTemplateLibrary() {
                             template.description.toLowerCase().includes(searchTerm.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchTerm]);
+  }, [selectedCategory, searchTerm, allTemplates]);
 
   const totalPages = Math.ceil(filteredTemplates.length / ITEMS_PER_PAGE);
 
@@ -289,3 +294,4 @@ export function WorkflowTemplateLibrary() {
     </div>
   );
 }
+

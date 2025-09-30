@@ -2,7 +2,7 @@
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { templates } from '@/lib/workflow-templates';
+import { getTemplateBySlug, getTemplates } from '@/lib/workflow-templates';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog, Calendar, MessageCircle, Edit } from 'lucide-react';
@@ -37,7 +37,7 @@ type Props = {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const template = templates.find((template) => template.slug === params.slug);
+  const template = getTemplateBySlug(params.slug);
   if (!template) {
     return { title: 'Template Not Found' };
   }
@@ -48,15 +48,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function TemplatePreviewPage({ params }: { params: { slug: string } }) {
-  const template = templates.find((template) => template.slug === params.slug);
+  const template = getTemplateBySlug(params.slug);
 
   if (!template) {
     notFound();
   }
   
   const fullDescription = template.steps ? template.steps.map(step => `${step.name}: ${step.description}`).join('; ') : template.description;
-
-  const relatedTemplates = templates
+  
+  const allTemplates = getTemplates();
+  const relatedTemplates = allTemplates
     .filter(t => t.category === template.category && t.slug !== template.slug)
     .slice(0, 3);
 
@@ -186,6 +187,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
 }
 
 export async function generateStaticParams() {
+  const templates = getTemplates();
   return templates.map((template) => ({
     slug: template.slug,
   }));
