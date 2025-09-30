@@ -290,8 +290,8 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                 "rounded-full h-12 shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 px-4",
               )}
             >
-              {isChatbotOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <span />}
-              <span className="text-primary-foreground font-semibold">LOG_ON ASSISTANCE</span>
+              {isChatbotOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <MessageCircle className="h-5 w-5 text-primary-foreground" />}
+              <span className="text-primary-foreground font-semibold">Chat with us</span>
               <span className="sr-only">{isChatbotOpen ? "Close Chatbot" : "Open Chatbot"}</span>
             </Button>
           </TooltipTrigger>
@@ -558,5 +558,7 @@ const ContactInfoForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any
     </form>
   )
 }
+
+    
 
     
