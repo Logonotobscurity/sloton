@@ -1,8 +1,9 @@
+
 "use client";
 
 import { Card, CardTitle } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
-import { CircuitBackground } from './ui/circuit-background';
+import { AdinkraBackground } from './ui/adinkra-background';
 
 const cardContent = [
     {
@@ -26,7 +27,7 @@ const cardContent = [
 export function GeneralistApproach() {
   return (
     <section className="py-16 md:py-24 bg-secondary/20 relative">
-        <CircuitBackground />
+        <AdinkraBackground />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-6">
