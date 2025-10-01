@@ -538,3 +538,117 @@ const tenFormatsArticleContent = `
   <p><strong>Related:</strong> <a href="/insights/why-llms-txt-matters-for-seo" class="text-primary hover:underline">Why LLMs.txt Matters for Modern SEO</a></p>
 </blockquote>
 `;
+
+const defaultContent = `
+<p class="mb-6 text-lg text-muted-foreground">This is a placeholder for the article content. The full content will be dynamically loaded based on the article's slug.</p>
+<p class="mb-6">Please check back later or contact support if you believe this is an error.</p>
+<h2 class="text-2xl font-bold mt-12 mb-4">Coming Soon</h2>
+<p class="mb-6">More detailed content for this insight will be available shortly.</p>
+`;
+
+
+export function InsightPageContent({ slug }: { slug: string }) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  let contentHtml = '';
+  let articleData = insights.find(i => i.slug === slug);
+
+  switch (slug) {
+    case 'ai-investment-playbook':
+      contentHtml = investmentArticleContent;
+      break;
+    case 'why-llms-txt-matters-for-seo':
+      contentHtml = llmsTxtArticleContent;
+      break;
+    case 'seo-vs-geo-invisible-in-ai-search':
+      contentHtml = seoVsGeoArticleContent;
+      break;
+    case '10-content-formats-that-get-picked-up-by-llms':
+      contentHtml = tenFormatsArticleContent;
+      break;
+    default:
+      contentHtml = defaultContent.replace('{{title}}', articleData?.title || 'this article');
+  }
+
+  useEffect(() => {
+    const renderReactComponent = (containerId: string, Component: React.ElementType) => {
+      const container = contentRef.current?.querySelector(`#${containerId}`);
+      if (container && container.innerHTML === '') {
+        const root = createRoot(container);
+        root.render(<Component />);
+      }
+    };
+    
+    const renderImageComponent = (containerId: string, imageKey: keyof typeof imageData) => {
+      const container = contentRef.current?.querySelector(`#${containerId}`);
+       if (container && container.innerHTML === '') {
+        const root = createRoot(container);
+        const { src, alt, width, height, dataAiHint } = imageData[imageKey];
+        root.render(
+            <Image
+                src={src}
+                alt={alt}
+                width={width}
+                height={height}
+                className="rounded-lg shadow-md"
+                data-ai-hint={dataAiHint}
+            />
+        );
+      }
+    }
+    
+    const renderEnrollmentForm = (containerId: string) => {
+        const container = contentRef.current?.querySelector(`#${containerId}`);
+        if(container && container.innerHTML === '') {
+            const root = createRoot(container);
+            root.render(
+                <Dialog>
+                    <DialogTrigger asChild>
+                        <Button size="lg" className="mt-4">Download The Full Guide</Button>
+                    </DialogTrigger>
+                    <DialogContent className="bg-background">
+                        <DialogHeader>
+                            <DialogTitle>Get the Full AI Investment Guide</DialogTitle>
+                            <DialogDescription>
+                                Enter your details to download the complete guide, including bonus content and stock analysis.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <EnrollmentForm programName="AI Investment Guide" />
+                    </DialogContent>
+                </Dialog>
+            );
+        }
+    };
+
+    if (contentRef.current) {
+        if (slug === 'ai-investment-playbook') {
+            renderReactComponent('portfolio-chart-container', InvestmentPortfolioChart);
+            renderEnrollmentForm('download-guide');
+        }
+        if(slug === 'why-llms-txt-matters-for-seo') {
+             renderImageComponent('llms-diagram-container', 'llmsDiagram');
+             renderImageComponent('how-llms-work-container', 'howLlmsWork');
+             renderImageComponent('tools-generating-docs-container', 'toolsGeneratingDocs');
+             renderImageComponent('seo-checklist-container', 'seoChecklist');
+        }
+        if(slug === 'seo-vs-geo-invisible-in-ai-search') {
+            renderImageComponent('chat-gpt-example', 'llmsDiagram');
+            renderImageComponent('perplexity-example', 'howLlmsWork');
+            renderImageComponent('gemini-example', 'toolsGeneratingDocs');
+            renderImageComponent('seo-vs-geo-diagram', 'seoVsGeo');
+        }
+        if(slug === '10-content-formats-that-get-picked-up-by-llms') {
+            renderImageComponent('data-analytics-dashboard-container', 'dataAnalyticsDashboard');
+            renderImageComponent('workflow-diagram-container', 'workflowDiagram');
+            renderImageComponent('financial-data-container', 'financialData');
+        }
+    }
+  }, [slug]);
+
+  return (
+    <div
+      ref={contentRef}
+      className="prose dark:prose-invert max-w-none"
+      dangerouslySetInnerHTML={{ __html: contentHtml }}
+    />
+  );
+}
