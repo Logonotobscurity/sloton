@@ -41,8 +41,10 @@ export function AuthorBio({ authorName }: { authorName: string }) {
       <CardHeader>
         <div className="flex items-center gap-4">
           <Avatar className="h-16 w-16">
-            <AvatarImage asChild src={author.image} alt={author.name} data-ai-hint={author.dataAiHint}>
-                <Image src={author.image} alt={author.name} data-ai-hint={author.dataAiHint} width={author.width} height={author.height} />
+            <AvatarImage asChild src={author.image} alt={author.name}>
+                <div data-ai-hint={author.dataAiHint}>
+                    <Image src={author.image} alt={author.name} width={author.width} height={author.height} />
+                </div>
             </AvatarImage>
             <AvatarFallback>{author.name.charAt(0)}</AvatarFallback>
           </Avatar>

@@ -42,14 +42,13 @@ export function CaseStudiesCarousel({ studies }: CaseStudiesCarouselProps) {
           <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
             <div className="p-1">
               <Card className="overflow-hidden bg-background/80 group">
-                <div className="overflow-hidden rounded-t-xl">
+                <div className="overflow-hidden rounded-t-xl" data-ai-hint={study.dataAiHint}>
                     <Image
                     src={study.image}
                     alt={study.title}
                     width={study.width}
                     height={study.height}
                     className="w-full h-48 sm:h-56 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                    data-ai-hint={study.dataAiHint}
                     />
                 </div>
                 <CardHeader>

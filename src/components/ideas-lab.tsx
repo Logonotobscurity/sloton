@@ -51,14 +51,13 @@ export function IdeasLab() {
                     className="relative w-full cursor-pointer bg-secondary/50 p-4 rounded-xl hover:border-primary transition-colors"
                   >
                     <div className="flex items-center gap-4">
-                        <div className="relative h-10 w-10 flex-shrink-0">
+                        <div className="relative h-10 w-10 flex-shrink-0" data-ai-hint={imageData.gigpilotAvatar.dataAiHint}>
                             <Image
                                 src={imageData.gigpilotAvatar.src}
                                 alt="GIGPILOT Avatar"
                                 sizes="40px"
                                 fill
                                 className="rounded-full object-cover"
-                                data-ai-hint={imageData.gigpilotAvatar.dataAiHint}
                             />
                             <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-background" />
                         </div>

@@ -51,14 +51,13 @@ const GridItem = ({ area, study }: GridItemProps) => {
           proximity={64}
           inactiveZone={0.01}
         />
-        <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-background p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D] md:p-6">
+        <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-background p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D] md:p-6" data-ai-hint={study.dataAiHint}>
             <Image
                 src={study.image}
                 alt={study.title}
                 width={study.width}
                 height={study.height}
                 className="absolute inset-0 z-0 h-full w-full object-cover opacity-20"
-                data-ai-hint={study.dataAiHint}
             />
             <div className="relative z-10 flex flex-1 flex-col justify-between gap-3 bg-gradient-to-t from-background/80 via-background/50 to-transparent">
                 <div />

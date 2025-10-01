@@ -70,7 +70,7 @@ const nextConfig = {
         hostname: 'sredevops.org',
       },
       {
-        protocol: 'https',
+        protocol: 'https' ,
         hostname: 'git-scm.com',
       },
       {
@@ -149,4 +149,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

@@ -111,15 +111,16 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
               </div>
             </header>
 
-            <Image
-              src={insight.image}
-              alt={insight.title}
-              width={insight.width}
-              height={insight.height}
-              className="w-full h-auto object-cover rounded-lg mb-8"
-              data-ai-hint={insight.dataAiHint}
-              priority
-            />
+            <div data-ai-hint={insight.dataAiHint}>
+                <Image
+                src={insight.image}
+                alt={insight.title}
+                width={insight.width}
+                height={insight.height}
+                className="w-full h-auto object-cover rounded-lg mb-8"
+                priority
+                />
+            </div>
             
             <InsightPageContent slug={params.slug} />
             

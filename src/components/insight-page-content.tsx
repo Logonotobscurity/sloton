@@ -584,14 +584,15 @@ export function InsightPageContent({ slug }: { slug: string }) {
         const root = createRoot(container);
         const { src, alt, width, height, dataAiHint } = imageData[imageKey];
         root.render(
-            <Image
-                src={src}
-                alt={alt}
-                width={width}
-                height={height}
-                className="rounded-lg shadow-md"
-                data-ai-hint={dataAiHint}
-            />
+            <div data-ai-hint={dataAiHint}>
+                <Image
+                    src={src}
+                    alt={alt}
+                    width={width}
+                    height={height}
+                    className="rounded-lg shadow-md"
+                />
+            </div>
         );
       }
     }

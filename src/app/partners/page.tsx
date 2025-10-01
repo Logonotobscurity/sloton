@@ -111,14 +111,13 @@ export default function PartnersPage() {
                 </div>
                 <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
                     {partners.map(partner => (
-                        <div key={partner.name} className="flex items-center gap-3" title={partner.name}>
+                        <div key={partner.name} className="flex items-center gap-3" title={partner.name} data-ai-hint={partner.dataAiHint}>
                             <Image 
                                 src={partner.logo} 
                                 alt={partner.name}
                                 width={48}
                                 height={48}
                                 className="h-12 w-auto"
-                                data-ai-hint={partner.dataAiHint}
                             />
                             <span className="text-lg font-semibold">{partner.name}</span>
                         </div>

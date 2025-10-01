@@ -49,14 +49,13 @@ export function PartnershipApproach() {
                 </motion.p>
                 <motion.div variants={itemVariants} className="grid grid-cols-2 gap-x-8 gap-y-6 pt-4">
                     {partners.map(partner => (
-                        <div key={partner.name} className="flex items-center gap-3" title={partner.name}>
+                        <div key={partner.name} className="flex items-center gap-3" title={partner.name} data-ai-hint={partner.dataAiHint}>
                             <Image 
                                 src={partner.logo} 
                                 alt={partner.name}
                                 width={32}
                                 height={32}
                                 className="h-8 w-auto"
-                                data-ai-hint={partner.dataAiHint}
                             />
                             <span className="font-semibold text-sm">{partner.name.replace(" Partner", "")}</span>
                         </div>

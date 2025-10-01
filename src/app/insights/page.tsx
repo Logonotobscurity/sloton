@@ -50,14 +50,15 @@ export default function InsightsPage() {
               <div className="flex flex-col h-full">
                 <CardHeader className="p-0">
                   <Link href={`/insights/${insight.slug}`}>
-                    <Image
-                      src={insight.image}
-                      alt={insight.title}
-                      width={insight.width}
-                      height={insight.height}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl"
-                      data-ai-hint={insight.dataAiHint}
-                    />
+                    <div data-ai-hint={insight.dataAiHint}>
+                        <Image
+                        src={insight.image}
+                        alt={insight.title}
+                        width={insight.width}
+                        height={insight.height}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl"
+                        />
+                    </div>
                   </Link>
                 </CardHeader>
                 <CardContent className="p-6 flex-grow">
