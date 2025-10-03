@@ -16,6 +16,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
 
         <div className="container mx-auto px-4 md:px-6 relative z-20">
+             <div className="absolute -bottom-1/3 -left-1/4 w-1/2 h-1/2 bg-primary/20 rounded-full blur-3xl" />
+            <div className="absolute -top-1/3 -right-1/4 w-1/2 h-1/2 bg-accent/20 rounded-full blur-3xl" />
             <div className="max-w-4xl mx-auto text-center animate-[fade-in_1s_ease-in-out]">
                 <p className="text-sm font-normal uppercase tracking-widest text-primary">
                     Connecting Advantages. Delivering Results.
@@ -47,8 +49,6 @@ export function Hero() {
                 </div>
             </div>
       </div>
-       <div className="absolute -bottom-1/3 -left-1/4 w-1/2 h-1/2 bg-primary/20 rounded-full blur-3xl" />
-      <div className="absolute -top-1/3 -right-1/4 w-1/2 h-1/2 bg-accent/20 rounded-full blur-3xl" />
     </div>
   );
 }
