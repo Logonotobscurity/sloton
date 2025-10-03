@@ -39,7 +39,7 @@ export function StrategicPartner() {
                     Make an Impact. Do More with Less.
                 </motion.h2>
                 <motion.p variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="text-muted-foreground md:text-lg">
-                   Time and money are two valuable commodities. Our solutions focus on precise targets and powerful automation, helping your business run leaner, smarter, and with less risk. We turn complexity into a competitive advantage so you can focus on your vision, not your operations.
+                   Time and money are valuable commodities. Our solutions focus on precise targets and powerful automation, helping your business run leaner and smarter. We turn complexity into a competitive advantage so you can focus on your vision, not your operations.
                 </motion.p>
             </motion.div>
 

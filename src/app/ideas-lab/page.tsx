@@ -12,8 +12,8 @@ import {
   } from "@/components/ui/card"
   
 export const metadata: Metadata = {
-  title: 'Ideas Lab | LOG_ON',
-  description: 'A space for experimental concepts, AI generation prompts, and new approaches we are testing at LOG_ON.',
+  title: 'Ideas Lab | AI Experiments & Prompt Engineering',
+  description: 'A space for experimental concepts, AI generation prompts, and new approaches we are testing at LOG_ON. See the prompts used to build our features.',
 };
 
 const companyReportPrompt = `
