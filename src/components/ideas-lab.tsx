@@ -5,11 +5,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { GlowingCard } from "./ui/glowing-card";
 import { Button } from './ui/button';
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import React from "react";
 import { Card } from "./ui/card";
 import imageData from '@/lib/placeholder-images.json';
 import { useChatbotStore } from "@/hooks/use-chatbot-store";
+import Link from "next/link";
 
 export function IdeasLab() {
   const { setChatbotOpen } = useChatbotStore();
@@ -29,6 +30,11 @@ export function IdeasLab() {
               <p className="text-muted-foreground text-md md:text-lg">
                 Understanding technology is our core value. It allows us to connect dots that specialists might miss, creating integrated solutions that are more robust, efficient, and innovative.
               </p>
+              <Button asChild variant="outline">
+                  <Link href="/ab-testing">
+                      See Our Testing Methodology <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+              </Button>
             </div>
             <div className="flex flex-col items-center justify-center gap-8">
               <motion.div

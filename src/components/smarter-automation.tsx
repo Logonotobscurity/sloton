@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -81,7 +82,7 @@ export function SmarterAutomation() {
                  <CardFooter className="p-0 pt-6">
                     <Button asChild variant="outline">
                         <Link href="/automation">
-                            Explore Automation Solutions <ArrowRight className="ml-2 h-4 w-4" />
+                            Explore All Templates <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                     </Button>
                 </CardFooter>
