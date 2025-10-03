@@ -70,24 +70,28 @@ export default function ABTestingPage() {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         
         <section className="py-16 md:py-24">
-            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold font-headline">From Hypothesis to Integrated Solution</h2>
-                <p className="mt-4 text-md md:text-lg text-muted-foreground leading-relaxed">
-                    Our methodology is more than a tool; it's a four-step process that ensures innovation is tied directly to results.
-                </p>
-            </div>
-             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {processSteps.map((step) => (
-                    <Card key={step.title} className="bg-secondary/50 flex flex-col text-center items-center p-6 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                        <CardHeader className="p-0 items-center">
-                            {step.icon}
-                            <CardTitle className="pt-4 text-lg md:text-xl">{step.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-0 pt-4">
-                            <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{step.description}</p>
-                        </CardContent>
-                    </Card>
-                ))}
+            <div className="grid lg:grid-cols-5 gap-12">
+                <div className="lg:col-span-2">
+                    <div className="lg:sticky top-24">
+                        <h2 className="text-2xl md:text-4xl font-bold font-headline">From Hypothesis to Integrated Solution</h2>
+                        <p className="mt-4 text-md md:text-lg text-muted-foreground leading-relaxed">
+                            Our methodology is more than a tool; it's a four-step process that ensures innovation is tied directly to results.
+                        </p>
+                    </div>
+                </div>
+                <div className="lg:col-span-3 space-y-8">
+                    {processSteps.map((step) => (
+                        <Card key={step.title} className="bg-secondary/50">
+                            <CardHeader className="flex flex-row items-start gap-4">
+                                <div className="flex-shrink-0">{step.icon}</div>
+                                <div className="flex-1">
+                                    <CardTitle className="text-lg md:text-xl">{step.title}</CardTitle>
+                                    <CardDescription className="mt-2 text-base leading-relaxed">{step.description}</CardDescription>
+                                </div>
+                            </CardHeader>
+                        </Card>
+                    ))}
+                </div>
             </div>
         </section>
 
