@@ -1,154 +1,179 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Beaker, CheckCircle, ArrowRight, Lightbulb, Bot, TestTube, Target, Puzzle } from 'lucide-react';
+import { Beaker, CheckCircle, ArrowRight, Lightbulb, Bot, TestTube, Target, Puzzle, Handshake, FlaskConical, CircleDot } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero } from '@/components/page-hero';
 
 export const metadata: Metadata = {
-  title: 'The Ideas Lab | Data-Driven Innovation & A/B Testing',
-  description: 'Our Ideas Lab uses rigorous A/B testing to transform creative concepts into data-proven successes. Learn how we validate innovation and build integrated solutions.',
+  title: 'The Ideas Lab | Collaborative A/B Testing & Innovation',
+  description: 'Join our Ideas Lab. We use rigorous A/B testing to validate bold concepts. Explore our active pilots and submit your own product for data-driven analysis.',
 };
 
-const processSteps = [
+const labValues = [
     {
-        icon: <Lightbulb className="h-8 w-8 text-primary" />,
-        title: "1. Ideate: The Hypothesis",
-        description: "Every great innovation starts with a bold 'what if.' We collaborate with you to turn business challenges and creative sparks into testable hypotheses based on our deep industry knowledge."
+        icon: <FlaskConical className="h-8 w-8 text-primary" />,
+        title: "Relentless Curiosity",
+        description: "We are driven by a constant need to ask 'what if.' Every project starts with a bold question and an open mind."
     },
     {
-        icon: <TestTube className="h-8 w-8 text-primary" />,
-        title: "2. Test: The Scientific Method",
-        description: "Our A/B testing engine is where ideas face the ultimate judge: your audience. We rigorously test variations to gather clean, unbiased data on what truly drives user behavior and conversions."
-    },
-     {
-        icon: <Target className="h-8 w-8 text-primary" />,
-        title: "3. Validate: Data-Proven Results",
-        description: "We transform raw test data into clear, actionable insights. This crucial step separates assumptions from facts, ensuring that strategic decisions are backed by undeniable evidence."
+        icon: <Handshake className="h-8 w-8 text-primary" />,
+        title: "Open Collaboration",
+        description: "Innovation thrives in the open. We partner with brands and creators to test ideas and share insights for mutual growth."
     },
     {
-        icon: <Puzzle className="h-8 w-8 text-primary" />,
-        title: "4. Integrate: Connecting the Dots",
-        description: "An insight is only as valuable as its implementation. We use validated learnings to build robust, integrated solutions that improve your entire digital ecosystem, not just a single metric."
+        icon: <CheckCircle className="h-8 w-8 text-primary" />,
+        title: "Data-Driven Validation",
+        description: "We replace guesswork with evidence. Our rigorous testing methodology provides undeniable proof of what works."
     }
 ];
 
-const promptA = `
-# Prompt A (Vague)
+const submissionProcess = [
+    {
+        title: "1. You Submit",
+        description: "Tell us about your product, website, or campaign. What's the key question you need to answer?"
+    },
+    {
+        title: "2. We Strategize",
+        description: "Our lab team designs a bespoke A/B test to validate your hypothesis and define clear success metrics."
+    },
+    {
+        title: "3. We Test & Analyze",
+        description: "We run the experiment on relevant traffic using our robust tools and gather clean, unbiased data."
+    },
+    {
+        title: "4. You Get Insights",
+        description: "You receive a comprehensive report with clear, actionable data and strategic recommendations."
+    }
+];
 
-Generate a report for the company [Company Name].
-`;
+const activePilots = [
+    {
+        name: "Pilot: 'Cognitive-Load-Optimized' Checkout Flow",
+        hypothesis: "By simplifying the checkout form from 5 fields to 3 with smart autofill, we will increase completion rates by 15%.",
+        metric: "Conversion Rate, Bounce Rate",
+        status: "Data Collection In Progress",
+        statusColor: "text-yellow-500"
+    },
+    {
+        name: "Pilot: AI-Generated vs. Human-Written Headlines",
+        hypothesis: "AI-generated headlines tailored to user segments will achieve a higher click-through rate (CTR) than a single, human-written headline.",
+        metric: "Click-Through Rate (CTR)",
+        status: "Results Pending Analysis",
+        statusColor: "text-blue-500"
+    },
+    {
+        name: "Pilot: Value-Based vs. Feature-Based Landing Page",
+        hypothesis: "A landing page focused on the emotional benefits of a service will convert better than one focused on listing technical features.",
+        metric: "Sign-up Rate",
+        status: "Completed - Value-based page showed a 22% uplift.",
+        statusColor: "text-green-500"
+    }
+];
 
-const promptB = `
-# Prompt B (Structured)
-
-## ROLE:
-You are an expert business analyst.
-
-## TASK:
-Generate a concise company report for [Company Name].
-
-## FORMAT:
-Return a JSON object with the following keys:
-- "companyProfile": { "summary": "...", "industry": "..." }
-- "swotAnalysis": { "strengths": [], "weaknesses": [] }
-
-## CONSTRAINTS:
-- The summary should be one paragraph.
-- Provide exactly 2 strengths and 2 weaknesses.
-`;
 
 export default function ABTestingPage() {
   return (
     <div className="bg-background">
       <PageHero
-        title="The Ideas Lab: Where Data Validates Innovation"
-        description="Our Ideas Lab is powered by a relentless curiosity. Here, we use rigorous A/B testing as the scientific engine to validate creative concepts, turning experimental ideas into data-proven successes that drive your business forward."
+        title="The Ideas Lab: Where We Test Tomorrow, Together"
+        description="We're a relentless idea engine. We test our own bold concepts, and now we're opening our doors to test yours. Explore our active pilots and submit your product for rigorous, data-driven validation."
         icon={<Beaker className="h-12 w-12 md:h-16 md:w-16 text-primary" />}
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-16 md:space-y-24">
         
-        <section className="py-16 md:py-24">
-            <div className="grid lg:grid-cols-5 gap-12">
-                <div className="lg:col-span-2">
-                    <div className="lg:sticky top-24">
-                        <h2 className="text-2xl md:text-4xl font-bold font-headline">From Hypothesis to Integrated Solution</h2>
-                        <p className="mt-4 text-md md:text-lg text-muted-foreground leading-relaxed">
-                            Our methodology is more than a tool; it's a four-step process that ensures innovation is tied directly to results.
-                        </p>
-                    </div>
-                </div>
-                <div className="lg:col-span-3 space-y-8">
-                    {processSteps.map((step) => (
-                        <Card key={step.title} className="bg-secondary/50">
-                            <CardHeader className="flex flex-row items-start gap-4">
-                                <div className="flex-shrink-0">{step.icon}</div>
-                                <div className="flex-1">
-                                    <CardTitle className="text-lg md:text-xl">{step.title}</CardTitle>
-                                    <CardDescription className="mt-2 text-base leading-relaxed">{step.description}</CardDescription>
-                                </div>
-                            </CardHeader>
-                        </Card>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <section className="py-16 md:py-24">
+        <section>
             <div className="text-center max-w-3xl mx-auto mb-12">
-                <h2 className="text-2xl md:text-4xl font-bold font-headline">Example: A/B Testing a Prompt</h2>
+                <h2 className="text-2xl md:text-4xl font-bold font-headline">The Ideas Lab Manifesto</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground">
-                    Our "Ideas Lab" methodology extends to AI itself. A small change in structure can lead to a dramatic improvement in output quality. Compare the two prompts below designed to generate a company report.
+                    We connect technological dots to build robust, innovative solutions. The Lab is where we pressure-test these ideas before they become full-scale solutions, guided by three core values.
                 </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8 items-start">
-                <Card className="bg-secondary/20">
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2"><Lightbulb className="h-5 w-5 text-destructive" /> Hypothesis A: Vague Request</CardTitle>
-                        <CardDescription>This prompt lacks structure, forcing the AI to guess the desired format and content.</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                         <div className="relative p-4 bg-background/50 rounded-lg">
-                            <pre className="whitespace-pre-wrap text-sm font-mono overflow-x-auto">
-                                <code>{promptA.trim()}</code>
-                            </pre>
-                        </div>
-                        <div className="mt-4 p-4 border-l-4 border-destructive bg-destructive/10 rounded">
-                            <h4 className="font-semibold text-destructive-foreground">Expected Outcome:</h4>
-                            <p className="text-sm text-destructive-foreground/80">Inconsistent, often verbose results that are difficult to parse automatically.</p>
-                        </div>
-                    </CardContent>
-                </Card>
-                <Card className="border-primary bg-primary/5">
-                     <CardHeader>
-                        <CardTitle className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Hypothesis B: Structured Request</CardTitle>
-                        <CardDescription>This prompt provides a clear role, task, format, and constraints, ensuring a predictable output.</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                         <div className="relative p-4 bg-background/50 rounded-lg">
-                            <pre className="whitespace-pre-wrap text-sm font-mono overflow-x-auto">
-                                <code>{promptB.trim()}</code>
-                            </pre>
-                        </div>
-                        <div className="mt-4 p-4 border-l-4 border-primary bg-primary/10 rounded">
-                            <h4 className="font-semibold text-primary">Expected Outcome:</h4>
-                            <p className="text-sm text-primary/80">Reliable, structured JSON output that can be easily used in an application.</p>
-                        </div>
-                    </CardContent>
-                </Card>
+            <div className="grid md:grid-cols-3 gap-8">
+                {labValues.map(value => (
+                    <Card key={value.title} className="text-center p-6 bg-secondary/30">
+                        <div className="flex justify-center mb-4">{value.icon}</div>
+                        <CardTitle>{value.title}</CardTitle>
+                        <CardContent className="p-0 pt-4">
+                            <p className="text-muted-foreground">{value.description}</p>
+                        </CardContent>
+                    </Card>
+                ))}
             </div>
         </section>
 
-         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-secondary/30 rounded-lg px-6">
-            <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Turn Your Ideas Into Results?</h2>
+        <section className="py-16 md:py-24 bg-secondary/50 -mx-4 px-4 sm:-mx-6 md:-mx-8 sm:px-6 md:px-8 sm:rounded-2xl">
+            <div className="container mx-auto">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-6">
+                        <h2 className="text-2xl md:text-4xl font-bold font-headline">Have a Product or Idea We Should Test?</h2>
+                        <p className="text-md md:text-lg text-muted-foreground">
+                            Our lab is open for collaboration. We invite brands, startups, and creators to submit their products, websites, or campaigns for data-driven validation.
+                        </p>
+                         <Button asChild size="lg">
+                            <Link href="/contact?subject=Ideas+Lab+Submission">
+                                Apply for Product Testing <ArrowRight className="ml-2 h-5 w-5" />
+                            </Link>
+                        </Button>
+                    </div>
+                    <div className="space-y-4">
+                        {submissionProcess.map(step => (
+                            <Card key={step.title} className="bg-background">
+                                <CardHeader>
+                                    <CardTitle className="text-lg">{step.title}</CardTitle>
+                                    <CardDescription>{step.description}</CardDescription>
+                                </CardHeader>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div className="text-center max-w-3xl mx-auto mb-12">
+                <h2 className="text-2xl md:text-4xl font-bold font-headline">Live from the Lab: Our Active Pilot Tests</h2>
+                <p className="mt-4 text-md md:text-lg text-muted-foreground">
+                    Transparency is key to innovation. Here’s a live look at the experiments currently running in the Ideas Lab and the hypotheses we're validating.
+                </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {activePilots.map(pilot => (
+                     <Card key={pilot.name} className="bg-secondary/30 flex flex-col">
+                        <CardHeader>
+                            <CardTitle className="text-lg">{pilot.name}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-grow space-y-4">
+                            <div>
+                                <h4 className="font-semibold text-sm text-primary">Hypothesis</h4>
+                                <p className="text-muted-foreground text-sm">"{pilot.hypothesis}"</p>
+                            </div>
+                            <div>
+                                <h4 className="font-semibold text-sm text-primary">Test Metric</h4>
+                                <p className="text-muted-foreground text-sm">{pilot.metric}</p>
+                            </div>
+                        </CardContent>
+                        <CardContent className="pt-4 mt-auto">
+                           <p className={`text-sm font-semibold flex items-center gap-2 ${pilot.statusColor}`}>
+                               <CircleDot className="h-4 w-4" />
+                               {pilot.status}
+                           </p>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+        </section>
+
+         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-6">
+            <h2 className="text-2xl md:text-4xl font-bold font-headline">The Science Behind the Lab</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Let's discuss how our data-driven innovation process can help you achieve your business goals. Schedule a free consultation today.
+                Our Ideas Lab is powered by a robust A/B testing methodology. This is the engine that allows us to move from hypothesis to data-proven insight, reducing the risk of launching new features and getting undeniable proof of what resonates with your audience.
             </p>
             <div className="mt-8 flex justify-center">
-                <Button asChild size="lg">
-                    <Link href="/contact?subject=AI+Prompt+Optimization">
-                        Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
+                <Button asChild size="lg" variant="outline">
+                    <Link href="/solutions">
+                        Explore Our Solutions <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                 </Button>
             </div>
