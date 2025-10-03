@@ -18,7 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/about/analyst-reports', 
         '/about/global-impact', 
         '/about/research', 
-        '/about/trust'
+        '/about/trust',
+        '/industries'
       ];
       if (!excludedPages.includes(url)) {
         seenUrls.add(url);
@@ -29,8 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   menuData.menu.products.items.forEach(item => addUrl(item.href));
   addUrl(menuData.menu.products.cta.href);
 
-  // Update industries link to point to the new single page
-  addUrl('/industries');
+  // Add the consolidated use cases page
+  addUrl('/use-cases');
   
   menuData.menu.learning.center.links.forEach(item => addUrl(item.href));
   addUrl(menuData.menu.learning.center.cta.href);
@@ -42,10 +43,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   addUrl(menuData.menu.company.cta.href);
 
   menuData.menu.support.center.links.forEach(link => addUrl(link.href));
-  addUrl(menu.menu.support.promo.cta.href);
+  addUrl(menuData.menu.support.promo.cta.href);
 
   // Manually add other pages not in menu
-  ['/ab-testing', '/use-cases'].forEach(addUrl);
+  ['/ab-testing'].forEach(addUrl);
 
 
   const staticUrls = Array.from(seenUrls).map((page) => ({

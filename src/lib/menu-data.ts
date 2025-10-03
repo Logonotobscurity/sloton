@@ -45,18 +45,18 @@ export const menuData = {
     "industries": {
       "heading": "Industries",
       "intro": "Browse solutions to help you solve the complex business challenges unique to your industry.",
-      "cta": {"label": "Learn More", "href": "/industries"},
+      "cta": {"label": "Learn More", "href": "/use-cases"},
       "items": [
-        {"title": "Finance & Banking", "shortDescription": "Future-proof your bank with one AI platform.", "href": "/industries#finance"},
-        {"title": "Healthcare", "shortDescription": "Fuel efficiency, reduce costs, and deliver quality care.", "href": "/industries#healthcare"},
-        {"title": "E-Commerce", "shortDescription": "Enhance retail experiences with AI-powered insights.", "href": "/industries#ecommerce"},
-        {"title": "Insurance", "shortDescription": "Be the trusted carrier of choice with one AI platform.", "href": "/industries#insurance"},
-        {"title": "Accounting", "shortDescription": "Streamline accounting with automated data entry.", "href": "/industries#accounting"},
-        {"title": "Manufacturing", "shortDescription": "Drive manufacturing efficiency with one AI platform.", "href": "/industries#manufacturing"},
-        {"title": "Real Estate", "shortDescription": "Enhance client engagement with AI-powered chatbots.", "href": "/industries#real-estate"},
-        {"title": "IT Consulting", "shortDescription": "Enhance service offerings and internal efficiencies.", "href": "/industries#it-consulting"},
-        {"title": "Logistics & Transport", "shortDescription": "Optimize your logistics network with AI-driven route planning.", "href": "/industries#logistics"},
-        {"title": "Telecom", "shortDescription": "Manage infrastructure on one AI platform.", "href": "/industries#telecom"}
+        {"title": "Finance & Banking", "shortDescription": "Future-proof your bank with one AI platform.", "href": "/use-cases#finance"},
+        {"title": "Healthcare", "shortDescription": "Fuel efficiency, reduce costs, and deliver quality care.", "href": "/use-cases#healthcare"},
+        {"title": "E-Commerce", "shortDescription": "Enhance retail experiences with AI-powered insights.", "href": "/use-cases#ecommerce"},
+        {"title": "Insurance", "shortDescription": "Be the trusted carrier of choice with one AI platform.", "href": "/use-cases"},
+        {"title": "Accounting", "shortDescription": "Streamline your accounting workflows with automated data entry.", "href": "/use-cases"},
+        {"title": "Manufacturing", "shortDescription": "Drive manufacturing efficiency with one AI platform.", "href": "/use-cases"},
+        {"title": "Real Estate", "shortDescription": "Enhance client engagement with AI-powered chatbots.", "href": "/use-cases"},
+        {"title": "IT Consulting", "shortDescription": "Enhance your service offerings and internal efficiencies.", "href": "/use-cases"},
+        {"title": "Logistics & Transport", "shortDescription": "Optimize your logistics network with AI-driven route planning.", "href": "/use-cases"},
+        {"title": "Telecom", "shortDescription": "Manage infrastructure on one AI platform.", "href": "/use-cases"}
       ]
     },
     "learning": {
@@ -134,5 +134,3 @@ export const menuData = {
     }
   }
 };
-
-    

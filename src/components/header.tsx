@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Menu, Phone } from 'lucide-react';
+import { Menu, Phone, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -191,8 +191,8 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
 };
 
 const navLinks = [
-  { label: 'Products', href: '/solutions' },
-  { label: 'Industries', href: '/industries' },
+  { label: 'Solutions', href: '/solutions' },
+  { label: 'Use Cases', href: '/use-cases' },
   { label: 'Learning', href: '/training' },
   { label: 'Partners', href: '/partners' },
   { label: 'Company', href: '/about' },
@@ -216,8 +216,8 @@ export function Header() {
 
   const getMenuItems = (label: string) => {
     switch (label) {
-        case 'Products': return products.items;
-        case 'Industries': return industries.items;
+        case 'Solutions': return products.items;
+        case 'Use Cases': return industries.items;
         case 'Learning': return learning.center.links;
         case 'Partners': return partners.items;
         case 'Company': return company.items;
@@ -225,6 +225,16 @@ export function Header() {
         default: return [];
     }
   };
+
+  const NavLink = ({ href, children, hasDropdown }: { href: string; children: React.ReactNode, hasDropdown?: boolean }) => (
+    <Link href={href} className={cn(
+        "flex items-center text-sm font-medium transition-colors hover:text-primary px-3 py-2 rounded-md",
+        pathname === href || (href !== '/' && pathname.startsWith(href)) ? "bg-secondary text-primary" : ""
+    )}>
+        {children}
+        {hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
+    </Link>
+  );
 
   return (
     <header 
@@ -244,26 +254,41 @@ export function Header() {
             </div>
             
             <nav className="flex-1 flex justify-center items-center">
-                {navLinks.map((item) => (
-                     <div key={item.label} className="group relative flex h-full items-center">
-                        <Link href={item.href} className={cn(
-                        "flex items-center text-sm font-medium transition-colors hover:text-primary px-2 py-2 rounded-md",
-                        pathname.startsWith(item.href) ? "bg-secondary text-primary" : ""
-                        )}>
-                            {item.label}
-                        </Link>
-                        {item.label !== 'Ideas Lab' && (
-                            <div className={cn(
-                                "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
-                                "w-screen max-w-4xl -translate-x-1/2 left-1/2"
-                            )}>
-                                <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
-                                    <MegaMenuContent navItem={item} onLinkClick={() => {}} />
-                                </div>
-                            </div>
-                        )}
+                <div className="group relative flex h-full items-center">
+                    <NavLink href="/solutions" hasDropdown>Solutions</NavLink>
+                    <div className={cn(
+                        "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
+                        "w-screen max-w-4xl -translate-x-1/2 left-1/2"
+                    )}>
+                        <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
+                            <MegaMenuContent navItem={{ label: 'Products' }} onLinkClick={() => {}} />
+                        </div>
                     </div>
-                ))}
+                </div>
+                <NavLink href="/use-cases">Use Cases</NavLink>
+                <div className="group relative flex h-full items-center">
+                     <NavLink href="/training" hasDropdown>Learning</NavLink>
+                     <div className={cn(
+                        "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
+                        "w-screen max-w-4xl -translate-x-1/2 left-1/2"
+                    )}>
+                        <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
+                            <MegaMenuContent navItem={{ label: 'Learning' }} onLinkClick={() => {}} />
+                        </div>
+                    </div>
+                </div>
+                <NavLink href="/partners">Partners</NavLink>
+                <div className="group relative flex h-full items-center">
+                    <NavLink href="/about" hasDropdown>Company</NavLink>
+                    <div className={cn(
+                        "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
+                        "w-screen max-w-sm -translate-x-1/2 left-1/2"
+                    )}>
+                        <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
+                            <MegaMenuContent navItem={{ label: 'Company' }} onLinkClick={() => {}} />
+                        </div>
+                    </div>
+                </div>
             </nav>
             
             <div className="flex items-center gap-2 flex-shrink-0">
