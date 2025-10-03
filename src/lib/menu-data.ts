@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrainCircuit, Zap, Code, MessageSquare, BarChart3, Database, Cog, Users, Landmark, Search, Globe, Building, Briefcase, HeartPulse, ShoppingCart, Shield, Calculator, Factory, Server, Truck, Phone } from 'lucide-react';
 
@@ -5,9 +6,9 @@ export const menuData = {
   "menuVersion": "1.0",
   "menu": {
     "products": {
-       "heading": "Products",
+       "heading": "Our Tools",
        "intro": "Unite people, processes, and systems with AI-powered products for all your workflows.",
-       "cta": {"label": "See All Products", "href": "/solutions"},
+       "cta": {"label": "See All Tools", "href": "/solutions"},
        "items": [
           {
             title: 'AI Solutions',

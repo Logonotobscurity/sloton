@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -35,10 +36,10 @@ export function StrategicPartner() {
             >
                 <motion.p variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="text-sm font-normal uppercase tracking-widest text-primary">01/ What We Do</motion.p>
                 <motion.h2 variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="font-headline text-[clamp(2rem,5vw,3rem)] font-bold !leading-snug">
-                    We build business habitats: integrated digital ecosystems where you can <span className="text-primary">thrive</span>.
+                    We build business habitats where <span className="text-primary">technology works together</span> seamlessly.
                 </motion.h2>
                 <motion.p variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="text-muted-foreground md:text-lg">
-                    Our value isn't just in understanding technology; it's in applying it to solve your core business challenges. We provide a clear, structured pathway to integrating technology that drives real business results.
+                    Our focus isn't just implementing technology—it's solving your biggest operational challenges. We provide clear, measurable paths to systems that deliver real business results.
                 </motion.p>
             </motion.div>
 
@@ -57,14 +58,14 @@ export function StrategicPartner() {
                                   <div className="p-3 md:p-4 rounded-full bg-primary/10 mb-4 w-fit">
                                       <BrainCircuit className="h-8 w-8 md:h-10 md:w-10 text-primary" />
                                   </div>
-                                  <CardTitle className="text-xl">Free AI Business Assessment</CardTitle>
+                                  <CardTitle className="text-xl">Free Business Assessment</CardTitle>
                                   <CardDescription className="mt-2">
-                                      Get a data-driven report identifying automation opportunities and tailored IT solutions for your business.
+                                      Get a customized report showing exactly where automation can save you time and money, with specific solutions for your unique needs.
                                   </CardDescription>
                               </CardHeader>
                               <CardFooter className="p-6 md:p-8 pt-0">
                                   <Button variant="ghost" className="p-0 text-primary group-hover:text-primary/90">
-                                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                                      Get Your Custom Plan <ArrowRight className="ml-2 h-4 w-4" />
                                   </Button>
                               </CardFooter>
                           </Card>
@@ -72,9 +73,9 @@ export function StrategicPartner() {
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
                         <DialogHeader>
-                            <DialogTitle className="text-2xl">Free AI Business Assessment</DialogTitle>
+                            <DialogTitle className="text-2xl">Free Business Assessment</DialogTitle>
                             <DialogDescription>
-                            Describe your business needs to receive tailored IT solution recommendations from our AI consultant.
+                            Get a customized report showing exactly where automation can save you time and money, with specific solutions for your unique needs.
                             </DialogDescription>
                         </DialogHeader>
                         <SolutionRecommendationForm />
@@ -97,12 +98,12 @@ export function StrategicPartner() {
                                   </div>
                                   <CardTitle className="text-xl">Intelligent Automation Designer</CardTitle>
                                   <CardDescription className="mt-2">
-                                      Describe a workflow and our AI will generate a configured, optimized task design in seconds.
+                                      Describe any workflow in plain English. Our AI creates your optimized automation plan in seconds—showing exactly where you'll save time and money.
                                   </CardDescription>
                               </CardHeader>
                               <CardFooter className="p-6 md:p-8 pt-0">
                                   <Button variant="ghost" className="p-0 text-primary group-hover:text-primary/90">
-                                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                                      Try It Free <ArrowRight className="ml-2 h-4 w-4" />
                                   </Button>
                               </CardFooter>
                           </Card>
@@ -110,9 +111,9 @@ export function StrategicPartner() {
                     </DialogTrigger>
                      <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
                         <DialogHeader>
-                            <DialogTitle className="text-2xl flex items-center gap-2"><Cog className="h-6 w-6 text-primary" /> Automation Task Designer</DialogTitle>
+                            <DialogTitle className="text-2xl flex items-center gap-2"><Cog className="h-6 w-6 text-primary" /> Intelligent Automation Designer</DialogTitle>
                             <DialogDescription>
-                                Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.
+                                Describe any workflow in plain English. Our AI creates your optimized automation plan in seconds—showing exactly where you'll save time and money.
                             </DialogDescription>
                         </DialogHeader>
                         <TaskAutomationForm />

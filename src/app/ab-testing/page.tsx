@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Beaker, CheckCircle, ArrowRight, Lightbulb, Bot, TestTube, Target, Puzzle, Handshake, FlaskConical, CircleDot } from 'lucide-react';
+import { CheckCircle, ArrowRight, Lightbulb, Bot, TestTube, Target, Puzzle, Handshake, FlaskConical, CircleDot } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero } from '@/components/page-hero';

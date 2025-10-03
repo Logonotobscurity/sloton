@@ -45,13 +45,13 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
 const features = [
     {
       title: "Finance & Banking",
-      description: "AI-driven fraud detection, RPA for back-office tasks, and robust cloud infrastructure.",
+      description: "Stop fraud faster and automate compliance tasks that consume valuable resources.",
       icon: <Briefcase className="w-8 h-8 text-primary" />,
       className: "lg:col-span-2",
     },
     {
       title: "Healthcare",
-      description: "Automating administrative tasks and enabling secure EHR management.",
+      description: "Secure systems that protect patient data while reducing administrative overhead.",
       icon: <HeartPulse className="w-8 h-8 text-primary" />,
       className: "lg:col-span-1",
     },
@@ -63,7 +63,7 @@ const features = [
     },
     {
       title: "E-Commerce",
-      description: "AI recommendation engines, automated inventory management, and 24/7 support chatbots.",
+      description: "AI that recommends products customers want to buy, plus automated support that never sleeps.",
       icon: <ShoppingCart className="w-8 h-8 text-primary" />,
       className: "lg:col-span-1",
     },
@@ -75,7 +75,7 @@ const features = [
     },
      {
       title: "Real Estate",
-      description: "AI chatbots for property inquiries, automated lead nurturing, and virtual property tours.",
+      description: "AI assistants that qualify leads and handle inquiries 24/7, maximizing conversion opportunities.",
       icon: <Building className="w-8 h-8 text-primary" />,
       className: "lg:col-span-1",
     },

@@ -61,7 +61,7 @@ const Logo = () => (
 
 const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?: () => void }) => {
     switch (navItem.label) {
-        case 'Products':
+        case 'What We Solve':
             const { heading: pHeading, intro: pIntro, cta: pCta, items: pItems } = products;
             return (
                 <div className="grid grid-cols-12 gap-x-2">
@@ -70,7 +70,7 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
                         <p className="text-xs text-muted-foreground mt-1 px-2">{pIntro}</p>
                          <div className="px-2 mt-3">
                             <Button asChild size="sm">
-                                <Link href={pCta.href}>See All Products</Link>
+                                <Link href={pCta.href}>See All Solutions</Link>
                             </Button>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
                     </div>
                 </div>
             );
-        case 'Industries':
+        case 'See Results':
             const { heading: iHeading, intro: iIntro, cta: iCta, items: iItems } = industries;
             return (
                 <div className="grid grid-cols-12 gap-x-2">
@@ -96,12 +96,12 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
                     </div>
                     <div className="col-span-9 p-2">
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1">
-                            {iItems.map(item => <MegaMenuLink key={item.title} item={{...item, href: item.href || '/industries'}} onLinkClick={onLinkClick} />)}
+                            {iItems.map(item => <MegaMenuLink key={item.title} item={{...item, href: item.href || '/use-cases'}} onLinkClick={onLinkClick} />)}
                         </div>
                     </div>
                 </div>
             );
-        case 'Learning':
+        case 'Build Skills':
              const { heading: lHeading, leftNav: lLeftNav, center: lCenter } = learning;
             return (
                  <div className="grid grid-cols-12">
@@ -191,9 +191,9 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
 };
 
 const navLinks = [
-  { label: 'Solutions', href: '/solutions' },
-  { label: 'Use Cases', href: '/use-cases' },
-  { label: 'Learning', href: '/training' },
+  { label: 'What We Solve', href: '/solutions' },
+  { label: 'See Results', href: '/use-cases' },
+  { label: 'Build Skills', href: '/training' },
   { label: 'Partners', href: '/partners' },
   { label: 'Company', href: '/about' },
   { label: 'Support', href: '/support' },
@@ -216,9 +216,9 @@ export function Header() {
 
   const getMenuItems = (label: string) => {
     switch (label) {
-        case 'Solutions': return products.items;
-        case 'Use Cases': return industries.items;
-        case 'Learning': return learning.center.links;
+        case 'What We Solve': return products.items;
+        case 'See Results': return industries.items;
+        case 'Build Skills': return learning.center.links;
         case 'Partners': return partners.items;
         case 'Company': return company.items;
         case 'Support': return support.center.links;
@@ -255,25 +255,25 @@ export function Header() {
             
             <nav className="flex-1 flex justify-center items-center">
                 <div className="group relative flex h-full items-center">
-                    <NavLink href="/solutions" hasDropdown>Solutions</NavLink>
+                    <NavLink href="/solutions" hasDropdown>What We Solve</NavLink>
                     <div className={cn(
                         "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
                         "w-screen max-w-4xl -translate-x-1/2 left-1/2"
                     )}>
                         <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
-                            <MegaMenuContent navItem={{ label: 'Products' }} onLinkClick={() => {}} />
+                            <MegaMenuContent navItem={{ label: 'What We Solve' }} onLinkClick={() => {}} />
                         </div>
                     </div>
                 </div>
-                <NavLink href="/use-cases">Use Cases</NavLink>
+                <NavLink href="/use-cases">See Results</NavLink>
                 <div className="group relative flex h-full items-center">
-                     <NavLink href="/training" hasDropdown>Learning</NavLink>
+                     <NavLink href="/training" hasDropdown>Build Skills</NavLink>
                      <div className={cn(
                         "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
                         "w-screen max-w-4xl -translate-x-1/2 left-1/2"
                     )}>
                         <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
-                            <MegaMenuContent navItem={{ label: 'Learning' }} onLinkClick={() => {}} />
+                            <MegaMenuContent navItem={{ label: 'Build Skills' }} onLinkClick={() => {}} />
                         </div>
                     </div>
                 </div>

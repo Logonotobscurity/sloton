@@ -15,14 +15,14 @@ import { AdinkraBackground } from '@/components/ui/adinkra-background';
 
 
 export const metadata: Metadata = {
-  title: 'Expert AI & Automation Training Programs | LOG_ON',
-  description: 'Advance your career with expert-led training in AI and automation. Explore our courses and community impact projects in ethical AI and digital skills.',
+  title: 'Build Skills That Deliver Immediate ROI',
+  description: 'Learn practical, actionable knowledge you can implement immediately to drive efficiency and growth in your organization.',
   alternates: {
     canonical: '/training',
   },
   openGraph: {
-      title: 'Expert AI & Automation Training Programs | LOG_ON',
-      description: 'Advance your career with expert-led training in AI and automation. Explore our courses and community impact projects in ethical AI and digital skills.',
+      title: 'Build Skills That Deliver Immediate ROI',
+      description: 'Learn practical, actionable knowledge you can implement immediately to drive efficiency and growth in your organization.',
       url: '/training',
       type: 'website',
   }
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
 const trainingPrograms = [
     {
         icon: <ShieldQuestion className="h-8 w-8 text-primary"/>,
-        title: "Transforming Customer Support with AI",
+        title: "Reducing Support Costs with AI",
         description: "Learn to build, train, and deploy private AI assistants using your own company documents to revolutionize support systems.",
         tags: ["AI", "Customer Support", "Intermediate"],
         href: "/training"
     },
     {
         icon: <Lightbulb className="h-8 w-8 text-primary"/>,
-        title: "AI Insights: A Practical Guide",
+        title: "AI for Business Growth: Practical Implementation",
         description: "A comprehensive overview of AI types and their practical applications. Gain foundational knowledge for strategic AI adoption.",
         tags: ["AI", "Strategy", "Beginner"],
         href: "/training"
@@ -76,13 +76,13 @@ const trainingPrograms = [
 const communityProjects = [
     {
         icon: <HeartHandshake className="h-8 w-8 text-primary"/>,
-        title: "Community Impact: LISTNER AI",
+        title: "Making Mental Health Support More Accessible",
         description: "An AI mental health chatbot designed to provide compassionate, accessible, and confidential support.",
         href: "/training#impact",
     },
     {
         icon: <Globe className="h-8 w-8 text-primary"/>,
-        title: "Ethical AI: Cultural Bridge Tech",
+        title: "Building AI That Understands Diverse Cultures",
         description: "A research project and toolkit for identifying and mitigating cultural bias in large language models (LLMs).",
         href: "/training#impact",
     },
@@ -111,7 +111,7 @@ export default function TrainingPage() {
   return (
     <div className="bg-background">
       <PageHero 
-        title="Community & Innovation"
+        title="Build Skills That Deliver Immediate ROI"
         description="We believe in building more than just technology; we're dedicated to building skills, fostering leadership, and making a positive community impact. Explore our training programs and our commitment to ethical innovation."
       />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">

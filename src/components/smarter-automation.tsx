@@ -11,11 +11,11 @@ import { TaskAutomationForm } from './task-automation-form';
 import { GlowingCard } from './ui/glowing-card';
 
 const popularWorkflows = [
-    "Sales Funnel Automation",
-    "Financial Close Process",
-    "Employee Onboarding",
-    "Marketing Campaign Execution",
-    "Customer Support Ticketing"
+    "Automate Lead Conversion & Follow-up",
+    "Streamline Financial Reporting & Compliance",
+    "Accelerate Employee Onboarding",
+    "Automate Marketing Campaign Execution",
+    "Resolve Customer Support Tickets Faster"
 ]
 
 export function SmarterAutomation() {
@@ -25,10 +25,10 @@ export function SmarterAutomation() {
         <div className="max-w-3xl mx-auto text-center">
             <p className="text-sm font-normal uppercase tracking-widest text-primary">03/ Our Platform</p>
             <h2 className="font-headline text-[clamp(2rem,5vw,3rem)] font-bold !leading-snug mt-4">
-              A Smarter Way to Automate
+              The Fastest Path to Automation
             </h2>
             <p className="text-muted-foreground text-md md:text-lg mt-4">
-              Go from idea to a fully-structured automation plan in seconds. Describe any workflow and our AI designer will instantly map out the steps, identify necessary integrations, and suggest optimizations.
+              Describe any business process in plain English. Get a complete, optimized automation plan in seconds—showing exactly how to reduce costs and save time.
             </p>
         </div>
         <div className="grid lg:grid-cols-2 gap-8 items-stretch mt-12">
@@ -66,7 +66,7 @@ export function SmarterAutomation() {
 
             <Card className="bg-secondary/20 p-8">
                 <CardHeader className="p-0">
-                    <CardTitle>Popular Workflow Categories</CardTitle>
+                    <CardTitle>Popular Business Solutions</CardTitle>
                     <CardDescription>Explore solutions for every part of your business.</CardDescription>
                 </CardHeader>
                 <CardContent className="p-0 pt-6">

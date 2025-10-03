@@ -21,15 +21,15 @@ export function Hero() {
                     Connecting Advantages. Delivering Results.
                 </p>
                 <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] !leading-tight my-4">
-                    We architect <span className="text-primary">intelligent ecosystems</span> that drive business forward.
+                    Do More with Less: <span className="text-primary">Smart Automation</span> for Growing Businesses.
                 </h1>
                 <p className="text-md md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Stop patching together disparate tools. Our AI-powered solutions audit identifies your biggest opportunities for automation and growth, providing a clear roadmap to a more efficient and integrated digital future.
+                    Stop wasting time on disconnected tools. Get a clear roadmap to integrated systems that save time and drive revenue growth.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mt-8">
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Button size="lg">Get Your Free AI Assessment</Button>
+                            <Button size="lg">Get Your Free Efficiency Assessment</Button>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
                             <DialogHeader>
@@ -42,7 +42,7 @@ export function Hero() {
                         </DialogContent>
                     </Dialog>
                     <Button size="lg" variant="secondary" asChild>
-                        <Link href="/solutions">Explore Our Services</Link>
+                        <Link href="/solutions">See How We Drive Growth</Link>
                     </Button>
                 </div>
             </div>

@@ -217,10 +217,10 @@ export function TechStackCarousel() {
             {/* Text Content */}
             <div className="mx-auto mt-12 max-w-lg space-y-6 text-center">
             <h2 className="text-balance text-3xl font-semibold md:text-4xl font-headline">
-                The Technologies We Master
+                Business Value First
             </h2>
             <p className="text-muted-foreground">
-                We leverage a modern, robust, and scalable tech stack to build enterprise-grade solutions that stand the test of time.
+                We leverage proven, scalable technology that grows with your business. No legacy systems, no technical debt—just solutions that deliver measurable results today and adapt for tomorrow.
             </p>
 
             <Button variant="outline" size="sm" asChild>

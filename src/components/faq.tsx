@@ -16,13 +16,13 @@ import { motion } from 'framer-motion';
 const faqItems = [
   {
     value: "item-1",
-    question: "What kind of results can I expect from your AI and automation solutions?",
+    question: "How quickly will I see ROI?",
     answer: "Clients typically see significant improvements in efficiency, cost reduction, and scalability. For example, our AI chatbots can reduce customer support tickets by over 30%, and our RPA solutions can save dozens of hours per week by automating manual tasks. We focus on delivering measurable ROI, which we outline in our initial <a href='/solutions' class='text-primary underline'>solutions proposal</a>.",
     icon: <BrainCircuit className="h-5 w-5 text-primary" />
   },
   {
     value: "item-2",
-    question: "How do you start a new project?",
+    question: "How do you integrate with our existing systems?",
     answer: "Our process begins with a free AI Business Assessment to understand your goals. From there, we move to a discovery and planning phase to create a detailed project roadmap and timeline. We believe in a collaborative partnership, so you'll be involved at every stage.",
     icon: <Zap className="h-5 w-5 text-primary" />
   },
@@ -40,7 +40,7 @@ const faqItems = [
   },
   {
     value: "item-3",
-    question: "What is your pricing model?",
+    question: "What's the typical cost and timeline?",
     answer: "Our pricing is tailored to the scope and complexity of each project. We offer project-based pricing for specific builds and monthly retainers for ongoing support and strategic guidance. We are transparent with all costs upfront. For a detailed quote, please <a href='/contact' class='text-primary underline'>contact us</a>.",
     icon: <CircleDollarSign className="h-5 w-5 text-primary" />
   },

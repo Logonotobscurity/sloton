@@ -41,9 +41,12 @@ export function Footer() {
              <p className="text-muted-foreground text-base md:text-lg max-w-md mx-auto lg:mx-0">
               Ready to transform your business with intelligent technology? Let's build something great together.
             </p>
-            <div>
-              <Button asChild size="lg">
-                <Link href="/contact">Start a Conversation</Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <Button asChild>
+                <Link href="/contact">Get Your Free Efficiency Assessment</Link>
+              </Button>
+              <Button asChild variant="secondary">
+                <Link href="/use-cases">See Real Business Results</Link>
               </Button>
             </div>
           </div>
@@ -51,7 +54,7 @@ export function Footer() {
           <div className="lg:col-span-7">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               <div>
-                <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">Services</h3>
+                <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">What We Solve</h3>
                 <ul className="space-y-3 list-none">
                   {products.items.map((item) => (
                     <li key={item.title}>
@@ -78,8 +81,8 @@ export function Footer() {
                <div>
                 <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">Resources</h3>
                  <ul className="space-y-3 list-none">
-                   <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary transition-colors">Case Studies</Link></li>
-                   <li><Link href="/support" className="text-muted-foreground hover:text-primary transition-colors">Support Center</Link></li>
+                   <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary transition-colors">See Results</Link></li>
+                   <li><Link href="/training" className="text-muted-foreground hover:text-primary transition-colors">Build Skills</Link></li>
                    <li><Link href="/ideas-lab" className="text-muted-foreground hover:text-primary transition-colors">Ideas Lab</Link></li>
                 </ul>
               </div>

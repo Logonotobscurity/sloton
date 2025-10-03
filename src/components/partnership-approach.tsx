@@ -43,9 +43,9 @@ export function PartnershipApproach() {
           variants={containerVariants}
         >
             <div className="space-y-6">
-                <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold font-headline">Built on a Foundation of Trusted Partners</motion.h2>
+                <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold font-headline">Strategic Partnerships</motion.h2>
                 <motion.p variants={itemVariants} className="text-muted-foreground md:text-lg">
-                    We partner with ambitious teams to deliver tangible outcomes. Our success is measured by your success, and we leverage the best technologies to build solutions that fuel growth and innovation.
+                    We collaborate with industry leaders to ensure your solutions are built on reliable, enterprise-grade platforms.
                 </motion.p>
                 <motion.div variants={itemVariants} className="grid grid-cols-2 gap-x-8 gap-y-6 pt-4">
                     {partners.map(partner => (

@@ -22,17 +22,14 @@ export function IdeasLab() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center p-6 md:p-12">
             <div className="space-y-6">
               <h2 className="font-headline text-3xl md:text-4xl font-bold">
-                Our Ideas Lab
+                We Test New Ideas So You Get Proven Results
               </h2>
               <p className="text-muted-foreground text-md md:text-lg">
-                We are relentlessly curious, constantly testing new concepts and creative approaches. This dedicated space is where we share experimental ideas—often born from collaborations with partners—to gather feedback and drive improvement.
-              </p>
-              <p className="text-muted-foreground text-md md:text-lg">
-                Understanding technology is our core value. It allows us to connect dots that specialists might miss, creating integrated solutions that are more robust, efficient, and innovative.
+                Our innovation lab validates what actually works before you invest. Get data-backed strategies, not just theoretical concepts.
               </p>
               <Button asChild variant="outline">
                   <Link href="/ab-testing">
-                      See Our Testing Methodology <ArrowRight className="ml-2 h-4 w-4" />
+                      See Live Experiments <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
               </Button>
             </div>
@@ -51,7 +48,7 @@ export function IdeasLab() {
               </motion.div>
               
                <div className="w-full max-w-md text-center">
-                  <h3 className="font-semibold text-lg mb-4">Let's put this agent to the test.</h3>
+                  <h3 className="font-semibold text-lg mb-4">GIGPILOT Assistant</h3>
                   <Card 
                     onClick={() => setChatbotOpen(true)}
                     className="relative w-full cursor-pointer bg-secondary/50 p-4 rounded-xl hover:border-primary transition-colors"
@@ -71,10 +68,10 @@ export function IdeasLab() {
                         <div className="flex-1 min-w-0 text-left">
                             <div>
                                 <p className="text-sm font-medium">
-                                    Chat with GIGPILOT
+                                    Ask About Your Workflow
                                 </p>
                                 <p className="text-[13px] text-muted-foreground mt-0.5">
-                                    Our AI assistant is here to help you.
+                                    Get instant answers about how to automate your specific workflows and save time.
                                 </p>
                             </div>
                         </div>
