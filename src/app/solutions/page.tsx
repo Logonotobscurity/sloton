@@ -171,7 +171,7 @@ const industryApplications = [
         challenge: "Financial institutions face immense pressure to detect fraud in real-time, comply with strict regulations, and reduce the high costs of manual back-office operations like loan processing and compliance reporting.",
         solution: "We integrate **AI Solutions** and **Process Automation** to solve this. Our AI models analyze transaction patterns to detect and flag fraudulent activity with over 99% accuracy. Simultaneously, our RPA bots automate the extraction and validation of data for loan applications and compliance reports, reducing processing time by up to 70%.",
         cta: {
-            text: "Download the Finance Transformation Case Study",
+            text: "View Case Study",
             href: "/use-cases"
         }
     },
@@ -181,7 +181,7 @@ const industryApplications = [
         challenge: "Healthcare providers are burdened with administrative tasks, from patient scheduling and billing to managing vast amounts of unstructured patient data, leading to staff burnout and inefficient patient care.",
         solution: "Our **Chatbots & Virtual Assistants** streamline patient communication by automating appointment scheduling and answering common queries. We couple this with **AI Solutions** (NLP) to extract critical information from clinical notes, helping to automate medical coding and provide clinicians with faster access to patient histories, ultimately improving the quality of care.",
         cta: {
-            text: "Download the Healthcare Automation Case Study",
+            text: "View Case Study",
             href: "/use-cases"
         }
     },
@@ -191,7 +191,7 @@ const industryApplications = [
         challenge: "Online retailers struggle to provide personalized shopping experiences at scale, leading to high cart abandonment rates and missed revenue opportunities. Managing customer queries about order status and returns further strains support teams.",
         solution: "We combine **Business Analytics** with **Web & Custom Development** to build intelligent e-commerce platforms. Our analytics dashboards track user behavior to identify drop-off points, while our custom recommendation engines (powered by our AI models) personalize the shopping experience. An integrated AI chatbot handles over 60% of order-related inquiries, freeing up support staff.",
         cta: {
-            text: "Download the E-Commerce Growth Case Study",
+            text: "View Case Study",
             href: "/use-cases"
         }
     }
