@@ -7,7 +7,7 @@ import { ArrowRight, Building, Users, Scale, Globe, ShieldCheck, Lock, DatabaseZ
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { PageHero } from '@/components/page-hero';
 import { BottomCta } from '@/components/bottom-cta';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { insights } from '@/lib/insights';
 
 export const metadata: Metadata = {
@@ -207,7 +207,7 @@ export default function AboutPage() {
                             </CardContent>
                         </Card>
                     ))}
-                </section>
+                </div>
             </div>
         </section>
 
