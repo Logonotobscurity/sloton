@@ -15,14 +15,14 @@ import { AdinkraBackground } from '@/components/ui/adinkra-background';
 
 
 export const metadata: Metadata = {
-  title: 'Build Skills That Deliver Immediate ROI',
-  description: 'Learn practical, actionable knowledge you can implement immediately to drive efficiency and growth in your organization.',
+  title: 'AI & Automation Training Courses | LOG_ON',
+  description: 'Master in-demand tech skills. Explore expert-led training courses in AI, process automation, and prompt engineering to accelerate your career and drive business growth.',
   alternates: {
     canonical: '/training',
   },
   openGraph: {
-      title: 'Build Skills That Deliver Immediate ROI',
-      description: 'Learn practical, actionable knowledge you can implement immediately to drive efficiency and growth in your organization.',
+      title: 'AI & Automation Training Courses | LOG_ON',
+      description: 'Master in-demand tech skills. Explore expert-led training courses in AI, process automation, and prompt engineering.',
       url: '/training',
       type: 'website',
   }
@@ -118,7 +118,7 @@ export default function TrainingPage() {
         
         <section id="programs" className="py-16 md:py-24">
             <div className="text-center max-w-3xl mx-auto mb-12">
-                <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Training Programs</h2>
+                <h2 className="text-2xl md:text-4xl font-bold font-headline">Explore Our Training Programs</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground">Master in-demand skills with our hands-on curriculum in AI, Automation, and Prompt Engineering. Elevate your career with industry-relevant knowledge.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
