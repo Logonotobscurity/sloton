@@ -80,6 +80,7 @@ export function Footer() {
                  <ul className="space-y-3 list-none">
                    <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary transition-colors">Case Studies</Link></li>
                    <li><Link href="/support" className="text-muted-foreground hover:text-primary transition-colors">Support Center</Link></li>
+                   <li><Link href="/ideas-lab" className="text-muted-foreground hover:text-primary transition-colors">Ideas Lab</Link></li>
                 </ul>
               </div>
             </div>

@@ -194,6 +194,7 @@ const navLinks = [
   { label: 'Products', href: '/solutions' },
   { label: 'Industries', href: '/use-cases' },
   { label: 'Learning', href: '/training' },
+  { label: 'Ideas Lab', href: '/ideas-lab' },
   { label: 'Partners', href: '/partners' },
   { label: 'Company', href: '/about' },
   { label: 'Support', href: '/support' },
@@ -252,14 +253,16 @@ export function Header() {
                         )}>
                             {item.label}
                         </Link>
-                        <div className={cn(
-                            "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
-                            "w-screen max-w-4xl -translate-x-1/2 left-1/2"
-                        )}>
-                            <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
-                                <MegaMenuContent navItem={item} onLinkClick={() => {}} />
+                        {item.label !== 'Ideas Lab' && (
+                            <div className={cn(
+                                "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
+                                "w-screen max-w-4xl -translate-x-1/2 left-1/2"
+                            )}>
+                                <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
+                                    <MegaMenuContent navItem={item} onLinkClick={() => {}} />
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 ))}
             </nav>
