@@ -96,7 +96,7 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
                     </div>
                     <div className="col-span-9 p-2">
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1">
-                            {iItems.map(item => <MegaMenuLink key={item.title} item={{...item, href: item.href || '/use-cases'}} onLinkClick={onLinkClick} />)}
+                            {iItems.map(item => <MegaMenuLink key={item.title} item={{...item, href: item.href || '/industries'}} onLinkClick={onLinkClick} />)}
                         </div>
                     </div>
                 </div>
@@ -192,7 +192,7 @@ const MegaMenuContent = ({ navItem, onLinkClick }: { navItem: any, onLinkClick?:
 
 const navLinks = [
   { label: 'Products', href: '/solutions' },
-  { label: 'Industries', href: '/use-cases' },
+  { label: 'Industries', href: '/industries' },
   { label: 'Learning', href: '/training' },
   { label: 'Partners', href: '/partners' },
   { label: 'Company', href: '/about' },
