@@ -194,7 +194,6 @@ const navLinks = [
   { label: 'Products', href: '/solutions' },
   { label: 'Industries', href: '/use-cases' },
   { label: 'Learning', href: '/training' },
-  { label: 'Ideas Lab', href: '/ideas-lab' },
   { label: 'Partners', href: '/partners' },
   { label: 'Company', href: '/about' },
   { label: 'Support', href: '/support' },

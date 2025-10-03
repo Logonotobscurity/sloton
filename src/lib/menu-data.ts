@@ -100,16 +100,11 @@ export const menuData = {
       "intro": "Bring AI Agents to every corner of your business.",
       "cta": {"label": "Learn More", "href": "/about"},
       "items": [
-        {"title": "About Us", "desc": "Learn about our mission and values.", "href": "/about"},
+        {"title": "About Us", "desc": "Learn about our mission, values, and news.", "href": "/about"},
         {"title": "Careers", "desc": "Make your next career move with us.", "href": "/about/careers"},
         {"title": "Investors", "desc": "Explore investor news and resources.", "href": "/about/investors"},
-        {"title": "LOG_ON Research", "desc": "How we keep innovation moving forward.", "href": "/about/research"},
         {"title": "Leadership", "desc": "Meet the LOG_ON leadership team.", "href": "/about/our-leadership"},
         {"title": "Locations", "desc": "See LOG_ON office locations.", "href": "/about/locations"},
-        {"title": "Newsroom", "desc": "Find announcements, media kits, and more.", "href": "/about/newsroom"},
-        {"title": "Analyst Reports", "desc": "Get expert insights from top industry analysts.", "href": "/about/analyst-reports"},
-        {"title": "Global Impact", "desc": "Fostering a more sustainable and ethical world.", "href": "/about/global-impact"},
-        {"title": "Trust and Compliance", "desc": "How we keep your data secure and compliant.", "href": "/about/trust"},
         {"title": "Insights", "desc": "Stay ahead with our expert analysis.", "href": "/insights"},
         {"title": "FAQ", "desc": "Find answers to common questions.", "href": "/#faq"}
       ]

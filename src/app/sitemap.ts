@@ -8,13 +8,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://logonsolutions.netlify.app';
 
   // Static pages from menuData and other known pages
-  const staticPages: string[] = ['/'];
   const seenUrls = new Set<string>(['/']);
 
   const addUrl = (url: string) => {
     if (url && url.startsWith('/') && !seenUrls.has(url)) {
-      staticPages.push(url);
-      seenUrls.add(url);
+      // Exclude pages that have been merged
+      const excludedPages = [
+        '/about/newsroom', 
+        '/about/analyst-reports', 
+        '/about/global-impact', 
+        '/about/research', 
+        '/about/trust'
+      ];
+      if (!excludedPages.includes(url)) {
+        seenUrls.add(url);
+      }
     }
   };
 

@@ -160,7 +160,7 @@ export default function TrainingPage() {
         <section id="impact" className="py-16 md:py-24 bg-secondary/20 -mx-4 px-4 sm:-mx-6 md:-mx-8 sm:px-6 md:px-8 sm:rounded-2xl">
              <div className="container mx-auto">
                 <div className="text-center max-w-3xl mx-auto mb-12">
-                    <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Commitment to Community</h2>
+                    <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Commitment to Community & Global Impact</h2>
                     <p className="mt-4 text-md md:text-lg text-muted-foreground">We actively invest in projects that use technology to create a positive social impact, from promoting mental health accessibility to ensuring ethical AI development.</p>
                 </div>
                 <div className="grid md:grid-cols-2 gap-8">
