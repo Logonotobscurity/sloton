@@ -104,6 +104,25 @@ const industries = [
     ],
     benefits: ['Faster claims settlement times', 'More consistent and accurate underwriting', 'Reduced losses from fraud', 'Improved customer acquisition'],
   },
+   {
+    id: 'accounting',
+    name: 'Accounting',
+    icon: <Calculator className="h-10 w-10 text-primary" />,
+    description: 'Streamlining accounting workflows with automated data entry and reconciliation.',
+    challenges: [
+      'Time-consuming manual data entry from invoices and receipts',
+      'Lengthy month-end closing processes',
+      'Ensuring accuracy in financial reporting',
+      'Managing expense claims and reimbursements',
+    ],
+    solutions: [
+      { name: 'AI-Powered OCR for Invoices', description: 'Automate the extraction of data from invoices and receipts, eliminating manual data entry and reducing errors.' },
+      { name: 'Automated Bank Reconciliation', description: 'AI tools that automatically match transactions between bank statements and your accounting system.' },
+      { name: 'Automated Expense Management', description: 'Streamline employee expense reporting with mobile receipt capture and automated policy checks.' },
+      { name: 'AI-Assisted Financial Reporting', description: 'Generate financial statements and variance analysis reports automatically, freeing up time for strategic analysis.' },
+    ],
+    benefits: ['Drastically reduced manual data entry', 'Faster month-end close', 'Increased accuracy in financial records', 'Improved compliance and audit trails'],
+  },
   {
     id: 'manufacturing',
     name: 'Manufacturing',
@@ -124,6 +143,44 @@ const industries = [
     benefits: ['Higher product quality and less waste', 'Reduced equipment downtime', 'More resilient supply chain', 'Safer working environment'],
   },
    {
+    id: 'real-estate',
+    name: 'Real Estate',
+    icon: <Building className="h-10 w-10 text-primary" />,
+    description: 'Enhancing client engagement and streamlining operations with AI-powered tools.',
+    challenges: [
+      'Responding to lead inquiries 24/7',
+      'Qualifying a high volume of leads',
+      'Personalizing property recommendations for clients',
+      'Managing property viewing schedules',
+    ],
+    solutions: [
+      { name: 'AI Chatbots for Lead Capture', description: 'Deploy chatbots on your website to engage visitors 24/7, answer common questions, and schedule property viewings.' },
+      { name: 'Automated Lead Qualification & Nurturing', description: 'Use AI to score and qualify leads based on their inquiries, and automatically enroll them in personalized email nurturing campaigns.' },
+      { name: 'AI-Powered Property Matching', description: 'Develop systems that recommend properties to clients based on their stated preferences and browsing behavior.' },
+      { name: 'Automated Showing Coordination', description: 'Streamline the process of scheduling and confirming property viewings between agents, buyers, and sellers.' },
+    ],
+    benefits: ['Increased lead conversion rates', 'More efficient use of agent time', 'Improved client satisfaction', 'Streamlined operations'],
+  },
+  {
+    id: 'it-consulting',
+    name: 'IT Consulting',
+    icon: <Users className="h-10 w-10 text-primary" />,
+    description: 'Enhancing service offerings and internal efficiencies with AI and automation.',
+    challenges: [
+      'Scaling service delivery without proportionally increasing headcount',
+      'Managing client projects and reporting efficiently',
+      'Keeping teams up-to-date with the latest technologies',
+      'Developing repeatable, high-value service offerings',
+    ],
+    solutions: [
+      { name: 'AI-Powered Project Management Tools', description: 'Utilize AI to automate task assignment, predict project timelines, and identify potential risks before they impact deadlines.' },
+      { name: 'Automated Client Reporting', description: 'Develop automated systems to generate regular, data-driven progress and performance reports for clients.' },
+      { name: 'Internal Knowledge Management Systems', description: 'Build an AI-powered internal knowledge base that allows consultants to quickly find best practices, case studies, and code snippets.' },
+      { name: 'Automation as a Service Offering', description: 'Partner with us to build out and offer automation and AI solutions to your own clients, creating a new revenue stream.' },
+    ],
+    benefits: ['Increased consultant productivity', 'Enhanced client transparency and satisfaction', 'Improved scalability of services', 'New revenue opportunities'],
+  },
+  {
     id: 'logistics',
     name: 'Logistics & Transport',
     icon: <Truck className="h-10 w-10 text-primary" />,
@@ -141,6 +198,25 @@ const industries = [
       { name: 'Automated Customs Documentation', description: 'RPA bots that automatically generate and file the necessary customs paperwork for international shipments.' },
     ],
     benefits: ['Reduced fuel consumption and delivery times', 'Increased warehouse efficiency', 'Improved customer transparency', 'Faster customs clearance'],
+  },
+   {
+    id: 'telecom',
+    name: 'Telecom',
+    icon: <Phone className="h-10 w-10 text-primary" />,
+    description: 'Managing infrastructure and improving customer service on one AI platform.',
+    challenges: [
+      'Managing complex network infrastructure and predicting failures',
+      'High volume of customer support calls for billing and technical issues',
+      'Optimizing network performance and capacity planning',
+      'Reducing customer churn in a competitive market',
+    ],
+    solutions: [
+      { name: 'AI for Predictive Network Maintenance', description: 'Use AI to analyze network data, predict equipment failures, and schedule proactive maintenance to prevent outages.' },
+      { name: 'Customer Service Chatbots & Voicebots', description: 'Automate the handling of common customer inquiries like bill payments, plan changes, and basic troubleshooting.' },
+      { name: 'AI-Powered Network Optimization', description: 'Machine learning models that analyze traffic patterns to dynamically manage network resources and optimize performance.' },
+      { name: 'Churn Prediction Modeling', description: 'Use AI to identify customers who are at high risk of churning, allowing for proactive retention offers and interventions.' },
+    ],
+    benefits: ['Improved network reliability and uptime', 'Lower customer support operational costs', 'Enhanced network performance', 'Reduced customer churn'],
   },
 ];
 
@@ -211,3 +287,5 @@ export default function IndustriesPage() {
     </div>
   );
 }
+
+    

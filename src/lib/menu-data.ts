@@ -51,8 +51,12 @@ export const menuData = {
         {"title": "Healthcare", "shortDescription": "Fuel efficiency, reduce costs, and deliver quality care.", "href": "/industries#healthcare"},
         {"title": "E-Commerce", "shortDescription": "Enhance retail experiences with AI-powered insights.", "href": "/industries#ecommerce"},
         {"title": "Insurance", "shortDescription": "Be the trusted carrier of choice with one AI platform.", "href": "/industries#insurance"},
+        {"title": "Accounting", "shortDescription": "Streamline accounting with automated data entry.", "href": "/industries#accounting"},
         {"title": "Manufacturing", "shortDescription": "Drive manufacturing efficiency with one AI platform.", "href": "/industries#manufacturing"},
-        {"title": "Logistics & Transport", "shortDescription": "Optimize your logistics network with AI-driven route planning.", "href": "/industries#logistics"}
+        {"title": "Real Estate", "shortDescription": "Enhance client engagement with AI-powered chatbots.", "href": "/industries#real-estate"},
+        {"title": "IT Consulting", "shortDescription": "Enhance service offerings and internal efficiencies.", "href": "/industries#it-consulting"},
+        {"title": "Logistics & Transport", "shortDescription": "Optimize your logistics network with AI-driven route planning.", "href": "/industries#logistics"},
+        {"title": "Telecom", "shortDescription": "Manage infrastructure on one AI platform.", "href": "/industries#telecom"}
       ]
     },
     "learning": {
@@ -130,3 +134,5 @@ export const menuData = {
     }
   }
 };
+
+    
