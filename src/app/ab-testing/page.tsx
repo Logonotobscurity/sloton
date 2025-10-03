@@ -79,7 +79,7 @@ export default function ABTestingPage() {
       <PageHero
         title="The Ideas Lab: Where We Test Tomorrow, Together"
         description="We're a relentless idea engine. We test our own bold concepts, and now we're opening our doors to test yours. Explore our active pilots and submit your product for rigorous, data-driven validation."
-        icon={<Beaker className="h-12 w-12 md:h-16 md:w-16 text-primary" />}
+        icon={<TestTube className="h-12 w-12 md:h-16 md:w-16 text-primary" />}
       />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-16 md:space-y-24">
         
