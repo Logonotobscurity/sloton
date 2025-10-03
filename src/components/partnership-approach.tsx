@@ -43,13 +43,14 @@ export function PartnershipApproach() {
           variants={containerVariants}
         >
             <div className="space-y-6">
-                <motion.h2 variants={itemVariants} className="text-2xl md:text-4xl font-bold font-headline">Built on a Foundation of Trusted Partners</motion.h2>
+                <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold font-headline">Built on a Foundation of Trusted Partners</motion.h2>
                 <motion.p variants={itemVariants} className="text-muted-foreground md:text-lg">
                     We partner with ambitious teams to deliver tangible outcomes. Our success is measured by your success, and we leverage the best technologies to build solutions that fuel growth and innovation.
                 </motion.p>
                 <motion.div variants={itemVariants} className="grid grid-cols-2 gap-x-8 gap-y-6 pt-4">
                     {partners.map(partner => (
-                        <div key={partner.name} className="flex items-center gap-3" title={partner.name} data-ai-hint={partner.dataAiHint}>
+                        <div key={partner.name} className="flex items-center gap-3" title={partner.name}>
+                          <div data-ai-hint={partner.dataAiHint}>
                             <Image 
                                 src={partner.logo} 
                                 alt={partner.name}
@@ -57,6 +58,7 @@ export function PartnershipApproach() {
                                 height={32}
                                 className="h-8 w-auto"
                             />
+                          </div>
                             <span className="font-semibold text-sm">{partner.name.replace(" Partner", "")}</span>
                         </div>
                     ))}

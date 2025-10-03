@@ -94,11 +94,11 @@ export default function ChatbotsPage() {
              <div className="grid md:grid-cols-2 gap-8">
                 {chatbotServices.map((service) => (
                 <Card key={service.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
-                    <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 md:p-6">
                         {service.icon}
                         <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="p-4 md:p-6 pt-0">
                         <p className="text-muted-foreground text-sm md:text-base">{service.description}</p>
                     </CardContent>
                 </Card>

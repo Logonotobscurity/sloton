@@ -22,10 +22,10 @@ export function StrategicPartner() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-6">
                 <p className="text-sm font-normal uppercase tracking-widest text-primary">01/ What We Do</p>
-                <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-snug">
+                <h2 className="font-headline text-[clamp(2rem,5vw,3rem)] font-bold !leading-snug">
                     We build business habitats: integrated digital ecosystems where you can <span className="text-primary">thrive</span>.
                 </h2>
-                <p className="text-muted-foreground md:text-lg leading-relaxed">
+                <p className="text-muted-foreground md:text-lg">
                     Our value isn't just in understanding technology; it's in applying it to solve your core business challenges. We provide a clear, structured pathway to integrating technology that drives real business results.
                 </p>
             </div>
@@ -44,7 +44,7 @@ export function StrategicPartner() {
                                   <div className="p-3 md:p-4 rounded-full bg-primary/10 mb-4 w-fit">
                                       <BrainCircuit className="h-8 w-8 md:h-10 md:w-10 text-primary" />
                                   </div>
-                                  <CardTitle>Free AI Business Assessment</CardTitle>
+                                  <CardTitle className="text-xl">Free AI Business Assessment</CardTitle>
                                   <CardDescription className="mt-2">
                                       Get a data-driven report identifying automation opportunities and tailored IT solutions for your business.
                                   </CardDescription>
@@ -81,7 +81,7 @@ export function StrategicPartner() {
                                   <div className="p-3 md:p-4 rounded-full bg-primary/10 mb-4 w-fit">
                                       <Cog className="h-8 w-8 md:h-10 md:w-10 text-primary" />
                                   </div>
-                                  <CardTitle>Intelligent Automation Designer</CardTitle>
+                                  <CardTitle className="text-xl">Intelligent Automation Designer</CardTitle>
                                   <CardDescription className="mt-2">
                                       Describe a workflow and our AI will generate a configured, optimized task design in seconds.
                                   </CardDescription>

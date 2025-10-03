@@ -61,7 +61,7 @@ export default function InsightsPage() {
                     </div>
                   </Link>
                 </CardHeader>
-                <CardContent className="p-6 flex-grow">
+                <CardContent className="p-4 md:p-6 flex-grow">
                   <div className="flex flex-wrap gap-2 mb-2">
                      {insight.tags.map(tag => (
                        <Badge key={tag} variant="outline" className="border-primary text-primary">{tag}</Badge>
@@ -74,7 +74,7 @@ export default function InsightsPage() {
                   </CardTitle>
                   <CardDescription className="mt-2 text-sm">{insight.description}</CardDescription>
                 </CardContent>
-                <CardFooter className="p-6 pt-0 mt-auto">
+                <CardFooter className="p-4 md:p-6 pt-0 mt-auto">
                   <Link href={`/insights/${insight.slug}`} className="text-primary font-semibold flex items-center group">
                     Read More <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                   </Link>

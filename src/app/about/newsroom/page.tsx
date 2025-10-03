@@ -57,7 +57,7 @@ export default function NewsroomPage() {
                         </div>
                     </Link>
                     </CardHeader>
-                    <CardContent className="p-6 flex-grow">
+                    <CardContent className="p-4 md:p-6 flex-grow">
                     <CardDescription>{new Date(insight.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</CardDescription>
                     <CardTitle className="text-lg md:text-xl mt-2">
                         <Link href={`/insights/${insight.slug}`} className="hover:text-primary transition-colors">
@@ -65,7 +65,7 @@ export default function NewsroomPage() {
                         </Link>
                     </CardTitle>
                     </CardContent>
-                    <CardFooter className="p-6 pt-0 mt-auto">
+                    <CardFooter className="p-4 md:p-6 pt-0 mt-auto">
                     <Link href={`/insights/${insight.slug}`} className="text-primary font-semibold flex items-center group">
                         Read More <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </Link>

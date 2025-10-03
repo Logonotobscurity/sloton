@@ -290,8 +290,8 @@ export function Header() {
                         </SheetClose>
                          <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
                     </SheetHeader>
-                    <div className="flex-grow overflow-y-auto">
-                        <Accordion type="multiple" className="w-full px-4">
+                    <div className="flex-grow overflow-y-auto p-4">
+                        <Accordion type="multiple" className="w-full">
                              {navLinks.map(navItem => (
                                 <AccordionItem value={navItem.label} key={navItem.label}>
                                     <AccordionTrigger>

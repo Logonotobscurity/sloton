@@ -34,7 +34,7 @@ export default function AboutPage() {
                     {stats.map(stat => (
                         <div key={stat.label}>
                             <p className="text-4xl md:text-5xl font-bold text-primary">{stat.value}</p>
-                            <p className="text-muted-foreground mt-2">{stat.label}</p>
+                            <p className="text-muted-foreground mt-2 text-sm md:text-base">{stat.label}</p>
                         </div>
                     ))}
                 </div>
@@ -44,14 +44,14 @@ export default function AboutPage() {
         <section className="container mx-auto px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-8 items-center">
                 <GlowingCard>
-                    <div className="p-8">
-                        <h3 className="text-2xl font-bold font-headline flex items-center gap-3"><Globe className="h-8 w-8 text-primary"/> Our Mission</h3>
+                    <div className="p-6 md:p-8">
+                        <h3 className="text-xl md:text-2xl font-bold font-headline flex items-center gap-3"><Globe className="h-8 w-8 text-primary"/> Our Mission</h3>
                         <p className="text-muted-foreground mt-4">To architect and build integrated digital ecosystems where businesses of all sizes can thrive, automate, and innovate with confidence.</p>
                     </div>
                 </GlowingCard>
                 <GlowingCard>
-                    <div className="p-8">
-                        <h3 className="text-2xl font-bold font-headline flex items-center gap-3"><Scale className="h-8 w-8 text-primary"/> Our Values</h3>
+                    <div className="p-6 md:p-8">
+                        <h3 className="text-xl md:text-2xl font-bold font-headline flex items-center gap-3"><Scale className="h-8 w-8 text-primary"/> Our Values</h3>
                         <ul className="text-muted-foreground mt-4 space-y-2">
                             <li><strong>Innovation-Driven:</strong> We are constantly exploring new technologies to deliver cutting-edge solutions.</li>
                             <li><strong>Client-Centric:</strong> Your success is our ultimate metric. We build partnerships based on trust and transparency.</li>

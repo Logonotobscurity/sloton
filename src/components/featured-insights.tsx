@@ -37,7 +37,7 @@ export function FeaturedInsights() {
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredInsights.map((insight, i) => (
             <motion.div
               key={insight.title}
@@ -62,7 +62,7 @@ export function FeaturedInsights() {
                       </div>
                     </Link>
                   </CardHeader>
-                  <CardContent className="p-6 flex-grow">
+                  <CardContent className="p-4 md:p-6 flex-grow">
                     <div className="flex flex-wrap gap-2 mb-2">
                        {insight.tags.map(tag => (
                          <Badge key={tag} variant="outline" className="border-primary text-primary">{tag}</Badge>
@@ -75,7 +75,7 @@ export function FeaturedInsights() {
                     </CardTitle>
                     <CardDescription className="mt-2 text-sm line-clamp-3">{insight.description}</CardDescription>
                   </CardContent>
-                  <CardFooter className="p-6 pt-0 mt-auto">
+                  <CardFooter className="p-4 md:p-6 pt-0 mt-auto">
                     <Link href={`/insights/${insight.slug}`} className="text-primary font-semibold flex items-center group">
                       Read More <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </Link>

@@ -111,14 +111,16 @@ export default function PartnersPage() {
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 items-center justify-center">
                     {partners.map(partner => (
-                        <div key={partner.name} className="flex flex-col items-center gap-3" title={partner.name} data-ai-hint={partner.dataAiHint}>
-                            <Image 
-                                src={partner.logo} 
-                                alt={partner.name}
-                                width={48}
-                                height={48}
-                                className="h-12 w-auto"
-                            />
+                        <div key={partner.name} className="flex flex-col items-center gap-3" title={partner.name}>
+                            <div data-ai-hint={partner.dataAiHint}>
+                                <Image 
+                                    src={partner.logo} 
+                                    alt={partner.name}
+                                    width={48}
+                                    height={48}
+                                    className="h-12 w-auto"
+                                />
+                            </div>
                             <span className="text-base font-semibold">{partner.name}</span>
                         </div>
                     ))}

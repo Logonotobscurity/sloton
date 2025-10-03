@@ -53,7 +53,7 @@ export function GeneralistApproach() {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                 {cardContent.map((card, i) => (
                     <motion.div
                         key={card.title}
@@ -64,7 +64,7 @@ export function GeneralistApproach() {
                         variants={cardVariants}
                     >
                       <Card className="p-6 bg-background/80 backdrop-blur-sm transition-transform duration-300 hover:scale-105 h-full">
-                          <CardTitle className="mb-4">{card.title}</CardTitle>
+                          <CardTitle className="mb-4 text-xl">{card.title}</CardTitle>
                           <ul className="space-y-2">
                               {card.features.map(feature => (
                                   <li key={feature} className="flex items-center gap-2">

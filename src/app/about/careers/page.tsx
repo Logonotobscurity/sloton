@@ -96,7 +96,7 @@ export default function CareersPage() {
             <section>
                 <h2 className="text-2xl md:text-3xl font-bold font-headline mb-8 text-center">Why Work With Us?</h2>
                 <div className="grid md:grid-cols-3 gap-8">
-                    <Card className="text-center">
+                    <Card className="text-center p-4">
                         <CardHeader>
                             <Heart className="h-10 w-10 mx-auto text-primary"/>
                             <CardTitle className="pt-4">Passionate Culture</CardTitle>
@@ -105,7 +105,7 @@ export default function CareersPage() {
                             <p className="text-muted-foreground">Join a team that loves what they do and is driven by a shared vision of innovation.</p>
                         </CardContent>
                     </Card>
-                    <Card className="text-center">
+                    <Card className="text-center p-4">
                         <CardHeader>
                             <Brain className="h-10 w-10 mx-auto text-primary"/>
                             <CardTitle className="pt-4">Meaningful Work</CardTitle>
@@ -114,7 +114,7 @@ export default function CareersPage() {
                             <p className="text-muted-foreground">Solve complex problems and build solutions that have a measurable impact on our clients' success.</p>
                         </CardContent>
                     </Card>
-                    <Card className="text-center">
+                    <Card className="text-center p-4">
                         <CardHeader>
                             <Users className="h-10 w-10 mx-auto text-primary"/>
                             <CardTitle className="pt-4">Growth Opportunities</CardTitle>
@@ -128,7 +128,7 @@ export default function CareersPage() {
 
             <section>
                 <h2 className="text-2xl md:text-3xl font-bold font-headline mb-4 text-center">Our Benefits</h2>
-                <div className="p-8 bg-secondary/50 rounded-lg">
+                <div className="p-6 md:p-8 bg-secondary/50 rounded-lg">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                     {benefits.map(benefit => (
                         <div key={benefit} className="flex items-center gap-3">
@@ -146,10 +146,10 @@ export default function CareersPage() {
                 <div className="space-y-4">
                     {openPositions.map(pos => (
                         <Card key={pos.title} className="hover:bg-secondary/50 transition-colors">
-                            <Link href={pos.href} className="block p-6">
+                            <Link href={pos.href} className="block p-4 md:p-6">
                                 <div className="flex flex-col sm:flex-row justify-between sm:items-center">
                                     <div className="flex-1">
-                                        <h3 className="text-xl font-semibold text-primary">{pos.title}</h3>
+                                        <h3 className="text-lg md:text-xl font-semibold text-primary">{pos.title}</h3>
                                         <p className="text-muted-foreground text-sm mb-2">{pos.department} &middot; {pos.location}</p>
                                         <p className="text-muted-foreground text-sm max-w-2xl">{pos.description}</p>
                                     </div>
