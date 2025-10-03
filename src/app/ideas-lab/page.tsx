@@ -32,7 +32,7 @@ Create a complete, production-ready, full-stack Next.js application that allows 
 
 ## 3. Application Structure & Pages
 
-### 3.1. Main Page (`/src/app/page.tsx`)
+### 3.1. Main Page (\`/src/app/page.tsx\`)
 - **Layout:** A single-page interface, centered on the screen.
 - **Header:** A clean, bold title like "AI Company Report Generator".
 - **Input Form:**
@@ -47,7 +47,7 @@ Create a complete, production-ready, full-stack Next.js application that allows 
     - Initially, this area should be empty or show a placeholder message like "Your company report will appear here."
     - After generation, the report should be displayed here in a well-structured and styled format.
 
-### 3.2. Genkit AI Flow (`/src/ai/flows/company-report-flow.ts`)
+### 3.2. Genkit AI Flow (\`/src/ai/flows/company-report-flow.ts\`)
 - This file will contain the core AI logic. It should be a Next.js Server Action file ('use server').
 - **Input Schema (Zod):**
     - \`name: z.string()\`
@@ -77,7 +77,7 @@ Create a complete, production-ready, full-stack Next.js application that allows 
     - It must use the user-provided \`companyName\` as the subject.
     - The prompt should instruct the model to search for public information and generate a comprehensive report that STRICTLY adheres to the defined output schema.
 
-### 3.3. Server Action (`/src/app/actions.ts`)
+### 3.3. Server Action (\`/src/app/actions.ts\`)
 - Create a new exported async function \`getCompanyReport(input: CompanyReportInput): Promise<CompanyReportOutput>\`.
 - This function will call the Genkit flow created in the previous step.
 - It should include robust error handling (try/catch block) and return a structured object indicating success or failure.
