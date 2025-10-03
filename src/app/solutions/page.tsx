@@ -311,9 +311,11 @@ export default function SolutionsPage() {
                 {industryApplications.map(app => (
                     <Card key={app.industry} className="bg-background/50 flex flex-col">
                         <CardHeader>
-                            <div className="flex items-center gap-3 mb-2">
-                                {app.icon}
-                                <CardTitle className="text-xl">{app.industry}</CardTitle>
+                            <div className="flex items-start gap-4 mb-2">
+                                <div className="flex-shrink-0">{app.icon}</div>
+                                <div className="flex-1">
+                                    <CardTitle className="text-xl leading-snug">{app.industry}</CardTitle>
+                                </div>
                             </div>
                             <p className="text-sm font-semibold text-destructive">{app.challenge}</p>
                         </CardHeader>
