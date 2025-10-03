@@ -13,7 +13,6 @@ import { SmarterAutomation } from '@/components/smarter-automation';
 import { ServicesOffered } from '@/components/services-offered';
 import type { Metadata } from 'next';
 import { StrategicPartner } from '@/components/strategic-partner';
-import { GeneralistApproach } from '@/components/generalist-approach';
 
 export const metadata: Metadata = {
   title: 'LOG_ON | AI & Automation for Business Efficiency',
@@ -26,10 +25,9 @@ export default function Home() {
       <Hero />
       <div className="w-full space-y-4 md:space-y-8">
           <StrategicPartner />
-          <GeneralistApproach />
+          <ServicesOffered />
           <IdeasLab />
           <SmarterAutomation />
-          <ServicesOffered />
           <PartnershipApproach />
           <TrainingCTA />
           <Statement />

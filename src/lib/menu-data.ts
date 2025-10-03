@@ -17,7 +17,7 @@ export const menuData = {
           },
           {
             title: 'Process Automation',
-            href: '/automation-solutions',
+            href: '/automation',
             description: 'Streamline workflows and boost operational efficiency.'
           },
           {
@@ -98,9 +98,9 @@ export const menuData = {
     "company": {
       "heading": "Discover why LOG_ON is the AI platform for business transformation",
       "intro": "Bring AI Agents to every corner of your business.",
-      "cta": {"label": "Learn More", "href": "/about-us"},
+      "cta": {"label": "Learn More", "href": "/about"},
       "items": [
-        {"title": "About Us", "desc": "Learn about our mission and values.", "href": "/about-us"},
+        {"title": "About Us", "desc": "Learn about our mission and values.", "href": "/about"},
         {"title": "Careers", "desc": "Make your next career move with us.", "href": "/about/careers"},
         {"title": "Investors", "desc": "Explore investor news and resources.", "href": "/about/investors"},
         {"title": "LOG_ON Research", "desc": "How we keep innovation moving forward.", "href": "/about/research"},
