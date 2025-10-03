@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -12,7 +11,14 @@ import { motion } from 'framer-motion';
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.95 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.5
+    }
+  })
 };
 
 export function StrategicPartner() {
@@ -20,23 +26,30 @@ export function StrategicPartner() {
     <section id="strategic-partner" className="py-16 md:py-24 bg-secondary/20 scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="space-y-6">
-                <p className="text-sm font-normal uppercase tracking-widest text-primary">01/ What We Do</p>
-                <h2 className="font-headline text-[clamp(2rem,5vw,3rem)] font-bold !leading-snug">
+            <motion.div 
+              className="space-y-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+            >
+                <motion.p variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="text-sm font-normal uppercase tracking-widest text-primary">01/ What We Do</motion.p>
+                <motion.h2 variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="font-headline text-[clamp(2rem,5vw,3rem)] font-bold !leading-snug">
                     We build business habitats: integrated digital ecosystems where you can <span className="text-primary">thrive</span>.
-                </h2>
-                <p className="text-muted-foreground md:text-lg">
+                </motion.h2>
+                <motion.p variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="text-muted-foreground md:text-lg">
                     Our value isn't just in understanding technology; it's in applying it to solve your core business challenges. We provide a clear, structured pathway to integrating technology that drives real business results.
-                </p>
-            </div>
+                </motion.p>
+            </motion.div>
 
             <div className="space-y-8">
                 <Dialog>
                     <DialogTrigger asChild>
                         <motion.div
+                          custom={0}
                           initial="hidden"
                           whileInView="visible"
-                          viewport={{ once: true, amount: 0.3 }}
+                          viewport={{ once: true, amount: 0.5 }}
                           variants={cardVariants}
                         >
                           <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-background/80 flex flex-col h-full">
@@ -71,9 +84,10 @@ export function StrategicPartner() {
                 <Dialog>
                     <DialogTrigger asChild>
                        <motion.div
+                          custom={1}
                           initial="hidden"
                           whileInView="visible"
-                          viewport={{ once: true, amount: 0.3 }}
+                          viewport={{ once: true, amount: 0.5 }}
                           variants={cardVariants}
                         >
                           <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-background/80 flex flex-col h-full">

@@ -9,7 +9,7 @@ import { TrainingCTA } from '@/components/training-cta';
 import { BottomCta } from '@/components/bottom-cta';
 import { IndustriesBento } from '@/components/industries-bento';
 import { IdeasLab } from '@/components/ideas-lab';
-import { SmarterAutomation } from '@/components/template-library';
+import { SmarterAutomation } from '@/components/smarter-automation';
 import { ServicesOffered } from '@/components/services-offered';
 import type { Metadata } from 'next';
 import { StrategicPartner } from '@/components/strategic-partner';
