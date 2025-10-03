@@ -18,13 +18,13 @@ export function Hero() {
         <div className="container mx-auto px-4 md:px-6 relative z-20">
             <div className="max-w-4xl mx-auto text-center animate-[fade-in_1s_ease-in-out]">
                 <p className="text-sm font-normal uppercase tracking-widest text-primary">
-                    Your Partner in Growth
+                    Connecting Advantages. Delivering Results.
                 </p>
                 <h1 className="font-headline text-[clamp(2.5rem,8vw,5rem)] !leading-tight my-4">
-                    Your modern <span className="text-primary">tech solution</span> is here.
+                    We architect <span className="text-primary">intelligent ecosystems</span> that drive business forward.
                 </h1>
-                <p className="text-md md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                    Get a free AI assessment to discover automation and IT solutions tailored to your business needs.
+                <p className="text-md md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Stop patching together disparate tools. Our AI-powered solutions audit identifies your biggest opportunities for automation and growth, providing a clear roadmap to a more efficient and integrated digital future.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mt-8">
                     <Dialog>
