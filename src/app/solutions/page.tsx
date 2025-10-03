@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { CheckCircle } from "lucide-react";
