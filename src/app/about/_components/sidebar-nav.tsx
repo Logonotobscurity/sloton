@@ -1,8 +1,8 @@
-
 "use client"
 
+import * as React from "react"
 import Link from "next/link"
-import { usePathname, useSearchParams } from "next/navigation"
+import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
@@ -18,9 +18,6 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   const pathname = usePathname()
   
   // For client-side navigation that relies on hash, we need to manually track it.
-  // A simple state could work if we only navigate within this page.
-  // For linking from outside, we'd need to parse window.location.hash on mount.
-  // Let's use a simpler approach for now. A full-fledged solution would use a state and effect.
   const getHash = () => {
     if (typeof window !== "undefined") {
       return window.location.hash;
