@@ -56,7 +56,7 @@ export default function ContactPage() {
                  <div className="space-y-4">
                     {contactReasons.map(reason => (
                         <div key={reason.title} className="flex items-start gap-3">
-                            <div className="flex-shrink-0">{reason.icon}</div>
+                            <div className="flex-shrink-0 pt-1">{reason.icon}</div>
                             <div>
                                 <h4 className="font-semibold">{reason.title}</h4>
                                 <p className="text-muted-foreground text-sm">{reason.description}</p>

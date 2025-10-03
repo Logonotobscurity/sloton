@@ -109,9 +109,9 @@ export default function PartnersPage() {
                     <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Technology & Strategic Alliances</h2>
                     <p className="mt-4 text-md md:text-lg text-muted-foreground">We build on and partner with the best-in-class platforms to ensure our solutions are robust, scalable, and secure.</p>
                 </div>
-                <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 items-center justify-center">
                     {partners.map(partner => (
-                        <div key={partner.name} className="flex items-center gap-3" title={partner.name} data-ai-hint={partner.dataAiHint}>
+                        <div key={partner.name} className="flex flex-col items-center gap-3" title={partner.name} data-ai-hint={partner.dataAiHint}>
                             <Image 
                                 src={partner.logo} 
                                 alt={partner.name}
@@ -119,12 +119,12 @@ export default function PartnersPage() {
                                 height={48}
                                 className="h-12 w-auto"
                             />
-                            <span className="text-lg font-semibold">{partner.name}</span>
+                            <span className="text-base font-semibold">{partner.name}</span>
                         </div>
                     ))}
-                    <div className="flex items-center gap-3" title="Cybersecurity & Compliance">
+                    <div className="flex flex-col items-center gap-3" title="Cybersecurity & Compliance">
                         <ShieldCheck className="h-12 w-12 text-primary" />
-                        <span className="text-lg font-semibold">Security & Compliance</span>
+                        <span className="text-base font-semibold">Security & Compliance</span>
                     </div>
                 </div>
             </div>

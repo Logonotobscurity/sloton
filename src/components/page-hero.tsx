@@ -13,7 +13,7 @@ interface PageHeroProps {
 
 export function PageHero({ title, description, icon, children }: PageHeroProps) {
   return (
-    <div className="relative py-24 md:py-32 text-center bg-background overflow-hidden">
+    <div className="relative py-16 md:py-24 text-center bg-background overflow-hidden">
         <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] opacity-30" />
         <div className="container px-4 md:px-6 relative z-10 animate-[fade-in_1s_ease-in-out]">
             {icon && <div className="mb-4 flex justify-center">{icon}</div>}

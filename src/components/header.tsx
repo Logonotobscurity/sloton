@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -237,7 +238,7 @@ export function Header() {
            isScrolled ? "max-w-7xl" : "max-w-6xl"
       )}>
         {/* Desktop Header */}
-        <div className="hidden md:flex items-center justify-between w-full">
+        <div className="hidden lg:flex items-center justify-between w-full">
             <div className="flex-shrink-0">
                 <Logo />
             </div>
@@ -272,11 +273,11 @@ export function Header() {
         </div>
 
         {/* Mobile Header */}
-        <div className="md:hidden flex items-center justify-between w-full">
+        <div className="lg:hidden flex items-center justify-between w-full">
             <Logo />
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="md:hidden" aria-label="Toggle navigation menu">
+                    <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Toggle navigation menu">
                         <Menu className="h-6 w-6" />
                     </Button>
                 </SheetTrigger>

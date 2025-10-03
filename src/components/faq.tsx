@@ -105,12 +105,12 @@ export function Faq() {
                 <AccordionItem value={item.value}>
                   <AccordionTrigger className="text-left text-base md:text-lg">
                     <div className="flex items-start md:items-center gap-4">
-                      {item.icon}
+                      <div className="flex-shrink-0 pt-1 md:pt-0">{item.icon}</div>
                       {item.question}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                      <div className="text-muted-foreground pl-9 text-sm md:text-base" dangerouslySetInnerHTML={{ __html: item.answer }} />
+                      <div className="text-muted-foreground pl-12 text-sm md:text-base" dangerouslySetInnerHTML={{ __html: item.answer }} />
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>

@@ -86,8 +86,8 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="border-t py-6 flex flex-col sm:flex-row items-center justify-between">
-          <div className="text-sm text-muted-foreground text-center sm:text-left mb-4 sm:mb-0">
+        <div className="border-t py-6 flex flex-col-reverse sm:flex-row items-center justify-between gap-4">
+          <div className="text-sm text-muted-foreground text-center sm:text-left">
             © {new Date().getFullYear()} LOG_ON. All Rights Reserved.
           </div>
           <div className="flex space-x-4">

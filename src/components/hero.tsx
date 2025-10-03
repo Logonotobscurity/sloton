@@ -26,7 +26,7 @@ export function Hero() {
                 <p className="text-md md:text-xl text-muted-foreground max-w-2xl mx-auto">
                     Get a free AI assessment to discover automation and IT solutions tailored to your business needs.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mt-8">
                     <Dialog>
                         <DialogTrigger asChild>
                             <Button size="lg">Get Your Free AI Assessment</Button>

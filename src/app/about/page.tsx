@@ -30,7 +30,7 @@ export default function AboutPage() {
 
         <section className="py-16 md:py-24">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                     {stats.map(stat => (
                         <div key={stat.label}>
                             <p className="text-4xl md:text-5xl font-bold text-primary">{stat.value}</p>
@@ -63,7 +63,7 @@ export default function AboutPage() {
         </section>
 
         <section className="container mx-auto px-4 md:px-6 mt-16 md:mt-24">
-            <div className="text-center py-12 md:py-16 bg-secondary/30 rounded-lg px-4">
+            <div className="text-center py-12 md:py-16 bg-secondary/30 rounded-lg px-6">
                 <h2 className="text-2xl md:text-4xl font-bold font-headline">Meet the People Behind the Innovation</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                     Our team is a dynamic duo of technology experts dedicated to delivering exceptional service.

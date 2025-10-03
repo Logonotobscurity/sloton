@@ -64,7 +64,7 @@ export default function ABTestingPage() {
           </div>
         </section>
 
-         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-secondary/30 rounded-lg px-4">
+         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-secondary/30 rounded-lg px-6">
             <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Improve Your Conversion Rates?</h2>
             <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Let's discuss how our A/B testing and optimization services can help you achieve your business goals. Schedule a free consultation today.
