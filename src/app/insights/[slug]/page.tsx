@@ -63,7 +63,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
     "@type": "Article",
     "headline": insight.title,
     "description": insight.description,
-    "image": insight.image,
+    "image": new URL(insight.image, "https://logonsolutions.netlify.app").toString(),
     "author": {
       "@type": "Person",
       "name": insight.author

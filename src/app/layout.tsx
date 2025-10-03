@@ -76,6 +76,7 @@ const organizationSchema = {
     "@type": "ContactPoint",
     "telephone": "+234-814-306-6320",
     "contactType": "customer service",
+    "areaServed": "NG",
     "email": "logonthepage@gmail.com"
   },
   "sameAs": [
@@ -139,7 +140,7 @@ const localBusinessSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "AI Solutions",
-          "url": "https://logonsolutions.netlify.app/ai-solutions",
+          "url": "https://logonsolutions.netlify.app/solutions#ai-solutions",
           "description": "Custom AI and machine learning models to solve complex business challenges."
         }
       },
@@ -148,7 +149,7 @@ const localBusinessSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Process Automation",
-          "url": "https://logonsolutions.netlify.app/automation-solutions",
+          "url": "https://logonsolutions.netlify.app/solutions#process-automation",
           "description": "Intelligent automation and RPA to streamline workflows and increase efficiency."
         }
       },
@@ -157,7 +158,7 @@ const localBusinessSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Web & Custom Development",
-          "url": "https://logonsolutions.netlify.app/web-development",
+          "url": "https://logonsolutions.netlify.app/solutions#web-development",
           "description": "Scalable websites, e-commerce platforms, and custom applications."
         }
       },
@@ -166,7 +167,7 @@ const localBusinessSchema = {
         "itemOffered": {
             "@type": "Service",
             "name": "Business Analytics",
-            "url": "https://logonsolutions.netlify.app/business-analytics",
+            "url": "https://logonsolutions.netlify.app/solutions#business-analytics",
             "description": "Custom dashboards and BI reporting to turn data into actionable insights."
         }
       },

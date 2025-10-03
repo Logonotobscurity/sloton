@@ -1,6 +1,7 @@
+
 import { MetadataRoute } from 'next';
 import { insights } from '@/lib/insights';
-import { templates } from '@/lib/workflow-templates';
+import { getTemplates } from '@/lib/workflow-templates';
 import { menuData } from '@/lib/menu-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,42 +12,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const addUrl = (url: string) => {
     if (url && url.startsWith('/') && !seenUrls.has(url)) {
-      // Exclude pages that have been merged
-      const excludedPages = [
-        '/about/newsroom', 
-        '/about/analyst-reports', 
-        '/about/global-impact', 
-        '/about/research', 
-        '/about/trust',
-        '/industries'
-      ];
-      if (!excludedPages.includes(url)) {
-        seenUrls.add(url);
-      }
+      seenUrls.add(url);
     }
   };
 
-  menuData.menu.products.items.forEach(item => addUrl(item.href));
-  addUrl(menuData.menu.products.cta.href);
-
-  // Add the consolidated use cases page
+  // From header navigation
+  addUrl('/solutions');
   addUrl('/use-cases');
+  addUrl('/training');
+  addUrl('/partners');
+  addUrl('/about');
+  addUrl('/support');
   
-  menuData.menu.learning.center.links.forEach(item => addUrl(item.href));
-  addUrl(menuData.menu.learning.center.cta.href);
-  
-  menuData.menu.partners.items.forEach(item => addUrl(item.href));
-  addUrl(menuData.menu.partners.cta.href);
-
+  // From dropdowns
+  menuData.menu.products.items.forEach(item => addUrl(item.href));
   menuData.menu.company.items.forEach(item => addUrl(item.href));
-  addUrl(menuData.menu.company.cta.href);
 
-  menuData.menu.support.center.links.forEach(link => addUrl(link.href));
-  addUrl(menuData.menu.support.promo.cta.href);
-
-  // Manually add other pages not in menu
-  ['/ab-testing'].forEach(addUrl);
-
+  // Other known pages
+  addUrl('/ab-testing');
+  addUrl('/ideas-lab');
+  addUrl('/contact');
+  addUrl('/automation');
 
   const staticUrls = Array.from(seenUrls).map((page) => ({
     url: `${baseUrl}${page}`,
@@ -64,13 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Dynamic pages for automation templates
+  const templates = getTemplates();
   const templateUrls = templates.map((template) => ({
       url: `${baseUrl}/automation/${template.slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as 'monthly',
       priority: 0.6
   }));
-
 
   return [...staticUrls, ...insightUrls, ...templateUrls];
 }
