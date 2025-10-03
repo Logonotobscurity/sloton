@@ -1,4 +1,3 @@
-
 import { MetadataRoute } from 'next';
 import { insights } from '@/lib/insights';
 import { templates } from '@/lib/workflow-templates';
