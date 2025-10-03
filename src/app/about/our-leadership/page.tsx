@@ -1,14 +1,11 @@
 
 import Link from 'next/link';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Users, CheckCircle, Lightbulb, Zap, Handshake } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { PageHero } from '@/components/page-hero';
-import { teamMembers } from '@/components/author-bio';
+import { teamMembers } from '@/lib/team-members';
 
 export const metadata: Metadata = {
   title: 'Our Leadership',
