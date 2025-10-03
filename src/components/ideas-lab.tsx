@@ -22,14 +22,14 @@ export function IdeasLab() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center p-6 md:p-12">
             <div className="space-y-6">
               <h2 className="font-headline text-3xl md:text-4xl font-bold">
-                We Test New Ideas So You Get Proven Results
+                Growth Accelerator Lab
               </h2>
               <p className="text-muted-foreground text-md md:text-lg">
-                Our innovation lab validates what actually works before you invest. Get data-backed strategies, not just theoretical concepts.
+                We don't just deliver solutions; we continually test and refine them. This dedicated lab is where we partner with clients to rapidly prototype new automation and AI concepts, ensuring your business stays one step ahead of the curve. You get access to innovation before it becomes standard.
               </p>
               <Button asChild variant="outline">
                   <Link href="/ab-testing">
-                      See Live Experiments <ArrowRight className="ml-2 h-4 w-4" />
+                      See Our Testing Methodology <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
               </Button>
             </div>

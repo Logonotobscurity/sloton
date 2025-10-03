@@ -46,7 +46,7 @@ export const caseStudies: CaseStudy[] = [
   {
     client: "SAAS Provider",
     title: "Custom Analytics Dashboard Drives Product Strategy",
-    description: "We developed a custom business intelligence dashboard that consolidated data from their application, CRM, and support tickets. This gave the product team a 360-degree view of user behavior, feature adoption, and churn indicators. The insights led to a data-driven roadmap that increased user retention by 20%.",
+    description: "We developed a custom business intelligence dashboard that consolidated data from multiple sources, giving the product team a 360-degree view of user behavior and churn indicators. This led to a data-driven roadmap that increased user retention by 20%.",
     image: imageData.analyticsDashboard.src,
     width: imageData.analyticsDashboard.width,
     height: imageData.analyticsDashboard.height,

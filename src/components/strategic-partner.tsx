@@ -34,12 +34,12 @@ export function StrategicPartner() {
               viewport={{ once: true, amount: 0.3 }}
               variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
             >
-                <motion.p variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="text-sm font-normal uppercase tracking-widest text-primary">01/ What We Do</motion.p>
+                <motion.p variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="text-sm font-normal uppercase tracking-widest text-primary">What We Do</motion.p>
                 <motion.h2 variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="font-headline text-[clamp(2rem,5vw,3rem)] font-bold !leading-snug">
-                    We build business habitats where <span className="text-primary">technology works together</span> seamlessly.
+                    Make an Impact. Do More with Less.
                 </motion.h2>
                 <motion.p variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="text-muted-foreground md:text-lg">
-                    Our focus isn't just implementing technology—it's solving your biggest operational challenges. We provide clear, measurable paths to systems that deliver real business results.
+                   Time and money are two valuable commodities. Our solutions focus on precise targets and powerful automation, helping your business run leaner, smarter, and with less risk. We turn complexity into a competitive advantage so you can focus on your vision, not your operations.
                 </motion.p>
             </motion.div>
 

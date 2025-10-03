@@ -16,42 +16,42 @@ import { AdinkraBackground } from './ui/adinkra-background';
 const services = [
   {
     Icon: BrainCircuit,
-    name: "AI Solutions",
-    description: "Make Smarter Decisions with Your Data. Get predictive insights that help you outmaneuver competitors without enterprise-level costs.",
+    name: "Predictive Growth & Insights",
+    description: "Stop guessing, start growing. We use custom AI to analyze your market, forecast trends, and identify the most profitable next steps for your business.",
     href: "/ai-solutions",
-    cta: "See AI in Action",
+    cta: "Explore AI Potential",
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
   },
   {
     Icon: Zap,
-    name: "Process Automation",
-    description: "Reclaim 40+ Hours Each Month. Automate the repetitive tasks that drain your team's productivity.",
+    name: "Time & Cost Savings (Automation)",
+    description: "Do more with less time and fewer errors. We use intelligent automation to handle routine tasks like data entry, compliance, and invoicing.",
     href: "/automation",
-    cta: "Find Time-Saving Solutions",
+    cta: "Calculate Your ROI",
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
   },
   {
     Icon: Code,
-    name: "Web & Custom Development",
-    description: "Digital Presence That Actually Converts. Built to scale as you grow, without constant expensive updates.",
+    name: "Scalable Digital Presence",
+    description: "Build the platform you need for tomorrow's success. From high-converting e-commerce sites to custom applications, we ensure your digital storefront can handle 5x user growth without breaking.",
     href: "/web-development",
-    cta: "Build Your Growth Engine",
+    cta: "Start Your Relaunch",
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
   },
   {
     Icon: MessageSquare,
-    name: "AI Chatbots",
-    description: "24/7 Customer Support Without Hiring. AI assistants handle common questions instantly, freeing your team for revenue-generating conversations.",
+    name: "24/7 Customer Engagement",
+    description: "Instant service, guaranteed. Deploy AI-powered conversational agents that answer customer questions instantly, reduce support tickets, and nurture leads around the clock.",
     href: "/chatbots",
-    cta: "Improve Customer Response Time",
+    cta: "See a Chatbot Demo",
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
   },
   {
     Icon: BarChart3,
-    name: "Business Analytics",
-    description: "See Exactly What's Driving Your Business. Get clear, actionable insights that show precisely where to focus for maximum ROI.",
+    name: "Actionable Intelligence",
+    description: "Turn mountains of data into clear, simple decisions. We design custom business intelligence dashboards that consolidate your data into visual, actionable insights.",
     href: "/business-analytics",
-    cta: "Get Clear Insights",
+    cta: "Design My Dashboard",
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
   },
 ];
@@ -63,12 +63,12 @@ export function ServicesOffered() {
             <AdinkraBackground />
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="text-center max-w-3xl mx-auto">
-                     <p className="text-sm font-normal uppercase tracking-widest text-primary">02/ Our Approach</p>
+                     <p className="text-sm font-normal uppercase tracking-widest text-primary">Our Core Solutions</p>
                     <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-snug mt-2">
-                        We see your entire business <span className="text-primary">ecosystem</span>—not just isolated pieces.
+                        Empowering Your Growth: Tools for Every Business Goal
                     </h2>
                     <p className="mt-4 text-md md:text-lg text-muted-foreground">
-                       While specialists focus on their specific area, we connect the dots across your entire operation. This means integrated solutions that work together seamlessly, eliminating bottlenecks and saving you money.
+                       We equip your business with the same powerful tools and comprehensive data used by large corporations—without the big budget. Our solutions are designed to deliver maximum impact, efficiency, and scale.
                     </p>
                 </div>
                 <BentoGrid className="lg:grid-rows-3 mt-16">
