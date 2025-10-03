@@ -19,6 +19,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 import { BottomCta } from "@/components/bottom-cta";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { SolutionRecommendationForm } from "@/components/solution-recommendation-form";
+
 
 export const metadata: Metadata = {
   title: "Technology Solutions | Custom AI, Automation & Development",
@@ -198,9 +201,29 @@ export default function SolutionsPage() {
   return (
     <div className="bg-background">
       <PageHero 
-        title="Our Design Palette of Solutions"
-        description="We provide a comprehensive suite of scalable services designed to grow with your business. Explore how our expertise in AI, automation, and custom development can solve your most significant challenges and drive measurable results."
-      />
+        title="Turn Your Biggest Challenges into Growth Opportunities"
+        description="We don't just build solutions; we architect results. Discover how our integrated AI and automation services can transform your business, streamline operations, and unlock new value."
+      >
+        <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mt-8">
+            <Dialog>
+                <DialogTrigger asChild>
+                    <Button size="lg">Get Your Free AI Assessment</Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
+                    <DialogHeader>
+                        <DialogTitle className="text-2xl">Free AI Business Assessment</DialogTitle>
+                        <DialogDescription>
+                        Describe your business needs to receive tailored IT solution recommendations from our AI consultant.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <SolutionRecommendationForm />
+                </DialogContent>
+            </Dialog>
+            <Button size="lg" variant="secondary" asChild>
+                <Link href="/contact">Schedule a Free Consultation</Link>
+            </Button>
+        </div>
+      </PageHero>
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-20">
         
         {/* Core Services Section */}
@@ -295,7 +318,7 @@ export default function SolutionsPage() {
                             <p className="text-sm font-semibold text-destructive">{app.challenge}</p>
                         </CardHeader>
                         <CardContent className="flex-grow">
-                             <p className="text-sm text-muted-foreground"><span className="font-semibold text-primary">LOG_ON Solution:</span> {app.solution}</p>
+                             <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: app.solution.replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary">$1</strong>') }} />
                         </CardContent>
                         <CardFooter>
                             <Button asChild variant="outline" size="sm" className="w-full">
