@@ -114,7 +114,7 @@ export function VisualWorkflow({ result }: VisualWorkflowProps) {
             <Button asChild className="group mt-6 flex justify-center gap-2 items-center">
                 <Link href="/contact">
                     Start a Project with Us
-                    <ArrowIcon />
+                    <ArrowIcon className="ml-2" />
                 </Link>
             </Button>
         </div>

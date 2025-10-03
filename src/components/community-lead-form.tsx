@@ -104,13 +104,13 @@ export function CommunityLeadForm({ interest }: { interest?: string }) {
        
         <Input type="hidden" {...form.register("interest")} />
        
-        <Button type="submit" className="group flex justify-center gap-2 items-center" disabled={isSubmitting}>
+        <Button type="submit" className="group w-full flex justify-center gap-2 items-center" disabled={isSubmitting}>
           {isSubmitting ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           ) : (
             <>
               Chat on WhatsApp
-              <ArrowIcon />
+              <ArrowIcon className="ml-2" />
             </>
           )}
         </Button>
