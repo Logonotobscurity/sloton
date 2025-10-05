@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -17,7 +18,6 @@ interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
 export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   const pathname = usePathname()
   
-  // For client-side navigation that relies on hash, we need to manually track it.
   const getHash = () => {
     if (typeof window !== "undefined") {
       return window.location.hash;
@@ -31,7 +31,6 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
       setActiveHash(window.location.hash);
     };
     window.addEventListener('hashchange', handleHashChange);
-    // Set initial hash
     setActiveHash(getHash());
     return () => {
       window.removeEventListener('hashchange', handleHashChange);

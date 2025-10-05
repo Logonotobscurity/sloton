@@ -1,4 +1,5 @@
 
+
 import { PageHero } from '@/components/page-hero';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -21,7 +22,7 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import { BottomCta } from '@/components/bottom-cta';
-import { SidebarNav } from '../about/_components/sidebar-nav';
+import { SidebarNav } from '@/components/sidebar-nav';
 
 export const metadata: Metadata = {
   title: 'Use Cases by Industry | Tailored AI & Automation Solutions',
@@ -298,4 +299,5 @@ export default function UseCasesPage() {
     </div>
   );
 }
+
 

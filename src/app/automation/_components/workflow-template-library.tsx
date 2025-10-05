@@ -2,65 +2,22 @@
 
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Search, ArrowRight, Eye, Cog } from 'lucide-react';
+import { Search, ArrowRight, Eye, Cog, Calendar } from 'lucide-react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import {
-  IconHumanResources,
-  IconSales,
-  IconMarketing,
-  IconBriefcase,
-  IconProcurement,
-  IconDevelopment,
-  IconHealthcare,
-  IconItOperations,
-  IconRealEstate,
-  IconAdminOps,
-  IconSupport,
-  IconGeneral
-} from '@/lib/icons';
-import { templates as allTemplates, Template } from '@/lib/workflow-templates';
-import { TaskAutomationForm } from './task-automation-form';
+import { getTemplates, Template } from '@/lib/workflow-templates';
+import { TaskAutomationForm } from '@/components/task-automation-form';
 import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink, PaginationEllipsis } from '@/components/ui/pagination';
 import { cn } from '@/lib/utils';
-import { GatedFeatureModal } from './gated-feature-modal';
+import { GatedFeatureModal } from '@/components/gated-feature-modal';
+import { categoryStyles, categories } from '@/lib/category-styles';
 
 
-const categories = [
-  { name: 'Show All', icon: IconGeneral },
-  { name: 'Finance', icon: IconBriefcase },
-  { name: 'Human Resources', icon: IconHumanResources },
-  { name: 'Sales', icon: IconSales },
-  { name: 'Marketing', icon: IconMarketing },
-  { name: 'Real Estate', icon: IconRealEstate },
-  { name: 'IT Operations', icon: IconItOperations },
-  { name: 'Procurement', icon: IconProcurement },
-  { name: 'Development', icon: IconDevelopment },
-  { name: 'Healthcare', icon: IconHealthcare },
-  { name: 'Admin and Ops', icon: IconAdminOps },
-  { name: 'CS and Support', icon: IconSupport },
-];
-
-const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string, color: string } } = {
-  'Finance': { icon: IconBriefcase, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
-  'Human Resources': { icon: IconHumanResources, iconBg: "bg-blue-100 dark:bg-blue-900/50", color: "text-blue-600 dark:text-blue-400" },
-  'Sales': { icon: IconSales, iconBg: "bg-orange-100 dark:bg-orange-900/50", color: "text-orange-600 dark:text-orange-400" },
-  'Marketing': { icon: IconMarketing, iconBg: "bg-purple-100 dark:bg-purple-900/50", color: "text-purple-600 dark:text-purple-400" },
-  'Real Estate': { icon: IconRealEstate, iconBg: "bg-violet-100 dark:bg-violet-900/50", color: "text-violet-600 dark:text-violet-400" },
-  'IT Operations': { icon: IconItOperations, iconBg: "bg-pink-100 dark:bg-pink-900/50", color: "text-pink-600 dark:text-pink-400" },
-  'Procurement': { icon: IconProcurement, iconBg: "bg-indigo-100 dark:bg-indigo-900/50", color: "text-indigo-600 dark:text-indigo-400" },
-  'Development': { icon: IconDevelopment, iconBg: "bg-red-100 dark:bg-red-900/50", color: "text-red-600 dark:text-red-400" },
-  'Healthcare': { icon: IconHealthcare, iconBg: "bg-emerald-100 dark:bg-emerald-900/50", color: "text-emerald-600 dark:text-emerald-400" },
-  'Admin and Ops': { icon: IconAdminOps, iconBg: "bg-yellow-100 dark:bg-yellow-900/50", color: "text-yellow-600 dark:text-yellow-400" },
-  'CS and Support': { icon: IconSupport, iconBg: "bg-cyan-100 dark:bg-cyan-900/50", color: "text-cyan-600 dark:text-cyan-400" },
-  'General': { icon: IconGeneral, iconBg: "bg-gray-100 dark:bg-gray-900/50", color: "text-gray-600 dark:text-gray-400" },
-};
-
-const ITEMS_PER_PAGE = 8; // Adjust to 8 to leave space for the generator card
+const ITEMS_PER_PAGE = 8; 
 
 interface TemplateCardProps {
   template: Template;
@@ -68,6 +25,8 @@ interface TemplateCardProps {
 
 const TemplateCard: React.FC<TemplateCardProps> = ({ template }) => {
   const style = categoryStyles[template.category] || categoryStyles['General'];
+  const fullDescription = template.steps ? template.steps.map(step => `${step.name}: ${step.description}`).join('; ') : template.description;
+
   return (
     <Card className="bg-background/50 flex flex-col p-6 rounded-xl border-border/50 group transition-colors duration-300 hover:border-primary">
       <CardHeader className="p-0">
@@ -86,14 +45,12 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template }) => {
                     <Eye className="mr-2 h-4 w-4" /> Preview
                 </Link>
             </Button>
-            <GatedFeatureModal 
+             <GatedFeatureModal
                 trigger={
-                     <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="rounded-full bg-primary/10 text-primary border-primary/20 hover:bg-primary/20"
-                    >
-                        Use template
+                    <Button asChild variant="outline" size="sm" className="rounded-full bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
+                         <Link href={`/automation?workflow=${encodeURIComponent(fullDescription)}`}>
+                            Use template
+                        </Link>
                     </Button>
                 }
                 featureName="Workflow Customization"
@@ -105,10 +62,15 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template }) => {
 };
 
 export function WorkflowTemplateLibrary() {
+  const [allTemplates, setAllTemplates] = useState<Template[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
  
+  useEffect(() => {
+    setAllTemplates(getTemplates());
+  }, []);
+
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === 'Show All' ? 'All' : category);
     setCurrentPage(1);
@@ -121,7 +83,7 @@ export function WorkflowTemplateLibrary() {
                             template.description.toLowerCase().includes(searchTerm.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchTerm]);
+  }, [selectedCategory, searchTerm, allTemplates]);
 
   const totalPages = Math.ceil(filteredTemplates.length / ITEMS_PER_PAGE);
 

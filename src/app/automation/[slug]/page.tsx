@@ -1,5 +1,6 @@
 
 
+
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getTemplateBySlug } from '@/lib/workflow-templates';
@@ -8,7 +9,6 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog, Calendar, MessageCircle, Edit } from 'lucide-react';
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata } from 'next';
-import { IconAdminOps, IconSupport, IconDevelopment, IconBriefcase, IconHealthcare, IconHumanResources, IconItOperations, IconMarketing, IconProcurement, IconRealEstate, IconSales, IconGeneral } from '@/lib/icons';
 import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
@@ -16,22 +16,7 @@ import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import { CommunityLeadForm } from '@/components/community-lead-form';
 import { PageHero } from '@/components/page-hero';
 import { getTemplates } from '@/lib/workflow-templates';
-
-const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg: string, color: string } } = {
-  'Finance': { icon: IconBriefcase, iconBg: "bg-green-100 dark:bg-green-900/50", color: "text-green-600 dark:text-green-400" },
-  'Human Resources': { icon: IconHumanResources, iconBg: "bg-blue-100 dark:bg-blue-900/50", color: "text-blue-600 dark:text-blue-400" },
-  'Sales': { icon: IconSales, iconBg: "bg-orange-100 dark:bg-orange-900/50", color: "text-orange-600 dark:text-orange-400" },
-  'Marketing': { icon: IconMarketing, iconBg: "bg-purple-100 dark:bg-purple-900/50", color: "text-purple-600 dark:text-purple-400" },
-  'Real Estate': { icon: IconRealEstate, iconBg: "bg-violet-100 dark:bg-violet-900/50", color: "text-violet-600 dark:text-violet-400" },
-  'IT Operations': { icon: IconItOperations, iconBg: "bg-pink-100 dark:bg-pink-900/50", color: "text-pink-600 dark:text-pink-400" },
-  'Procurement': { icon: IconProcurement, iconBg: "bg-indigo-100 dark:bg-indigo-900/50", color: "text-indigo-600 dark:text-indigo-400" },
-  'Development': { icon: IconDevelopment, iconBg: "bg-red-100 dark:bg-red-900/50", color: "text-red-600 dark:text-red-400" },
-  'Healthcare': { icon: IconHealthcare, iconBg: "bg-emerald-100 dark:bg-emerald-900/50", color: "text-emerald-600 dark:text-emerald-400" },
-  'Admin and Ops': { icon: IconAdminOps, iconBg: "bg-yellow-100 dark:bg-yellow-900/50", color: "text-yellow-600 dark:text-yellow-400" },
-  'CS and Support': { icon: IconSupport, iconBg: "bg-cyan-100 dark:bg-cyan-900/50", color: "text-cyan-600 dark:text-cyan-400" },
-  'General': { icon: IconGeneral, iconBg: "bg-gray-100 dark:bg-gray-900/50", color: "text-gray-600 dark:text-gray-400" },
-};
-
+import { categoryStyles } from '@/lib/category-styles';
 
 type Props = {
   params: { slug: string }
@@ -101,12 +86,17 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                 <h2 className="text-2xl font-bold">Ready to use this template?</h2>
                 <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Take the next step by deploying this workflow, or customize it to your exact needs using our AI-powered designer.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-                    <Button asChild size="lg">
-                        <Link href={`/automation?workflow=${encodeURIComponent(fullDescription)}`}>
-                            <Edit className="mr-2 h-4 w-4" />
-                            Customize with AI
-                        </Link>
-                    </Button>
+                    <GatedFeatureModal
+                        trigger={
+                            <Button asChild size="lg">
+                                <Link href={`/automation?workflow=${encodeURIComponent(fullDescription)}`}>
+                                    <Edit className="mr-2 h-4 w-4" />
+                                    Customize with AI
+                                </Link>
+                            </Button>
+                        }
+                        featureName="Workflow Customization"
+                    />
                     <DialogFormWrapper
                         trigger={<Button size="lg" variant="secondary">Book a Demo</Button>}
                         className="bg-background"
@@ -127,6 +117,8 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                  <div className="mt-8 grid md:grid-cols-3 gap-6">
                     {relatedTemplates.map(related => {
                        const style = categoryStyles[related.category] || categoryStyles['General'];
+                       const relatedFullDescription = related.steps ? related.steps.map(step => `${step.name}: ${step.description}`).join('; ') : related.description;
+
                        return (
                           <Card key={related.slug} className="bg-background/50 flex flex-col p-6 rounded-xl border-border/50 group transition-colors duration-300 hover:border-primary">
                             <CardHeader className="p-0">
@@ -147,8 +139,10 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                                     </Button>
                                     <GatedFeatureModal
                                         trigger={
-                                            <Button variant="outline" size="sm" className="rounded-full bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
-                                                Use template
+                                            <Button asChild variant="outline" size="sm" className="rounded-full bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
+                                                <Link href={`/automation?workflow=${encodeURIComponent(relatedFullDescription)}`}>
+                                                    Use template
+                                                </Link>
                                             </Button>
                                         }
                                         featureName="Workflow Customization"
