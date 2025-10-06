@@ -5,13 +5,11 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { AuthorBio } from '@/components/author-bio';
-import { insights as allInsights } from '@/lib/insights';
+import { insights } from '@/lib/insights';
 import Script from 'next/script';
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { InsightPageContent } from '@/components/insight-page-content';
-
-export const insights = allInsights;
 
 type Props = {
   params: { slug: string }
