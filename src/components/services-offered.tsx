@@ -20,7 +20,7 @@ const services = [
     description: "Stop guessing, start growing. We use custom AI to analyze your market, forecast trends, and identify the most profitable next steps for your business.",
     href: "/ai-solutions",
     cta: "Explore AI Potential",
-    className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+    className: "lg:col-span-1 lg:row-span-2",
   },
   {
     Icon: Zap,
@@ -28,7 +28,7 @@ const services = [
     description: "Do more with less time and fewer errors. We use intelligent automation to handle routine tasks like data entry, compliance, and invoicing.",
     href: "/automation",
     cta: "Calculate Your ROI",
-    className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+    className: "lg:col-span-1",
   },
   {
     Icon: Code,
@@ -36,7 +36,7 @@ const services = [
     description: "Build the platform you need for tomorrow's success. From high-converting e-commerce sites to custom applications, we ensure your digital storefront can handle 5x user growth without breaking.",
     href: "/web-development",
     cta: "Start Your Relaunch",
-    className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+    className: "lg:col-span-1",
   },
   {
     Icon: MessageSquare,
@@ -44,7 +44,7 @@ const services = [
     description: "Instant service, guaranteed. Deploy AI-powered conversational agents that answer customer questions instantly, reduce support tickets, and nurture leads around the clock.",
     href: "/chatbots",
     cta: "See a Chatbot Demo",
-    className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
+    className: "lg:col-span-1",
   },
   {
     Icon: BarChart3,
@@ -52,7 +52,7 @@ const services = [
     description: "Turn mountains of data into clear, simple decisions. We design custom business intelligence dashboards that consolidate your data into visual, actionable insights.",
     href: "/business-analytics",
     cta: "Design My Dashboard",
-    className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
+    className: "lg:col-span-1",
   },
 ];
 
@@ -71,7 +71,7 @@ export function ServicesOffered() {
                        We equip your business with the same powerful tools and comprehensive data used by large corporations—without the big budget. Our solutions are designed to deliver maximum impact, efficiency, and scale.
                     </p>
                 </div>
-                <BentoGrid className="lg:grid-rows-3 mt-16">
+                <BentoGrid className="mt-16">
                     {services.map((service) => (
                         <BentoCard key={service.name} {...service} />
                     ))}
