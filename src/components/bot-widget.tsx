@@ -4,22 +4,19 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
-import { Bot, User, X, Sparkles, Calendar, HelpCircle, GraduationCap, Check, Loader2, RefreshCw, Type, MessageCircle, Send } from 'lucide-react';
+import { Bot, User, X, Sparkles, Calendar, HelpCircle, GraduationCap, RefreshCw, MessageCircle, Send } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat-bubble";
 import { ScrollArea } from './ui/scroll-area';
-import { CommunityLeadForm } from './community-lead-form';
 import { getSolutionRecommendation, SolutionRecommendationOutput } from '@/app/actions';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from './ui/dialog';
-import { Input } from './ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from './ui/tooltip';
-import { Checkbox } from './ui/checkbox';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { useChatbotStore } from '@/hooks/use-chatbot-store';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
-import { ArrowIcon } from './ui/arrow-icon';
+import { CommunityLeadForm } from './community-lead-form';
+import { ActionPanel } from './chatbot/action-panel';
+import { AssessmentResult } from './chatbot/assessment-result';
+import { TextInputPanel } from './chatbot/text-input-panel';
 
 const initialOptions = [
   { text: 'Get a Free AI Business Assessment', value: 'assessment', icon: <Sparkles className="h-4 w-4 mr-2" /> },
@@ -265,8 +262,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
             <div ref={messagesEndRef} />
           </CardContent>
         </ScrollArea>
-        <ScrollArea>
-          <CardFooter className="p-4 border-t bg-background flex flex-col gap-4">
+        <CardFooter className="p-4 border-t bg-background flex flex-col items-start gap-4">
             <ActionPanel 
                 currentMessage={messages[messages.length - 1]} 
                 onOptionClick={handleOptionClick} 
@@ -274,8 +270,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                 onFormPartSubmit={onFormPartSubmit}
             />
             <TextInputPanel onSend={handleTextInput} inputRef={inputRef} />
-          </CardFooter>
-        </ScrollArea>
+        </CardFooter>
       </div>
 
       <TooltipProvider>
@@ -305,261 +300,3 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     </div>
   );
 }
-
-const ActionPanel = ({ currentMessage, onOptionClick, isLoading, onFormPartSubmit }: { currentMessage: any; onOptionClick: any; isLoading: boolean; onFormPartSubmit: any; }) => {
-    if (isLoading || !currentMessage || currentMessage.from === 'user') {
-      return null;
-    }
-
-    const renderContent = () => {
-        switch (currentMessage.type) {
-            case 'buttons':
-                return (
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {currentMessage.options.map((opt: any) => (
-                            <Button key={opt.value} variant="outline" size="sm" className="w-full justify-start text-xs h-auto py-2" onClick={() => onOptionClick(opt)}>
-                                <span className="flex items-center text-left">{opt.icon} {opt.text}</span>
-                            </Button>
-                        ))}
-                    </div>
-                );
-            case 'form_part':
-                if (currentMessage.partName === 'businessNeeds') {
-                    return <BusinessNeedsForm onFormPartSubmit={onFormPartSubmit} partName={currentMessage.partName} />;
-                }
-                if (currentMessage.partName === 'companyInfo') {
-                    return <CompanyInfoForm onFormPartSubmit={onFormPartSubmit} partName={currentMessage.partName} />;
-                }
-                 if (currentMessage.partName === 'contactInfo') {
-                    return <ContactInfoForm onFormPartSubmit={onFormPartSubmit} partName={currentMessage.partName} />;
-                }
-                return null;
-            default:
-                return null;
-        }
-    };
-
-    return (
-        <div className="w-full">
-            {renderContent()}
-        </div>
-    )
-};
-
-const TextInputPanel = ({ onSend, inputRef }: { onSend: (text: string) => void; inputRef: React.RefObject<HTMLInputElement> }) => {
-  const [text, setText] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (text.trim()) {
-      onSend(text.trim());
-      setText('');
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="w-full flex items-center gap-2">
-      <Input
-        ref={inputRef}
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Type your message..."
-        className="flex-1 h-9 text-xs"
-        autoComplete="off"
-      />
-      <Button type="submit" size="icon" className="h-9 w-9">
-        <Send className="h-4 w-4" />
-      </Button>
-    </form>
-  );
-};
-
-
-const AssessmentResult = ({ result }: { result: SolutionRecommendationOutput }) => (
-  <Card className="bg-secondary/30 mt-2">
-    <CardHeader>
-      <CardTitle className="text-xl flex items-center gap-2"><Sparkles className="h-5 w-5 text-primary" /> Your Technology Roadmap</CardTitle>
-      <CardDescription>{result.executiveSummary.overview}</CardDescription>
-    </CardHeader>
-    <CardContent className="space-y-4 text-sm">
-        <h4 className="font-semibold text-foreground">Recommended Initiative:</h4>
-        <div className="p-3 rounded-md bg-background/50 border">
-          <p className="font-semibold text-primary">{result.recommendedSolutionPath.coreTechnology.solutionName}</p>
-          <p className="text-muted-foreground mt-1">{result.recommendedSolutionPath.coreTechnology.justification}</p>
-        </div>
-    </CardContent>
-    <CardFooter>
-      <Dialog>
-        <DialogTrigger asChild>
-            <Button size="sm">View Full Report</Button>
-        </DialogTrigger>
-        <DialogContent className="max-w-2xl h-[80vh] flex flex-col">
-          <DialogHeader>
-            <DialogTitle>Full Assessment Report</DialogTitle>
-            <DialogDescription>
-              A detailed analysis based on your business needs.
-            </DialogDescription>
-          </DialogHeader>
-          <ScrollArea className="flex-1 -mx-6 px-6">
-            <div className="space-y-6 text-sm">
-              <div>
-                <h3 className="font-semibold text-lg mb-2 text-primary">Executive Summary</h3>
-                 <Card className="bg-secondary/30">
-                  <CardContent className="pt-6 space-y-2 text-sm">
-                      <p><strong>Overview:</strong> {result.executiveSummary.overview}</p>
-                      <p><strong>Primary Opportunity:</strong> {result.executiveSummary.primaryOpportunity}</p>
-                      <p><strong>Est. ROI Timeframe:</strong> {result.executiveSummary.expectedRoiTimeframe}</p>
-                  </CardContent>
-              </Card>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2 text-primary">Recommended Solution Path</h3>
-                <Card className="bg-secondary/30">
-                      <CardHeader>
-                          <CardTitle>{result.recommendedSolutionPath.coreTechnology.solutionName}</CardTitle>
-                          <CardDescription>{result.recommendedSolutionPath.coreTechnology.justification}</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                          <h4 className="font-semibold mb-4 text-foreground">Expected Outcomes</h4>
-                              <Table>
-                                  <TableHeader>
-                                      <TableRow>
-                                          <TableHead>Metric</TableHead>
-                                          <TableHead>Improvement</TableHead>
-                                          <TableHead>Timeframe</TableHead>
-                                      </TableRow>
-                                  </TableHeader>
-                                  <TableBody>
-                                      {result.recommendedSolutionPath.expectedOutcomes.map((outcome, index) => (
-                                          <TableRow key={index}>
-                                              <TableCell className="font-medium">{outcome.metric}</TableCell>
-                                              <TableCell className="text-green-500 font-semibold">{outcome.projectedImprovement}</TableCell>
-                                              <TableCell>{outcome.timeframe}</TableCell>
-                                          </TableRow>
-                                      ))}
-                                  </TableBody>
-                              </Table>
-                      </CardContent>
-                  </Card>
-              </div>
-               <div>
-                <h3 className="font-semibold text-lg mb-2 text-primary">Next Steps</h3>
-                  <Table>
-                      <TableHeader>
-                          <TableRow>
-                          <TableHead>Action Item</TableHead>
-                          <TableHead>Owner</TableHead>
-                          <TableHead>Deadline</TableHead>
-                          </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                          {result.nextSteps.map((step, index) => (
-                          <TableRow key={index}>
-                              <TableCell className="font-medium">{step.actionItem}</TableCell>
-                              <TableCell>{step.owner}</TableCell>
-                              <TableCell>{step.deadline}</TableCell>
-                          </TableRow>
-                          ))}
-                      </TableBody>
-                  </Table>
-              </div>
-            </div>
-          </ScrollArea>
-          <DialogFooter className="pt-4 border-t">
-              <Button asChild className="w-full" size="lg">
-                <Link href="/contact" target="_blank">
-                    <Calendar className="mr-2 h-4 w-4" /> Book a Consultation
-                </Link>
-              </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </CardFooter>
-  </Card>
-);
-
-const BusinessNeedsForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any, partName: string }) => {
-    const [businessNeeds, setBusinessNeeds] = useState('');
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (businessNeeds.trim().length > 10) {
-            onFormPartSubmit({ businessNeeds }, partName, businessNeeds);
-        }
-    };
-    return (
-        <form onSubmit={handleSubmit} className="space-y-2">
-            <Input 
-                value={businessNeeds}
-                onChange={e => setBusinessNeeds(e.target.value)}
-                placeholder="e.g., Reduce support costs..."
-                required 
-                className="h-8 text-xs" 
-            />
-            <Button type="submit" size="sm" className="w-full h-8 text-xs">Continue</Button>
-        </form>
-    );
-};
-
-const CompanyInfoForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any, partName: string }) => {
-  const [companySize, setCompanySize] = useState('');
-  const [industry, setIndustry] = useState('');
-  const [budget, setBudget] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (companySize && industry && budget) {
-      onFormPartSubmit({ companySize, industry, budget }, partName, `Company info provided.`);
-    }
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-2 pt-2 text-xs">
-      <div className="grid grid-cols-2 gap-2">
-         <Select onValueChange={setCompanySize} value={companySize} required>
-            <SelectTrigger className="h-8 text-xs"><SelectValue placeholder="Company Size" /></SelectTrigger>
-            <SelectContent>
-                <SelectItem value="1-10 employees">1-10 employees</SelectItem>
-                <SelectItem value="11-50 employees">11-50 employees</SelectItem>
-                <SelectItem value="51-200 employees">51-200 employees</SelectItem>
-            </SelectContent>
-        </Select>
-        <Input value={industry} onChange={e => setIndustry(e.target.value)} placeholder="Industry" required className="h-8 text-xs"/>
-      </div>
-      <Select onValueChange={setBudget} value={budget} required>
-        <SelectTrigger className="h-8 text-xs"><SelectValue placeholder="Budget" /></SelectTrigger>
-        <SelectContent>
-            <SelectItem value="Under $5,000">Under $5,000</SelectItem>
-            <SelectItem value="$5,000 - $20,000">$5,000 - $20,000</SelectItem>
-        </SelectContent>
-    </Select>
-      <Button type="submit" size="sm" className="w-full h-8 text-xs">Continue</Button>
-    </form>
-  )
-}
-
-const ContactInfoForm = ({ onFormPartSubmit, partName }: { onFormPartSubmit: any, partName: string }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (name && email) {
-      onFormPartSubmit({ name, email }, partName, 'Report will be sent to ' + email);
-    }
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-2 pt-2 text-xs">
-      <div className="grid grid-cols-2 gap-2">
-        <Input value={name} onChange={e => setName(e.target.value)} placeholder="Full Name" required className="h-8 text-xs" />
-        <Input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required className="h-8 text-xs" />
-      </div>
-      <Button type="submit" size="sm" className="w-full h-8 text-xs">Generate My Report</Button>
-    </form>
-  )
-}
-
-    
-
-    
