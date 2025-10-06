@@ -221,7 +221,6 @@ export default function TrainingPage() {
 
         <section className="text-center mt-16 md:mt-24 py-16 md:py-24 bg-background rounded-lg px-4 relative overflow-hidden">
             <AdinkraBackground />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
             <div className="relative z-20">
                 <h2 className="text-2xl md:text-4xl font-bold font-headline text-primary">Ready to Start a Conversation?</h2>
                 <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">

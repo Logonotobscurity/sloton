@@ -8,7 +8,6 @@ export function BottomCta() {
   return (
     <section className="py-16 md:py-24 bg-background relative overflow-hidden">
       <AdinkraBackground />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background z-10" />
       <div className="container mx-auto px-4 md:px-6 text-center relative z-20">
         <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4 text-primary">
           Ready to Start a Project?

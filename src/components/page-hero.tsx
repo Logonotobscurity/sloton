@@ -16,7 +16,6 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
   return (
     <div className="relative py-16 md:py-24 text-center bg-background overflow-hidden">
         <AdinkraBackground />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background z-10" />
         <div className="container px-4 md:px-6 relative z-20 animate-[fade-in_1s_ease-in-out]">
             {icon && <div className="mb-4 flex justify-center">{icon}</div>}
             <div className="max-w-3xl mx-auto">
@@ -26,7 +25,7 @@ export function PageHero({ title, description, icon, children }: PageHeroProps) 
                     {title}
                 </h1>
                 <p
-                    className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8"
+                    className="text-lg md:text-xl text-muted-foreground leading-relaxed"
                 >
                     {description}
                 </p>

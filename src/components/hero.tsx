@@ -13,8 +13,7 @@ export function Hero() {
   return (
     <div className="relative min-h-[90vh] w-full flex items-center overflow-hidden">
         <AdinkraBackground />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
-
+        
         <div className="container mx-auto px-4 md:px-6 relative z-20">
              <div className="absolute -bottom-1/3 -left-1/4 w-1/2 h-1/2 bg-primary/20 rounded-full blur-3xl" />
             <div className="absolute -top-1/3 -right-1/4 w-1/2 h-1/2 bg-accent/20 rounded-full blur-3xl" />
