@@ -145,34 +145,32 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {pressReleases.map((insight) => (
                          <GlowingCard key={insight.title}>
-                            <div className="flex flex-col h-full">
-                                <CardHeader className="p-0">
-                                <Link href={`/insights/${insight.slug}`}>
-                                    <div data-ai-hint={insight.dataAiHint}>
-                                        <Image
-                                        src={insight.image}
-                                        alt={insight.title}
-                                        width={insight.width}
-                                        height={insight.height}
-                                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl"
-                                        />
-                                    </div>
+                            <CardHeader className="p-0">
+                            <Link href={`/insights/${insight.slug}`}>
+                                <div data-ai-hint={insight.dataAiHint}>
+                                    <Image
+                                    src={insight.image}
+                                    alt={insight.title}
+                                    width={insight.width}
+                                    height={insight.height}
+                                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl"
+                                    />
+                                </div>
+                            </Link>
+                            </CardHeader>
+                            <CardContent className="p-4 md:p-6 flex-grow">
+                            <CardDescription>{new Date(insight.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</CardDescription>
+                            <CardTitle className="text-lg md:text-xl mt-2">
+                                <Link href={`/insights/${insight.slug}`} className="hover:text-primary transition-colors">
+                                    {insight.title}
                                 </Link>
-                                </CardHeader>
-                                <CardContent className="p-4 md:p-6 flex-grow">
-                                <CardDescription>{new Date(insight.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</CardDescription>
-                                <CardTitle className="text-lg md:text-xl mt-2">
-                                    <Link href={`/insights/${insight.slug}`} className="hover:text-primary transition-colors">
-                                        {insight.title}
-                                    </Link>
-                                </CardTitle>
-                                </CardContent>
-                                <CardFooter className="p-4 md:p-6 pt-0 mt-auto">
-                                <Link href={`/insights/${insight.slug}`} className="text-primary font-semibold flex items-center group">
-                                    Read More <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                                </CardFooter>
-                            </div>
+                            </CardTitle>
+                            </CardContent>
+                            <CardFooter className="p-4 md:p-6 pt-0">
+                            <Link href={`/insights/${insight.slug}`} className="text-primary font-semibold flex items-center group">
+                                Read More <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            </CardFooter>
                         </GlowingCard>
                     ))}
                     </div>
