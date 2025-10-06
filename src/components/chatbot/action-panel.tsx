@@ -24,8 +24,8 @@ export function ActionPanel({ currentMessage, onOptionClick, isLoading, onFormPa
                 return (
                     <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {currentMessage.options.map((opt: any) => (
-                            <Button key={opt.value} variant="outline" size="sm" className="w-full justify-start text-left h-auto py-2 gap-2" onClick={() => onOptionClick(opt)}>
-                                {opt.icon && <div className="flex-shrink-0">{opt.icon}</div>}
+                            <Button key={opt.value} variant="outline" size="sm" className="w-full justify-start text-left h-auto py-2 flex items-start gap-2" onClick={() => onOptionClick(opt)}>
+                                {opt.icon && <div className="flex-shrink-0 h-4 w-4">{opt.icon}</div>}
                                 <div className="flex-1 min-w-0 break-words">{opt.text}</div>
                             </Button>
                         ))}
