@@ -56,15 +56,27 @@ export const menuData = {
         {"title": "Telecom", "shortDescription": "Manage infrastructure on one AI platform.", "href": "/use-cases#telecom"}
       ]
     },
+    "resources": {
+        "heading": "Resources",
+        "intro": "Explore our articles, training programs, and support documentation.",
+        "cta": {"label": "View All Insights", "href": "/insights"},
+        "items": [
+            {"title": "Insights", "desc": "Expert analysis on the latest trends in technology, automation, and AI.", "href": "/insights"},
+            {"title": "Training", "desc": "Master in-demand tech skills with our expert-led training courses.", "href": "/training"},
+            {"title": "Support", "desc": "Find help articles, product documentation, and get in touch with our team.", "href": "/support"},
+            {"title": "Ideas Lab", "desc": "A space for experimental concepts and AI generation prompts.", "href": "/ideas-lab"},
+            {"title": "Use Cases", "desc": "See how our solutions solve real-world business challenges.", "href": "/use-cases"}
+        ]
+    },
     "partners": {
       "heading": "Partners",
       "intro": "Locate the partner you need, or explore the benefits of partnering with LOG_ON.",
       "cta": {"label": "Learn More", "href": "/partners"},
       "items": [
         {"title": "Find a partner", "desc": "Connect with a LOG_ON partner to reach your business goals.", "href": "/partners"},
-        {"title": "Become a partner", "desc": "Join our partner ecosystem. Choose partner paths that best fit your expertise and experience.", "href": "/contact"},
+        {"title": "Become a partner", "desc": "Join our partner ecosystem. Choose partner paths that best fit your expertise and experience.", "href": "/contact?subject=Partnership+Inquiry"},
         {"title": "Partner awards", "desc": "Meet the global LOG_ON partners leading the way in innovation and value for our customers.", "href": "/partners"},
-        {"title": "Partner portal", "desc": "Find tasks, alerts, and information you need, all in one place.", "href": "/contact"},
+        {"title": "Partner portal", "desc": "Find tasks, alerts, and information you need, all in one place.", "href": "/contact?subject=Partner+Portal+Inquiry"},
         {"title": "Partner applications", "desc": "Explore innovative apps that extend and complement the LOG_ON AI Platform.", "href": "/partners"}
       ]
     },
@@ -80,10 +92,7 @@ export const menuData = {
         {"title": "Locations", "desc": "See LOG_ON office locations.", "href": "/about/locations"},
       ]
     },
-     "topLevelNav": [
-        {"title": "Training", "href": "/training"},
-        {"title": "Support", "href": "/support"}
-      ]
+     "topLevelNav": []
   }
 };
 

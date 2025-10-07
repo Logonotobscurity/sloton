@@ -19,13 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // From header navigation
   addUrl('/solutions');
   addUrl('/use-cases');
-  addUrl('/training');
   addUrl('/partners');
   addUrl('/about');
-  addUrl('/support');
   
   // From dropdowns
   menuData.menu.products.items.forEach(item => addUrl(item.href));
+  menuData.menu.resources.items.forEach(item => addUrl(item.href));
   menuData.menu.company.items.forEach(item => addUrl(item.href));
 
   // Other known pages

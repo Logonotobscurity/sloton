@@ -46,16 +46,16 @@ export function DesktopNav() {
                   </Link>
                 </NavigationMenuItem>
              ))}
+              <NavigationMenuItem>
+                <Link href="/contact" legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(buttonVariants({ variant: "default" }), "ml-2")}>
+                        Contact Us
+                    </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       </div>
-       <div className="hidden lg:flex items-center space-x-2">
-            <Link href="/contact" legacyBehavior passHref>
-                <NavigationMenuLink className={cn(buttonVariants({ variant: "default" }))}>
-                    Contact Us
-                </NavigationMenuLink>
-            </Link>
-       </div>
     </>
   );
 }
