@@ -1,98 +1,54 @@
-
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { useState, useEffect } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { DesktopNav } from "./header/desktop-nav";
+import { MobileNav } from "./header/mobile-nav";
 import { Logo } from "./header/logo";
-
-const primaryNavItems = [
-  { title: "Solutions", href: "/solutions" },
-  { title: "Automation", href: "/automation" },
-  { title: "About", href: "/about" },
-  { title: "Insights", href: "/insights" },
-  { title: "Contact", href: "/contact" },
-];
+import Link from "next/link";
+import { ThemeToggle } from "./header/theme-toggle";
+import { Button } from "./ui/button";
 
 export function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isMobile = useMediaQuery("(max-width: 767px)");
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="w-full bg-background/80 backdrop-blur-sm sticky top-0 z-50 border-b">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex-shrink-0">
-            <Link href="/" aria-label="Home">
-              <Logo />
-            </Link>
-          </div>
-
-          {!isMobile && (
-            <nav
-              className="flex-1 flex justify-center"
-              role="navigation"
-              aria-label="Primary"
-            >
-              <ul className="flex items-center gap-2 whitespace-nowrap">
-                {primaryNavItems.map((item) => (
-                  <li key={item.title}>
-                    <Button variant="ghost" asChild>
-                      <Link href={item.href}>{item.title}</Link>
-                    </Button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          )}
-
-          <div className="flex items-center justify-end flex-shrink-0">
-            {isMobile ? (
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Open menu"
-                aria-expanded={isMobileMenuOpen}
-                aria-controls="mobile-menu"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
-                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
-            ) : (
-              <Button asChild>
-                <Link href="/contact?subject=Demo+Request">Get a demo</Link>
-              </Button>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {isMobileMenuOpen && isMobile && (
-        <div id="mobile-menu" className="absolute top-16 left-0 w-full bg-background border-t">
-          <nav role="navigation" aria-label="Mobile primary">
-            <ul className="flex flex-col p-4">
-              {primaryNavItems.map((item) => (
-                <li key={item.title}>
-                  <Link
-                    href={item.href}
-                    className="block py-3 px-4 text-base font-medium text-foreground hover:bg-secondary rounded-md"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-4 mt-4 border-t">
-                <Button className="w-full" asChild>
-                  <Link href="/contact?subject=Demo+Request">Get a demo</Link>
-                </Button>
-              </li>
-            </ul>
-          </nav>
-        </div>
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full transition-all duration-300",
+        isScrolled
+          ? "bg-background/80 backdrop-blur-lg shadow-lg"
+          : "bg-transparent"
       )}
+    >
+      <div
+        className={cn(
+          "container mx-auto flex h-20 items-center justify-between transition-all duration-300",
+          isScrolled ? "max-w-6xl" : "max-w-4xl"
+        )}
+      >
+        <Link href="/" className="flex items-center space-x-2">
+          <Logo />
+        </Link>
+
+        {isDesktop ? <DesktopNav /> : <MobileNav />}
+
+        {isDesktop && (
+            <div className="flex items-center gap-2">
+                 <ThemeToggle />
+            </div>
+        )}
+      </div>
     </header>
   );
 }

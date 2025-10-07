@@ -1,11 +1,10 @@
-
 export const menuData = {
   "menuVersion": "1.0",
   "menu": {
     "products": {
-       "heading": "Products",
+       "heading": "Solutions",
        "intro": "Unite people, processes, and systems with AI-powered products for all your workflows.",
-       "cta": {"label": "See All Products", "href": "/solutions"},
+       "cta": {"label": "See All Solutions", "href": "/solutions"},
        "items": [
           {
             title: 'AI Solutions',
@@ -42,42 +41,12 @@ export const menuData = {
     "industries": {
       "heading": "Industries",
       "intro": "Browse solutions to help you solve the complex business challenges unique to your industry.",
-      "cta": {"label": "Learn More", "href": "/use-cases"},
+      "cta": {"label": "Explore Use Cases", "href": "/use-cases"},
       "items": [
         {"title": "Finance & Banking", "shortDescription": "Future-proof your bank with one AI platform.", "href": "/use-cases#finance"},
         {"title": "Healthcare", "shortDescription": "Fuel efficiency, reduce costs, and deliver quality care.", "href": "/use-cases#healthcare"},
         {"title": "E-Commerce", "shortDescription": "Enhance retail experiences with AI-powered insights.", "href": "/use-cases#ecommerce"},
         {"title": "Insurance", "shortDescription": "Be the trusted carrier of choice with one AI platform.", "href": "/use-cases#insurance"},
-        {"title": "Accounting", "shortDescription": "Streamline your accounting workflows with automated data entry.", "href": "/use-cases#accounting"},
-        {"title": "Manufacturing", "shortDescription": "Drive manufacturing efficiency with one AI platform.", "href": "/use-cases#manufacturing"},
-        {"title": "Real Estate", "shortDescription": "Enhance client engagement with AI-powered chatbots.", "href": "/use-cases#real-estate"},
-        {"title": "IT Consulting", "shortDescription": "Enhance your service offerings and internal efficiencies.", "href": "/use-cases#it-consulting"},
-        {"title": "Logistics & Transport", "shortDescription": "Optimize your logistics network with AI-driven route planning.", "href": "/use-cases#logistics"},
-        {"title": "Telecom", "shortDescription": "Manage infrastructure on one AI platform.", "href": "/use-cases#telecom"}
-      ]
-    },
-    "resources": {
-        "heading": "Resources",
-        "intro": "Explore our articles, training programs, and support documentation.",
-        "cta": {"label": "View All Insights", "href": "/insights"},
-        "items": [
-            {"title": "Insights", "desc": "Expert analysis on the latest trends in technology, automation, and AI.", "href": "/insights"},
-            {"title": "Training", "desc": "Master in-demand tech skills with our expert-led training courses.", "href": "/training"},
-            {"title": "Support", "desc": "Find help articles, product documentation, and get in touch with our team.", "href": "/support"},
-            {"title": "Ideas Lab", "desc": "A space for experimental concepts and AI generation prompts.", "href": "/ideas-lab"},
-            {"title": "Use Cases", "desc": "See how our solutions solve real-world business challenges.", "href": "/use-cases"}
-        ]
-    },
-    "partners": {
-      "heading": "Partners",
-      "intro": "Locate the partner you need, or explore the benefits of partnering with LOG_ON.",
-      "cta": {"label": "Learn More", "href": "/partners"},
-      "items": [
-        {"title": "Find a partner", "desc": "Connect with a LOG_ON partner to reach your business goals.", "href": "/partners"},
-        {"title": "Become a partner", "desc": "Join our partner ecosystem. Choose partner paths that best fit your expertise and experience.", "href": "/contact?subject=Partnership+Inquiry"},
-        {"title": "Partner awards", "desc": "Meet the global LOG_ON partners leading the way in innovation and value for our customers.", "href": "/partners"},
-        {"title": "Partner portal", "desc": "Find tasks, alerts, and information you need, all in one place.", "href": "/contact?subject=Partner+Portal+Inquiry"},
-        {"title": "Partner applications", "desc": "Explore innovative apps that extend and complement the LOG_ON AI Platform.", "href": "/partners"}
       ]
     },
     "company": {
@@ -86,14 +55,20 @@ export const menuData = {
       "cta": {"label": "Learn More", "href": "/about"},
       "items": [
         {"title": "About Us", "desc": "Learn about our mission, values, and news.", "href": "/about"},
+        {"title": "Our Leadership", "desc": "Meet the LOG_ON leadership team.", "href": "/about/our-leadership"},
         {"title": "Careers", "desc": "Make your next career move with us.", "href": "/about/careers"},
         {"title": "Investors", "desc": "Explore investor news and resources.", "href": "/about/investors"},
-        {"title": "Leadership", "desc": "Meet the LOG_ON leadership team.", "href": "/about/our-leadership"},
+        {"title": "Partners", "desc": "Locate a partner or join our partner ecosystem.", "href": "/partners"},
         {"title": "Locations", "desc": "See LOG_ON office locations.", "href": "/about/locations"},
       ]
     },
-     "topLevelNav": []
+     "topLevelNav": [
+        { "title": "Products", "href": "/products" },
+        { "title": "Industries", "href": "/industries" },
+        { "title": "Partners", "href": "/partners" },
+        { "title": "Company", "href": "/company" }
+     ]
   }
 };
 
-export type MenuKey = keyof typeof menuData.menu;
+export type MenuKey = keyof Omit<typeof menuData.menu, "topLevelNav">;

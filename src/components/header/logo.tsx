@@ -1,3 +1,4 @@
+import React from 'react';
 
 export const Logo = () => (
     <div className="flex flex-col items-start">
