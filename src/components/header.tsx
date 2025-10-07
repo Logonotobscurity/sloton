@@ -3,13 +3,14 @@
 
 import * as React from "react";
 import Link from 'next/link';
-import { Menu, Phone, Briefcase } from 'lucide-react';
+import { Menu, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
   SheetClose,
   SheetTrigger
 } from '@/components/ui/sheet';
@@ -175,13 +176,12 @@ export function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-full max-w-sm bg-background p-0 flex flex-col">
-            <SheetHeader>
+            <SheetHeader className="p-4 border-b">
                  <SheetClose asChild>
-                   <div className="p-4 border-b">
-                    <Logo />
-                   </div>
+                   <Logo />
                 </SheetClose>
                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                 <SheetDescription className="sr-only">A list of navigation links for the LOG_ON website.</SheetDescription>
             </SheetHeader>
             <div className="flex-grow overflow-y-auto p-4">
               <Accordion type="multiple" className="w-full">
