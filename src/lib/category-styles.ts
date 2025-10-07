@@ -12,7 +12,7 @@ import {
   IconAdminOps,
   IconSupport,
   IconGeneral
-} from '@/lib/icons';
+} from '@/components/ui/category-icons';
 import React from 'react';
 
 export const categories = [
