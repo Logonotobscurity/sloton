@@ -1,5 +1,4 @@
-
-import { teamMembers } from "@/lib/data/team-members.ts";
+import { teamMembers } from "@/lib/data/team-members";
 import { PageHero } from "@/components/page-sections/page-hero";
 import { BottomCta } from "@/components/page-sections/bottom-cta";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
