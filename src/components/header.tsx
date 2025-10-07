@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Menu, X, Phone, ChevronDown, Check, Briefcase } from 'lucide-react';
+import { Menu, Phone, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -22,56 +22,9 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './theme-toggle';
-
-const solutions = [
-    {
-        title: "AI Solutions",
-        description: "Custom AI models and machine learning services.",
-        href: "/ai-solutions"
-    },
-    {
-        title: "Process Automation",
-        description: "Streamline workflows with RPA and AI.",
-        href: "/automation"
-    },
-    {
-        title: "Web & Custom Development",
-        description: "Scalable websites and applications.",
-        href: "/web-development"
-    },
-     {
-        title: "AI Chatbots",
-        description: "Intelligent virtual assistants for 24/7 engagement.",
-        href: "/chatbots"
-    },
-    {
-        title: "Business Analytics",
-        description: "Turn data into actionable insights.",
-        href: "/business-analytics"
-    },
-    {
-        title: "Database Solutions",
-        description: "Secure and high-performance data management.",
-        href: "/database-solutions"
-    }
-];
-
-const companyLinks = [
-    { title: "About Us", href: "/about" },
-    { title: "Our Leadership", href: "/about/our-leadership" },
-    { title: "Careers", href: "/about/careers" },
-    { title: "Investors", href: "/about/investors" },
-    { title: "Locations", href: "/about/locations"},
-    { title: "Insights", href: "/insights" },
-];
-
-const navLinks = [
-    { label: "Solutions", href: "/solutions", dropdown: solutions },
-    { label: "Company", href: "/about", dropdown: companyLinks },
-    { label: "Partners", href: "/partners" },
-    { label: "Training", href: "/training" },
-    { label: "Support", href: "/support" }
-];
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from './ui/navigation-menu';
+import { menuData } from '@/lib/menu-data';
+import { MegaMenu } from './mega-menu';
 
 const Logo = () => (
     <Link href="/" className="flex items-center" prefetch={false}>
@@ -79,14 +32,6 @@ const Logo = () => (
           <span className="font-bold text-2xl tracking-tighter text-primary leading-tight">LOG_ON</span>
           <span className="text-xs text-muted-foreground -mt-1">Connecting Advantages...</span>
         </div>
-    </Link>
-);
-
-const NavLink = ({ href, children, isActive, hasDropdown }: { href: string; children: React.ReactNode; isActive: boolean; hasDropdown?: boolean }) => (
-    <Link href={href} className={cn("relative flex items-center px-3 py-2 text-sm font-medium transition-colors hover:text-primary", isActive ? "text-primary" : "text-foreground")}>
-        {children}
-        {hasDropdown && <ChevronDown className="h-4 w-4 ml-1" />}
-        {isActive && <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-0.5 bg-primary rounded-full" />}
     </Link>
 );
 
@@ -102,6 +47,33 @@ const MobileNavLink = ({ href, children, onLinkClick }: { href: string; children
         </Link>
     </SheetClose>
 );
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"
+
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -132,34 +104,56 @@ export function Header() {
         <Logo />
         
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-2">
-          {navLinks.map(link => (
-            link.dropdown ? (
-                <div key={link.label} className="group relative">
-                    <NavLink href={link.href} isActive={pathname.startsWith(link.href)} hasDropdown>
-                        {link.label}
-                    </NavLink>
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-screen max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto">
-                        <div className="bg-background border rounded-lg shadow-lg p-2">
-                           <div className="grid grid-cols-1 gap-1">
-                                {link.dropdown.map(item => (
-                                    <Link key={item.title} href={item.href} className="group/item block p-2 rounded-md transition-colors hover:bg-secondary">
-                                      <div className="flex flex-col">
-                                        <span className="font-semibold text-sm text-foreground">{item.title}</span>
-                                        {'description' in item && <span className="text-xs text-muted-foreground">{item.description}</span>}
-                                      </div>
-                                    </Link>
-                                ))}
-                           </div>
-                        </div>
-                    </div>
-                </div>
-            ) : (
-                <NavLink key={link.label} href={link.href} isActive={pathname === link.href}>
-                    {link.label}
-                </NavLink>
-            )
-          ))}
+        <nav className="hidden lg:flex items-center gap-1">
+            <NavigationMenu>
+                <NavigationMenuList>
+                    <NavigationMenuItem>
+                        <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                             <div className="w-[600px]">
+                               <MegaMenu menuKey="products" />
+                            </div>
+                        </NavigationMenuContent>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <NavigationMenuTrigger>Use Cases</NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                            <div className="w-[600px]">
+                               <MegaMenu menuKey="industries" />
+                            </div>
+                        </NavigationMenuContent>
+                    </NavigationMenuItem>
+                     <NavigationMenuItem>
+                        <Link href="/training" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            Training
+                        </NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link href="/partners" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            Partners
+                        </NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                         <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                             <div className="w-[600px]">
+                                <MegaMenu menuKey="company" />
+                            </div>
+                        </NavigationMenuContent>
+                    </NavigationMenuItem>
+                     <NavigationMenuItem>
+                        <Link href="/support" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            Support
+                        </NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                </NavigationMenuList>
+            </NavigationMenu>
         </nav>
 
         {/* Desktop Actions */}
@@ -190,20 +184,33 @@ export function Header() {
             </SheetHeader>
             <div className="flex-grow overflow-y-auto p-4">
               <Accordion type="multiple" className="w-full">
-                {navLinks.map((navItem) => (
-                  <AccordionItem value={navItem.label} key={navItem.label}>
-                    <AccordionTrigger>
-                      <Link href={navItem.href} onClick={(e) => { e.stopPropagation(); handleMobileLinkClick(); }} className="text-lg font-bold">
-                        {navItem.label}
-                      </Link>
-                    </AccordionTrigger>
-                    <AccordionContent className="pl-4">
-                      {navItem.dropdown?.map(subItem => (
+                <AccordionItem value="solutions">
+                  <AccordionTrigger className="text-lg font-bold">Solutions</AccordionTrigger>
+                  <AccordionContent className="pl-4">
+                      {menuData.menu.products.items.map(subItem => (
                           <MobileNavLink key={subItem.title} href={subItem.href} onLinkClick={handleMobileLinkClick}>{subItem.title}</MobileNavLink>
                       ))}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="use-cases">
+                  <AccordionTrigger className="text-lg font-bold">Use Cases</AccordionTrigger>
+                  <AccordionContent className="pl-4">
+                      {menuData.menu.industries.items.map(subItem => (
+                          <MobileNavLink key={subItem.title} href={subItem.href} onLinkClick={handleMobileLinkClick}>{subItem.title}</MobileNavLink>
+                      ))}
+                  </AccordionContent>
+                </AccordionItem>
+                 <MobileNavLink href="/training" onLinkClick={handleMobileLinkClick}><span className="text-lg font-bold">Training</span></MobileNavLink>
+                 <MobileNavLink href="/partners" onLinkClick={handleMobileLinkClick}><span className="text-lg font-bold">Partners</span></MobileNavLink>
+                <AccordionItem value="company">
+                  <AccordionTrigger className="text-lg font-bold">Company</AccordionTrigger>
+                  <AccordionContent className="pl-4">
+                      {menuData.menu.company.items.map(subItem => (
+                          <MobileNavLink key={subItem.title} href={subItem.href} onLinkClick={handleMobileLinkClick}>{subItem.title}</MobileNavLink>
+                      ))}
+                  </AccordionContent>
+                </AccordionItem>
+                 <MobileNavLink href="/support" onLinkClick={handleMobileLinkClick}><span className="text-lg font-bold">Support</span></MobileNavLink>
               </Accordion>
             </div>
             <div className="p-4 border-t space-y-4">
