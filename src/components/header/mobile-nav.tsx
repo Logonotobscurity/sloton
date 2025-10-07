@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -21,7 +22,7 @@ import { ScrollArea } from "../ui/scroll-area";
 import { ThemeToggle } from "./theme-toggle";
 
 const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
-    const menuKeys = Object.keys(menuData.menu).filter(k => k !== 'topLevelNav') as (keyof typeof menuData.menu)[];
+    const menuKeys = Object.keys(menuData.menu) as (keyof typeof menuData.menu)[];
 
     return (
         <ScrollArea className="flex-1">
@@ -39,7 +40,7 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                                                 <li key={item.title}>
                                                     <Link href={item.href} className="block p-2 rounded-md hover:bg-accent" onClick={() => setIsOpen(false)}>
                                                         <span className="font-semibold">{item.title}</span>
-                                                        <p className="text-sm text-muted-foreground">{item.description || item.shortDescription}</p>
+                                                        <p className="text-sm text-muted-foreground">{item.description}</p>
                                                     </Link>
                                                 </li>
                                             ))}
@@ -59,11 +60,9 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                     })}
                 </Accordion>
                 <div className="flex flex-col space-y-2 mt-4 border-t pt-4">
-                    {menuData.menu.topLevelNav.map(item => (
-                        <Link key={item.title} href={item.href} className="text-lg font-semibold p-2 rounded-md hover:bg-accent" onClick={() => setIsOpen(false)}>
-                            {item.title}
-                        </Link>
-                    ))}
+                    <Link href="/contact" className="text-lg font-semibold p-2 rounded-md hover:bg-accent" onClick={() => setIsOpen(false)}>
+                        Contact Us
+                    </Link>
                 </div>
             </div>
         </ScrollArea>

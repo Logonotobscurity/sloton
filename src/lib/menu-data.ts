@@ -1,3 +1,4 @@
+
 export const menuData = {
   "menuVersion": "1.0",
   "menu": {
@@ -38,37 +39,31 @@ export const menuData = {
           }
         ]
     },
-    "industries": {
-      "heading": "Industries",
-      "intro": "Browse solutions to help you solve the complex business challenges unique to your industry.",
-      "cta": {"label": "Explore Use Cases", "href": "/use-cases"},
-      "items": [
-        {"title": "Finance & Banking", "shortDescription": "Future-proof your bank with one AI platform.", "href": "/use-cases#finance"},
-        {"title": "Healthcare", "shortDescription": "Fuel efficiency, reduce costs, and deliver quality care.", "href": "/use-cases#healthcare"},
-        {"title": "E-Commerce", "shortDescription": "Enhance retail experiences with AI-powered insights.", "href": "/use-cases#ecommerce"},
-        {"title": "Insurance", "shortDescription": "Be the trusted carrier of choice with one AI platform.", "href": "/use-cases#insurance"},
-      ]
+    "resources": {
+        "heading": "Resources",
+        "intro": "Explore our latest insights, use cases, and success stories.",
+        "cta": { "label": "View All Insights", "href": "/insights" },
+        "items": [
+            { "title": "Insights & Articles", "description": "Expert analysis on AI, automation, and tech trends.", "href": "/insights" },
+            { "title": "Use Cases by Industry", "description": "See how our solutions deliver real-world results.", "href": "/use-cases" },
+            { "title": "Ideas Lab", "description": "Our experimental concepts and AI prompts.", "href": "/ideas-lab" },
+            { "title": "A/B Testing Lab", "description": "Data-driven validation for innovative ideas.", "href": "/ab-testing" }
+        ]
     },
     "company": {
       "heading": "Company",
-      "intro": "Bring AI Agents to every corner of your business.",
+      "intro": "Learn more about our mission, values, and the team driving our innovation.",
       "cta": {"label": "Learn More", "href": "/about"},
       "items": [
-        {"title": "About Us", "desc": "Learn about our mission, values, and news.", "href": "/about"},
-        {"title": "Our Leadership", "desc": "Meet the LOG_ON leadership team.", "href": "/about/our-leadership"},
-        {"title": "Careers", "desc": "Make your next career move with us.", "href": "/about/careers"},
-        {"title": "Investors", "desc": "Explore investor news and resources.", "href": "/about/investors"},
-        {"title": "Partners", "desc": "Locate a partner or join our partner ecosystem.", "href": "/partners"},
-        {"title": "Locations", "desc": "See LOG_ON office locations.", "href": "/about/locations"},
+        {"title": "About Us", "description": "Our mission, values, and company news.", "href": "/about"},
+        {"title": "Our Leadership", "description": "Meet the LOG_ON leadership team.", "href": "/about/our-leadership"},
+        {"title": "Careers", "description": "Explore open positions and join our team.", "href": "/about/careers"},
+        {"title": "Investor Relations", "description": "News and resources for our investors.", "href": "/about/investors"},
+        {"title": "Partner Ecosystem", "description": "Join our network of technology partners.", "href": "/partners"},
+        {"title": "Our Locations", "description": "Find LOG_ON office information.", "href": "/about/locations"},
       ]
-    },
-     "topLevelNav": [
-        { "title": "Products", "href": "/products" },
-        { "title": "Industries", "href": "/industries" },
-        { "title": "Partners", "href": "/partners" },
-        { "title": "Company", "href": "/company" }
-     ]
+    }
   }
 };
 
-export type MenuKey = keyof Omit<typeof menuData.menu, "topLevelNav">;
+export type MenuKey = keyof typeof menuData.menu;
