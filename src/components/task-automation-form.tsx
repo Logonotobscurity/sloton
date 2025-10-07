@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { exampleWorkflows } from "@/lib/data/example-workflows";
 import { motion } from "framer-motion";
-import { Loader, RefreshCw, Wand2 } from "lucide-react";
+import { Loader2, RefreshCw, Wand2 } from "lucide-react";
 import { VisualWorkflow } from "./visual-workflow";
 import { Badge } from "./ui/badge";
 import { getAutomatedTaskDesign } from "@/app/actions";
@@ -62,7 +62,7 @@ export function TaskAutomationForm({ initialValues }: { initialValues?: z.infer<
   if (isLoading) {
     return (
         <div className="flex flex-col items-center justify-center space-y-4 p-8 min-h-[400px]" aria-live="polite">
-            <Loader className="h-12 w-12 animate-spin text-primary" />
+            <Loader2 className="h-12 w-12 animate-spin text-primary" />
             <p className="text-muted-foreground">Generating your custom workflow...</p>
         </div>
     );
@@ -154,7 +154,7 @@ export function TaskAutomationForm({ initialValues }: { initialValues?: z.infer<
                 <Button type="submit" size="lg" disabled={isLoading} className="w-full max-w-xs text-lg font-bold shadow-lg">
                   {isLoading ? (
                     <>
-                      <Loader className="mr-2 h-5 w-5 animate-spin" />
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                       Generating...
                     </>
                   ) : (
