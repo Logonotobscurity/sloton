@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import { Nunito, Abhaya_Libre } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
-import { Header } from '@/components/header/header-v2';
+import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { WebsiteLoader } from '@/components/website-loader';
