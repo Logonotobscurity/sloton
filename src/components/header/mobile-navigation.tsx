@@ -2,13 +2,13 @@
 "use client";
 
 import Link from 'next/link';
-import { menuData, type MenuKey } from '@/lib/menu-data';
+import { menuData } from '@/lib/menu-data';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useHeader } from './header-v2';
 import { ScrollArea } from '../ui/scroll-area';
 
 export const MobileNavigation = () => {
-    const topLevelKeys = Object.keys(menuData.menu).filter(k => k !== 'topLevelNav') as MenuKey[];
+    const topLevelKeys = Object.keys(menuData.menu).filter(k => k !== 'topLevelNav') as (keyof typeof menuData.menu)[];
     const { setIsOpen } = useHeader();
 
     return (

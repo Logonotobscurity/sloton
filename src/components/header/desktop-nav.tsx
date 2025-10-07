@@ -9,29 +9,53 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuLink
 } from "@/components/ui/navigation-menu";
 import { MegaMenu } from "./mega-menu";
+import Link from "next/link";
+import { buttonVariants } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 export function DesktopNav() {
+  const topLevelKeys = Object.keys(menuData.menu).filter(k => k !== 'topLevelNav') as (keyof typeof menuData.menu)[];
+
   return (
-    <div className="hidden md:flex flex-1 items-center justify-center">
+    <>
+      <div className="hidden lg:flex flex-1 items-center justify-center">
         <NavigationMenu>
-        <NavigationMenuList>
-            {Object.keys(menuData.menu).map(key => {
-                const menu = menuData.menu[key as keyof typeof menuData.menu];
-                if (typeof menu !== 'object' || !menu || !('items' in menu)) return null;
-                
-                return (
-                    <NavigationMenuItem key={key}>
-                        <NavigationMenuTrigger>{menu.heading}</NavigationMenuTrigger>
-                        <NavigationMenuContent className="w-full">
-                            <MegaMenu menuKey={key} />
-                        </NavigationMenuContent>
-                    </NavigationMenuItem>
-                );
+          <NavigationMenuList>
+            {topLevelKeys.map(key => {
+              const menu = menuData.menu[key];
+              if (typeof menu !== 'object' || !menu || !('items' in menu)) return null;
+              
+              return (
+                <NavigationMenuItem key={key}>
+                  <NavigationMenuTrigger>{menu.heading}</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <MegaMenu menuKey={key} />
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              );
             })}
-        </NavigationMenuList>
+             {menuData.menu.topLevelNav.map(item => (
+                <NavigationMenuItem key={item.title}>
+                  <Link href={item.href} legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
+                      {item.title}
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+             ))}
+              <NavigationMenuItem>
+                <Link href="/contact" legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(buttonVariants({ variant: "default" }), "ml-2")}>
+                        Contact Us
+                    </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+          </NavigationMenuList>
         </NavigationMenu>
-    </div>
+      </div>
+    </>
   );
 }

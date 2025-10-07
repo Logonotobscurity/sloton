@@ -80,18 +80,10 @@ export const menuData = {
         {"title": "Locations", "desc": "See LOG_ON office locations.", "href": "/about/locations"},
       ]
     },
-     "resources": {
-      "heading": "Resources",
-      "intro": "Explore our resources to help you get the most out of our products.",
-      "cta": {"label": "Learn More", "href": "/"},
-      "items": [
-        {"title": "Insights", "desc": "Stay ahead with our expert analysis.", "href": "/insights"},
-        {"title": "FAQ", "desc": "Find answers to common questions.", "href": "/#faq"},
-        {"title": "Training", "desc": "Get the most out of our products with our training resources.", "href": "/training"},
-        {"title": "Support", "desc": "Get help from our support team.", "href": "/support"}
+     "topLevelNav": [
+        {"title": "Training", "href": "/training"},
+        {"title": "Support", "href": "/support"}
       ]
-    },
-    "topLevelNav": []
   }
 };
 
