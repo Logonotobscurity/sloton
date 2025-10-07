@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { LifeBuoy, Search, ArrowRight, Mail, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Faq } from '@/components/page-sections/faq';
+import { Faq } from '@/components/faq';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { supportCategories } from '@/lib/data/support-data';

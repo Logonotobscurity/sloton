@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { ContactForm } from '@/components/contact-form';
 import { Mail, Phone, Handshake } from 'lucide-react';
 import type { Metadata } from 'next';
-import { Faq } from '@/components/page-sections/faq';
+import { Faq } from '@/components/faq';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PageHero } from '@/components/page-sections/page-hero';
