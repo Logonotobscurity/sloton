@@ -3,7 +3,6 @@
 
 import * as React from "react";
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Logo } from "./logo";
 import { useMediaQuery } from "@/hooks/use-media-query";
@@ -23,28 +22,28 @@ export const useHeader = () => {
   return context;
 };
 
-export const Header = () => {
-  const pathname = usePathname();
-  const isMobile = useMediaQuery("(max-width: 768px)");
+export function Header() {
+  const isMobile = useMediaQuery("(max-width: 1023px)");
   const [isOpen, setIsOpen] = React.useState(false);
 
-  // Close mobile menu on pathname change
+  // Close mobile menu on desktop view
   React.useEffect(() => {
-    if (isMobile) setIsOpen(false);
-  }, [pathname, isMobile]);
+    if (!isMobile) {
+      setIsOpen(false);
+    }
+  }, [isMobile]);
 
   return (
     <HeaderContext.Provider value={{ isOpen, setIsOpen }}>
       <header className={cn(
         "sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm",
-        { "is-open": isOpen }
       )}>
         <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Logo />
           </Link>
           
-          <div className="flex flex-1 items-center justify-end space-x-4">
+          <div className="flex flex-1 items-center justify-end space-x-2">
             {isMobile ? <MobileNav /> : <DesktopNav />}
             <ThemeToggle />
           </div>
