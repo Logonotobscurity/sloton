@@ -1,7 +1,7 @@
 
-import { teamMembers } from "@/lib/data/team-members";
-import { PageHero } from "@/components/page-sections/page-hero";
-import { BottomCta } from "@/components/page-sections/bottom-cta";
+import { teamMembers } from "@/lib/data/team-members.ts";
+import { PageHero } from "@/components/page-hero";
+import { BottomCta } from "@/components/bottom-cta";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,7 +24,7 @@ export default function LeadershipPage() {
                                     <div className="md:col-span-1 p-4 md:p-6 flex flex-col items-center text-center">
                                         <div data-ai-hint={member.dataAiHint} className="relative h-32 w-32 md:h-40 md:w-40 rounded-full overflow-hidden border-4 border-primary/50 mb-4">
                                             <Image 
-                                                src={member.avatarUrl}
+                                                src={member.image}
                                                 alt={member.name}
                                                 layout="fill"
                                                 objectFit="cover"
