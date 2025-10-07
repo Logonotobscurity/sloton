@@ -20,42 +20,38 @@ export function DesktopNav() {
   const topLevelKeys = Object.keys(menuData.menu).filter(k => k !== 'topLevelNav') as (keyof typeof menuData.menu)[];
 
   return (
-    <>
-      <div className="hidden lg:flex flex-1 items-center justify-center">
-        <NavigationMenu>
-          <NavigationMenuList>
-            {topLevelKeys.map(key => {
-              const menu = menuData.menu[key];
-              if (typeof menu !== 'object' || !menu || !('items' in menu)) return null;
-              
-              return (
-                <NavigationMenuItem key={key}>
-                  <NavigationMenuTrigger>{menu.heading}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <MegaMenu menuKey={key} />
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              );
-            })}
-             {menuData.menu.topLevelNav.map(item => (
-                <NavigationMenuItem key={item.title}>
-                  <Link href={item.href} legacyBehavior passHref>
-                    <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
-                      {item.title}
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-             ))}
-              <NavigationMenuItem>
-                <Link href="/contact" legacyBehavior passHref>
-                    <NavigationMenuLink className={cn(buttonVariants({ variant: "default" }), "ml-2")}>
-                        Contact Us
-                    </NavigationMenuLink>
+      <NavigationMenu className="flex-1 justify-center">
+        <NavigationMenuList className="p-0">
+          {topLevelKeys.map(key => {
+            const menu = menuData.menu[key];
+            if (typeof menu !== 'object' || !menu || !('items' in menu)) return null;
+            
+            return (
+              <NavigationMenuItem key={key}>
+                <NavigationMenuTrigger>{menu.heading}</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <MegaMenu menuKey={key} />
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            );
+          })}
+           {menuData.menu.topLevelNav.map(item => (
+              <NavigationMenuItem key={item.title}>
+                <Link href={item.href} legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
+                    {item.title}
+                  </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-      </div>
-    </>
+           ))}
+            <NavigationMenuItem>
+              <Link href="/contact" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(buttonVariants({ variant: "default" }), "ml-2")}>
+                      Contact Us
+                  </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
   );
 }
