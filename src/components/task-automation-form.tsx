@@ -15,7 +15,7 @@ import { Loader, RefreshCw, Wand2 } from "lucide-react";
 import { VisualWorkflow } from "./visual-workflow";
 import { Badge } from "./ui/badge";
 import { getAutomatedTaskDesign } from "@/app/actions";
-import { useToast } from "./hooks/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { AutomateTaskDesignOutput } from "@/ai/flows/automated-task-design";
 
 const formSchema = z.object({
