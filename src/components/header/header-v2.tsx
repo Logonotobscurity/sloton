@@ -4,11 +4,11 @@
 import * as React from "react";
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { Logo } from "./logo";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { DesktopNav } from "./desktop-nav";
 import { MobileNav } from "./mobile-nav";
-import { ThemeToggle } from "./theme-toggle";
+import { ThemeToggle } from "../header/theme-toggle";
+import { Logo } from "./logo";
 
 // Context for sharing header state
 interface HeaderContextType {
