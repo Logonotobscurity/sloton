@@ -6,42 +6,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CaseStudyFeature } from '@/components/case-study-feature';
 import { PageHero } from '@/components/page-hero';
+import { chatbotServices, chatbotsBenefits } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {
   title: 'AI Chatbot Development Services | LOG_ON',
   description: 'Engage customers 24/7 with intelligent, AI-powered chatbots for your website and WhatsApp. We build and develop chatbot solutions that automate support and generate leads.',
 };
 
-const chatbotServices = [
-  {
-    icon: <MessageSquare className="h-8 w-8 text-primary" />,
-    title: 'Website & App Integration',
-    description: 'We deploy intelligent chatbots directly onto your website or mobile app, providing instant answers to user questions, guiding them through your services, and capturing leads before they leave your site.',
-  },
-  {
-    icon: <Bot className="h-8 w-8 text-primary" />,
-    title: 'WhatsApp & Social Media Bots',
-    description: 'Meet your customers where they are. We build and integrate conversational AI agents for WhatsApp, Facebook Messenger, and other social platforms to automate sales, support, and marketing interactions.',
-  },
-  {
-    icon: <Repeat className="h-8 w-8 text-primary" />,
-    title: 'Backend System Integration',
-    description: 'Our chatbots do more than just talk. We integrate them with your CRM, databases, and other backend systems to perform actions like checking order statuses, booking appointments, and retrieving customer data.',
-  },
-  {
-    icon: <Users className="h-8 w-8 text-primary" />,
-    title: 'Automated Lead Qualification',
-    description: 'Use chatbots to automatically qualify leads by asking targeted questions. Your sales team receives only the most promising prospects, complete with all the information they need to close the deal.',
-  },
-];
-
-const benefits = [
-    "Increase lead generation by engaging every website visitor",
-    "Reduce customer support costs by up to 30%",
-    "Improve customer satisfaction with 24/7 instant responses",
-    "Automate sales and booking processes",
-    "Free up your human agents for high-value interactions"
-]
 
 export default function ChatbotsPage() {
   return (
@@ -54,7 +25,7 @@ export default function ChatbotsPage() {
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
              <div className="space-y-3 pt-4">
-                {benefits.map(benefit => (
+                {chatbotsBenefits.map(benefit => (
                     <div key={benefit} className="flex items-center gap-3">
                         <CheckCircle className="h-5 w-5 text-primary" />
                         <span className="text-muted-foreground">{benefit}</span>
@@ -95,7 +66,7 @@ export default function ChatbotsPage() {
                 {chatbotServices.map((service) => (
                 <Card key={service.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
                     <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 md:p-6">
-                        {service.icon}
+                        <service.icon className="h-8 w-8 text-primary" />
                         <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-4 md:p-6 pt-0">

@@ -5,21 +5,12 @@ import { ArrowRight, TrendingUp, FileText, Calendar } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero } from '@/components/page-hero';
+import { reports, events } from '@/lib/data/investors-data';
 
 export const metadata: Metadata = {
   title: 'Investor Relations',
   description: 'Information for LOG_ON investors, including financial reports, event schedules, and corporate governance documents.',
 };
-
-const reports = [
-    { title: "Q3 2024 Financial Report", date: "October 28, 2024", href: "#" },
-    { title: "2024 Annual Report", date: "February 15, 2025", href: "#" },
-];
-
-const events = [
-    { title: "Q4 2024 Earnings Call", date: "January 27, 2025", time: "5:00 PM EST" },
-    { title: "Annual Shareholder Meeting", date: "May 15, 2025", time: "10:00 AM EST" },
-]
 
 export default function InvestorsPage() {
   return (

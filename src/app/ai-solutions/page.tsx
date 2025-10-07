@@ -1,46 +1,17 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { BrainCircuit, Cpu, Eye, Languages, BarChart, CheckCircle, ArrowRight } from 'lucide-react';
+import { BrainCircuit, CheckCircle, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CaseStudyFeature } from '@/components/case-study-feature';
 import { PageHero } from '@/components/page-hero';
+import { aiServices, aiSolutionsBenefits } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {
   title: 'AI Solutions | Custom AI & Machine Learning Services',
   description: 'We design and deploy custom AI solutions, including machine learning models, NLP, and computer vision, to solve complex business challenges and drive growth.',
 };
-
-const aiServices = [
-  {
-    icon: <Cpu className="h-8 w-8 text-primary" />,
-    title: 'Custom Machine Learning Models',
-    description: 'We go beyond off-the-shelf solutions to build and train custom machine learning models tailored to your unique data and business objectives. From predictive analytics to recommendation engines, we create systems that learn from your data to automate processes and uncover valuable insights that drive strategic decisions.',
-  },
-  {
-    icon: <Languages className="h-8 w-8 text-primary" />,
-    title: 'Natural Language Processing (NLP)',
-    description: 'Unlock the value in your unstructured text data. We build advanced NLP solutions that can understand, interpret, and process human language. Applications include sentiment analysis for customer feedback, automated document summarization, and intelligent chatbots that provide meaningful customer interactions.',
-  },
-  {
-    icon: <Eye className="h-8 w-8 text-primary" />,
-    title: 'Computer Vision',
-    description: 'Turn images and videos into actionable data. Our computer vision services help businesses automate tasks like object detection, image classification, and quality control in manufacturing. We build systems that can "see" and interpret the world, opening up new possibilities for efficiency and innovation.',
-  },
-  {
-    icon: <BarChart className="h-8 w-8 text-primary" />,
-    title: 'Predictive Analytics & Forecasting',
-    description: 'Make smarter, data-driven decisions by anticipating future trends. We implement predictive analytics solutions that analyze historical data to forecast demand, identify potential risks, and optimize your business strategy. Stay ahead of the competition by turning hindsight into foresight.',
-  },
-];
-
-const benefits = [
-    "Gain a competitive edge with proprietary AI tools",
-    "Automate complex tasks and boost operational efficiency",
-    "Enhance decision-making with data-driven insights",
-    "Create personalized and intelligent customer experiences",
-    "Unlock new revenue streams and business opportunities"
-]
 
 export default function AiSolutionsPage() {
   return (
@@ -53,7 +24,7 @@ export default function AiSolutionsPage() {
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
              <div className="space-y-4 pt-4">
-                {benefits.map(benefit => (
+                {aiSolutionsBenefits.map(benefit => (
                     <div key={benefit} className="flex items-center gap-3">
                         <CheckCircle className="h-5 w-5 text-primary" />
                         <span className="text-muted-foreground">{benefit}</span>
@@ -94,7 +65,7 @@ export default function AiSolutionsPage() {
                 {aiServices.map((service) => (
                 <Card key={service.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
                     <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                        {service.icon}
+                        <service.icon className="h-8 w-8 text-primary" />
                         <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                     </CardHeader>
                     <CardContent>

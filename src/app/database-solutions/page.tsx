@@ -1,47 +1,18 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, ArrowRight, Database, DatabaseZap, ShieldCheck, Cloudy } from 'lucide-react';
+import { CheckCircle, ArrowRight, Database } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CaseStudyFeature } from '@/components/case-study-feature';
 import { PageHero } from '@/components/page-hero';
+import { databaseServices, databaseSolutionsBenefits } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {
   title: 'Database Solutions | SQL & NoSQL Design, Migration, & Management',
   description: 'Robust database solutions including SQL & NoSQL architecture, cloud migration, performance tuning, and security. We build and manage scalable database systems on AWS, and Google Cloud.',
 };
 
-const databaseServices = [
-  {
-    icon: <Database className="h-8 w-8 text-primary" />,
-    title: 'Database Architecture & Design',
-    description: 'A solid foundation is key. We design scalable, efficient, and secure database schemas tailored to your specific application needs. Whether you need a relational (SQL) or non-relational (NoSQL) database, we build systems that grow with your business.',
-  },
-  {
-    icon: <Cloudy className="h-8 w-8 text-primary" />,
-    title: 'Cloud Data Migration & Integration',
-    description: 'Seamlessly move your data to the cloud. We handle complex database migrations to platforms like AWS, Google Cloud, and Azure with minimal downtime. We also integrate disparate data sources into a unified, single source of truth.',
-  },
-  {
-    icon: <DatabaseZap className="h-8 w-8 text-primary" />,
-    title: 'Performance Tuning & Optimization',
-    description: 'Slow queries can kill user experience. We analyze and optimize your database performance, implementing indexing strategies, query refactoring, and caching mechanisms to ensure your applications run at peak speed.',
-  },
-  {
-    icon: <ShieldCheck className="h-8 w-8 text-primary" />,
-    title: 'Data Security & Compliance',
-    description: 'Protect your most valuable asset. We implement robust security measures, including encryption, access control, and audit logging, to protect your data from threats and ensure you meet industry compliance standards like GDPR and PCI-DSS.',
-  },
-];
-
-const benefits = [
-    "Ensure data integrity and consistency across all applications",
-    "Improve application speed and user experience",
-    "Scale your infrastructure confidently as your data grows",
-    "Protect sensitive information with robust security protocols",
-    "Reduce downtime with reliable and well-managed systems"
-]
 
 export default function DatabaseSolutionsPage() {
   return (
@@ -54,7 +25,7 @@ export default function DatabaseSolutionsPage() {
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
              <div className="space-y-4 pt-4">
-                {benefits.map(benefit => (
+                {databaseSolutionsBenefits.map(benefit => (
                     <div key={benefit} className="flex items-center gap-3">
                         <CheckCircle className="h-5 w-5 text-primary" />
                         <span className="text-muted-foreground">{benefit}</span>
@@ -95,7 +66,7 @@ export default function DatabaseSolutionsPage() {
                 {databaseServices.map((service) => (
                 <Card key={service.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
                     <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                        {service.icon}
+                        <service.icon className="h-8 w-8 text-primary" />
                         <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                     </CardHeader>
                     <CardContent>

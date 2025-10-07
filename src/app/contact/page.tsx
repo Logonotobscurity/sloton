@@ -1,35 +1,18 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ContactForm } from '@/components/contact-form';
-import { Mail, Phone, Briefcase, Lightbulb, MessageCircle, Handshake } from 'lucide-react';
+import { Mail, Phone, Handshake } from 'lucide-react';
 import type { Metadata } from 'next';
 import { Faq } from '@/components/faq';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PageHero } from '@/components/page-hero';
+import { contactReasons } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
   description: "Get in touch with the LOG_ON team. Have a project in mind or want to learn more about our automation and IT solutions? We'd love to hear from you.",
 };
-
-const contactReasons = [
-  {
-    icon: <Briefcase className="h-6 w-6 text-primary" />,
-    title: "Project Inquiry",
-    description: "Discuss your project requirements, goals, and timeline with our experts to get a detailed proposal."
-  },
-  {
-    icon: <Lightbulb className="h-6 w-6 text-primary" />,
-    title: "Service Questions",
-    description: "Have questions about our AI solutions, automation services, or technology stack? We have answers."
-  },
-  {
-    icon: <MessageCircle className="h-6 w-6 text-primary" />,
-    title: "Support Request",
-    description: "Need help with one of our products or services? Our support team is here to assist you."
-  }
-]
 
 export default function ContactPage() {
   return (
@@ -56,7 +39,7 @@ export default function ContactPage() {
                  <div className="space-y-4">
                     {contactReasons.map(reason => (
                         <div key={reason.title} className="flex items-start gap-3">
-                            <div className="flex-shrink-0 pt-1">{reason.icon}</div>
+                            <div className="flex-shrink-0 pt-1"><reason.icon /></div>
                             <div>
                                 <h4 className="font-semibold">{reason.title}</h4>
                                 <p className="text-muted-foreground text-sm">{reason.description}</p>

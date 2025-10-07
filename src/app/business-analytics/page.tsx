@@ -1,47 +1,17 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, ArrowRight, BarChart3, LineChart, Target, Table } from 'lucide-react';
+import { CheckCircle, ArrowRight, BarChart3 } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CaseStudyFeature } from '@/components/case-study-feature';
 import { PageHero } from '@/components/page-hero';
+import { analyticsServices, businessAnalyticsBenefits } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {
   title: 'Business Analytics & BI Solutions | Dashboards & Reporting',
   description: 'Transform raw data into actionable insights with our business analytics and BI solutions. We build custom dashboards, data reports, and KPI trackers to fuel data-driven growth.',
 };
-
-const analyticsServices = [
-  {
-    icon: <BarChart3 className="h-8 w-8 text-primary" />,
-    title: 'Custom Interactive Dashboards',
-    description: 'We move beyond static reports to build dynamic, interactive dashboards (e.g., using Power BI or Tableau) that allow you to explore your data in real-time. Filter, drill down, and uncover the trends that matter most to your business in a user-friendly visual interface.',
-  },
-  {
-    icon: <Table className="h-8 w-8 text-primary" />,
-    title: 'Business Intelligence (BI) Reporting',
-    description: 'From sales performance to operational efficiency, we create automated, comprehensive BI reports that deliver the right information to the right people at the right time. We help you establish a "single source of truth" for your data, ensuring consistency and accuracy across your organization.',
-  },
-  {
-    icon: <Target className="h-8 w-8 text-primary" />,
-    title: 'Key Performance Indicator (KPI) Tracking',
-    description: 'We work with you to identify the metrics that are most critical to your success. We then build systems to track these KPIs automatically, providing you with a clear, at-a-glance view of your business health and progress towards your strategic goals.',
-  },
-  {
-    icon: <LineChart className="h-8 w-8 text-primary" />,
-    title: 'Data-driven Strategic Insights',
-    description: 'Our service goes beyond just presenting data; we help you interpret it. We provide analysis and insights that help you understand customer behavior, identify market opportunities, and make confident, evidence-based decisions that drive growth.',
-  },
-];
-
-const benefits = [
-    "Make smarter, faster business decisions",
-    "Gain a complete and accurate view of your operations",
-    "Identify new market opportunities and customer trends",
-    "Improve operational efficiency and reduce costs",
-    "Foster a data-driven culture within your organization"
-]
 
 export default function BusinessAnalyticsPage() {
   return (
@@ -54,7 +24,7 @@ export default function BusinessAnalyticsPage() {
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
              <div className="space-y-4 pt-4">
-                {benefits.map(benefit => (
+                {businessAnalyticsBenefits.map(benefit => (
                     <div key={benefit} className="flex items-center gap-3">
                         <CheckCircle className="h-5 w-5 text-primary" />
                         <span className="text-muted-foreground">{benefit}</span>
@@ -95,7 +65,7 @@ export default function BusinessAnalyticsPage() {
                 {analyticsServices.map((service) => (
                 <Card key={service.title} className="bg-secondary/50 flex flex-col transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
                     <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                        {service.icon}
+                        <service.icon className="h-8 w-8 text-primary" />
                         <CardTitle className="text-lg md:text-xl">{service.title}</CardTitle>
                     </CardHeader>
                     <CardContent>

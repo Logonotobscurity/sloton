@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, ArrowRight, Handshake, Network, Scaling, ShieldCheck } from 'lucide-react';
+import { ShieldCheck, Handshake } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { TechStackCarousel } from '@/components/tech-stack-carousel';
@@ -9,36 +9,12 @@ import { GlowingCard } from '@/components/ui/glowing-card';
 import Image from 'next/image';
 import { PageHero } from '@/components/page-hero';
 import { BottomCta } from '@/components/bottom-cta';
+import { partnerBenefits, partners } from '@/lib/data/partners-data';
 
 export const metadata: Metadata = {
   title: 'LOG_ON Partner Ecosystem',
   description: 'Join the LOG_ON Partner Network. Collaborate with us to deliver innovative AI and automation solutions, drive customer success, and grow your business.',
 };
-
-const partnerBenefits = [
-  {
-    icon: <Scaling className="h-8 w-8 text-primary" />,
-    title: 'Expand Your Market Reach',
-    description: 'Leverage the LOG_ON brand and our global customer base to tap into new markets and opportunities. Co-market with us to generate leads and increase your visibility.',
-  },
-  {
-    icon: <Network className="h-8 w-8 text-primary" />,
-    title: 'Enhance Your Service Offerings',
-    description: "Integrate our AI and automation platform into your portfolio to deliver more value to your clients. Get access to our APIs, developer tools, and technical support.",
-  },
-  {
-    icon: <Handshake className="h-8 w-8 text-primary" />,
-    title: 'Drive Mutual Growth',
-    description: 'Our partner program is built on a foundation of mutual success. We invest in our partners with training, resources, and a dedicated support team to ensure you thrive.',
-  },
-];
-
-const partners = [
-    { name: "Google Cloud Partner", logo: "https://img.icons8.com/color/96/google-cloud.png", dataAiHint: "Google Cloud logo" },
-    { name: "AWS Partner", logo: "https://img.icons8.com/color/96/amazon-web-services.png", dataAiHint: "AWS logo" },
-    { name: "Microsoft Partner", logo: "https://img.icons8.com/color/96/azure-storage-explorer.png", dataAiHint: "Microsoft Azure logo" },
-    { name: "Vercel Partner", logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/nextjs-icon.svg", dataAiHint: "Vercel logo" },
-];
 
 export default function PartnersPage() {
   return (
@@ -85,17 +61,17 @@ export default function PartnersPage() {
                 </p>
             </div>
              <div className="grid md:grid-cols-3 gap-8">
-                {partnerBenefits.map((service) => (
-                <GlowingCard key={service.title}>
+                {partnerBenefits.map((benefit) => (
+                <GlowingCard key={benefit.title}>
                   <div className="p-6 h-full text-center">
                     <CardHeader className="p-0 items-center">
                         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                            {service.icon}
+                            <benefit.icon className="h-8 w-8 text-primary" />
                         </div>
-                        <CardTitle className="pt-4 text-lg md:text-xl">{service.title}</CardTitle>
+                        <CardTitle className="pt-4 text-lg md:text-xl">{benefit.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-0 pt-4">
-                        <p className="text-muted-foreground text-sm md:text-base">{service.description}</p>
+                        <p className="text-muted-foreground text-sm md:text-base">{benefit.description}</p>
                     </CardContent>
                   </div>
                 </GlowingCard>

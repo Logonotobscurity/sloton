@@ -3,21 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, Globe } from 'lucide-react';
 import type { Metadata } from 'next';
 import { PageHero } from '@/components/page-hero';
+import { locations } from '@/lib/data/locations-data';
 
 export const metadata: Metadata = {
   title: 'Our Locations',
   description: 'Find LOG_ON office information. We operate globally from our virtual headquarters in Lagos, Nigeria.',
 };
-
-const locations = [
-    {
-        name: "Headquarters (Virtual)",
-        region: "Global Operations",
-        address: "Lagos, Nigeria",
-        email: "logonthepage@gmail.com",
-        phone: "+234 814 306 6320",
-    }
-]
 
 export default function LocationsPage() {
   return (

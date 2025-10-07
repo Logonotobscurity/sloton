@@ -2,44 +2,18 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { LifeBuoy, Book, Users, MessageSquare, Search, ArrowRight, Lightbulb, Mail, Phone } from 'lucide-react';
+import { LifeBuoy, Search, ArrowRight, Mail, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Faq } from '@/components/faq';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { PageHero } from '@/components/page-hero';
+import { supportCategories } from '@/lib/data/support-data';
 
 export const metadata: Metadata = {
   title: 'Support Center | LOG_ON',
   description: 'Welcome to the LOG_ON Support Center. Find help articles, product documentation, get in touch with our support team, and explore community resources.',
 };
-
-const supportCategories = [
-  {
-    icon: <Book className="h-8 w-8 text-primary" />,
-    title: 'Knowledge Base',
-    description: 'Find detailed articles, how-to guides, and product documentation to get the most out of our platform.',
-    href: '/insights',
-  },
-  {
-    icon: <Users className="h-8 w-8 text-primary" />,
-    title: 'Community Forums',
-    description: 'Connect with other LOG_ON users, ask questions, and share best practices and solutions.',
-    href: '#',
-  },
-  {
-    icon: <MessageSquare className="h-8 w-8 text-primary" />,
-    title: 'Submit a Ticket',
-    description: 'Can\'t find what you\'re looking for? Our support team is here to help. Submit a ticket for personalized assistance.',
-    href: '/contact',
-  },
-   {
-    icon: <Lightbulb className="h-8 w-8 text-primary" />,
-    title: 'Training & Certification',
-    description: 'Advance your skills with our expert-led training programs and become a certified LOG_ON professional.',
-    href: '/training',
-  },
-];
 
 export default function SupportPage() {
   return (
@@ -66,7 +40,7 @@ export default function SupportPage() {
                     <Link href={category.href} className="block h-full">
                         <div className="p-6 h-full flex flex-col">
                             <CardHeader className="p-0">
-                                {category.icon}
+                                <category.icon className="h-8 w-8 text-primary" />
                                 <CardTitle className="pt-4 text-lg md:text-xl">{category.title}</CardTitle>
                             </CardHeader>
                             <CardContent className="p-0 pt-4 flex-grow">

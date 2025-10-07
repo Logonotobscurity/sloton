@@ -1,77 +1,16 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, ArrowRight, Lightbulb, Bot, TestTube, Target, Puzzle, Handshake, FlaskConical, CircleDot } from 'lucide-react';
+import { ArrowRight, TestTube } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero } from '@/components/page-hero';
+import { labValues, submissionProcess, activePilots } from '@/lib/data/ab-testing-data';
 
 export const metadata: Metadata = {
   title: 'The Ideas Lab | Collaborative A/B Testing & Innovation',
   description: 'Join our Ideas Lab. We use rigorous A/B testing to validate bold concepts. Explore our active pilots and submit your own product for data-driven analysis.',
 };
-
-const labValues = [
-    {
-        icon: <FlaskConical className="h-8 w-8 text-primary" />,
-        title: "Relentless Curiosity",
-        description: "We are driven by a constant need to ask 'what if.' Every project starts with a bold question and an open mind."
-    },
-    {
-        icon: <Handshake className="h-8 w-8 text-primary" />,
-        title: "Open Collaboration",
-        description: "Innovation thrives in the open. We partner with brands and creators to test ideas and share insights for mutual growth."
-    },
-    {
-        icon: <CheckCircle className="h-8 w-8 text-primary" />,
-        title: "Data-Driven Validation",
-        description: "We replace guesswork with evidence. Our rigorous testing methodology provides undeniable proof of what works."
-    }
-];
-
-const submissionProcess = [
-    {
-        title: "1. You Submit",
-        description: "Tell us about your product, website, or campaign. What's the key question you need to answer?"
-    },
-    {
-        title: "2. We Strategize",
-        description: "Our lab team designs a bespoke A/B test to validate your hypothesis and define clear success metrics."
-    },
-    {
-        title: "3. We Test & Analyze",
-        description: "We run the experiment on relevant traffic using our robust tools and gather clean, unbiased data."
-    },
-    {
-        title: "4. You Get Insights",
-        description: "You receive a comprehensive report with clear, actionable data and strategic recommendations."
-    }
-];
-
-const activePilots = [
-    {
-        name: "Pilot: 'Cognitive-Load-Optimized' Checkout Flow",
-        hypothesis: "By simplifying the checkout form from 5 fields to 3 with smart autofill, we will increase completion rates by 15%.",
-        metric: "Conversion Rate, Bounce Rate",
-        status: "Data Collection In Progress",
-        statusColor: "text-yellow-500"
-    },
-    {
-        name: "Pilot: AI-Generated vs. Human-Written Headlines",
-        hypothesis: "AI-generated headlines tailored to user segments will achieve a higher click-through rate (CTR) than a single, human-written headline.",
-        metric: "Click-Through Rate (CTR)",
-        status: "Results Pending Analysis",
-        statusColor: "text-blue-500"
-    },
-    {
-        name: "Pilot: Value-Based vs. Feature-Based Landing Page",
-        hypothesis: "A landing page focused on the emotional benefits of a service will convert better than one focused on listing technical features.",
-        metric: "Sign-up Rate",
-        status: "Completed - Value-based page showed a 22% uplift.",
-        statusColor: "text-green-500"
-    }
-];
-
 
 export default function ABTestingPage() {
   return (
@@ -93,7 +32,7 @@ export default function ABTestingPage() {
             <div className="grid md:grid-cols-3 gap-8">
                 {labValues.map(value => (
                     <Card key={value.title} className="text-center p-6 bg-secondary/30">
-                        <div className="flex justify-center mb-4">{value.icon}</div>
+                        <div className="flex justify-center mb-4"><value.icon className="h-8 w-8 text-primary" /></div>
                         <CardTitle>{value.title}</CardTitle>
                         <CardContent className="p-0 pt-4">
                             <p className="text-muted-foreground">{value.description}</p>
@@ -156,7 +95,7 @@ export default function ABTestingPage() {
                         </CardContent>
                         <CardContent className="pt-4 mt-auto">
                            <p className={`text-sm font-semibold flex items-center gap-2 ${pilot.statusColor}`}>
-                               <CircleDot className="h-4 w-4" />
+                               <pilot.icon className="h-4 w-4" />
                                {pilot.status}
                            </p>
                         </CardContent>

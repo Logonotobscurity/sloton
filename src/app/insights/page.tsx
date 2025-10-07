@@ -8,20 +8,12 @@ import type { Metadata } from 'next';
 import { insights } from '@/lib/insights';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { PageHero } from '@/components/page-hero';
+import { topics } from '@/lib/data/insights-page-data';
 
 export const metadata: Metadata = {
   title: 'Technology Insights & Articles',
   description: 'Stay ahead of the curve with our expert analysis on the latest trends in technology, automation, and AI. Explore articles on the future of work, business automation, and more.',
 };
-
-const topics = [
-    "Artificial Intelligence and Machine Learning",
-    "Business Process Automation (BPA)",
-    "Digital Transformation Strategies",
-    "Cloud Computing and DevOps",
-    "Web and Mobile Development Trends",
-    "Cybersecurity Best Practices"
-]
 
 export default function InsightsPage() {
   return (

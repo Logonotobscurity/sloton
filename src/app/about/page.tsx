@@ -3,77 +3,18 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { ArrowRight, Building, Users, Scale, Globe, ShieldCheck, Lock, DatabaseZap, FlaskConical, Lightbulb, BrainCircuit, Rss, Download, Heart, BookOpen } from 'lucide-react';
+import { ArrowRight, Building, Users, Scale, Globe, Download, Rss } from 'lucide-react';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { PageHero } from '@/components/page-hero';
 import { BottomCta } from '@/components/bottom-cta';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { insights } from '@/lib/insights';
+import { stats, trustPillars, researchAreas, analystReports } from '@/lib/data/about-page-data';
 
 export const metadata: Metadata = {
   title: 'About LOG_ON',
   description: 'Learn about LOG_ON, your digital architects. We build integrated digital ecosystems where businesses thrive. Explore our mission, values, research, and commitment to trust.',
 };
-
-const stats = [
-    { value: '100+', label: 'Projects Completed' },
-    { value: '50+', label: 'Satisfied Clients' },
-    { value: '10+', label: 'Technology Partners' },
-    { value: '5+', label: 'Countries Served' }
-]
-
-const trustPillars = [
-    {
-        icon: <ShieldCheck className="h-8 w-8 text-primary"/>,
-        title: "Security by Design",
-        description: "We embed security into every stage of our development lifecycle. From architecture to deployment, we follow industry best practices to protect against threats and vulnerabilities."
-    },
-    {
-        icon: <Lock className="h-8 w-8 text-primary"/>,
-        title: "Data Privacy & Governance",
-        description: "Your data is yours. We adhere to strict data privacy principles and comply with global regulations like GDPR. We provide you with the tools and transparency to control your data."
-    },
-    {
-        icon: <DatabaseZap className="h-8 w-8 text-primary"/>,
-        title: "Platform Reliability & Resilience",
-        description: "We build our systems on world-class cloud infrastructure like AWS and Google Cloud, designing for high availability and disaster recovery to ensure your services remain online."
-    }
-];
-
-const researchAreas = [
-    {
-        icon: <BrainCircuit className="h-8 w-8 text-primary"/>,
-        title: "Generative AI & LLMs",
-        description: "Developing novel architectures for more efficient and context-aware Large Language Models and exploring new applications for generative content.",
-    },
-    {
-        icon: <FlaskConical className="h-8 w-8 text-primary"/>,
-        title: "Ethical & Responsible AI",
-        description: "Creating frameworks and tools to identify and mitigate bias in AI models, ensuring fairness and transparency in automated decision-making.",
-    },
-    {
-        icon: <Lightbulb className="h-8 w-8 text-primary"/>,
-        title: "Human-Computer Interaction",
-        description: "Researching how AI can best augment human capabilities, designing intuitive 'copilot' experiences that boost productivity and creativity.",
-    }
-]
-
-const reports = [
-    {
-        firm: "Gartner®",
-        title: "Magic Quadrant™ for Enterprise Conversational AI Platforms",
-        date: "July 2024",
-        excerpt: "LOG_ON recognized for its ability to execute and completeness of vision in the rapidly evolving AI landscape.",
-        href: "#"
-    },
-    {
-        firm: "Forrester™",
-        title: "The Forrester Wave™: Robotic Process Automation, Q3 2024",
-        date: "September 2024",
-        excerpt: "LOG_ON named a Strong Performer in our evaluation of the top RPA vendors, cited for its ease of use and strong partner ecosystem.",
-        href: "#"
-    }
-]
 
 export default function AboutPage() {
     const pressReleases = insights.filter(i => i.tags.includes("Announcement") || i.tags.includes("Press Release"));
@@ -185,7 +126,7 @@ export default function AboutPage() {
                     <p className="mt-4 text-md md:text-lg text-muted-foreground">Don't just take our word for it. See why leading industry analysts recognize LOG_ON for our innovation, market presence, and ability to deliver results for our customers.</p>
                 </div>
                 <div className="max-w-4xl mx-auto space-y-6">
-                    {reports.map((report) => (
+                    {analystReports.map((report) => (
                         <Card key={report.title} className="bg-background">
                             <CardHeader>
                                 <p className="font-semibold text-primary">{report.firm}</p>
@@ -221,7 +162,7 @@ export default function AboutPage() {
                         {researchAreas.map(area => (
                             <Card key={area.title}>
                                 <CardHeader>
-                                    {area.icon}
+                                    <area.icon className="h-8 w-8 text-primary"/>
                                     <CardTitle className="pt-4">{area.title}</CardTitle>
                                 </CardHeader>
                                 <CardContent>
@@ -245,7 +186,7 @@ export default function AboutPage() {
                         {trustPillars.map(pillar => (
                             <Card key={pillar.title} className="bg-background">
                                 <CardHeader>
-                                    {pillar.icon}
+                                    <pillar.icon className="h-8 w-8 text-primary"/>
                                     <CardTitle className="pt-4">{pillar.title}</CardTitle>
                                 </CardHeader>
                                 <CardContent>
