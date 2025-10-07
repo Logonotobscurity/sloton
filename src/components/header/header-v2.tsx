@@ -10,31 +10,11 @@ import { MobileNav } from "./mobile-nav";
 import { ThemeToggle } from "../header/theme-toggle";
 import { Logo } from "./logo";
 
-// Context for sharing header state
-interface HeaderContextType {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-const HeaderContext = React.createContext<HeaderContextType | undefined>(undefined);
-export const useHeader = () => {
-  const context = React.useContext(HeaderContext);
-  if (!context) throw new Error("useHeader must be used within a HeaderProvider");
-  return context;
-};
 
 export function Header() {
   const isMobile = useMediaQuery("(max-width: 1023px)");
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  // Close mobile menu on desktop view
-  React.useEffect(() => {
-    if (!isMobile) {
-      setIsOpen(false);
-    }
-  }, [isMobile]);
 
   return (
-    <HeaderContext.Provider value={{ isOpen, setIsOpen }}>
       <header className={cn(
         "sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm",
       )}>
@@ -45,11 +25,12 @@ export function Header() {
           
           <div className="flex flex-1 items-center justify-end space-x-2">
             {isMobile ? <MobileNav /> : <DesktopNav />}
-            <ThemeToggle />
+            <div className="hidden lg:flex items-center space-x-2">
+                <ThemeToggle />
+            </div>
           </div>
 
         </div>
       </header>
-    </HeaderContext.Provider>
   );
 };
