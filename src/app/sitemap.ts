@@ -6,33 +6,39 @@ import { menuData } from '@/lib/menu-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://logonsolutions.netlify.app';
+  const seenUrls = new Set<string>();
 
-  // Static pages from menuData and other known pages
-  const seenUrls = new Set<string>(['/']);
-
+  // Function to add a URL to the set
   const addUrl = (url: string) => {
     if (url && url.startsWith('/') && !seenUrls.has(url)) {
       seenUrls.add(url);
     }
   };
 
-  // From header navigation
-  addUrl('/solutions');
-  addUrl('/use-cases');
-  addUrl('/partners');
-  addUrl('/about');
-  
-  // From dropdowns
-  menuData.menu.products.items.forEach(item => addUrl(item.href));
-  menuData.menu.resources.items.forEach(item => addUrl(item.href));
-  menuData.menu.company.items.forEach(item => addUrl(item.href));
+  // Add static home page
+  addUrl('/');
 
-  // Other known pages
-  addUrl('/ab-testing');
-  addUrl('/ideas-lab');
+  // From header navigation (menuData)
+  Object.values(menuData.menu).forEach(menuSection => {
+    if (menuSection.cta?.href) {
+      addUrl(menuSection.cta.href);
+    }
+    menuSection.items.forEach(item => addUrl(item.href));
+  });
+
+  // Other known pages not in menuData
   addUrl('/contact');
   addUrl('/automation');
+  addUrl('/support');
+  addUrl('/training');
+  addUrl('/partners');
+  addUrl('/use-cases');
+  addUrl('/about');
+  addUrl('/ideas-lab');
+  addUrl('/ab-testing');
 
+
+  // Generate sitemap entries for static pages
   const staticUrls = Array.from(seenUrls).map((page) => ({
     url: `${baseUrl}${page}`,
     lastModified: new Date(),

@@ -38,6 +38,27 @@ export function DesktopNav() {
               );
             })}
              <NavigationMenuItem>
+                <Link href="/use-cases" legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
+                        Use Cases
+                    </NavigationMenuLink>
+                </Link>
+            </NavigationMenuItem>
+             <NavigationMenuItem>
+                <Link href="/partners" legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
+                        Partners
+                    </NavigationMenuLink>
+                </Link>
+            </NavigationMenuItem>
+             <NavigationMenuItem>
+                <Link href="/about" legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
+                        About
+                    </NavigationMenuLink>
+                </Link>
+            </NavigationMenuItem>
+             <NavigationMenuItem>
                 <Link href="/contact" legacyBehavior passHref>
                     <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
                         Contact Us
