@@ -37,46 +37,6 @@ const Logo = () => (
     </Link>
 );
 
-const MobileNavLink = ({ href, children, onLinkClick }: { href: string; children: React.ReactNode; onLinkClick: () => void }) => (
-    <SheetClose asChild>
-        <Link
-            href={href}
-            onClick={onLinkClick}
-            className="block py-2 text-base font-medium transition-colors hover:text-primary"
-            prefetch={false}
-        >
-            {children}
-        </Link>
-    </SheetClose>
-);
-
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = "ListItem"
-
-
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -89,8 +49,14 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  // Close mobile menu on route change
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  }, [pathname]);
 
-  const handleMobileLinkClick = () => setMobileMenuOpen(false);
 
   return (
     <header 
@@ -188,36 +154,48 @@ export function Header() {
                 <AccordionItem value="solutions">
                   <AccordionTrigger className="text-lg font-bold">Solutions</AccordionTrigger>
                   <AccordionContent className="pl-4">
-                      {menuData.menu.products.items.map(subItem => (
-                          <MobileNavLink key={subItem.title} href={subItem.href} onLinkClick={handleMobileLinkClick}>{subItem.title}</MobileNavLink>
-                      ))}
+                     {menuData.menu.products.items.map(item => (
+                        <SheetClose asChild key={item.title}>
+                            <Link href={item.href} className="block py-2 text-base font-medium transition-colors hover:text-primary">{item.title}</Link>
+                        </SheetClose>
+                     ))}
                   </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="use-cases">
+                 <AccordionItem value="use-cases">
                   <AccordionTrigger className="text-lg font-bold">Use Cases</AccordionTrigger>
                   <AccordionContent className="pl-4">
-                      {menuData.menu.industries.items.map(subItem => (
-                          <MobileNavLink key={subItem.title} href={subItem.href} onLinkClick={handleMobileLinkClick}>{subItem.title}</MobileNavLink>
-                      ))}
+                     {menuData.menu.industries.items.map(item => (
+                        <SheetClose asChild key={item.title}>
+                            <Link href={item.href} className="block py-2 text-base font-medium transition-colors hover:text-primary">{item.title}</Link>
+                        </SheetClose>
+                     ))}
                   </AccordionContent>
                 </AccordionItem>
-                 <MobileNavLink href="/training" onLinkClick={handleMobileLinkClick}><span className="text-lg font-bold">Training</span></MobileNavLink>
-                 <MobileNavLink href="/partners" onLinkClick={handleMobileLinkClick}><span className="text-lg font-bold">Partners</span></MobileNavLink>
+                <SheetClose asChild>
+                  <Link href="/training" className="block py-3 text-lg font-bold transition-colors hover:text-primary border-b">Training</Link>
+                </SheetClose>
+                 <SheetClose asChild>
+                  <Link href="/partners" className="block py-3 text-lg font-bold transition-colors hover:text-primary border-b">Partners</Link>
+                </SheetClose>
                 <AccordionItem value="company">
                   <AccordionTrigger className="text-lg font-bold">Company</AccordionTrigger>
                   <AccordionContent className="pl-4">
-                      {menuData.menu.company.items.map(subItem => (
-                          <MobileNavLink key={subItem.title} href={subItem.href} onLinkClick={handleMobileLinkClick}>{subItem.title}</MobileNavLink>
-                      ))}
+                     {menuData.menu.company.items.map(item => (
+                        <SheetClose asChild key={item.title}>
+                            <Link href={item.href} className="block py-2 text-base font-medium transition-colors hover:text-primary">{item.title}</Link>
+                        </SheetClose>
+                     ))}
                   </AccordionContent>
                 </AccordionItem>
-                 <MobileNavLink href="/support" onLinkClick={handleMobileLinkClick}><span className="text-lg font-bold">Support</span></MobileNavLink>
+                 <SheetClose asChild>
+                  <Link href="/support" className="block py-3 text-lg font-bold transition-colors hover:text-primary border-b">Support</Link>
+                </SheetClose>
               </Accordion>
             </div>
             <div className="p-4 border-t space-y-4">
               <SheetClose asChild>
                 <Button asChild className="w-full">
-                  <Link href="/contact" onClick={handleMobileLinkClick}>
+                  <Link href="/contact">
                     <Phone className="mr-2 h-4 w-4"/> Contact Us
                   </Link>
                 </Button>
