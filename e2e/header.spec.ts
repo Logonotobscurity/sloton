@@ -7,12 +7,14 @@ test.describe('Desktop Header Navigation', () => {
   });
 
   test('should display the main navigation links', async ({ page }) => {
-    await expect(page.getByRole('link', { name: 'Products' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Industries' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Solutions' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Industries' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Company' })).toBeVisible();
+
+    await expect(page.getByRole('link', { name: 'Use Cases' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Partners' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Company' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Training' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Support' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'About' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Contact Us' })).toBeVisible();
   });
 });
 
@@ -23,15 +25,14 @@ test.describe('Mobile Header Navigation', () => {
   });
 
   test('should open the mobile menu and display navigation links', async ({ page }) => {
-    await page.getByRole('button', { name: 'Open navigation menu' }).click();
-    await expect(page.getByRole('heading', { name: 'Mobile Navigation Menu' })).toBeVisible();
+    await page.getByRole('button', { name: 'Toggle Menu' }).click();
+    await expect(page.getByLabel('Mobile navigation menu')).toBeVisible();
 
-    await expect(page.getByRole('button', { name: 'Products' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Solutions' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Industries' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Partners' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Company' })).toBeVisible();
 
-    await page.getByRole('button', { name: 'Products' }).click();
+    await page.getByRole('button', { name: 'Solutions' }).click();
     await expect(page.getByRole('link', { name: 'AI Solutions' })).toBeVisible();
   });
 });
