@@ -9,7 +9,8 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetClose
+  SheetClose,
+  SheetTrigger
 } from '@/components/ui/sheet';
 import {
   Accordion,
