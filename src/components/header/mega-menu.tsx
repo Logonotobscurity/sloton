@@ -38,14 +38,12 @@ ListItem.displayName = 'ListItem';
 export const MegaMenu = React.memo(({ menuKey }: { menuKey: string }) => {
     const menu = menuData.menu[menuKey as keyof typeof menuData.menu];
 
-    // Handle cases where menu or menu items are not found
     if (typeof menu !== 'object' || !menu || !('items' in menu) || !Array.isArray(menu.items)) {
         return <div className="p-4 text-center">Menu content not available.</div>;
     }
 
     const { heading, intro, cta, items } = menu;
 
-    // Common introductory block for menus that have it
     const introBlock = (heading && intro && cta) && (
         <li className="row-span-3">
             <NavigationMenuLink asChild>
@@ -67,14 +65,12 @@ export const MegaMenu = React.memo(({ menuKey }: { menuKey: string }) => {
     );
 
     const hasIntroBlock = !!introBlock;
+    const gridColsClass = menuKey === 'industries' ? 'lg:grid-cols-3' : 'md:grid-cols-2';
 
     return (
          <ul className={cn(
-            "grid gap-3 p-4 md:w-[500px]", 
-            hasIntroBlock ? "md:w-[600px] lg:w-[700px]" : "",
-            hasIntroBlock ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1 md:grid-cols-2",
-             { "lg:grid-cols-3": menuKey === 'industries' && !hasIntroBlock },
-             { "md:grid-cols-3": menuKey === 'partners' || menuKey === 'company' || menuKey === 'resources'}
+            "grid gap-3 p-4 md:w-auto", 
+            hasIntroBlock ? `grid-cols-1 ${gridColsClass}` : `grid-cols-mega`
         )}>
             {introBlock}
             {items.map(item => (
