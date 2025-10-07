@@ -60,7 +60,7 @@ export function StrategicPartner() {
                                   </div>
                                   <CardTitle className="text-xl">Free Business Assessment</CardTitle>
                                   <CardDescription className="mt-2">
-                                      Get a customized report showing exactly where automation can save you time and money, with specific solutions for your unique needs.
+                                      Our AI will analyze your business and generate a custom report outlining your best opportunities for automation and digital transformation.
                                   </CardDescription>
                               </CardHeader>
                               <CardFooter className="p-6 md:p-8 pt-0">
@@ -98,7 +98,7 @@ export function StrategicPartner() {
                                   </div>
                                   <CardTitle className="text-xl">Intelligent Automation Designer</CardTitle>
                                   <CardDescription className="mt-2">
-                                      Describe any workflow in plain English. Our AI creates your optimized automation plan in seconds—showing exactly where you'll save time and money.
+                                      Describe any workflow in plain English and our AI will design an optimized automation plan, showing you exactly where you'll save time and money.
                                   </CardDescription>
                               </CardHeader>
                               <CardFooter className="p-6 md:p-8 pt-0">

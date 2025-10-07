@@ -1,27 +1,41 @@
 
-import imageData from '@/lib/placeholder-images.json';
+export interface TeamMember {
+    name: string;
+    role: string;
+    avatarUrl: string;
+    bio: string;
+    email: string;
+    dataAiHint?: string;
+    socials: {
+        linkedin: string;
+        twitter?: string;
+        github?: string;
+    }
+}
 
-export const teamMembers = [
-  {
-    name: 'Oluwamayowa Logo',
-    role: 'Lead Developer & Automation Solution Architect',
-    bio: 'Oluwamayowa is an expert in AI architecture and automation solutions with a focus on innovative technology implementation. He specializes in developing scalable solutions that drive business growth and is dedicated to pushing the boundaries of what AI can achieve in the enterprise space.',
-    image: imageData.authorOluwamayowa.src,
-    width: imageData.authorOluwamayowa.width,
-    height: imageData.authorOluwamayowa.height,
-    dataAiHint: imageData.authorOluwamayowa.dataAiHint,
-    description: 'Expert in AI architecture and automation solutions with a focus on innovative technology implementation. Specializes in developing scalable solutions for business growth.',
-    expertise: ['AI Architecture', 'Strategy', 'Innovation', 'Web Development', 'IT Support', 'Solution Design'],
-  },
-  {
-    name: 'Favour Alfred',
-    role: 'Team Lead Sales & Business Process Automation',
-    bio: 'Favour is a results-driven professional specializing in business process automation and digital marketing strategies. She is an expert in optimizing workflows, building strong client relationships, and driving digital transformation that leads to measurable business outcomes.',
-    image: imageData.authorFavour.src,
-    width: imageData.authorFavour.width,
-    height: imageData.authorFavour.height,
-    dataAiHint: imageData.authorFavour.dataAiHint,
-    description: 'Results-driven professional specializing in business process automation and digital marketing strategies. Expert in optimizing workflows and driving digital transformation.',
-    expertise: ['Process Automation', 'Workflow Design', 'Integration', 'Digital Marketing', 'Sales Strategy', 'Business Development'],
-  },
+export const teamMembers: TeamMember[] = [
+    {
+        name: "Alex Chen",
+        role: "Founder & CEO",
+        avatarUrl: "/avatars/alex-chen.jpg",
+        dataAiHint: "alex chen, founder and ceo of log_on",
+        bio: "Alex is a visionary leader with over 20 years of experience in the technology industry. He founded LOG_ON with the mission of making complex technology accessible and transformative for businesses of all sizes. A serial entrepreneur and a passionate advocate for AI ethics, Alex leads the company\'s strategic direction and is deeply involved in product innovation.",
+        email: "alex.chen@log-on.ai",
+        socials: {
+            linkedin: "https://www.linkedin.com/in/alex-chen-ai/",
+            twitter: "https://twitter.com/alexchen_ai",
+        }
+    },
+    {
+        name: "Dr. Evelyn Reed",
+        role: "Chief Technology Officer (CT физика)",
+        avatarUrl: "/avatars/evelyn-reed.jpg",
+        dataAiHint: "dr evelyn reed, cto of log_on",
+        bio: "Evelyn is the chief architect of our technology platform. With a Ph.D. in Computer Science and a specialization in Machine Learning, she leads our research and development teams. Her work has been published in numerous academic journals, and she is a frequent speaker at major tech conferences. Evelyn is committed to building robust, scalable, and secure AI systems.",
+        email: "evelyn.reed@log-on.ai",
+        socials: {
+            linkedin: "https://www.linkedin.com/in/evelyn-reed-ai/",
+            github: "https://github.com/evelyn-reed-ai"
+        }
+    }
 ];

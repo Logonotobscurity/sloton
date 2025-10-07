@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import { Nunito, Abhaya_Libre } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
-import { Header } from '@/components/header';
+import { Header } from '@/components/header/header-v2';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { WebsiteLoader } from '@/components/website-loader';
@@ -11,6 +11,7 @@ import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
 import { BotWidget } from '@/components/bot-widget';
 import { BookDemoWidget } from '@/components/book-demo-widget';
+import { BackToTop } from '@/components/back-to-top';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -253,6 +254,7 @@ export default function RootLayout({
             <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
             <BookDemoWidget />
             <Footer />
+            <BackToTop />
             <Toaster />
           </ThemeProvider>
       </body>
