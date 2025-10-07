@@ -3,7 +3,7 @@
 export const menuData = {
   "menuVersion": "1.0",
   "menu": {
-    "products": {
+    "solutions": {
        "heading": "Solutions",
        "intro": "Unite people, processes, and systems with AI-powered products for all your workflows.",
        "cta": {"label": "See All Solutions", "href": "/solutions"},
@@ -40,16 +40,13 @@ export const menuData = {
           }
         ]
     },
-    "resources": {
-        "heading": "Resources",
-        "intro": "Explore our latest insights, use cases, and success stories.",
-        "cta": { "label": "View All Insights", "href": "/insights" },
-        "items": [
-            { "title": "Insights & Articles", "description": "Expert analysis on AI, automation, and tech trends.", "href": "/insights" },
-            { "title": "Use Cases by Industry", "description": "See how our solutions deliver real-world results.", "href": "/use-cases" },
-            { "title": "Ideas Lab", "description": "Our experimental concepts and AI prompts.", "href": "/ideas-lab" },
-            { "title": "A/B Testing Lab", "description": "Data-driven validation for innovative ideas.", "href": "/ab-testing" }
-        ]
+    "usecases": {
+      "heading": "Use Cases",
+      "items": [{ "href": "/use-cases" }]
+    },
+    "partners": {
+        "heading": "Partners",
+        "items": [{ "href": "/partners" }]
     },
     "company": {
       "heading": "Company",
@@ -60,7 +57,7 @@ export const menuData = {
         {"title": "Our Leadership", "description": "Meet the LOG_ON leadership team.", "href": "/about/our-leadership"},
         {"title": "Careers", "description": "Explore open positions and join our team.", "href": "/about/careers"},
         {"title": "Investor Relations", "description": "News and resources for our investors.", "href": "/about/investors"},
-        {"title": "Partner Ecosystem", "description": "Join our network of technology partners.", "href": "/partners"},
+        {"title": "Insights", "description": "Expert analysis on AI, automation, and tech trends.", "href": "/insights"},
         {"title": "Our Locations", "description": "Find LOG_ON office information.", "href": "/about/locations"},
       ]
     }
