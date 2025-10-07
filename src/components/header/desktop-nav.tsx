@@ -49,13 +49,6 @@ export function DesktopNav() {
                  );
               }
             })}
-             <NavigationMenuItem>
-                <Link href="/contact" legacyBehavior passHref>
-                    <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
-                        Contact Us
-                    </NavigationMenuLink>
-                </Link>
-            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
     </nav>

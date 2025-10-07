@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -9,6 +10,7 @@ import { Logo } from "./header/logo";
 import Link from "next/link";
 import { ThemeToggle } from "./header/theme-toggle";
 import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
 
 export function Header() {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
@@ -45,7 +47,13 @@ export function Header() {
 
         {isDesktop && (
             <div className="flex items-center gap-2">
-                 <ThemeToggle />
+                <Button asChild>
+                  <Link href="/contact" className="group">
+                    Contact Us
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <ThemeToggle />
             </div>
         )}
       </div>
