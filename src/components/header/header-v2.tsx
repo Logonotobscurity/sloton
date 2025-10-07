@@ -7,8 +7,8 @@ import { cn } from '@/lib/utils';
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { DesktopNav } from "./desktop-nav";
 import { MobileNav } from "./mobile-nav";
-import { ThemeToggle } from "../header/theme-toggle";
 import { Logo } from "./logo";
+import { ThemeToggle } from "./theme-toggle";
 
 
 export function Header() {
@@ -24,10 +24,14 @@ export function Header() {
           </Link>
           
           <div className="flex flex-1 items-center justify-end space-x-2">
-            {isMobile ? <MobileNav /> : <DesktopNav />}
-            <div className="hidden lg:flex items-center space-x-2">
+            {isMobile ? (
+              <MobileNav />
+            ) : (
+              <>
+                <DesktopNav />
                 <ThemeToggle />
-            </div>
+              </>
+            )}
           </div>
 
         </div>
