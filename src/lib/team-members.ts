@@ -1,8 +1,12 @@
 
+import imageData from '@/lib/placeholder-images.json';
+
 export interface TeamMember {
     name: string;
     role: string;
-    avatarUrl: string;
+    image: string;
+    width: number;
+    height: number;
     bio: string;
     email: string;
     dataAiHint?: string;
@@ -15,27 +19,32 @@ export interface TeamMember {
 
 export const teamMembers: TeamMember[] = [
     {
-        name: "Alex Chen",
-        role: "Founder & CEO",
-        avatarUrl: "/avatars/alex-chen.jpg",
-        dataAiHint: "alex chen, founder and ceo of log_on",
-        bio: "Alex is a visionary leader with over 20 years of experience in the technology industry. He founded LOG_ON with the mission of making complex technology accessible and transformative for businesses of all sizes. A serial entrepreneur and a passionate advocate for AI ethics, Alex leads the company\'s strategic direction and is deeply involved in product innovation.",
-        email: "alex.chen@log-on.ai",
+        name: "Oluwamayowa Logo",
+        role: "Lead Developer & Automation Solution Architect",
+        image: imageData.authorOluwamayowa.src,
+        width: imageData.authorOluwamayowa.width,
+        height: imageData.authorOluwamayowa.height,
+        dataAiHint: imageData.authorOluwamayowa.dataAiHint,
+        bio: "Oluwamayowa is a seasoned developer and automation expert with a passion for building elegant, efficient systems. With over a decade of experience, he specializes in translating complex business requirements into robust, scalable technology solutions. His expertise in AI and process automation helps clients unlock new levels of productivity and innovation.",
+        email: "logonthepage@gmail.com",
         socials: {
-            linkedin: "https://www.linkedin.com/in/alex-chen-ai/",
-            twitter: "https://twitter.com/alexchen_ai",
+            linkedin: "https://www.linkedin.com/in/oluwamayowa-logo-2a1594197/",
+            twitter: "https://x.com/log_onthepage",
+            github: "https://github.com/Log-base"
         }
     },
     {
-        name: "Dr. Evelyn Reed",
-        role: "Chief Technology Officer (CT физика)",
-        avatarUrl: "/avatars/evelyn-reed.jpg",
-        dataAiHint: "dr evelyn reed, cto of log_on",
-        bio: "Evelyn is the chief architect of our technology platform. With a Ph.D. in Computer Science and a specialization in Machine Learning, she leads our research and development teams. Her work has been published in numerous academic journals, and she is a frequent speaker at major tech conferences. Evelyn is committed to building robust, scalable, and secure AI systems.",
-        email: "evelyn.reed@log-on.ai",
+        name: "Favour Alfred",
+        role: "Team Lead Sales & Business Process Automation",
+        image: imageData.authorFavour.src,
+        width: imageData.authorFavour.width,
+        height: imageData.authorFavour.height,
+        dataAiHint: imageData.authorFavour.dataAiHint,
+        bio: "Favour is a dynamic leader with a talent for understanding customer needs and architecting solutions that drive growth. She bridges the gap between technology and business, ensuring that every automation strategy is perfectly aligned with our clients' goals. Her focus on building strong relationships and delivering measurable results makes her an invaluable partner to the businesses we serve.",
+        email: "favvyalfred@gmail.com",
         socials: {
-            linkedin: "https://www.linkedin.com/in/evelyn-reed-ai/",
-            github: "https://github.com/evelyn-reed-ai"
+            linkedin: "https://www.linkedin.com/in/favour-alfred/",
+            twitter: "https://twitter.com/FavourAlfred_01"
         }
     }
 ];

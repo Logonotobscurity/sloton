@@ -7,7 +7,7 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 import { insights } from '@/lib/insights';
 import { GlowingCard } from '@/components/ui/glowing-card';
-import { PageHero } from '@/components/page-hero';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { topics } from '@/lib/data/insights-page-data';
 
 export const metadata: Metadata = {

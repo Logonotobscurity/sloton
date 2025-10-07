@@ -10,7 +10,7 @@ import { CommunityLeadForm } from '@/components/community-lead-form';
 import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { EnrollmentForm } from '@/components/enrollment-form';
-import { PageHero } from '@/components/page-hero';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { AdinkraBackground } from '@/components/ui/adinkra-background';
 import { trainingPrograms, communityProjects, trainingBenefits } from '@/lib/data/training-data';
 

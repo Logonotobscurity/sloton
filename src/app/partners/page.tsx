@@ -4,11 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { ShieldCheck, Handshake } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { TechStackCarousel } from '@/components/tech-stack-carousel';
+import { TechStackCarousel } from '@/components/page-sections/tech-stack-carousel';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import Image from 'next/image';
-import { PageHero } from '@/components/page-hero';
-import { BottomCta } from '@/components/bottom-cta';
+import { PageHero } from '@/components/page-sections/page-hero';
+import { BottomCta } from '@/components/page-sections/bottom-cta';
 import { partnerBenefits, partners } from '@/lib/data/partners-data';
 
 export const metadata: Metadata = {

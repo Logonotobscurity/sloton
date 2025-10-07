@@ -4,8 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Bot, CheckCircle, ArrowRight, MessageSquare, Repeat, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CaseStudyFeature } from '@/components/case-study-feature';
-import { PageHero } from '@/components/page-hero';
+import { CaseStudyFeature } from '@/components/page-sections/case-study-feature';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { chatbotServices, chatbotsBenefits } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {

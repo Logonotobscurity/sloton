@@ -2,7 +2,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import Image from 'next/image';
-import { teamMembers } from '@/lib/team-members';
+import { teamMembers } from '@/lib/data/team-members';
 
 export function AuthorBio({ authorName }: { authorName: string }) {
   const author = teamMembers.find(member => member.name === authorName);

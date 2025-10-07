@@ -1,10 +1,9 @@
 
-
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { TaskAutomationForm } from '@/components/task-automation-form';
 import { WorkflowTemplateLibrary } from '@/app/automation/_components/workflow-template-library';
-import { PageHero } from '@/components/page-hero';
+import { PageHero } from '@/components/page-sections/page-hero';
 
 export const metadata: Metadata = {
   title: 'Intelligent Automation Solutions | RPA & Workflow Design',

@@ -1,5 +1,5 @@
 
-import { PageHero } from '@/components/page-hero';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { Lightbulb, Copy } from 'lucide-react';
 import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';

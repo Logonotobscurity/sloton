@@ -1,7 +1,7 @@
 
-import { teamMembers } from "@/lib/team-members";
-import { PageHero } from "@/components/page-hero";
-import { BottomCta } from "@/components/bottom-cta";
+import { teamMembers } from "@/lib/data/team-members";
+import { PageHero } from "@/components/page-sections/page-hero";
+import { BottomCta } from "@/components/page-sections/bottom-cta";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";

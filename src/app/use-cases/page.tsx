@@ -1,11 +1,11 @@
 
-import { PageHero } from '@/components/page-hero';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle, ArrowRight, BrainCircuit, Zap } from 'lucide-react';
 import type { Metadata } from 'next';
-import { BottomCta } from '@/components/bottom-cta';
+import { BottomCta } from '@/components/page-sections/bottom-cta';
 import { SidebarNav } from '@/components/sidebar-nav';
 import { industries, sidebarNavItems } from '@/lib/data/industries-data';
 

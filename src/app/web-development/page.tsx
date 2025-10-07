@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Code } from 'lucide-react';
 import type { Metadata } from 'next';
-import { CaseStudyFeature } from '@/components/case-study-feature';
-import { PageHero } from '@/components/page-hero';
+import { CaseStudyFeature } from '@/components/page-sections/case-study-feature';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { webDevelopmentServices } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {

@@ -4,8 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { CheckCircle, ArrowRight, Database } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CaseStudyFeature } from '@/components/case-study-feature';
-import { PageHero } from '@/components/page-hero';
+import { CaseStudyFeature } from '@/components/page-sections/case-study-feature';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { databaseServices, databaseSolutionsBenefits } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {

@@ -14,11 +14,11 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
-import { PageHero } from "@/components/page-hero";
+import { PageHero } from "@/components/page-sections/page-hero";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { BottomCta } from "@/components/bottom-cta";
+import { BottomCta } from "@/components/page-sections/bottom-cta";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { SolutionRecommendationForm } from "@/components/solution-recommendation-form";
 import { services, industryApplications } from "@/lib/data/solutions-data";

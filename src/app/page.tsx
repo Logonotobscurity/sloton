@@ -1,19 +1,19 @@
 
 import React from 'react';
-import { Faq } from '@/components/faq';
-import { FeaturedInsights } from '@/components/featured-insights';
-import { Hero } from '@/components/hero';
-import { PartnershipApproach } from '@/components/partnership-approach';
-import { Statement } from '@/components/statement';
-import { TechStackCarousel } from '@/components/tech-stack-carousel';
-import { TrainingCTA } from '@/components/training-cta';
-import { BottomCta } from '@/components/bottom-cta';
-import { IndustriesBento } from '@/components/industries-bento';
-import { IdeasLab } from '@/components/ideas-lab';
-import { SmarterAutomation } from '@/components/smarter-automation';
-import { ServicesOffered } from '@/components/services-offered';
+import { Faq } from '@/components/page-sections/faq';
+import { FeaturedInsights } from '@/components/page-sections/featured-insights';
+import { Hero } from '@/components/page-sections/hero';
+import { PartnershipApproach } from '@/components/page-sections/partnership-approach';
+import { Statement } from '@/components/page-sections/statement';
+import { TechStackCarousel } from '@/components/page-sections/tech-stack-carousel';
+import { TrainingCTA } from '@/components/page-sections/training-cta';
+import { BottomCta } from '@/components/page-sections/bottom-cta';
+import { IndustriesBento } from '@/components/page-sections/industries-bento';
+import { IdeasLab } from '@/components/page-sections/ideas-lab';
+import { SmarterAutomation } from '@/components/page-sections/smarter-automation';
+import { ServicesOffered } from '@/components/page-sections/services-offered';
 import type { Metadata } from 'next';
-import { StrategicPartner } from '@/components/strategic-partner';
+import { StrategicPartner } from '@/components/page-sections/strategic-partner';
 
 export const metadata: Metadata = {
   title: 'LOG_ON | AI & Automation for Business Efficiency',

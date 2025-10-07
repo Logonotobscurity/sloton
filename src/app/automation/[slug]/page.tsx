@@ -1,6 +1,4 @@
 
-
-
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getTemplateBySlug } from '@/lib/workflow-templates';
@@ -14,7 +12,7 @@ import { cn } from '@/lib/utils';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
 import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import { CommunityLeadForm } from '@/components/community-lead-form';
-import { PageHero } from '@/components/page-hero';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { getTemplates } from '@/lib/workflow-templates';
 import { categoryStyles } from '@/lib/category-styles';
 
