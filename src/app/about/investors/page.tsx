@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, TrendingUp, FileText, Calendar } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { PageHero } from '@/components/page-hero';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { reports, events } from '@/lib/data/investors-data';
 
 export const metadata: Metadata = {

@@ -4,7 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { ShieldCheck, Handshake } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { TechStackCarousel } from '@/components/page-sections/tech-stack-carousel';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import Image from 'next/image';
 import { PageHero } from '@/components/page-sections/page-hero';
