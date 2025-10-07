@@ -64,7 +64,7 @@ Create a complete, production-ready, full-stack Next.js application that allows 
     - \`swotAnalysis\`:
         - \`strengths: z.array(z.string()).describe("A list of 3-4 key strengths.")\`
         - \`weaknesses: z.array(z.string()).describe("A list of 3-4 key weaknesses.")\`
-        - \`opportunities: z.array(z.string()).describe("A list of 3-4 key opportunities.")\`
+        - \`opportunities: z.array(zstring()).describe("A list of 3-4 key opportunities.")\`
         - \`threats: z.array(z.string()).describe("A list of 3-4 key threats.")\`
     - \`marketPresence\`:
         - \`keyCompetitors: z.array(z.string()).describe("A list of 3-5 main competitors.")\`
@@ -99,16 +99,72 @@ Create a complete, production-ready, full-stack Next.js application that allows 
 5.  Ensure all styling is clean, modern, and consistent with the ShadCN design system.
 `;
 
+const navComponentAnalysis = `
+# Component Analysis: NavigationMenu vs. DropdownMenu vs. MegaMenu
+
+## 1. Core Objective
+To clarify the distinct roles of the primary navigation components used in this application's header architecture. Understanding when and why to use each component is critical for maintaining code quality, accessibility, and a consistent user experience.
+
+## 2. Component Breakdown
+
+### 2.1. \`NavigationMenu\`
+- **Source:** \`shadcn/ui\` (based on Radix UI)
+- **Purpose:** This is the **foundational component for top-level site navigation**. It is specifically designed to handle the complex requirements of a main navigation bar.
+- **Key Features:**
+    - **Accessibility:** Manages complex keyboard navigation (arrow keys, \`Tab\`, \`Esc\`), focus trapping, and provides essential ARIA attributes out of the box. This is its most important feature.
+    - **State Management:** Automatically handles the open/closed state of its dropdowns.
+- **Usage:** This should be used once, at the top level of your main desktop navigation bar, to wrap all the primary navigation links. In our project, it's the root of \`desktop-nav.tsx\`.
+
+### 2.2. \`DropdownMenu\`
+- **Source:** \`shadcn/ui\` (based on Radix UI)
+- **Purpose:** A **generic, multi-purpose pop-up menu**. It is not designed for main site navigation but is perfect for simpler, action-oriented menus.
+- **Key Features:**
+    - **Simplicity:** Ideal for context menus, user profile dropdowns, or settings toggles where a single button reveals a list of actions.
+    - **Trigger-Based:** Built around a single \`DropdownMenuTrigger\` (e.g., a button or an icon) that opens a panel of options.
+- **Usage:** In our project, this is used for the \`ThemeToggle\` component. It is the correct choice for simple, single-trigger menus that are not part of the main page-to-page navigation flow.
+
+### 2.3. \`MegaMenu\`
+- **Source:** **Custom Component** (\`src/components/header/mega-menu.tsx\`)
+- **Purpose:** This is a **design pattern**, not a primitive component. It defines the rich, multi-column layout that appears *inside* a \`NavigationMenuContent\` panel.
+- **Key Features:**
+    - **Rich Content:** Its sole job is to arrange navigation links into a structured, multi-column grid with headings, descriptions, and promotional blocks (CTAs).
+    - **Data-Driven:** It is driven by our centralized \`menu-data.ts\` file, dynamically rendering its content based on the provided \`menuKey\`.
+    - **Composition:** It is always nested within a \`NavigationMenu\` and does not manage its own state or accessibility—it inherits these from its parent.
+- **Usage:** In our project, this is used to render the large dropdowns for "Products," "Industries," and "Company."
+
+## 3. Architectural Analogy
+
+- **`NavigationMenu`** is the **entire bookshelf**, specifically built to organize your main library of books.
+- **`DropdownMenu`** is a **small, single-purpose spice rack** on the kitchen counter.
+- **`MegaMenu`** is a **custom-built organizer** that you place *on a shelf* of the main bookshelf to neatly arrange a specific category of books into sections.
+
+By adhering to this separation of concerns, we ensure our navigation is accessible, maintainable, and scalable.
+`;
+
 
 export default function IdeasLabPage() {
   return (
     <div>
       <PageHero
         title="Ideas Lab"
-        description="A space for experimental concepts, AI generation prompts, and new approaches we are testing at LOG_ON. Here, we document the prompts used to build features, providing transparency and a blueprint for future innovation."
+        description="A space for experimental concepts, AI generation prompts, and new approaches we are testing at LOG_ON. Here, we document the prompts and architectural decisions used to build our features, providing transparency and a blueprint for future innovation."
         icon={<Lightbulb className="h-12 w-12 md:h-16 md:w-16 text-primary" />}
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-12">
+        <Card>
+            <CardHeader>
+                <CardTitle className="text-2xl">Architectural Decision: Navigation Components</CardTitle>
+                <CardDescription>An analysis of the different menu components used in our header and why each is chosen for its specific role.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <div className="relative p-4 bg-secondary/50 rounded-lg">
+                    <pre className="whitespace-pre-wrap text-sm font-mono overflow-x-auto">
+                        <code>{navComponentAnalysis.trim()}</code>
+                    </pre>
+                </div>
+            </CardContent>
+        </Card>
+        
         <Card>
             <CardHeader>
                 <CardTitle className="text-2xl">App Idea: Company Report Generator</CardTitle>
