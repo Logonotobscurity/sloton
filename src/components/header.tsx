@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Menu, Phone, ChevronDown } from 'lucide-react';
+import { Menu, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -24,13 +24,20 @@ import { cn } from '@/lib/utils';
 import { ThemeToggle } from './theme-toggle';
 import { menuData } from '@/lib/menu-data';
 import { MegaMenu } from './mega-menu';
+import { 
+    NavigationMenu, 
+    NavigationMenuList, 
+    NavigationMenuItem, 
+    NavigationMenuTrigger, 
+    NavigationMenuContent,
+    NavigationMenuLink
+} from '@/components/ui/navigation-menu';
 
 const navLinks = [
   { label: 'What We Solve', href: '/solutions', menuKey: 'products' },
   { label: 'See Results', href: '/use-cases', menuKey: 'industries' },
   { label: 'Build Skills', href: '/training', menuKey: 'learning' },
   { label: 'Partners', href: '/partners', menuKey: 'partners' },
-  { label: 'Company', href: '/about', menuKey: 'company' },
 ];
 
 const Logo = () => (
@@ -41,20 +48,6 @@ const Logo = () => (
         </div>
     </Link>
 );
-
-const NavLink = ({ href, children, hasDropdown }: { href: string; children: React.ReactNode, hasDropdown?: boolean }) => {
-  const pathname = usePathname();
-  const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
-  return (
-    <Link href={href} className={cn(
-        "flex items-center text-sm font-medium transition-colors hover:text-primary px-3 py-2 rounded-md",
-        isActive ? "bg-secondary text-primary" : ""
-    )}>
-        {children}
-        {hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
-    </Link>
-  );
-};
 
 const MobileNavLink = ({ href, children, onLinkClick }: { href: string; children: React.ReactNode; onLinkClick: () => void }) => (
     <SheetClose asChild>
@@ -72,6 +65,7 @@ const MobileNavLink = ({ href, children, onLinkClick }: { href: string; children
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -112,22 +106,26 @@ export function Header() {
                 <Logo />
             </div>
             
-            <nav className="flex-1 flex justify-center items-center">
-              {navLinks.map(link => (
-                <div key={link.label} className="group relative flex h-full items-center">
-                    <NavLink href={link.href} hasDropdown>{link.label}</NavLink>
-                    <div className={cn(
-                        "absolute top-full pt-2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto",
-                        link.menuKey === 'company' ? "w-screen max-w-sm" : "w-screen max-w-4xl",
-                        "-translate-x-1/2 left-1/2"
-                    )}>
-                        <div className="bg-background rounded-lg shadow-2xl border overflow-hidden">
+            <NavigationMenu>
+              <NavigationMenuList>
+                {navLinks.map(link => (
+                    <NavigationMenuItem key={link.label}>
+                        <NavigationMenuTrigger>{link.label}</NavigationMenuTrigger>
+                        <NavigationMenuContent>
                             <MegaMenu menuKey={link.menuKey} />
-                        </div>
-                    </div>
-                </div>
-              ))}
-            </nav>
+                        </NavigationMenuContent>
+                    </NavigationMenuItem>
+                ))}
+                <NavigationMenuItem>
+                    <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-screen max-w-sm">
+                        <MegaMenu menuKey="company" />
+                      </div>
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             
             <div className="flex items-center gap-2 flex-shrink-0">
                 <ThemeToggle />
@@ -157,7 +155,7 @@ export function Header() {
                     </SheetHeader>
                     <div className="flex-grow overflow-y-auto p-4">
                         <Accordion type="multiple" className="w-full">
-                             {navLinks.map(navItem => (
+                             {[...navLinks, { label: 'Company', href: '/about', menuKey: 'company' }].map(navItem => (
                                 <AccordionItem value={navItem.label} key={navItem.label}>
                                     <AccordionTrigger>
                                         <Link href={navItem.href} onClick={(e) => { e.stopPropagation(); handleMobileLinkClick(); }} className="text-lg font-bold">

@@ -40,14 +40,6 @@ export function Footer() {
              <p className="text-muted-foreground text-base md:text-lg max-w-md mx-auto lg:mx-0">
               Ready to transform your business with intelligent technology? Let's build something great together.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <Button asChild>
-                <Link href="/contact">Get Your Free Efficiency Assessment</Link>
-              </Button>
-              <Button asChild variant="secondary">
-                <Link href="/use-cases">See Real Business Results</Link>
-              </Button>
-            </div>
           </div>
 
           <div className="lg:col-span-7">
