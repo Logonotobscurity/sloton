@@ -10,6 +10,7 @@ import {
   Users,
   Truck,
   Phone,
+  Cog,
 } from 'lucide-react';
 
 export const industries = [
@@ -149,7 +150,7 @@ export const industries = [
   {
     id: 'it-consulting',
     name: 'IT Consulting',
-    icon: Users,
+    icon: Cog,
     description: 'Enhancing service offerings and internal efficiencies with AI and automation.',
     challenges: [
       'Scaling service delivery without proportionally increasing headcount',

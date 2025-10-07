@@ -14,60 +14,65 @@ import { motion } from "framer-motion";
 import { Loader, RefreshCw, Wand2 } from "lucide-react";
 import { VisualWorkflow } from "./visual-workflow";
 import { Badge } from "./ui/badge";
+import { getAutomatedTaskDesign } from "@/app/actions";
+import { useToast } from "./hooks/use-toast";
+import { AutomateTaskDesignOutput } from "@/ai/flows/automated-task-design";
 
 const formSchema = z.object({
   workflowDescription: z.string().min(10, "Please describe the task you want to automate in at least 10 characters."),
   optimizationSuggestions: z.string().optional(),
 });
 
-export function TaskAutomationForm() {
-  const [result, setResult] = React.useState<any>(null);
+export function TaskAutomationForm({ initialValues }: { initialValues?: z.infer<typeof formSchema> }) {
+  const [result, setResult] = React.useState<AutomateTaskDesignOutput | null>(null);
   const [isLoading, setIsLoading] = React.useState(false);
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      workflowDescription: exampleWorkflows[0],
-      optimizationSuggestions: "",
+      workflowDescription: initialValues?.workflowDescription || "",
+      optimizationSuggestions: initialValues?.optimizationSuggestions || "",
     },
   });
+  
+  React.useEffect(() => {
+    if (initialValues?.workflowDescription) {
+        form.setValue("workflowDescription", initialValues.workflowDescription);
+    }
+  }, [initialValues, form]);
+
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000)); 
-    // This is where you would typically make an API call to your backend 
-    // to process the workflow and get the results.
-    // For now, we'll just use a static result.
-    const staticResult = {
-        "nodes": [
-          { "id": "start", "type": "start", "label": "Start" },
-          { "id": "check_user_status", "type": "process", "label": "Check User Status" },
-          { "id": "fetch_user_data", "type": "process", "label": "Fetch User Data" },
-          { "id": "check_account_type", "type": "decision", "label": "Is Premium Account?" },
-          { "id": "grant_premium_access", "type": "process", "label": "Grant Premium Access" },
-          { "id": "grant_standard_access", "type": "process", "label": "Grant Standard Access" },
-          { "id": "end", "type": "end", "label": "End" }
-        ],
-        "edges": [
-          { "source": "start", "target": "check_user_status" },
-          { "source": "check_user_status", "target": "fetch_user_data" },
-          { "source": "fetch_user_data", "target": "check_account_type" },
-          { "source": "check_account_type", "target": "grant_premium_access", "label": "Yes" },
-          { "source": "check_account_type", "target": "grant_standard_access", "label": "No" },
-          { "source": "grant_premium_access", "target": "end" },
-          { "source": "grant_standard_access", "target": "end" }
-        ]
-      }
-    setResult(staticResult);
+    setResult(null);
+    const response = await getAutomatedTaskDesign(values);
     setIsLoading(false);
+    if (response.data) {
+        setResult(response.data);
+    } else {
+        toast({
+            variant: "destructive",
+            title: "Error Generating Workflow",
+            description: response.error || "An unknown error occurred. Please try again."
+        });
+    }
+  }
+
+  if (isLoading) {
+    return (
+        <div className="flex flex-col items-center justify-center space-y-4 p-8 min-h-[400px]" aria-live="polite">
+            <Loader className="h-12 w-12 animate-spin text-primary" />
+            <p className="text-muted-foreground">Generating your custom workflow...</p>
+        </div>
+    );
   }
 
   if (result) {
     return (
       <div className="space-y-6" aria-live="polite">
         <VisualWorkflow result={result} />
-        <Button onClick={() => { setResult(null); form.reset({workflowDescription: exampleWorkflows[0], optimizationSuggestions: ''}); }} variant="outline" className="w-full">
+        <Button onClick={() => { setResult(null); form.reset({workflowDescription: '', optimizationSuggestions: ''}); }} variant="outline" className="w-full">
           <RefreshCw className="mr-2 h-4 w-4" />
           Design Another Task
         </Button>
@@ -76,12 +81,12 @@ export function TaskAutomationForm() {
   }
 
   return (
-    <Card className="max-w-2xl mx-auto shadow-lg">
+    <Card className="shadow-lg bg-background/80 backdrop-blur-sm">
         <CardHeader>
             <div className="flex flex-col items-center text-center">
                 <Wand2 className="w-12 h-12 text-primary mb-4" />
-                <CardTitle className="text-3xl font-bold">Design Your Automated Task</CardTitle>
-                 <p className="text-muted-foreground mt-2">Describe a task, and we'll generate a visual workflow and suggest AI-powered optimizations.</p>
+                <CardTitle className="text-2xl md:text-3xl font-bold">Design Your Automated Task</CardTitle>
+                 <p className="text-muted-foreground mt-2">Describe a task, and our AI will generate a visual workflow and suggest optimizations.</p>
             </div>
         </CardHeader>
       <CardContent>
@@ -107,12 +112,12 @@ export function TaskAutomationForm() {
                 </FormItem>
               )}
             />
-             <div className="space-y-2">
+             <div className="space-y-3">
                 <FormLabel>Or try one of our examples:</FormLabel>
                 <div className="flex flex-wrap gap-2">
-                    {exampleWorkflows.map((example, i) => (
+                    {exampleWorkflows.slice(0,3).map((example, i) => (
                         <Button key={i} type="button" variant="outline" size="sm" onClick={() => form.setValue('workflowDescription', example)}>
-                            {example}
+                            {example.length > 40 ? example.slice(0, 40) + '...' : example}
                         </Button>
                     ))}
                 </div>
@@ -150,7 +155,7 @@ export function TaskAutomationForm() {
                   {isLoading ? (
                     <>
                       <Loader className="mr-2 h-5 w-5 animate-spin" />
-                      Generating Workflow...
+                      Generating...
                     </>
                   ) : (
                     <>

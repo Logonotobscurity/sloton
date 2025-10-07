@@ -1,5 +1,5 @@
 
-import { BrainCircuit, Cpu, Eye, Languages, BarChart, CheckCircle, ArrowRight, Zap, Code, MessageSquare, Database, DatabaseZap, ShieldCheck, Cloudy, LineChart, Target, Table } from 'lucide-react';
+import { BrainCircuit, Cpu, Eye, Languages, BarChart, CheckCircle, ArrowRight, Zap, Code, MessageSquare, Database, DatabaseZap, ShieldCheck, Cloudy, LineChart, Target, Table, PenTool, ShoppingCart, Building, Users, Briefcase, Lightbulb } from 'lucide-react';
 
 export const aiServices = [
   {
@@ -34,7 +34,7 @@ export const aiSolutionsBenefits = [
 
 export const analyticsServices = [
   {
-    icon: BarChart3,
+    icon: BarChart,
     title: 'Custom Interactive Dashboards',
     description: 'We move beyond static reports to build dynamic, interactive dashboards (e.g., using Power BI or Tableau) that allow you to explore your data in real-time. Filter, drill down, and uncover the trends that matter most to your business in a user-friendly visual interface.',
   },
@@ -160,7 +160,7 @@ export const contactReasons = [
       description: "Have questions about our AI solutions, automation services, or technology stack? We have answers."
     },
     {
-      icon: MessageCircle,
+      icon: MessageSquare,
       title: "Support Request",
       description: "Need help with one of our products or services? Our support team is here to assist you."
     }
