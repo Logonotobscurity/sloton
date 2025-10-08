@@ -1,8 +1,6 @@
 
 'use server';
 
-import { solutionRecommendation, SolutionRecommendationInput, SolutionRecommendationOutput } from '@/ai/flows/solution-recommendation';
-import { automateTaskDesign, AutomateTaskDesignInput, AutomateTaskDesignOutput } from '@/ai/flows/automated-task-design';
 import { z } from 'zod';
 import { Resend } from 'resend';
 import { ContactFormEmail } from '@/emails/contact-form-email';
@@ -16,32 +14,6 @@ type FormResult<T> = {
   error?: string;
   success?: boolean;
 };
-
-// Solution Recommendation Action
-export async function getSolutionRecommendation(
-  input: SolutionRecommendationInput
-): Promise<FormResult<SolutionRecommendationOutput>> {
-  try {
-    const result = await solutionRecommendation(input);
-    return { data: result };
-  } catch (e: any) {
-    console.error('Error in getSolutionRecommendation:', e);
-    return { error: e.message || 'An unknown error occurred.' };
-  }
-}
-
-// Automated Task Design Action
-export async function getAutomatedTaskDesign(
-  input: AutomateTaskDesignInput
-): Promise<FormResult<AutomateTaskDesignOutput>> {
-  try {
-    const result = await automateTaskDesign(input);
-    return { data: result };
-  } catch (e: any) {
-    console.error('Error in getAutomatedTaskDesign:', e);
-    return { error: e.message || 'An unknown error occurred.' };
-  }
-}
 
 // Contact Form Action
 const contactFormSchema = z.object({

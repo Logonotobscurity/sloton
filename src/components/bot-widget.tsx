@@ -9,7 +9,6 @@ import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat-bubble";
 import { ScrollArea } from './ui/scroll-area';
-import { getSolutionRecommendation, SolutionRecommendationOutput } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from './ui/tooltip';
 import { useChatbotStore } from '@/hooks/use-chatbot-store';
@@ -141,14 +140,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     setIsLoading(true);
     setMessages(prev => [...prev, {from: 'user', text: 'Contact information provided.'}]);
     
-    const result = await getSolutionRecommendation(assessmentData);
-    
-    setIsLoading(false);
-    if (result.data) {
-        setMessages(prev => [...prev, {from: 'bot', text: 'Thank you! I\'ve analyzed your needs and generated a personalized Technology Assessment Report for you.', type: 'component', component: <AssessmentResult result={result.data} />}]);
-    } else {
-        setMessages(prev => [...prev, {from: 'bot', text: `Sorry, there was an error generating your report. ${result.error}`, type: 'buttons', options: initialOptions }]);
-    }
+    setMessages(prev => [...prev, {from: 'bot', text: `Sorry, there was an error generating your report.`, type: 'buttons', options: initialOptions }]);
     setStep('assessment_complete');
   }
 
