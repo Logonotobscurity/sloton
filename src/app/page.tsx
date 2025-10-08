@@ -27,7 +27,6 @@ export default function Home() {
       <div className="w-full space-y-4 md:space-y-8">
           <StrategicPartner />
           <ServicesOffered />
-          <IdeasLab />
           <SmarterAutomation />
           <PartnershipApproach />
           <TrainingCTA />
