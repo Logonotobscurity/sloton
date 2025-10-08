@@ -1,6 +1,5 @@
 
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import { TaskAutomationForm } from '@/components/task-automation-form';
 import { WorkflowTemplateLibrary } from '@/app/automation/_components/workflow-template-library';
 import { PageHero } from '@/components/page-sections/page-hero';
@@ -10,7 +9,13 @@ export const metadata: Metadata = {
   description: 'Design, configure, and deploy automated IT tasks and business workflows with our intelligent automation and RPA solutions. Get AI-powered optimization suggestions.',
 };
 
-function AutomationPageContent({ workflow }: { workflow?: string }) {
+export default async function AutomationPage({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
+  const workflow = typeof searchParams?.workflow === 'string' ? searchParams.workflow : undefined;
+
   return (
     <div className="bg-background">
       <PageHero 
@@ -29,19 +34,5 @@ function AutomationPageContent({ workflow }: { workflow?: string }) {
 
       </div>
     </div>
-  );
-}
-
-export default function AutomationPage({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
-  const workflow = typeof searchParams?.workflow === 'string' ? searchParams.workflow : undefined;
-
-  return (
-    <Suspense>
-      <AutomationPageContent workflow={workflow} />
-    </Suspense>
   );
 }

@@ -102,7 +102,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                         <DialogHeader>
                             <DialogTitle>Book a Free Demo</DialogTitle>
                             <DialogDescription>
-                                {`Interested in the "${template.name}" template? Fill out your details below to connect with our team on WhatsApp.`}
+                                {`Interested in the \"${template.name}\" template? Fill out your details below to connect with our team on WhatsApp.`}
                             </DialogDescription>
                         </DialogHeader>
                         <CommunityLeadForm interest={`Template: ${template.name}`} />
