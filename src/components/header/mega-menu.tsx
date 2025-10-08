@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -39,7 +40,7 @@ ListItem.displayName = "ListItem";
 
 
 export function MegaMenu({ menuKey }: { menuKey: MenuKey }) {
-    const menuDetails = menuData[menuKey];
+    const menuDetails = menuData.find(item => item.key === menuKey);
     if (!menuDetails || typeof menuDetails !== 'object' || !('items' in menuDetails)) {
         return null;
     }

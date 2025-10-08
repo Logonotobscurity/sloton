@@ -2,7 +2,7 @@
 "use client";
 
 import * as React from "react";
-import { menuData, type MenuSection } from "@/lib/menu-data";
+import { menuData, type SitemapSection } from "@/lib/menu-data";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,36 +16,32 @@ import { MegaMenu } from "./mega-menu";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "../ui/button";
-
-const menuKeys = Object.keys(menuData) as (keyof typeof menuData)[];
+import { cn } from "@/lib/utils";
 
 export function DesktopNav() {
-
   return (
     <div className="hidden lg:flex items-center justify-between w-full">
         <NavigationMenu>
             <NavigationMenuList>
-                {menuKeys.map(key => {
-                    const menu = menuData[key] as MenuSection;
-                    
+                {menuData.map((menu) => {
                     if ('href' in menu && !('items' in menu)) {
                         return (
-                            <NavigationMenuItem key={key}>
-                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link href={menu.href}>
+                            <NavigationMenuItem key={menu.key}>
+                                <Link href={menu.href} legacyBehavior passHref>
+                                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-semibold")}>
                                         {menu.heading}
-                                    </Link>
-                                </NavigationMenuLink>
+                                    </NavigationMenuLink>
+                                </Link>
                             </NavigationMenuItem>
                         );
                     }
                     
                     if ('items' in menu) {
                         return (
-                          <NavigationMenuItem key={key}>
-                              <NavigationMenuTrigger>{menu.heading}</NavigationMenuTrigger>
+                          <NavigationMenuItem key={menu.key}>
+                              <NavigationMenuTrigger className="font-semibold">{menu.heading}</NavigationMenuTrigger>
                               <NavigationMenuContent>
-                              <MegaMenu menuKey={key} />
+                              <MegaMenu menuKey={menu.key as 'solutions' | 'resources' | 'company'} />
                               </NavigationMenuContent>
                           </NavigationMenuItem>
                         );

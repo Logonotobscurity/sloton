@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import SolutionRecommendationForm from "@/components/solution-recommendation-form";
 import { motion } from "framer-motion";
 import { AdinkraBackground } from "../ui/adinkra-background";
+import Typed from "react-typed";
  
 export function Hero() {
 
@@ -42,7 +43,20 @@ export function Hero() {
                     Connecting Advantages. Delivering Results.
                 </motion.p>
                 <motion.h1 variants={itemVariants} className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight my-4">
-                    Do More with Less: <span className="text-primary">Smart Automation</span> for Growing Businesses.
+                    Do More with Less: <span className="text-primary">
+                        <Typed
+                            strings={[
+                                "Smart Automation",
+                                "Scalable Digital Presence",
+                                "AI Agents",
+                                "Actionable Intelligence"
+                            ]}
+                            typeSpeed={60}
+                            backSpeed={40}
+                            backDelay={2000}
+                            loop
+                        />
+                    </span> for Growing Businesses.
                 </motion.h1>
                 <motion.p variants={itemVariants} className="text-md md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                     Stop wasting time on disconnected tools. Get a clear roadmap to integrated systems that save time and drive revenue growth.
