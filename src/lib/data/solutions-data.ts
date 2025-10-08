@@ -14,7 +14,7 @@ import {
 
 export const services = [
   {
-    icon: <BrainCircuit className="h-8 w-8 text-primary" />,
+    icon: BrainCircuit,
     title: "AI Solutions",
     id: "ai-solutions",
     description: "We design and deploy custom AI and machine learning models that integrate seamlessly into your operations to solve your most complex challenges. By transforming your data into a strategic asset, we help you uncover insights, automate decisions, and gain a significant competitive edge.",
@@ -36,7 +36,7 @@ export const services = [
     },
   },
   {
-    icon: <Zap className="h-8 w-8 text-primary" />,
+    icon: Zap,
     title: "Process Automation",
     id: "process-automation",
     description: "Our intelligent automation and Robotic Process Automation (RPA) solutions are designed to eliminate repetitive, manual tasks across your organization. We map your existing workflows, identify bottlenecks, and deploy bots and AI agents to execute tasks with speed and precision, freeing up your team to focus on high-value work.",
@@ -58,7 +58,7 @@ export const services = [
     },
   },
   {
-    icon: <Code className="h-8 w-8 text-primary" />,
+    icon: Code,
     title: "Web & Custom Development",
     id: "web-development",
     description: "We build scalable, secure, and high-performance web platforms and custom applications that serve as the backbone of your digital presence. From sophisticated e-commerce stores to data-intensive enterprise applications, our solutions are built with modern, future-proof technologies like Next.js and React.",
@@ -80,7 +80,7 @@ export const services = [
     },
   },
   {
-    icon: <MessageSquare className="h-8 w-8 text-primary" />,
+    icon: MessageSquare,
     title: "Chatbots & Virtual Assistants",
     id: "chatbots",
     description: "Engage every customer, 24/7, with intelligent, AI-powered conversational agents. We design and build chatbots that integrate with your website, WhatsApp, and other platforms to automate customer service, qualify leads, and even drive sales while your team sleeps.",
@@ -102,7 +102,7 @@ export const services = [
     },
   },
   {
-    icon: <BarChart3 className="h-8 w-8 text-primary" />,
+    icon: BarChart3,
     title: "Business Analytics",
     id: "business-analytics",
     description: "We transform your raw data into actionable, strategic insights. Our team designs and builds custom, interactive dashboards and BI reports that provide a clear, real-time view of your business performance. Move from simply collecting data to actively using it to drive growth, optimize operations, and make confident decisions.",
@@ -124,7 +124,7 @@ export const services = [
     },
   },
   {
-    icon: <Database className="h-8 w-8 text-primary" />,
+    icon: Database,
     title: "Database Solutions",
     id: "database-solutions",
     description: "Your data is your most valuable asset; its foundation must be rock-solid. We design, build, and manage secure, scalable, and high-performance database systems (both SQL and NoSQL). From architecture and cloud migration to performance tuning and security, we ensure your data infrastructure is a competitive advantage, not a bottleneck.",
@@ -149,7 +149,7 @@ export const services = [
 
 export const industryApplications = [
     {
-        icon: <Landmark className="h-8 w-8 text-primary" />,
+        icon: Landmark,
         industry: "Finance & Banking",
         challenge: "Financial institutions face immense pressure to detect fraud in real-time, comply with strict regulations, and reduce the high costs of manual back-office operations like loan processing and compliance reporting.",
         solution: "We integrate **AI Solutions** and **Process Automation** to solve this. Our AI models analyze transaction patterns to detect and flag fraudulent activity with over 99% accuracy. Simultaneously, our RPA bots automate the extraction and validation of data for loan applications and compliance reports, reducing processing time by up to 70%.",
@@ -159,7 +159,7 @@ export const industryApplications = [
         }
     },
     {
-        icon: <HeartPulse className="h-8 w-8 text-primary" />,
+        icon: HeartPulse,
         industry: "Healthcare",
         challenge: "Healthcare providers are burdened with administrative tasks, from patient scheduling and billing to managing vast amounts of unstructured patient data, leading to staff burnout and inefficient patient care.",
         solution: "Our **Chatbots & Virtual Assistants** streamline patient communication by automating appointment scheduling and answering common queries. We couple this with **AI Solutions** (NLP) to extract critical information from clinical notes, helping to automate medical coding and provide clinicians with faster access to patient histories, ultimately improving the quality of care.",
@@ -169,7 +169,7 @@ export const industryApplications = [
         }
     },
     {
-        icon: <ShoppingCart className="h-8 w-8 text-primary" />,
+        icon: ShoppingCart,
         industry: "E-Commerce",
         challenge: "Online retailers struggle to provide personalized shopping experiences at scale, leading to high cart abandonment rates and missed revenue opportunities. Managing customer queries about order status and returns further strains support teams.",
         solution: "We combine **Business Analytics** with **Web & Custom Development** to build intelligent e-commerce platforms. Our analytics dashboards track user behavior to identify drop-off points, while our custom recommendation engines (powered by our AI models) personalize the shopping experience. An integrated AI chatbot handles over 60% of order-related inquiries, freeing up support staff.",

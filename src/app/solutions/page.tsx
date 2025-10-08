@@ -1,14 +1,5 @@
+
 import {
-  BrainCircuit,
-  Zap,
-  Code,
-  MessageSquare,
-  BarChart3,
-  Database,
-  Search,
-  Landmark,
-  HeartPulse,
-  ShoppingCart,
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
@@ -60,12 +51,14 @@ export default function SolutionsPage() {
         
         {/* Core Services Section */}
         <div className="space-y-16">
-            {services.map((service) => (
+            {services.map((service) => {
+              const ServiceIcon = service.icon;
+              return (
                 <section key={service.id} id={service.id} className="scroll-mt-20">
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
                         <div className="lg:sticky top-24">
                            <div className="flex items-center gap-4 mb-4">
-                                {service.icon}
+                                <ServiceIcon className="h-8 w-8 text-primary" />
                                 <h2 className="text-3xl md:text-4xl font-bold font-headline">{service.title}</h2>
                            </div>
                            <p className="text-muted-foreground md:text-lg">{service.description}</p>
@@ -101,7 +94,8 @@ export default function SolutionsPage() {
                         </div>
                     </div>
                 </section>
-            ))}
+              );
+            })}
         </div>
 
         {/* Solutions Audit Section */}
@@ -140,11 +134,13 @@ export default function SolutionsPage() {
                 <p className="mt-4 text-md md:text-lg text-muted-foreground">We apply our core services to solve the unique challenges of your industry, turning complex problems into growth opportunities.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {industryApplications.map(app => (
+                {industryApplications.map(app => {
+                  const AppIcon = app.icon;
+                  return (
                     <Card key={app.industry} className="bg-background/50 flex flex-col">
                         <CardHeader>
                             <div className="flex items-start gap-4 mb-2">
-                                <div className="flex-shrink-0">{app.icon}</div>
+                                <div className="flex-shrink-0"><AppIcon className="h-8 w-8 text-primary" /></div>
                                 <div className="flex-1">
                                     <CardTitle className="text-xl leading-snug">{app.industry}</CardTitle>
                                 </div>
@@ -162,7 +158,8 @@ export default function SolutionsPage() {
                             </Button>
                         </CardFooter>
                     </Card>
-                ))}
+                  )
+                })}
             </div>
         </section>
 
