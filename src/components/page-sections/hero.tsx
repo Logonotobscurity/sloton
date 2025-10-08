@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import SolutionRecommendationForm from "@/components/solution-recommendation-form";
 import { motion } from "framer-motion";
 import { AdinkraBackground } from "../ui/adinkra-background";
-import { Typed } from "react-typed";
+import { TypeAnimation } from "react-type-animation";
  
 export function Hero() {
 
@@ -44,17 +44,20 @@ export function Hero() {
                 </motion.p>
                 <motion.h1 variants={itemVariants} className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight my-4">
                     Do More with Less: <span className="text-primary">
-                        <Typed
-                            strings={[
-                                "Smart Automation",
-                                "Scalable Digital Presence",
-                                "AI Agents",
-                                "Actionable Intelligence"
+                        <TypeAnimation
+                            sequence={[
+                                'Smart Automation',
+                                3000,
+                                'Scalable Digital Presence',
+                                3000,
+                                'AI Agents',
+                                3000,
+                                'Actionable Intelligence',
+                                3000,
                             ]}
-                            typeSpeed={60}
-                            backSpeed={40}
-                            backDelay={2000}
-                            loop
+                            wrapper="span"
+                            speed={50}
+                            repeat={Infinity}
                         />
                     </span> for Growing Businesses.
                 </motion.h1>
