@@ -48,7 +48,7 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                                                 <li key={item.title}>
                                                     <Link href={item.href} className="block p-2 rounded-md hover:bg-accent" onClick={() => setIsOpen(false)}>
                                                         <span className="font-semibold">{item.title}</span>
-                                                        <p className="text-sm text-muted-foreground">{item.description}</p>
+                                                        <p className="text-sm text-muted-foreground">{item.shortDescription}</p>
                                                     </Link>
                                                 </li>
                                             ))}
