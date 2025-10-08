@@ -93,8 +93,8 @@ export default function ABTestingPage() {
                             </div>
                         </CardContent>
                         <CardContent className="pt-4 mt-auto">
-                           <p className={`text-sm font-semibold flex items-center gap-2 ${pilot.statusColor}`}>
-                               <pilot.icon className="h-4 w-4" />
+                           <p className={`text-sm font-semibold flex items-center gap-2 text-muted-foreground`}>
+                               <pilot.icon className="h-4 w-4 text-primary" />
                                {pilot.status}
                            </p>
                         </CardContent>

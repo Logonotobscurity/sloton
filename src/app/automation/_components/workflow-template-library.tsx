@@ -136,7 +136,7 @@ export function WorkflowTemplateLibrary() {
 
   return (
     <div className="py-16 md:py-24">
-      <div className="bg-secondary/20 dark:bg-zinc-900/50 -mx-4 md:-mx-10 lg:-mx-20 px-4 md:px-10 lg:px-20 py-12 rounded-t-3xl">
+      <div className="bg-secondary/20 -mx-4 md:-mx-10 lg:-mx-20 px-4 md:px-10 lg:px-20 py-12 rounded-t-3xl">
         <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Workflow Template Library</h2>
              <p className="text-md md:text-lg text-muted-foreground mt-4">
@@ -180,7 +180,7 @@ export function WorkflowTemplateLibrary() {
             </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-           <Card className="bg-background/50 flex flex-col p-6 rounded-xl border-amber-500/50 group transition-colors duration-300">
+           <Card className="bg-primary/10 flex flex-col p-6 rounded-xl border-primary/50 group transition-colors duration-300">
               <CardHeader className="p-0">
                   <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center", categoryStyles['IT Operations'].iconBg)}>
                       <Cog className={cn("h-6 w-6", categoryStyles['IT Operations'].color)} />

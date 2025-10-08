@@ -69,7 +69,7 @@ export function AssessmentResult({ result }: { result: SolutionRecommendationOut
                                             {result.recommendedSolutionPath.expectedOutcomes.map((outcome, index) => (
                                                 <TableRow key={index}>
                                                     <TableCell className="font-medium">{outcome.metric}</TableCell>
-                                                    <TableCell className="text-green-500 font-semibold">{outcome.projectedImprovement}</TableCell>
+                                                    <TableCell className="text-primary font-semibold">{outcome.projectedImprovement}</TableCell>
                                                     <TableCell>{outcome.timeframe}</TableCell>
                                                 </TableRow>
                                             ))}
