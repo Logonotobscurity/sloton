@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -68,18 +69,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
   }
 
-  .font-headline {
-    font-family: 'Playfair Display', serif;
-  }
-  .font-body {
-    font-family: 'Inter', sans-serif;
-  }
-  body {
-    @apply font-body;
-  }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline;
   }

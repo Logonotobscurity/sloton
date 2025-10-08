@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 const config = {
@@ -19,7 +20,6 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', 'Inter', 'sans-serif'],
         headline: ['var(--font-serif)', 'Playfair Display', 'serif'],
         body: ['var(--font-sans)', 'Inter', 'sans-serif'],
       },
