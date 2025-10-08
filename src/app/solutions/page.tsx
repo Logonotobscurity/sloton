@@ -2,6 +2,7 @@
 import {
   ArrowRight,
   CheckCircle,
+  Search,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-sections/page-hero";
