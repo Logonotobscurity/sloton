@@ -13,7 +13,7 @@ const socialLinks = [
   { href: 'https://www.youtube.com/@logonthepage', label: 'YouTube', icon: <IconYouTube className="w-5 h-5" /> },
 ];
 
-const { solutions, company, usecases } = menuData.menu;
+const { solutions, company, resources } = menuData.menu;
 
 export function Footer() {
   return (
@@ -36,6 +36,13 @@ export function Footer() {
              <p className="text-muted-foreground text-base md:text-lg max-w-md mx-auto lg:mx-0">
               Ready to transform your business with intelligent technology? Let's build something great together.
             </p>
+             <div className="flex justify-center lg:justify-start space-x-2 pt-2">
+                 {socialLinks.map(link => (
+                    <a key={link.label} href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary p-2 rounded-full hover:bg-secondary/50 transition-colors">
+                      {link.icon}
+                    </a>
+                  ))}
+              </div>
           </div>
 
           <div className="lg:col-span-7">
@@ -66,29 +73,25 @@ export function Footer() {
                 </ul>
               </div>
                <div>
-                <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">Resources</h3>
+                <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">{resources.heading}</h3>
                  <ul className="space-y-3 list-none">
-                   <li><Link href="/use-cases" className="text-muted-foreground hover:text-primary transition-colors">Use Cases</Link></li>
-                   <li><Link href="/training" className="text-muted-foreground hover:text-primary transition-colors">Training</Link></li>
-                   <li><Link href="/insights" className="text-muted-foreground hover:text-primary transition-colors">Insights</Link></li>
-                   <li><Link href="/ideas-lab" className="text-muted-foreground hover:text-primary transition-colors">Ideas Lab</Link></li>
+                  {resources.items.map((item) => (
+                    <li key={item.title}>
+                      <Link href={item.href} className="text-muted-foreground hover:text-primary transition-colors">
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
           </div>
         </div>
         
-        <div className="border-t py-6 flex flex-col-reverse sm:flex-row items-center justify-between gap-4">
-          <div className="text-sm text-muted-foreground text-center sm:text-left">
+        <div className="border-t py-6 text-center">
+          <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} LOG_ON. All Rights Reserved.
-          </div>
-          <div className="flex space-x-4">
-             {socialLinks.map(link => (
-                <a key={link.label} href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary p-2 rounded-full hover:bg-secondary/50 transition-colors">
-                  {link.icon}
-                </a>
-              ))}
-          </div>
+          </p>
         </div>
       </div>
     </footer>
