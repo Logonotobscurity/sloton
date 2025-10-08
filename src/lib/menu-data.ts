@@ -40,9 +40,17 @@ export const menuData = {
           }
         ]
     },
-    "usecases": {
-      "heading": "Use Cases",
-      "href": "/use-cases"
+    "resources": {
+      "heading": "Resources",
+      "intro": "Explore our expert insights, articles, and tools to stay ahead of the technology curve.",
+      "items": [
+        {"title": "Insights", "description": "Expert analysis on AI, automation, and tech trends.", "href": "/insights"},
+        {"title": "Use Cases", "description": "Discover how our solutions apply to your industry.", "href": "/use-cases"},
+        {"title": "Automation Library", "description": "Browse our library of pre-built workflow templates.", "href": "/automation"},
+        {"title": "Training Programs", "description": "Master in-demand skills with our hands-on curriculum.", "href": "/training"},
+        {"title": "Ideas Lab", "description": "Experimental concepts and AI prompts we're testing.", "href": "/ideas-lab"},
+        {"title": "Support", "description": "Find help articles and get in touch with our team.", "href": "/support"},
+      ]
     },
     "partners": {
         "heading": "Partners",
@@ -57,7 +65,6 @@ export const menuData = {
         {"title": "Our Leadership", "description": "Meet the LOG_ON leadership team.", "href": "/about/our-leadership"},
         {"title": "Careers", "description": "Explore open positions and join our team.", "href": "/about/careers"},
         {"title": "Investor Relations", "description": "News and resources for our investors.", "href": "/about/investors"},
-        {"title": "Insights", "description": "Expert analysis on AI, automation, and tech trends.", "href": "/insights"},
         {"title": "Our Locations", "description": "Find LOG_ON office information.", "href": "/about/locations"},
       ]
     }
@@ -80,4 +87,3 @@ export type MenuSection = {
   cta?: { label: string; href: string; };
   items?: MenuItem[];
 };
-
