@@ -21,16 +21,16 @@ import { ScrollArea } from "../ui/scroll-area";
 import { ThemeToggle } from "./theme-toggle";
 
 const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
-    const menuKeys = Object.keys(menuData.menu) as (keyof typeof menuData.menu)[];
+    const menuKeys = Object.keys(menuData) as (keyof typeof menuData)[];
 
     return (
         <ScrollArea className="flex-1">
             <div className="flex-grow p-4">
                 <Accordion type="multiple" className="w-full">
                     {menuKeys.map(key => {
-                        const menu = menuData.menu[key] as MenuSection;
+                        const menu = menuData[key] as MenuSection;
 
-                        if (menu.href) {
+                        if ('href' in menu && !('items' in menu)) {
                             return (
                                 <Link key={key} href={menu.href} className="flex border-b text-lg font-semibold p-4" onClick={() => setIsOpen(false)}>
                                     {menu.heading}
@@ -38,7 +38,7 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                             );
                         }
 
-                        if (menu.items) {
+                        if ('items' in menu) {
                              return (
                                 <AccordionItem value={key} key={key}>
                                     <AccordionTrigger className="text-lg font-semibold">{menu.heading}</AccordionTrigger>

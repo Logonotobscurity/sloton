@@ -2,7 +2,7 @@
 "use client";
 
 import * as React from "react";
-import { menuData, type MenuKey, type MenuSection } from "@/lib/menu-data";
+import { menuData, type MenuSection } from "@/lib/menu-data";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,7 +17,7 @@ import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "../ui/button";
 
-const menuKeys = Object.keys(menuData.menu) as MenuKey[];
+const menuKeys = Object.keys(menuData) as (keyof typeof menuData)[];
 
 export function DesktopNav() {
 
@@ -26,9 +26,9 @@ export function DesktopNav() {
         <NavigationMenu>
             <NavigationMenuList>
                 {menuKeys.map(key => {
-                    const menu = menuData.menu[key] as MenuSection;
+                    const menu = menuData[key] as MenuSection;
                     
-                    if (menu.href) {
+                    if ('href' in menu && !('items' in menu)) {
                         return (
                             <NavigationMenuItem key={key}>
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
@@ -40,14 +40,18 @@ export function DesktopNav() {
                         );
                     }
                     
-                    return (
-                      <NavigationMenuItem key={key}>
-                          <NavigationMenuTrigger>{menu.heading}</NavigationMenuTrigger>
-                          <NavigationMenuContent>
-                          <MegaMenu menuKey={key} />
-                          </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    );
+                    if ('items' in menu) {
+                        return (
+                          <NavigationMenuItem key={key}>
+                              <NavigationMenuTrigger>{menu.heading}</NavigationMenuTrigger>
+                              <NavigationMenuContent>
+                              <MegaMenu menuKey={key} />
+                              </NavigationMenuContent>
+                          </NavigationMenuItem>
+                        );
+                    }
+
+                    return null;
                 })}
             </NavigationMenuList>
         </NavigationMenu>

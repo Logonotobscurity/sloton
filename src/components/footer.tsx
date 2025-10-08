@@ -13,7 +13,7 @@ const socialLinks = [
   { href: 'https://www.youtube.com/@logonthepage', label: 'YouTube', icon: <IconYouTube className="w-5 h-5" /> },
 ];
 
-const { solutions, company, resources } = menuData.menu;
+const { solutions, company, resources } = menuData;
 
 export function Footer() {
   return (

@@ -1,67 +1,75 @@
 
-import { MetadataRoute } from 'next';
-import { insights } from '@/lib/insights';
-import { getTemplates } from '@/lib/workflow-templates';
-import { menuData } from '@/lib/menu-data';
+// -- types --
+type SitemapItem = {
+  title: string;
+  href: string;
+  description: string;
+};
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://logonsolutions.netlify.app';
-  const seenUrls = new Set<string>();
+type Cta = {
+  label: string;
+  href: string;
+};
 
-  // Function to add a URL to the set
-  const addUrl = (url: string) => {
-    if (url && url.startsWith('/') && !seenUrls.has(url)) {
-      seenUrls.add(url);
-    }
-  };
+// Base shape for most sections
+type SitemapSectionBase = {
+  heading: string;
+  intro?: string;
+};
 
-  // Add static home page
-  addUrl('/');
+// Variants (union)
+type SectionWithItems = SitemapSectionBase & {
+  items: SitemapItem[];
+};
 
-  // From header navigation (menuData)
-  Object.values(menuData.menu).forEach(menuSection => {
-    if (menuSection.cta?.href) {
-      addUrl(menuSection.cta.href);
-    }
-    menuSection.items.forEach(item => addUrl(item.href));
-  });
+type SectionWithCta = SitemapSectionBase & {
+  cta: Cta;
+  items?: SitemapItem[]; // optional if some CTA sections also have items
+};
 
-  // Other known pages not in menuData
-  addUrl('/contact');
-  addUrl('/automation');
-  addUrl('/support');
-  addUrl('/training');
-  addUrl('/partners');
-  addUrl('/use-cases');
-  addUrl('/about');
-  addUrl('/ideas-lab');
-  addUrl('/ab-testing');
+// A simple link-only section example
+type SectionLinkOnly = {
+  heading: string;
+  href: string;
+};
 
+// Union of all possible section shapes.
+type SitemapSection = SectionWithItems | SectionWithCta | SectionLinkOnly;
 
-  // Generate sitemap entries for static pages
-  const staticUrls = Array.from(seenUrls).map((page) => ({
-    url: `${baseUrl}${page}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as 'weekly',
-    priority: page === '/' ? 1.0 : 0.8,
-  }));
+// -- data (example) --
+// This data is now correctly typed as SitemapSection[]
+export const sitemap: SitemapSection[] = [
+  {
+    heading: "Products",
+    intro: "Explore our products",
+    items: [
+      { title: "Vibrator", href: "/vibrator", description: "Powerful wand" },
+      { title: "Ring", href: "/ring", description: "Comfort fit" },
+    ],
+  },
+  {
+    heading: "About",
+    href: "/about",
+  },
+  {
+    heading: "Get Started",
+    intro: "Start here",
+    cta: { label: "Shop now", href: "/shop" },
+  },
+];
 
-  // Dynamic pages for insights/articles
-  const insightUrls = insights.map((insight) => ({
-    url: `${baseUrl}/insights/${insight.slug}`,
-    lastModified: new Date(insight.date),
-    changeFrequency: 'monthly' as 'monthly',
-    priority: 0.7,
-  }));
+// -- helpers / type guards --
+export function hasItems(section: SitemapSection): section is SectionWithItems {
+  // Type guard to check for the 'items' property
+  return (section as SectionWithItems).items !== undefined;
+}
 
-  // Dynamic pages for automation templates
-  const templates = getTemplates();
-  const templateUrls = templates.map((template) => ({
-      url: `${baseUrl}/automation/${template.slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as 'monthly',
-      priority: 0.6
-  }));
+export function hasCta(section: SitemapSection): section is SectionWithCta {
+  // Type guard to check for the 'cta' property
+  return (section as SectionWithCta).cta !== undefined;
+}
 
-  return [...staticUrls, ...insightUrls, ...templateUrls];
+export function isLinkOnly(section: SitemapSection): section is SectionLinkOnly {
+    // Type guard for link-only sections
+    return !hasItems(section) && !hasCta(section) && "href" in section;
 }
