@@ -22,6 +22,7 @@ export function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [windowHeight]);
+
   return (
     <>
       <SkipToContentLink />
@@ -30,17 +31,20 @@ export function Header() {
         isScrolled ? "bg-background/80 backdrop-blur-lg shadow-lg" : ""
       )}>
         <div className={cn(
-          "container flex h-16 items-center transition-all duration-300 ease-in-out",
-          isScrolled ? "h-16" : "h-20"
+          "container mx-auto flex items-center transition-all duration-300 ease-in-out",
+           isScrolled ? "max-w-6xl h-16" : "max-w-4xl h-24"
         )}>
-          <div className="mr-4 flex">
+          <div className="flex-1 flex justify-start">
              <Link href="/">
                 <Logo />
             </Link>
           </div>
 
-          <MainNav />
+          <div className="flex-1 flex justify-center">
+            <MainNav />
+          </div>
 
+          <div className="flex-1" />
         </div>
       </header>
     </>

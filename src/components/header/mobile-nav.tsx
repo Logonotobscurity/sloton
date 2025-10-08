@@ -91,7 +91,7 @@ export const MobileNav = () => {
           </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-full max-w-sm p-0 flex flex-col" aria-label="Mobile navigation menu">
-        <SheetHeader className="p-4 border-b">
+        <SheetHeader className="p-4 border-b flex flex-row items-center justify-between">
           <SheetTitle asChild>
             <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsOpen(false)}>
               <Logo />
@@ -104,12 +104,7 @@ export const MobileNav = () => {
         
         <MobileNavigation setIsOpen={setIsOpen} />
 
-        <SheetFooter className="p-4 border-t mt-auto bg-secondary/50 flex flex-row items-center justify-between">
-           <Button asChild className="flex-1">
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
-                    Contact Us
-                </Link>
-            </Button>
+        <SheetFooter className="p-4 border-t mt-auto bg-secondary/50 flex flex-row items-center justify-end">
             <ThemeToggle />
         </SheetFooter>
       </SheetContent>

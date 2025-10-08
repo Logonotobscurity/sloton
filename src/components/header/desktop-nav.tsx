@@ -22,36 +22,34 @@ export function DesktopNav() {
 
   return (
     <div className="hidden lg:flex items-center justify-between w-full">
-        <div className="flex-1 flex justify-center">
-            <NavigationMenu>
-                <NavigationMenuList>
-                    {menuKeys.map(key => {
-                        const menu = menuData.menu[key] as MenuSection;
-                        
-                        if (menu.href) {
-                            return (
-                                <NavigationMenuItem key={key}>
-                                    <Link href={menu.href} legacyBehavior passHref>
-                                        <NavigationMenuLink className="px-4 py-2 text-sm font-medium">
-                                            {menu.heading}
-                                        </NavigationMenuLink>
-                                    </Link>
-                                </NavigationMenuItem>
-                            );
-                        }
-                        
+        <NavigationMenu>
+            <NavigationMenuList>
+                {menuKeys.map(key => {
+                    const menu = menuData.menu[key] as MenuSection;
+                    
+                    if (menu.href) {
                         return (
-                          <NavigationMenuItem key={key}>
-                              <NavigationMenuTrigger>{menu.heading}</NavigationMenuTrigger>
-                              <NavigationMenuContent>
-                              <MegaMenu menuKey={key} />
-                              </NavigationMenuContent>
-                          </NavigationMenuItem>
+                            <NavigationMenuItem key={key}>
+                                <Link href={menu.href} legacyBehavior passHref>
+                                    <NavigationMenuLink className="px-4 py-2 text-sm font-medium">
+                                        {menu.heading}
+                                    </NavigationMenuLink>
+                                </Link>
+                            </NavigationMenuItem>
                         );
-                    })}
-                </NavigationMenuList>
-            </NavigationMenu>
-        </div>
+                    }
+                    
+                    return (
+                      <NavigationMenuItem key={key}>
+                          <NavigationMenuTrigger>{menu.heading}</NavigationMenuTrigger>
+                          <NavigationMenuContent>
+                          <MegaMenu menuKey={key} />
+                          </NavigationMenuContent>
+                      </NavigationMenuItem>
+                    );
+                })}
+            </NavigationMenuList>
+        </NavigationMenu>
         <div className="flex items-center gap-2">
              <Button asChild>
                 <Link href="/contact">Contact Us</Link>
