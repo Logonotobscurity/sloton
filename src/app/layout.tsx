@@ -1,6 +1,5 @@
 
 import type { Metadata, Viewport } from 'next';
-import { Nunito, Abhaya_Libre } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
@@ -12,20 +11,6 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { BotWidget } from '@/components/bot-widget';
 import { BookDemoWidget } from '@/components/book-demo-widget';
 import { BackToTop } from '@/components/back-to-top';
-
-const nunito = Nunito({
-  subsets: ['latin'],
-  variable: '--font-nunito',
-  display: 'swap',
-  weight: ['400', '700'],
-});
-
-const abhayaLibre = Abhaya_Libre({
-  subsets: ['latin'],
-  variable: '--font-abhaya-libre',
-  weight: '800',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://logonsolutions.netlify.app'),
@@ -227,13 +212,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body
-        className={cn(
-          'min-h-screen bg-background font-body antialiased',
-          nunito.variable,
-          abhayaLibre.variable,
-        )}
-      >
+      <body>
           <noscript>
             <iframe 
               src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
@@ -250,7 +229,7 @@ export default function RootLayout({
           >
             <WebsiteLoader />
             <Header />
-            <main id="main-content" className="flex-grow relative z-20">{children}</main>
+            <main id="main-content">{children}</main>
             <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
             <BookDemoWidget />
             <Footer />

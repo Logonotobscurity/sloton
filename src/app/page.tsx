@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="w-full space-y-4 md:space-y-8">
+      <div>
           <StrategicPartner />
           <ServicesOffered />
           <SmarterAutomation />

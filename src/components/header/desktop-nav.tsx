@@ -13,8 +13,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import { MegaMenu } from "./mega-menu";
 import Link from "next/link";
-import { buttonVariants } from "../ui/button";
-import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "../ui/button";
 
@@ -23,8 +21,8 @@ const menuKeys = Object.keys(menuData.menu) as MenuKey[];
 export function DesktopNav() {
 
   return (
-    <div className="flex w-full items-center justify-end">
-        <div className="hidden lg:flex lg:flex-1 lg:justify-center">
+    <div>
+        <div>
             <NavigationMenu>
                 <NavigationMenuList>
                     {menuKeys.map(key => {
@@ -34,7 +32,7 @@ export function DesktopNav() {
                             return (
                                 <NavigationMenuItem key={key}>
                                     <Link href={menu.href} legacyBehavior passHref>
-                                        <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
+                                        <NavigationMenuLink>
                                             {menu.heading}
                                         </NavigationMenuLink>
                                     </Link>
@@ -58,7 +56,7 @@ export function DesktopNav() {
                 </NavigationMenuList>
             </NavigationMenu>
         </div>
-        <div className="hidden items-center space-x-2 lg:flex">
+        <div>
              <Button asChild>
                 <Link href="/contact">Contact Us</Link>
             </Button>
