@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/sheet";
 import { Logo } from "./logo";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { menuData, MenuSection } from "@/lib/menu-data";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -31,7 +30,6 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                     {menuKeys.map(key => {
                         const menu = menuData.menu[key] as MenuSection;
 
-                        // If it's a direct link, render it as such
                         if (menu.href) {
                             return (
                                 <Link key={key} href={menu.href} className="flex border-b text-lg font-semibold p-4" onClick={() => setIsOpen(false)}>
@@ -40,7 +38,6 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                             );
                         }
 
-                        // If it has items, render it as an accordion
                         if (menu.items) {
                              return (
                                 <AccordionItem value={key} key={key}>
@@ -88,9 +85,8 @@ export const MobileNav = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-          <Button variant="ghost" size="icon">
-            <Menu className={cn("h-6 w-6", isOpen ? "hidden" : "block")} aria-label="Open navigation menu" />
-            <X className={cn("h-6 w-6", isOpen ? "block" : "hidden")} aria-label="Close navigation menu" />
+          <Button variant="ghost" size="icon" className="lg:hidden">
+            <Menu className="h-6 w-6" aria-label="Open navigation menu" />
             <span className="sr-only">Toggle Menu</span>
           </Button>
       </SheetTrigger>

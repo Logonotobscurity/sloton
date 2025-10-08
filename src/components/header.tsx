@@ -7,6 +7,8 @@ import { Logo } from "./header/logo";
 import Link from "next/link";
 import { MainNav } from "./header/main-nav";
 import { SkipToContentLink } from "./header/skip-to-content";
+import { Button } from "./ui/button";
+import { ThemeToggle } from "./header/theme-toggle";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,9 +38,11 @@ export function Header() {
             isScrolled ? "max-w-6xl" : "max-w-4xl"
           )}
         >
-          <Link href="/" className="flex items-center space-x-2">
-            <Logo />
-          </Link>
+          <div className="flex items-center">
+             <Link href="/" className="flex items-center space-x-2">
+                <Logo />
+            </Link>
+          </div>
 
           <MainNav />
 
