@@ -9,36 +9,36 @@ export function TrainingCTA() {
 
   const features = [
     {
-      ...trainingPrograms.find(p => p.title.includes("Reducing Support")),
+      ...(trainingPrograms.find(p => p.title.includes("Reducing Support")) ?? {}),
       Icon: trainingPrograms.find(p => p.title.includes("Reducing Support"))?.icon,
       name: "Reducing Support Costs with AI",
       className: "md:col-span-1 lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
     },
     {
-      ...trainingPrograms.find(p => p.title.includes("AI for Business Growth")),
+      ...(trainingPrograms.find(p => p.title.includes("AI for Business Growth")) ?? {}),
       Icon: trainingPrograms.find(p => p.title.includes("AI for Business Growth"))?.icon,
       name: "AI for Business Growth: Practical Implementation",
       className: "md:col-span-1 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
     },
     {
-      ...communityProjects.find(p => p.title.includes("Mental Health")),
+      ...(communityProjects.find(p => p.title.includes("Mental Health")) ?? {}),
       Icon: communityProjects.find(p => p.title.includes("Mental Health"))?.icon,
       name: "Making Mental Health Support More Accessible",
       className: "md:col-span-1 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
     },
     {
-      ...communityProjects.find(p => p.title.includes("Diverse Cultures")),
+      ...(communityProjects.find(p => p.title.includes("Diverse Cultures")) ?? {}),
       Icon: communityProjects.find(p => p.title.includes("Diverse Cultures"))?.icon,
       name: "Building AI That Understands Diverse Cultures",
       className: "md:col-span-1 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
     },
     {
-      ...communityProjects.find(p => p.title.includes("Gigpilot")),
+      ...(communityProjects.find(p => p.title.includes("Gigpilot")) ?? {}),
       Icon: communityProjects.find(p => p.title.includes("Gigpilot"))?.icon,
       name: "Gigpilot: AI Gig Economy Assistant",
       className: "md:col-span-2 lg:row-start-3 lg:row-end-4 lg:col-start-2 lg:col-end-4",
     },
-  ];
+  ].filter(feature => feature.Icon); // Filter out features where an icon wasn't found
 
   return (
       <section className="py-16 md:py-24 bg-background relative overflow-hidden">
