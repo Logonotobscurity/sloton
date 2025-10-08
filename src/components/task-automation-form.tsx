@@ -8,7 +8,6 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { exampleWorkflows } from "@/lib/data/example-workflows";
 import { motion } from "framer-motion";
 import { Loader2, RefreshCw, Wand2 } from "lucide-react";
@@ -70,7 +69,7 @@ export function TaskAutomationForm({ initialValues }: { initialValues?: z.infer<
 
   if (result) {
     return (
-      <div className="space-y-6" aria-live="polite">
+      <div className="space-y-6 max-h-[70vh] overflow-y-auto p-1 -m-1" aria-live="polite">
         <VisualWorkflow result={result} />
         <Button onClick={() => { setResult(null); form.reset({workflowDescription: '', optimizationSuggestions: ''}); }} variant="outline" className="w-full">
           <RefreshCw className="mr-2 h-4 w-4" />
@@ -81,93 +80,80 @@ export function TaskAutomationForm({ initialValues }: { initialValues?: z.infer<
   }
 
   return (
-    <Card className="shadow-lg bg-background/80 backdrop-blur-sm">
-        <CardHeader>
-            <div className="flex flex-col items-center text-center">
-                <Wand2 className="w-12 h-12 text-primary mb-4" />
-                <CardTitle className="text-2xl md:text-3xl font-bold">Design Your Automated Task</CardTitle>
-                 <p className="text-muted-foreground mt-2">Describe a task, and our AI will generate a visual workflow and suggest optimizations.</p>
-            </div>
-        </CardHeader>
-      <CardContent>
+    <div className="p-1">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
-              name="workflowDescription"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-lg font-semibold">Task Description</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="e.g., Automate the user onboarding process, including account creation, email verification, and a welcome tour."
-                      className="min-h-[120px] resize-y"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription>
-                    Be as specific as possible for the best results.
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-             <div className="space-y-3">
-                <FormLabel>Or try one of our examples:</FormLabel>
-                <div className="flex flex-wrap gap-2">
-                    {exampleWorkflows.slice(0,3).map((example, i) => (
-                        <Button key={i} type="button" variant="outline" size="sm" onClick={() => form.setValue('workflowDescription', example)}>
-                            {example.length > 40 ? example.slice(0, 40) + '...' : example}
-                        </Button>
-                    ))}
-                </div>
-            </div>
-            
-            <FormField
-              control={form.control}
-              name="optimizationSuggestions"
-              render={({ field }) => (
-                <FormItem>
-                    <div className="flex items-center gap-2">
-                        <FormLabel className="text-lg font-semibold">Optimization (Optional)</FormLabel>
-                        <Badge>AI-Powered</Badge>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                control={form.control}
+                name="workflowDescription"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel className="text-base">Task Description</FormLabel>
+                    <FormControl>
+                        <Textarea
+                        placeholder="e.g., Automate the user onboarding process, including account creation, email verification, and a welcome tour."
+                        className="min-h-[100px] resize-y"
+                        {...field}
+                        />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <div className="space-y-2">
+                    <FormLabel className="text-sm">Or try an example:</FormLabel>
+                    <div className="flex flex-wrap gap-2">
+                        {exampleWorkflows.slice(0,3).map((example, i) => (
+                            <Button key={i} type="button" variant="outline" size="sm" onClick={() => form.setValue('workflowDescription', example)}>
+                                {example.length > 40 ? example.slice(0, 40) + '...' : example}
+                            </Button>
+                        ))}
                     </div>
-                  <FormControl>
-                    <Textarea
-                      placeholder="e.g., Use a decision node to check user type (free/paid) and tailor the onboarding flow accordingly."
-                      className="min-h-[80px] resize-y"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription>
-                     Tell us how you'd like to optimize this workflow. Our AI will incorporate your suggestions.
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <motion.div
-                className="flex justify-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-            >
-                <Button type="submit" size="lg" disabled={isLoading} className="w-full max-w-xs text-lg font-bold shadow-lg">
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Generating...
-                    </>
-                  ) : (
-                    <>
-                      <Wand2 className="mr-2 h-5 w-5" />
-                      Generate Workflow
-                    </>
-                  )}
-                </Button>
-            </motion.div>
-          </form>
+                </div>
+                
+                <FormField
+                control={form.control}
+                name="optimizationSuggestions"
+                render={({ field }) => (
+                    <FormItem>
+                        <div className="flex items-center gap-2">
+                            <FormLabel className="text-base">Optimization (Optional)</FormLabel>
+                            <Badge>AI-Powered</Badge>
+                        </div>
+                    <FormControl>
+                        <Textarea
+                        placeholder="e.g., Use a decision node to check user type (free/paid) and tailor the onboarding flow accordingly."
+                        className="min-h-[60px] resize-y"
+                        {...field}
+                        />
+                    </FormControl>
+                    <FormDescription className="text-xs">
+                        Tell us how you'd like to improve this workflow.
+                    </FormDescription>
+                    </FormItem>
+                )}
+                />
+                <motion.div
+                    className="flex justify-center pt-4"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    <Button type="submit" size="lg" disabled={isLoading} className="w-full max-w-sm font-semibold shadow-lg">
+                    {isLoading ? (
+                        <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Generating...
+                        </>
+                    ) : (
+                        <>
+                        <Wand2 className="mr-2 h-5 w-5" />
+                        Generate Workflow
+                        </>
+                    )}
+                    </Button>
+                </motion.div>
+            </form>
         </Form>
-      </CardContent>
-    </Card>
+    </div>
   );
 }
