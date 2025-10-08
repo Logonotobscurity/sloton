@@ -9,7 +9,8 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuLink
+  NavigationMenuLink,
+  navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
 import { MegaMenu } from "./mega-menu";
 import Link from "next/link";
@@ -30,8 +31,8 @@ export function DesktopNav() {
                     if (menu.href) {
                         return (
                             <NavigationMenuItem key={key}>
-                                <Link href={menu.href} legacyBehavior passHref>
-                                    <NavigationMenuLink className="px-4 py-2 text-sm font-medium">
+                                <Link href={menu.href} passHref>
+                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                         {menu.heading}
                                     </NavigationMenuLink>
                                 </Link>
