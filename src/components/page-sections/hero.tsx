@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import SolutionRecommendationForm from "@/components/solution-recommendation-form";
 import { motion } from "framer-motion";
 import { AdinkraBackground } from "../ui/adinkra-background";
-import Typed from "react-typed";
+import { Typed } from "react-typed";
  
 export function Hero() {
 
