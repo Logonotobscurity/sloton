@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { Resend } from 'resend';
 import { ContactFormEmail } from '@/emails/contact-form-email';
 import { EnrollmentEmail } from '@/emails/enrollment-email';
+import { automateTaskDesign } from '@/ai/flows/automated-task-design';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const toEmail = process.env.TO_EMAIL || 'logonthepage@gmail.com';
@@ -14,6 +15,18 @@ type FormResult<T> = {
   error?: string;
   success?: boolean;
 };
+
+const automatedTaskSchema = z.object({
+    workflowDescription: z.string(),
+    optimizationSuggestions: z.string().optional(),
+});
+
+export async function getAutomatedTaskDesign(values: z.infer<typeof automatedTaskSchema>) {
+    const result = await automateTaskDesign(values);
+    return {
+        data: result,
+    };
+}
 
 // Contact Form Action
 const contactFormSchema = z.object({

@@ -7,7 +7,7 @@ import { BrainCircuit, ArrowRight } from 'lucide-react';
 import { Card, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { SolutionRecommendationForm } from '@/components/solution-recommendation-form';
+import SolutionRecommendationForm from '@/components/solution-recommendation-form';
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.95 },

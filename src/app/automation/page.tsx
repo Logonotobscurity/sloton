@@ -14,7 +14,7 @@ export default async function AutomationPage({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const workflow = typeof searchParams?.workflow === 'string' ? searchParams.workflow : undefined;
+  const workflow = typeof searchParams?.workflow === 'string' ? searchParams.workflow : "";
 
   return (
     <div className="bg-background">

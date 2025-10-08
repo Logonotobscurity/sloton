@@ -5,7 +5,7 @@ import React from "react";
 import { Button } from '@/components/ui/button';
 import Link from "next/link";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { SolutionRecommendationForm } from "../solution-recommendation-form";
+import SolutionRecommendationForm from "@/components/solution-recommendation-form";
 import { motion } from "framer-motion";
 import { AdinkraBackground } from "../ui/adinkra-background";
  

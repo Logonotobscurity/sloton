@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BottomCta } from "@/components/page-sections/bottom-cta";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { SolutionRecommendationForm } from "@/components/solution-recommendation-form";
+import SolutionRecommendationForm from "@/components/solution-recommendation-form";
 import { services, industryApplications } from "@/lib/data/solutions-data";
 
 

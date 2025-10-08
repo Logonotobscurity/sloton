@@ -39,7 +39,7 @@ ListItem.displayName = "ListItem";
 
 
 export function MegaMenu({ menuKey }: { menuKey: MenuKey }) {
-    const menuDetails = menuData.menu[menuKey];
+    const menuDetails = menuData[menuKey];
     if (!menuDetails || typeof menuDetails !== 'object' || !('items' in menuDetails)) {
         return null;
     }
