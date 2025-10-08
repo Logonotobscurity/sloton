@@ -31,11 +31,11 @@ export function DesktopNav() {
                     if (menu.href) {
                         return (
                             <NavigationMenuItem key={key}>
-                                <Link href={menu.href} passHref>
-                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                    <Link href={menu.href}>
                                         {menu.heading}
-                                    </NavigationMenuLink>
-                                </Link>
+                                    </Link>
+                                </NavigationMenuLink>
                             </NavigationMenuItem>
                         );
                     }
