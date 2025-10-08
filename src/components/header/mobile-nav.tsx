@@ -16,7 +16,7 @@ import { Logo } from "./logo";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { menuData } from "@/lib/menu-data";
+import { menuData, MenuSection } from "@/lib/menu-data";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ScrollArea } from "../ui/scroll-area";
 import { ThemeToggle } from "./theme-toggle";
@@ -29,9 +29,20 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
             <div className="flex-grow p-4">
                 <Accordion type="multiple" className="w-full">
                     {menuKeys.map(key => {
-                        const menu = menuData.menu[key];
-                        if (typeof menu === 'object' && 'items' in menu) {
+                        const menu = menuData.menu[key] as MenuSection;
+
+                        // If it's a direct link, render it as such
+                        if (menu.href) {
                             return (
+                                <Link key={key} href={menu.href} className="flex border-b text-lg font-semibold p-4" onClick={() => setIsOpen(false)}>
+                                    {menu.heading}
+                                </Link>
+                            );
+                        }
+
+                        // If it has items, render it as an accordion
+                        if (menu.items) {
+                             return (
                                 <AccordionItem value={key} key={key}>
                                     <AccordionTrigger className="text-lg font-semibold">{menu.heading}</AccordionTrigger>
                                     <AccordionContent>
@@ -56,6 +67,7 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                                 </AccordionItem>
                             )
                         }
+                       
                         return null;
                     })}
                 </Accordion>

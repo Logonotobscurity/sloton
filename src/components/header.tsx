@@ -43,7 +43,13 @@ export function Header() {
           <Logo />
         </Link>
 
-        {isDesktop ? <DesktopNav /> : <MobileNav />}
+        {isDesktop ? (
+            <div className="flex flex-1 items-center justify-center">
+                <DesktopNav />
+            </div>
+        ) : (
+            <MobileNav />
+        )}
 
         {isDesktop && (
             <div className="flex items-center gap-2">

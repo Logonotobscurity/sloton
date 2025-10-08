@@ -42,11 +42,11 @@ export const menuData = {
     },
     "usecases": {
       "heading": "Use Cases",
-      "items": [{ "href": "/use-cases" }]
+      "href": "/use-cases"
     },
     "partners": {
         "heading": "Partners",
-        "items": [{ "href": "/partners" }]
+        "href": "/partners"
     },
     "company": {
       "heading": "Company",
@@ -65,3 +65,19 @@ export const menuData = {
 };
 
 export type MenuKey = keyof typeof menuData.menu;
+
+export type MenuItem = {
+  title: string;
+  href: string;
+  description?: string;
+  shortDescription?: string;
+};
+
+export type MenuSection = {
+  heading: string;
+  href?: string; // Used for direct top-level links
+  intro?: string;
+  cta?: { label: string; href: string; };
+  items?: MenuItem[];
+};
+

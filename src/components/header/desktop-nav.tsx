@@ -2,7 +2,7 @@
 "use client";
 
 import * as React from "react";
-import { menuData, type MenuKey } from "@/lib/menu-data";
+import { menuData, type MenuKey, type MenuSection } from "@/lib/menu-data";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -25,10 +25,23 @@ export function DesktopNav() {
         <NavigationMenu>
           <NavigationMenuList className="p-0">
             {menuKeys.map(key => {
-              const menu = menuData.menu[key];
-              if (typeof menu !== 'object' || !menu || !('items' in menu)) return null;
+              const menu = menuData.menu[key] as MenuSection;
               
-              if (menu.items.length > 1) { // It's a dropdown/megamenu
+              // If the menu section has a direct href, it's a simple link
+              if (menu.href) {
+                return (
+                    <NavigationMenuItem key={key}>
+                        <Link href={menu.href} legacyBehavior passHref>
+                            <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
+                                {menu.heading}
+                            </NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                );
+              }
+              
+              // Otherwise, it's a dropdown/megamenu
+              if (menu.items && menu.items.length > 0) {
                 return (
                   <NavigationMenuItem key={key}>
                     <NavigationMenuTrigger>{menu.heading}</NavigationMenuTrigger>
@@ -37,17 +50,9 @@ export function DesktopNav() {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 );
-              } else { // It's a single link
-                 return (
-                    <NavigationMenuItem key={key}>
-                        <Link href={menu.items[0].href} legacyBehavior passHref>
-                            <NavigationMenuLink className={cn(buttonVariants({ variant: "ghost" }))}>
-                                {menu.heading}
-                            </NavigationMenuLink>
-                        </Link>
-                    </NavigationMenuItem>
-                 );
               }
+              
+              return null;
             })}
           </NavigationMenuList>
         </NavigationMenu>
