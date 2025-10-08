@@ -1,3 +1,95 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: hsl(60 43% 98%);
+    --foreground: hsl(75 8% 9.4%);
+    --card: hsl(60 43% 98%);
+    --card-foreground: hsl(75 8% 9.4%);
+    --popover: hsl(60 43% 98%);
+    --popover-foreground: hsl(75 8% 9.4%);
+    --primary: hsl(163 100% 21%);
+    --primary-foreground: hsl(163 60% 90%);
+    --secondary: hsl(160 18% 25%);
+    --secondary-foreground: hsl(60 8% 90%);
+    --muted: hsl(153 38% 86%);
+    --muted-foreground: hsl(160 18% 45%);
+    --accent: hsl(331 100% 37%);
+    --accent-foreground: hsl(60 8% 90%);
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --border: hsl(195 12% 78%);
+    --input: hsl(195 12% 78%);
+    --ring: hsl(163 100% 21%);
+    --radius: 0.75rem;
+
+    --chart-1: hsl(163, 72%, 50%);
+    --chart-2: hsl(331, 72%, 50%);
+    --chart-3: hsl(210, 72%, 50%);
+    --chart-4: hsl(45, 72%, 50%);
+    --chart-5: hsl(270, 72%, 50%);
+  }
+
+  .dark {
+    --background: hsl(75 8% 9.4%);
+    --foreground: hsl(60 8% 90%);
+    --card: hsl(75 8% 9.4%);
+    --card-foreground: hsl(60 8% 90%);
+    --popover: hsl(75 8% 9.4%);
+    --popover-foreground: hsl(60 8% 90%);
+    --primary: hsl(163 63% 62%);
+    --primary-foreground: hsl(163 100% 15%);
+    --secondary: hsl(160 18% 25%);
+    --secondary-foreground: hsl(60 8% 90%);
+    --muted: hsl(160 18% 25%);
+    --muted-foreground: hsl(160 18% 65%);
+    --accent: hsl(341 100% 85%);
+    --accent-foreground: hsl(331 100% 20%);
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(0 85.7% 97.3%);
+    --border: hsl(195 12% 24%);
+    --input: hsl(195 12% 24%);
+    --ring: hsl(163 63% 62%);
+
+    --chart-1: hsl(163, 72%, 50%);
+    --chart-2: hsl(331, 72%, 50%);
+    --chart-3: hsl(210, 72%, 50%);
+    --chart-4: hsl(45, 72%, 50%);
+    --chart-5: hsl(270, 72%, 50%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .font-headline {
+    font-family: 'Abhaya Libre', serif;
+  }
+  .font-body {
+    font-family: 'Nunito', sans-serif;
+  }
+  body {
+    @apply font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+/* Loader styles */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid hsl(var(--primary) / 0.2);
+  border-right-color: hsl(var(--primary));
+  animation: l2 1s infinite linear;
+}
+@keyframes l2 {to{transform: rotate(1turn)}}
