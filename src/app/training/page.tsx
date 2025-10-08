@@ -109,7 +109,7 @@ export default function TrainingPage() {
                      <ul className="space-y-4 pt-4">
                         {trainingBenefits.map(item => (
                             <li key={item.text} className="flex items-center gap-4">
-                                <item.icon />
+                                <item.icon className="h-5 w-5 text-primary" />
                                 <span className="text-lg text-muted-foreground">{item.text}</span>
                             </li>
                         ))}
