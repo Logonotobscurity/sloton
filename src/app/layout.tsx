@@ -1,4 +1,3 @@
-
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
@@ -11,6 +10,19 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { BotWidget } from '@/components/bot-widget';
 import { BookDemoWidget } from '@/components/book-demo-widget';
 import { BackToTop } from '@/components/back-to-top';
+import { Inter, Playfair_Display } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-serif',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://logonsolutions.netlify.app'),
@@ -176,7 +188,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${playfairDisplay.variable}`}>
        <head>
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`

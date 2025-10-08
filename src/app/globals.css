@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    /* Light mode tokens */
     --background: hsl(60 43% 98%);
     --foreground: hsl(75 8% 9.4%);
     --card: hsl(60 43% 98%);
@@ -12,7 +13,7 @@
     --popover-foreground: hsl(75 8% 9.4%);
     --primary: hsl(163 100% 21%);
     --primary-foreground: hsl(163 60% 90%);
-    --secondary: hsl(160 18% 25%);
+    --secondary: hsl(158 14% 34%);
     --secondary-foreground: hsl(60 8% 90%);
     --muted: hsl(153 38% 86%);
     --muted-foreground: hsl(160 18% 45%);
@@ -33,6 +34,7 @@
   }
 
   .dark {
+    /* Dark mode tokens */
     --background: hsl(75 8% 9.4%);
     --foreground: hsl(60 8% 90%);
     --card: hsl(75 8% 9.4%);
@@ -70,10 +72,10 @@
   }
 
   .font-headline {
-    font-family: 'Abhaya Libre', serif;
+    font-family: 'Playfair Display', serif;
   }
   .font-body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
   body {
     @apply font-body;
