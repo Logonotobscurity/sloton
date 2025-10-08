@@ -85,7 +85,7 @@ export const MobileNav = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="lg:hidden">
+          <Button variant="ghost" size="icon" className="lg:hidden" aria-expanded={isOpen}>
             <Menu className="h-6 w-6" aria-label="Open navigation menu" />
             <span className="sr-only">Toggle Menu</span>
           </Button>
@@ -98,7 +98,7 @@ export const MobileNav = () => {
             </Link>
           </SheetTitle>
            <SheetDescription className="hidden">
-            Mobile Navigation Menu
+            Mobile Navigation Menu for LOG_ON website. Contains links to all major sections of the site.
           </SheetDescription>
         </SheetHeader>
         

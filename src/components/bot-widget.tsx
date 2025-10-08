@@ -16,6 +16,7 @@ import { CommunityLeadForm } from './community-lead-form';
 import { ActionPanel } from './chatbot/action-panel';
 import { AssessmentResult } from './chatbot/assessment-result';
 import { TextInputPanel } from './chatbot/text-input-panel';
+import FocusLock from 'react-focus-lock';
 
 const initialOptions = [
   { text: 'Get a Free AI Business Assessment', value: 'assessment', icon: <Sparkles className="h-4 w-4 mr-2" /> },
@@ -56,7 +57,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
   useEffect(() => {
     if (isChatbotOpen) {
       scrollToBottom();
-      inputRef.current?.focus();
+      setTimeout(() => inputRef.current?.focus(), 100);
     } else {
       setTimeout(() => triggerRef.current?.focus(), 100);
     }
@@ -175,119 +176,121 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
          {isChatbotOpen ? 'Chatbot panel is open.' : 'Chatbot panel is closed.'}
        </div>
       
-       <div
-        id="bot-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Chatbot Panel"
-        className={cn(
-          "w-[calc(100vw-2rem)] max-w-md h-[calc(100vh-8rem)] max-h-[700px] bg-background border rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right mb-2",
-          isChatbotOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
-        )}
-      >
-        <CardHeader className="flex flex-row items-center justify-between p-4 border-b">
-            <div className="flex items-center gap-3">
-                <Avatar className="h-10 w-10 border-2 border-primary">
-                    <AvatarFallback className="bg-primary/20 text-primary"><MessageCircle className="h-6 w-6" /></AvatarFallback>
-                </Avatar>
-                <div>
-                    <h3 className="font-semibold text-base">LOG_ON AI Assistant</h3>
-                    <p className="text-xs text-muted-foreground flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-primary"></span> Online</p>
+       <FocusLock disabled={!isChatbotOpen} returnFocus>
+        <div
+            id="bot-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Chatbot Panel"
+            className={cn(
+            "w-[calc(100vw-2rem)] max-w-md h-[calc(100vh-8rem)] max-h-[700px] bg-background border rounded-xl shadow-2xl flex flex-col transition-all duration-300 origin-bottom-right mb-2",
+            isChatbotOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+            )}
+        >
+            <CardHeader className="flex flex-row items-center justify-between p-4 border-b">
+                <div className="flex items-center gap-3">
+                    <Avatar className="h-10 w-10 border-2 border-primary">
+                        <AvatarFallback className="bg-primary/20 text-primary"><MessageCircle className="h-6 w-6" /></AvatarFallback>
+                    </Avatar>
+                    <div>
+                        <h3 className="font-semibold text-base">LOG_ON AI Assistant</h3>
+                        <p className="text-xs text-muted-foreground flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-primary"></span> Online</p>
+                    </div>
                 </div>
+            <div className="flex items-center gap-1">
+                <TooltipProvider delayDuration={100}>
+                    <Tooltip>
+                    <TooltipTrigger asChild>
+                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={resetConversation}>
+                        <RefreshCw className="h-4 w-4" />
+                        <span className="sr-only">Reset conversation</span>
+                        </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>Start a New Conversation</p>
+                    </TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                    <TooltipTrigger asChild>
+                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setChatbotOpen(false)}>
+                        <X className="h-4 w-4" />
+                        <span className="sr-only">Close Chatbot</span>
+                        </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>Close Chat</p>
+                    </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
             </div>
-          <div className="flex items-center gap-1">
-             <TooltipProvider delayDuration={100}>
-                 <Tooltip>
-                  <TooltipTrigger asChild>
-                     <Button variant="ghost" size="icon" className="h-8 w-8" onClick={resetConversation}>
-                      <RefreshCw className="h-4 w-4" />
-                      <span className="sr-only">Reset conversation</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Start a New Conversation</p>
-                  </TooltipContent>
-                </Tooltip>
-                 <Tooltip>
-                  <TooltipTrigger asChild>
-                     <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setChatbotOpen(false)}>
-                      <X className="h-4 w-4" />
-                      <span className="sr-only">Close Chatbot</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Close Chat</p>
-                  </TooltipContent>
-                </Tooltip>
-            </TooltipProvider>
-          </div>
-        </CardHeader>
-        <ScrollArea className="flex-1" role="log">
-          <CardContent className="p-4 space-y-6">
-            {messages.map((msg, index) => (
-                <Fragment key={index}>
-                    <ChatBubble variant={msg.from === 'user' ? 'sent' : 'received'}>
-                        <ChatBubbleAvatar>
-                            <Avatar>
-                                <AvatarFallback className={cn(msg.from === 'user' ? 'bg-secondary' : 'bg-primary/20')}>
-                                {msg.from === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4 text-primary" />}
-                                </AvatarFallback>
-                            </Avatar>
-                        </ChatBubbleAvatar>
-                        <ChatBubbleMessage>
-                           {msg.text}
-                           {msg.type === 'component' && <div className="py-2">{msg.component}</div>}
-                        </ChatBubbleMessage>
+            </CardHeader>
+            <ScrollArea className="flex-1" role="log">
+            <CardContent className="p-4 space-y-6">
+                {messages.map((msg, index) => (
+                    <Fragment key={index}>
+                        <ChatBubble variant={msg.from === 'user' ? 'sent' : 'received'}>
+                            <ChatBubbleAvatar>
+                                <Avatar>
+                                    <AvatarFallback className={cn(msg.from === 'user' ? 'bg-secondary' : 'bg-primary/20')}>
+                                    {msg.from === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4 text-primary" />}
+                                    </AvatarFallback>
+                                </Avatar>
+                            </ChatBubbleAvatar>
+                            <ChatBubbleMessage>
+                            {msg.text}
+                            {msg.type === 'component' && <div className="py-2">{msg.component}</div>}
+                            </ChatBubbleMessage>
+                        </ChatBubble>
+                    </Fragment>
+                ))}
+                {isLoading && (
+                    <ChatBubble variant="received">
+                    <ChatBubbleAvatar>
+                        <Avatar>
+                            <AvatarFallback className="bg-primary/20"><Bot className="h-4 w-4 text-primary" /></AvatarFallback>
+                        </Avatar>
+                    </ChatBubbleAvatar>
+                    <ChatBubbleMessage isLoading />
                     </ChatBubble>
-                </Fragment>
-            ))}
-              {isLoading && (
-                <ChatBubble variant="received">
-                  <ChatBubbleAvatar>
-                      <Avatar>
-                          <AvatarFallback className="bg-primary/20"><Bot className="h-4 w-4 text-primary" /></AvatarFallback>
-                      </Avatar>
-                  </ChatBubbleAvatar>
-                  <ChatBubbleMessage isLoading />
-                </ChatBubble>
-              )}
-            <div ref={messagesEndRef} />
-          </CardContent>
-        </ScrollArea>
-        <CardFooter className="p-4 border-t bg-background flex flex-col items-start gap-4">
-            <ActionPanel 
-                currentMessage={messages[messages.length - 1]} 
-                onOptionClick={handleOptionClick} 
-                isLoading={isLoading} 
-                onFormPartSubmit={onFormPartSubmit}
-            />
-            <TextInputPanel onSend={handleTextInput} inputRef={inputRef} />
-        </CardFooter>
-      </div>
+                )}
+                <div ref={messagesEndRef} />
+            </CardContent>
+            </ScrollArea>
+            <CardFooter className="p-4 border-t bg-background flex flex-col items-start gap-4">
+                <ActionPanel 
+                    currentMessage={messages[messages.length - 1]} 
+                    onOptionClick={handleOptionClick} 
+                    isLoading={isLoading} 
+                    onFormPartSubmit={onFormPartSubmit}
+                />
+                <TextInputPanel onSend={handleTextInput} inputRef={inputRef} />
+            </CardFooter>
+        </div>
 
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              ref={triggerRef}
-              aria-expanded={isChatbotOpen}
-              aria-controls="bot-panel"
-              onClick={() => setChatbotOpen(!isChatbotOpen)}
-              className={cn(
-                "rounded-full h-12 w-12 p-0 shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center",
-                "md:h-12 md:w-auto md:px-4 md:py-2 md:gap-2"
-              )}
-            >
-              {isChatbotOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <MessageCircle className="h-5 w-5 text-primary-foreground" />}
-              <span className="hidden md:inline text-primary-foreground font-semibold">Chat with us</span>
-              <span className="sr-only">{isChatbotOpen ? "Close Chatbot" : "Open Chatbot"}</span>
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent side="top" align="center" className="mb-2">
-            <p>Chat with our AI Assistant</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+        <TooltipProvider>
+            <Tooltip>
+            <TooltipTrigger asChild>
+                <Button
+                ref={triggerRef}
+                aria-expanded={isChatbotOpen}
+                aria-controls="bot-panel"
+                onClick={() => setChatbotOpen(!isChatbotOpen)}
+                className={cn(
+                    "rounded-full h-12 w-12 p-0 shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center",
+                    "md:h-12 md:w-auto md:px-4 md:py-2 md:gap-2"
+                )}
+                >
+                {isChatbotOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <MessageCircle className="h-5 w-5 text-primary-foreground" />}
+                <span className="hidden md:inline text-primary-foreground font-semibold">Chat with us</span>
+                <span className="sr-only">{isChatbotOpen ? "Close Chatbot" : "Open Chatbot"}</span>
+                </Button>
+            </TooltipTrigger>
+            <TooltipContent side="top" align="center" className="mb-2">
+                <p>Chat with our AI Assistant</p>
+            </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+      </FocusLock>
 
     </div>
   );
