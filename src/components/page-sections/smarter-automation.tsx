@@ -33,12 +33,12 @@ export function SmarterAutomation() {
             
             <DesignerCard isGlow={true} />
 
-            <Card className="bg-secondary/20 p-8">
+            <Card className="bg-secondary/20 p-8 flex flex-col">
                 <CardHeader className="p-0">
                     <CardTitle>Popular Business Solutions</CardTitle>
                     <CardDescription>Explore solutions for every part of your business.</CardDescription>
                 </CardHeader>
-                <CardContent className="p-0 pt-6">
+                <CardContent className="p-0 pt-6 flex-grow">
                     <ul className="space-y-3">
                         {popularWorkflows.map(item => (
                             <li key={item} className="flex items-center gap-3">
