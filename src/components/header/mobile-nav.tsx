@@ -15,13 +15,13 @@ import {
 import { Logo } from "./logo";
 import Link from "next/link";
 import { Menu } from "lucide-react";
-import { menuData, SitemapSection } from "@/lib/menu-data";
+import { menuData, SitemapSection, SectionWithItems } from "@/lib/menu-data";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ScrollArea } from "../ui/scroll-area";
 import { ThemeToggle } from "./theme-toggle";
 
-const hasItems = (section: SitemapSection | undefined): section is SitemapSection & { items: any[] } => {
-  return section !== undefined && 'items' in section && Array.isArray(section.items);
+const hasItems = (section: SitemapSection): section is SectionWithItems => {
+  return 'items' in section && Array.isArray(section.items);
 };
 
 const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
@@ -52,12 +52,9 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                                                     </Link>
                                                 </li>
                                             ))}
-                                            {/* @ts-ignore */}
                                             {menu.cta && (
                                                 <li>
-                                                     {/* @ts-ignore */}
                                                     <Link href={menu.cta.href} className="block p-2 rounded-md font-semibold text-primary hover:bg-accent" onClick={() => setIsOpen(false)}>
-                                                         {/* @ts-ignore */}
                                                         {menu.cta.label}
                                                     </Link>
                                                 </li>

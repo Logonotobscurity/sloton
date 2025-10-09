@@ -10,19 +10,20 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { BotWidget } from '@/components/bot-widget';
 import { BookDemoWidget } from '@/components/book-demo-widget';
 import { BackToTop } from '@/components/back-to-top';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Abhaya_Libre, Nunito } from 'next/font/google';
 import ErrorBoundary from '@/components/error-boundary';
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sans',
-});
-
-const playfairDisplay = Playfair_Display({
+const abhayaLibre = Abhaya_Libre({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-serif',
+  weight: ['400', '700', '800'],
+});
+
+const nunito = Nunito({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
@@ -189,7 +190,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${playfairDisplay.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${nunito.variable} ${abhayaLibre.variable}`}>
        <head>
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
@@ -210,7 +211,7 @@ export default function RootLayout({
         />
         <Script id="matomo-analytics" strategy="afterInteractive">
           {`
-            var _paq = window._paq = window._paq || [];
+            var _paq = window._paq = window._paq = window._paq || [];
             /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
             _paq.push(['disableCookies']);
             _paq.push(['trackPageView']);

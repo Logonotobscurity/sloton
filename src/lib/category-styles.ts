@@ -43,4 +43,5 @@ export const categoryStyles: { [key: string]: { icon: React.ElementType, iconBg:
   'Admin and Ops': { icon: GanttChartSquare, iconBg: "bg-primary/10", color: "text-primary" },
   'CS and Support': { icon: MessageCircle, iconBg: "bg-accent/10", color: "text-accent" },
   'General': { icon: IconGeneral, iconBg: "bg-muted", color: "text-muted-foreground" },
+  'Show All': { icon: IconGeneral, iconBg: "bg-muted", color: "text-muted-foreground" },
 };

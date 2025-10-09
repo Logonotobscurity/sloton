@@ -26,12 +26,13 @@ interface TemplateCardProps {
 const TemplateCard: React.FC<TemplateCardProps> = ({ template }) => {
   const style = categoryStyles[template.category] || categoryStyles['General'];
   const fullDescription = template.steps ? template.steps.map(step => `${step.name}: ${step.description}`).join('; ') : template.description;
+  const CategoryIcon = style.icon;
 
   return (
     <Card className="bg-background/50 flex flex-col p-6 rounded-xl border-border/50 group transition-colors duration-300 hover:border-primary">
       <CardHeader className="p-0">
         <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center", style.iconBg)}>
-          <style.icon className={cn("h-6 w-6", style.color)} />
+          <CategoryIcon className={cn("h-6 w-6", style.color)} />
         </div>
         <CardTitle className="pt-4 text-xl font-semibold">{template.name}</CardTitle>
       </CardHeader>

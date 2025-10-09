@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { GanttChartSquare } from 'lucide-react';
 
 // This file is reserved for truly custom SVG icons that are not available in the lucide-react library.
 // All icons that have a lucide-react equivalent have been removed to reduce redundancy and adhere to project standards.

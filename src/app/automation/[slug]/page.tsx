@@ -4,17 +4,17 @@ import Link from 'next/link';
 import { getTemplateBySlug } from '@/lib/workflow-templates';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { Share2, ArrowLeft, CheckCircle, Lightbulb, Workflow, Send, Eye, Cog, Calendar, MessageCircle, Edit } from 'lucide-react';
+import { Share2, ArrowLeft, Lightbulb, Workflow, Eye, Edit } from 'lucide-react';
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata } from 'next';
 import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
-import { GatedFeatureModal } from '@/components/gated-feature-modal';
 import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import { CommunityLeadForm } from '@/components/community-lead-form';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { getTemplates } from '@/lib/workflow-templates';
 import { categoryStyles } from '@/lib/category-styles';
+import { GatedFeatureModal } from '@/components/gated-feature-modal';
 
 type Props = {
   params: { slug: string }
@@ -116,12 +116,13 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                     {relatedTemplates.map(related => {
                        const style = categoryStyles[related.category] || categoryStyles['General'];
                        const relatedFullDescription = related.steps ? related.steps.map(step => `${step.name}: ${step.description}`).join('; ') : related.description;
+                       const CategoryIcon = style.icon;
 
                        return (
                           <Card key={related.slug} className="bg-background/50 flex flex-col p-6 rounded-xl border-border/50 group transition-colors duration-300 hover:border-primary">
                             <CardHeader className="p-0">
                               <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center", style.iconBg)}>
-                                <style.icon className={cn("h-6 w-6", style.color)} />
+                                <CategoryIcon className={cn("h-6 w-6", style.color)} />
                               </div>
                               <CardTitle className="pt-4 text-xl font-semibold">{related.name}</CardTitle>
                             </CardHeader>
@@ -167,7 +168,6 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                 <div className="mt-6">
                      <Button asChild>
                         <Link href="/automation">
-                            <Send className="mr-2 h-4 w-4"/>
                             Go to Workflow Generator
                         </Link>
                     </Button>
