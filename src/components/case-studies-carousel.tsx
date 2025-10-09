@@ -40,8 +40,8 @@ export function CaseStudiesCarousel({ studies }: CaseStudiesCarouselProps) {
       <CarouselContent>
         {caseStudies.map((study, index) => (
           <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
-            <div className="p-1">
-              <Card className="overflow-hidden bg-background/80 group">
+            <div className="p-1 h-full">
+              <Card className="overflow-hidden bg-background/80 group h-full flex flex-col">
                 <div className="overflow-hidden rounded-t-xl" >
                     <div data-ai-hint={study.dataAiHint}>
                       <Image
@@ -57,7 +57,7 @@ export function CaseStudiesCarousel({ studies }: CaseStudiesCarouselProps) {
                   <CardDescription>{study.client}</CardDescription>
                   <CardTitle className="text-lg md:text-xl">{study.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-grow">
                   <p className="text-muted-foreground mb-4 text-sm line-clamp-3">{study.description}</p>
                    <div className="flex flex-wrap gap-2">
                     {study.tags.map(tag => <Badge key={tag} variant="outline" className="border-primary text-primary">{tag}</Badge>)}

@@ -64,10 +64,10 @@ export function TrainingCTA() {
                     description="Learn practical, actionable knowledge you can implement immediately to drive efficiency and growth in your organization."
                     href="/training"
                     cta="Explore Courses"
-                    className="lg:row-start-1 lg:row-end-4 lg:col-start-1 lg:col-end-2"
+                    className="lg:row-start-1 lg:row-end-4 lg:col-start-1 lg:col-end-2 flex flex-col"
                     Icon={GraduationCap}
                     content={(
-                        <ul className="space-y-3 mt-4">
+                        <ul className="space-y-3 mt-4 flex-grow">
                             {trainingBenefits.map(item => (
                                 <li key={item.text} className="flex items-center gap-3">
                                     <item.icon className="h-4 w-4 text-primary" />

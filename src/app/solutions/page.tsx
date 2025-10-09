@@ -148,10 +148,8 @@ export default function SolutionsPage() {
                             </div>
                             <p className="text-sm font-semibold text-destructive">{app.challenge}</p>
                         </CardHeader>
-                        <CardContent className="flex-grow flex flex-col">
-                            <div className="flex-grow">
+                        <CardContent className="flex-grow">
                                 <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: app.solution.replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary">$1</strong>') }} />
-                            </div>
                         </CardContent>
                         <CardFooter>
                             <Button asChild variant="outline" size="sm" className="w-full">
