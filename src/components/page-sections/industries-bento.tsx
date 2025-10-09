@@ -4,7 +4,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { Briefcase, HeartPulse, Server, ShoppingCart, Building, Cog } from "lucide-react";
+import { Briefcase, HeartPulse, Truck, ShoppingCart, Building, Cog } from "lucide-react";
 import { GlowingCard } from "../ui/glowing-card";
 
 const FeatureCard = ({
@@ -67,9 +67,9 @@ const features = [
       className: "lg:col-span-1",
     },
     {
-      title: "IT & Logistics",
+      title: "Logistics & Supply Chain",
       description: "Intelligent automation for route planning, warehouse management, and shipment tracking.",
-      icon: <Server className="w-8 h-8 text-primary" />,
+      icon: <Truck className="w-8 h-8 text-primary" />,
       className: "lg:col-span-2",
     },
      {

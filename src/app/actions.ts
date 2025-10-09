@@ -22,10 +22,15 @@ const automatedTaskSchema = z.object({
 });
 
 export async function getAutomatedTaskDesign(values: z.infer<typeof automatedTaskSchema>) {
-    const result = await automateTaskDesign(values);
-    return {
-        data: result,
-    };
+    try {
+        const result = await automateTaskDesign(values);
+        return {
+            data: result,
+        };
+    } catch (e: any) {
+        console.error('Error in getAutomatedTaskDesign:', e);
+        return { error: e.message || 'An unknown error occurred.' };
+    }
 }
 
 // Contact Form Action

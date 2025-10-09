@@ -11,6 +11,7 @@ import { BotWidget } from '@/components/bot-widget';
 import { BookDemoWidget } from '@/components/book-demo-widget';
 import { BackToTop } from '@/components/back-to-top';
 import { Inter, Playfair_Display } from 'next/font/google';
+import ErrorBoundary from '@/components/error-boundary';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -241,7 +242,9 @@ export default function RootLayout({
           >
             <WebsiteLoader />
             <Header />
-            <main id="main-content">{children}</main>
+            <ErrorBoundary>
+              <main id="main-content">{children}</main>
+            </ErrorBoundary>
             <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
             <BookDemoWidget />
             <Footer />
