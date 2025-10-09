@@ -11,33 +11,26 @@ import { IndustriesBento } from '@/components/page-sections/industries-bento';
 import { IdeasLab } from '@/components/page-sections/ideas-lab';
 import { SmarterAutomation } from '@/components/page-sections/smarter-automation';
 import { ServicesOffered } from '@/components/page-sections/services-offered';
-import type { Metadata } from 'next';
-import { StrategicPartner } from '@/components/page-sections/strategic-partner';
 import { Statement } from '@/components/page-sections/statement';
+import { StrategicPartner } from '@/components/page-sections/strategic-partner';
 
-export const metadata: Metadata = {
-  title: 'LOG_ON | AI & Automation for Business Efficiency',
-  description: 'We design your digital ecosystem. Get a free AI assessment to discover automation and IT solutions tailored to your business needs.',
-};
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <div>
-          <StrategicPartner />
-          <ServicesOffered />
-          <SmarterAutomation />
-          <PartnershipApproach />
-          <TrainingCTA />
-          <Statement />
-          <IndustriesBento />
-          <TechStackCarousel />
-          <IdeasLab />
-          <FeaturedInsights />
-          <Faq />
-        <BottomCta />
-      </div>
+      <StrategicPartner />
+      <ServicesOffered />
+      <SmarterAutomation />
+      <PartnershipApproach />
+      <TrainingCTA />
+      <Statement />
+      <IndustriesBento />
+      <TechStackCarousel />
+      <IdeasLab />
+      <FeaturedInsights />
+      <Faq />
+      <BottomCta />
     </>
   );
 }
