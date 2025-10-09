@@ -1,3 +1,6 @@
+
+'use client';
+
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { ArrowIcon } from '../ui/arrow-icon';

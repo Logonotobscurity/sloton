@@ -3,47 +3,43 @@
 
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { trainingPrograms, communityProjects, trainingBenefits } from "@/lib/data/training-data";
-import { GraduationCap, Award, BookOpen, TrendingUp, Users } from "lucide-react";
+import { GraduationCap } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function TrainingCTA() {
 
   const features = [
     {
-      ...(trainingPrograms.find(p => p.title.includes("Reducing Support")) ?? {}),
-      Icon: trainingPrograms.find(p => p.title.includes("Reducing Support"))?.icon,
+      ...trainingPrograms.find(p => p.title.includes("Reducing Support Costs with AI")),
       name: "Reducing Support Costs with AI",
       className: "md:col-span-1 lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
       cta: "Learn More",
     },
     {
-      ...(trainingPrograms.find(p => p.title.includes("AI for Business Growth")) ?? {}),
-      Icon: trainingPrograms.find(p => p.title.includes("AI for Business Growth"))?.icon,
+      ...trainingPrograms.find(p => p.title.includes("AI for Business Growth")),
       name: "AI for Business Growth: Practical Implementation",
       className: "md:col-span-1 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
       cta: "Learn More",
     },
     {
-      ...(communityProjects.find(p => p.title.includes("Mental Health")) ?? {}),
-      Icon: communityProjects.find(p => p.title.includes("Mental Health"))?.icon,
+      ...communityProjects.find(p => p.title.includes("Mental Health")),
       name: "Making Mental Health Support More Accessible",
       className: "md:col-span-1 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
       cta: "Learn More",
     },
     {
-      ...(communityProjects.find(p => p.title.includes("Diverse Cultures")) ?? {}),
-      Icon: communityProjects.find(p => p.title.includes("Diverse Cultures"))?.icon,
+      ...communityProjects.find(p => p.title.includes("Diverse Cultures")),
       name: "Building AI That Understands Diverse Cultures",
       className: "md:col-span-1 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
       cta: "Learn More",
     },
     {
-      ...(communityProjects.find(p => p.title.includes("Gigpilot")) ?? {}),
-      Icon: communityProjects.find(p => p.title.includes("Gigpilot"))?.icon,
+      ...communityProjects.find(p => p.title.includes("Gigpilot")),
       name: "Gigpilot: AI Gig Economy Assistant",
       className: "md:col-span-2 lg:row-start-3 lg:row-end-4 lg:col-start-2 lg:col-end-4",
       cta: "Learn More",
     },
-  ].filter(feature => feature.Icon); // Filter out features where an icon wasn't found
+  ].map(feature => ({...feature, Icon: feature.icon}));
 
   return (
       <section className="py-16 md:py-24 bg-background relative overflow-hidden">
@@ -82,7 +78,6 @@ export function TrainingCTA() {
                     )}
                   />
                   {features.map((feature) => (
-                      // @ts-ignore
                       <BentoCard key={feature.name} {...feature} />
                   ))}
               </BentoGrid>

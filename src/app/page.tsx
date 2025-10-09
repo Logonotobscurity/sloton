@@ -4,7 +4,6 @@ import { Faq } from '@/components/faq';
 import { FeaturedInsights } from '@/components/page-sections/featured-insights';
 import { Hero } from '@/components/page-sections/hero';
 import { PartnershipApproach } from '@/components/page-sections/partnership-approach';
-import { Statement } from '@/components/page-sections/statement';
 import { TechStackCarousel } from '@/components/page-sections/tech-stack-carousel';
 import { TrainingCTA } from '@/components/page-sections/training-cta';
 import { BottomCta } from '@/components/page-sections/bottom-cta';
@@ -30,9 +29,9 @@ export default function Home() {
           <SmarterAutomation />
           <PartnershipApproach />
           <TrainingCTA />
-          <Statement />
           <IndustriesBento />
           <TechStackCarousel />
+          <IdeasLab />
           <FeaturedInsights />
           <Faq />
         <BottomCta />

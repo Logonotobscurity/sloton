@@ -9,6 +9,7 @@ import SolutionRecommendationForm from "@/components/solution-recommendation-for
 import { motion } from "framer-motion";
 import { AdinkraBackground } from "../ui/adinkra-background";
 import { TypeAnimation } from "react-type-animation";
+import { Statement } from "./statement";
  
 export function Hero() {
 
@@ -85,6 +86,7 @@ export function Hero() {
                 </motion.div>
             </motion.div>
       </div>
+      <Statement />
     </section>
   );
 }
