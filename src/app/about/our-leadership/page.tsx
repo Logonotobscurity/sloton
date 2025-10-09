@@ -26,8 +26,8 @@ export default function LeadershipPage() {
                                             <Image 
                                                 src={member.image}
                                                 alt={member.name}
-                                                layout="fill"
-                                                objectFit="cover"
+                                                fill
+                                                className="object-cover"
                                             />
                                         </div>
                                         <h3 className="text-xl font-bold text-primary">{member.name}</h3>

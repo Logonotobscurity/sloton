@@ -1,17 +1,3 @@
-
-import {
-    IconHumanResources,
-    IconSales,
-    IconMarketing,
-    IconBriefcase,
-    IconProcurement,
-    IconDevelopment,
-    IconHealthcare,
-    IconItOperations,
-    IconRealEstate,
-    IconAdminOps,
-    IconSupport,
-  } from '@/lib/icons';
 import templatesData from '@/lib/data/workflow-templates.json';
 
 export interface TemplateStep {
