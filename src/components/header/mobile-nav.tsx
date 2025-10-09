@@ -20,6 +20,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ScrollArea } from "../ui/scroll-area";
 import { ThemeToggle } from "./theme-toggle";
 
+const hasItems = (section: SitemapSection | undefined): section is SitemapSection & { items: any[] } => {
+  return section !== undefined && 'items' in section && Array.isArray(section.items);
+};
+
 const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
     return (
         <ScrollArea className="flex-1">
@@ -34,7 +38,7 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                             );
                         }
 
-                        if ('items' in menu) {
+                        if (hasItems(menu)) {
                              return (
                                 <AccordionItem value={menu.key} key={menu.key}>
                                     <AccordionTrigger className="text-lg font-semibold">{menu.heading}</AccordionTrigger>
@@ -48,9 +52,12 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                                                     </Link>
                                                 </li>
                                             ))}
+                                            {/* @ts-ignore */}
                                             {menu.cta && (
                                                 <li>
+                                                     {/* @ts-ignore */}
                                                     <Link href={menu.cta.href} className="block p-2 rounded-md font-semibold text-primary hover:bg-accent" onClick={() => setIsOpen(false)}>
+                                                         {/* @ts-ignore */}
                                                         {menu.cta.label}
                                                     </Link>
                                                 </li>

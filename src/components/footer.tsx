@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { IconFacebook, IconInstagram, IconLinkedIn, IconX, IconYouTube } from '@/lib/icons';
-import { menuData } from '@/lib/menu-data';
+import { menuData, SitemapSection } from '@/lib/menu-data';
 import { Button } from './ui/button';
 import { AdinkraBackground } from './ui/adinkra-background';
 
@@ -16,6 +16,10 @@ const socialLinks = [
 const solutions = menuData.find(item => item.key === 'solutions');
 const company = menuData.find(item => item.key === 'company');
 const resources = menuData.find(item => item.key === 'resources');
+
+const hasItems = (section: SitemapSection | undefined): section is SitemapSection & { items: any[] } => {
+  return section !== undefined && 'items' in section && Array.isArray(section.items);
+};
 
 export function Footer() {
   return (
@@ -49,7 +53,7 @@ export function Footer() {
 
           <div className="lg:col-span-7">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-              {solutions && 'items' in solutions && (
+              {hasItems(solutions) && (
                 <div>
                   <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">{solutions.heading}</h3>
                   <ul className="space-y-3 list-none">
@@ -63,7 +67,7 @@ export function Footer() {
                   </ul>
                 </div>
               )}
-              {company && 'items' in company && (
+              {hasItems(company) && (
                 <div>
                   <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">{company.heading}</h3>
                   <ul className="space-y-3 list-none">
@@ -78,7 +82,7 @@ export function Footer() {
                   </ul>
                 </div>
               )}
-               {resources && 'items' in resources && (
+               {hasItems(resources) && (
                  <div>
                   <h3 className="font-semibold mb-4 text-primary text-lg tracking-wider">{resources.heading}</h3>
                   <ul className="space-y-3 list-none">

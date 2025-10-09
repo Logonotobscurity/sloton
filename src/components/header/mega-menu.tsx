@@ -5,7 +5,7 @@ import * as React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
-import { menuData, type MenuKey } from "@/lib/menu-data";
+import { menuData, type MenuKey, SitemapSection } from "@/lib/menu-data";
 import { ArrowRight } from "lucide-react";
 import {
   NavigationMenuLink
@@ -38,10 +38,20 @@ const ListItem = React.forwardRef<
 });
 ListItem.displayName = "ListItem";
 
+const hasItems = (section: SitemapSection | undefined): section is SitemapSection & { items: any[] } => {
+  return section !== undefined && 'items' in section && Array.isArray(section.items);
+};
 
 export function MegaMenu({ menuKey }: { menuKey: MenuKey }) {
     const menuDetails = menuData.find(item => item.key === menuKey);
-    if (!menuDetails || typeof menuDetails !== 'object' || !('items' in menuDetails)) {
+
+    if (!menuDetails) {
+        return null;
+    }
+
+    // The 'partners' section is a link-only and doesn't have a dropdown.
+    // We can return null or some other fallback UI here.
+    if (!hasItems(menuDetails)) {
         return null;
     }
 
@@ -50,12 +60,12 @@ export function MegaMenu({ menuKey }: { menuKey: MenuKey }) {
             <div className="flex flex-col justify-between">
                 <div>
                     <h3 className="font-bold text-lg text-primary">{menuDetails.heading}</h3>
-                    <p className="text-muted-foreground mt-1">{menuDetails.intro}</p>
+                    <p className="text-muted-foreground mt-1">{(menuDetails as any).intro}</p>
                 </div>
-                {menuDetails.cta && (
+                {(menuDetails as any).cta && (
                     <div className="mt-6">
-                        <Link href={menuDetails.cta.href} className={cn(buttonVariants({variant: 'default'}), 'group')}>
-                           {menuDetails.cta.label}
+                        <Link href={(menuDetails as any).cta.href} className={cn(buttonVariants({variant: 'default'}), 'group')}>
+                           {(menuDetails as any).cta.label}
                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Link>
                     </div>

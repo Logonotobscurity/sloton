@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { SolutionRecommendationOutput } from '@/ai/flows/solution-recommendation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Calendar, Sparkles } from 'lucide-react';
@@ -113,4 +113,4 @@ export function AssessmentResult({ result }: { result: SolutionRecommendationOut
             </CardFooter>
         </Card>
     )
-};
+}
