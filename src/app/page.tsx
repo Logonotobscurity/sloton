@@ -13,6 +13,7 @@ import { SmarterAutomation } from '@/components/page-sections/smarter-automation
 import { ServicesOffered } from '@/components/page-sections/services-offered';
 import type { Metadata } from 'next';
 import { StrategicPartner } from '@/components/page-sections/strategic-partner';
+import { Statement } from '@/components/page-sections/statement';
 
 export const metadata: Metadata = {
   title: 'LOG_ON | AI & Automation for Business Efficiency',
@@ -29,6 +30,7 @@ export default function Home() {
           <SmarterAutomation />
           <PartnershipApproach />
           <TrainingCTA />
+          <Statement />
           <IndustriesBento />
           <TechStackCarousel />
           <IdeasLab />
