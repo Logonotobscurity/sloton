@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { BrainCircuit, CheckCircle, ArrowRight } from 'lucide-react';
@@ -8,16 +9,16 @@ import { PageHero } from '@/components/page-sections/page-hero';
 import { aiServices, aiSolutionsBenefits } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {
-  title: 'AI Solutions | Custom AI & Machine Learning Services',
-  description: 'We design and deploy custom AI solutions, including machine learning models, NLP, and computer vision, to solve complex business challenges and drive growth.',
+  title: 'AI Agent Development & Custom Solutions | LOG_ON',
+  description: 'Expert AI agent development and custom machine learning solutions. We design and deploy AI agents for workplace automation to solve complex business challenges and drive growth in Nigeria.',
 };
 
 export default function AiSolutionsPage() {
   return (
     <div className="bg-background">
       <PageHero
-        title="Custom AI Solutions to Power Your Business"
-        description="At LOG_ON, we don't just use AI—we build it. We specialize in creating bespoke artificial intelligence and machine learning solutions that integrate seamlessly with your operations to solve your most complex challenges. Our expert team partners with you to transform your data into a strategic asset, driving efficiency, innovation, and measurable growth."
+        title="Custom AI Solutions & Agent Development"
+        description="At LOG_ON, we don't just use AI—we build it. We specialize in creating bespoke artificial intelligence, AI agents, and machine learning solutions that integrate seamlessly with your operations to solve your most complex challenges. Our expert team partners with you to transform your data into a strategic asset, driving efficiency, innovation, and measurable growth."
       />
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="grid lg:grid-cols-2 gap-12 items-center">

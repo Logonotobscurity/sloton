@@ -1,3 +1,4 @@
+
 import { PageHero } from '@/components/page-sections/page-hero';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,8 +10,8 @@ import { SidebarNav } from '@/components/sidebar-nav';
 import { industries, sidebarNavItems } from '@/lib/data/industries-data';
 
 export const metadata: Metadata = {
-  title: 'Use Cases by Industry | Tailored AI & Automation Solutions',
-  description: 'Explore how LOG_ON delivers industry-specific AI and automation solutions for Finance, Healthcare, E-Commerce, and more to solve unique business challenges and drive growth.',
+  title: 'Workplace Automation Use Cases by Industry in Nigeria | LOG_ON',
+  description: 'Explore how LOG_ON delivers industry-specific AI agent development and workplace automation solutions for Finance, Healthcare, and E-Commerce in Nigeria to drive growth.',
 };
 
 export default function UseCasesPage() {

@@ -12,8 +12,8 @@ import { insights } from '@/lib/insights';
 import { stats, trustPillars, researchAreas, analystReports } from '@/lib/data/about-page-data';
 
 export const metadata: Metadata = {
-  title: 'About LOG_ON',
-  description: 'Learn about LOG_ON, your digital architects. We build integrated digital ecosystems where businesses thrive. Explore our mission, values, research, and commitment to trust.',
+  title: 'About LOG_ON | AI & Automation Experts in Nigeria',
+  description: 'Learn about LOG_ON, your digital architects for workplace automation in Nigeria. We build integrated digital ecosystems where businesses thrive through AI agent development.',
 };
 
 export default function AboutPage() {
@@ -203,7 +203,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
-    
-
-    

@@ -5,8 +5,8 @@ import { WorkflowTemplateLibrary } from '@/app/automation/_components/workflow-t
 import { PageHero } from '@/components/page-sections/page-hero';
 
 export const metadata: Metadata = {
-  title: 'Intelligent Automation Solutions | RPA & Workflow Design',
-  description: 'Design, configure, and deploy automated IT tasks and business workflows with our intelligent automation and RPA solutions. Get AI-powered optimization suggestions.',
+  title: 'Workplace Automation in Nigeria | Intelligent Solutions',
+  description: 'Design and deploy workplace automation solutions in Nigeria. Our intelligent automation platform helps you configure RPA & business workflows, with AI-powered optimization.',
 };
 
 export default async function AutomationPage({

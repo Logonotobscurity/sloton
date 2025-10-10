@@ -108,7 +108,7 @@ const localBusinessSchema = {
     "latitude": 6.5093,
     "longitude": 3.3717
   },
-  "description": "Logon Solutions provides AI-driven technology consulting and automation solutions to help businesses cut costs, automate processes, and scale faster.",
+  "description": "LOG_ON provides expert AI agent development and workplace automation in Nigeria. We help businesses cut costs, automate processes, and scale faster with intelligent technology solutions.",
   "priceRange": "$$$",
   "openingHoursSpecification": [
     {
@@ -141,18 +141,18 @@ const localBusinessSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AI Solutions",
-          "url": "https://logonsolutions.netlify.app/solutions#ai-solutions",
-          "description": "Custom AI and machine learning models to solve complex business challenges."
+          "name": "AI Solutions & Agent Development",
+          "url": "https://logonsolutions.netlify.app/ai-solutions",
+          "description": "Custom AI models and AI agent development to solve complex business challenges."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Process Automation",
-          "url": "https://logonsolutions.netlify.app/solutions#process-automation",
-          "description": "Intelligent automation and RPA to streamline workflows and increase efficiency."
+          "name": "Workplace Process Automation",
+          "url": "https://logonsolutions.netlify.app/automation",
+          "description": "Intelligent automation and RPA to streamline workflows and increase efficiency in your workplace."
         }
       },
       {

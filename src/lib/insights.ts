@@ -16,9 +16,9 @@ export interface Insight {
 
 export const insights: Insight[] = [
    {
-    title: "Why llms.txt Matters for Modern SEO",
+    title: "Why llms.txt Matters for AI Agent Development",
     slug: "why-llms-txt-matters-for-seo",
-    description: "Learn how the llms.txt file is becoming a key tool for helping websites communicate effectively with large language models and improve SEO.",
+    description: "Learn how the llms.txt file is a key tool for AI agent development, helping websites communicate effectively with large language models.",
     image: imageData.llmsTxtFile.src,
     width: imageData.llmsTxtFile.width,
     height: imageData.llmsTxtFile.height,
@@ -28,9 +28,9 @@ export const insights: Insight[] = [
     date: "2025-08-19"
   },
   {
-    title: "10 Content Formats That Get Picked Up by LLMs",
+    title: "10 Content Formats to Supercharge Workplace AI",
     slug: "10-content-formats-that-get-picked-up-by-llms",
-    description: "Discover how to structure your content to improve visibility in AI-powered search engines and ensure your key information is accurately represented.",
+    description: "Discover how to structure your internal content to improve visibility for workplace AI and ensure your key information is accurately represented in automated workflows.",
     image: imageData.aiContentFormats.src,
     width: imageData.aiContentFormats.width,
     height: imageData.aiContentFormats.height,
@@ -40,9 +40,9 @@ export const insights: Insight[] = [
     date: "2025-08-11"
   },
   {
-    title: "SEO vs GEO: Why Your Content Might Be Invisible in AI Search",
+    title: "SEO vs GEO: Why Your Content is Invisible to Workplace AI",
     slug: "seo-vs-geo-invisible-in-ai-search",
-    description: "Learn the difference between traditional SEO and Generative Engine Optimization (GEO) and discover the strategies that actually work for AI-driven search engines.",
+    description: "Learn the difference between traditional SEO and Generative Engine Optimization (GEO) for internal knowledge bases and workplace AI.",
     image: imageData.seoVsGeo.src,
     width: imageData.seoVsGeo.width,
     height: imageData.seoVsGeo.height,
@@ -52,21 +52,21 @@ export const insights: Insight[] = [
     date: "2025-04-14"
   },
   {
-    title: "My AI Investment Playbook: The No-BS Edition 🚀",
+    title: "My AI Investment Playbook: A Guide to Workplace Automation",
     slug: "ai-investment-playbook",
-    description: "I've been doubling down on AI stocks lately, and honestly? It's been a wild ride—but the good kind. Here's exactly what I'm holding and why.",
+    description: "A practical guide to investing in workplace AI and automation. Here's exactly what I'm focusing on and why for businesses in Nigeria.",
     image: imageData.stockMarketChart.src,
     width: imageData.stockMarketChart.width,
     height: imageData.stockMarketChart.height,
     dataAiHint: imageData.stockMarketChart.dataAiHint,
-    tags: ["AI", "Investing", "Technology", "Stocks"],
+    tags: ["AI", "Investing", "Technology", "Automation"],
     author: "Oluwamayowa Logo",
     date: "2024-08-21"
   },
   {
-    title: "Transforming Customer Support with AI",
+    title: "How to Put AI Agents to Work in Customer Support",
     slug: "transforming-customer-support-with-ai",
-    description: "Learn how to leverage your organization's existing documents and SOPs to build private AI support tools that revolutionize your internal support systems.",
+    description: "Learn how to leverage your existing company documents to build private AI agents that can revolutionize your customer support systems in Nigeria.",
     image: imageData.customerSupportAi.src,
     width: imageData.customerSupportAi.width,
     height: imageData.customerSupportAi.height,
@@ -76,9 +76,9 @@ export const insights: Insight[] = [
     date: "2024-08-20"
   },
   {
-    title: "Quick Start to Prompt Engineering for Developers",
+    title: "Prompt Engineering for AI Agent Development",
     slug: "prompt-engineering-for-developers",
-    description: "Discover how prompt engineering can supercharge your coding skills and development processes. Learn to automate tasks, generate code, and build more effective AI-driven solutions.",
+    description: "Discover how prompt engineering can supercharge your AI agent development. Learn to automate tasks and build more effective workplace AI solutions.",
     image: imageData.codeOnScreen.src,
     width: imageData.codeOnScreen.width,
     height: imageData.codeOnScreen.height,
@@ -88,9 +88,9 @@ export const insights: Insight[] = [
     date: "2024-08-19"
   },
   {
-    title: "Building Recommendation Systems with Python",
+    title: "Building Recommendation Systems for E-Commerce in Nigeria",
     slug: "building-recommendation-systems",
-    description: "Take a deep dive into building and deploying scalable recommendation models using Python, Pandas, and Pinecone to create personalized user experiences.",
+    description: "A deep dive into building and deploying scalable AI recommendation models using Python to create personalized user experiences for the Nigerian market.",
     image: imageData.abstractDataNetwork.src,
     width: imageData.abstractDataNetwork.width,
     height: imageData.abstractDataNetwork.height,
@@ -100,9 +100,9 @@ export const insights: Insight[] = [
     date: "2024-08-18"
   },
   {
-    title: "AI Insights: A Practical Guide",
+    title: "A Practical Guide to Workplace AI",
     slug: "ai-insights-a-practical-guide",
-    description: "A comprehensive overview of AI types, from ANI to ASI, and their practical applications across different industries. Understand the core principles of AI strategy.",
+    description: "A comprehensive overview of AI types and their practical applications in the workplace. Understand the core principles of a successful AI automation strategy.",
     image: imageData.glowingAiBrain.src,
     width: imageData.glowingAiBrain.width,
     height: imageData.glowingAiBrain.height,
@@ -112,9 +112,9 @@ export const insights: Insight[] = [
     date: "2024-08-17"
   },
   {
-    title: "Prompt Engineering for Business Users",
+    title: "Prompt Engineering for Business Automation",
     slug: "prompt-engineering-for-business",
-    description: "Learn how to harness prompt engineering skills for ChatGPT and GPT-4 to boost productivity, supercharge communications, and revolutionize business processes.",
+    description: "Learn how to use prompt engineering for ChatGPT to boost productivity and revolutionize business processes through workplace automation.",
     image: imageData.professionalsMeeting.src,
     width: imageData.professionalsMeeting.width,
     height: imageData.professionalsMeeting.height,
@@ -124,9 +124,9 @@ export const insights: Insight[] = [
     date: "2024-08-16"
   },
   {
-    title: "The Future of Work: How AI is Redefining Productivity",
+    title: "The Future of Work: How AI Agents are Redefining Productivity",
     slug: "future-of-work-ai",
-    description: "Explore the transformative impact of artificial intelligence on modern workplaces and how businesses can adapt.",
+    description: "Explore the transformative impact of AI agents on modern workplaces and how businesses in Nigeria can adapt to the new era of workplace automation.",
     image: imageData.futuristicAiTech.src,
     width: imageData.futuristicAiTech.width,
     height: imageData.futuristicAiTech.height,
@@ -136,9 +136,9 @@ export const insights: Insight[] = [
     date: "2024-08-15"
   },
   {
-    title: "Unlocking Efficiency: A Guide to Business Process Automation",
+    title: "A Guide to Workplace Automation in Nigeria",
     slug: "guide-to-business-process-automation",
-    description: "A deep dive into the strategies and technologies behind successful automation implementation.",
+    description: "A deep dive into the strategies and technologies behind successful workplace automation implementation for businesses in Nigeria.",
     image: imageData.workflowAutomation.src,
     width: imageData.workflowAutomation.width,
     height: imageData.workflowAutomation.height,
@@ -148,9 +148,9 @@ export const insights: Insight[] = [
     date: "2024-08-10"
   },
   {
-    title: "Scaling Securely: Best Practices for Cloud Infrastructure",
+    title: "Scaling Securely: Cloud & AI Agent Security",
     slug: "scaling-securely-cloud-infrastructure",
-    description: "Learn how to build a robust and secure cloud foundation that scales with your business needs.",
+    description: "Learn how to build a robust and secure cloud foundation that scales with your business needs, with a focus on AI agent and workplace automation security.",
     image: imageData.cloudSecurity.src,
     width: imageData.cloudSecurity.width,
     height: imageData.cloudSecurity.height,
@@ -160,9 +160,9 @@ export const insights: Insight[] = [
     date: "2024-08-05"
   },
   {
-    title: "The Rise of No Code and Low Code Platforms in Nigeria",
+    title: "The Rise of No-Code AI Agent Development in Nigeria",
     slug: "no-code-low-code-nigeria",
-    description: "How visual development tools are empowering a new generation of creators and entrepreneurs.",
+    description: "How visual development tools are empowering a new generation of creators in Nigeria to build and deploy AI agents without writing code.",
     image: imageData.visualProgramming.src,
     width: imageData.visualProgramming.width,
     height: imageData.visualProgramming.height,
@@ -172,9 +172,9 @@ export const insights: Insight[] = [
     date: "2024-07-28"
   },
   {
-    title: "Cybersecurity in the Age of AI: Threats and Opportunities",
+    title: "Cybersecurity in the Age of Workplace AI: Threats and Opportunities",
     slug: "cybersecurity-ai-threats-opportunities",
-    description: "An overview of how AI is being used to both perpetrate and prevent cyber attacks.",
+    description: "An overview of how AI is being used to both perpetrate and prevent cyber attacks in the context of workplace automation.",
     image: imageData.cyberSecurityLock.src,
     width: imageData.cyberSecurityLock.width,
     height: imageData.cyberSecurityLock.height,
@@ -184,9 +184,9 @@ export const insights: Insight[] = [
     date: "2024-07-22"
   },
    {
-    title: "Data Driven Decisions: A Primer on Business Analytics",
+    title: "Data-Driven Decisions for Workplace Automation",
     slug: "primer-on-business-analytics",
-    description: "Learn how to leverage data to make smarter, faster, and more effective business decisions.",
+    description: "Learn how to leverage data to make smarter decisions about your workplace automation strategy and measure the impact of your AI agents.",
     image: imageData.dataAnalyticsDashboard.src,
     width: imageData.dataAnalyticsDashboard.width,
     height: imageData.dataAnalyticsDashboard.height,
