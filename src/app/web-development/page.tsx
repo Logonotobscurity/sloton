@@ -1,19 +1,32 @@
 
 
+import React, { lazy, Suspense } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { ArrowRight, Code } from 'lucide-react';
 import type { Metadata } from 'next';
-import { CaseStudyFeature } from '@/components/page-sections/case-study-feature';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { webDevelopmentServices } from '@/lib/data/services-data';
-import { Faq } from '@/components/faq';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const CaseStudyFeature = lazy(() => import('@/components/page-sections/case-study-feature').then(module => ({ default: module.CaseStudyFeature })));
+const Faq = lazy(() => import('@/components/faq').then(module => ({ default: module.Faq })));
 
 export const metadata: Metadata = {
-  title: 'Custom Web & Application Development | Next.js Experts',
+  title: 'Custom Web & Application Development',
   description: 'Custom web development for publishers, e-commerce, and corporate clients. We build scalable, secure, and optimized digital platforms using Next.js and React to help your business grow.',
 };
+
+const SectionSkeleton = () => (
+  <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+    <div className="flex flex-col items-center text-center space-y-4 max-w-3xl mx-auto">
+      <Skeleton className="h-8 w-1/2" />
+      <Skeleton className="h-6 w-3/4" />
+      <Skeleton className="h-10 w-48 mt-4" />
+    </div>
+  </div>
+);
 
 export default function WebDevelopmentPage() {
   return (
@@ -40,11 +53,13 @@ export default function WebDevelopmentPage() {
             </div>
         </section>
 
-        <CaseStudyFeature 
-            tags={["Web Development", "Next.js", "Publisher"]}
-            title="Our Web Development Work"
-            description="See how our custom web development solutions have helped businesses launch high-performance platforms that drive revenue and engagement."
-        />
+        <Suspense fallback={<SectionSkeleton />}>
+            <CaseStudyFeature 
+                tags={["Web Development", "Next.js", "Publisher"]}
+                title="Our Web Development Work"
+                description="See how our custom web development solutions have helped businesses launch high-performance platforms that drive revenue and engagement."
+            />
+        </Suspense>
 
          <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
             <h2 className="text-2xl md:text-4xl font-bold font-headline">Have a Project in Mind?</h2>

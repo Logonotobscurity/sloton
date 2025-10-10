@@ -14,7 +14,10 @@ import { BookDemoWidget } from '@/components/book-demo-widget';
 import { BackToTop } from '@/components/back-to-top';
 import { Abhaya_Libre, Nunito } from 'next/font/google';
 import ErrorBoundary from '@/components/error-boundary';
-import { Faq } from '@/components/faq';
+import React, { lazy, Suspense } from 'react';
+
+const Faq = lazy(() => import('@/components/faq').then(module => ({ default: module.Faq })));
+
 
 const abhayaLibre = Abhaya_Libre({
   subsets: ['latin'],
@@ -32,12 +35,12 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL('https://logonsolutions.netlify.app'),
   title: {
-    default: 'LOG_ON | AI & Automation for Business Efficiency',
+    default: 'AI & Automation for Business Efficiency',
     template: '%s | LOG_ON',
   },
   description: 'We design your digital ecosystem. Get a free AI assessment to discover automation and IT solutions tailored to your business needs.',
   openGraph: {
-    title: 'LOG_ON | AI & Automation for Business Efficiency',
+    title: 'AI & Automation for Business Efficiency | LOG_ON',
     description: 'We design your digital ecosystem.',
     url: 'https://logonsolutions.netlify.app',
     siteName: 'LOG_ON',
@@ -54,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LOG_ON | AI & Automation for Business Efficiency',
+    title: 'AI & Automation for Business Efficiency | LOG_ON',
     description: 'We design your digital ecosystem.',
     images: ['/og-image.png'], 
   },
@@ -249,7 +252,9 @@ export default function RootLayout({
             <main id="main-content">
               <ErrorBoundary>{children}</ErrorBoundary>
             </main>
-            <Faq />
+            <Suspense fallback={<div></div>}>
+                <Faq />
+            </Suspense>
             <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
             <BookDemoWidget />
             <Footer />
