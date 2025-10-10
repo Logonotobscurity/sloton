@@ -16,13 +16,13 @@ import { trainingPrograms, communityProjects, trainingBenefits } from '@/lib/dat
 
 
 export const metadata: Metadata = {
-  title: 'AI & Automation Training Courses | LOG_ON',
+  title: 'AI & Automation Training Courses',
   description: 'Master in-demand tech skills. Explore expert-led training courses in AI, process automation, and prompt engineering to accelerate your career and drive business growth.',
   alternates: {
     canonical: '/training',
   },
   openGraph: {
-      title: 'AI & Automation Training Courses | LOG_ON',
+      title: 'AI & Automation Training Courses',
       description: 'Master in-demand tech skills. Explore expert-led training courses in AI, process automation, and prompt engineering.',
       url: '/training',
       type: 'website',

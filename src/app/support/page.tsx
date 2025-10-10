@@ -10,7 +10,7 @@ import { PageHero } from '@/components/page-sections/page-hero';
 import { supportCategories } from '@/lib/data/support-data';
 
 export const metadata: Metadata = {
-  title: 'Support Center | AI & Automation',
+  title: 'Support Center',
   description: 'Welcome to the LOG_ON Support Center. Find help for our AI agent and workplace automation solutions, or get in touch with our expert support team in Nigeria.',
 };
 

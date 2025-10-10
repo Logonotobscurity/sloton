@@ -7,7 +7,7 @@ import { PageHero } from '@/components/page-sections/page-hero';
 import { benefits, openPositions } from '@/lib/data/careers-data';
 
 export const metadata: Metadata = {
-  title: 'Careers at LOG_ON',
+  title: 'Careers',
   description: 'Join our team of innovators and help us build the future of business efficiency. Explore open positions and learn about our culture at LOG_ON.',
 };
 

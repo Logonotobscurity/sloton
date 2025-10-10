@@ -9,7 +9,7 @@ import { PageHero } from '@/components/page-sections/page-hero';
 import { chatbotServices, chatbotsBenefits } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {
-  title: 'AI Agent & Chatbot Development Services | LOG_ON',
+  title: 'AI Agent & Chatbot Development Services',
   description: 'Expert AI agent development for 24/7 engagement. We build intelligent chatbots for websites and WhatsApp to automate support, generate leads, and scale your business in Nigeria.',
 };
 
