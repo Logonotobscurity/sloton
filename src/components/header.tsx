@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { DesktopNav } from "./header/desktop-nav";
 import { MobileNav } from "./header/mobile-nav";
+import { Button } from "./ui/button";
+import { ThemeToggle } from "./header/theme-toggle";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -32,14 +34,20 @@ export function Header() {
           "container mx-auto flex items-center justify-between",
            isScrolled ? "h-16" : "h-24"
         )}>
-          <div className="flex items-center">
+          <div className="flex items-center gap-6">
              <Link href="/">
                 <Logo />
             </Link>
+            <div className="hidden lg:flex">
+              <DesktopNav />
+            </div>
           </div>
           
-          <div className="flex-1 flex justify-center">
-            <DesktopNav />
+          <div className="hidden lg:flex items-center gap-2">
+             <Button asChild>
+                <Link href="/contact">Contact Us</Link>
+            </Button>
+            <ThemeToggle />
           </div>
 
           <div className="flex items-center justify-end lg:hidden">
