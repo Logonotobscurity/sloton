@@ -5,6 +5,7 @@ import { CaseStudiesCarousel } from "../case-studies-carousel";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import React from "react";
 
 interface CaseStudyFeatureProps {
   tags: string[];
@@ -13,9 +14,11 @@ interface CaseStudyFeatureProps {
 }
 
 export function CaseStudyFeature({ tags, title, description }: CaseStudyFeatureProps) {
-  const featuredStudies = allCaseStudies.filter(study => 
-    tags.some(tag => study.tags.includes(tag))
-  );
+  const featuredStudies = React.useMemo(() => {
+    return allCaseStudies.filter(study => 
+      tags.some(tag => study.tags.includes(tag))
+    );
+  }, [tags]);
 
   if (featuredStudies.length === 0) {
     return null; // Don't render anything if no relevant case studies are found
