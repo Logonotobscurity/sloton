@@ -44,13 +44,11 @@ export function Hero() {
                 </motion.p>
                 <motion.h1 variants={itemVariants} className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight my-4">
                     Do More with Less: <span className="text-primary relative inline-block h-[1.2em]">
-                        <span className="invisible">Scalable Digital Presence</span>
+                        <span className="opacity-0">Actionable Intelligence</span>
                         <span className="absolute inset-0">
                            <TypeAnimation
                                 sequence={[
                                     'Smart Automation',
-                                    3000,
-                                    'Scalable Digital Presence',
                                     3000,
                                     'AI Agents',
                                     3000,
@@ -92,3 +90,4 @@ export function Hero() {
     </section>
   );
 }
+
