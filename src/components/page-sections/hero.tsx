@@ -44,14 +44,12 @@ export function Hero() {
                 </motion.p>
                 <motion.h1 variants={itemVariants} className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight my-4">
                     <span className="block sm:inline">Do More with Less: </span>
-                    <span className="text-primary inline-block h-[1.2em] min-w-[300px] md:min-w-[700px] text-left">
+                    <span className="text-primary inline-block h-[1.2em] w-full md:w-[700px] text-left">
                            <TypeAnimation
                                 sequence={[
                                     'Smart Automation',
                                     3000,
                                     'AI Agents',
-                                    3000,
-                                    'Scalable Digital Presence',
                                     3000,
                                     'Actionable Intelligence',
                                     3000,
@@ -67,7 +65,7 @@ export function Hero() {
                 <motion.p variants={itemVariants} className="text-md md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                     Stop wasting time on disconnected tools. Get a clear roadmap to integrated systems that save time and drive revenue growth.
                 </motion.p>
-                <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <motion.div variants={itemVariants} className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
                     <Dialog>
                         <DialogTrigger asChild>
                             <Button size="lg">Get Your Free Efficiency Assessment</Button>
@@ -91,5 +89,6 @@ export function Hero() {
     </section>
   );
 }
+
 
 
