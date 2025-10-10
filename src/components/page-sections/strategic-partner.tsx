@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { InteractiveCard } from '../shared/interactive-card';
+import { InteractiveCard } from './strategic-partner/interactive-card';
 import { BrainCircuit, Cog } from 'lucide-react';
 import SolutionRecommendationForm from '@/components/solution-recommendation-form';
 import { TaskAutomationForm } from '@/components/task-automation-form';
