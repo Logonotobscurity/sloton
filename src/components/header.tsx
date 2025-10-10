@@ -31,7 +31,7 @@ export function Header() {
         isScrolled ? "bg-background/80 backdrop-blur-lg shadow-lg" : ""
       )}>
         <div className={cn(
-          "container mx-auto flex items-center justify-between",
+          "container mx-auto flex items-center justify-between transition-all duration-300 ease-in-out",
            isScrolled ? "h-16" : "h-24"
         )}>
           <div className="flex items-center gap-6">
