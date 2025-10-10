@@ -30,7 +30,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[90vh] flex items-center justify-center text-center overflow-hidden">
+    <section className="relative w-full min-h-[80vh] md:min-h-[90vh] flex items-center justify-center text-center overflow-hidden">
       <AdinkraBackground />
       <div className="relative z-10 container px-4 md:px-6">
         <motion.div
@@ -44,10 +44,10 @@ export function Hero() {
           </motion.div>
           <motion.h1
             variants={itemVariants}
-            className="font-headline text-[clamp(2.5rem,7vw,4.5rem)] font-bold !leading-tight my-4"
+            className="font-headline text-[clamp(2rem,6vw,3.5rem)] font-bold !leading-tight my-4"
           >
-            Do More with Less:{' '}
-            <span className="block h-[1.2em]">
+            Do More with Less:
+            <span className="block h-[2.4em] md:h-[1.2em]">
               <span className="text-primary">
                 <TypeAnimation
                   sequence={[
@@ -68,7 +68,7 @@ export function Hero() {
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="text-md md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto"
+            className="text-md md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto"
           >
             Stop wasting time on disconnected tools. Get a clear roadmap to integrated systems that save time and drive revenue growth.
           </motion.p>
