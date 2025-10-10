@@ -11,22 +11,22 @@ import { AdinkraBackground } from "../ui/adinkra-background";
 import { TypeAnimation } from "react-type-animation";
  
 export function Hero() {
-
   const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3,
-      }
-    }
+        delayChildren: 0.2,
+        duration: 0.5,
+      },
+    },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
@@ -47,24 +47,24 @@ export function Hero() {
             className="font-headline text-[clamp(2.5rem,7vw,4.5rem)] font-bold !leading-tight my-4"
           >
             Do More with Less:{' '}
-            <span className="block md:inline">
-              <span className="text-primary h-[1.2em] inline-block text-left w-full md:w-[700px]">
+            <span className="block h-[1.2em]">
+              <span className="text-primary">
                 <TypeAnimation
                   sequence={[
                     'Smart Automation',
-                    3000,
+                    2000,
                     'AI Agents',
-                    3000,
+                    2000,
                     'Actionable Intelligence',
-                    3000,
+                    2000,
                   ]}
                   wrapper="span"
-                  speed={50}
+                  cursor={false}
                   repeat={Infinity}
                 />
               </span>
             </span>
-            <span className="block sm:inline"> for Growing Businesses.</span>
+            <span className="block sm:inline">for Growing Businesses.</span>
           </motion.h1>
           <motion.p
             variants={itemVariants}
