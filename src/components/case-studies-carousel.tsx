@@ -68,8 +68,10 @@ export function CaseStudiesCarousel({ studies }: CaseStudiesCarouselProps) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 z-10" />
-      <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 z-10" />
+      <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 z-10" aria-label="Previous study" />
+      <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 z-10" aria-label="Next study" />
     </Carousel>
   );
 }
+
+    
