@@ -31,60 +31,70 @@ export function Hero() {
 
   return (
     <section className="relative w-full min-h-[90vh] flex items-center justify-center text-center overflow-hidden">
-        <AdinkraBackground />
-        <div className="relative z-10 container px-4 md:px-6">
-            <motion.div 
-              className="max-w-4xl mx-auto"
-              initial="hidden"
-              animate="visible"
-              variants={containerVariants}
-            >
-                <motion.div variants={itemVariants} className="text-sm font-normal uppercase tracking-widest text-primary">
-                    Connecting Advantages. Delivering Results.
-                </motion.div>
-                <motion.h1 variants={itemVariants} className="font-headline text-[clamp(2.5rem,7vw,4.5rem)] font-bold !leading-tight my-4">
-                    Do More with Less: <span className="block sm:inline">
-                           <span className="text-primary h-[1.2em] inline-block text-left w-full md:w-[700px]">
-                            <TypeAnimation
-                                sequence={[
-                                    'Smart Automation',
-                                    3000,
-                                    'AI Agents',
-                                    3000,
-                                    'Actionable Intelligence',
-                                    3000,
-                                ]}
-                                wrapper="span"
-                                speed={50}
-                                repeat={Infinity}
-                            />
-                           </span>
-                    </span>
-                    <span className="block sm:inline"> for Growing Businesses.</span>
-                </motion.h1>
-                <motion.p variants={itemVariants} className="text-md md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                    Stop wasting time on disconnected tools. Get a clear roadmap to integrated systems that save time and drive revenue growth.
-                </motion.p>
-                <motion.div variants={itemVariants} className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <Button size="lg">Get Your Free Efficiency Assessment</Button>
-                        </DialogTrigger>
-                        <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
-                            <DialogHeader>
-                                <DialogTitle className="text-2xl">Free AI Business Assessment</DialogTitle>
-                                <DialogDescription>
-                                Describe your business needs to receive tailored IT solution recommendations from our AI consultant.
-                                </DialogDescription>
-                            </DialogHeader>
-                            <SolutionRecommendationForm />
-                        </DialogContent>
-                    </Dialog>
-                    <Button size="lg" variant="secondary" asChild>
-                        <Link href="/solutions">See How We Drive Growth</Link>
-                    </Button>
-                </motion.div>
-            </motion.div>
+      <AdinkraBackground />
+      <div className="relative z-10 container px-4 md:px-6">
+        <motion.div
+          className="max-w-4xl mx-auto"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.div variants={itemVariants} className="text-sm font-normal uppercase tracking-widest text-primary">
+            Connecting Advantages. Delivering Results.
+          </motion.div>
+          <motion.h1
+            variants={itemVariants}
+            className="font-headline text-[clamp(2.5rem,7vw,4.5rem)] font-bold !leading-tight my-4"
+          >
+            Do More with Less:{' '}
+            <span className="block md:inline">
+              <span className="text-primary h-[1.2em] inline-block text-left w-full md:w-[700px]">
+                <TypeAnimation
+                  sequence={[
+                    'Smart Automation',
+                    3000,
+                    'AI Agents',
+                    3000,
+                    'Actionable Intelligence',
+                    3000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
+              </span>
+            </span>
+            <span className="block sm:inline"> for Growing Businesses.</span>
+          </motion.h1>
+          <motion.p
+            variants={itemVariants}
+            className="text-md md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto"
+          >
+            Stop wasting time on disconnected tools. Get a clear roadmap to integrated systems that save time and drive revenue growth.
+          </motion.p>
+          <motion.div
+            variants={itemVariants}
+            className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button size="lg">Get Your Free Efficiency Assessment</Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl">Free AI Business Assessment</DialogTitle>
+                  <DialogDescription>
+                    Describe your business needs to receive tailored IT solution recommendations from our AI consultant.
+                  </DialogDescription>
+                </DialogHeader>
+                <SolutionRecommendationForm />
+              </DialogContent>
+            </Dialog>
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/solutions">See How We Drive Growth</Link>
+            </Button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
