@@ -43,12 +43,15 @@ export function Hero() {
                     Connecting Advantages. Delivering Results.
                 </motion.p>
                 <motion.h1 variants={itemVariants} className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight my-4">
-                    <span className="block sm:inline">Do More with Less: <span className="text-primary inline-block h-[1.2em]">
+                    <span className="block sm:inline">Do More with Less: </span>
+                    <span className="text-primary inline-block h-[1.2em] min-w-[300px] md:min-w-[700px] text-left">
                            <TypeAnimation
                                 sequence={[
                                     'Smart Automation',
                                     3000,
                                     'AI Agents',
+                                    3000,
+                                    'Scalable Digital Presence',
                                     3000,
                                     'Actionable Intelligence',
                                     3000,
@@ -58,7 +61,7 @@ export function Hero() {
                                 repeat={Infinity}
                                 className="w-full"
                             />
-                    </span></span>
+                    </span>
                     <span className="block sm:inline"> for Growing Businesses.</span>
                 </motion.h1>
                 <motion.p variants={itemVariants} className="text-md md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
@@ -88,4 +91,5 @@ export function Hero() {
     </section>
   );
 }
+
 
