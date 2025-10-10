@@ -10,8 +10,8 @@ import { PageHero } from '@/components/page-sections/page-hero';
 import { supportCategories } from '@/lib/data/support-data';
 
 export const metadata: Metadata = {
-  title: 'Support Center | LOG_ON',
-  description: 'Welcome to the LOG_ON Support Center. Find help articles, product documentation, get in touch with our support team, and explore community resources.',
+  title: 'Support Center | LOG_ON AI & Automation',
+  description: 'Welcome to the LOG_ON Support Center. Find help for our AI agent and workplace automation solutions, or get in touch with our expert support team in Nigeria.',
 };
 
 export default function SupportPage() {
@@ -98,10 +98,6 @@ export default function SupportPage() {
                 </CardContent>
               </Card>
         </section>
-
-        <div className="mt-16">
-            <Faq />
-        </div>
 
       </div>
     </div>

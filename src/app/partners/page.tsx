@@ -11,8 +11,8 @@ import { BottomCta } from '@/components/page-sections/bottom-cta';
 import { partnerBenefits, partners } from '@/lib/data/partners-data';
 
 export const metadata: Metadata = {
-  title: 'LOG_ON Partner Ecosystem',
-  description: 'Join the LOG_ON Partner Network. Collaborate with us to deliver innovative AI and automation solutions, drive customer success, and grow your business.',
+  title: 'AI & Automation Partner Ecosystem | LOG_ON',
+  description: 'Join the LOG_ON Partner Network. Collaborate with us to deliver innovative AI agent development and workplace automation solutions, drive customer success, and grow your business.',
 };
 
 export default function PartnersPage() {

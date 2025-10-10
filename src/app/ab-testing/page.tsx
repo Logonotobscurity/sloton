@@ -7,8 +7,8 @@ import { PageHero } from '@/components/page-sections/page-hero';
 import { labValues, submissionProcess, activePilots } from '@/lib/data/ab-testing-data';
 
 export const metadata: Metadata = {
-  title: 'The Ideas Lab | Collaborative A/B Testing & Innovation',
-  description: 'Join our Ideas Lab. We use rigorous A/B testing to validate bold concepts. Explore our active pilots and submit your own product for data-driven analysis.',
+  title: 'A/B Testing & Innovation Lab for Workplace AI | LOG_ON',
+  description: 'Join our Ideas Lab to test workplace AI concepts. Explore active pilots and submit your product for data-driven analysis of automation and AI agent performance.',
 };
 
 export default function ABTestingPage() {

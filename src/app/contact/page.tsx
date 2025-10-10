@@ -10,8 +10,8 @@ import { PageHero } from '@/components/page-sections/page-hero';
 import { contactReasons } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: "Get in touch with the LOG_ON team. Have a project in mind or want to learn more about our automation and IT solutions? We'd love to hear from you.",
+  title: 'Contact LOG_ON | AI Agent Development & Automation in Nigeria',
+  description: "Contact LOG_ON to start your project in AI agent development or workplace automation. Our experts in Nigeria are ready to help you put AI to work. Let's talk.",
 };
 
 export default function ContactPage() {

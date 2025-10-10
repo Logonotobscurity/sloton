@@ -6,6 +6,12 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { Linkedin, Twitter, Github, Mail } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Leadership | LOG_ON AI & Automation Experts',
+  description: 'Meet the expert team behind LOG_ON, driving AI agent development and workplace automation solutions in Nigeria. Our leadership is committed to innovation and client success.',
+};
 
 export default function LeadershipPage() {
     return (
