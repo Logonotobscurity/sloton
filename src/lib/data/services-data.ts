@@ -1,5 +1,5 @@
 
-import { BrainCircuit, Cpu, Eye, Languages, BarChart, CheckCircle, ArrowRight, Zap, Code, MessageSquare, Database, DatabaseZap, ShieldCheck, Cloudy, LineChart, Target, Table, PenTool, ShoppingCart, Building, Users, Briefcase, Lightbulb } from 'lucide-react';
+import { BrainCircuit, Cpu, Eye, Languages, BarChart, CheckCircle, ArrowRight, Zap, Code, MessageSquare, Database, DatabaseZap, ShieldCheck, Cloudy, LineChart, Target, Table, PenTool, ShoppingCart, Building, Users, Briefcase, Lightbulb, Bot } from 'lucide-react';
 
 export const aiServices = [
   {
@@ -142,9 +142,9 @@ export const chatbotServices = [
         description: "Your company's digital presence is essential for telling your story and establishing trust. We build corporate websites that highlight your brand’s history, values, governance, and human resources policies—all while ensuring a seamless online experience. Having helped many brands elevate their profiles, we offer strategic advice on where to invest your digital budget for maximum impact."
     },
     {
-        icon: Users,
-        title: "Job Portals, Forums & Listing Platforms",
-        description: "Web development has evolved far beyond blogs. As seasoned experts, we create complex portals and directory websites tailored to your unique business needs. From job listing platforms with over 100,000 ads aggregated from multiple sources to community forums and company intranets, we use flexible, scalable technology to support your ambitions."
+        icon: Bot,
+        title: "AI Agent Development",
+        description: "We build and deploy autonomous AI agents that can execute complex workflows, interact with users, and integrate with your existing systems to automate tasks, improve decision-making, and create new efficiencies across your business operations."
     }
 ];
 

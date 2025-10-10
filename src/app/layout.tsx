@@ -13,6 +13,7 @@ import { BookDemoWidget } from '@/components/book-demo-widget';
 import { BackToTop } from '@/components/back-to-top';
 import { Abhaya_Libre, Nunito } from 'next/font/google';
 import ErrorBoundary from '@/components/error-boundary';
+import { Faq } from '@/components/faq';
 
 const abhayaLibre = Abhaya_Libre({
   subsets: ['latin'],
@@ -212,7 +213,7 @@ export default function RootLayout({
         />
         <Script id="matomo-analytics" strategy="afterInteractive">
           {`
-            var _paq = window._paq = window._paq = window._paq || [];
+            var _paq = window._paq = window._paq || [];
             /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
             _paq.push(['disableCookies']);
             _paq.push(['trackPageView']);
@@ -247,6 +248,7 @@ export default function RootLayout({
             <main id="main-content">
               <ErrorBoundary>{children}</ErrorBoundary>
             </main>
+            <Faq />
             <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
             <BookDemoWidget />
             <Footer />

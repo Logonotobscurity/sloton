@@ -1,5 +1,4 @@
 import React from 'react';
-import { Faq } from '@/components/faq';
 import { FeaturedInsights } from '@/components/page-sections/featured-insights';
 import { Hero } from '@/components/page-sections/hero';
 import { PartnershipApproach } from '@/components/page-sections/partnership-approach';
@@ -28,7 +27,6 @@ export default function Home() {
       <TechStackCarousel />
       <IdeasLab />
       <FeaturedInsights />
-      <Faq />
       <BottomCta />
     </>
   );
