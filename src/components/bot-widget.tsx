@@ -277,11 +277,11 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                 onClick={() => setChatbotOpen(!isChatbotOpen)}
                 className={cn(
                     "rounded-full h-12 w-12 p-0 shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center",
-                    "md:h-12 md:w-auto md:px-4 md:py-2 md:gap-2"
+                    "md:h-auto md:w-auto md:px-4 md:py-2"
                 )}
                 >
                 {isChatbotOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <MessageCircle className="h-5 w-5 text-primary-foreground" />}
-                <span className="hidden md:inline text-primary-foreground font-semibold">Chat with us</span>
+                <span className="hidden md:inline ml-2 text-primary-foreground font-semibold">Chat with us</span>
                 <span className="sr-only">{isChatbotOpen ? "Close Chatbot" : "Open Chatbot"}</span>
                 </Button>
             </TooltipTrigger>
@@ -295,3 +295,5 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
     </div>
   );
 }
+
+    
