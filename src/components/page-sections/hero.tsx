@@ -43,7 +43,7 @@ export function Hero() {
                     Connecting Advantages. Delivering Results.
                 </motion.p>
                 <motion.h1 variants={itemVariants} className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight my-4">
-                    Do More with Less: <span className="text-primary inline-block h-[1.2em] min-w-[10ch]">
+                    <span className="block sm:inline">Do More with Less: <span className="text-primary inline-block h-[1.2em]">
                            <TypeAnimation
                                 sequence={[
                                     'Smart Automation',
@@ -58,7 +58,8 @@ export function Hero() {
                                 repeat={Infinity}
                                 className="w-full"
                             />
-                    </span> for Growing Businesses.
+                    </span></span>
+                    <span className="block sm:inline"> for Growing Businesses.</span>
                 </motion.h1>
                 <motion.p variants={itemVariants} className="text-md md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                     Stop wasting time on disconnected tools. Get a clear roadmap to integrated systems that save time and drive revenue growth.
@@ -87,3 +88,4 @@ export function Hero() {
     </section>
   );
 }
+
