@@ -6,7 +6,10 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Check } from 'lucide-react';
-import { DesignerCard } from '@/components/shared/designer-card';
+import { InteractiveCard } from '@/components/page-sections/strategic-partner/interactive-card';
+import { Cog } from 'lucide-react';
+import { TaskAutomationForm } from '@/components/task-automation-form';
+
 
 const popularWorkflows = [
     "Automate Lead Conversion & Follow-up",
@@ -17,6 +20,19 @@ const popularWorkflows = [
 ]
 
 export function SmarterAutomation() {
+
+  const designerCardProps = {
+    icon: <Cog className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
+    title: "Intelligent Automation Designer",
+    description: "Describe any workflow in plain English and our AI will design an optimized automation plan, showing you exactly where you'll save time and money.",
+    'aria-label': "Open Intelligent Automation Designer dialog",
+    dialogTitle: "Intelligent Automation Designer",
+    dialogDescription: "Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.",
+    dialogContent: <TaskAutomationForm />,
+    ctaText: "Try It Free"
+  };
+
+
   return (
     <section className="w-full py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -31,7 +47,7 @@ export function SmarterAutomation() {
         </div>
         <div className="grid lg:grid-cols-2 gap-8 items-stretch mt-12">
             
-            <DesignerCard isGlow={true} />
+            <InteractiveCard {...designerCardProps} />
 
             <Card className="bg-secondary/20 p-8 flex flex-col">
                 <CardHeader className="p-0">
