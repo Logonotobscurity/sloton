@@ -19,6 +19,10 @@ const config = {
       },
     },
     extend: {
+       backgroundImage: {
+        "grid-light": "linear-gradient(-90deg, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px)",
+        "grid-dark": "linear-gradient(-90deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
+      },
       fontFamily: {
         headline: ['var(--font-serif)', 'Playfair Display', 'serif'],
         body: ['var(--font-sans)', 'Inter', 'sans-serif'],

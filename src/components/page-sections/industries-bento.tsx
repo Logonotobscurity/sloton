@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { Briefcase, HeartPulse, Truck, ShoppingCart, Building, Cog } from "lucide-react";
 import { GlowingCard } from "../ui/glowing-card";
+import { GridBackground } from "../ui/grid-background";
 
 const FeatureCard = ({
   children,
@@ -16,7 +17,10 @@ const FeatureCard = ({
 }) => {
   return (
     <GlowingCard className={cn(`relative overflow-hidden`, className)}>
-      {children}
+      <GridBackground />
+      <div className="relative z-10 h-full">
+        {children}
+      </div>
     </GlowingCard>
   );
 };
@@ -83,10 +87,6 @@ const features = [
 export function IndustriesBento() {
   return (
     <section className="py-16 md:py-24 bg-background relative overflow-hidden">
-        <div 
-          role="presentation"
-          className="absolute inset-0 -z-10 bg-grid-light dark:bg-grid-dark bg-[size:32px_32px] opacity-20"
-        />
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium font-headline">

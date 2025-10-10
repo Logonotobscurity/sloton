@@ -1,4 +1,3 @@
-
 "use client";
 
 import { cn } from '@/lib/utils'
@@ -8,6 +7,7 @@ import * as React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { GlowingCard } from '../ui/glowing-card';
+import { GridBackground } from '../ui/grid-background';
 
 
 const technologies = [
@@ -33,7 +33,8 @@ export function TechStackCarousel() {
   return (
     <section className="bg-secondary/20 py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
-        <GlowingCard className="p-8 md:p-12">
+        <GlowingCard className="p-8 md:p-12 relative">
+            <GridBackground />
             <div 
                 className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
             >
