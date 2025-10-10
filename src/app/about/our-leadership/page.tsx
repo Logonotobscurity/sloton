@@ -1,4 +1,5 @@
 
+
 import { teamMembers } from "@/lib/data/team-members";
 import { PageHero } from "@/components/page-sections/page-hero";
 import { BottomCta } from "@/components/page-sections/bottom-cta";
@@ -9,7 +10,7 @@ import { Linkedin, Twitter, Github, Mail } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Our Leadership | LOG_ON AI & Automation Experts',
+  title: 'Our Leadership | AI & Automation Experts',
   description: 'Meet the expert team behind LOG_ON, driving AI agent development and workplace automation solutions in Nigeria. Our leadership is committed to innovation and client success.',
 };
 

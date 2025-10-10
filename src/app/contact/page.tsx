@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ContactForm } from '@/components/contact-form';
 import { Mail, Phone, Handshake } from 'lucide-react';
@@ -10,7 +11,7 @@ import { PageHero } from '@/components/page-sections/page-hero';
 import { contactReasons } from '@/lib/data/services-data';
 
 export const metadata: Metadata = {
-  title: 'Contact LOG_ON | AI Agent Development & Automation in Nigeria',
+  title: 'Contact Us | AI Agent Development & Automation in Nigeria',
   description: "Contact LOG_ON to start your project in AI agent development or workplace automation. Our experts in Nigeria are ready to help you put AI to work. Let's talk.",
 };
 

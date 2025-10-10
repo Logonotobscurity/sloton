@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ArrowRight, TestTube } from 'lucide-react';
@@ -7,7 +8,7 @@ import { PageHero } from '@/components/page-sections/page-hero';
 import { labValues, submissionProcess, activePilots } from '@/lib/data/ab-testing-data';
 
 export const metadata: Metadata = {
-  title: 'A/B Testing & Innovation Lab for Workplace AI | LOG_ON',
+  title: 'A/B Testing & Innovation Lab for Workplace AI',
   description: 'Join our Ideas Lab to test workplace AI concepts. Explore active pilots and submit your product for data-driven analysis of automation and AI agent performance.',
 };
 

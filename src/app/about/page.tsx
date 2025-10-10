@@ -1,4 +1,5 @@
 
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
@@ -12,7 +13,7 @@ import { insights } from '@/lib/insights';
 import { stats, trustPillars, researchAreas, analystReports } from '@/lib/data/about-page-data';
 
 export const metadata: Metadata = {
-  title: 'About LOG_ON | AI & Automation Experts in Nigeria',
+  title: 'About Us | AI & Automation Experts in Nigeria',
   description: 'Learn about LOG_ON, your digital architects for workplace automation in Nigeria. We build integrated digital ecosystems where businesses thrive through AI agent development.',
 };
 

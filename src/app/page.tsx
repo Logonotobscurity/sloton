@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import type { Metadata } from 'next';
 import { FeaturedInsights } from '@/components/page-sections/featured-insights';
@@ -15,7 +16,7 @@ import { Statement } from '@/components/page-sections/statement';
 import { StrategicPartner } from '@/components/page-sections/strategic-partner';
 
 export const metadata: Metadata = {
-  title: 'AI Agent Development & Workplace Automation in Nigeria | LOG_ON',
+  title: 'AI Agent Development & Workplace Automation in Nigeria',
   description: 'Specialists in AI agent development and workplace automation in Nigeria. Learn how to put AI agents to work and transform your business with our intelligent automation solutions.',
 };
 

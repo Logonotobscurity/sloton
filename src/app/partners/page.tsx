@@ -1,4 +1,5 @@
 
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ShieldCheck, Handshake } from 'lucide-react';
@@ -11,7 +12,7 @@ import { BottomCta } from '@/components/page-sections/bottom-cta';
 import { partnerBenefits, partners } from '@/lib/data/partners-data';
 
 export const metadata: Metadata = {
-  title: 'AI & Automation Partner Ecosystem | LOG_ON',
+  title: 'AI & Automation Partner Ecosystem',
   description: 'Join the LOG_ON Partner Network. Collaborate with us to deliver innovative AI agent development and workplace automation solutions, drive customer success, and grow your business.',
 };
 

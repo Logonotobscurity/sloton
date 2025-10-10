@@ -1,4 +1,5 @@
 
+
 import { PageHero } from '@/components/page-sections/page-hero';
 import { Lightbulb, Copy } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -13,7 +14,7 @@ import {
   
 export const metadata: Metadata = {
   title: 'Ideas Lab | AI Experiments & Prompt Engineering for Automation',
-  description: 'A space for experimental concepts in workplace AI. See the prompts used to build AI agent development features and automation solutions at LOG_ON.',
+  description: 'A space for experimental concepts in workplace AI. See the prompts used to build AI agent development features and automation solutions.',
 };
 
 const companyReportPrompt = `
