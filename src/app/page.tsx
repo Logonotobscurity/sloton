@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Faq } from '@/components/faq';
 import { FeaturedInsights } from '@/components/page-sections/featured-insights';
