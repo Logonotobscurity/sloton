@@ -276,13 +276,13 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                     aria-controls="bot-panel"
                     onClick={() => setChatbotOpen(!isChatbotOpen)}
                     className={cn(
-                        "rounded-full shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center h-14",
-                        "md:w-auto md:px-4", 
-                        "w-14 p-0 md:py-2" 
+                        "rounded-full shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center h-12 px-4"
                     )}
                     >
-                    {isChatbotOpen ? <X className="h-5 w-5 text-primary-foreground" /> : <MessageCircle className="h-5 w-5 text-primary-foreground" />}
-                    <span className="hidden md:inline ml-2 text-primary-foreground font-semibold">Chat with us</span>
+                    <MessageCircle className="h-5 w-5 text-primary-foreground" />
+                    <span className="ml-2 text-primary-foreground font-semibold">
+                       {isChatbotOpen ? "Close" : "Chat with us"}
+                    </span>
                     <span className="sr-only">{isChatbotOpen ? "Close Chatbot" : "Open Chatbot"}</span>
                 </Button>
             </TooltipTrigger>
