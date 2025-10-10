@@ -3,10 +3,12 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { InteractiveCard } from './strategic-partner/interactive-card';
 import { BrainCircuit, Cog } from 'lucide-react';
+
+import { InteractiveCard } from './strategic-partner/interactive-card';
 import SolutionRecommendationForm from '@/components/solution-recommendation-form';
 import { TaskAutomationForm } from '@/components/task-automation-form';
+
 
 const interactiveCards = [
     {
