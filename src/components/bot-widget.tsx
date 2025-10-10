@@ -276,7 +276,8 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                 aria-controls="bot-panel"
                 onClick={() => setChatbotOpen(!isChatbotOpen)}
                 className={cn(
-                    "rounded-full h-12 w-12 p-0 shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center",
+                    "rounded-full shadow-lg bg-primary hover:bg-primary/90 transition-all duration-300 flex items-center justify-center",
+                    "h-14 w-14 p-0",
                     "md:h-auto md:w-auto md:px-4 md:py-2"
                 )}
                 >
