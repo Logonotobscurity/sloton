@@ -43,7 +43,7 @@ export function Hero() {
                     Connecting Advantages. Delivering Results.
                 </motion.p>
                 <motion.h1 variants={itemVariants} className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight my-4">
-                    Do More with Less: <span className="text-primary">
+                    Do More with Less: <span className="text-primary inline-block min-w-[300px] md:min-w-[550px]">
                         <TypeAnimation
                             sequence={[
                                 'Smart Automation',
