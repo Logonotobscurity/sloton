@@ -1,3 +1,4 @@
+
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
@@ -243,9 +244,9 @@ export default function RootLayout({
           >
             <WebsiteLoader />
             <Header />
-            <ErrorBoundary>
-              <main id="main-content">{children}</main>
-            </ErrorBoundary>
+            <main id="main-content">
+              <ErrorBoundary>{children}</ErrorBoundary>
+            </main>
             <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
             <BookDemoWidget />
             <Footer />
