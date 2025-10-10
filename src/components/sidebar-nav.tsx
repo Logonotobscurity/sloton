@@ -17,28 +17,29 @@ interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
 
 export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   const pathname = usePathname()
-  
-  const getHash = () => {
-    if (typeof window !== "undefined") {
-      return window.location.hash;
-    }
-    return '';
-  }
-  const [activeHash, setActiveHash] = React.useState(getHash());
+  const [activeHash, setActiveHash] = React.useState('');
 
   React.useEffect(() => {
-    const handleHashChange = () => {
-      setActiveHash(window.location.hash);
-    };
-    window.addEventListener('hashchange', handleHashChange);
+    const getHash = () => window.location.hash;
     setActiveHash(getHash());
+
+    const handleHashChange = () => {
+      setActiveHash(getHash());
+    };
+    
+    window.addEventListener('hashchange', handleHashChange, { passive: true });
+    
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
 
   const handleClick = (hash: string) => {
-    setActiveHash(hash);
+    // This is a fallback for smooth scrolling, but useEffect will handle the state
+    const targetElement = document.getElementById(hash.substring(1));
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -51,6 +52,7 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
     >
       {items.map((item) => {
         const itemHash = item.href.split('#')[1] ? `#${item.href.split('#')[1]}` : '';
+        const isActive = activeHash === itemHash;
         return (
           <Link
             key={item.href}
@@ -58,7 +60,7 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
             onClick={() => handleClick(itemHash)}
             className={cn(
               buttonVariants({ variant: "ghost" }),
-              (pathname + activeHash) === item.href
+              isActive
                 ? "bg-muted hover:bg-muted text-primary"
                 : "hover:bg-muted/50 hover:underline",
               "justify-start"
