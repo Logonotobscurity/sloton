@@ -27,6 +27,12 @@ const technologies = [
     { name: 'Tailwind CSS', icon: 'https://img.icons8.com/color/96/tailwind_css.png', dataAiHint: "Tailwind CSS logo", href: "https://tailwindcss.com/" },
     { name: 'OpenAI', icon: 'https://www.vectorlogo.zone/logos/openai/openai-icon.svg', dataAiHint: "OpenAI logo", href: "https://openai.com/" },
     { name: 'Hugging Face', icon: 'https://www.vectorlogo.zone/logos/huggingface/huggingface-icon.svg', dataAiHint: "Hugging Face logo", href: "https://huggingface.co/" },
+    { name: 'Svelte', icon: 'https://astro.build/assets/integrations/svelte.svg', dataAiHint: "Svelte logo", href: "https://svelte.dev/" },
+    { name: 'Preact', icon: 'https://astro.build/assets/integrations/preact.svg', dataAiHint: "Preact logo", href: "https://preactjs.com/" },
+    { name: 'Solid', icon: 'https://astro.build/assets/integrations/solid.svg', dataAiHint: "SolidJS logo", href: "https://www.solidjs.com/" },
+    { name: 'React', icon: 'https://astro.build/assets/integrations/react.svg', dataAiHint: "React logo", href: "https://react.dev/" },
+    { name: 'Vue', icon: 'https://astro.build/assets/integrations/vue.svg', dataAiHint: "Vue.js logo", href: "https://vuejs.org/" },
+    { name: 'Astro', icon: 'https://astro.build/favicon.svg', dataAiHint: "Astro logo", href: "https://astro.build/" }
 ];
 
 export function TechStackCarousel() {

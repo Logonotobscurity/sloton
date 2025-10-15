@@ -247,19 +247,21 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <WebsiteLoader />
-            <Header />
-            <main id="main-content">
-              <ErrorBoundary>{children}</ErrorBoundary>
-            </main>
-            <Suspense fallback={<div></div>}>
-                <Faq />
-            </Suspense>
-            <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
-            <BookDemoWidget />
-            <Footer />
-            <BackToTop />
-            <Toaster />
+            <ErrorBoundary>
+              <WebsiteLoader />
+              <Header />
+              <main id="main-content">
+                {children}
+              </main>
+              <Suspense fallback={<div></div>}>
+                  <Faq />
+              </Suspense>
+              <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
+              <BookDemoWidget />
+              <Footer />
+              <BackToTop />
+              <Toaster />
+            </ErrorBoundary>
           </ThemeProvider>
       </body>
     </html>

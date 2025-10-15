@@ -49,44 +49,48 @@ export function IdeasLab() {
               
                <div className="w-full max-w-md text-center">
                   <h3 className="font-semibold text-lg mb-4">GIGPILOT Assistant</h3>
-                  <Card 
+                  <button 
                     onClick={() => setChatbotOpen(true)}
-                    className="relative w-full cursor-pointer bg-secondary/50 p-4 rounded-xl hover:border-primary transition-colors"
+                    className="w-full text-left"
+                    aria-label="Open GIGPILOT Assistant chatbot"
                   >
-                    <div className="flex items-center gap-4">
-                        <div className="relative h-10 w-10 flex-shrink-0" data-ai-hint={imageData.gigpilotAvatar.dataAiHint}>
-                            <Image
-                                src={imageData.gigpilotAvatar.src}
-                                alt="GIGPILOT Avatar"
-                                sizes="40px"
-                                fill
-                                className="rounded-full object-cover"
-                            />
-                            <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-background" />
-                        </div>
+                    <Card 
+                      className="relative w-full cursor-pointer bg-secondary/50 p-4 rounded-xl hover:border-primary transition-colors"
+                    >
+                      <div className="flex items-center gap-4">
+                          <div className="relative h-10 w-10 flex-shrink-0" data-ai-hint={imageData.gigpilotAvatar.dataAiHint}>
+                              <Image
+                                  src={imageData.gigpilotAvatar.src}
+                                  alt="GIGPILOT Avatar"
+                                  sizes="40px"
+                                  fill
+                                  className="rounded-full object-cover"
+                              />
+                              <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-background" />
+                          </div>
 
-                        <div className="flex-1 min-w-0 text-left">
-                            <div>
-                                <p className="text-sm font-medium">
-                                    Ask About Your Workflow
-                                </p>
-                                <p className="text-[13px] text-muted-foreground mt-0.5">
-                                    Get instant answers about how to automate your specific workflows and save time.
-                                </p>
-                            </div>
-                        </div>
+                          <div className="flex-1 min-w-0 text-left">
+                              <div>
+                                  <p className="text-sm font-medium">
+                                      Ask About Your Workflow
+                                  </p>
+                                  <p className="text-[13px] text-muted-foreground mt-0.5">
+                                      Get instant answers about how to automate your specific workflows and save time.
+                                  </p>
+                              </div>
+                          </div>
 
-                        <div className="flex items-center gap-2">
-                        <Button
-                                size="sm"
-                                className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs h-8"
-                            >
-                                <Check className="h-3.5 w-3.5 mr-1" />
-                                Chat Now
-                            </Button>
-                        </div>
-                    </div>
-                  </Card>
+                          <div className="flex items-center gap-2">
+                          <div
+                                  className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs h-8 px-3 rounded-md flex items-center justify-center"
+                              >
+                                  <Check className="h-3.5 w-3.5 mr-1" />
+                                  Chat Now
+                              </div>
+                          </div>
+                      </div>
+                    </Card>
+                  </button>
               </div>
             </div>
           </div>
