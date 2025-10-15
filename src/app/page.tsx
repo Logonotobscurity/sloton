@@ -13,7 +13,7 @@ const TrainingCTA = lazy(() => import('@/components/page-sections/training-cta')
 const Statement = lazy(() => import('@/components/page-sections/statement').then(module => ({ default: module.Statement })));
 const IndustriesBento = lazy(() => import('@/components/page-sections/industries-bento').then(module => ({ default: module.IndustriesBento })));
 const TechStackCarousel = lazy(() => import('@/components/page-sections/tech-stack-carousel').then(module => ({ default: module.TechStackCarousel })));
-const IdeasLab = lazy(() => import('@/components/page-sections/ideas-lab').then(module => ({ default: module.IdeasLab })));
+const ChatbotEmbed = lazy(() => import('@/components/page-sections/chatbot-embed').then(module => ({ default: module.ChatbotEmbed })));
 const FeaturedInsights = lazy(() => import('@/components/page-sections/featured-insights').then(module => ({ default: module.FeaturedInsights })));
 const BottomCta = lazy(() => import('@/components/page-sections/bottom-cta').then(module => ({ default: module.BottomCta })));
 
@@ -45,8 +45,8 @@ export default function Home() {
         <Statement />
         <IndustriesBento />
         <TechStackCarousel />
-        <IdeasLab />
         <FeaturedInsights />
+        <ChatbotEmbed />
         <BottomCta />
       </Suspense>
     </>
