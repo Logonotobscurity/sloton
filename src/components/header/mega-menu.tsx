@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const ListItem = React.forwardRef<
-  React.ElementRef<typeof Link>,
+  HTMLAnchorElement,
   React.ComponentPropsWithoutRef<typeof Link> & { title: string, shortDescription?: string, description?: string }
 >(({ className, title, shortDescription, description, href, ...props }, ref) => {
   return (

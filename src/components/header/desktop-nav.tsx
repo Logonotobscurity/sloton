@@ -10,6 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   NavigationMenuLink,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { MegaMenu } from "./mega-menu";
 import Link from "next/link";
@@ -67,11 +68,9 @@ export function DesktopNav() {
               </>
             ) : (
               'href' in menu && (
-                <Link href={menu.href} passHref>
-                  <NavigationMenuLink asChild>
-                    <a className="font-semibold text-base bg-transparent px-4 py-2 rounded-md hover:bg-accent transition-colors">
-                      {menu.heading}
-                    </a>
+                 <Link href={menu.href} legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-semibold text-base bg-transparent")}>
+                    {menu.heading}
                   </NavigationMenuLink>
                 </Link>
               )

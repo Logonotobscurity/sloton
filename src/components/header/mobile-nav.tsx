@@ -88,12 +88,13 @@ export const MobileNav = () => {
             <span className="sr-only">Toggle Menu</span>
           </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-full max-w-sm p-0 flex flex-col" asChild>
+      <SheetContent side="left" className="w-full max-w-sm p-0 flex flex-col" aria-label="Mobile navigation menu">
         <motion.div
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="h-full flex flex-col"
         >
             <SheetHeader className="p-4 border-b flex flex-row items-center justify-between">
                 <SheetTitle asChild>
@@ -113,5 +114,3 @@ export const MobileNav = () => {
     </Sheet>
   );
 };
-
-    
