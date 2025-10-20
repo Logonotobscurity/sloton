@@ -67,7 +67,7 @@ export function DesktopNav() {
               </>
             ) : (
               'href' in menu && (
-                <Link href={menu.href} legacyBehavior passHref>
+                <Link href={menu.href}>
                   <NavigationMenuLink className="font-semibold text-base bg-transparent px-4 py-2 rounded-md hover:bg-accent transition-colors">
                     {menu.heading}
                   </NavigationMenuLink>
