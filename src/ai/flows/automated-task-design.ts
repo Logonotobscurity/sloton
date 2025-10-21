@@ -181,8 +181,6 @@ const defaultWorkflow: AutomateTaskDesignOutput = {
 
 
 export async function automateTaskDesign(input: { workflowDescription: string, optimizationSuggestions?: string }): Promise<AutomateTaskDesignOutput> {
-  console.log("Generating automated task design for:", input.workflowDescription);
-
   // This is a mock implementation.
   // In a real application, this would use an AI model to generate the workflow.
   await new Promise(resolve => setTimeout(resolve, 1000));

@@ -96,8 +96,6 @@ const solutionTemplates: { [key: string]: SolutionRecommendationOutput } = {
 };
 
 export async function getSolutionRecommendation(input: { industry: string; challenge: string; goals: string; }): Promise<SolutionRecommendationOutput> {
-  console.log("Generating solution recommendation for:", input);
-
   // This is a mock implementation.
   // In a real application, this would use an AI model to generate the recommendation.
   await new Promise(resolve => setTimeout(resolve, 1000));
