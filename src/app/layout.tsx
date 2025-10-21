@@ -232,7 +232,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body>
+      <body suppressHydrationWarning>
           <noscript>
             <iframe 
               src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
