@@ -16,7 +16,7 @@ import { Abhaya_Libre, Nunito } from 'next/font/google';
 import ErrorBoundary from '@/components/error-boundary';
 import React, { lazy, Suspense } from 'react';
 
-const Faq = lazy(() => import('@/components/faq').then(module => ({ default: module.Faq })));
+const Faq = lazy(() => import('@/components/faq'));
 
 
 const abhayaLibre = Abhaya_Libre({

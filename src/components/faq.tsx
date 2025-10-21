@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -66,7 +65,7 @@ const faqSchema = {
 };
 
 
-export function Faq() {
+export default function Faq() {
 
   const containerVariants = {
     hidden: { opacity: 0 },

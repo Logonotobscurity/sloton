@@ -5,11 +5,68 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BrainCircuit, Cog } from 'lucide-react';
 
-import { InteractiveCard } from './strategic-partner/interactive-card';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Card, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { ArrowRight } from 'lucide-react';
 import SolutionRecommendationForm from '@/components/solution-recommendation-form';
 import { TaskAutomationForm } from '@/components/task-automation-form';
 
 
+const cardVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: (i: number) => ({
+        opacity: 1,
+        scale: 1,
+        transition: {
+            delay: i * 0.2,
+            duration: 0.5
+        }
+    })
+};
+
+const MotionCard = motion(Card);
+
+const InteractiveCard = ({ icon, title, description, dialogTitle, dialogDescription, dialogContent, customIndex, 'aria-label': ariaLabel }: any) => (
+    <Dialog>
+        <DialogTrigger asChild>
+            <motion.div
+                custom={customIndex}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                variants={cardVariants}
+                className="w-full"
+            >
+                <button aria-label={ariaLabel} className="w-full text-left">
+                    <MotionCard className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-background/80 flex flex-col h-full">
+                        <CardHeader className="flex-grow p-6 md:p-8">
+                            <div className="p-3 md:p-4 rounded-full bg-primary/10 mb-4 w-fit">
+                                {icon}
+                            </div>
+                            <CardTitle className="text-xl">{title}</CardTitle>
+                            <CardDescription className="mt-2">
+                                {description}
+                            </CardDescription>
+                        </CardHeader>
+                        <CardFooter className="p-6 md:p-8 pt-0">
+                            <span className="p-0 text-primary group-hover:text-primary/90 flex items-center font-semibold">
+                                Get Your Custom Plan <ArrowRight className="ml-2 h-4 w-4" />
+                            </span>
+                        </CardFooter>
+                    </MotionCard>
+                </button>
+            </motion.div>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
+            <DialogHeader>
+                <DialogTitle className="text-2xl">{dialogTitle}</DialogTitle>
+                <DialogDescription>{dialogDescription}</DialogDescription>
+            </DialogHeader>
+            {dialogContent}
+        </DialogContent>
+    </Dialog>
+);
+    
 const interactiveCards = [
     {
         icon: <BrainCircuit className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
@@ -54,7 +111,7 @@ const StrategicPartnerTextContent = () => (
     </motion.div>
 );
 
-export function StrategicPartner() {
+export default function StrategicPartner() {
     return (
         <section id="strategic-partner" className="py-16 md:py-24 bg-secondary/20 scroll-mt-20">
             <div className="container mx-auto px-4 md:px-6">

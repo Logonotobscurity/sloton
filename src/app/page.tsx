@@ -5,17 +5,16 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/page-sections/hero';
 import { Skeleton } from '@/components/ui/skeleton';
 
-const StrategicPartner = lazy(() => import('@/components/page-sections/strategic-partner').then(module => ({ default: module.StrategicPartner })));
-const ServicesOffered = lazy(() => import('@/components/page-sections/services-offered').then(module => ({ default: module.ServicesOffered })));
-const SmarterAutomation = lazy(() => import('@/components/page-sections/smarter-automation').then(module => ({ default: module.SmarterAutomation })));
-const PartnershipApproach = lazy(() => import('@/components/page-sections/partnership-approach').then(module => ({ default: module.PartnershipApproach })));
-const TrainingCTA = lazy(() => import('@/components/page-sections/training-cta').then(module => ({ default: module.TrainingCTA })));
-const Statement = lazy(() => import('@/components/page-sections/statement').then(module => ({ default: module.Statement })));
-const IndustriesBento = lazy(() => import('@/components/page-sections/industries-bento').then(module => ({ default: module.IndustriesBento })));
-const TechStackCarousel = lazy(() => import('@/components/page-sections/tech-stack-carousel').then(module => ({ default: module.TechStackCarousel })));
-const ChatbotEmbed = lazy(() => import('@/components/page-sections/chatbot-embed').then(module => ({ default: module.ChatbotEmbed })));
-const FeaturedInsights = lazy(() => import('@/components/page-sections/featured-insights').then(module => ({ default: module.FeaturedInsights })));
-const BottomCta = lazy(() => import('@/components/page-sections/bottom-cta').then(module => ({ default: module.BottomCta })));
+const StrategicPartner = lazy(() => import('@/components/page-sections/strategic-partner'));
+const ServicesOffered = lazy(() => import('@/components/page-sections/services-offered'));
+const SmarterAutomation = lazy(() => import('@/components/page-sections/smarter-automation'));
+const PartnershipApproach = lazy(() => import('@/components/page-sections/partnership-approach'));
+const TrainingCTA = lazy(() => import('@/components/page-sections/training-cta'));
+const Statement = lazy(() => import('@/components/page-sections/statement'));
+const IndustriesBento = lazy(() => import('@/components/page-sections/industries-bento'));
+const TechStackCarousel = lazy(() => import('@/components/page-sections/tech-stack-carousel'));
+const FeaturedInsights = lazy(() => import('@/components/page-sections/featured-insights'));
+const BottomCta = lazy(() => import('@/components/page-sections/bottom-cta'));
 
 export const metadata: Metadata = {
   title: 'AI Agent Development & Workplace Automation in Nigeria',
@@ -46,7 +45,6 @@ export default function Home() {
         <IndustriesBento />
         <TechStackCarousel />
         <FeaturedInsights />
-        <ChatbotEmbed />
         <BottomCta />
       </Suspense>
     </>
