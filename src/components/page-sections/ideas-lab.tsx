@@ -23,8 +23,8 @@ export function IdeasLab() {
         </div>
 
         <div className="mt-12 max-w-2xl mx-auto">
-            <Card className="group cursor-pointer transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-background/80">
-                <button onClick={() => setChatbotOpen(true)} className="w-full text-left p-6 md:p-8">
+             <Card className="group transition-all duration-300 hover:border-primary hover:-translate-y-2 bg-background/80">
+                <button onClick={() => setChatbotOpen(true)} className="w-full text-left p-6 md:p-8" aria-label="Activate GIGPILOT Assistant">
                     <CardHeader className="p-0">
                         <div className="flex items-center gap-4">
                             <div className="p-3 md:p-4 rounded-full bg-primary/10 w-fit">
