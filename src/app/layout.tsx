@@ -258,7 +258,6 @@ export default function RootLayout({
               </Suspense>
               <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
               <BookDemoWidget />
-              <Footer />
               <BackToTop />
               <Toaster />
             </ErrorBoundary>
