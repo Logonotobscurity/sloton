@@ -129,7 +129,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                             <CardFooter className="p-0 pt-6">
                                 <div className="flex items-center gap-2">
                                     <Button asChild variant="outline" size="sm" className="rounded-full hover:bg-secondary">
-                                        <Link href={`/automation/${related.slug}`}>
+                                        <Link href={`/automation/${slugify(related.name)}`}>
                                             <Eye className="mr-2 h-4 w-4" /> Preview
                                         </Link>
                                     </Button>
@@ -179,6 +179,6 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
 export async function generateStaticParams() {
   const templates = getTemplates();
   return templates.map((template) => ({
-    slug: template.slug,
+    slug: slugify(template.name),
   }));
 }

@@ -15,6 +15,7 @@ import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, Pagi
 import { cn } from '@/lib/utils';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
 import { categoryStyles, categories } from '@/lib/category-styles';
+import { slugify } from '@/lib/slugify';
 
 
 const ITEMS_PER_PAGE = 8; 
@@ -42,7 +43,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template }) => {
       <CardFooter className="p-0 pt-6">
         <div className="flex items-center gap-2">
             <Button asChild variant="outline" size="sm" className="rounded-full hover:bg-secondary">
-                <Link href={`/automation/${template.slug}`}>
+                <Link href={`/automation/${slugify(template.name)}`}>
                     <Eye className="mr-2 h-4 w-4" /> Preview
                 </Link>
             </Button>
