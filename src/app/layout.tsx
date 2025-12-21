@@ -249,6 +249,7 @@ export default function RootLayout({
                 <main id="main-content">
                   {children}
                 </main>
+                <Footer />
                 <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
                 <BookDemoWidget />
               </ChatbotProvider>
