@@ -6,6 +6,16 @@ import { Check, ChevronRight, Circle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+const MenubarMenu = MenubarPrimitive.Menu
+
+const MenubarGroup = MenubarPrimitive.Group
+
+const MenubarPortal = MenubarPrimitive.Portal
+
+const MenubarSub = MenubarPrimitive.Sub
+
+const MenubarRadioGroup = MenubarPrimitive.RadioGroup
+
 const Menubar = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Root>
@@ -208,19 +218,19 @@ MenubarShortcut.displayName = "MenubarShortcut"
 
 export {
   Menubar,
+  MenubarMenu,
   MenubarTrigger,
   MenubarContent,
   MenubarItem,
   MenubarSeparator,
   MenubarLabel,
   MenubarCheckboxItem,
+  MenubarRadioGroup,
   MenubarRadioItem,
+  MenubarPortal,
   MenubarSubContent,
   MenubarSubTrigger,
+  MenubarGroup,
+  MenubarSub,
   MenubarShortcut,
 }
-export const MenubarMenu = MenubarPrimitive.Menu
-export const MenubarGroup = MenubarPrimitive.Group
-export const MenubarPortal = MenubarPrimitive.Portal
-export const MenubarSub = MenubarPrimitive.Sub
-export const MenubarRadioGroup = MenubarPrimitive.RadioGroup

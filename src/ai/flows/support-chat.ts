@@ -38,6 +38,7 @@ const SupportChatRequestSchema = z.object({
     })).optional(),
     question: z.string(),
 });
+export type SupportChatRequest = z.infer<typeof SupportChatRequestSchema>;
 
 const SupportChatResponseSchema = z.object({
     answer: z.string().describe("The final, concise answer to the user's question."),
@@ -46,11 +47,13 @@ const SupportChatResponseSchema = z.object({
         title: z.string(),
     })).describe("A list of knowledge base articles used to generate the answer."),
 });
+export type SupportChatResponse = z.infer<typeof SupportChatResponseSchema>;
+
 
 const supportChatPrompt = ai.definePrompt({
   name: 'supportChatPrompt',
-  inputSchema: SupportChatRequestSchema,
-  outputSchema: SupportChatResponseSchema,
+  input: { schema: SupportChatRequestSchema },
+  output: { schema: SupportChatResponseSchema },
   tools: [searchKnowledgeBase],
   prompt: `You are a helpful and friendly support assistant for LOG_ON, a technology consulting company specializing in AI and automation.
 
@@ -70,7 +73,7 @@ const supportChatPrompt = ai.definePrompt({
   `,
 });
 
-export const supportChat = ai.defineFlow(
+export const supportChat = ai.defineFlow<SupportChatRequest, SupportChatResponse>(
     {
         name: 'supportChatFlow',
         inputSchema: SupportChatRequestSchema,
