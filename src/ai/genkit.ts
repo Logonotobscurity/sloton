@@ -2,16 +2,13 @@
 /**
  * @fileoverview This file initializes the Genkit AI framework and exports the configured `ai` object.
  */
-import { genkit } from 'genkit';
-import { googleAI } from '@genkit-ai/googleai';
-import { configureGenkit } from 'genkit';
+import { genkit, ai } from '@genkit-ai/ai';
+import { googleAI } from '@genkit-ai/google-genai';
 
-// Initialize Genkit with necessary plugins.
-// The Google AI plugin is used for generative model capabilities.
-export const ai = genkit({
+genkit({
   plugins: [
     googleAI(),
   ],
-  logLevel: 'debug',
-  enableTracingAndMetrics: true,
 });
+
+export { ai };
