@@ -7,7 +7,7 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
+import { z } from 'genkit/zod';
 import { insights } from '@/lib/insights';
 
 const knowledgeBase = insights.map(i => ({
@@ -20,8 +20,8 @@ const searchKnowledgeBase = ai.defineTool(
     {
         name: 'searchKnowledgeBase',
         description: 'Searches the knowledge base for relevant information about AI, automation, business strategy, and technology.',
-        input: { schema: z.object({ query: z.string() }) },
-        output: { schema: z.array(z.object({ title: z.string(), slug: z.string(), content: z.string() })) },
+        inputSchema: z.object({ query: z.string() }),
+        outputSchema: z.array(z.object({ title: z.string(), slug: z.string(), content: z.string() })),
     },
     async (input) => {
         const query = input.query.toLowerCase();
@@ -50,8 +50,8 @@ const SupportChatResponseSchema = z.object({
 
 const supportChatPrompt = ai.definePrompt({
   name: 'supportChatPrompt',
-  input: { schema: SupportChatRequestSchema },
-  output: { schema: SupportChatResponseSchema },
+  inputSchema: SupportChatRequestSchema,
+  outputSchema: SupportChatResponseSchema,
   tools: [searchKnowledgeBase],
   prompt: `You are a helpful and friendly support assistant for LOG_ON, a technology consulting company specializing in AI and automation.
 
