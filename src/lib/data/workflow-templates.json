@@ -576,7 +576,7 @@
     "purpose": "This workflow provides a standardized process for marketing agencies to onboard new clients. A smooth and professional onboarding is crucial for setting the right expectations, building trust, and gathering all the necessary information to kick off a successful engagement. It ensures that every client has a consistent and positive first impression of the agency, which is key to a long and successful partnership.",
     "steps": [
         { "name": "Internal Handoff & Kick-off Prep", "description": "The sales team formally hands off the new client to the account management team with all relevant notes. The account team prepares a kick-off deck and agenda." },
-        { "name": "Client Kick-off Call", "description": "Hold a structured kick-off meeting with the new client to introduce the team, align on goals and KPIs, and define communication protocols and meeting cadences." },
+        { "name": "Client Kick-off Call", "description": "Hold a structured kick-off meeting with the new client to introduce the team, align on goals and KPIs, and define communication protocols." },
         { "name": "Access & Asset Collection", "description": "Securely collect all necessary access credentials (e.g., website CMS, ad accounts, analytics, social media accounts) and brand assets (logos, style guides)." },
         { "name": "Initial 90-Day Strategy & Approval", "description": "Develop the initial 90-day marketing strategy and plan, and present it to the client for feedback and formal approval before beginning execution." }
     ]
