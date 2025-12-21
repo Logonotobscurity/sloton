@@ -12,6 +12,8 @@ import { IndustriesBento } from '@/components/page-sections/industries-bento';
 import { TechStackCarousel } from '@/components/page-sections/tech-stack-carousel';
 import { FeaturedInsights } from '@/components/page-sections/featured-insights';
 import { BottomCta } from '@/components/page-sections/bottom-cta';
+import Faq from '@/components/faq';
+import { IdeasLab } from '@/components/page-sections/ideas-lab';
 
 export const metadata: Metadata = {
   title: 'AI Agent Development & Workplace Automation in Nigeria',
@@ -31,6 +33,8 @@ export default function Home() {
       <IndustriesBento />
       <TechStackCarousel />
       <FeaturedInsights />
+      <Faq />
+      <IdeasLab />
       <BottomCta />
     </>
   );

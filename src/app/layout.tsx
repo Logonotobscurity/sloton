@@ -233,7 +233,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning={true}>
           <noscript>
             <iframe 
               src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
@@ -255,9 +255,6 @@ export default function RootLayout({
                 <main id="main-content">
                   {children}
                 </main>
-                <Suspense fallback={<div></div>}>
-                    <Faq />
-                </Suspense>
                 <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
                 <BookDemoWidget />
               </ChatbotProvider>
