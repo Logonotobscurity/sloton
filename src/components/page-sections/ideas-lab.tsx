@@ -49,13 +49,14 @@ export function IdeasLab() {
             </DialogTrigger>
             <DialogContent className="p-0 border-0 bg-transparent w-full max-w-md h-[70vh] max-h-[700px] shadow-none">
                 <div className="w-full h-full bg-background border rounded-xl shadow-2xl flex flex-col">
-                    <div className="flex items-center justify-between p-2 border-b">
-                        <p className="font-semibold text-sm pl-2">GIGPILOT Assistant</p>
+                    <DialogHeader className="flex flex-row items-center justify-between p-2 border-b">
+                        <DialogTitle className="font-semibold text-sm pl-2">GIGPILOT Assistant</DialogTitle>
+                         <DialogDescription className="sr-only">An interactive AI assistant to help with the gig economy.</DialogDescription>
                         <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setIsChatbotOpen(false)}>
                             <X className="h-4 w-4" />
                             <span className="sr-only">Close Chatbot</span>
                         </Button>
-                    </div>
+                    </DialogHeader>
                     <div className="flex-1 overflow-hidden">
                         <iframe
                             src={gigpilotBotUrl}
