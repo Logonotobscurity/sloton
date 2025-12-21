@@ -48,42 +48,45 @@ export function DesktopNav() {
   return (
     <NavigationMenu>
       <NavigationMenuList className="space-x-2">
-        {menuData.map((menu) => (
-          <NavigationMenuItem key={menu.key} className="relative">
-            {hasItems(menu) ? (
-              <>
-                <NavigationMenuTrigger className="font-semibold text-base bg-transparent">
-                  {menu.heading}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <MegaMenu menuKey={menu.key as 'solutions' | 'resources' | 'company'} />
-                  </motion.div>
-                </NavigationMenuContent>
-              </>
-            ) : (
-              'href' in menu && (
-                 <Link href={menu.href} legacyBehavior passHref>
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-semibold text-base bg-transparent")}>
-                      {menu.heading}
-                    </NavigationMenuLink>
-                  </Link>
-              )
-            )}
-            {activeMenu === menu.key && (
-              <motion.div
-                layoutId="active-nav-underline"
-                className="absolute bottom-[-8px] left-0 right-0 h-0.5 bg-primary"
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              />
-            )}
-          </NavigationMenuItem>
-        ))}
+        {menuData.map((menu) => {
+          if (menu.key === 'contact') return null; // We render this separately via a button
+          return (
+            <NavigationMenuItem key={menu.key} className="relative">
+              {hasItems(menu) ? (
+                <>
+                  <NavigationMenuTrigger className="font-semibold text-base bg-transparent">
+                    {menu.heading}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <MegaMenu menuKey={menu.key as 'solutions' | 'resources' | 'company'} />
+                    </motion.div>
+                  </NavigationMenuContent>
+                </>
+              ) : (
+                'href' in menu && (
+                  <Link href={menu.href} legacyBehavior passHref>
+                      <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-semibold text-base bg-transparent")}>
+                        {menu.heading}
+                      </NavigationMenuLink>
+                    </Link>
+                )
+              )}
+              {activeMenu === menu.key && (
+                <motion.div
+                  layoutId="active-nav-underline"
+                  className="absolute bottom-[-8px] left-0 right-0 h-0.5 bg-primary"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
+            </NavigationMenuItem>
+          );
+        })}
       </NavigationMenuList>
     </NavigationMenu>
   );
