@@ -1,4 +1,5 @@
 import templatesData from '@/lib/data/workflow-templates.json';
+import { slugify } from './slugify';
 
 export interface TemplateStep {
     name: string;
@@ -14,7 +15,11 @@ export interface Template {
   steps?: TemplateStep[];
 }
 
-export const templates: Template[] = templatesData as Template[];
+// Add a slug to each template object dynamically
+export const templates: Template[] = (templatesData as Omit<Template, 'slug'>[]).map(template => ({
+    ...template,
+    slug: slugify(template.name)
+}));
 
 export function getTemplates(): Template[] {
     return templates;

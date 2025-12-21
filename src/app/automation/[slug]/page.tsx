@@ -15,6 +15,7 @@ import { PageHero } from '@/components/page-sections/page-hero';
 import { getTemplates } from '@/lib/workflow-templates';
 import { categoryStyles } from '@/lib/category-styles';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
+import { slugify } from '@/lib/slugify';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const template = getTemplateBySlug(params.slug);
