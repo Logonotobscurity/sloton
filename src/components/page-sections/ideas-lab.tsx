@@ -4,9 +4,8 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/components/ui/card';
-import { ArrowRight, Bot } from 'lucide-react';
+import { ArrowRight, Bot, X } from 'lucide-react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Chatbot } from '../chatbot/Chatbot';
 
 const gigpilotBotUrl = "https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/09/03/00/20250903000320-ROVZPK8F.json";
 
@@ -54,6 +53,7 @@ export function IdeasLab() {
                     <div className="flex items-center justify-between p-2 border-b">
                         <p className="font-semibold text-sm pl-2">GIGPILOT Assistant</p>
                         <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setIsChatbotOpen(false)}>
+                            <X className="h-4 w-4" />
                             <span className="sr-only">Close Chatbot</span>
                         </Button>
                     </div>
