@@ -1,4 +1,3 @@
-
 // -- types --
 export type SitemapItem = {
   title: string;

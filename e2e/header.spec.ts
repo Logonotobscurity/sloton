@@ -1,4 +1,3 @@
-
 import { test, expect } from '@playwright/test';
 
 test.describe('Desktop Header Navigation', () => {
@@ -9,6 +8,7 @@ test.describe('Desktop Header Navigation', () => {
   test('should display the main navigation links and triggers', async ({ page }) => {
     // Check for dropdown triggers in the main navigation menu
     await expect(page.getByRole('button', { name: 'Solutions' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Resources' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Company' })).toBeVisible();
 
     // Check for direct links in the main navigation
