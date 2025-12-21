@@ -68,7 +68,8 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.2",
-    "zustand": "^4.5.4"
+    "zustand": "^4.5.4",
+    "@genkit-ai/google-genai": "^0.5.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.44.1",
