@@ -61,5 +61,3 @@ export const InteractiveCard = ({ icon, title, description, dialogTitle, dialogD
         </DialogContent>
     </Dialog>
 );
-
-    
