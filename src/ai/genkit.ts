@@ -10,9 +10,7 @@ import { configureGenkit } from 'genkit';
 // The Google AI plugin is used for generative model capabilities.
 export const ai = genkit({
   plugins: [
-    googleAI({
-      apiKey: process.env.GOOGLE_AI_API_KEY,
-    }),
+    googleAI(),
   ],
   logLevel: 'debug',
   enableTracingAndMetrics: true,

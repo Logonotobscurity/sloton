@@ -3,8 +3,8 @@
 
 import Link from 'next/link';
 import { Button } from '../ui/button';
-import { ArrowIcon } from '../ui/arrow-icon';
 import { AdinkraBackground } from '../ui/adinkra-background';
+import { ArrowRight } from 'lucide-react';
 
 export function BottomCta() {
   return (
@@ -19,7 +19,7 @@ export function BottomCta() {
         </p>
         <Button asChild variant="default" size="lg" className="group">
           <Link href="/contact">
-            Contact Now <ArrowIcon className="ml-2" />
+            Contact Now <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
       </div>

@@ -9,10 +9,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Send } from 'lucide-react';
+import { Loader2, Send, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { communityLeadAction } from '@/app/actions';
-import { ArrowIcon } from './ui/arrow-icon';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -147,7 +146,7 @@ export function EnrollmentForm({ programName }: { programName?: string }) {
           ) : (
             <>
               Submit Enrollment
-              <ArrowIcon className="ml-2" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </>
           )}
         </Button>

@@ -8,7 +8,6 @@ import { Badge } from "./ui/badge";
 import { Workflow, CheckCircle, Lightbulb, BarChart, ExternalLink, ArrowDown, ArrowRight } from 'lucide-react';
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { ArrowIcon } from "./ui/arrow-icon";
 
 interface VisualWorkflowProps {
   result: AutomateTaskDesignOutput;
@@ -92,7 +91,7 @@ export function VisualWorkflow({ result }: VisualWorkflowProps) {
             <Button asChild className="group mt-6 flex justify-center gap-2 items-center">
                 <Link href="/contact">
                     Start a Project with Us
-                    <ArrowIcon className="ml-2" />
+                    <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
             </Button>
         </div>

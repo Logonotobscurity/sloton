@@ -21,7 +21,7 @@ const cardVariants = {
 
 const MotionCard = motion(Card);
 
-export const InteractiveCard = ({ icon, title, description, dialogTitle, dialogDescription, dialogContent, customIndex, 'aria-label': ariaLabel }: any) => (
+export const InteractiveCard = ({ icon, title, description, dialogTitle, dialogDescription, dialogContent, customIndex, 'aria-label': ariaLabel, ctaText }: any) => (
     <Dialog>
         <DialogTrigger asChild>
             <motion.div
@@ -45,7 +45,7 @@ export const InteractiveCard = ({ icon, title, description, dialogTitle, dialogD
                         </CardHeader>
                         <CardFooter className="p-6 md:p-8 pt-0">
                             <span className="p-0 text-primary group-hover:text-primary/90 flex items-center font-semibold">
-                                Get Your Custom Plan <ArrowRight className="ml-2 h-4 w-4" />
+                                {ctaText || "Get Your Custom Plan"} <ArrowRight className="ml-2 h-4 w-4" />
                             </span>
                         </CardFooter>
                     </MotionCard>
