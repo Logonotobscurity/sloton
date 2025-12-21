@@ -1,19 +1,22 @@
 
 "use client";
 
-import { useState, useRef, useEffect, Fragment } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { X, MessageCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from './ui/tooltip';
-import { useChatbotStore } from '@/hooks/use-chatbot-store';
 import FocusLock from 'react-focus-lock';
+import { ChatbotContext } from '@/context/chatbot-provider';
 
 const botpressUrl = "https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/09/03/00/20250903000320-ROVZPK8F.json";
 
 export function BotWidget({ initialMessage }: { initialMessage: string }) {
-  const { isChatbotOpen, setChatbotOpen } = useChatbotStore();
+  const context = useContext(ChatbotContext);
+  if (!context) {
+    throw new Error('BotWidget must be used within a ChatbotProvider');
+  }
+  const { isChatbotOpen, setChatbotOpen } = context;
   const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {

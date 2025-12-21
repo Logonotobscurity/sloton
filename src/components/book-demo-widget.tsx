@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Button } from '@/components/ui/button';
 import { Calendar } from 'lucide-react';
 import { CommunityLeadForm } from './community-lead-form';
@@ -14,11 +14,17 @@ import {
   DialogDescription,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { useChatbotStore } from '@/hooks/use-chatbot-store';
+import { ChatbotContext } from '@/context/chatbot-provider';
 
 export function BookDemoWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const { isChatbotOpen } = useChatbotStore();
+  const context = useContext(ChatbotContext);
+  
+  if (!context) {
+    throw new Error('BookDemoWidget must be used within a ChatbotProvider');
+  }
+
+  const { isChatbotOpen } = context;
 
   if (isChatbotOpen) {
     return null;

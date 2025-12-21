@@ -15,6 +15,7 @@ import { BackToTop } from '@/components/back-to-top';
 import { Abhaya_Libre, Nunito } from 'next/font/google';
 import ErrorBoundary from '@/components/error-boundary';
 import React, { lazy, Suspense } from 'react';
+import { ChatbotProvider } from '@/context/chatbot-provider';
 
 const Faq = lazy(() => import('@/components/faq'));
 
@@ -232,7 +233,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body>
+      <body suppressHydrationWarning>
           <noscript>
             <iframe 
               src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
@@ -249,15 +250,17 @@ export default function RootLayout({
           >
             <ErrorBoundary>
               <WebsiteLoader />
-              <Header />
-              <main id="main-content">
-                {children}
-              </main>
-              <Suspense fallback={<div></div>}>
-                  <Faq />
-              </Suspense>
-              <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
-              <BookDemoWidget />
+              <ChatbotProvider>
+                <Header />
+                <main id="main-content">
+                  {children}
+                </main>
+                <Suspense fallback={<div></div>}>
+                    <Faq />
+                </Suspense>
+                <BotWidget initialMessage="Hello! How can I help you discover the right LOG_ON solution today?" />
+                <BookDemoWidget />
+              </ChatbotProvider>
               <BackToTop />
               <Toaster />
             </ErrorBoundary>
