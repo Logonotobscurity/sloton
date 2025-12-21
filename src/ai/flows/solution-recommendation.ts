@@ -1,112 +1,87 @@
 
 "use server";
 
-export interface SolutionRecommendationOutput {
-  executiveSummary: {
-    overview: string;
-    primaryOpportunity: string;
-    expectedRoiTimeframe: string;
-  };
-  recommendedSolutionPath: {
-    coreTechnology: {
-      solutionName: string;
-      justification: string;
-    };
-    expectedOutcomes: {
-      metric: string;
-      projectedImprovement: string;
-      timeframe: string;
-    }[];
-  };
-  nextSteps: {
-    actionItem: string;
-    owner: string;
-    deadline: string;
-  }[];
-}
+import { ai } from "@/ai/genkit";
+import { z } from "zod";
 
-const solutionTemplates: { [key: string]: SolutionRecommendationOutput } = {
-  ecommerce: {
-    executiveSummary: {
-      overview: "The primary challenge is high cart abandonment. The proposed solution is an AI-powered cart abandonment recovery system.",
-      primaryOpportunity: "Recoup lost revenue by re-engaging customers who have abandoned their carts.",
-      expectedRoiTimeframe: "3-6 months",
-    },
-    recommendedSolutionPath: {
-      coreTechnology: {
-        solutionName: "AI-Powered Cart Abandonment Recovery",
-        justification: "This solution will use AI to send personalized follow-up emails and offer targeted discounts to customers who have abandoned their carts.",
-      },
-      expectedOutcomes: [
-        { metric: "Cart Abandonment Rate", projectedImprovement: "-15%", timeframe: "3 months" },
-        { metric: "Conversion Rate", projectedImprovement: "+5%", timeframe: "6 months" },
-      ],
-    },
-    nextSteps: [
-      { actionItem: "Integrate the cart abandonment recovery system with your e-commerce platform.", owner: "Development Team", deadline: "2 weeks" },
-      { actionItem: "Configure the follow-up email sequence.", owner: "Marketing Team", deadline: "4 weeks" },
-      { actionItem: "Launch the cart abandonment recovery campaign.", owner: "Marketing Team", deadline: "6 weeks" },
-    ],
+const SolutionRecommendationInputSchema = z.object({
+  industry: z.string().min(3, "Please specify your industry."),
+  challenge: z
+    .string()
+    .min(
+      10,
+      "Please describe your primary challenge in at least 10 characters."
+    ),
+  goals: z
+    .string()
+    .min(10, "Please describe your primary goals in at least 10 characters."),
+});
+export type SolutionRecommendationInput = z.infer<
+  typeof SolutionRecommendationInputSchema
+>;
+
+const SolutionRecommendationOutputSchema = z.object({
+  executiveSummary: z.object({
+    overview: z.string().describe("A 1-2 paragraph executive summary of the proposed solution based on the user's challenge."),
+    primaryOpportunity: z.string().describe("The single biggest opportunity the solution addresses."),
+    expectedRoiTimeframe: z.string().describe("A realistic timeframe for return on investment, e.g., '3-6 months', '1-2 years'."),
+  }),
+  recommendedSolutionPath: z.object({
+    coreTechnology: z.object({
+      solutionName: z.string().describe("A clear, descriptive name for the core recommended technology or solution path."),
+      justification: z.string().describe("Why this specific technology is the best fit for the user's problem."),
+    }),
+    expectedOutcomes: z.array(z.object({
+      metric: z.string().describe("A specific, measurable metric that will be improved, e.g., 'Customer Support Costs', 'Cart Abandonment Rate'."),
+      projectedImprovement: z.string().describe("The projected percentage or value improvement for the metric, e.g., '-25%', '+10%'."),
+      timeframe: z.string().describe("The expected timeframe to see this outcome, e.g., '3 months'."),
+    })).describe("A list of 2-3 specific, measurable outcomes."),
+  }),
+  nextSteps: z.array(z.object({
+    actionItem: z.string().describe("A clear, actionable next step."),
+    owner: z.string().describe("Who is responsible for this action item, e.g., 'Client', 'Development Team', 'Sales Team'."),
+    deadline: z.string().describe("A suggested deadline for the action item, e.g., '1 week', '2 weeks'."),
+  })).describe("A list of 3-4 immediate next steps for the client."),
+});
+
+export type SolutionRecommendationOutput = z.infer<
+  typeof SolutionRecommendationOutputSchema
+>;
+
+const solutionRecommendationPrompt = ai.definePrompt({
+  name: "solutionRecommendationPrompt",
+  input: { schema: SolutionRecommendationInputSchema },
+  output: { schema: SolutionRecommendationOutputSchema },
+  prompt: `You are an expert technology consultant for a company called LOG_ON. Your task is to analyze a potential client's business needs and generate a concise, high-level, and actionable solution recommendation.
+
+The client will provide their industry, a primary business challenge, and their main goals.
+
+Based on this input, generate a structured recommendation that includes:
+1.  **Executive Summary**: A brief overview of the problem and the proposed solution's value.
+2.  **Recommended Solution Path**: The core technology to use and the expected measurable outcomes.
+3.  **Next Steps**: A clear, actionable plan to move forward.
+
+Client Input:
+- Industry: {{{industry}}}
+- Primary Challenge: {{{challenge}}}
+- Goals: {{{goals}}}
+
+Generate a realistic and compelling recommendation that addresses their specific situation. Focus on tangible business value.
+`,
+});
+
+const solutionRecommendationFlow = ai.defineFlow(
+  {
+    name: "solutionRecommendationFlow",
+    inputSchema: SolutionRecommendationInputSchema,
+    outputSchema: SolutionRecommendationOutputSchema,
   },
-  healthcare: {
-    executiveSummary: {
-        overview: "The main issue is the time-consuming and error-prone patient appointment scheduling process. The recommended solution is an AI-powered automated scheduling system.",
-        primaryOpportunity: "Improve operational efficiency, reduce administrative workload, and enhance patient experience.",
-        expectedRoiTimeframe: "6-9 months",
-    },
-    recommendedSolutionPath: {
-        coreTechnology: {
-            solutionName: "AI-Powered Automated Scheduling",
-            justification: "This system will automate the booking, rescheduling, and reminder processes, integrating with existing Electronic Health Records (EHR) to ensure real-time availability and accuracy.",
-        },
-        expectedOutcomes: [
-            { metric: "Scheduling Errors", projectedImprovement: "-90%", timeframe: "3 months" },
-            { metric: "Administrative Time Spent on Scheduling", projectedImprovement: "-40%", timeframe: "6 months" },
-            { metric: "Patient No-show Rate", projectedImprovement: "-25%", timeframe: "9 months" },
-        ],
-    },
-    nextSteps: [
-        { actionItem: "Integrate the AI scheduling tool with the current EHR system.", owner: "IT Department", deadline: "4 weeks" },
-        { actionItem: "Customize and configure the scheduling rules and patient communication templates.", owner: "Administrative Staff", deadline: "6 weeks" },
-        { actionItem: "Train staff on using the new automated system.", owner: "Project Manager", deadline: "8 weeks" },
-        { actionItem: "Launch a pilot program in one department.", owner: "Project Manager", deadline: "10 weeks" },
-    ],
-  },
-  default: {
-    executiveSummary: {
-      overview: "The proposed solution is a custom AI-powered system tailored to your specific needs.",
-      primaryOpportunity: "Address your unique business challenges and achieve your goals.",
-      expectedRoiTimeframe: "6-12 months",
-    },
-    recommendedSolutionPath: {
-      coreTechnology: {
-        solutionName: "Custom AI Solution",
-        justification: "This solution will be designed and built from the ground up to meet your specific requirements.",
-      },
-      expectedOutcomes: [
-        { metric: "Key Performance Indicator", projectedImprovement: "+10%", timeframe: "6 months" },
-      ],
-    },
-    nextSteps: [
-      { actionItem: "Schedule a consultation with one of our AI experts.", owner: "Client", deadline: "1 week" },
-      { actionItem: "Develop a detailed project proposal.", owner: "Sales Team", deadline: "2 weeks" },
-      { actionItem: "Begin the development process.", owner: "Development Team", deadline: "4 weeks" },
-    ],
-  },
-};
-
-export async function getSolutionRecommendation(input: { industry: string; challenge: string; goals: string; }): Promise<SolutionRecommendationOutput> {
-  // This is a mock implementation.
-  // In a real application, this would use an AI model to generate the recommendation.
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  const industry = input.industry.toLowerCase();
-
-  if (industry.includes("ecommerce") || industry.includes("e-commerce")) {
-    return solutionTemplates.ecommerce;
-  } else if (industry.includes("healthcare")) {
-    return solutionTemplates.healthcare;
+  async (input) => {
+    const { output } = await solutionRecommendationPrompt(input);
+    return output!;
   }
+);
 
-  return solutionTemplates.default;
+export async function getSolutionRecommendation(input: SolutionRecommendationInput): Promise<SolutionRecommendationOutput> {
+  return await solutionRecommendationFlow(input);
 }

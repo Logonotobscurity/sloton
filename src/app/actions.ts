@@ -6,7 +6,7 @@ import { Resend } from 'resend';
 import { ContactFormEmail } from '@/emails/contact-form-email';
 import { EnrollmentEmail } from '@/emails/enrollment-email';
 import { automateTaskDesign } from '@/ai/flows/automated-task-design';
-import { getSolutionRecommendation as getSolutionRecommendationFlow } from '@/ai/flows/solution-recommendation';
+import { getSolutionRecommendation } from '@/ai/flows/solution-recommendation';
 import { supportChat } from '@/ai/flows/support-chat';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
@@ -82,16 +82,11 @@ const solutionRecommendationSchema = z.object({
     goals: z.string(),
 });
 
-export async function getSolutionRecommendation(values: z.infer<typeof solutionRecommendationSchema>) {
-    try {
-        const result = await getSolutionRecommendationFlow(values);
-        return {
-            data: result,
-        };
-    } catch (e: any) {
-        console.error('Error in getSolutionRecommendation:', e);
-        return { error: e.message || 'An unknown error occurred.' };
-    }
+export async function getSolutionRecommendationAction(values: z.infer<typeof solutionRecommendationSchema>) {
+    const result = await getSolutionRecommendation(values);
+    return {
+        data: result,
+    };
 }
 
 // Contact Form Action

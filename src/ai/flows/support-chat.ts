@@ -73,7 +73,7 @@ const supportChatPrompt = ai.definePrompt({
   `,
 });
 
-export const supportChat = ai.defineFlow(
+const supportChatFlow = ai.defineFlow(
     {
         name: 'supportChatFlow',
         inputSchema: SupportChatRequestSchema,
@@ -84,3 +84,7 @@ export const supportChat = ai.defineFlow(
         return output!;
     }
 );
+
+export async function supportChat(input: SupportChatRequest): Promise<SupportChatResponse> {
+  return supportChatFlow(input);
+}

@@ -20,7 +20,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { Loader2, RefreshCw, Wand2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { getSolutionRecommendation } from "@/app/actions";
+import { getSolutionRecommendationAction } from "@/app/actions";
 import { SolutionRecommendationOutput } from "@/ai/flows/solution-recommendation";
 import { AssessmentResult } from "./chatbot/assessment-result";
 
@@ -47,7 +47,7 @@ export default function SolutionRecommendationForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     setResult(null);
-    const response = await getSolutionRecommendation(values);
+    const response = await getSolutionRecommendationAction(values);
     setIsLoading(false);
 
     if (response.data) {

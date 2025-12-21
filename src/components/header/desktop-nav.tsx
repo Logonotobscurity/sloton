@@ -68,11 +68,11 @@ export function DesktopNav() {
               </>
             ) : (
               'href' in menu && (
-                 <NavigationMenuLink asChild>
-                    <Link href={menu.href} className={cn(navigationMenuTriggerStyle(), "font-semibold text-base bg-transparent")}>
+                 <Link href={menu.href} legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-semibold text-base bg-transparent")}>
                       {menu.heading}
-                    </Link>
-                  </NavigationMenuLink>
+                    </NavigationMenuLink>
+                  </Link>
               )
             )}
             {activeMenu === menu.key && (
