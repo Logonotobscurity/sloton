@@ -1,5 +1,3 @@
-
-
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
@@ -14,11 +12,7 @@ import { BookDemoWidget } from '@/components/book-demo-widget';
 import { BackToTop } from '@/components/back-to-top';
 import { Abhaya_Libre, Nunito } from 'next/font/google';
 import ErrorBoundary from '@/components/error-boundary';
-import React, { lazy, Suspense } from 'react';
 import { ChatbotProvider } from '@/context/chatbot-provider';
-
-const Faq = lazy(() => import('@/components/faq'));
-
 
 const abhayaLibre = Abhaya_Libre({
   subsets: ['latin'],
