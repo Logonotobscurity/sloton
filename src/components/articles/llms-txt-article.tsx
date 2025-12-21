@@ -76,7 +76,7 @@ const ArticleContent = () => {
             <p className="mb-6">Here’s what a basic structure looks like:</p>
             <pre className="bg-secondary/50 p-4 rounded-md overflow-x-auto"><code># AcmeCorp
     
-    > AcmeCorp builds privacy-first analytics tools for SaaS businesses.
+    &gt; AcmeCorp builds privacy-first analytics tools for SaaS businesses.
     
     ## Docs
     – [Getting Started Guide](https://acmecorp.com/docs/start): Intro for developers
@@ -125,7 +125,7 @@ const ArticleContent = () => {
                     <p>Use a simple Markdown-style format. Include links, short descriptions, and keywords for clarity. Structure the file like this:</p>
                     <pre className="bg-secondary/50 p-4 rounded-md overflow-x-auto text-sm mt-2"><code># Project Name
     
-    > Short summary of your company or purpose.
+    &gt; Short summary of your company or purpose.
     
     ## Section name
     – [Page title](url): 1-sentence summary of what the page offers</code></pre>
@@ -145,8 +145,8 @@ const ArticleContent = () => {
             <h2 className="text-2xl font-bold mt-12 mb-4">How to add LLMs.txt file to WordPress</h2>
             <p className="mb-6">Adding an <code>LLMs.txt</code> file to WordPress is straightforward, especially with the help of plugins. Here’s how you can do it:</p>
             <ol className="list-decimal pl-6 space-y-4 mb-6">
-                <li><strong>Install an LLMs.txt plugin:</strong> Download a plugin such as “LLMs.txt for WP” or “Website LLMs.txt” from the WordPress plugin repository or GitHub. Navigate to your WordPress dashboard and go to Plugins > Add New > Upload Plugin. Upload the plugin ZIP file, then activate it.</li>
-                <li><strong>Configure the plugin settings:</strong> After activation, go to Settings > LLMs.txt Settings in your WordPress admin panel. Select the pages, posts, or custom post types you want to include in the <code>LLMs.txt</code> file. You can also set limits on the number of posts or pages to include.</li>
+                <li><strong>Install an LLMs.txt plugin:</strong> Download a plugin such as “LLMs.txt for WP” or “Website LLMs.txt” from the WordPress plugin repository or GitHub. Navigate to your WordPress dashboard and go to Plugins &gt; Add New &gt; Upload Plugin. Upload the plugin ZIP file, then activate it.</li>
+                <li><strong>Configure the plugin settings:</strong> After activation, go to Settings &gt; LLMs.txt Settings in your WordPress admin panel. Select the pages, posts, or custom post types you want to include in the <code>LLMs.txt</code> file. You can also set limits on the number of posts or pages to include.</li>
                 <li><strong>Generate and access the file:</strong> The plugin will automatically generate the <code>LLMs.txt</code> file and place it in your site’s root directory (e.g., https://yourwebsite.com/llms.txt). Visit this URL to confirm that the file is correctly formatted and accessible by AI crawlers.</li>
                 <li><strong>Optional: enable markdown support:</strong> Some plugins allow you to enable Markdown versions of your posts by appending <code>.md</code> to URLs (e.g., https://yourwebsite.com/your-post.md).</li>
             </ol>

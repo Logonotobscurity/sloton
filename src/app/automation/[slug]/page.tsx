@@ -16,11 +16,7 @@ import { getTemplates } from '@/lib/workflow-templates';
 import { categoryStyles } from '@/lib/category-styles';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
 
-type Props = {
-  params: { slug: string }
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const template = getTemplateBySlug(params.slug);
   if (!template) {
     return { title: 'Template Not Found' };
