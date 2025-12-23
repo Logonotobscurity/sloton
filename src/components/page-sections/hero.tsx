@@ -46,9 +46,9 @@ export function Hero() {
             variants={itemVariants}
             className="font-headline text-fluid-xl font-bold !leading-tight my-4"
           >
-            Do More with Less:
-            <span className="block h-[1.2em] text-fluid-lg">
-              <span className="text-primary whitespace-nowrap">
+           <div className="flex flex-col items-center">
+              <span>Do More with Less:</span>
+              <span className="text-primary whitespace-nowrap text-fluid-lg">
                 <TypeAnimation
                   sequence={[
                     'Smart Automation',
@@ -63,8 +63,9 @@ export function Hero() {
                   repeat={Infinity}
                 />
               </span>
-            </span>
-            <span className="whitespace-nowrap">for Growing Businesses.</span>
+              <br className="md:hidden" />
+              <span className="whitespace-nowrap">for Growing Businesses.</span>
+            </div>
           </motion.h1>
           
           <motion.div
