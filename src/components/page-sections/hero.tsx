@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -63,7 +64,7 @@ export function Hero() {
                 />
               </span>
             </span>
-            <span className="block sm:inline">for Growing Businesses.</span>
+            <span className="block sm:inline"><span className="whitespace-nowrap">for Growing Businesses.</span></span>
           </motion.h1>
           <motion.div
             variants={itemVariants}
