@@ -38,19 +38,19 @@ export function Header() {
              <Link href="/">
                 <Logo />
             </Link>
-            <div className="hidden lg:flex">
+            <div className="hidden md:flex">
               <DesktopNav />
             </div>
           </div>
           
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
              <Button asChild>
                 <Link href="/contact">Contact Us</Link>
             </Button>
             <ThemeToggle />
           </div>
 
-          <div className="flex items-center justify-end lg:hidden">
+          <div className="flex items-center justify-end md:hidden">
             <MobileNav />
           </div>
         </div>
