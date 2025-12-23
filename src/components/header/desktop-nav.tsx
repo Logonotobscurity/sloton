@@ -49,7 +49,6 @@ export function DesktopNav() {
     <NavigationMenu>
       <NavigationMenuList className="space-x-2">
         {menuData.map((menu) => {
-          if (menu.key === 'contact') return null; // We render this separately via a button
           return (
             <NavigationMenuItem key={menu.key} className="relative">
               {hasItems(menu) ? (
@@ -70,13 +69,11 @@ export function DesktopNav() {
                 </>
               ) : (
                 'href' in menu && (
-                  <Link href={menu.href} legacyBehavior={false} passHref>
-                    <NavigationMenuLink asChild>
-                      <a className={cn(navigationMenuTriggerStyle(), "font-semibold text-base bg-transparent")}>
-                        {menu.heading}
-                      </a>
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink asChild>
+                    <Link href={menu.href} className={cn(navigationMenuTriggerStyle(), "font-semibold text-base bg-transparent")}>
+                      {menu.heading}
+                    </Link>
+                  </NavigationMenuLink>
                 )
               )}
               {activeMenu === menu.key && (
