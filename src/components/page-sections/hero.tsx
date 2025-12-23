@@ -48,7 +48,7 @@ export function Hero() {
           >
            <div className="flex flex-col items-center">
               <span>Do More with Less:</span>
-              <span className="text-primary whitespace-nowrap text-fluid-lg">
+              <span className="text-primary md:whitespace-nowrap text-fluid-lg">
                 <TypeAnimation
                   sequence={[
                     'Smart Automation',
@@ -64,7 +64,7 @@ export function Hero() {
                 />
               </span>
               <br className="md:hidden" />
-              <span className="whitespace-nowrap">for Growing Businesses.</span>
+              <span className="md:whitespace-nowrap">for Growing Businesses.</span>
             </div>
           </motion.h1>
           
