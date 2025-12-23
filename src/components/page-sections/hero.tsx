@@ -44,7 +44,7 @@ export function Hero() {
           </motion.div>
           <motion.h1
             variants={itemVariants}
-            className="font-headline text-fluid-xl font-bold !leading-tight my-4"
+            className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-bold !leading-tight my-4"
           >
             Do More with Less:
             <span className="block h-[1.2em]">
@@ -66,6 +66,12 @@ export function Hero() {
             </span>
             <span className="whitespace-nowrap">for Growing Businesses.</span>
           </motion.h1>
+          <motion.p
+            variants={itemVariants}
+            className="text-fluid-base max-w-2xl my-4 mx-auto text-muted-foreground text-center font-normal"
+          >
+            Stop wasting time on disconnected tools. Get a clear roadmap to integrated systems that save time and drive revenue growth.
+          </motion.p>
           <motion.div
             variants={itemVariants}
             className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"

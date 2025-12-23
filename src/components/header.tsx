@@ -31,10 +31,10 @@ export function Header() {
         isScrolled ? "bg-background/80 backdrop-blur-lg shadow-lg" : ""
       )}>
         <div className={cn(
-          "container mx-auto flex items-center justify-between transition-all duration-300 ease-in-out",
-           isScrolled ? "h-16" : "h-24"
+          "container mx-auto flex items-center justify-between transition-all duration-300 ease-in-out px-fluid-sm",
+           isScrolled ? "h-16" : "h-20 md:h-24"
         )}>
-          <div className="flex flex-1 items-center gap-4">
+          <div className="flex flex-1 items-center gap-2 md:gap-4">
              <Link href="/">
                 <Logo />
             </Link>
