@@ -13,18 +13,18 @@ interface PageHeroProps {
 
 export function PageHero({ title, description, icon, children }: PageHeroProps) {
   return (
-    <div className="relative py-16 md:py-24 text-center bg-background overflow-hidden">
+    <div className="relative py-fluid-md text-center bg-background overflow-hidden">
         <AdinkraBackground />
-        <div className="container px-4 md:px-6 relative z-20 animate-[fade-in_1s_ease-in-out]">
+        <div className="container px-fluid-sm relative z-20 animate-[fade-in_1s_ease-in-out]">
             {icon && <div className="mb-4 flex justify-center">{icon}</div>}
             <div className="max-w-3xl mx-auto">
                 <h1
-                    className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight font-headline mb-6"
+                    className="text-fluid-lg font-bold leading-tight tracking-tight font-headline mb-6"
                 >
                     {title}
                 </h1>
                 <p
-                    className="text-lg md:text-xl text-muted-foreground leading-relaxed"
+                    className="text-fluid-base text-muted-foreground leading-relaxed"
                 >
                     {description}
                 </p>

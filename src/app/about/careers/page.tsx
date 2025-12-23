@@ -18,9 +18,9 @@ export default function CareersPage() {
             title="Join Our Team"
             description="We're looking for passionate, innovative thinkers to join us on our mission to redefine business efficiency. At LOG_ON, you'll work on challenging projects that have a real impact, collaborate with a team of experts, and have opportunities for continuous growth."
         />
-        <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-12 md:space-y-24">
+        <div className="container mx-auto px-fluid-sm py-fluid-lg space-y-fluid-md">
             <section>
-                <h2 className="text-2xl md:text-3xl font-bold font-headline mb-8 text-center">Why Work With Us?</h2>
+                <h2 className="text-fluid-md font-bold font-headline mb-8 text-center">Why Work With Us?</h2>
                 <div className="grid md:grid-cols-3 gap-8">
                     <Card className="text-center p-4">
                         <CardHeader>
@@ -53,7 +53,7 @@ export default function CareersPage() {
             </section>
 
             <section>
-                <h2 className="text-2xl md:text-3xl font-bold font-headline mb-4 text-center">Our Benefits</h2>
+                <h2 className="text-fluid-md font-bold font-headline mb-4 text-center">Our Benefits</h2>
                 <div className="p-6 md:p-8 bg-secondary/50 rounded-lg">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                     {benefits.map(benefit => (
@@ -67,7 +67,7 @@ export default function CareersPage() {
             </section>
 
             <section>
-                <h2 className="text-2xl md:text-3xl font-bold font-headline mb-8 text-center">Open Positions</h2>
+                <h2 className="text-fluid-md font-bold font-headline mb-8 text-center">Open Positions</h2>
                 <p className="text-muted-foreground mb-8 text-center max-w-3xl mx-auto">We are actively hiring for key roles across Engineering, Product, Sales, and Marketing. Each position is critical to our mission of driving growth and innovation. Find your place in our journey below.</p>
                 <div className="space-y-4">
                     {openPositions.map(pos => (

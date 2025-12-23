@@ -20,16 +20,16 @@ export default function ABTestingPage() {
         description="We're a relentless idea engine. We test our own bold concepts, and now we're opening our doors to test yours. Explore our active pilots and submit your product for rigorous, data-driven validation."
         icon={<TestTube className="h-12 w-12 md:h-16 md:w-16 text-primary" />}
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-16 md:space-y-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg space-y-fluid-lg">
         
         <section>
             <div className="text-center max-w-3xl mx-auto mb-12">
-                <h2 className="text-2xl md:text-4xl font-bold font-headline">The Ideas Lab Manifesto</h2>
-                <p className="mt-4 text-md md:text-lg text-muted-foreground">
+                <h2 className="text-fluid-md font-bold font-headline">The Ideas Lab Manifesto</h2>
+                <p className="mt-4 text-fluid-sm text-muted-foreground">
                     We connect technological dots to build robust, innovative solutions. The Lab is where we pressure-test these ideas before they become full-scale solutions, guided by three core values.
                 </p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-fluid-sm">
                 {labValues.map(value => (
                     <Card key={value.title} className="text-center p-6 bg-secondary/30">
                         <div className="flex justify-center mb-4"><value.icon className="h-8 w-8 text-primary" /></div>
@@ -42,12 +42,12 @@ export default function ABTestingPage() {
             </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-secondary/50 -mx-4 px-4 sm:-mx-6 md:-mx-8 sm:px-6 md:px-8 sm:rounded-2xl">
+        <section className="py-fluid-md bg-secondary/50 -mx-fluid-sm px-fluid-sm sm:rounded-2xl">
             <div className="container mx-auto">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl md:text-4xl font-bold font-headline">Have a Product or Idea We Should Test?</h2>
-                        <p className="text-md md:text-lg text-muted-foreground">
+                        <h2 className="text-fluid-md font-bold font-headline">Have a Product or Idea We Should Test?</h2>
+                        <p className="text-fluid-sm text-muted-foreground">
                             Our lab is open for collaboration. We invite brands, startups, and creators to submit their products, websites, or campaigns for data-driven validation.
                         </p>
                          <Button asChild size="lg">
@@ -72,8 +72,8 @@ export default function ABTestingPage() {
         
         <section>
             <div className="text-center max-w-3xl mx-auto mb-12">
-                <h2 className="text-2xl md:text-4xl font-bold font-headline">Live from the Lab: Our Active Pilot Tests</h2>
-                <p className="mt-4 text-md md:text-lg text-muted-foreground">
+                <h2 className="text-fluid-md font-bold font-headline">Live from the Lab: Our Active Pilot Tests</h2>
+                <p className="mt-4 text-fluid-sm text-muted-foreground">
                     Transparency is key to innovation. Here’s a live look at the experiments currently running in the Ideas Lab and the hypotheses we're validating.
                 </p>
             </div>
@@ -104,9 +104,9 @@ export default function ABTestingPage() {
             </div>
         </section>
 
-         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-6">
-            <h2 className="text-2xl md:text-4xl font-bold font-headline">The Science Behind the Lab</h2>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto">
+         <section className="text-center mt-fluid-md py-fluid-sm bg-background rounded-lg px-6">
+            <h2 className="text-fluid-md font-bold font-headline">The Science Behind the Lab</h2>
+            <p className="mt-4 text-fluid-sm text-muted-foreground max-w-2xl mx-auto">
                 Our Ideas Lab is powered by a robust A/B testing methodology. This is the engine that allows us to move from hypothesis to data-proven insight, reducing the risk of launching new features and getting undeniable proof of what resonates with your audience.
             </p>
             <div className="mt-8 flex justify-center">

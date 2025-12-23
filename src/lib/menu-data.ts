@@ -39,7 +39,7 @@ export type SectionLinkOnly = {
 // Union of all possible section shapes.
 export type SitemapSection = SectionWithItems | SectionWithCta | SectionLinkOnly;
 
-export type MenuKey = 'solutions' | 'resources' | 'partners' | 'company' | 'contact' | 'fluid';
+export type MenuKey = 'solutions' | 'resources' | 'partners' | 'company' | 'contact';
 
 // -- data (example) --
 export const menuData: SitemapSection[] = [
@@ -101,9 +101,9 @@ export const menuData: SitemapSection[] = [
     ]
   },
   {
-      "key": "fluid",
-      "heading": "Fluid",
-      "href": "/fluid"
+      "key": "partners",
+      "heading": "Partners",
+      "href": "/partners"
   },
   {
     "key": "company",
@@ -116,5 +116,10 @@ export const menuData: SitemapSection[] = [
       {"title": "Partners", "description": "Collaborate with us to deliver innovative solutions.", "shortDescription": "Collaborate with us to deliver innovative solutions.", "href": "/partners"},
       {"title": "Contact", "description": "Get in touch with our team to start a project.", "shortDescription": "Get in touch with our team.", "href": "/contact"}
     ]
+  },
+  {
+      "key": "contact",
+      "heading": "Contact Us",
+      "href": "/contact"
   }
 ];
