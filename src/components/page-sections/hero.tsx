@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -66,12 +65,6 @@ export function Hero() {
             </span>
             <span className="block sm:inline">for Growing Businesses.</span>
           </motion.h1>
-          <motion.p
-            variants={itemVariants}
-            className="text-fluid-base text-muted-foreground leading-relaxed max-w-2xl mx-auto"
-          >
-            Stop wasting time on disconnected tools. Get a clear roadmap to integrated systems that save time and drive revenue growth.
-          </motion.p>
           <motion.div
             variants={itemVariants}
             className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
