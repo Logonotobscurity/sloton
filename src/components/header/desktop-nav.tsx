@@ -47,7 +47,7 @@ export function DesktopNav() {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList className="space-x-2">
+      <NavigationMenuList>
         {menuData.map((menu) => {
           return (
             <NavigationMenuItem key={menu.key} className="relative">
@@ -69,11 +69,11 @@ export function DesktopNav() {
                 </>
               ) : (
                 'href' in menu && (
-                  <NavigationMenuLink asChild>
-                    <Link href={menu.href} className={cn(navigationMenuTriggerStyle(), "font-semibold text-base bg-transparent")}>
-                      {menu.heading}
-                    </Link>
-                  </NavigationMenuLink>
+                   <NavigationMenuLink asChild>
+                      <Link href={menu.href} className={cn(navigationMenuTriggerStyle(), "font-semibold text-base bg-transparent")}>
+                        {menu.heading}
+                      </Link>
+                    </NavigationMenuLink>
                 )
               )}
               {activeMenu === menu.key && (

@@ -47,7 +47,7 @@ export function Hero() {
             className="font-headline text-fluid-xl font-bold !leading-tight my-4"
           >
             Do More with Less:
-            <span className="block h-[2.4em] md:h-[1.2em]">
+            <span className="block h-[1.2em]">
               <span className="text-primary whitespace-nowrap">
                 <TypeAnimation
                   sequence={[
@@ -64,7 +64,7 @@ export function Hero() {
                 />
               </span>
             </span>
-            <span className="block sm:inline"><span className="whitespace-nowrap">for Growing Businesses.</span></span>
+            <span className="whitespace-nowrap">for Growing Businesses.</span>
           </motion.h1>
           <motion.div
             variants={itemVariants}
@@ -93,4 +93,3 @@ export function Hero() {
     </section>
   );
 }
-

@@ -34,7 +34,7 @@ export function Header() {
           "container mx-auto flex items-center justify-between transition-all duration-300 ease-in-out",
            isScrolled ? "h-16" : "h-24"
         )}>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-1 items-center gap-4">
              <Link href="/">
                 <Logo />
             </Link>
