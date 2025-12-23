@@ -48,7 +48,7 @@ export function Hero() {
           >
             Do More with Less:
             <span className="block h-[2.4em] md:h-[1.2em]">
-              <span className="text-primary">
+              <span className="text-primary whitespace-nowrap">
                 <TypeAnimation
                   sequence={[
                     'Smart Automation',
