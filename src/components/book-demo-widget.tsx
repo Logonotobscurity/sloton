@@ -39,6 +39,7 @@ export function BookDemoWidget() {
               'rounded-full h-14 w-14 p-0 shadow-lg bg-primary hover:bg-primary/90 transition-transform duration-300 flex items-center justify-center',
               'md:h-auto md:w-auto md:px-6 md:py-3'
             )}
+            aria-label="Book a Demo"
           >
             <Calendar className="h-6 w-6 text-primary-foreground" />
             <span className="hidden md:inline ml-2 font-semibold">Book a Demo</span>

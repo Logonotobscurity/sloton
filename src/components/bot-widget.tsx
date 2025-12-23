@@ -85,9 +85,8 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                         <TooltipProvider delayDuration={100}>
                             <Tooltip>
                                 <TooltipTrigger asChild>
-                                    <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setChatbotOpen(false)}>
+                                    <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setChatbotOpen(false)} aria-label="Close Chatbot">
                                         <X className="h-4 w-4" />
-                                        <span className="sr-only">Close Chatbot</span>
                                     </Button>
                                 </TooltipTrigger>
                                 <TooltipContent>
@@ -158,10 +157,10 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                                 placeholder="Ask a question..."
                                 className="flex-1"
                                 disabled={isLoading}
+                                aria-label="Ask the support assistant a question"
                             />
-                            <Button type="submit" size="icon" disabled={isLoading || !input.trim()}>
+                            <Button type="submit" size="icon" disabled={isLoading || !input.trim()} aria-label="Send message">
                                 <Send className="h-4 w-4" />
-                                <span className="sr-only">Send</span>
                             </Button>
                         </form>
                     </div>
@@ -183,7 +182,6 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                             <span className="ml-2 text-primary-foreground font-semibold">
                                 {isChatbotOpen ? "Close" : "Chat with us"}
                             </span>
-                            <span className="sr-only">{isChatbotOpen ? "Close Chatbot" : "Open Chatbot"}</span>
                         </Button>
                     </TooltipTrigger>
                     <TooltipContent side="top" align="center" className="mb-2">

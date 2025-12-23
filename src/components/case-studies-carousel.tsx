@@ -36,6 +36,7 @@ export function CaseStudiesCarousel({ studies }: CaseStudiesCarouselProps) {
         }),
       ]}
       className="w-full"
+      aria-label="Case Studies Carousel"
     >
       <CarouselContent>
         {caseStudies.map((study, index) => (

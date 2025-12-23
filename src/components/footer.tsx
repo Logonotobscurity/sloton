@@ -29,7 +29,7 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 py-16 md:py-24">
           
           <div className="lg:col-span-5 space-y-6 text-center lg:text-left">
-            <Link href="/" className="inline-block" prefetch={false}>
+            <Link href="/" className="inline-block" prefetch={false} aria-label="LOG_ON Homepage">
                 <div className="flex flex-col items-center lg:items-start">
                   <span className="font-bold text-3xl tracking-tighter text-primary leading-tight">LOG_ON</span>
                   <span className="text-sm text-muted-foreground -mt-1">Connecting Advantages...</span>

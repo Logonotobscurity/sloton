@@ -83,9 +83,8 @@ export const MobileNav = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open navigation menu" aria-expanded={isOpen}>
+          <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open navigation menu" aria-expanded={isOpen}>
             <Menu className="h-6 w-6" />
-            <span className="sr-only">Toggle Menu</span>
           </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-full max-w-sm p-0 flex flex-col" aria-label="Mobile navigation menu">
@@ -98,7 +97,7 @@ export const MobileNav = () => {
         >
             <SheetHeader className="p-4 border-b flex flex-row items-center justify-between">
                 <SheetTitle asChild>
-                    <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsOpen(false)}>
+                    <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsOpen(false)} aria-label="LOG_ON Homepage">
                     <Logo />
                     </Link>
                 </SheetTitle>
