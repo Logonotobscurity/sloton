@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import React from 'react';
+import Link from "next/link";
 
 const BentoGrid = ({
   children,
@@ -70,10 +71,10 @@ const BentoCard = ({
       )}
     >
       <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
-        <a href={href}>
+        <Link href={href}>
           {cta}
           <ArrowRight className="ml-2 h-4 w-4" />
-        </a>
+        </Link>
       </Button>
     </div>
     <div className="pointer-events-none absolute inset-0 transition-all duration-300 group-hover:bg-background/20" />

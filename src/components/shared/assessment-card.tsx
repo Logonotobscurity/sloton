@@ -45,9 +45,9 @@ export function AssessmentCard({ customIndex = 0 }: { customIndex?: number }) {
                         </CardDescription>
                     </CardHeader>
                     <CardFooter className="p-6 md:p-8 pt-0">
-                        <Button variant="ghost" className="p-0 text-primary group-hover:text-primary/90">
+                        <span className="p-0 text-primary group-hover:text-primary/90 flex items-center font-semibold">
                             Get Your Custom Plan <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                        </span>
                     </CardFooter>
                 </MotionCard>
                 </motion.div>

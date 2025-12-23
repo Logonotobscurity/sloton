@@ -88,7 +88,7 @@ export function VisualWorkflow({ result }: VisualWorkflowProps) {
             <p className="mt-2 text-muted-foreground max-w-xl mx-auto">
                 Our team of experts can help you build, integrate, and manage this workflow to ensure it runs seamlessly within your business operations.
             </p>
-            <Button asChild className="group mt-6 flex justify-center gap-2 items-center">
+            <Button asChild className="group mt-6">
                 <Link href="/contact">
                     Start a Project with Us
                     <ArrowRight className="ml-2 h-4 w-4" />

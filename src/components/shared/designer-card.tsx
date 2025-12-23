@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -34,9 +35,9 @@ export function DesignerCard({ customIndex = 0, isGlow = false }: { customIndex?
           Describe any workflow in plain English and our AI will design an optimized automation plan, showing you exactly where you'll save time and money.
       </CardDescription>
       <div className="pt-4 mt-auto">
-        <Button variant="ghost" className="p-0 text-primary group-hover:text-primary/90">
+        <span className="p-0 text-primary group-hover:text-primary/90 flex items-center font-semibold">
             Try It Free <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
+        </span>
       </div>
     </div>
   );
