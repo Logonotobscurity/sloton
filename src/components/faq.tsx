@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -78,16 +79,16 @@ export default function Faq() {
   };
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-secondary/20">
+    <section id="faq" className="py-fluid-lg bg-secondary/20">
       <Script
         id="faq-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-fluid-sm">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline">Frequently Asked Questions</h2>
-          <p className="mt-4 text-md md:text-lg text-muted-foreground">
+          <h2 className="text-fluid-lg font-bold font-headline">Frequently Asked Questions</h2>
+          <p className="mt-4 text-fluid-base text-muted-foreground">
             Have questions? We have answers. Here are some of the most common inquiries we receive from prospective partners.
           </p>
         </div>

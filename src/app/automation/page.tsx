@@ -22,13 +22,13 @@ export default async function AutomationPage({
         title="Intelligent Automation Task Designer"
         description="Describe a workflow to generate a configured, optimized task design, complete with AI suggestions. Go from idea to a fully-structured automation plan in seconds."
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
         
         <div className="mt-8 md:mt-12 max-w-4xl mx-auto">
             <TaskAutomationForm initialValues={{ workflowDescription: workflow }} />
         </div>
 
-        <div className="mt-16 md:mt-24">
+        <div className="mt-fluid-lg">
           <WorkflowTemplateLibrary />
         </div>
 

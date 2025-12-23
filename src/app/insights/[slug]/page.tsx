@@ -85,7 +85,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
         <div className="max-w-4xl mx-auto">
           <Link href="/insights" className="text-primary hover:underline flex items-center gap-2 mb-8">
             <ArrowLeft className="h-4 w-4" />
@@ -99,7 +99,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
                   <Badge key={tag} variant="outline" className="border-primary text-primary">{tag}</Badge>
                 ))}
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold mb-4">{insight.title}</h1>
+              <h1 className="text-fluid-lg font-bold mb-4">{insight.title}</h1>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-muted-foreground">
                  <div className="flex items-center gap-4">
                     <span>By {insight.author}</span>

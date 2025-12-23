@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, TrendingUp, FileText, Calendar } from 'lucide-react';
@@ -18,7 +19,7 @@ export default function InvestorsPage() {
             title="Investor Relations"
             description="We are committed to driving long-term shareholder value through innovation, disciplined execution, and transparent communication. Here you will find key resources for our investor community."
         />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-12">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg space-y-12">
         <section>
             <Card className="bg-secondary/50">
                 <CardHeader>
@@ -32,7 +33,7 @@ export default function InvestorsPage() {
         </section>
 
         <section>
-            <h2 className="text-2xl md:text-3xl font-bold font-headline mb-4">Financial Reports</h2>
+            <h2 className="text-fluid-lg font-bold font-headline mb-4">Financial Reports</h2>
             <div className="grid md:grid-cols-2 gap-6">
                 {reports.map(report => (
                     <Card key={report.title} className="hover:border-primary transition-colors">
@@ -47,7 +48,7 @@ export default function InvestorsPage() {
         </section>
         
         <section>
-            <h2 className="text-2xl md:text-3xl font-bold font-headline mb-4">Upcoming Events</h2>
+            <h2 className="text-fluid-lg font-bold font-headline mb-4">Upcoming Events</h2>
             <div className="grid md:grid-cols-2 gap-6">
                 {events.map(event => (
                     <Card key={event.title}>

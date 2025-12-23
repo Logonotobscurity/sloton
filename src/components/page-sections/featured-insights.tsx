@@ -73,11 +73,11 @@ export function FeaturedInsights() {
   );
 
   return (
-    <section className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-fluid-lg bg-background">
+      <div className="container mx-auto px-fluid-sm">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline">Practical Business Intelligence</h2>
-          <p className="mt-4 text-md md:text-lg text-muted-foreground">
+          <h2 className="text-fluid-lg font-bold font-headline">Practical Business Intelligence</h2>
+          <p className="mt-4 text-fluid-base text-muted-foreground">
             Actionable advice on AI, automation, and growth strategies that actually work for real businesses.
           </p>
         </div>

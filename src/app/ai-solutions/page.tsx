@@ -20,7 +20,7 @@ export default function AiSolutionsPage() {
         title="Custom AI Solutions & Agent Development"
         description="At LOG_ON, we don't just use AI—we build it. We specialize in creating bespoke artificial intelligence, AI agents, and machine learning solutions that integrate seamlessly with your operations to solve your most complex challenges. Our expert team partners with you to transform your data into a strategic asset, driving efficiency, innovation, and measurable growth."
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
              <div className="space-y-4 pt-4">
@@ -42,22 +42,22 @@ export default function AiSolutionsPage() {
                     <div className="flex justify-center mb-4">
                         <BrainCircuit className="h-12 w-12 md:h-16 md:w-16 text-primary" />
                     </div>
-                    <CardTitle className="text-center text-2xl md:text-3xl">Artificial Intelligence</CardTitle>
+                    <CardTitle className="text-center text-fluid-lg">Artificial Intelligence</CardTitle>
                     <CardDescription className="text-center">
                         Building the brains behind your business operations.
                     </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center text-muted-foreground text-sm md:text-base">
+                <CardContent className="text-center text-muted-foreground text-fluid-base">
                     <p className="leading-relaxed">We leverage cutting-edge algorithms and data science to build intelligent systems that learn, adapt, and drive value.</p>
                 </CardContent>
             </Card>
           </div>
         </section>
 
-        <section className="py-16 md:py-24">
-            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold font-headline">Our AI Development Services</h2>
-                <p className="mt-4 text-md md:text-lg text-muted-foreground leading-relaxed">
+        <section className="py-fluid-lg">
+            <div className="text-center max-w-3xl mx-auto mb-fluid-md">
+                <h2 className="text-fluid-xl font-bold font-headline">Our AI Development Services</h2>
+                <p className="mt-4 text-fluid-base text-muted-foreground leading-relaxed">
                     We offer a comprehensive suite of AI services designed to address your specific needs and deliver tangible results.
                 </p>
             </div>
@@ -82,9 +82,9 @@ export default function AiSolutionsPage() {
             description="See how our custom AI solutions have transformed businesses, from automating support to providing critical data insights."
         />
 
-         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Unlock Your AI Potential?</h2>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+         <section className="text-center mt-fluid-md py-fluid-md bg-background rounded-lg px-fluid-sm">
+            <h2 className="text-fluid-lg font-bold font-headline">Ready to Unlock Your AI Potential?</h2>
+            <p className="mt-4 text-fluid-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Let's discuss how our custom AI solutions can revolutionize your business. Schedule a free, no-obligation consultation with our AI experts today.
             </p>
             <div className="mt-8 flex justify-center">

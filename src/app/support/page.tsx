@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -31,8 +32,8 @@ export default function SupportPage() {
             />
         </div>
       </PageHero>
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-        <section className="py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
+        <section className="py-fluid-lg">
              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {supportCategories.map((category) => (
                 <GlowingCard key={category.title}>

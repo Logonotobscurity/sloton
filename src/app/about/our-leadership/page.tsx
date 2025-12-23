@@ -1,5 +1,4 @@
 
-
 import { teamMembers } from "@/lib/data/team-members";
 import { PageHero } from "@/components/page-sections/page-hero";
 import { BottomCta } from "@/components/page-sections/bottom-cta";
@@ -22,8 +21,8 @@ export default function LeadershipPage() {
                 description="Meet the visionaries guiding LOG_ON. Our leadership team brings a wealth of experience from the forefront of technology, business, and research. They are united by a shared passion for innovation and a commitment to our clients' success."
             />
 
-            <section className="py-16 md:py-24">
-                <div className="container mx-auto px-4 md:px-6">
+            <section className="py-fluid-lg">
+                <div className="container mx-auto px-fluid-sm">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                        {teamMembers.map(member => (
                             <Card key={member.name} className="overflow-hidden bg-secondary/20">

@@ -21,7 +21,7 @@ export default function DatabaseSolutionsPage() {
         title="Database & Data Management Solutions"
         description="Your data is the backbone of your business. We design, build, and manage secure, scalable, and high-performance database systems that ensure your data is always available, consistent, and protected. From architecture to optimization, we provide end-to-end data solutions."
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
              <div className="space-y-4 pt-4">
@@ -43,22 +43,22 @@ export default function DatabaseSolutionsPage() {
                     <div className="flex justify-center mb-4">
                         <Database className="h-12 w-12 md:h-16 md:w-16 text-primary" />
                     </div>
-                    <CardTitle className="text-center text-2xl md:text-3xl">Secure & Scalable Data</CardTitle>
+                    <CardTitle className="text-center text-fluid-lg">Secure & Scalable Data</CardTitle>
                     <CardDescription className="text-center">
                         The foundation for your digital operations.
                     </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center text-muted-foreground text-sm md:text-base">
+                <CardContent className="text-center text-muted-foreground text-fluid-base">
                     <p className="leading-relaxed">We ensure your data infrastructure is robust, performant, and ready for growth.</p>
                 </CardContent>
             </Card>
           </div>
         </section>
 
-        <section className="py-16 md:py-24">
-            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Database Services</h2>
-                <p className="mt-4 text-md md:text-lg text-muted-foreground leading-relaxed">
+        <section className="py-fluid-lg">
+            <div className="text-center max-w-3xl mx-auto mb-fluid-md">
+                <h2 className="text-fluid-xl font-bold font-headline">Our Database Services</h2>
+                <p className="mt-4 text-fluid-base text-muted-foreground leading-relaxed">
                     We offer a complete range of services to manage the entire lifecycle of your data.
                 </p>
             </div>
@@ -83,9 +83,9 @@ export default function DatabaseSolutionsPage() {
             description="Learn how our database solutions have helped clients achieve scalability, performance, and rock-solid security for their critical applications."
         />
 
-         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold font-headline">Is Your Data Working For You?</h2>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+         <section className="text-center mt-fluid-md py-fluid-md bg-background rounded-lg px-fluid-sm">
+            <h2 className="text-fluid-lg font-bold font-headline">Is Your Data Working For You?</h2>
+            <p className="mt-4 text-fluid-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Let's discuss how our database expertise can improve your application performance and secure your data. Schedule a free consultation today.
             </p>
             <div className="mt-8 flex justify-center">

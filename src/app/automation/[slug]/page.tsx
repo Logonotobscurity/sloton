@@ -49,7 +49,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
         description={template.description}
         icon={<ShareModal title={template.name} />}
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
         <div className="max-w-4xl mx-auto">
           <Link href="/automation" className="text-primary hover:underline flex items-center gap-2 mb-8">
             <ArrowLeft className="h-4 w-4" />

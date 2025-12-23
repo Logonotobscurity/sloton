@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CheckCircle, ArrowRight, BarChart3 } from 'lucide-react';
@@ -19,7 +20,7 @@ export default function BusinessAnalyticsPage() {
         title="Business Analytics & Intelligence"
         description="Turn your data into your most valuable asset. We help you move from simply collecting data to actively using it to drive strategy, optimize operations, and uncover new opportunities. Our custom business analytics solutions provide the clarity you need to make confident, data-driven decisions."
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
              <div className="space-y-4 pt-4">
@@ -41,22 +42,22 @@ export default function BusinessAnalyticsPage() {
                     <div className="flex justify-center mb-4">
                         <BarChart3 className="h-12 w-12 md:h-16 md:w-16 text-primary" />
                     </div>
-                    <CardTitle className="text-center text-2xl md:text-3xl">Actionable Insights</CardTitle>
+                    <CardTitle className="text-center text-fluid-lg">Actionable Insights</CardTitle>
                     <CardDescription className="text-center">
                         Transforming numbers into narrative.
                     </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center text-muted-foreground text-sm md:text-base">
+                <CardContent className="text-center text-muted-foreground text-fluid-base">
                     <p className="leading-relaxed">We connect to your data sources to build a clear picture of your business performance and potential.</p>
                 </CardContent>
             </Card>
           </div>
         </section>
 
-        <section className="py-16 md:py-24">
-            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Business Analytics Services</h2>
-                <p className="mt-4 text-md md:text-lg text-muted-foreground leading-relaxed">
+        <section className="py-fluid-lg">
+            <div className="text-center max-w-3xl mx-auto mb-fluid-md">
+                <h2 className="text-fluid-xl font-bold font-headline">Our Business Analytics Services</h2>
+                <p className="mt-4 text-fluid-base text-muted-foreground leading-relaxed">
                     We offer end-to-end analytics services, from data integration to strategic reporting.
                 </p>
             </div>
@@ -81,9 +82,9 @@ export default function BusinessAnalyticsPage() {
             description="See how our business analytics and BI solutions have empowered companies to make smarter decisions and drive strategic growth."
         />
 
-         <section className="text-center mt-16 md:mt-24 py-12 md:py-16 bg-background rounded-lg px-4">
-            <h2 className="text-2xl md:text-4xl font-bold font-headline">Ready to Unlock Your Data's Potential?</h2>
-            <p className="mt-4 text-md md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+         <section className="text-center mt-fluid-md py-fluid-md bg-background rounded-lg px-fluid-sm">
+            <h2 className="text-fluid-lg font-bold font-headline">Ready to Unlock Your Data's Potential?</h2>
+            <p className="mt-4 text-fluid-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Let's discuss how our custom analytics solutions can provide the insights you need to get ahead. Schedule a free consultation today.
             </p>
             <div className="mt-8 flex justify-center">

@@ -1,5 +1,4 @@
 
-
 import { PageHero } from '@/components/page-sections/page-hero';
 import { Lightbulb, Copy } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -109,7 +108,7 @@ export default function IdeasLabPage() {
         description="A space for experimental concepts, AI generation prompts, and new approaches we are testing at LOG_ON. Here, we document the prompts and architectural decisions used to build our features, providing transparency and a blueprint for future innovation."
         icon={<Lightbulb className="h-12 w-12 md:h-16 md:w-16 text-primary" />}
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 space-y-12">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg space-y-12">
         <Card>
             <CardHeader>
                 <CardTitle className="text-2xl">App Idea: Company Report Generator</CardTitle>

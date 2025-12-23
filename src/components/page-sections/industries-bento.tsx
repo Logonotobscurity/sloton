@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -86,13 +87,13 @@ const features = [
 
 export function IndustriesBento() {
   return (
-    <section className="py-16 md:py-24 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-fluid-lg bg-background relative overflow-hidden">
+      <div className="container mx-auto px-fluid-sm">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium font-headline">
+          <h2 className="text-fluid-xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium font-headline">
             Solutions For Your Industry
           </h2>
-          <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-muted-foreground text-center font-normal">
+          <p className="text-fluid-base max-w-2xl my-4 mx-auto text-muted-foreground text-center font-normal">
             We combine deep industry knowledge with technological expertise to build solutions that address the unique challenges of your sector.
           </p>
         </div>

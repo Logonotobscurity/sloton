@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, Globe } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -16,7 +17,7 @@ export default function LocationsPage() {
         title="Our Locations"
         description="While our headquarters is virtually based in the vibrant tech hub of Lagos, Nigeria, our operations and impact are global. We leverage a remote-first model to collaborate with clients and partners worldwide, ensuring we can bring our expertise wherever it's needed."
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
          <div className="grid grid-cols-1 gap-8">
             {locations.map(loc => (
                 <Card key={loc.name}>

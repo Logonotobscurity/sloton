@@ -22,10 +22,10 @@ export default function InsightsPage() {
             title="Insights & Articles"
             description="Welcome to our hub for expert analysis and thought leadership. Here, we delve into the technologies and strategies that are shaping the future of business. Stay ahead of the curve with our in-depth articles on everything from artificial intelligence to digital transformation."
         />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
         
-        <div className="my-16 md:my-24 max-w-4xl mx-auto">
-             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 font-headline">Topics We Cover</h2>
+        <div className="my-fluid-lg max-w-4xl mx-auto">
+             <h2 className="text-fluid-lg font-bold text-center mb-8 font-headline">Topics We Cover</h2>
              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                 {topics.map(topic => (
                     <div key={topic} className="flex items-center gap-3">

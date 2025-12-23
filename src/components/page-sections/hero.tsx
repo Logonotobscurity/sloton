@@ -32,7 +32,7 @@ export function Hero() {
   return (
     <section className="relative w-full min-h-[80vh] md:min-h-[90vh] flex items-center justify-center text-center overflow-hidden">
       <AdinkraBackground />
-      <div className="relative z-10 container px-4 md:px-6">
+      <div className="relative z-10 container px-fluid-sm">
         <motion.div
           className="max-w-4xl mx-auto"
           initial="hidden"
@@ -44,7 +44,7 @@ export function Hero() {
           </motion.div>
           <motion.h1
             variants={itemVariants}
-            className="font-headline text-[clamp(2rem,6vw,3.5rem)] font-bold !leading-tight my-4"
+            className="font-headline text-fluid-xl font-bold !leading-tight my-4"
           >
             Do More with Less:
             <span className="block h-[2.4em] md:h-[1.2em]">
@@ -68,7 +68,7 @@ export function Hero() {
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="text-md md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto"
+            className="text-fluid-base text-muted-foreground leading-relaxed max-w-2xl mx-auto"
           >
             Stop wasting time on disconnected tools. Get a clear roadmap to integrated systems that save time and drive revenue growth.
           </motion.p>

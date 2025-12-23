@@ -33,8 +33,8 @@ const itemVariants = {
 
 export function PartnershipApproach() {
   return (
-    <section className="py-16 md:py-24 bg-secondary/20">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-fluid-lg bg-secondary/20">
+      <div className="container mx-auto px-fluid-sm">
         <motion.div 
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
           initial="hidden"
@@ -43,7 +43,7 @@ export function PartnershipApproach() {
           variants={containerVariants}
         >
             <div className="space-y-6">
-                <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold font-headline">Strategic Partnerships</motion.h2>
+                <motion.h2 variants={itemVariants} className="text-fluid-lg font-bold font-headline">Strategic Partnerships</motion.h2>
                 <motion.p variants={itemVariants} className="text-muted-foreground md:text-lg">
                     We collaborate with industry leaders to ensure your solutions are built on reliable, enterprise-grade platforms.
                 </motion.p>

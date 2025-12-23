@@ -59,15 +59,15 @@ const services = [
 
 export function ServicesOffered() {
     return (
-        <section className="py-16 md:py-24 bg-secondary/20 relative">
+        <section className="py-fluid-lg bg-secondary/20 relative">
             <AdinkraBackground />
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="container mx-auto px-fluid-sm relative z-10">
                 <div className="text-center max-w-3xl mx-auto">
                      <p className="text-sm font-normal uppercase tracking-widest text-primary">Our Core Solutions</p>
-                    <h2 className="font-headline text-[clamp(1.8rem,5vw,3rem)] font-bold !leading-snug mt-2">
+                    <h2 className="font-headline text-fluid-xl font-bold !leading-snug mt-2">
                         Empowering Your Growth: Tools for Every Business Goal
                     </h2>
-                    <p className="mt-4 text-md md:text-lg text-muted-foreground">
+                    <p className="mt-4 text-fluid-base text-muted-foreground">
                        We equip your business with the same powerful tools and comprehensive data used by large corporations—without the big budget. Our solutions are designed to deliver maximum impact, efficiency, and scale.
                     </p>
                 </div>

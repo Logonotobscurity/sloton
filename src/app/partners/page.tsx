@@ -1,5 +1,4 @@
 
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ShieldCheck, Handshake } from 'lucide-react';
@@ -23,11 +22,11 @@ export default function PartnersPage() {
         title="Join the LOG_ON Partner Network"
         description="At LOG_ON, we believe that collaboration is the key to innovation. Our partner ecosystem brings together technology leaders, solution providers, and system integrators to deliver exceptional value to customers worldwide. By joining our network, you become part of a community dedicated to solving complex challenges with the power of AI and automation."
       />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-             <h2 className="text-3xl md:text-5xl font-bold font-headline">A Partnership Built for Growth</h2>
-            <p className="text-md md:text-lg text-muted-foreground">
+             <h2 className="text-fluid-xl font-bold font-headline">A Partnership Built for Growth</h2>
+            <p className="text-fluid-base text-muted-foreground">
               Our partner program is designed to be a two-way street. We provide you with the tools, resources, and support you need to succeed, and in turn, your expertise helps us deliver better solutions to our customers.
             </p>
             <Button asChild size="lg">
@@ -41,22 +40,22 @@ export default function PartnersPage() {
                     <div className="flex justify-center mb-4">
                         <Handshake className="h-12 w-12 md:h-16 md:w-16 text-primary" />
                     </div>
-                    <CardTitle className="text-center text-2xl md:text-3xl">Stronger Together</CardTitle>
+                    <CardTitle className="text-center text-fluid-lg">Stronger Together</CardTitle>
                     <CardDescription className="text-center">
                         Driving innovation through strategic alliances.
                     </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center text-muted-foreground text-sm md:text-base">
+                <CardContent className="text-center text-muted-foreground text-fluid-base">
                     <p>Our partners are an extension of our team, integral to our mission of powering business efficiency with smart technology.</p>
                 </CardContent>
             </Card>
           </div>
         </section>
 
-        <section className="py-16 md:py-24">
-            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-bold font-headline">Why Partner with LOG_ON?</h2>
-                <p className="mt-4 text-md md:text-lg text-muted-foreground">
+        <section className="py-fluid-lg">
+            <div className="text-center max-w-3xl mx-auto mb-fluid-md">
+                <h2 className="text-fluid-xl font-bold font-headline">Why Partner with LOG_ON?</h2>
+                <p className="mt-4 text-fluid-base text-muted-foreground">
                     We are committed to building mutually beneficial relationships that foster growth, innovation, and customer success.
                 </p>
             </div>
@@ -79,11 +78,11 @@ export default function PartnersPage() {
             </div>
         </section>
         
-        <section className="py-16 md:py-24 bg-secondary/20 -mx-4 px-4 sm:mx-0 sm:px-8 sm:rounded-lg">
+        <section className="py-fluid-lg bg-secondary/20 -mx-fluid-sm px-fluid-sm sm:mx-0 sm:px-8 sm:rounded-lg">
             <div className="container mx-auto">
                 <div className="text-center max-w-3xl mx-auto mb-12">
-                    <h2 className="text-2xl md:text-4xl font-bold font-headline">Our Technology & Strategic Alliances</h2>
-                    <p className="mt-4 text-md md:text-lg text-muted-foreground">We build on and partner with the best-in-class platforms to ensure our solutions are robust, scalable, and secure.</p>
+                    <h2 className="text-fluid-xl font-bold font-headline">Our Technology & Strategic Alliances</h2>
+                    <p className="mt-4 text-fluid-base text-muted-foreground">We build on and partner with the best-in-class platforms to ensure our solutions are robust, scalable, and secure.</p>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 items-center justify-center">
                     {partners.map(partner => (

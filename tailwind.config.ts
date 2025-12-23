@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 const config = {
@@ -12,9 +13,12 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: { DEFAULT: '1rem', md:'2rem', lg:'4rem' },
-      screens: {
-        '2xl': '1400px',
+      padding: { 
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
       },
     },
     extend: {
@@ -25,18 +29,18 @@ const config = {
          'fluid-item': '1 1 min(350px, 100%)',
        },
        spacing: {
-         'fluid-xs': 'clamp(0.5rem, 1vw, 0.75rem)',
-         'fluid-sm': 'clamp(1rem, 2vw, 1.5rem)',
-         'fluid-md': 'clamp(2rem, 4vw, 3rem)',
-         'fluid-lg': 'clamp(4rem, 8vw, 6rem)',
-         'fluid-xl': 'clamp(8rem, 16vw, 12rem)',
+        'fluid-xs': 'clamp(0.5rem, 1vw, 1rem)',
+        'fluid-sm': 'clamp(1rem, 2.5vw, 2.5rem)',
+        'fluid-md': 'clamp(2rem, 5vw, 5rem)',
+        'fluid-lg': 'clamp(4rem, 10vw, 10rem)',
+        'fluid-xl': 'clamp(8rem, 20vw, 20rem)',
        },
        fontSize: {
-         'fluid-sm': 'clamp(0.875rem, 0.5vw + 0.75rem, 1.125rem)',
-         'fluid-base': 'clamp(1rem, 0.5vw + 0.875rem, 1.25rem)',
-         'fluid-md': 'clamp(1.25rem, 1vw + 1rem, 1.75rem)',
-         'fluid-lg': 'clamp(1.875rem, 2.5vw + 1.25rem, 3.25rem)',
-         'fluid-xl': 'clamp(2.5rem, 4vw + 1.5rem, 4.5rem)',
+        'fluid-sm': 'clamp(0.875rem, 0.5vw + 0.75rem, 1.125rem)',
+        'fluid-base': 'clamp(1rem, 1vw + 0.75rem, 1.5rem)',
+        'fluid-md': 'clamp(1.25rem, 2vw + 1rem, 2.25rem)',
+        'fluid-lg': 'clamp(1.875rem, 4vw + 1rem, 4rem)',
+        'fluid-xl': 'clamp(2.5rem, 6vw + 1rem, 6rem)',
        },
        backgroundImage: {
         "grid-light": "linear-gradient(-90deg, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px)",

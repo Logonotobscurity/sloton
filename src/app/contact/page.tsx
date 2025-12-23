@@ -1,5 +1,4 @@
 
-
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ContactForm } from '@/components/contact-form';
 import { Mail, Phone, Handshake } from 'lucide-react';
@@ -22,7 +21,7 @@ export default function ContactPage() {
             title="Get In Touch"
             description="We're here to help you navigate your digital transformation journey. Whether you have a specific project in mind, a question about our services, or just want to explore possibilities, our team is ready to connect. Let's start a conversation and build something great together."
         />
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div className="container mx-auto px-fluid-sm py-fluid-lg">
         
         <div className="mt-12 md:mt-16 grid lg:grid-cols-2 gap-12 items-start">
            <div className="space-y-8">
