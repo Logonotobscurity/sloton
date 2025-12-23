@@ -28,6 +28,7 @@ const interactiveCards = [
         dialogTitle: "Intelligent Automation Designer",
         dialogDescription: "Describe a workflow to generate a configured, optimized task design, complete with AI suggestions.",
         dialogContent: <TaskAutomationForm />,
+        ctaText: "Try It Free"
     }
 ];
 
