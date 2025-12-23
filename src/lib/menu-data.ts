@@ -39,7 +39,7 @@ export type SectionLinkOnly = {
 // Union of all possible section shapes.
 export type SitemapSection = SectionWithItems | SectionWithCta | SectionLinkOnly;
 
-export type MenuKey = 'solutions' | 'resources' | 'partners' | 'company' | 'contact';
+export type MenuKey = 'solutions' | 'resources' | 'partners' | 'company' | 'contact' | 'fluid';
 
 // -- data (example) --
 export const menuData: SitemapSection[] = [
@@ -101,26 +101,20 @@ export const menuData: SitemapSection[] = [
     ]
   },
   {
-      "key": "partners",
-      "heading": "Partners",
-      "href": "/partners"
+      "key": "fluid",
+      "heading": "Fluid",
+      "href": "/fluid"
   },
   {
     "key": "company",
     "heading": "Company",
     "intro": "Learn more about our mission, values, and the team driving our innovation.",
-    "cta": {"label": "Learn More", "href": "/about"},
     "items": [
       {"title": "About Us", "description": "Our mission, values, and company news.", "shortDescription": "Our mission, values, and company news.", "href": "/about"},
       {"title": "Our Leadership", "description": "Meet the LOG_ON leadership team.", "shortDescription": "Meet the LOG_ON leadership team.", "href": "/about/our-leadership"},
       {"title": "Careers", "description": "Explore open positions and join our team.", "shortDescription": "Explore open positions and join our team.", "href": "/about/careers"},
-      {"title": "Investor Relations", "description": "News and resources for our investors.", "shortDescription": "News and resources for our investors.", "href": "/about/investors"},
-      {"title": "Our Locations", "description": "Find LOG_ON office information.", "shortDescription": "Find LOG_ON office information.", "href": "/about/locations"},
+      {"title": "Partners", "description": "Collaborate with us to deliver innovative solutions.", "shortDescription": "Collaborate with us to deliver innovative solutions.", "href": "/partners"},
+      {"title": "Contact", "description": "Get in touch with our team to start a project.", "shortDescription": "Get in touch with our team.", "href": "/contact"}
     ]
-  },
-  {
-    "key": "contact",
-    "heading": "Contact Us",
-    "href": "/contact"
   }
 ];

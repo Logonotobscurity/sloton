@@ -1,4 +1,3 @@
-
 import type {Config} from 'tailwindcss';
 
 const config = {
@@ -19,6 +18,26 @@ const config = {
       },
     },
     extend: {
+       gridTemplateColumns: {
+        'auto-fit': 'repeat(auto-fit, minmax(min(250px, 100%), 1fr))',
+       },
+       flex: {
+         'fluid-item': '1 1 min(350px, 100%)',
+       },
+       spacing: {
+         'fluid-xs': 'clamp(0.5rem, 1vw, 0.75rem)',
+         'fluid-sm': 'clamp(1rem, 2vw, 1.5rem)',
+         'fluid-md': 'clamp(2rem, 4vw, 3rem)',
+         'fluid-lg': 'clamp(4rem, 8vw, 6rem)',
+         'fluid-xl': 'clamp(8rem, 16vw, 12rem)',
+       },
+       fontSize: {
+         'fluid-sm': 'clamp(0.875rem, 0.5vw + 0.75rem, 1.125rem)',
+         'fluid-base': 'clamp(1rem, 0.5vw + 0.875rem, 1.25rem)',
+         'fluid-md': 'clamp(1.25rem, 1vw + 1rem, 1.75rem)',
+         'fluid-lg': 'clamp(1.875rem, 2.5vw + 1.25rem, 3.25rem)',
+         'fluid-xl': 'clamp(2.5rem, 4vw + 1.5rem, 4.5rem)',
+       },
        backgroundImage: {
         "grid-light": "linear-gradient(-90deg, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px)",
         "grid-dark": "linear-gradient(-90deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
