@@ -72,7 +72,7 @@ export function Hero() {
           >
             <Dialog>
               <DialogTrigger asChild>
-                <Button size="lg">Get Your Free Efficiency Assessment</Button>
+                <Button size="fluid-lg">Get Your Free Efficiency Assessment</Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-xl md:max-w-2xl bg-background">
                 <DialogHeader>
@@ -84,7 +84,7 @@ export function Hero() {
                 <SolutionRecommendationForm />
               </DialogContent>
             </Dialog>
-            <Button size="lg" variant="secondary" asChild>
+            <Button size="fluid-lg" variant="secondary" asChild>
               <Link href="/solutions">See How We Drive Growth</Link>
             </Button>
           </motion.div>
@@ -93,3 +93,4 @@ export function Hero() {
     </section>
   );
 }
+

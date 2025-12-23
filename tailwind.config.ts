@@ -14,11 +14,10 @@ const config = {
     container: {
       center: true,
       padding: { 
-        DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
+        DEFAULT: 'clamp(1rem, 5vw, 3rem)',
+        sm: 'clamp(1.5rem, 7vw, 4rem)',
+        lg: 'clamp(2rem, 10vw, 6rem)',
+        xl: 'clamp(2.5rem, 12vw, 7rem)',
       },
     },
     extend: {
@@ -40,7 +39,7 @@ const config = {
         'fluid-base': 'clamp(1rem, 1vw + 0.75rem, 1.5rem)',
         'fluid-md': 'clamp(1.25rem, 2vw + 1rem, 2.25rem)',
         'fluid-lg': 'clamp(1.875rem, 4vw + 1rem, 4rem)',
-        'fluid-xl': 'clamp(2.5rem, 6vw + 1rem, 6rem)',
+        'fluid-xl': 'clamp(2.25rem, 6vw + 1rem, 6rem)',
        },
        backgroundImage: {
         "grid-light": "linear-gradient(-90deg, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px)",
