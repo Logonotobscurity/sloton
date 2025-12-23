@@ -38,8 +38,8 @@ const config = {
         'fluid-sm': 'clamp(0.875rem, 0.5vw + 0.75rem, 1.125rem)',
         'fluid-base': 'clamp(1rem, 1vw + 0.75rem, 1.5rem)',
         'fluid-md': 'clamp(1.25rem, 2vw + 1rem, 2.25rem)',
-        'fluid-lg': 'clamp(1.875rem, 4vw + 1rem, 4rem)',
-        'fluid-xl': 'clamp(2.25rem, 6vw + 1rem, 6rem)',
+        'fluid-lg': 'clamp(1.875rem, 4vw + 1rem, 3.5rem)',
+        'fluid-xl': 'clamp(2.25rem, 5vw + 1rem, 4.5rem)',
        },
        backgroundImage: {
         "grid-light": "linear-gradient(-90deg, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px)",
