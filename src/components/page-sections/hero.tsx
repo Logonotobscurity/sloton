@@ -29,6 +29,16 @@ export function Hero() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
+  const animationSequence = [
+    'Smart Automation',
+    2000,
+    'AI Agents',
+    2000,
+    'Actionable Intelligence',
+    2000,
+  ];
+  const longestPhrase = 'Actionable Intelligence';
+
   return (
     <section className="relative w-full min-h-[80vh] md:min-h-[90vh] flex items-center justify-center text-center overflow-hidden">
       <AdinkraBackground />
@@ -48,21 +58,17 @@ export function Hero() {
           >
            <div className="flex flex-col items-center">
               <span>Do More with Less:</span>
-              <span className="text-primary md:whitespace-nowrap text-fluid-lg">
-                <TypeAnimation
-                  sequence={[
-                    'Smart Automation',
-                    2000,
-                    'AI Agents',
-                    2000,
-                    'Actionable Intelligence',
-                    2000,
-                  ]}
-                  wrapper="span"
-                  cursor={false}
-                  repeat={Infinity}
-                />
-              </span>
+              <div className="relative inline-block text-primary text-fluid-lg">
+                <span className="invisible whitespace-nowrap">{longestPhrase}</span>
+                <span className="absolute inset-0 flex items-center justify-center whitespace-nowrap">
+                    <TypeAnimation
+                        sequence={animationSequence}
+                        wrapper="span"
+                        cursor={false}
+                        repeat={Infinity}
+                    />
+                </span>
+              </div>
               <br className="md:hidden" />
               <span className="md:whitespace-nowrap">for Growing Businesses.</span>
             </div>
