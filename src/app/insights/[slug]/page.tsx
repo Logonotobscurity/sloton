@@ -131,5 +131,4 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
         </div>
       </div>
     </div>
-  );
-}
+  

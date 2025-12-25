@@ -107,18 +107,4 @@ export default function ABTestingPage() {
          <section className="text-center mt-fluid-md py-fluid-sm bg-background rounded-lg px-6">
             <h2 className="text-fluid-lg font-bold font-headline">The Science Behind the Lab</h2>
             <p className="mt-4 text-fluid-base text-muted-foreground max-w-2xl mx-auto">
-                Our Ideas Lab is powered by a robust A/B testing methodology. This is the engine that allows us to move from hypothesis to data-proven insight, reducing the risk of launching new features and getting undeniable proof of what resonates with your audience.
-            </p>
-            <div className="mt-8 flex justify-center">
-                <Button asChild size="lg" variant="outline">
-                    <Link href="/solutions">
-                        Explore Our Solutions <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                </Button>
-            </div>
-        </section>
-
-      </div>
-    </div>
-  );
-}
+                Our Ideas Lab is powered by a robust A/B testing methodology. This is the engine that allows us to move from hypothesis to data-proven insight, reducing the risk of launching new features and gett

@@ -1,4 +1,3 @@
-
 "use client"
 
 import { caseStudies as allCaseStudies } from "@/lib/case-studies";

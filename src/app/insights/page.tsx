@@ -69,11 +69,4 @@ export default function InsightsPage() {
                 <Link href={`/insights/${insight.slug}`} className="text-primary font-semibold flex items-center group">
                   Read More <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                 </Link>
-              </CardFooter>
-            </GlowingCard>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+              </CardFooter
