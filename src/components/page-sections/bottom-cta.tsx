@@ -23,3 +23,5 @@ export function BottomCta() {
         </Button>
       </div>
     </section>
+  );
+}
