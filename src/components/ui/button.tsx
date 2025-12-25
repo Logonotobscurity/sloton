@@ -25,9 +25,9 @@ const buttonVariants = cva(
         sm: "h-9 rounded-md px-3",
         lg: "h-12 rounded-md px-8 text-base",
         icon: "h-10 w-10",
-        "fluid-lg": "h-auto py-[clamp(0.5rem,1.5vh,0.75rem)] px-[clamp(1.5rem,4vw,2.5rem)] text-[clamp(0.875rem,2vw,1rem)] rounded-md",
-        "fluid-default": "h-auto py-[clamp(0.4rem,1vh,0.5rem)] px-[clamp(1rem,3vw,1.5rem)] text-[clamp(0.875rem,1.5vw,0.875rem)] rounded-md",
-        "fluid-sm": "h-auto py-[clamp(0.2rem,0.8vh,0.4rem)] px-[clamp(0.75rem,2vw,1rem)] text-[clamp(0.75rem,1.2vw,0.875rem)] rounded-sm",
+        "fluid-lg": "h-auto py-fluid-sm px-fluid-md text-fluid-base rounded-md",
+        "fluid-default": "h-auto py-fluid-xs px-fluid-sm text-fluid-sm rounded-md",
+        "fluid-sm": "h-auto py-1 px-2 text-xs rounded-sm",
       },
     },
     defaultVariants: {
