@@ -54,7 +54,7 @@ export function Hero() {
           </motion.div>
           <motion.h1
             variants={itemVariants}
-            className="font-headline text-fluid-xl font-bold !leading-tight my-4"
+            className="font-headline text-fluid-hero font-bold !leading-tight my-4"
           >
            <div className="flex flex-col items-center">
               <span>Do More with Less:</span>

@@ -37,6 +37,7 @@ const config = {
         'fluid-lg': 'clamp(1.5rem, 2.5vw + 1rem, 2.5rem)',
         'fluid-xl': 'clamp(2.25rem, 4.5vw + 1rem, 4rem)',
         'fluid-2xl': 'clamp(3rem, 6vw + 1rem, 5rem)',
+        'fluid-hero': 'clamp(2.5rem, 8vw, 5rem)',
        },
        backgroundImage: {
         "grid-light": "linear-gradient(-90deg, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px)",
