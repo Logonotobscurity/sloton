@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function TemplatePreviewPage({ params }: { params: { slug: string } }) {
-  const template = getTemplateBySlug(decodeURIComponent(params.slug));
+  const template = getTemplateBySlug(params.slug);
 
   if (!template) {
     notFound();
