@@ -18,5 +18,8 @@
         "amazonQChatDisclaimer": false,
         "amazonQChatPairProgramming": false,
         "amazonQSelectDeveloperProfile": false
-    }
+    },
+    "github.gitProtocol": "https",
+    "git.useCommitInputAsStashMessage": true,
+    "git.terminalGitEditor": true
 }
