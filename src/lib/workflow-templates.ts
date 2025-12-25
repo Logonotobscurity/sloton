@@ -1,3 +1,4 @@
+
 import templatesData from '@/lib/data/workflow-templates.json';
 import { slugify } from './slugify';
 
@@ -7,7 +8,7 @@ export interface TemplateStep {
 }
 
 export interface Template {
-  category: 'Finance' | 'Human Resources' | 'Sales' | 'Marketing' | 'Real Estate' | 'IT Operations' | 'Procurement' | 'Development' | 'Healthcare' | 'Admin and Ops' | 'CS and Support';
+  category: string;
   name: string;
   slug: string;
   description: string;

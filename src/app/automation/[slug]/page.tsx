@@ -1,4 +1,5 @@
 
+
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getTemplateBySlug } from '@/lib/workflow-templates';
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function TemplatePreviewPage({ params }: { params: { slug: string } }) {
-  const template = getTemplateBySlug(params.slug);
+  const template = getTemplateBySlug(decodeURIComponent(params.slug));
 
   if (!template) {
     notFound();
