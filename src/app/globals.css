@@ -89,6 +89,11 @@
   p {
     @apply leading-relaxed;
   }
+
+  /* Add focus-visible styles for accessibility */
+  *:focus-visible {
+      @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
 }
 
 
