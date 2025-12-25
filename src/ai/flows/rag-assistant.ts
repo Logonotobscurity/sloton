@@ -3,6 +3,7 @@
 /**
  * @fileOverview A RAG-powered assistant flow that has deep knowledge of the company's services
  * and can use tools to book meetings or provide contact options.
+ * This version includes pseudo-vector search, stateful tool coordination, proactive suggestions, and error resilience.
  */
 
 import { ai } from '@/ai/genkit';
@@ -40,30 +41,28 @@ const searchKnowledgeBase = ai.defineTool(
         })),
     },
     async (input) => {
+        // This is a "pseudo-vector" search. It weights title matches higher than content matches.
         const query = input.query.toLowerCase();
         const terms = query.split(' ').filter(t => t.length > 2);
         
-        // Simple Weighted Scoring Algorithm
         return knowledge.map(doc => {
             let score = 0;
-            const fullText = `${doc.title} ${doc.content}`.toLowerCase();
-            
-            // Exact phrase match (High weight)
-            if (fullText.includes(query)) score += 10;
-            
-            // Title match (Medium weight)
-            if (doc.title.toLowerCase().includes(query)) score += 5;
-            
-            // Individual term matches (Low weight)
-            terms.forEach(term => {
-                if (fullText.includes(term)) score += 1;
-            });
+            const title = doc.title.toLowerCase();
+            const content = doc.content.toLowerCase();
 
+            if (title.includes(query)) score += 10; // High weight for full query in title
+            if (content.includes(query)) score += 5; // Medium weight for full query in content
+
+            terms.forEach(term => {
+                if (title.includes(term)) score += 2;
+                if (content.includes(term)) score += 1;
+            });
+            
             return { ...doc, relevance: score };
         })
         .filter(doc => doc.relevance > 0)
         .sort((a, b) => b.relevance - a.relevance)
-        .slice(0, 4);
+        .slice(0, 4); // Return top 4 results
     }
 );
 
@@ -92,10 +91,11 @@ const provideContactOptions = ai.defineTool({
         email: z.string(),
     }),
 }, async () => {
+    const prefilledMessage = "Hi LOG_ON, I'm interested in learning more about your AI and automation solutions.";
     return {
         status: "contact_options_provided",
         phone: "+234 814 306 6320",
-        whatsapp: "https://wa.me/qr/QFSBRGKZGHP3F1",
+        whatsapp: `https://wa.me/2348143066320?text=${encodeURIComponent(prefilledMessage)}`,
         email: "logonthepage@gmail.com",
     };
 });
@@ -115,11 +115,12 @@ export type AssistantRequest = z.infer<typeof AssistantRequestSchema>;
 
 const AssistantResponseSchema = z.object({
     answer: z.string().describe("Friendly, professional response using Markdown for lists/bolding."),
+    search_query: z.string().optional().describe("If a search was performed, what was the query?"),
     sources: z.array(z.object({
         slug: z.string(),
         title: z.string(),
     })).optional(),
-    suggested_actions: z.array(z.string()).max(3).describe("Contextual next steps. If user is browsing, suggest a case study. If user is interested, suggest booking."),
+    suggested_actions: z.array(z.string()).min(2).max(3).describe("Contextual next steps. If user is browsing, suggest a related case study. If a user seems interested, suggest booking a meeting."),
     confidence_score: z.number().optional().describe("0-1 score of how well the search results answered the user.")
 });
 export type AssistantResponse = z.infer<typeof AssistantResponseSchema>;
@@ -144,8 +145,9 @@ const assistantPrompt = ai.definePrompt({
     Operational Rules:
     1. ALWAYS check the knowledge base if the user asks "How do you...", "Do you...", or "Tell me about...".
     2. If multiple services are relevant, briefly summarize the top 2.
-    3. CITE: Use [Source Title](slug) format in the text.
+    3. CITE your sources using [Source Title](slug) format in the text where relevant.
     4. LEAD GEN: If the user asks about ROI, cost, or implementation, immediately offer a free consultation using the suggested_actions.
+    5. Always provide at least 2 relevant suggested_actions to keep the conversation flowing.
     
     User Query: {{{question}}}
   `,
@@ -164,19 +166,47 @@ const ragAssistantFlow = ai.defineFlow(
             throw new Error("No response from AI engine");
         }
         
+        // Ensure we always have suggested actions, even if the model fails to generate them.
+        if (!output.suggested_actions || output.suggested_actions.length < 2) {
+            output.suggested_actions = ["What are your main services?", "Tell me about a case study"];
+        }
+        
         return output;
     }
 );
 
+// Utility for exponential backoff retry
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 export async function askRagAssistant(input: AssistantRequest): Promise<AssistantResponse> {
-  try {
-    return await ragAssistantFlow(input);
-  } catch (error) {
-    console.error("GIGPILOT_ERROR:", error);
-    return {
-        answer: "I'm currently having a bit of trouble accessing my knowledge base. Would you like to speak directly with our team via WhatsApp?",
-        suggested_actions: ["Chat on WhatsApp", "View Services Overview"],
-        confidence_score: 0
-    };
+  let attempts = 0;
+  const maxAttempts = 3;
+
+  while (attempts < maxAttempts) {
+    try {
+      // The Zod schema ensures the output shape is safe
+      const result = await ragAssistantFlow(input);
+      return result;
+    } catch (error: any) {
+      attempts++;
+      console.error(`GIGPILOT_ERROR (Attempt ${attempts}):`, error.message);
+      if (attempts >= maxAttempts) {
+        // If all retries fail, return a graceful fallback response
+        return {
+            answer: "I'm currently having a bit of trouble connecting. Please try again in a moment, or feel free to speak directly with our team via WhatsApp.",
+            suggested_actions: ["Chat on WhatsApp", "View Services Overview"],
+            confidence_score: 0
+        };
+      }
+      // Wait before retrying, with exponential backoff
+      await sleep(1000 * Math.pow(2, attempts - 1));
+    }
   }
+
+  // This part should theoretically be unreachable, but it satisfies TypeScript
+  return {
+    answer: "An unexpected error occurred. Please contact support directly.",
+    suggested_actions: ["Contact Support"],
+    confidence_score: 0
+  };
 }
