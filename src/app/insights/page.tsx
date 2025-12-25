@@ -8,18 +8,13 @@ import { Search, ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import Image from 'next/image';
-import type { Metadata } from 'next';
 import { insights, Insight } from '@/lib/insights';
 import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/card';
 import { topics } from '@/lib/data/insights-page-data';
 import { GlowingCard } from '@/components/ui/glowing-card';
 
-// Note: Metadata is now defined statically in this client component, which is fine in Next.js 14+
-export const metadata: Metadata = {
-  title: 'AI & Automation Insights',
-  description: 'Explore the latest insights on AI, workplace automation, and business growth from the experts at LOG_ON. Read our articles, analyses, and guides for the Nigerian market.',
-};
-
+// Note: This page is a client component, so metadata should be handled in the layout or a parent server component.
+// For simplicity in this starter, we're not defining dynamic metadata here.
 
 export default function InsightsPage() {
     const [searchTerm, setSearchTerm] = useState('');
