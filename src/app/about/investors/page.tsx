@@ -68,4 +68,12 @@ export default function InvestorsPage() {
             <h2 className="text-2xl font-bold">Contact Investor Relations</h2>
             <p className="text-muted-foreground mt-2 max-w-md mx-auto">For investment inquiries, please reach out to our team.</p>
             <Button asChild className="mt-4">
-                <Link href="/contact?subject=Investor
+                <Link href="/contact?subject=Investor%20Inquiry">
+                    Contact IR <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+            </Button>
+        </section>
+      </div>
+    </div>
+  );
+}
