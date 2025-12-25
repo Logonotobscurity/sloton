@@ -36,7 +36,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
     notFound();
   }
   
-  const fullDescription = template.steps ? template.steps.map(step => `${step.name}: ${step.description}`).join('; ') : template.description;
+  const fullDescription = template.description || '';
 
   const allTemplates = getTemplates();
   const relatedTemplates = allTemplates

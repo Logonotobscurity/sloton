@@ -47,7 +47,7 @@ export default function SupportPage() {
                                 <p className="text-muted-foreground text-sm md:text-base">{category.description}</p>
                             </CardContent>
                              <CardContent className="p-0 pt-4 mt-auto">
-                                <div className="text-primary font-semibold flex items-center group-hover:text-accent-gold transition-colors">
+                                <div className="text-primary font-semibold flex items-center group-hover:text-primary transition-colors">
                                     Go to {category.title} <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                                 </div>
                             </CardContent>

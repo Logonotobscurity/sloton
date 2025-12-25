@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, MessageCircle, ArrowRight } from 'lucide-react';
+import { Loader2, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { communityLeadAction } from '@/app/actions';
 import { DatePicker } from './ui/date-picker';
