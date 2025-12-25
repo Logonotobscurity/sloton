@@ -113,7 +113,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                  <div className="mt-8 grid md:grid-cols-3 gap-6">
                     {relatedTemplates.map(related => {
                        const style = categoryStyles[related.category] || categoryStyles['General'];
-                       const relatedFullDescription = related.steps ? related.steps.map(step => `${step.name}: ${step.description}`).join('; ') : related.description;
+                       const relatedFullDescription = related.description || '';
                        const CategoryIcon = style.icon;
 
                        return (
@@ -130,7 +130,7 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
                             <CardFooter className="p-0 pt-6">
                                 <div className="flex items-center gap-2">
                                     <Button asChild variant="outline" size="sm" className="rounded-full hover:bg-secondary">
-                                        <Link href={`/automation/${slugify(related.name)}`}>
+                                        <Link href={`/automation/${related.slug}`}>
                                             <Eye className="mr-2 h-4 w-4" /> Preview
                                         </Link>
                                     </Button>
@@ -180,6 +180,6 @@ export default function TemplatePreviewPage({ params }: { params: { slug: string
 export async function generateStaticParams() {
   const templates = getTemplates();
   return templates.map((template) => ({
-    slug: slugify(template.name),
+    slug: template.slug,
   }));
 }

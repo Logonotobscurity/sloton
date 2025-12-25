@@ -17,15 +17,14 @@ export interface Template {
 }
 
 // Add a slug to each template object dynamically
-export const templates: Template[] = (templatesData as Omit<Template, 'slug'>[]).map(template => ({
-    ...template,
-    slug: slugify(template.name)
-}));
-
 export function getTemplates(): Template[] {
-    return templates;
+    return (templatesData as Omit<Template, 'slug'>[]).map(template => ({
+        ...template,
+        slug: slugify(template.name)
+    }));
 }
 
 export function getTemplateBySlug(slug: string): Template | undefined {
-    return templates.find(template => template.slug === slug);
+    const allTemplates = getTemplates();
+    return allTemplates.find(template => template.slug === slug);
 }
