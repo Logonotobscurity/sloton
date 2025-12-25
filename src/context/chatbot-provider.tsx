@@ -2,7 +2,7 @@
 "use client";
 
 import React, { createContext, useState, ReactNode } from 'react';
-import { useChatbotStore } from '@/hooks/use-chatbot-store';
+import { useUiStore } from '@/hooks/use-ui-store';
 
 interface ChatbotContextType {
   isChatbotOpen: boolean;
@@ -12,7 +12,7 @@ interface ChatbotContextType {
 export const ChatbotContext = createContext<ChatbotContextType | undefined>(undefined);
 
 export const ChatbotProvider = ({ children }: { children: ReactNode }) => {
-  const { isChatbotOpen, setChatbotOpen } = useChatbotStore();
+  const { isChatbotOpen, setChatbotOpen } = useUiStore();
 
   return (
     <ChatbotContext.Provider value={{ isChatbotOpen, setChatbotOpen }}>

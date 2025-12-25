@@ -10,9 +10,11 @@ import { DesktopNav } from "./header/desktop-nav";
 import { MobileNav } from "./header/mobile-nav";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./header/theme-toggle";
+import { useUiStore } from "@/hooks/use-ui-store";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const { isMenuOpen } = useUiStore();
 
   React.useEffect(() => {
     const handleScroll = () => {

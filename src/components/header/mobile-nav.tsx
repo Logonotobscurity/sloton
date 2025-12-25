@@ -19,12 +19,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ScrollArea } from "../ui/scroll-area";
 import { ThemeToggle } from "./theme-toggle";
 import { motion } from "framer-motion";
+import { useUiStore } from "@/hooks/use-ui-store";
 
 const hasItems = (section: SitemapSection): section is SectionWithItems => {
   return 'items' in section && Array.isArray(section.items);
 };
 
-const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
+const MobileNavigation = () => {
+    const { setMenuOpen } = useUiStore();
     return (
         <ScrollArea className="flex-1">
             <div className="flex-grow p-4">
@@ -38,7 +40,7 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                                         <ul className="flex flex-col space-y-2 py-2">
                                             {menu.items.map(item => (
                                                 <li key={item.title}>
-                                                    <Link href={item.href} className="block p-2 rounded-md hover:bg-accent" onClick={() => setIsOpen(false)}>
+                                                    <Link href={item.href} className="block p-2 rounded-md hover:bg-accent" onClick={() => setMenuOpen(false)}>
                                                         <span className="font-semibold">{item.title}</span>
                                                         <p className="text-sm text-muted-foreground">{item.shortDescription}</p>
                                                     </Link>
@@ -46,7 +48,7 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                                             ))}
                                             {menu.cta && (
                                                 <li>
-                                                    <Link href={menu.cta.href} className="block p-2 rounded-md font-semibold text-primary hover:bg-accent" onClick={() => setIsOpen(false)}>
+                                                    <Link href={menu.cta.href} className="block p-2 rounded-md font-semibold text-primary hover:bg-accent" onClick={() => setMenuOpen(false)}>
                                                         {menu.cta.label}
                                                     </Link>
                                                 </li>
@@ -57,7 +59,7 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                             )
                         } else if ('href' in menu) {
                            return (
-                                <Link key={menu.key} href={menu.href} className="flex border-b text-lg font-semibold p-4" onClick={() => setIsOpen(false)}>
+                                <Link key={menu.key} href={menu.href} className="flex border-b text-lg font-semibold p-4" onClick={() => setMenuOpen(false)}>
                                     {menu.heading}
                                 </Link>
                             );
@@ -67,7 +69,7 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
                     })}
                 </Accordion>
                 <div className="flex flex-col space-y-2 mt-4 border-t pt-4">
-                    <Link href="/contact" className="text-lg font-semibold p-2 rounded-md hover:bg-accent" onClick={() => setIsOpen(false)}>
+                    <Link href="/contact" className="text-lg font-semibold p-2 rounded-md hover:bg-accent" onClick={() => setMenuOpen(false)}>
                         Contact Us
                     </Link>
                 </div>
@@ -78,12 +80,23 @@ const MobileNavigation = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void 
 
 
 export const MobileNav = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const { isMenuOpen, setMenuOpen } = useUiStore();
   
+  React.useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet open={isMenuOpen} onOpenChange={setMenuOpen}>
       <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open navigation menu" aria-expanded={isOpen}>
+          <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open navigation menu" aria-expanded={isMenuOpen}>
             <Menu className="h-6 w-6" />
           </Button>
       </SheetTrigger>
@@ -97,13 +110,13 @@ export const MobileNav = () => {
         >
             <SheetHeader className="p-4 border-b flex flex-row items-center justify-between">
                 <SheetTitle asChild>
-                    <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsOpen(false)} aria-label="LOG_ON Homepage">
+                    <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setMenuOpen(false)} aria-label="LOG_ON Homepage">
                     <Logo />
                     </Link>
                 </SheetTitle>
             </SheetHeader>
             
-            <MobileNavigation setIsOpen={setIsOpen} />
+            <MobileNavigation />
 
             <SheetFooter className="p-4 border-t mt-auto bg-secondary/50 flex flex-row items-center justify-end">
                 <ThemeToggle />
