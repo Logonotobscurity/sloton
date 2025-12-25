@@ -12,40 +12,58 @@ import { caseStudies } from '@/lib/case-studies';
 import { services, industryApplications } from '@/lib/data/solutions-data';
 import { trainingPrograms } from '@/lib/data/training-data';
 
-// 1. CONSTRUCT THE KNOWLEDGE BASE
+// 1. ENHANCED KNOWLEDGE BASE
 // =================================================================
-// Combine all content sources into a single, searchable knowledge base.
 const knowledge = [
-    ...insights.map(i => ({ type: 'Insight', title: i.title, content: i.description, slug: `/insights/${i.slug}` })),
-    ...caseStudies.map(cs => ({ type: 'Case Study', title: cs.title, content: cs.description, slug: `/use-cases` })),
-    ...services.map(s => ({ type: 'Service', title: s.title, content: s.description, slug: `/solutions#${s.id}` })),
-    ...industryApplications.map(ia => ({ type: 'Industry Solution', title: ia.industry, content: `${ia.challenge} ${ia.solution}`, slug: `/use-cases#${ia.industry.toLowerCase().replace(/\s/g, '-')}` })),
-    ...trainingPrograms.map(tp => ({ type: 'Training', title: tp.title, content: tp.description, slug: `/training#programs` })),
+    ...insights.map(i => ({ type: 'Insight', title: i.title, content: i.description, slug: `/insights/${i.slug}`, tags: ['blog', 'article'] })),
+    ...caseStudies.map(cs => ({ type: 'Case Study', title: cs.title, content: cs.description, slug: `/use-cases`, tags: ['proof', 'results'] })),
+    ...services.map(s => ({ type: 'Service', title: s.title, content: s.description, slug: `/solutions#${s.id}`, tags: ['offering', 'pricing'] })),
+    ...industryApplications.map(ia => ({ type: 'Industry Solution', title: ia.industry, content: `${ia.challenge} ${ia.solution}`, slug: `/use-cases#${ia.industry.toLowerCase().replace(/\s/g, '-')}`, tags: ['vertical', 'specialization'] })),
+    ...trainingPrograms.map(tp => ({ type: 'Training', title: tp.title, content: tp.description, slug: `/training#programs`, tags: ['education', 'upskilling'] })),
 ];
 
-// 2. DEFINE THE TOOLS
+
+// 2. REFINED TOOLS
 // =================================================================
 
 const searchKnowledgeBase = ai.defineTool(
     {
         name: 'searchKnowledgeBase',
-        description: "Searches the company's knowledge base to answer questions about its services, solutions, case studies, insights, and training programs.",
+        description: "Semantic search across LOG_ON's services, AI solutions, case studies, and training. Use this for ANY question about what the company does.",
         inputSchema: z.object({ query: z.string() }),
         outputSchema: z.array(z.object({
             type: z.string(),
             title: z.string(),
             content: z.string(),
             slug: z.string(),
+            relevance: z.number()
         })),
     },
     async (input) => {
         const query = input.query.toLowerCase();
-        // In a real-world scenario, you would use a vector database (e.g., Pinecone, Chroma) for semantic search.
-        // For this demo, a simple keyword search will suffice.
-        return knowledge.filter(doc =>
-            doc.title.toLowerCase().includes(query) ||
-            doc.content.toLowerCase().includes(query)
-        ).slice(0, 4); // Return top 4 matches
+        const terms = query.split(' ').filter(t => t.length > 2);
+        
+        // Simple Weighted Scoring Algorithm
+        return knowledge.map(doc => {
+            let score = 0;
+            const fullText = `${doc.title} ${doc.content}`.toLowerCase();
+            
+            // Exact phrase match (High weight)
+            if (fullText.includes(query)) score += 10;
+            
+            // Title match (Medium weight)
+            if (doc.title.toLowerCase().includes(query)) score += 5;
+            
+            // Individual term matches (Low weight)
+            terms.forEach(term => {
+                if (fullText.includes(term)) score += 1;
+            });
+
+            return { ...doc, relevance: score };
+        })
+        .filter(doc => doc.relevance > 0)
+        .sort((a, b) => b.relevance - a.relevance)
+        .slice(0, 4);
     }
 );
 
@@ -96,12 +114,13 @@ const AssistantRequestSchema = z.object({
 export type AssistantRequest = z.infer<typeof AssistantRequestSchema>;
 
 const AssistantResponseSchema = z.object({
-    answer: z.string().describe("The final, helpful, and conversational answer to the user. It should be written in a friendly and professional tone. If suggesting an action, phrase it as a question."),
+    answer: z.string().describe("Friendly, professional response using Markdown for lists/bolding."),
     sources: z.array(z.object({
         slug: z.string(),
         title: z.string(),
-    })).optional().describe("A list of knowledge base articles used to generate the answer. Only include this if you used the searchKnowledgeBase tool."),
-    suggested_actions: z.array(z.string()).optional().describe("A list of 2-3 relevant follow-up questions or actions the user might want to take next. Example: 'Tell me more about AI Solutions', 'Book a free consultation'"),
+    })).optional(),
+    suggested_actions: z.array(z.string()).max(3).describe("Contextual next steps. If user is browsing, suggest a case study. If user is interested, suggest booking."),
+    confidence_score: z.number().optional().describe("0-1 score of how well the search results answered the user.")
 });
 export type AssistantResponse = z.infer<typeof AssistantResponseSchema>;
 
@@ -114,32 +133,22 @@ const assistantPrompt = ai.definePrompt({
   input: { schema: AssistantRequestSchema },
   output: { schema: AssistantResponseSchema },
   tools: [searchKnowledgeBase, bookMeeting, provideContactOptions],
-  prompt: `You are GIGPILOT, a friendly and expert AI assistant for LOG_ON, a technology consulting company in Nigeria specializing in AI and automation.
-
-Your primary goal is to understand the user's needs and guide them towards the most relevant solution, insight, or action. You are a business development representative and a support agent.
-
-**Your Guiding Principles:**
-1.  **Be Helpful & Conversational:** Always be polite, clear, and professional.
-2.  **Use Your Tools:** You have tools to search the knowledge base, book meetings, and provide contact info. Use them when appropriate.
-3.  **Generate Leads:** If a user expresses a business need that LOG_ON can solve, your main goal is to guide them towards booking a meeting. Don't be pushy, but be proactive. For example, after explaining a service, ask "Would you like to book a free consultation to discuss how this could help your business?"
-4.  **Cite Your Sources:** When you use the knowledge base, you MUST cite the sources in your response.
-5.  **Suggest Next Steps:** Always provide 2-3 relevant "suggested_actions" to guide the conversation and make it easy for the user. These can be follow-up questions or calls to action like booking a meeting.
-
-**Conversation History:**
-{{#each history}}
-  {{role}}: {{content}}
-{{/each}}
-
-**User's Current Question:**
-{{{question}}}
-
-**Your Task:**
-1.  Analyze the user's question and conversation history.
-2.  If you have enough information, answer directly and suggest next steps.
-3.  If you need more information, use the 'searchKnowledgeBase' tool.
-4.  If the user wants to talk to a person or book a meeting, use the 'bookMeeting' or 'provideContactOptions' tools.
-5.  Formulate a concise, helpful response based on the tool output and your guiding principles.
-`,
+  prompt: `
+    System Context:
+    You are GIGPILOT, the Lead AI Strategist for LOG_ON (Nigeria's premier AI consultancy).
+    
+    Personality: 
+    - Expert yet accessible. 
+    - Use Nigerian English nuances where appropriate (warm, respectful) but maintain global professional standards.
+    
+    Operational Rules:
+    1. ALWAYS check the knowledge base if the user asks "How do you...", "Do you...", or "Tell me about...".
+    2. If multiple services are relevant, briefly summarize the top 2.
+    3. CITE: Use [Source Title](slug) format in the text.
+    4. LEAD GEN: If the user asks about ROI, cost, or implementation, immediately offer a free consultation using the suggested_actions.
+    
+    User Query: {{{question}}}
+  `,
 });
 
 const ragAssistantFlow = ai.defineFlow(
@@ -150,10 +159,24 @@ const ragAssistantFlow = ai.defineFlow(
     },
     async (input) => {
         const { output } = await assistantPrompt(input);
-        return output!;
+        
+        if (!output) {
+            throw new Error("No response from AI engine");
+        }
+        
+        return output;
     }
 );
 
 export async function askRagAssistant(input: AssistantRequest): Promise<AssistantResponse> {
-  return ragAssistantFlow(input);
+  try {
+    return await ragAssistantFlow(input);
+  } catch (error) {
+    console.error("GIGPILOT_ERROR:", error);
+    return {
+        answer: "I'm currently having a bit of trouble accessing my knowledge base. Would you like to speak directly with our team via WhatsApp?",
+        suggested_actions: ["Chat on WhatsApp", "View Services Overview"],
+        confidence_score: 0
+    };
+  }
 }
