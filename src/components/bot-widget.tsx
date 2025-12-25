@@ -4,7 +4,7 @@
 import { useContext, useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { MessageCircle, X, Send, User, Bot, FileText } from 'lucide-react';
+import { MessageCircle, X, Send, User, Bot, FileText, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from './ui/tooltip';
 import FocusLock from 'react-focus-lock';
@@ -16,14 +16,15 @@ import imageData from '@/lib/placeholder-images.json';
 import Link from 'next/link';
 
 interface Message {
-    role: 'user' | 'assistant';
+    role: 'user' | 'assistant' | 'tool';
     content: string;
     sources?: { title: string; slug: string }[];
+    suggested_actions?: string[];
 }
 
 export function BotWidget({ initialMessage }: { initialMessage: string }) {
     const context = useContext(ChatbotContext);
-    const [messages, setMessages] = useState<Message[]>([{ role: 'assistant', content: initialMessage }]);
+    const [messages, setMessages] = useState<Message[]>([{ role: 'assistant', content: initialMessage, suggested_actions: ["What services do you offer?", "Tell me about your AI solutions", "How can I contact you?"] }]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const messageContainerRef = useRef<HTMLDivElement>(null);
@@ -40,24 +41,26 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
         }
     }, [messages]);
 
-    const handleSendMessage = async (e: React.FormEvent) => {
+    const handleSendMessage = async (e: React.FormEvent, messageText?: string) => {
         e.preventDefault();
-        if (!input.trim() || isLoading) return;
+        const currentInput = messageText || input;
+        if (!currentInput.trim() || isLoading) return;
 
-        const userMessage: Message = { role: 'user', content: input };
+        const userMessage: Message = { role: 'user', content: currentInput };
         setMessages(prev => [...prev, userMessage]);
         setInput('');
         setIsLoading(true);
 
         const history = messages.map(msg => ({ role: msg.role, content: msg.content }));
-        const response = await askSupportBot(history, input);
+        const response = await askSupportBot(history, currentInput);
 
         setIsLoading(false);
         if (response.data) {
             setMessages(prev => [...prev, {
                 role: 'assistant',
                 content: response.data.answer,
-                sources: response.data.sources
+                sources: response.data.sources,
+                suggested_actions: response.data.suggested_actions,
             }]);
         } else {
             setMessages(prev => [...prev, {
@@ -81,7 +84,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                     )}
                 >
                     <div className="flex items-center justify-between p-2 border-b">
-                        <p className="font-semibold text-sm pl-2">Support Assistant</p>
+                        <p className="font-semibold text-sm pl-2 flex items-center gap-2"><Sparkles className="h-4 w-4 text-primary" /> GIGPILOT Assistant</p>
                         <TooltipProvider delayDuration={100}>
                             <Tooltip>
                                 <TooltipTrigger asChild>
@@ -107,21 +110,30 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                                         </Avatar>
                                     </ChatBubbleAvatar>
                                 )}
-                                <div className="flex flex-col gap-2 w-full">
+                                <div className="flex flex-col gap-3 w-full">
                                     <ChatBubbleMessage>
                                         {message.content}
                                     </ChatBubbleMessage>
                                     {message.sources && message.sources.length > 0 && (
                                          <div className="flex flex-col gap-2 text-xs">
-                                            <p className="font-semibold">Sources:</p>
+                                            <p className="font-semibold text-muted-foreground">Sources:</p>
                                             <div className="flex gap-2 flex-wrap">
                                             {message.sources.map(source => (
-                                                <Link key={source.slug} href={`/insights/${source.slug}`} target="_blank">
-                                                    <div className="p-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 flex items-center gap-2">
-                                                        <FileText className="h-3 w-3" />
-                                                        <span>{source.title}</span>
-                                                    </div>
+                                                <Link key={source.slug} href={source.slug} target="_blank" className="p-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 flex items-center gap-2 text-xs">
+                                                    <FileText className="h-3 w-3 flex-shrink-0" />
+                                                    <span className="truncate">{source.title}</span>
                                                 </Link>
+                                            ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                     {message.suggested_actions && message.suggested_actions.length > 0 && index === messages.length - 1 && !isLoading &&(
+                                        <div className="flex flex-col gap-2 text-xs pt-2">
+                                            <div className="flex gap-2 flex-wrap">
+                                            {message.suggested_actions.map(action => (
+                                                <button key={action} onClick={(e) => handleSendMessage(e, action)} className="p-2 rounded-md bg-primary/10 text-primary hover:bg-primary/20 flex items-center gap-2 text-xs text-left">
+                                                    {action}
+                                                </button>
                                             ))}
                                             </div>
                                         </div>

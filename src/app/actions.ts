@@ -7,7 +7,7 @@ import { ContactFormEmail } from '@/emails/contact-form-email';
 import { EnrollmentEmail } from '@/emails/enrollment-email';
 import { automateTaskDesign } from '@/ai/flows/automated-task-design';
 import { getSolutionRecommendation } from '@/ai/flows/solution-recommendation';
-import { supportChat } from '@/ai/flows/support-chat';
+import { askRagAssistant } from '@/ai/flows/rag-assistant';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const toEmail = process.env.TO_EMAIL || 'logonthepage@gmail.com';
@@ -49,9 +49,9 @@ async function sendToWebhook(payload: any, submissionType: string) {
   }
 }
 
-export async function askSupportBot(history: { role: string; content: string }[], question: string) {
+export async function askSupportBot(history: { role: 'user' | 'assistant' | 'tool'; content: string }[], question: string) {
   try {
-      const result = await supportChat({ history, question });
+      const result = await askRagAssistant({ history, question });
       return { data: result };
   } catch (e: any) {
       console.error('Error in askSupportBot:', e);

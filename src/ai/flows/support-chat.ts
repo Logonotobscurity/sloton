@@ -3,6 +3,7 @@
  * @fileOverview A support chatbot flow that uses a knowledge base to answer questions.
  *
  * - supportChat - A function that answers questions based on a knowledge base of insights.
+ * @deprecated This flow is deprecated in favor of rag-assistant.ts
  */
 
 import { ai } from '@/ai/genkit';
