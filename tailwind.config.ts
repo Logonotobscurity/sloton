@@ -13,12 +13,7 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: { 
-        DEFAULT: 'clamp(1rem, 5vw, 3rem)',
-        sm: 'clamp(1.5rem, 7vw, 4rem)',
-        lg: 'clamp(2rem, 10vw, 6rem)',
-        xl: 'clamp(2.5rem, 12vw, 7rem)',
-      },
+      padding: 'var(--container-padding-x)',
     },
     extend: {
        gridTemplateColumns: {
@@ -28,18 +23,20 @@ const config = {
          'fluid-item': '1 1 min(350px, 100%)',
        },
        spacing: {
-        'fluid-xs': 'clamp(0.5rem, 1vw, 1rem)',
-        'fluid-sm': 'clamp(1rem, 2.5vw, 2.5rem)',
-        'fluid-md': 'clamp(2rem, 5vw, 5rem)',
-        'fluid-lg': 'clamp(4rem, 10vw, 10rem)',
-        'fluid-xl': 'clamp(8rem, 20vw, 20rem)',
+        'fluid-xs': 'var(--space-fluid-xs)',
+        'fluid-sm': 'var(--space-fluid-sm)',
+        'fluid-md': 'var(--space-fluid-md)',
+        'fluid-lg': 'var(--space-fluid-lg)',
+        'fluid-xl': 'var(--space-fluid-xl)',
+        'fluid-2xl': 'var(--space-fluid-2xl)',
        },
        fontSize: {
-        'fluid-sm': 'clamp(0.875rem, 0.5vw + 0.75rem, 1.125rem)',
-        'fluid-base': 'clamp(1rem, 1vw + 0.75rem, 1.5rem)',
-        'fluid-md': 'clamp(1.25rem, 2vw + 1rem, 2.25rem)',
-        'fluid-lg': 'clamp(1.875rem, 4vw + 1rem, 3.5rem)',
-        'fluid-xl': 'clamp(2.25rem, 5vw + 1rem, 4.5rem)',
+        'fluid-xs': 'clamp(0.75rem, 0.5vw + 0.6rem, 0.875rem)',
+        'fluid-sm': 'clamp(0.875rem, 1vw + 0.7rem, 1.125rem)',
+        'fluid-base': 'clamp(1rem, 1.5vw + 0.75rem, 1.25rem)',
+        'fluid-lg': 'clamp(1.5rem, 2.5vw + 1rem, 2.5rem)',
+        'fluid-xl': 'clamp(2.25rem, 4.5vw + 1rem, 4rem)',
+        'fluid-2xl': 'clamp(3rem, 6vw + 1rem, 5rem)',
        },
        backgroundImage: {
         "grid-light": "linear-gradient(-90deg, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px)",
