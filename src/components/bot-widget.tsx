@@ -4,7 +4,7 @@
 import { useContext, useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { MessageCircle, X, Send, User, Bot, FileText, Sparkles } from 'lucide-react';
+import { MessageCircle, X, Send, User, Bot, FileText, Sparkles, Trash2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from './ui/tooltip';
 import FocusLock from 'react-focus-lock';
@@ -24,7 +24,8 @@ interface Message {
 
 export function BotWidget({ initialMessage }: { initialMessage: string }) {
     const context = useContext(ChatbotContext);
-    const [messages, setMessages] = useState<Message[]>([{ role: 'assistant', content: initialMessage, suggested_actions: ["What services do you offer?", "Tell me about your AI solutions", "How can I contact you?"] }]);
+    const getInitialState = () => [{ role: 'assistant' as const, content: initialMessage, suggested_actions: ["What services do you offer?", "Tell me about your AI solutions", "How can I contact you?"] }];
+    const [messages, setMessages] = useState<Message[]>(getInitialState());
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const messageContainerRef = useRef<HTMLDivElement>(null);
@@ -40,6 +41,10 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
             messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
         }
     }, [messages]);
+
+    const handleClearChat = () => {
+        setMessages(getInitialState());
+    };
 
     const handleSendMessage = async (e: React.FormEvent, messageText?: string) => {
         e.preventDefault();
@@ -85,18 +90,32 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
                 >
                     <div className="flex items-center justify-between p-2 border-b">
                         <p className="font-semibold text-sm pl-2 flex items-center gap-2"><Sparkles className="h-4 w-4 text-primary" /> GIGPILOT Assistant</p>
-                        <TooltipProvider delayDuration={100}>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setChatbotOpen(false)} aria-label="Close Chatbot">
-                                        <X className="h-4 w-4" />
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    <p>Close Chat</p>
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
+                        <div className="flex items-center">
+                            <TooltipProvider delayDuration={100}>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleClearChat} aria-label="Clear Chat">
+                                            <Trash2 className="h-4 w-4" />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Clear Chat</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                            <TooltipProvider delayDuration={100}>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setChatbotOpen(false)} aria-label="Close Chatbot">
+                                            <X className="h-4 w-4" />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Close Chat</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </div>
                     </div>
                     
                     <div ref={messageContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4">
