@@ -47,8 +47,8 @@ This document presents a deep, cross-codebase audit of the application. The audi
 ### A. System Design Principles
 
 - **`ChartTooltipContent` Component SOLID Scorecard**:
-  - **SRP: 3/10**: The component has too many responsibilities.
-  - **ISP: 4/10**: The component has a bloated interface with 13 props.
+  - **SRP Score: 3/10**: The component has too many responsibilities.
+  - **ISP Score: 4/10**: The component has a bloated interface with 13 props.
 
 ### B. Coupling & Cohesion Metrics
 
@@ -71,7 +71,6 @@ The `public/` directory contains several large images that could be optimized:
 - `66c4cf98db4efc2ae8c54b7d_LLMz.webp` (151KB)
 - `herosection.webp` (66KB)
 
----
 ---
 
 ## PHASE 5: CODE QUALITY DEEP DIVE
