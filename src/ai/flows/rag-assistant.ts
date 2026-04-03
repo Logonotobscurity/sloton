@@ -8,8 +8,8 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
-import { insights } from '@/lib/insights';
-import { caseStudies } from '@/lib/case-studies';
+import { insights } from '@/lib/data/insights';
+import { caseStudies } from '@/lib/data/case-studies';
 import { services, industryApplications } from '@/lib/data/solutions-data';
 import { trainingPrograms } from '@/lib/data/training-data';
 

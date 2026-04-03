@@ -12,9 +12,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { Badge } from "./ui/badge";
-import { caseStudies as allCaseStudies } from "@/lib/case-studies";
-import { CaseStudy } from "@/lib/case-studies";
+import { Badge } from "@/components/ui/badge";
+import { caseStudies as allCaseStudies } from "@/lib/data/case-studies";
+import { CaseStudy } from "@/lib/data/case-studies";
 
 interface CaseStudiesCarouselProps {
   studies?: CaseStudy[];

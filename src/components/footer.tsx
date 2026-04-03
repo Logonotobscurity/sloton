@@ -2,8 +2,8 @@
 import Link from 'next/link';
 import { IconFacebook, IconInstagram, IconLinkedIn, IconX, IconYouTube } from '@/lib/icons';
 import { menuData, SitemapSection } from '@/lib/menu-data';
-import { Button } from './ui/button';
-import { AdinkraBackground } from './ui/adinkra-background';
+import { Button } from '@/components/ui/button';
+import { AdinkraBackground } from '@/components/ui/adinkra-background';
 
 const socialLinks = [
   { href: 'https://www.facebook.com/logonthepage', label: 'Facebook', icon: <IconFacebook className="w-5 h-5" /> },

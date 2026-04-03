@@ -6,9 +6,9 @@ import { CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from 
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import { insights } from '@/lib/insights';
-import { Button } from '../ui/button';
-import { GlowingCard } from '../ui/glowing-card';
+import { insights } from '@/lib/data/insights';
+import { Button } from '@/components/ui/button';
+import { GlowingCard } from '@/components/ui/glowing-card';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import {

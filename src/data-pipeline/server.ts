@@ -10,10 +10,10 @@ import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 
 // Assuming a message bus producer class exists (e.g., for Kafka or SQS)
-// import { producer } from './producer'; 
+// import { producer } from '@/data-pipeline/producer';
 const producer = { connect: async () => {}, send: async (message: any) => console.log('Producing to Event Bus:', message) };
 
-import leadEventSchema from './lead-event.schema.json';
+import leadEventSchema from '@/data-pipeline/lead-event.schema.json';
 
 const app = express();
 app.use(express.json());

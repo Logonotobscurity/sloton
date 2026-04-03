@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { AuthorBio } from '@/components/author-bio';
-import { insights } from '@/lib/insights';
+import { insights } from '@/lib/data/insights';
 import Script from 'next/script';
 import { ShareModal } from '@/components/share-modal';
 import type { Metadata, ResolvingMetadata } from 'next';

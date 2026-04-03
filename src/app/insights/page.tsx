@@ -8,7 +8,7 @@ import { Search, ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import Image from 'next/image';
-import { insights, Insight } from '@/lib/insights';
+import { insights, Insight } from '@/lib/data/insights';
 import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/card';
 import { topics } from '@/lib/data/insights-page-data';
 import { GlowingCard } from '@/components/ui/glowing-card';

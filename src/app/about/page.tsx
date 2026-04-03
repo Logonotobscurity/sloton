@@ -7,7 +7,7 @@ import { GlowingCard } from '@/components/ui/glowing-card';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { BottomCta } from '@/components/page-sections/bottom-cta';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { insights } from '@/lib/insights';
+import { insights } from '@/lib/data/insights';
 import { stats, trustPillars, researchAreas, analystReports } from '@/lib/data/about-page-data';
 
 export const metadata: Metadata = {

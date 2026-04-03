@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getTemplates } from '@/lib/workflow-templates'
+import { getTemplates } from '@/lib/data/workflow-templates'
  
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://logonsolutions.netlify.app';

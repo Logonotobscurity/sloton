@@ -8,7 +8,7 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
-import { insights } from '@/lib/insights';
+import { insights } from '@/lib/data/insights';
 
 const knowledgeBase = insights.map(i => ({
     content: `Title: ${i.title}\nDescription: ${i.description}\nTags: ${i.tags.join(', ')}\nContent available at slug: /insights/${i.slug}`,

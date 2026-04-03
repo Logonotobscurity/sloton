@@ -1,7 +1,7 @@
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getTemplateBySlug } from '@/lib/workflow-templates';
+import { getTemplateBySlug } from '@/lib/data/workflow-templates';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Share2, ArrowLeft, Lightbulb, Workflow, Eye, Edit } from 'lucide-react';
@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import { CommunityLeadForm } from '@/components/community-lead-form';
 import { PageHero } from '@/components/page-sections/page-hero';
-import { getTemplates } from '@/lib/workflow-templates';
+import { getTemplates } from '@/lib/data/workflow-templates';
 import { categoryStyles } from '@/lib/category-styles';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
 import { slugify } from '@/lib/slugify';

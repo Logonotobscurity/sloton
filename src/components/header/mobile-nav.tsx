@@ -11,13 +11,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Logo } from "./logo";
+import { Logo } from "@/components/header/logo";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { menuData, SitemapSection, SectionWithItems } from "@/lib/menu-data";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ScrollArea } from "../ui/scroll-area";
-import { ThemeToggle } from "./theme-toggle";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { ThemeToggle } from "@/components/header/theme-toggle";
 import { motion } from "framer-motion";
 import { useUiStore } from "@/hooks/use-ui-store";
 

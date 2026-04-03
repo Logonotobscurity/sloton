@@ -10,7 +10,7 @@ import { webDevelopmentServices } from '@/lib/data/services-data';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const CaseStudyFeature = lazy(() => import('@/components/page-sections/case-study-feature').then(module => ({ default: module.CaseStudyFeature })));
-const Faq = lazy(() => import('@/components/faq').then(module => ({ default: module.Faq })));
+const Faq = lazy(() => import('@/components/faq'));
 
 export const metadata: Metadata = {
   title: 'Custom Web & Application Development',
