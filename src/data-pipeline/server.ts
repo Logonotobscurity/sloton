@@ -10,10 +10,10 @@ import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 
 // Assuming a message bus producer class exists (e.g., for Kafka or SQS)
-// import { producer } from '@/data-pipeline/producer';
+// import { producer } from './producer';
 const producer = { connect: async () => {}, send: async (message: any) => console.log('Producing to Event Bus:', message) };
 
-import leadEventSchema from '@/data-pipeline/lead-event.schema.json';
+import leadEventSchema from './lead-event.schema.json';
 
 const app = express();
 app.use(express.json());
@@ -33,44 +33,17 @@ const apiKeyAuth = (req: express.Request, res: express.Response, next: express.N
     next();
 };
 
-interface LeadEvent {
-    event_id: string;
-    idempotency_key?: string;
-    tenant_id?: string;
-    source: "web_form" | "chatbot" | "mobile" | "stripe" | "calendly" | "iframe" | "api";
-    received_at: string;
-    user_ip?: string;
-    user_agent?: string;
-    payload: {
-        first_name?: string;
-        last_name?: string;
-        email: string;
-        phone?: string;
-        message?: string;
-        submission_type: string;
-        utm?: {
-            utm_source?: string;
-            utm_medium?: string;
-            utm_campaign?: string;
-            utm_content?: string;
-            utm_term?: string;
-        };
-        consent?: boolean;
-        metadata?: Record<string, any>;
-    };
-}
-
-app.post('/ingest', apiKeyAuth, async (req: express.Request, res: express.Response) => {
+app.post('/ingest', apiKeyAuth, async (req, res) => {
     try {
         const eventPayload = req.body;
 
         // 1. Assign metadata
-        const event: LeadEvent = {
+        const event = {
             ...eventPayload,
             event_id: uuidv4(),
             received_at: new Date().toISOString(),
             user_ip: req.ip,
-            user_agent: req.headers['user-agent'] as string,
+            user_agent: req.headers['user-agent'],
         };
         
         // 2. Validate against JSON Schema

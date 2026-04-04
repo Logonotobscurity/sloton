@@ -64,7 +64,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
             setMessages(prev => [...prev, {
                 role: 'assistant',
                 content: response.data.answer,
-                sources: response.data.sources?.map(s => ({ title: s.title || '', slug: s.slug || '' })),
+                sources: response.data.sources?.map(s => ({ title: s.title || "", slug: s.slug || "" })),
                 suggested_actions: response.data.suggested_actions,
             }]);
         } else {

@@ -21,8 +21,7 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { slug } = await params;
-  const insight = insights.find((insight) => insight.slug === slug);
+  const insight = insights.find(async (insight) => insight.slug === (await params).slug);
 
   if (!insight) {
     return {
@@ -51,9 +50,8 @@ export async function generateMetadata(
   }
 }
 
-export default async function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const insight = insights.find((insight) => insight.slug === slug);
+export default function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
+  const insight = insights.find(async (insight) => insight.slug === (await params).slug);
 
   if (!insight) {
     notFound();

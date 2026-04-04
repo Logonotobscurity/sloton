@@ -93,7 +93,7 @@ const provideContactOptions = ai.defineTool({
 }, async () => {
     const prefilledMessage = "Hi LOG_ON, I'm interested in learning more about your AI and automation solutions.";
     return {
-        status: "contact_options_provided" as const,
+        status: "contact_options_provided",
         phone: "+234 814 306 6320",
         whatsapp: `https://wa.me/2348143066320?text=${encodeURIComponent(prefilledMessage)}`,
         email: "logonthepage@gmail.com",

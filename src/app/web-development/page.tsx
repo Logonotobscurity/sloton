@@ -11,7 +11,7 @@ import { webDevelopmentServices } from '@/lib/data/services-data';
 import type { Metadata } from 'next';
 
 const CaseStudyFeature = lazy(() => import('@/components/page-sections/case-study-feature').then(module => ({ default: module.CaseStudyFeature })));
-const Faq = lazy(() => import('@/components/faq'));
+const Faq = lazy(() => import('@/components/faq').then(module => ({ default: module.Faq })));
 
 export const metadata: Metadata = {
   title: 'Custom Web & Application Development',

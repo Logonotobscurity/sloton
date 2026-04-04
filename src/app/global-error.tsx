@@ -1,9 +1,10 @@
 'use client'
- 
+
+import { ServerCrash } from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
 import { PageHero } from '@/components/page-sections/page-hero'
-import { ServerCrash } from 'lucide-react'
- 
+
 export default function GlobalError({
   error,
   reset,

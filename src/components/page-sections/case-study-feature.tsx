@@ -1,11 +1,12 @@
 "use client"
 
-import { caseStudies as allCaseStudies } from "@/lib/data/case-studies";
-import { CaseStudiesCarousel } from "@/components/case-studies-carousel";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import React from "react";
+import { ArrowRight } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { CaseStudiesCarousel } from "@/components/case-studies-carousel";
+import { caseStudies as allCaseStudies } from "@/lib/data/case-studies";
 
 interface CaseStudyFeatureProps {
   tags: string[];

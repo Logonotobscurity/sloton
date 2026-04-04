@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { LifeBuoy, Search, ArrowRight, Mail, Phone } from 'lucide-react';
 
-import Faq from '@/components/faq';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Faq } from '@/components/faq';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { Input } from '@/components/ui/input';
 import { PageHero } from '@/components/page-sections/page-hero';

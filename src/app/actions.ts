@@ -7,7 +7,7 @@ import { ContactFormEmail } from '@/emails/contact-form-email';
 import { EnrollmentEmail } from '@/emails/enrollment-email';
 import { askRagAssistant } from '@/ai/flows/rag-assistant';
 import { automateTaskDesign } from '@/ai/flows/automated-task-design';
-import { getSolutionRecommendation, SolutionRecommendationOutput } from '@/ai/flows/solution-recommendation';
+import { getSolutionRecommendation } from '@/ai/flows/solution-recommendation';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const toEmail = process.env.TO_EMAIL || 'logonthepage@gmail.com';
@@ -86,15 +86,10 @@ const solutionRecommendationSchema = z.object({
 });
 
 export async function getSolutionRecommendationAction(values: z.infer<typeof solutionRecommendationSchema>): Promise<FormResult<SolutionRecommendationOutput>> {
-    try {
-        const result = await getSolutionRecommendation(values);
-        return {
-            data: result,
-        };
-    } catch (e: any) {
-        console.error('Error in getSolutionRecommendationAction:', e);
-        return { error: e.message || 'An unknown error occurred.' };
-    }
+    const result = await getSolutionRecommendation(values);
+    return {
+        data: result,
+    };
 }
 
 // Contact Form Action

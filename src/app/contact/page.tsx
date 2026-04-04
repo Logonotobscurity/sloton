@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { Mail, Phone, Handshake } from 'lucide-react';
 
-import Faq from '@/components/faq';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ContactForm } from '@/components/contact-form';
+import { Faq } from '@/components/faq';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { contactReasons } from '@/lib/data/services-data';
 

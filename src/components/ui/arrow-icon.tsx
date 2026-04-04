@@ -5,9 +5,9 @@ import React from "react";
 import { Workflow, CheckCircle, Lightbulb, BarChart, ExternalLink, ArrowDown, ArrowRight } from 'lucide-react';
 
 import { AutomateTaskDesignOutput } from "@/ai/flows/automated-task-design";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/ui/badge";
+import { Button } from "@/components/ui/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/ui/card";
 
 interface VisualWorkflowProps {
   result: AutomateTaskDesignOutput;
