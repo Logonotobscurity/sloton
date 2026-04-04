@@ -8,8 +8,8 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
-import { insights } from '@/lib/insights';
-import { caseStudies } from '@/lib/case-studies';
+import { insights } from '@/lib/data/insights';
+import { caseStudies } from '@/lib/data/case-studies';
 import { services, industryApplications } from '@/lib/data/solutions-data';
 import { trainingPrograms } from '@/lib/data/training-data';
 
@@ -77,7 +77,7 @@ const bookMeeting = ai.defineTool({
         interest: z.string(),
     }),
 }, async ({ interest }) => {
-    return { status: "meeting_booked", interest };
+    return { status: "meeting_booked" as const, interest };
 });
 
 const provideContactOptions = ai.defineTool({

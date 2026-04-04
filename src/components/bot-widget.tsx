@@ -1,19 +1,19 @@
-
 "use client";
 
-import { useContext, useState, useRef, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { MessageCircle, X, Send, User, Bot, FileText, Sparkles, Trash2 } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from './ui/tooltip';
 import FocusLock from 'react-focus-lock';
-import { ChatbotContext } from '@/context/chatbot-provider';
-import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from './ui/chat-bubble';
-import { askSupportBot } from '@/app/actions';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import imageData from '@/lib/placeholder-images.json';
 import Link from 'next/link';
+import { MessageCircle, X, Send, User, Bot, FileText, Sparkles, Trash2 } from 'lucide-react';
+import { useContext, useState, useRef, useEffect } from 'react';
+
+import imageData from '@/lib/placeholder-images.json';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from '@/components/ui/chat-bubble';
+import { ChatbotContext } from '@/context/chatbot-provider';
+import { Input } from '@/components/ui/input';
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { askSupportBot } from '@/app/actions';
+import { cn } from '@/lib/utils';
 
 interface Message {
     role: 'user' | 'assistant' | 'tool';
@@ -64,7 +64,7 @@ export function BotWidget({ initialMessage }: { initialMessage: string }) {
             setMessages(prev => [...prev, {
                 role: 'assistant',
                 content: response.data.answer,
-                sources: response.data.sources,
+                sources: response.data.sources?.map(s => ({ title: s.title || "", slug: s.slug || "" })),
                 suggested_actions: response.data.suggested_actions,
             }]);
         } else {

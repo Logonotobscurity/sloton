@@ -1,11 +1,12 @@
+import Link from 'next/link';
+import { ArrowRight, TrendingUp, FileText, Calendar } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, TrendingUp, FileText, Calendar } from 'lucide-react';
-import type { Metadata } from 'next';
-import Link from 'next/link';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { reports, events } from '@/lib/data/investors-data';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Investor Relations',

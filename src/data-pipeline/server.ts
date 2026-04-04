@@ -10,7 +10,7 @@ import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 
 // Assuming a message bus producer class exists (e.g., for Kafka or SQS)
-// import { producer } from './producer'; 
+// import { producer } from './producer';
 const producer = { connect: async () => {}, send: async (message: any) => console.log('Producing to Event Bus:', message) };
 
 import leadEventSchema from './lead-event.schema.json';

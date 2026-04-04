@@ -1,13 +1,13 @@
-
 "use client";
 
-import React from "react";
-import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
 import Link from "next/link";
+import React from "react";
 import { Briefcase, HeartPulse, Truck, ShoppingCart, Building, Cog } from "lucide-react";
-import { GlowingCard } from "../ui/glowing-card";
-import { GridBackground } from "../ui/grid-background";
+
+import { Button } from "@/components/ui/button";
+import { GlowingCard } from "@/components/ui/glowing-card";
+import { GridBackground } from "@/components/ui/grid-background";
+import { cn } from "@/lib/utils";
 
 const FeatureCard = ({
   children,

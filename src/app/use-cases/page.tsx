@@ -1,13 +1,14 @@
-
-import { PageHero } from '@/components/page-sections/page-hero';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle, ArrowRight, BrainCircuit, Zap } from 'lucide-react';
-import type { Metadata } from 'next';
+
 import { BottomCta } from '@/components/page-sections/bottom-cta';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { SidebarNav } from '@/components/sidebar-nav';
 import { industries, sidebarNavItems } from '@/lib/data/industries-data';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Workplace Automation Use Cases by Industry in Nigeria',

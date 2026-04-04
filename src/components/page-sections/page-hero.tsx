@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+
+import { AdinkraBackground } from "@/components/ui/adinkra-background";
 import { cn } from "@/lib/utils";
-import { AdinkraBackground } from "../ui/adinkra-background";
 
 interface PageHeroProps {
   title: string;

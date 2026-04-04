@@ -1,12 +1,13 @@
+import Link from 'next/link';
+import { CheckCircle, ArrowRight, Database } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, ArrowRight, Database } from 'lucide-react';
-import type { Metadata } from 'next';
-import Link from 'next/link';
 import { CaseStudyFeature } from '@/components/page-sections/case-study-feature';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { databaseServices, databaseSolutionsBenefits } from '@/lib/data/services-data';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Database Solutions | SQL & NoSQL Design, Migration, & Management',

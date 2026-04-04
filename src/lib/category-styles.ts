@@ -1,4 +1,4 @@
-
+import React from 'react';
 import {
   Briefcase,
   HeartPulse,
@@ -12,8 +12,8 @@ import {
   Home,
   GanttChartSquare,
 } from 'lucide-react';
+
 import { IconGeneral } from '@/components/ui/category-icons';
-import React from 'react';
 
 export const categories = [
   { name: 'Show All', icon: IconGeneral },

@@ -1,11 +1,11 @@
-
 "use client";
 
-import { Button } from "../ui/button";
-import Link from "next/link";
 import Image from "next/image";
-import { CaseStudiesCarousel } from "../case-studies-carousel";
+import Link from "next/link";
 import { motion } from 'framer-motion';
+
+import { Button } from "@/components/ui/button";
+import { CaseStudiesCarousel } from "@/components/case-studies-carousel";
 
 const partners = [
     { name: "Google Cloud Partner", logo: "https://img.icons8.com/color/96/google-cloud.png", dataAiHint: "Google Cloud logo" },

@@ -1,4 +1,3 @@
-
 import imageData from '@/lib/placeholder-images.json';
 
 export interface CaseStudy {

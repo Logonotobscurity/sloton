@@ -1,4 +1,3 @@
-
 import { ShieldCheck, Lock, DatabaseZap, BrainCircuit, FlaskConical, Lightbulb } from 'lucide-react';
 
 export const stats = [

@@ -1,11 +1,8 @@
-
 "use client";
 
-import { useState, useContext } from 'react';
-import { Button } from '@/components/ui/button';
 import { Calendar } from 'lucide-react';
-import { CommunityLeadForm } from './community-lead-form';
-import { cn } from '@/lib/utils';
+import { useState, useContext } from 'react';
+
 import {
   Dialog,
   DialogContent,
@@ -14,7 +11,10 @@ import {
   DialogDescription,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 import { ChatbotContext } from '@/context/chatbot-provider';
+import { CommunityLeadForm } from '@/components/community-lead-form';
+import { cn } from '@/lib/utils';
 
 export function BookDemoWidget() {
   const [isOpen, setIsOpen] = useState(false);

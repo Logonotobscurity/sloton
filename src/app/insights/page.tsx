@@ -1,17 +1,17 @@
-
 "use client";
 
-import { useState } from 'react';
-import { PageHero } from '@/components/page-sections/page-hero';
-import { Input } from '@/components/ui/input';
-import { Search, ArrowRight } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import Link from 'next/link';
 import Image from 'next/image';
-import { insights, Insight } from '@/lib/insights';
+import Link from 'next/link';
+import { Search, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+
+import { Badge } from '@/components/ui/badge';
 import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/card';
-import { topics } from '@/lib/data/insights-page-data';
 import { GlowingCard } from '@/components/ui/glowing-card';
+import { Input } from '@/components/ui/input';
+import { PageHero } from '@/components/page-sections/page-hero';
+import { insights, Insight } from '@/lib/data/insights';
+import { topics } from '@/lib/data/insights-page-data';
 
 // Note: This page is a client component, so metadata should be handled in the layout or a parent server component.
 // For simplicity in this starter, we're not defining dynamic metadata here.

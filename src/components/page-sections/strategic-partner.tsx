@@ -1,15 +1,13 @@
-
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { BrainCircuit, Cog } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 import SolutionRecommendationForm from '@/components/solution-recommendation-form';
+import { InteractiveCard } from '@/components/page-sections/strategic-partner/interactive-card';
 import { TaskAutomationForm } from '@/components/task-automation-form';
-import { InteractiveCard } from './strategic-partner/interactive-card';
 
-    
 const interactiveCards = [
     {
         icon: <BrainCircuit className="h-8 w-8 md:h-10 md:w-10 text-primary" />,

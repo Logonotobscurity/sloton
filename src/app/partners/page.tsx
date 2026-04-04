@@ -1,14 +1,15 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { ShieldCheck, Handshake } from 'lucide-react';
 
+import { BottomCta } from '@/components/page-sections/bottom-cta';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ShieldCheck, Handshake } from 'lucide-react';
-import type { Metadata } from 'next';
-import Link from 'next/link';
 import { GlowingCard } from '@/components/ui/glowing-card';
-import Image from 'next/image';
 import { PageHero } from '@/components/page-sections/page-hero';
-import { BottomCta } from '@/components/page-sections/bottom-cta';
 import { partnerBenefits, partners } from '@/lib/data/partners-data';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'AI & Automation Partner Ecosystem',

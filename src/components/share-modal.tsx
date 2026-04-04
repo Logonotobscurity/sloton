@@ -1,7 +1,8 @@
-
 "use client";
 
+import { Share2, Copy, X, Linkedin, Facebook, MessageCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
+
 import {
   Dialog,
   DialogContent,
@@ -13,7 +14,6 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { Share2, Copy, X, Linkedin, Facebook, MessageCircle } from 'lucide-react';
 
 export function ShareModal({ title }: { title: string }) {
   const [currentUrl, setCurrentUrl] = useState('');

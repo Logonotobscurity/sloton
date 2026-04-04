@@ -1,7 +1,6 @@
-
 "use client";
 
-import { DesktopNav } from "./desktop-nav";
+import { DesktopNav } from "@/components/header/desktop-nav";
 
 export function MainNav() {
   return (

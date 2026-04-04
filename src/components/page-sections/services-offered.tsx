@@ -1,7 +1,6 @@
-
 "use client";
 
-import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import React from 'react';
 import {
     BrainCircuit,
     Zap,
@@ -10,8 +9,9 @@ import {
     BarChart3,
     Database,
 } from "lucide-react";
-import React from 'react';
-import { AdinkraBackground } from '../ui/adinkra-background';
+
+import { AdinkraBackground } from '@/components/ui/adinkra-background';
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 
 const services = [
   {

@@ -1,8 +1,10 @@
-
 "use client";
 
 import * as React from "react";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Menu } from "lucide-react";
+import { motion } from "framer-motion";
+
 import {
   Sheet,
   SheetContent,
@@ -11,14 +13,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Logo } from "./logo";
-import Link from "next/link";
-import { Menu } from "lucide-react";
-import { menuData, SitemapSection, SectionWithItems } from "@/lib/menu-data";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ScrollArea } from "../ui/scroll-area";
-import { ThemeToggle } from "./theme-toggle";
-import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/header/logo";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { ThemeToggle } from "@/components/header/theme-toggle";
+import { menuData, SitemapSection, SectionWithItems } from "@/lib/menu-data";
 import { useUiStore } from "@/hooks/use-ui-store";
 
 const hasItems = (section: SitemapSection): section is SectionWithItems => {

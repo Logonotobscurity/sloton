@@ -1,8 +1,8 @@
-
-import type { Metadata } from 'next';
+import { PageHero } from '@/components/page-sections/page-hero';
 import { TaskAutomationForm } from '@/components/task-automation-form';
 import { WorkflowTemplateLibrary } from '@/app/automation/_components/workflow-template-library';
-import { PageHero } from '@/components/page-sections/page-hero';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Workplace Automation in Nigeria | Intelligent Solutions',
@@ -12,9 +12,10 @@ export const metadata: Metadata = {
 export default async function AutomationPage({
   searchParams,
 }: {
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const workflow = typeof searchParams?.workflow === 'string' ? searchParams.workflow : "";
+  const resolvedSearchParams = await searchParams;
+  const workflow = typeof resolvedSearchParams?.workflow === 'string' ? resolvedSearchParams.workflow : "";
 
   return (
     <div className="bg-background">

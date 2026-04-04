@@ -1,11 +1,12 @@
-
-import { teamMembers } from "@/lib/data/team-members";
-import { PageHero } from "@/components/page-sections/page-hero";
-import { BottomCta } from "@/components/page-sections/bottom-cta";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { Linkedin, Twitter, Github, Mail } from 'lucide-react';
+
+import { BottomCta } from "@/components/page-sections/bottom-cta";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { PageHero } from "@/components/page-sections/page-hero";
+import { teamMembers } from "@/lib/data/team-members";
+
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

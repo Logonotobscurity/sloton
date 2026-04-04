@@ -1,16 +1,17 @@
 "use client";
 
 import React from 'react';
+import { Lock, MessageCircle } from 'lucide-react';
+
 import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
   DialogFooter,
 } from '@/components/ui/dialog';
-import { Button } from './ui/button';
-import { Lock, MessageCircle } from 'lucide-react';
-import { DialogFormWrapper } from './dialog-form-wrapper';
-import { CommunityLeadForm } from './community-lead-form';
+import { Button } from '@/components/ui/button';
+import { CommunityLeadForm } from '@/components/community-lead-form';
+import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 
 interface GatedFeatureModalProps {
   trigger: React.ReactNode;

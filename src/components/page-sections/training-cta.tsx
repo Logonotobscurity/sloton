@@ -1,10 +1,10 @@
-
 "use client";
 
-import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
-import { trainingPrograms, communityProjects, trainingBenefits } from "@/lib/data/training-data";
 import { GraduationCap } from "lucide-react";
+
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { cn } from "@/lib/utils";
+import { trainingPrograms, communityProjects, trainingBenefits } from "@/lib/data/training-data";
 
 export function TrainingCTA() {
 

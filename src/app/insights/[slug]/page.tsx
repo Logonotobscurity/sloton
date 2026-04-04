@@ -1,18 +1,19 @@
-
-import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { Badge } from '@/components/ui/badge';
-import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { AuthorBio } from '@/components/author-bio';
-import { insights } from '@/lib/insights';
 import Script from 'next/script';
-import { ShareModal } from '@/components/share-modal';
-import type { Metadata, ResolvingMetadata } from 'next';
+import { ArrowLeft } from 'lucide-react';
+import { notFound } from 'next/navigation';
+
+import { AuthorBio } from '@/components/author-bio';
+import { Badge } from '@/components/ui/badge';
 import { InsightPageContent } from '@/components/insight-page-content';
+import { ShareModal } from '@/components/share-modal';
+import { insights } from '@/lib/data/insights';
+
+import type { Metadata, ResolvingMetadata } from 'next';
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 // This function now correctly runs on the server.
@@ -20,7 +21,7 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const insight = insights.find((insight) => insight.slug === params.slug);
+  const insight = insights.find(async (insight) => insight.slug === (await params).slug);
 
   if (!insight) {
     return {
@@ -49,8 +50,8 @@ export async function generateMetadata(
   }
 }
 
-export default function InsightPage({ params }: { params: { slug: string } }) {
-  const insight = insights.find((insight) => insight.slug === params.slug);
+export default function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
+  const insight = insights.find(async (insight) => insight.slug === (await params).slug);
 
   if (!insight) {
     notFound();
@@ -121,7 +122,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
                 />
             </div>
             
-            <InsightPageContent slug={params.slug} />
+            <InsightPageContent slug={slug} />
             
              <section className="mt-16 border-t pt-8">
                 <h3 className="text-2xl font-bold mb-4">About the Author</h3>

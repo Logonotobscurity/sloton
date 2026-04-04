@@ -1,13 +1,13 @@
-
 "use client";
 
-import React from "react";
-import { AutomateTaskDesignOutput } from "@/ai/flows/automated-task-design";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Workflow, CheckCircle, Lightbulb, BarChart, ExternalLink, ArrowDown, ArrowRight } from 'lucide-react';
-import { Button } from "./ui/button";
 import Link from "next/link";
+import React from "react";
+import { Workflow, CheckCircle, Lightbulb, BarChart, ExternalLink, ArrowDown, ArrowRight } from 'lucide-react';
+
+import { AutomateTaskDesignOutput } from "@/ai/flows/automated-task-design";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 
 interface VisualWorkflowProps {
   result: AutomateTaskDesignOutput;

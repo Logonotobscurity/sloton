@@ -1,24 +1,23 @@
-
 "use client";
 
-import Link from 'next/link';
-import { CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import Autoplay from "embla-carousel-autoplay";
 import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { insights } from '@/lib/insights';
-import { Button } from '../ui/button';
-import { GlowingCard } from '../ui/glowing-card';
 import { motion } from 'framer-motion';
-import { useMediaQuery } from '@/hooks/use-media-query';
+
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import React from 'react';
-
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { GlowingCard } from '@/components/ui/glowing-card';
+import { insights } from '@/lib/data/insights';
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 export function FeaturedInsights() {
   const featuredInsights = insights.slice(0, 6); // Fetch more for a better loop

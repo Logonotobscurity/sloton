@@ -1,5 +1,10 @@
-
 "use client";
+
+import Link from "next/link";
+import React from 'react';
+import Script from "next/script";
+import { BrainCircuit, Zap, CircleDollarSign, Calendar, Code, GraduationCap, ShieldCheck, DatabaseZap, Scale } from "lucide-react";
+import { motion } from 'framer-motion';
 
 import {
   Accordion,
@@ -7,11 +12,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { BrainCircuit, Zap, CircleDollarSign, Calendar, Code, GraduationCap, ShieldCheck, DatabaseZap, Scale } from "lucide-react";
-import Link from "next/link";
-import Script from "next/script";
-import React from 'react';
-import { motion } from 'framer-motion';
 
 const faqItems = [
   {

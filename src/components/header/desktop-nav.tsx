@@ -1,8 +1,10 @@
-
 "use client";
 
 import * as React from "react";
-import { menuData, SitemapSection } from "@/lib/menu-data";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,11 +14,9 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { MegaMenu } from "./mega-menu";
-import Link from "next/link";
+import { MegaMenu } from "@/components/header/mega-menu";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { menuData, SitemapSection } from "@/lib/menu-data";
 
 const hasItems = (section: SitemapSection) => 'items' in section && Array.isArray(section.items);
 

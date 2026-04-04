@@ -1,21 +1,20 @@
-
 "use client";
 
-import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
-import { Input } from '@/components/ui/input';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Search, ArrowRight, Eye, Cog, Calendar } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Search, ArrowRight, Eye, Cog, Calendar } from 'lucide-react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { getTemplates, Template } from '@/lib/workflow-templates';
-import { TaskAutomationForm } from '@/components/task-automation-form';
-import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink, PaginationEllipsis } from '@/components/ui/pagination';
-import { cn } from '@/lib/utils';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
+import { Input } from '@/components/ui/input';
+import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink, PaginationEllipsis } from '@/components/ui/pagination';
+import { TaskAutomationForm } from '@/components/task-automation-form';
 import { categoryStyles, categories } from '@/lib/category-styles';
+import { cn } from '@/lib/utils';
+import { getTemplates, Template } from '@/lib/data/workflow-templates';
 import { slugify } from '@/lib/slugify';
-
 
 const ITEMS_PER_PAGE = 8; 
 

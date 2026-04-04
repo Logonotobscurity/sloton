@@ -1,10 +1,12 @@
+import Link from 'next/link';
+import { CheckCircle, ArrowRight, Heart, Brain, Users } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, ArrowRight, Heart, Brain, Users } from 'lucide-react';
-import type { Metadata } from 'next';
-import Link from 'next/link';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { benefits, openPositions } from '@/lib/data/careers-data';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Careers',

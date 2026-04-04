@@ -1,13 +1,14 @@
+import Link from 'next/link';
+import { Mail, Phone, Handshake } from 'lucide-react';
 
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ContactForm } from '@/components/contact-form';
-import { Mail, Phone, Handshake } from 'lucide-react';
-import type { Metadata } from 'next';
 import { Faq } from '@/components/faq';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { contactReasons } from '@/lib/data/services-data';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Contact Us | AI Agent Development & Automation in Nigeria',
