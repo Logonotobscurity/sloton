@@ -33,17 +33,44 @@ const apiKeyAuth = (req: express.Request, res: express.Response, next: express.N
     next();
 };
 
-app.post('/ingest', apiKeyAuth, async (req, res) => {
+interface LeadEvent {
+    event_id: string;
+    idempotency_key?: string;
+    tenant_id?: string;
+    source: "web_form" | "chatbot" | "mobile" | "stripe" | "calendly" | "iframe" | "api";
+    received_at: string;
+    user_ip?: string;
+    user_agent?: string;
+    payload: {
+        first_name?: string;
+        last_name?: string;
+        email: string;
+        phone?: string;
+        message?: string;
+        submission_type: string;
+        utm?: {
+            utm_source?: string;
+            utm_medium?: string;
+            utm_campaign?: string;
+            utm_content?: string;
+            utm_term?: string;
+        };
+        consent?: boolean;
+        metadata?: Record<string, any>;
+    };
+}
+
+app.post('/ingest', apiKeyAuth, async (req: express.Request, res: express.Response) => {
     try {
         const eventPayload = req.body;
 
         // 1. Assign metadata
-        const event = {
+        const event: LeadEvent = {
             ...eventPayload,
             event_id: uuidv4(),
             received_at: new Date().toISOString(),
             user_ip: req.ip,
-            user_agent: req.headers['user-agent'],
+            user_agent: req.headers['user-agent'] as string,
         };
         
         // 2. Validate against JSON Schema

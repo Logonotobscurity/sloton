@@ -1,8 +1,8 @@
-
 "use client";
 
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
+
 import imageData from '@/lib/placeholder-images.json';
 
 const ArticleContent = () => {

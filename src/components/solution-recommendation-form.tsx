@@ -1,11 +1,12 @@
-
 "use client";
 
 import * as React from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2, RefreshCw, Wand2 } from "lucide-react";
+import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import {
   Form,
   FormControl,
@@ -15,14 +16,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { motion } from "framer-motion";
-import { Loader2, RefreshCw, Wand2 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import { getSolutionRecommendationAction } from "@/app/actions";
-import { SolutionRecommendationOutput } from "@/ai/flows/solution-recommendation";
 import { AssessmentResult } from "@/components/chatbot/assessment-result";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { SolutionRecommendationOutput } from "@/ai/flows/solution-recommendation";
+import { Textarea } from "@/components/ui/textarea";
+import { getSolutionRecommendationAction } from "@/app/actions";
+import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   industry: z.string().min(3, "Please specify your industry."),

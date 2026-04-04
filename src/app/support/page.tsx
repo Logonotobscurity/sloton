@@ -1,14 +1,15 @@
+import Link from 'next/link';
+import { LifeBuoy, Search, ArrowRight, Mail, Phone } from 'lucide-react';
 
+import Faq from '@/components/faq';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { LifeBuoy, Search, ArrowRight, Mail, Phone } from 'lucide-react';
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import Faq from '@/components/faq';
 import { GlowingCard } from '@/components/ui/glowing-card';
+import { Input } from '@/components/ui/input';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { supportCategories } from '@/lib/data/support-data';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Support Center',

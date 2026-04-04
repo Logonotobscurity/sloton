@@ -1,8 +1,5 @@
-
-import { PageHero } from '@/components/page-sections/page-hero';
 import { Lightbulb, Copy } from 'lucide-react';
-import type { Metadata } from 'next';
-import { Button } from '@/components/ui/button';
+
 import {
     Card,
     CardContent,
@@ -10,7 +7,11 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
-  
+import { Button } from '@/components/ui/button';
+import { PageHero } from '@/components/page-sections/page-hero';
+
+import type { Metadata } from 'next';
+
 export const metadata: Metadata = {
   title: 'Ideas Lab | AI Experiments & Prompt Engineering for Automation',
   description: 'A space for experimental concepts in workplace AI. See the prompts used to build AI agent development features and automation solutions.',

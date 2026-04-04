@@ -1,24 +1,26 @@
-
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getTemplateBySlug } from '@/lib/data/workflow-templates';
+import { Share2, ArrowLeft, Lightbulb, Workflow, Eye, Edit } from 'lucide-react';
+import { notFound } from 'next/navigation';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { Share2, ArrowLeft, Lightbulb, Workflow, Eye, Edit } from 'lucide-react';
-import { ShareModal } from '@/components/share-modal';
-import type { Metadata } from 'next';
-import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { cn } from '@/lib/utils';
-import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import { CommunityLeadForm } from '@/components/community-lead-form';
-import { PageHero } from '@/components/page-sections/page-hero';
-import { getTemplates } from '@/lib/data/workflow-templates';
-import { categoryStyles } from '@/lib/category-styles';
+import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
+import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { GatedFeatureModal } from '@/components/gated-feature-modal';
+import { PageHero } from '@/components/page-sections/page-hero';
+import { ShareModal } from '@/components/share-modal';
+import { categoryStyles } from '@/lib/category-styles';
+import { cn } from '@/lib/utils';
+import { getTemplateBySlug } from '@/lib/data/workflow-templates';
+import { getTemplates } from '@/lib/data/workflow-templates';
 import { slugify } from '@/lib/slugify';
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const template = getTemplateBySlug(params.slug);
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const template = getTemplateBySlug(slug);
   if (!template) {
     return { title: 'Template Not Found' };
   }
@@ -28,8 +30,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function TemplatePreviewPage({ params }: { params: { slug: string } }) {
-  const template = getTemplateBySlug(params.slug);
+export default async function TemplatePreviewPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const template = getTemplateBySlug(slug);
 
   if (!template) {
     notFound();

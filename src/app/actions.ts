@@ -1,13 +1,13 @@
-
 'use server';
 
-import { z } from 'zod';
 import { Resend } from 'resend';
+import { z } from 'zod';
+
 import { ContactFormEmail } from '@/emails/contact-form-email';
 import { EnrollmentEmail } from '@/emails/enrollment-email';
-import { automateTaskDesign } from '@/ai/flows/automated-task-design';
-import { getSolutionRecommendation } from '@/ai/flows/solution-recommendation';
 import { askRagAssistant } from '@/ai/flows/rag-assistant';
+import { automateTaskDesign } from '@/ai/flows/automated-task-design';
+import { getSolutionRecommendation, SolutionRecommendationOutput } from '@/ai/flows/solution-recommendation';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const toEmail = process.env.TO_EMAIL || 'logonthepage@gmail.com';
@@ -66,7 +66,10 @@ const automatedTaskSchema = z.object({
 
 export async function getAutomatedTaskDesign(values: z.infer<typeof automatedTaskSchema>) {
     try {
-        const result = await automateTaskDesign(values);
+        const result = await automateTaskDesign({
+            workflowDescription: values.workflowDescription,
+            optimizationSuggestions: values.optimizationSuggestions
+        });
         return {
             data: result,
         };
@@ -82,11 +85,16 @@ const solutionRecommendationSchema = z.object({
     goals: z.string(),
 });
 
-export async function getSolutionRecommendationAction(values: z.infer<typeof solutionRecommendationSchema>) {
-    const result = await getSolutionRecommendation(values);
-    return {
-        data: result,
-    };
+export async function getSolutionRecommendationAction(values: z.infer<typeof solutionRecommendationSchema>): Promise<FormResult<SolutionRecommendationOutput>> {
+    try {
+        const result = await getSolutionRecommendation(values);
+        return {
+            data: result,
+        };
+    } catch (e: any) {
+        console.error('Error in getSolutionRecommendationAction:', e);
+        return { error: e.message || 'An unknown error occurred.' };
+    }
 }
 
 // Contact Form Action

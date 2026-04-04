@@ -1,4 +1,3 @@
-
 import { Book, Users, MessageSquare, Lightbulb } from 'lucide-react';
 
 export const supportCategories = [

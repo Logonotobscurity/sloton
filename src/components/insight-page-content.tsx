@@ -1,7 +1,7 @@
-
 "use client";
 
 import React, { useEffect, useRef, lazy, Suspense } from 'react';
+
 import { Skeleton } from '@/components/ui/skeleton';
 
 // Dynamically import article components using React.lazy

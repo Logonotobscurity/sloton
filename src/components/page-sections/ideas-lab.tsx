@@ -1,5 +1,7 @@
 "use client";
 
+import { ArrowRight, Bot } from "lucide-react";
+
 import {
   Card,
   CardContent,
@@ -7,8 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -17,6 +17,7 @@ import {
   DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 export function IdeasLab() {
   const botpressBotUrl = "https://mediafiles.botpress.cloud/b56a84f3-a535-464a-98a9-7a38573177b9/webchat/bot.html";

@@ -1,4 +1,3 @@
-
 import { Handshake, Network, Scaling } from 'lucide-react';
 
 export const partnerBenefits = [

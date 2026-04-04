@@ -1,11 +1,11 @@
-
 "use client";
 
 import React from 'react';
-import { InvestmentPortfolioChart } from '@/components/investment-portfolio-chart';
-import { EnrollmentForm } from '@/components/enrollment-form';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
+
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
+import { EnrollmentForm } from '@/components/enrollment-form';
+import { InvestmentPortfolioChart } from '@/components/investment-portfolio-chart';
 
 const ArticleContent = () => {
     return (

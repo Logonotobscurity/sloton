@@ -1,14 +1,16 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, Building, Users, Scale, Globe, Download, Rss } from 'lucide-react';
+
+import { BottomCta } from '@/components/page-sections/bottom-cta';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { GlowingCard } from '@/components/ui/glowing-card';
 import { PageHero } from '@/components/page-sections/page-hero';
-import { BottomCta } from '@/components/page-sections/bottom-cta';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { insights } from '@/lib/data/insights';
 import { stats, trustPillars, researchAreas, analystReports } from '@/lib/data/about-page-data';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us | AI & Automation Experts in Nigeria',

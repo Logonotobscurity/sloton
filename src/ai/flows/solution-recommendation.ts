@@ -1,8 +1,8 @@
-
 "use server";
 
-import { ai } from "@/ai/genkit";
 import { z } from "zod";
+
+import { ai } from "@/ai/genkit";
 
 const SolutionRecommendationInputSchema = z.object({
   industry: z.string().min(3, "Please specify your industry."),

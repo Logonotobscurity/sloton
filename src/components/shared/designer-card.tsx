@@ -1,13 +1,14 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Cog, ArrowRight, Bot } from 'lucide-react';
-import { Card, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+
 import { Button } from '@/components/ui/button';
+import { Card, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { TaskAutomationForm } from '@/components/task-automation-form';
 import { GlowingCard } from '@/components/ui/glowing-card';
+import { TaskAutomationForm } from '@/components/task-automation-form';
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.95 },

@@ -1,4 +1,3 @@
-
 import templatesData from '@/lib/data/workflow-templates.json';
 import { slugify } from '@/lib/slugify';
 

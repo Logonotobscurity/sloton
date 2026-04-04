@@ -1,13 +1,14 @@
-
-import React, { lazy, Suspense } from 'react';
 import Link from 'next/link';
+import React, { lazy, Suspense } from 'react';
+import { ArrowRight, Code } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { ArrowRight, Code } from 'lucide-react';
-import type { Metadata } from 'next';
 import { PageHero } from '@/components/page-sections/page-hero';
-import { webDevelopmentServices } from '@/lib/data/services-data';
 import { Skeleton } from '@/components/ui/skeleton';
+import { webDevelopmentServices } from '@/lib/data/services-data';
+
+import type { Metadata } from 'next';
 
 const CaseStudyFeature = lazy(() => import('@/components/page-sections/case-study-feature').then(module => ({ default: module.CaseStudyFeature })));
 const Faq = lazy(() => import('@/components/faq'));

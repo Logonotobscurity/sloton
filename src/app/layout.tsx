@@ -1,18 +1,20 @@
-import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { cn } from '@/lib/utils';
-import { Header } from '@/components/header';
+import Script from 'next/script';
+import { Abhaya_Libre, Nunito } from 'next/font/google';
+
+import ErrorBoundary from '@/components/error-boundary';
+import { BackToTop } from '@/components/back-to-top';
+import { BookDemoWidget } from '@/components/book-demo-widget';
+import { BotWidget } from '@/components/bot-widget';
+import { ChatbotProvider } from '@/context/chatbot-provider';
 import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
+import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { WebsiteLoader } from '@/components/website-loader';
-import Script from 'next/script';
-import { ThemeProvider } from '@/components/theme-provider';
-import { BotWidget } from '@/components/bot-widget';
-import { BookDemoWidget } from '@/components/book-demo-widget';
-import { BackToTop } from '@/components/back-to-top';
-import { Abhaya_Libre, Nunito } from 'next/font/google';
-import ErrorBoundary from '@/components/error-boundary';
-import { ChatbotProvider } from '@/context/chatbot-provider';
+import { cn } from '@/lib/utils';
+
+import type { Metadata, Viewport } from 'next';
 
 const abhayaLibre = Abhaya_Libre({
   subsets: ['latin'],

@@ -1,11 +1,12 @@
+import Link from 'next/link';
+import { ArrowRight, TestTube } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, TestTube } from 'lucide-react';
-import type { Metadata } from 'next';
-import Link from 'next/link';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { labValues, submissionProcess, activePilots } from '@/lib/data/ab-testing-data';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'A/B Testing & Innovation Lab for Workplace AI',

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 // This file is reserved for truly custom SVG icons that are not available in the lucide-react library.

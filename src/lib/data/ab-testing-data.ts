@@ -1,4 +1,3 @@
-
 import { FlaskConical, Handshake, CheckCircle, CircleDot } from 'lucide-react';
 
 export const labValues = [

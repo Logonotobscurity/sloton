@@ -1,21 +1,21 @@
-
 "use client";
 
 import * as React from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2, RefreshCw, Wand2 } from "lucide-react";
+import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { AutomateTaskDesignOutput } from "@/ai/flows/automated-task-design";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { exampleWorkflows } from "@/lib/data/example-workflows";
-import { motion } from "framer-motion";
-import { Loader2, RefreshCw, Wand2 } from "lucide-react";
 import { VisualWorkflow } from "@/components/visual-workflow";
-import { Badge } from "@/components/ui/badge";
+import { exampleWorkflows } from "@/lib/data/example-workflows";
 import { getAutomatedTaskDesign } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
-import { AutomateTaskDesignOutput } from "@/ai/flows/automated-task-design";
 
 const formSchema = z.object({
   workflowDescription: z.string().min(10, "Please describe the task you want to automate in at least 10 characters."),

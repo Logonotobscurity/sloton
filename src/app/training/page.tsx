@@ -1,19 +1,19 @@
-
-import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb, HeartHandshake, Globe, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
+import { Award, BookOpen, BrainCircuit, Bot, Zap, TrendingUp, Check, Users, BarChart2, Clock, ShieldQuestion, Code, Briefcase, Share2, Lightbulb, HeartHandshake, Globe, GraduationCap } from 'lucide-react';
+
+import { AdinkraBackground } from '@/components/ui/adinkra-background';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
-import type { Metadata } from 'next';
 import { CommunityLeadForm } from '@/components/community-lead-form';
+import { DialogFormWrapper } from '@/components/dialog-form-wrapper';
 import { DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { GlowingCard } from '@/components/ui/glowing-card';
 import { EnrollmentForm } from '@/components/enrollment-form';
+import { GlowingCard } from '@/components/ui/glowing-card';
 import { PageHero } from '@/components/page-sections/page-hero';
-import { AdinkraBackground } from '@/components/ui/adinkra-background';
 import { trainingPrograms, communityProjects, trainingBenefits } from '@/lib/data/training-data';
 
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'AI & Automation Training Courses',

@@ -1,8 +1,8 @@
-
 "use client";
 
 import * as React from "react";
 import { ArrowUp } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';

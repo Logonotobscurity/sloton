@@ -1,13 +1,13 @@
-
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { BrainCircuit, ArrowRight } from 'lucide-react';
-import { Card, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { motion } from 'framer-motion';
+
 import SolutionRecommendationForm from '@/components/solution-recommendation-form';
+import { Button } from '@/components/ui/button';
+import { Card, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.95 },

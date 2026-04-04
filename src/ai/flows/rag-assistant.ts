@@ -77,7 +77,7 @@ const bookMeeting = ai.defineTool({
         interest: z.string(),
     }),
 }, async ({ interest }) => {
-    return { status: "meeting_booked", interest };
+    return { status: "meeting_booked" as const, interest };
 });
 
 const provideContactOptions = ai.defineTool({
@@ -93,7 +93,7 @@ const provideContactOptions = ai.defineTool({
 }, async () => {
     const prefilledMessage = "Hi LOG_ON, I'm interested in learning more about your AI and automation solutions.";
     return {
-        status: "contact_options_provided",
+        status: "contact_options_provided" as const,
         phone: "+234 814 306 6320",
         whatsapp: `https://wa.me/2348143066320?text=${encodeURIComponent(prefilledMessage)}`,
         email: "logonthepage@gmail.com",

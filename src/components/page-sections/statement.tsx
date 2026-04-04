@@ -1,8 +1,9 @@
 "use client";
 
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+
 import { AdinkraBackground } from '@/components/ui/adinkra-background';
+import { Button } from '@/components/ui/button';
 
 export function Statement() {
   return (
