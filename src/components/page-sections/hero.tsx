@@ -56,22 +56,7 @@ export function Hero() {
             variants={itemVariants}
             className="font-headline text-fluid-hero font-bold !leading-tight my-4"
           >
-           <div className="flex flex-col items-center">
-              <span>Do More with Less:</span>
-              <div className="relative inline-block text-primary text-fluid-lg">
-                <span className="invisible whitespace-nowrap">{longestPhrase}</span>
-                <span className="absolute inset-0 flex items-center justify-center whitespace-nowrap">
-                    <TypeAnimation
-                        sequence={animationSequence}
-                        wrapper="span"
-                        cursor={false}
-                        repeat={Infinity}
-                    />
-                </span>
-              </div>
-              <br className="md:hidden" />
-              <span className="md:whitespace-nowrap">for Growing Businesses.</span>
-            </div>
+            AI Agent Development & Workplace Automation for Growing Businesses in Nigeria
           </motion.h1>
           
           <motion.div

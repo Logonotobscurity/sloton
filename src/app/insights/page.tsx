@@ -12,6 +12,7 @@ import { insights, Insight } from '@/lib/insights';
 import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/card';
 import { topics } from '@/lib/data/insights-page-data';
 import { GlowingCard } from '@/components/ui/glowing-card';
+import Script from 'next/script';
 
 // Note: This page is a client component, so metadata should be handled in the layout or a parent server component.
 // For simplicity in this starter, we're not defining dynamic metadata here.
@@ -30,8 +31,32 @@ export default function InsightsPage() {
         return matchesSearch && matchesTopic;
     });
 
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://logonsolutions.netlify.app"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://logonsolutions.netlify.app/insights"
+            }
+        ]
+    };
+
     return (
         <div className="bg-background">
+            <Script
+                id="breadcrumb-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
             <PageHero 
                 title="LOG_ON Insights"
                 description="Explore expert analysis, practical guides, and forward-thinking perspectives on AI, automation, and digital transformation. Our insights are designed to help you navigate the complexities of modern technology and turn challenges into growth opportunities."
