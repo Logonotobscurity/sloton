@@ -9,17 +9,39 @@ import { BottomCta } from '@/components/page-sections/bottom-cta';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { insights } from '@/lib/insights';
 import { stats, trustPillars, researchAreas, analystReports } from '@/lib/data/about-page-data';
+import Script from 'next/script';
+import { teamMembers } from '@/lib/data/team-members';
 
 export const metadata: Metadata = {
   title: 'About Us | AI & Automation Experts in Nigeria',
   description: 'Learn about LOG_ON, your digital architects for workplace automation in Nigeria. We build integrated digital ecosystems where businesses thrive through AI agent development.',
+  alternates: { canonical: 'https://logonsolutions.netlify.app/about' },
 };
 
 export default function AboutPage() {
     const pressReleases = insights.filter(i => i.tags.includes("Announcement") || i.tags.includes("Press Release"));
 
+    const personSchema = teamMembers.map(member => ({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": member.name,
+        "jobTitle": member.role,
+        "description": member.bio,
+        "image": new URL(member.image, "https://logonsolutions.netlify.app").toString(),
+        "sameAs": [
+            member.socials.linkedin,
+            member.socials.twitter,
+            member.socials.github
+        ].filter(Boolean)
+    }));
+
   return (
     <div>
+        <Script
+            id="person-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
         <PageHero 
             title="Your Digital Architects"
             description="LOG_ON is more than a technology provider; we are your strategic partner in growth. Our mission is to empower businesses by building intelligent systems that drive efficiency, spark innovation, and create lasting competitive advantages. We believe in connecting the dots between technology and business goals to deliver integrated solutions that produce real-world results."

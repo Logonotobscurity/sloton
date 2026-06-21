@@ -56,6 +56,31 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://logonsolutions.netlify.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Insights",
+        "item": "https://logonsolutions.netlify.app/insights"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": insight.title,
+        "item": `https://logonsolutions.netlify.app/insights/${insight.slug}`
+      }
+    ]
+  };
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -84,6 +109,11 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
         id="article-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+       <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <div className="container mx-auto px-fluid-sm py-fluid-lg">
         <div className="max-w-4xl mx-auto">

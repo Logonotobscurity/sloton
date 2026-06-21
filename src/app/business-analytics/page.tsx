@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { CaseStudyFeature } from '@/components/page-sections/case-study-feature';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { analyticsServices, businessAnalyticsBenefits } from '@/lib/data/services-data';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Business Analytics & BI Solutions | Dashboards & Reporting',
@@ -14,12 +15,64 @@ export const metadata: Metadata = {
 };
 
 export default function BusinessAnalyticsPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are business analytics solutions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Business analytics solutions transform raw data into actionable intelligence through custom dashboards and BI reporting. For businesses in Nigeria, these tools provide critical insights into performance, customer behavior, and market trends, enabling data-driven decision-making that fuels growth."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://logonsolutions.netlify.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Business Analytics",
+        "item": "https://logonsolutions.netlify.app/business-analytics"
+      }
+    ]
+  };
+
   return (
     <div className="bg-background">
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <PageHero
-        title="Business Analytics & Intelligence"
+        title="Business Analytics & BI Solutions | Dashboards & Reporting"
         description="Turn your data into your most valuable asset. We help you move from simply collecting data to actively using it to drive strategy, optimize operations, and uncover new opportunities. Our custom business analytics solutions provide the clarity you need to make confident, data-driven decisions."
       />
+
+      <section className="container mx-auto px-fluid-sm py-8 border-b">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            Business analytics solutions transform raw data into actionable intelligence through custom dashboards and BI reporting. For businesses in Nigeria, these tools provide critical insights into performance, customer behavior, and market trends, enabling data-driven decision-making that fuels growth.
+          </p>
+        </div>
+      </section>
       <div className="container mx-auto px-fluid-sm py-fluid-lg">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">

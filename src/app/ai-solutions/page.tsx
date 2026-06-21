@@ -7,19 +7,72 @@ import Link from 'next/link';
 import { CaseStudyFeature } from '@/components/page-sections/case-study-feature';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { aiServices, aiSolutionsBenefits } from '@/lib/data/services-data';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'AI Agent Development & Custom Solutions | LOG_ON',
+  title: 'AI Agent Development & Custom Solutions',
   description: 'Expert AI agent development and custom machine learning solutions. We design and deploy AI agents for workplace automation to solve complex business challenges and drive growth in Nigeria.',
 };
 
 export default function AiSolutionsPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is AI agent development?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI agent development is the process of creating autonomous software entities that can perform tasks, make decisions, and interact with systems on behalf of users. These agents leverage LLMs and machine learning to automate complex workflows, improving efficiency and reducing manual overhead for businesses in Nigeria."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://logonsolutions.netlify.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Solutions",
+        "item": "https://logonsolutions.netlify.app/ai-solutions"
+      }
+    ]
+  };
+
   return (
     <div className="bg-background">
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <PageHero
         title="Custom AI Solutions & Agent Development"
         description="At LOG_ON, we don't just use AI—we build it. We specialize in creating bespoke artificial intelligence, AI agents, and machine learning solutions that integrate seamlessly with your operations to solve your most complex challenges. Our expert team partners with you to transform your data into a strategic asset, driving efficiency, innovation, and measurable growth."
       />
+
+      <section className="container mx-auto px-fluid-sm py-8 border-b">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            AI agent development is the process of creating autonomous software entities that can perform tasks, make decisions, and interact with systems on behalf of users. These agents leverage LLMs and machine learning to automate complex workflows, improving efficiency and reducing manual overhead for businesses in Nigeria.
+          </p>
+        </div>
+      </section>
       <div className="container mx-auto px-fluid-sm py-fluid-lg">
         <section className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">

@@ -8,9 +8,10 @@ import type { Metadata } from 'next';
 import { PageHero } from '@/components/page-sections/page-hero';
 import { webDevelopmentServices } from '@/lib/data/services-data';
 import { Skeleton } from '@/components/ui/skeleton';
+import Script from 'next/script';
 
 const CaseStudyFeature = lazy(() => import('@/components/page-sections/case-study-feature').then(module => ({ default: module.CaseStudyFeature })));
-const Faq = lazy(() => import('@/components/faq').then(module => ({ default: module.Faq })));
+const Faq = lazy(() => import('@/components/faq'));
 
 export const metadata: Metadata = {
   title: 'Custom Web & Application Development',
@@ -28,13 +29,65 @@ const SectionSkeleton = () => (
 );
 
 export default function WebDevelopmentPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is custom web development?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Custom web development provides scalable, secure, and optimized digital platforms tailored to specific business needs. From high-performance publisher sites to AI-enabled web apps, our development services help Nigerian businesses establish a strong online presence and drive engagement."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://logonsolutions.netlify.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Web Development",
+        "item": "https://logonsolutions.netlify.app/web-development"
+      }
+    ]
+  };
+
   return (
     <div className="bg-background">
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
         <PageHero
-            title="Web & Custom Development"
+            title="Custom Web & Application Development"
             description="We specialize in crafting custom web projects tailored to your specific business needs. Drawing on our deep experience in IT solutions and AI automation, we build scalable, secure, and optimized digital platforms designed to help you grow."
             icon={<Code className="h-12 w-12 md:h-16 md:w-16 text-primary" />}
         />
+
+        <section className="container mx-auto px-fluid-sm py-8 border-b">
+            <div className="max-w-4xl mx-auto text-center md:text-left">
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                    Custom web development provides scalable, secure, and optimized digital platforms tailored to specific business needs. From high-performance publisher sites to AI-enabled web apps, our development services help Nigerian businesses establish a strong online presence and drive engagement.
+                </p>
+            </div>
+        </section>
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <section className="py-16 md:py-24">
              <div className="grid md:grid-cols-2 gap-8">
